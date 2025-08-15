@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Required" data-icon="required" data-category="status">
+  <title>Required</title>
+  <desc>status icon from Comcast Business Design System</desc>
+  <g id="Required">
+    <path d="M16 4L20 12H12L16 4Z" fill="#DC2626"/>
+    <path d="M16 14C16.5523 14 17 14.4477 17 15V22C17 22.5523 16.5523 23 16 23C15.4477 23 15 22.5523 15 22V15C15 14.4477 15.4477 14 16 14Z" fill="#DC2626"/>
+    <circle cx="16" cy="26" r="1.5" fill="#DC2626"/>
+  </g>
+</svg>

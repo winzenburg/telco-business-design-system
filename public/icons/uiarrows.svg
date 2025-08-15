@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="UI Arrows" data-icon="uiarrows" data-category="navigation">
+  <title>UI Arrows</title>
+  <desc>navigation icon from Comcast Business Design System</desc>
+  <g id="UI Arrows">
+    <path d="M6 16L12 10V13H20V10L26 16L20 22V19H12V22L6 16Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  </g>
+</svg>

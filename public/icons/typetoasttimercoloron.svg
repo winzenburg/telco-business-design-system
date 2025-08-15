@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Type=toast timer, Color=On" data-icon="typetoasttimercoloron" data-category="time">
+  <title>Type=toast timer, Color=On</title>
+  <desc>time icon from Comcast Business Design System</desc>
+<g id="Type=toast timer, Color=On">
+<g id="Ellipse 32">
+<path id="Ellipse 31" d="M32 16C32 16.0335 31.9999 16.067 31.9997 16.1005L16 16H32Z" fill="white"/>
+</g>
+<path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M16 30C23.732 30 30 23.732 30 16C30 8.26801 23.732 2 16 2C8.26801 2 2 8.26801 2 16C2 23.732 8.26801 30 16 30ZM17.5 10C17.5 9.17157 16.8284 8.5 16 8.5C15.1716 8.5 14.5 9.17157 14.5 10V16.5C14.5 17.3284 15.1716 18 16 18C16.8284 18 17.5 17.3284 17.5 16.5V10ZM17.5 22C17.5 22.8284 16.8284 23.5 16 23.5C15.1716 23.5 14.5 22.8284 14.5 22C14.5 21.1716 15.1716 20.5 16 20.5C16.8284 20.5 17.5 21.1716 17.5 22Z" fill="#AD1217"/>
+<g id="shape_2">
+<path d="M16 8.5C16.8284 8.5 17.5 9.17157 17.5 10V16.5C17.5 17.3284 16.8284 18 16 18C15.1716 18 14.5 17.3284 14.5 16.5V10C14.5 9.17157 15.1716 8.5 16 8.5Z" fill="white"/>
+<path d="M16 23.5C16.8284 23.5 17.5 22.8284 17.5 22C17.5 21.1716 16.8284 20.5 16 20.5C15.1716 20.5 14.5 21.1716 14.5 22C14.5 22.8284 15.1716 23.5 16 23.5Z" fill="white"/>
+</g>
+</g>
+</svg>

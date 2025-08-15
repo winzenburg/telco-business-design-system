@@ -1,0 +1,30 @@
+<!-- Google Fonts for Figma Typography System -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Ensure Montserrat displays as sans-serif -->
+<style>
+  /* Force sans-serif for Montserrat in case of fallback issues */
+  .font-montserrat,
+  [style*="Montserrat"] {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+  
+  .font-lato,
+  [style*="Lato"] {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+  
+  .font-roboto-mono,
+  [style*="Roboto Mono"] {
+    font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', Consolas, 'Courier New', monospace !important;
+  }
+  
+  /* Debug: Highlight when fonts aren't loading */
+  * {
+    font-synthesis: none;
+  }
+</style>

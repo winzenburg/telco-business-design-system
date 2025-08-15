@@ -1,0 +1,316 @@
+/* Google Fonts - Figma Typography */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Comcast Business Design System - Base Styles */
+
+@layer base {
+  /* Base typography - Updated to use Figma fonts */
+  html {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings use Montserrat */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Buttons and interactive elements use Montserrat */
+  button, [role="button"], input[type="button"], input[type="submit"] {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Labels use Montserrat */
+  label {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid #0087FF;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Design System Component Classes */
+  
+  /* Button base styles */
+  .btn {
+    @apply inline-flex items-center justify-center border-none cursor-pointer transition-all duration-150 relative overflow-hidden whitespace-nowrap select-none outline-none;
+    border-radius: 6px;
+    font-weight: 500; /* font-medium equivalent */
+    text-decoration: none; /* text-decoration-none equivalent */
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary-500 text-white shadow-sm hover:bg-primary-600 hover:shadow-md active:bg-primary-700 active:translate-y-px focus-visible:shadow-[0_0_0_3px_rgba(0,135,255,0.1)];
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-500 border border-primary-500 hover:bg-primary-50 hover:border-primary-600 hover:text-primary-600 active:bg-primary-100 active:border-primary-700 active:text-primary-700;
+  }
+
+  .btn-tertiary {
+    @apply bg-transparent text-primary-500 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 active:text-primary-700;
+  }
+
+  .btn-danger {
+    @apply bg-error-500 text-white hover:bg-error-600 hover:shadow-md active:bg-error-700 active:translate-y-px;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900 active:bg-gray-200 active:text-gray-900;
+  }
+
+  /* Button sizes */
+  .btn-sm {
+    @apply px-3 py-2 text-sm leading-normal min-h-[2rem];
+  }
+
+  .btn-md {
+    @apply px-4 py-3 text-base leading-normal min-h-[2.5rem];
+  }
+
+  .btn-lg {
+    @apply px-6 py-4 text-lg leading-normal min-h-[3rem];
+  }
+
+  .btn-xl {
+    @apply px-8 py-5 text-xl leading-normal min-h-[3.5rem];
+  }
+
+  /* Disabled state */
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  /* Loading state */
+  .btn-loading {
+    @apply pointer-events-none opacity-80;
+  }
+
+  .btn-loading::after {
+    content: '';
+    @apply absolute w-4 h-4 border-2 border-transparent border-t-current rounded-full animate-spin;
+  }
+
+  /* Full width */
+  .btn-full {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  /* Design System Typography - Based on Figma Corrected Tokens */
+  
+  /* Font Family Utilities */
+  .font-primary {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  .font-secondary {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  .font-monospace {
+    font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Roboto Mono', monospace;
+  }
+
+  /* Title Styles (Montserrat) */
+  .text-title-xxl {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 58px;
+    letter-spacing: -0.02em;
+  }
+
+  .text-title-xl {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: -0.01em;
+  }
+
+  .text-title-l {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    letter-spacing: normal;
+  }
+
+  .text-title-m {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: normal;
+  }
+
+  .text-title-s {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: normal;
+  }
+
+  .text-title-xs {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: normal;
+  }
+
+  /* Body Styles (Lato) */
+  .text-body-xl {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: normal;
+  }
+
+  .text-body-l {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: normal;
+  }
+
+  .text-body-m {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: normal;
+  }
+
+  .text-body-s {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: normal;
+  }
+
+  .text-body-xs {
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Action Styles (Montserrat) */
+  .text-action-l {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: normal;
+  }
+
+  .text-action-m {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: normal;
+  }
+
+  .text-action-s {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: normal;
+  }
+
+  /* Label Styles (Montserrat) */
+  .text-label-l {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: normal;
+  }
+
+  .text-label-m {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: normal;
+  }
+
+  .text-label-s {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+  }
+
+  /* Legacy aliases for backward compatibility */
+  .text-display-large { @apply text-title-xxl; }
+  .text-display-medium { @apply text-title-xl; }
+  .text-heading-1 { @apply text-title-xl; }
+  .text-heading-2 { @apply text-title-l; }
+  .text-heading-3 { @apply text-title-m; }
+  .text-heading-4 { @apply text-title-s; }
+  .text-heading-5 { @apply text-title-xs; }
+  .text-body-large { @apply text-body-xl; }
+  .text-body-medium { @apply text-body-l; }
+  .text-body-small { @apply text-body-m; }
+  .text-label-large { @apply text-label-l; }
+  .text-label-medium { @apply text-label-m; }
+  .text-label-small { @apply text-label-s; }
+
+  /* Spacing utilities */
+  .space-y-1 > * + * {
+    @apply mt-1;
+  }
+
+  .space-y-2 > * + * {
+    @apply mt-2;
+  }
+
+  .space-y-3 > * + * {
+    @apply mt-3;
+  }
+
+  .space-y-4 > * + * {
+    @apply mt-4;
+  }
+
+  .space-y-6 > * + * {
+    @apply mt-6;
+  }
+
+  .space-y-8 > * + * {
+    @apply mt-8;
+  }
+
+  /* Focus utilities */
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+
+  .focus-ring-error {
+    @apply focus-visible:ring-2 focus-visible:ring-error-500 focus-visible:ring-offset-2;
+  }
+} 

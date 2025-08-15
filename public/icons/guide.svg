@@ -1,0 +1,7 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Guide" data-icon="guide" data-category="general">
+  <title>Guide</title>
+  <desc>general icon from Comcast Business Design System</desc>
+<g id="Guide">
+<path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M3 4C2.44772 4 2 4.44772 2 5V23.5C2 24.0523 2.44772 24.5 3 24.5H11C13.3538 24.5 15 25.9252 15 28C15 28.5523 15.4477 29 16 29C16.5523 29 17 28.5523 17 28C17 25.9252 18.6462 24.5 21 24.5H29C29.5523 24.5 30 24.0523 30 23.5V5C30 4.44772 29.5523 4 29 4H21C18.913 4 17.0749 5.06551 16 6.68221C14.9251 5.06551 13.087 4 11 4H3ZM15 10C15 7.79086 13.2091 6 11 6H4V22.5H11C12.4961 22.5 13.9169 22.9573 15 23.803V10ZM17 23.803C18.0831 22.9573 19.5039 22.5 21 22.5H28V6H21C18.7909 6 17 7.79086 17 10V23.803Z" fill="#15172B"/>
+</g>
+</svg>

@@ -1,0 +1,3731 @@
+[
+  {
+    "name": "Title 2XL",
+    "fontSize": 48,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 76.80000305175781,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19263",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 48,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 76.80000305175781,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19297",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 48,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 76.80000305175781,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19331",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 48,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 76.80000305175781,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "3794:25422",
+    "depth": 8
+  },
+  {
+    "name": "Title",
+    "fontSize": 40,
+    "fontFamily": "Montserrat",
+    "fontWeight": 500,
+    "lineHeight": 64,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:15"
+          }
+        }
+      }
+    ],
+    "id": "664:19221",
+    "depth": 4
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 40,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 64,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19365",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 40,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 64,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "3960:4597",
+    "depth": 8
+  },
+  {
+    "name": "Body",
+    "fontSize": 40,
+    "fontFamily": "Montserrat",
+    "fontWeight": 500,
+    "lineHeight": 64,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:15"
+          }
+        }
+      }
+    ],
+    "id": "664:19530",
+    "depth": 4
+  },
+  {
+    "name": "Action",
+    "fontSize": 40,
+    "fontFamily": "Montserrat",
+    "fontWeight": 500,
+    "lineHeight": 64,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:15"
+          }
+        }
+      }
+    ],
+    "id": "664:19672",
+    "depth": 4
+  },
+  {
+    "name": "Subtitle",
+    "fontSize": 40,
+    "fontFamily": "Montserrat",
+    "fontWeight": 500,
+    "lineHeight": 64,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 1,
+          "g": 1,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:15"
+          }
+        }
+      }
+    ],
+    "id": "664:19748",
+    "depth": 4
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 32,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 41.599998474121094,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19398",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 32,
+    "fontFamily": "Montserrat",
+    "fontWeight": 500,
+    "lineHeight": 41.599998474121094,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "682:31518",
+    "depth": 8
+  },
+  {
+    "name": "Text Copy 3",
+    "fontSize": 32,
+    "fontFamily": "Montserrat",
+    "fontWeight": 500,
+    "lineHeight": 41.599998474121094,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "2222:25029",
+    "depth": 4
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 28,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36.39999771118164,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "674:49568",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 28,
+    "fontFamily": "Montserrat",
+    "fontWeight": 500,
+    "lineHeight": 36.39999771118164,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "701:25304",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 24,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 31.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "674:49535",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 24,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 31.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19464",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 24,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 38.400001525878906,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19572",
+    "depth": 8
+  },
+  {
+    "name": "Text Copy 4",
+    "fontSize": 24,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 31.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "2222:66493",
+    "depth": 4
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19228",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19235",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19239",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19243",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19247",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19251",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19255",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19259",
+    "depth": 9
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 23.399999618530273,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19497",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 23.399999618530273,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "674:49608",
+    "depth": 8
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19537",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19544",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19548",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19552",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19556",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19560",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19564",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19568",
+    "depth": 9
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 18,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 28.80000114440918,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "5780:134999",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 18,
+    "fontFamily": "Lato",
+    "fontWeight": 600,
+    "lineHeight": 23.399999618530273,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "674:56568",
+    "depth": 8
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19679",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19686",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19690",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19694",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19698",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19702",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19706",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19710",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19755",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19762",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19766",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19770",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19774",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19778",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19782",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 36,
+    "letterSpacing": 0.4000000059604645,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:194ee75c60d2d6afb546d9e4c23b81c917f5b001/47582:2736"
+          }
+        }
+      }
+    ],
+    "id": "664:19786",
+    "depth": 9
+  },
+  {
+    "name": "Text",
+    "fontSize": 18,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 28.80000114440918,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.25882354378700256,
+          "g": 0.2666666805744171,
+          "b": 0.3294117748737335,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:a4e94e02da5c0a46ed46b87b3f3c90d625400c15/1:31"
+          }
+        }
+      }
+    ],
+    "id": "2222:79351",
+    "depth": 4
+  },
+  {
+    "name": "description",
+    "fontSize": 18,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 23.399999618530273,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "2231:141009",
+    "depth": 4
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 16,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 20.799999237060547,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "694:17078",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 16,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 20.799999237060547,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "694:17045",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 16,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 25.600000381469727,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "674:56533",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 16,
+    "fontFamily": "Lato",
+    "fontWeight": 600,
+    "lineHeight": 20.799999237060547,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "674:52251",
+    "depth": 8
+  },
+  {
+    "name": "Text",
+    "fontSize": 16,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 25.600000381469727,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.25882354378700256,
+          "g": 0.2666666805744171,
+          "b": 0.3294117748737335,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:a4e94e02da5c0a46ed46b87b3f3c90d625400c15/1:31"
+          }
+        }
+      }
+    ],
+    "id": "2227:112650",
+    "depth": 4
+  },
+  {
+    "name": "Title",
+    "fontSize": 16,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 20.799999237060547,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "2231:112657",
+    "depth": 4
+  },
+  {
+    "name": "Label",
+    "fontSize": 16,
+    "fontFamily": "Lato",
+    "fontWeight": 600,
+    "lineHeight": 20.799999237060547,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "2231:112658",
+    "depth": 4
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 14,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 18.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19827",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 14,
+    "fontFamily": "Lato",
+    "fontWeight": 600,
+    "lineHeight": 18.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "682:31484",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 14,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 22.399999618530273,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19714",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 14,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 22.399999618530273,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "1438:22",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 14,
+    "fontFamily": "Montserrat",
+    "fontWeight": 700,
+    "lineHeight": 22.399999618530273,
+    "letterSpacing": 0,
+    "textCase": "TITLE",
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "1412:22",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 14,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 22.399999618530273,
+    "letterSpacing": 0.4000000059604645,
+    "textCase": "UPPER",
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19790",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 14,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 22.399999618530273,
+    "letterSpacing": 0.4000000059604645,
+    "textCase": "UPPER",
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "1412:20768",
+    "depth": 8
+  },
+  {
+    "name": "Value",
+    "fontSize": 14,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 18.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.25882354378700256,
+          "g": 0.2666666805744171,
+          "b": 0.3294117748737335,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:24"
+          }
+        }
+      }
+    ],
+    "id": "2231:141011",
+    "depth": 4
+  },
+  {
+    "name": "Value",
+    "fontSize": 14,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 18.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.25882354378700256,
+          "g": 0.2666666805744171,
+          "b": 0.3294117748737335,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:24"
+          }
+        }
+      }
+    ],
+    "id": "2231:141008",
+    "depth": 4
+  },
+  {
+    "name": "Value",
+    "fontSize": 14,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 18.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.25882354378700256,
+          "g": 0.2666666805744171,
+          "b": 0.3294117748737335,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:24"
+          }
+        }
+      }
+    ],
+    "id": "2227:112655",
+    "depth": 4
+  },
+  {
+    "name": "label",
+    "fontSize": 14,
+    "fontFamily": "Lato",
+    "fontWeight": 600,
+    "lineHeight": 18.19999885559082,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "2231:139460",
+    "depth": 4
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 12,
+    "fontFamily": "Lato",
+    "fontWeight": 400,
+    "lineHeight": 15.59999942779541,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "664:19639",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 12,
+    "fontFamily": "Lato",
+    "fontWeight": 600,
+    "lineHeight": 15.59999942779541,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "1911:43289",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 12,
+    "fontFamily": "Montserrat",
+    "fontWeight": 400,
+    "lineHeight": 19.200000762939453,
+    "letterSpacing": 0.4000000059604645,
+    "textCase": "UPPER",
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "4928:14173",
+    "depth": 8
+  },
+  {
+    "name": "Title 2XL",
+    "fontSize": 12,
+    "fontFamily": "Montserrat",
+    "fontWeight": 600,
+    "lineHeight": 19.200000762939453,
+    "letterSpacing": 0.4000000059604645,
+    "textCase": "UPPER",
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.08235294371843338,
+          "g": 0.09019608050584793,
+          "b": 0.16862745583057404,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:26"
+          }
+        }
+      }
+    ],
+    "id": "1911:43323",
+    "depth": 8
+  },
+  {
+    "name": "type/title/7XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19266",
+    "depth": 9
+  },
+  {
+    "name": "type/title/6XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19300",
+    "depth": 9
+  },
+  {
+    "name": "type/title/5XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19334",
+    "depth": 9
+  },
+  {
+    "name": "type/title/4XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19368",
+    "depth": 9
+  },
+  {
+    "name": "type/title/3XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19401",
+    "depth": 9
+  },
+  {
+    "name": "“text-3xl”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "664:19411",
+    "depth": 11
+  },
+  {
+    "name": "type/title/2XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "674:49571",
+    "depth": 9
+  },
+  {
+    "name": "“text-2xl”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "674:49581",
+    "depth": 11
+  },
+  {
+    "name": "type/title/XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "674:49538",
+    "depth": 9
+  },
+  {
+    "name": "“text-xl”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "674:49548",
+    "depth": 11
+  },
+  {
+    "name": "type/title/L",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19500",
+    "depth": 9
+  },
+  {
+    "name": "type/title/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "694:17081",
+    "depth": 9
+  },
+  {
+    "name": "type/title/medium/3XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "682:31521",
+    "depth": 9
+  },
+  {
+    "name": "“text-3xl”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "682:31531",
+    "depth": 11
+  },
+  {
+    "name": "type/title/medium/2XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "701:25307",
+    "depth": 9
+  },
+  {
+    "name": "“text-2xl”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "701:25317",
+    "depth": 11
+  },
+  {
+    "name": "type/title/semibold/5XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "3794:25425",
+    "depth": 9
+  },
+  {
+    "name": "type/title/semibold/4XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "3960:4600",
+    "depth": 9
+  },
+  {
+    "name": "type/title/semibold/XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19467",
+    "depth": 9
+  },
+  {
+    "name": "“text-xl”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "664:19477",
+    "depth": 11
+  },
+  {
+    "name": "type/title/semibold/L",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "674:49611",
+    "depth": 9
+  },
+  {
+    "name": "type/title/semibold/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "694:17048",
+    "depth": 9
+  },
+  {
+    "name": "type/body/XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19575",
+    "depth": 9
+  },
+  {
+    "name": "type/body/L",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "5780:135002",
+    "depth": 9
+  },
+  {
+    "name": "type/body/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "674:56536",
+    "depth": 9
+  },
+  {
+    "name": "type/body/S",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19830",
+    "depth": 9
+  },
+  {
+    "name": "type/body/XS",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19642",
+    "depth": 9
+  },
+  {
+    "name": "“text-xs”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "664:19652",
+    "depth": 11
+  },
+  {
+    "name": "type/body/semibold/L",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "674:56571",
+    "depth": 9
+  },
+  {
+    "name": "type/body/semibold/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "674:52254",
+    "depth": 9
+  },
+  {
+    "name": "type/body/semibold/S",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "682:31487",
+    "depth": 9
+  },
+  {
+    "name": "type/body/semibold/XS",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "1911:43292",
+    "depth": 9
+  },
+  {
+    "name": "“text-xs”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "1911:43302",
+    "depth": 11
+  },
+  {
+    "name": "type/action/semibold/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19717",
+    "depth": 9
+  },
+  {
+    "name": "type/action/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "1438:25",
+    "depth": 9
+  },
+  {
+    "name": "type/action/bold/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "1412:25",
+    "depth": 9
+  },
+  {
+    "name": "type/subtitle/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "664:19793",
+    "depth": 9
+  },
+  {
+    "name": "type/subtitle/S",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "4928:14176",
+    "depth": 9
+  },
+  {
+    "name": "“text-xs”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "4928:14187",
+    "depth": 11
+  },
+  {
+    "name": "type/subtitle/semibold/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "1412:20771",
+    "depth": 9
+  },
+  {
+    "name": "type/subtitle/semibold/S",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "1911:43326",
+    "depth": 9
+  },
+  {
+    "name": "“text-xs”",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.11764705926179886,
+          "g": 0.5215686559677124,
+          "b": 0,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:106"
+          }
+        }
+      }
+    ],
+    "id": "1911:43337",
+    "depth": 11
+  },
+  {
+    "name": "title/medium/3XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197019",
+    "depth": 4
+  },
+  {
+    "name": "title/XL",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197115",
+    "depth": 4
+  },
+  {
+    "name": "title/semibold/L",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197121",
+    "depth": 4
+  },
+  {
+    "name": "title/semibold/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197127",
+    "depth": 4
+  },
+  {
+    "name": "body/semibold/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197133",
+    "depth": 4
+  },
+  {
+    "name": "body/semibold/S",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197139",
+    "depth": 4
+  },
+  {
+    "name": "body/L",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197112",
+    "depth": 4
+  },
+  {
+    "name": "body/M",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197118",
+    "depth": 4
+  },
+  {
+    "name": "body/S",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197124",
+    "depth": 4
+  },
+  {
+    "name": "body/S",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197130",
+    "depth": 4
+  },
+  {
+    "name": "body/S",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197136",
+    "depth": 4
+  },
+  {
+    "name": "body/XS",
+    "fontSize": 11.5600004196167,
+    "fontFamily": "Roboto Mono",
+    "fontWeight": 400,
+    "lineHeight": 23.1200008392334,
+    "letterSpacing": 0,
+    "fills": [
+      {
+        "blendMode": "NORMAL",
+        "type": "SOLID",
+        "color": {
+          "r": 0.05098039284348488,
+          "g": 0.3843137323856354,
+          "b": 1,
+          "a": 1
+        },
+        "boundVariables": {
+          "color": {
+            "type": "VARIABLE_ALIAS",
+            "id": "VariableID:1:43"
+          }
+        }
+      }
+    ],
+    "id": "2231:197142",
+    "depth": 4
+  }
+]
