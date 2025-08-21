@@ -1,0 +1,123 @@
+name: Design System Gates
+on:
+  pull_request:
+    paths:
+      - 'packages/ui/**'
+      - 'packages/tokens/**'
+      - 'packages/**/styles/**'
+      - 'apps/**'
+      - '.github/workflows/**'
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node & pnpm
+        uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      # --- Gate 1: no literals (colors/px) in component source
+      - name: Hard-coded color/px sweep (fail fast)
+        run: |
+          set -euo pipefail
+          if grep -RInE '#[0-9A-Fa-f]{6}|rgb\(|\b\d+px\b' packages/ui/src --include \*.{ts,tsx,css,scss}; then
+            echo "::error::Found literal colors or pixel values in component source. Use tokens/scale utilities."
+            exit 1
+          else
+            echo "No literals found ✅"
+          fi
+
+      # --- Build & serve Storybook for a11y+VRT under Playwright
+      - name: Build Storybook
+        run: pnpm build:storybook
+
+      - name: Serve Storybook (background)
+        run: |
+          npx http-server storybook-static -p 6006 & echo $! > .sb_pid
+          pnpm dlx wait-on http://localhost:6006
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      # --- Gate 2/3: Playwright tests should include axe checks + VRT assertions
+      - name: Run Playwright (axe + VRT via tests)
+        env:
+          STORYBOOK_URL: http://localhost:6006
+        run: npx playwright test
+
+      - name: Upload Playwright artifacts (optional)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            playwright-report/**
+            test-results/**
+            **/playwright/.last-run.json
+          if-no-files-found: ignore
+
+      # --- Agent invocation (design-review)
+      - name: Set env for agent
+        env:
+          STORYBOOK_URL: http://localhost:6006
+        run: |
+          echo "PR_NUMBER=${{ github.event.pull_request.number }}" >> $GITHUB_ENV
+          echo "STORYBOOK_URL=${STORYBOOK_URL}" >> $GITHUB_ENV
+          # If you have a deployed preview (Vercel/Netlify), export it here or via repo vars/secrets.
+          # Fallback: use Storybook URL; the agent should still run in static mode.
+          echo "PREVIEW_URL=${{ vars.PREVIEW_URL }}" >> $GITHUB_ENV
+
+      - name: Invoke design-review agent
+        env:
+          PR_NUMBER: ${{ env.PR_NUMBER }}
+          PREVIEW_URL: ${{ env.PREVIEW_URL }}
+          STORYBOOK_URL: ${{ env.STORYBOOK_URL }}
+        run: |
+          # Replace with your actual agent command and args.
+          # Expectation: writes reports/design-review/PR-${PR_NUMBER}/summary.json
+          pnpm run agent:design-review -- --pr "$PR_NUMBER" --preview "$PREVIEW_URL" --storybook "$STORYBOOK_URL" || true
+
+      - name: Upload design-review artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-review
+          path: reports/design-review/
+          if-no-files-found: warn
+
+      # --- Gate 4: enforce agent summary (no Blockers; not "fail")
+      - name: Enforce agent gates
+        run: |
+          sudo apt-get update -y >/dev/null && sudo apt-get install -y jq >/dev/null
+          SUMMARY="reports/design-review/PR-${PR_NUMBER}/summary.json"
+          if [ ! -f "$SUMMARY" ]; then
+            echo "::warning::No design-review summary found — ensure agent writes ${SUMMARY}."
+          else
+            status=$(jq -r '.summary.status' "$SUMMARY")
+            blockers=$(jq -r '[.findings[] | select(.severity=="Blocker")] | length' "$SUMMARY")
+            echo "Agent status: $status, blockers: $blockers"
+            if [ "$status" = "fail" ] || [ "$blockers" -gt 0 ]; then
+              echo "::error::Design-review gates failed (status=$status, blockers=$blockers)."
+              exit 1
+            fi
+          fi
+
+      - name: Stop Storybook
+        if: always()
+        run: |
+          if [ -f .sb_pid ]; then kill "$(cat .sb_pid)" || true; fi

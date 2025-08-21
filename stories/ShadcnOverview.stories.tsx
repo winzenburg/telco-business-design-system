@@ -18,8 +18,8 @@ import {
 } from '../src/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../src/components/ui/tabs';
 
-// Import our Icon component
-import { Icon } from '../src/components/Icon';
+// Import Lucide React icons
+import { Plus, Settings, ArrowRight, BarChart, MoreHorizontal, Shield } from 'lucide-react';
 
 const meta: Meta = {
   title: 'Design System/Component Overview',
@@ -71,11 +71,20 @@ export const ComponentShowcase: Story = {
           <div className="space-y-3">
             <h3 className="text-lg font-medium text-neutral-800">Sizes & Icons</h3>
             <div className="flex flex-wrap gap-3 items-center">
-              <Button size="sm" leftIcon={<Icon name="add" size={16} />}>Small</Button>
-              <Button leftIcon={<Icon name="configure" size={20} />}>Default</Button>
-              <Button size="lg" rightIcon={<Icon name="arrow" size={24} />}>Large</Button>
+              <Button size="sm">
+                <Plus className="mr-2 h-4 w-4" />
+                Small
+              </Button>
+              <Button>
+                <Settings className="mr-2 h-5 w-5" />
+                Default
+              </Button>
+              <Button size="lg">
+                Large
+                <ArrowRight className="ml-2 h-6 w-6" />
+              </Button>
               <Button size="icon">
-                <Icon name="configure" size={20} />
+                <Settings className="h-5 w-5" />
               </Button>
             </div>
           </div>
@@ -168,7 +177,7 @@ export const ComponentShowcase: Story = {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Icon name="analytics" size={20} />
+<BarChart className="mr-2 h-5 w-5" />
                 Analytics
               </CardTitle>
             </CardHeader>
@@ -239,10 +248,10 @@ export const ComponentShowcase: Story = {
                   <TableCell className="text-right">
                     <div className="flex gap-1 justify-end">
                       <Button variant="ghost" size="sm">
-                        <Icon name="configure" size={16} />
+<Settings className="h-4 w-4" />
                       </Button>
                       <Button variant="ghost" size="sm">
-                        <Icon name="blockers" size={16} />
+<Shield className="h-4 w-4" />
                       </Button>
                     </div>
                   </TableCell>
@@ -259,10 +268,10 @@ export const ComponentShowcase: Story = {
                   <TableCell className="text-right">
                     <div className="flex gap-1 justify-end">
                       <Button variant="ghost" size="sm">
-                        <Icon name="configure" size={16} />
+<Settings className="h-4 w-4" />
                       </Button>
                       <Button variant="ghost" size="sm">
-                        <Icon name="blockers" size={16} />
+<Shield className="h-4 w-4" />
                       </Button>
                     </div>
                   </TableCell>
@@ -279,10 +288,10 @@ export const ComponentShowcase: Story = {
                   <TableCell className="text-right">
                     <div className="flex gap-1 justify-end">
                       <Button variant="ghost" size="sm">
-                        <Icon name="configure" size={16} />
+<Settings className="h-4 w-4" />
                       </Button>
                       <Button variant="ghost" size="sm">
-                        <Icon name="blockers" size={16} />
+<Shield className="h-4 w-4" />
                       </Button>
                     </div>
                   </TableCell>
@@ -365,7 +374,8 @@ export const ComponentShowcase: Story = {
                 <p className="text-neutral-600">
                   Team member management and collaboration tools.
                 </p>
-                <Button leftIcon={<Icon name="add" size={16} />}>
+                <Button>
+                  <Plus className="mr-2 h-4 w-4" />
                   Add Team Member
                 </Button>
               </TabsContent>

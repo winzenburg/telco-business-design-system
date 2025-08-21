@@ -5,7 +5,7 @@ import { Input } from '../src/components/ui/input';
 import { Checkbox } from '../src/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '../src/components/ui/radio-group';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../src/components/ui/card';
-import { Icon } from '../src/components/Icon';
+import { Wifi, AlertTriangle, Settings, FileText, HelpCircle, BarChart, Monitor, Router } from 'lucide-react';
 import { GlobalNavigation } from '../src/components/GlobalNavigation';
 
 const meta: Meta = {
@@ -56,7 +56,7 @@ export const Dashboard: Story = {
             <CardContent>
               <div className="text-2xl font-bold text-[#15172B]">12</div>
               <div className="flex items-center gap-1 mt-1">
-                <Icon name="internet" className="size-4 text-green-600" />
+<Wifi className="size-4 text-green-600" />
                 <span className="text-sm text-green-600 font-medium">All Online</span>
               </div>
             </CardContent>
@@ -81,7 +81,7 @@ export const Dashboard: Story = {
             <CardContent>
               <div className="text-2xl font-bold text-[#15172B]">3</div>
               <div className="flex items-center gap-1 mt-1">
-                <Icon name="alert" className="size-4 text-orange-500" />
+<AlertTriangle className="size-4 text-orange-500" />
                 <span className="text-sm text-orange-500 font-medium">1 High Priority</span>
               </div>
             </CardContent>
@@ -110,19 +110,19 @@ export const Dashboard: Story = {
             </CardHeader>
             <CardContent className="space-y-4">
               <Button variant="outline" className="w-full justify-start">
-                <Icon name="configure" className="size-4 mr-3" />
+<Settings className="size-4 mr-3" />
                 Manage Services
               </Button>
               <Button variant="outline" className="w-full justify-start">
-                <Icon name="document" className="size-4 mr-3" />
+                <FileText className="size-4 mr-3" />
                 View Latest Bill
               </Button>
               <Button variant="outline" className="w-full justify-start">
-                <Icon name="gethelp" className="size-4 mr-3" />
+                <HelpCircle className="size-4 mr-3" />
                 Contact Support
               </Button>
               <Button variant="outline" className="w-full justify-start">
-                <Icon name="analytics" className="size-4 mr-3" />
+                <BarChart className="size-4 mr-3" />
                 Usage Reports
               </Button>
             </CardContent>
@@ -137,7 +137,7 @@ export const Dashboard: Story = {
             <CardContent>
               <div className="space-y-4">
                 <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
-                  <Icon name="configure" className="size-4 text-blue-600 mt-0.5" />
+                  <Settings className="size-4 text-blue-600 mt-0.5" />
                   <div className="flex-1">
                     <p className="text-sm font-medium text-[#15172B]">Service Configuration Updated</p>
                     <p className="text-sm text-[#70717D]">Internet Pro plan settings modified</p>
@@ -145,7 +145,7 @@ export const Dashboard: Story = {
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
-                  <Icon name="internet" className="size-4 text-green-600 mt-0.5" />
+                  <Wifi className="size-4 text-green-600 mt-0.5" />
                   <div className="flex-1">
                     <p className="text-sm font-medium text-[#15172B]">Payment Processed</p>
                     <p className="text-sm text-[#70717D]">Monthly bill payment of $2,800</p>
@@ -153,7 +153,7 @@ export const Dashboard: Story = {
                   </div>
                 </div>
                 <div className="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg">
-                  <Icon name="alert" className="size-4 text-yellow-600 mt-0.5" />
+                  <AlertTriangle className="size-4 text-yellow-600 mt-0.5" />
                   <div className="flex-1">
                     <p className="text-sm font-medium text-[#15172B]">Maintenance Scheduled</p>
                     <p className="text-sm text-[#70717D]">Network maintenance on Sunday 2-4 AM</p>
@@ -235,7 +235,7 @@ export const ComplexForm: Story = {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Icon name="configure" className="size-5" />
+                  <Settings className="size-5" />
                   Company Information
                 </CardTitle>
                 <CardDescription>
@@ -287,7 +287,7 @@ export const ComplexForm: Story = {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Icon name="internet" className="size-5" />
+                  <Wifi className="size-5" />
                   Service Address
                 </CardTitle>
                 <CardDescription>
@@ -332,7 +332,7 @@ export const ComplexForm: Story = {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Icon name="device" className="size-5" />
+                  <Monitor className="size-5" />
                   Requested Services
                 </CardTitle>
                 <CardDescription>
@@ -417,7 +417,7 @@ export const ComplexForm: Story = {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Icon name="configure" className="size-5" />
+                  <Settings className="size-5" />
                   Additional Features
                 </CardTitle>
                 <CardDescription>
@@ -508,7 +508,7 @@ export const ServiceDetail: Story = {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Icon name="internet" className="size-5 text-green-600" />
+                    <Wifi className="size-5 text-green-600" />
                     Service Status
                   </CardTitle>
                 </CardHeader>
@@ -542,7 +542,7 @@ export const ServiceDetail: Story = {
                 <CardContent>
                   <div className="h-64 bg-gray-100 rounded-lg flex items-center justify-center">
                     <div className="text-center text-[#70717D]">
-                      <Icon name="analytics" className="size-12 mx-auto mb-2 text-[#B4B5BB]" />
+                      <BarChart className="size-12 mx-auto mb-2 text-[#B4B5BB]" />
                       <p className="font-medium">Usage Chart</p>
                       <p className="text-sm">Chart visualization would appear here</p>
                     </div>
@@ -558,7 +558,7 @@ export const ServiceDetail: Story = {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
-                      <Icon name="internet" className="size-4 text-green-600 mt-1" />
+                      <Wifi className="size-4 text-green-600 mt-1" />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           <span className="font-medium text-[#15172B]">Service Restored</span>
@@ -572,7 +572,7 @@ export const ServiceDetail: Story = {
                     </div>
                     
                     <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
-                      <Icon name="configure" className="size-4 text-blue-600 mt-1" />
+                      <Settings className="size-4 text-blue-600 mt-1" />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           <span className="font-medium text-[#15172B]">Configuration Updated</span>
@@ -586,7 +586,7 @@ export const ServiceDetail: Story = {
                     </div>
                     
                     <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Icon name="analytics" className="size-4 text-gray-600 mt-1" />
+                      <BarChart className="size-4 text-gray-600 mt-1" />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
                           <span className="font-medium text-[#15172B]">Monthly Usage Report</span>
@@ -638,19 +638,19 @@ export const ServiceDetail: Story = {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Icon name="gethelp" className="size-4 mr-2" />
+                    <HelpCircle className="size-4 mr-2" />
                     Contact Support
                   </Button>
                   <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Icon name="document" className="size-4 mr-2" />
+                    <FileText className="size-4 mr-2" />
                     Download Reports
                   </Button>
                   <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Icon name="configure" className="size-4 mr-2" />
+                    <Settings className="size-4 mr-2" />
                     Manage Settings
                   </Button>
                   <Button variant="outline" size="sm" className="w-full justify-start">
-                    <Icon name="analytics" className="size-4 mr-2" />
+                    <BarChart className="size-4 mr-2" />
                     View Analytics
                   </Button>
                 </CardContent>
@@ -666,7 +666,7 @@ export const ServiceDetail: Story = {
                     Get 24/7 technical support for your business services
                   </p>
                   <Button variant="primary" size="sm" className="w-full">
-                    <Icon name="gethelp" className="size-4 mr-2" />
+                    <HelpCircle className="size-4 mr-2" />
                     Get Support
                   </Button>
                 </CardContent>

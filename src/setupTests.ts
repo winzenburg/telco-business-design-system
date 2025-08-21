@@ -1,11 +1,5 @@
 import '@testing-library/jest-dom';
 
-// Mock styled-components for testing
-jest.mock('styled-components', () => ({
-  ...jest.requireActual('styled-components'),
-  createGlobalStyle: jest.fn(() => 'div'),
-}));
-
 // Global test setup
 beforeEach(() => {
   // Clear all mocks before each test

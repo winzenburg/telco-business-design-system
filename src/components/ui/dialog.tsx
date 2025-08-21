@@ -1,8 +1,8 @@
 import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
-import { X } from "lucide-react"
 
 import { cn } from "../../utils/cn"
+import { Icon } from "../Icon"
 
 // Dialog/Modal component following Comcast Business Design System
 // Typography: Title XL for headers, body text using #2B2D3F
@@ -52,7 +52,7 @@ const DialogContent = React.forwardRef<
     >
       {children}
       <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#0D62FF] focus:ring-offset-2 disabled:pointer-events-none">
-        <X className="h-4 w-4 text-[#70717D] hover:text-[#2B2D3F]" />
+        <Icon name="close" size={16} color="#70717D" className="hover:text-[#2B2D3F] transition-colors" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
@@ -95,8 +95,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      // Title XL typography as per design system rules (suitable for H2)
-      "text-xl font-semibold leading-none tracking-tight text-[#2B2D3F]",
+      "text-2xl font-semibold leading-none tracking-tight text-[#2B2D3F]",
       className
     )}
     {...props}

@@ -1,7 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cloud" data-icon="cloud" data-category="weather">
-  <title>Cloud</title>
-  <desc>weather icon from Comcast Business Design System</desc>
-<g id="Cloud">
-<path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M20.7004 13.2695L20.0541 11.9783C18.5746 9.02239 15.5217 7 12 7C7.02944 7 3 11.0294 3 16C3 20.9706 7.02944 25 12 25H23C26.3137 25 29 22.3137 29 19C29 15.6863 26.3137 13 23 13C22.7032 13 22.4126 13.0214 22.1295 13.0624L20.7004 13.2695ZM21.8426 11.0831C20.0373 7.47631 16.3079 5 12 5C5.92487 5 1 9.92487 1 16C1 22.0751 5.92487 27 12 27H23C27.4183 27 31 23.4183 31 19C31 14.5817 27.4183 11 23 11C22.6069 11 22.2205 11.0283 21.8426 11.0831Z" fill="#15172B"/>
-</g>
-</svg>

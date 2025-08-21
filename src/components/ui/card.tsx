@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../utils/cn"
+import { Title, Body } from "./typography"
 
 // Card component following Comcast Business Design System
 // Colors: White background, #F1F2F6 for subdued borders, #F9F9FA for surface hover
@@ -59,9 +60,11 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
 
 function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div
+    <Title
+      level={4}
+      weight="semibold"
       data-slot="card-title"
-      className={cn("leading-none font-semibold text-[#2B2D3F]", className)}
+      className={cn("text-[#2B2D3F]", className)}
       {...props}
     />
   )
@@ -69,9 +72,10 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
 
 function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
-    <div
+    <Body
+      size="m"
       data-slot="card-description"
-      className={cn("text-sm text-[#70717D]", className)}
+      className={cn("text-[#70717D]", className)}
       {...props}
     />
   )

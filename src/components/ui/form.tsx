@@ -2,6 +2,7 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../utils/cn"
+import { Title, Body, Label as TypographyLabel } from "./typography"
 
 // Form component following Comcast Business Design System
 // Typography: Default body text using #2B2D3F, labels and helper text as per design system
@@ -87,9 +88,9 @@ export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelEleme
 const FormLabel = React.forwardRef<HTMLLabelElement, FormLabelProps>(
   ({ className, required = false, error = false, children, ...props }, ref) => {
     return (
-      <label
+      <TypographyLabel
         className={cn(
-          "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+          "leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
           error ? "text-red-500" : "text-[#2B2D3F]",
           className
         )}
@@ -98,7 +99,7 @@ const FormLabel = React.forwardRef<HTMLLabelElement, FormLabelProps>(
       >
         {children}
         {required && <span className="ml-1 text-red-500">*</span>}
-      </label>
+      </TypographyLabel>
     )
   }
 )
@@ -142,9 +143,11 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
     if (!children) return null
 
     return (
-      <p
+      <Body
+        size="xs"
+        weight="semibold"
+        as="p"
         className={cn(
-          "text-xs font-medium",
           {
             "text-red-500": type === "error",
             "text-green-600": type === "success", 
@@ -157,7 +160,7 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
         {...props}
       >
         {children}
-      </p>
+      </Body>
     )
   }
 )
@@ -186,14 +189,14 @@ const FormSection = React.forwardRef<HTMLDivElement, FormSectionProps>(
         {(title || description) && (
           <div className="space-y-1">
             {title && (
-              <h3 className="text-lg font-semibold text-[#2B2D3F]">
+              <Title level={4} weight="semibold" className="text-[#2B2D3F]">
                 {title}
-              </h3>
+              </Title>
             )}
             {description && (
-              <p className="text-sm text-[#70717D]">
+              <Body size="m" className="text-[#70717D]">
                 {description}
-              </p>
+              </Body>
             )}
           </div>
         )}

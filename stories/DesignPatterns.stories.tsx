@@ -5,7 +5,8 @@ import { Button } from '../src/components/ui/button';
 import { Label } from '../src/components/ui/label';
 import { Textarea } from '../src/components/ui/textarea';
 import { Checkbox } from '../src/components/ui/checkbox';
-import { Icon } from '../src/components/Icon';
+import { Users } from 'lucide-react';
+import { Title, Body } from '../src/components/ui/typography';
 import { 
   patternCompliance, 
   figmaPatterns, 
@@ -34,14 +35,14 @@ export const TypographyPatterns: Story = {
   render: () => (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl font-semibold mb-4 font-primary">Typography Patterns</h2>
-        <p className="text-gray-600 font-secondary">Standard typography patterns extracted from Figma with exact specifications</p>
+        <Title level={2} weight="semibold" className="mb-4">Typography Patterns</Title>
+        <Body size="l" className="text-gray-600">Standard typography patterns extracted from Figma with exact specifications</Body>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Label Typography */}
         <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Label Typography</h3>
+          <Title level={3} className="text-lg">Label Typography</Title>
           <div className="p-4 border border-gray-200 rounded-lg space-y-3">
             <div className="space-y-2">
               <Label>Standard Label</Label>
@@ -72,23 +73,21 @@ export const TypographyPatterns: Story = {
 
         {/* Body Typography */}
         <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Body Typography</h3>
+          <Title level={3} className="text-lg">Body Typography</Title>
           <div className="p-4 border border-gray-200 rounded-lg space-y-4">
             <div className="space-y-2">
-              <p className="font-secondary font-normal leading-[130%] tracking-normal text-gray-600" 
-                 style={{ fontSize: '14px', lineHeight: '18.2px' }}>
+              <Body size="m" className="text-gray-600">
                 Body/S (14px) - Subcopy text
-              </p>
+              </Body>
               <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
                 {`style={{ fontSize: '14px', lineHeight: '18.2px' }}`}
               </code>
             </div>
 
             <div className="space-y-2">
-              <p className="font-secondary font-normal leading-[130%] tracking-normal text-gray-800" 
-                 style={{ fontSize: '12px', lineHeight: '15.6px' }}>
+              <Body size="s" className="text-gray-800">
                 Body/XS (12px) - Hint text
-              </p>
+              </Body>
               <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
                 {`style={{ fontSize: '12px', lineHeight: '15.6px' }}`}
               </code>
@@ -113,8 +112,8 @@ export const ColorSystemPatterns: Story = {
   render: () => (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl font-semibold mb-4 font-primary">Color System Patterns</h2>
-        <p className="text-gray-600 font-secondary">Consistent color mapping from Figma neutral palette</p>
+        <Title level={2} weight="semibold" className="mb-4">Color System Patterns</Title>
+        <Body size="l" className="text-gray-600">Consistent color mapping from Figma neutral palette</Body>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -218,8 +217,8 @@ export const InputPatterns: Story = {
   render: () => (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl font-semibold mb-4 font-primary">Input Field Patterns</h2>
-        <p className="text-gray-600 font-secondary">Complete input structure and styling patterns from Figma</p>
+        <Title level={2} weight="semibold" className="mb-4">Input Field Patterns</Title>
+        <Body size="l" className="text-gray-600">Complete input structure and styling patterns from Figma</Body>
       </div>
 
       <div className="space-y-8">
@@ -311,8 +310,8 @@ export const ComponentStructurePatterns: Story = {
   render: () => (
     <div className="space-y-8">
       <div className="text-center">
-        <h2 className="text-2xl font-semibold mb-4 font-primary">Component Structure Patterns</h2>
-        <p className="text-gray-600 font-secondary">Consistent patterns applied across all form components</p>
+        <Title level={2} weight="semibold" className="mb-4">Component Structure Patterns</Title>
+        <Body size="l" className="text-gray-600">Consistent patterns applied across all form components</Body>
       </div>
 
       <div className="space-y-8">
@@ -340,7 +339,7 @@ export const ComponentStructurePatterns: Story = {
               <h4 className="font-medium font-primary">Icon Positioning</h4>
               <div className="p-4 border border-gray-200 rounded-lg">
                 <div className="flex items-start gap-[10px]">
-                  <Icon name="users" size={16} className="flex w-4 h-4 items-start text-gray-600" />
+<Users className="flex w-4 h-4 items-start text-gray-600" />
                   <span className="text-sm font-secondary">Icon alignment</span>
                 </div>
                 <code className="block text-xs bg-gray-100 p-2 rounded font-mono mt-2">
@@ -737,7 +736,7 @@ export const ImplementationGuide: Story = {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-3">
-              <h4 className="font-medium font-primary text-red-600">❌ Before (Inconsistent)</h4>
+              <h4 className="font-medium font-primary text-red-600">Before (Inconsistent)</h4>
               <div className="p-4 border border-gray-200 rounded-lg bg-red-50">
                 <code className="block text-xs font-mono whitespace-pre-wrap">
 {`// Old pattern - inconsistent

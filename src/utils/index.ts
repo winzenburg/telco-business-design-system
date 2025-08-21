@@ -1,7 +1,16 @@
-// Utility exports
-export * from './cn';
-export * from './slot';
+// Comcast Business Design System - Utility Functions
+// Consolidated utilities for consistent component development
 
-// Re-export commonly used utilities
-export { cn, classNames, variantClasses } from './cn';
-export { Slot, mergeProps, forwardRef } from './slot'; 
+// Core utilities - main utility for all components
+export { cn } from './cn';
+
+// Form validation utilities
+export * from './validation';
+
+// Component development utilities  
+export * from './slot';
+export * from './pattern-tracker';
+export * from './chart-data';
+
+// Figma integration utilities
+export * from './figma'; 

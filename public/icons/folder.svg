@@ -1,7 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Folder" data-icon="folder" data-category="file">
-  <title>Folder</title>
-  <desc>file icon from Comcast Business Design System</desc>
-<g id="Folder">
-<path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M6 5C4.89543 5 4 5.89543 4 7V25C4 26.1046 4.89543 27 6 27H26C27.1046 27 28 26.1046 28 25V11C28 9.89543 27.1046 9 26 9H15C14.6852 9 14.3889 8.85181 14.2 8.6L11.5 5H6ZM2 7C2 4.79086 3.79086 3 6 3H12C12.3148 3 12.6111 3.14819 12.8 3.4L15.5 7H26C28.2091 7 30 8.79086 30 11V25C30 27.2091 28.2091 29 26 29H6C3.79086 29 2 27.2091 2 25V7Z" fill="#15172B"/>
-</g>
-</svg>

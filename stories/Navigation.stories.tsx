@@ -1,8 +1,30 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Button } from '../src/components/ui/button';
-import { Icon } from '../src/components/Icon';
+import { Menu, HelpCircle, ChevronDown, ChevronUp, ChevronRight, Home, Users, Settings, BarChart, FileText, Phone, Shield, Wifi } from 'lucide-react';
 import { navigationSpecs, categorizedNavigation, navigationUsage } from '../src/tokens/figma-navigation-specs';
+
+// Icon mapping for navigation
+const iconMap = {
+  'home': Home,
+  'users': Users,
+  'settings': Settings,
+  'analytics': BarChart,
+  'report': FileText,
+  'phone': Phone,
+  'security': Shield,
+  'wifi': Wifi,
+  'chevron': ChevronRight,
+  'directionup': ChevronUp,
+  'directiondown': ChevronDown,
+  'menu': Menu,
+  'gethelp': HelpCircle,
+} as const;
+
+const getIcon = (iconName: string, size = 16, className = '') => {
+  const IconComponent = iconMap[iconName as keyof typeof iconMap] || Home;
+  return <IconComponent className={`h-${Math.floor(size/4)} w-${Math.floor(size/4)} ${className}`} />;
+};
 
 const meta: Meta = {
   title: 'Components/Navigation',
@@ -50,8 +72,8 @@ export const HeaderNavigation: Story = {
                 {[
                   { id: 'dashboard', label: 'Dashboard', icon: 'analytics' },
                   { id: 'services', label: 'Services', icon: 'configure' },
-                  { id: 'network', label: 'Network', icon: 'networking' },
-                  { id: 'security', label: 'Security', icon: 'security' },
+                  { id: 'network', label: 'Network', icon: 'powerfulnetwork' },
+                  { id: 'security', label: 'Security', icon: 'securityquestion' },
                   { id: 'support', label: 'Support', icon: 'gethelp' }
                 ].map((item) => (
                   <button
@@ -63,7 +85,7 @@ export const HeaderNavigation: Story = {
                         : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                     }`}
                   >
-                    <Icon name={item.icon as any} size={16} />
+{getIcon(item.icon, 16)}
                     {item.label}
                   </button>
                 ))}
@@ -79,7 +101,7 @@ export const HeaderNavigation: Story = {
                     <span className="text-sm font-medium">JD</span>
                   </div>
                   <span className="hidden sm:block">John Doe</span>
-                  <Icon name="uiarrows" size={16} />
+<ChevronDown className="h-4 w-4" />
                 </button>
 
                 {isAccountOpen && (
@@ -127,7 +149,7 @@ export const SidebarNavigation: Story = {
       {
         id: 'network',
         label: 'Network',
-        icon: 'networking',
+        icon: 'powerfulnetwork',
         items: [
           { id: 'devices', label: 'Devices' },
           { id: 'connections', label: 'Connections' },
@@ -137,7 +159,7 @@ export const SidebarNavigation: Story = {
       {
         id: 'security',
         label: 'Security',
-        icon: 'security',
+        icon: 'securityquestion',
         items: [
           { id: 'firewall', label: 'Firewall' },
           { id: 'threats', label: 'Threats' },
@@ -174,7 +196,7 @@ export const SidebarNavigation: Story = {
                   onClick={() => setIsCollapsed(!isCollapsed)}
                   className="p-1 rounded hover:bg-gray-700"
                 >
-                  <Icon name="uiarrows" size={16} />
+<ChevronDown className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -187,15 +209,11 @@ export const SidebarNavigation: Story = {
                     onClick={() => setExpandedSection(expandedSection === section.id ? '' : section.id)}
                     className="w-full flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-700 transition-colors"
                   >
-                    <Icon name={section.icon as any} size={16} />
+{getIcon(section.icon, 16)}
                     {!isCollapsed && (
                       <>
                         <span className="flex-1 text-left font-secondary">{section.label}</span>
-                        <Icon 
-                          name="uiarrows" 
-                          size={12} 
-                          className={`transition-transform ${expandedSection === section.id ? 'rotate-180' : ''}`}
-                        />
+{expandedSection === section.id ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
                       </>
                     )}
                   </button>
@@ -262,7 +280,7 @@ export const BreadcrumbNavigation: Story = {
                 {breadcrumbs.map((item, index) => (
                   <li key={index} className="flex items-center">
                     {index > 0 && (
-                      <Icon name="uiarrows" size={16} className="mx-2 text-gray-400 rotate-90" />
+<ChevronRight className="h-4 w-4 mx-2 text-gray-400" />
                     )}
                     {item.current ? (
                       <span className="text-gray-900 font-medium">{item.label}</span>
@@ -352,7 +370,7 @@ export const TabNavigation: Story = {
                         : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                     }`}
                   >
-                    <Icon name={tab.icon as any} size={16} />
+{getIcon(tab.icon, 16)}
                     {tab.label}
                   </button>
                 ))}
@@ -377,7 +395,7 @@ export const TabNavigation: Story = {
                       : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
                   }`}
                 >
-                  <Icon name={tab.icon as any} size={16} />
+{getIcon(tab.icon, 16)}
                   {tab.label}
                 </button>
               ))}
@@ -400,8 +418,8 @@ export const MobileNavigation: Story = {
 
     const menuItems = [
       { id: 'dashboard', label: 'Dashboard', icon: 'analytics' },
-      { id: 'network', label: 'Network', icon: 'networking' },
-      { id: 'security', label: 'Security', icon: 'security' },
+      { id: 'network', label: 'Network', icon: 'powerfulnetwork' },
+      { id: 'security', label: 'Security', icon: 'securityquestion' },
       { id: 'billing', label: 'Billing', icon: 'report' },
       { id: 'support', label: 'Support', icon: 'gethelp' }
     ];
@@ -421,11 +439,11 @@ export const MobileNavigation: Story = {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 rounded-md hover:bg-gray-100"
               >
-                <Icon name="menu" size={20} />
+<Menu className="h-5 w-5" />
               </button>
               <span className="text-lg font-semibold font-primary">Comcast Business</span>
               <button className="p-2 rounded-md hover:bg-gray-100">
-                <Icon name="gethelp" size={20} />
+<HelpCircle className="h-5 w-5" />
               </button>
             </div>
           </header>
@@ -447,7 +465,7 @@ export const MobileNavigation: Story = {
                         : 'text-gray-700 hover:bg-gray-50'
                     }`}
                   >
-                    <Icon name={item.icon as any} size={20} />
+{getIcon(item.icon, 20)}
                     {item.label}
                   </button>
                 ))}
@@ -482,7 +500,7 @@ export const MobileNavigation: Story = {
                         : 'text-gray-400 hover:text-gray-600'
                     }`}
                   >
-                    <Icon name={item.icon as any} size={20} />
+{getIcon(item.icon, 20)}
                     <span className="text-xs mt-1">{item.label}</span>
                   </button>
                 ))}

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Button } from '../src/components/ui/button';
-import { Icon } from '../src/components/Icon';
+import { BarChart, Users, Settings, ArrowRight, FileText, HelpCircle, AlertTriangle } from 'lucide-react';
 import { buttonSpecs, categorizedButtons, buttonUsage } from '../src/tokens/figma-button-specs';
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Button',
+  title: 'Components/Inputs/Button',
   component: Button,
   parameters: {
     layout: 'padded',
@@ -212,15 +212,15 @@ export const ButtonsWithIcons: Story = {
           <h3 className="text-lg font-medium font-primary">Leading Icons</h3>
           <div className="flex flex-wrap gap-3">
             <Button>
-              <Icon name="analytics" size={16} />
+              <BarChart className="mr-2 h-4 w-4" />
               View Analytics
             </Button>
             <Button variant="secondary">
-              <Icon name="users" size={16} />
+              <Users className="mr-2 h-4 w-4" />
               Manage Users
             </Button>
             <Button variant="ghost">
-              <Icon name="configure" size={16} />
+              <Settings className="mr-2 h-4 w-4" />
               Settings
             </Button>
           </div>
@@ -231,11 +231,11 @@ export const ButtonsWithIcons: Story = {
           <div className="flex flex-wrap gap-3">
             <Button>
               Get Started
-              <Icon name="backarrow" size={16} />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button variant="secondary">
               Export Data
-              <Icon name="report" size={16} />
+              <FileText className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -244,13 +244,13 @@ export const ButtonsWithIcons: Story = {
           <h3 className="text-lg font-medium font-primary">Icon Only Buttons</h3>
           <div className="flex flex-wrap gap-3">
             <Button size="sm" className="px-2">
-              <Icon name="configure" size={16} />
+              <Settings className="h-4 w-4" />
             </Button>
             <Button variant="ghost" size="sm" className="px-2">
-              <Icon name="gethelp" size={16} />
+              <HelpCircle className="h-4 w-4" />
             </Button>
             <Button variant="destructive" size="sm" className="px-2">
-              <Icon name="required" size={16} />
+              <AlertTriangle className="h-4 w-4" />
             </Button>
           </div>
         </div>

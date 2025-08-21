@@ -79,52 +79,52 @@ export const typeScale = {
   // Title hierarchy - Complete title system from Figma
   title: {
     '5xl': {
-      fontSize: '4rem',       // 64px
-      lineHeight: '1.1',      // 70.4px
-      letterSpacing: '-0.025em',
-      fontWeight: 600,
+      fontSize: '3rem',       // 48px
+      lineHeight: '76.8px',   // 76.8px
+      letterSpacing: '0',     // normal
+      fontWeight: 400,        // normal (regular weight)
       usage: 'Title 5XL - Hero headlines, landing pages'
     },
     '4xl': {
       fontSize: '3rem',       // 48px
       lineHeight: '1.15',     // 55.2px
       letterSpacing: '-0.02em',
-      fontWeight: 600,
+      fontWeight: 400,
       usage: 'Title 4XL - Page headlines, major sections'
     },
     '3xl': {
       fontSize: '2.25rem',    // 36px
       lineHeight: '1.25',     // 45px
       letterSpacing: '-0.01em',
-      fontWeight: 600,
+      fontWeight: 400,
       usage: 'Title 3XL - Section headers'
     },
     '2xl': {
       fontSize: '1.875rem',   // 30px
       lineHeight: '1.3',      // 39px
       letterSpacing: '-0.005em',
-      fontWeight: 600,
+      fontWeight: 400,
       usage: 'Title 2XL - Subsection headers'
     },
     xl: {
       fontSize: '1.5rem',     // 24px
       lineHeight: '1.35',     // 32.4px
       letterSpacing: 'normal',
-      fontWeight: 600,
+      fontWeight: 400,
       usage: 'Title XL - Component titles'
     },
     l: {
       fontSize: '1.25rem',    // 20px
       lineHeight: '1.4',      // 28px
       letterSpacing: 'normal',
-      fontWeight: 600,
+      fontWeight: 400,
       usage: 'Title L - Card titles, modal headers'
     },
     m: {
       fontSize: '1.125rem',   // 18px
       lineHeight: '1.45',     // 26.1px
       letterSpacing: 'normal',
-      fontWeight: 600,
+      fontWeight: 400,
       usage: 'Title M - Small headings, form sections'
     }
   },
@@ -149,10 +149,10 @@ export const typeScale = {
 
   titleSemibold: {
     '5xl': {
-      fontSize: '4rem',       // 64px
-      lineHeight: '1.1',      // 70.4px
-      letterSpacing: '-0.025em',
-      fontWeight: 600,
+      fontSize: '3rem',       // 48px
+      lineHeight: '76.8px',   // 76.8px
+      letterSpacing: '0',     // normal
+      fontWeight: 600,        // semibold
       usage: 'Title 5XL Semibold - Heavy hero headlines'
     },
     '4xl': {

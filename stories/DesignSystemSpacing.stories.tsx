@@ -431,7 +431,7 @@ export const UsageGuidelines: Story = {
         </div>
         
         <div className="p-6 border border-red-200 rounded-lg bg-red-50">
-          <h3 className="font-semibold text-red-900 mb-3">❌ Avoid These</h3>
+          <h3 className="font-semibold text-red-900 mb-3">Avoid These</h3>
           <ul className="text-sm text-red-800 space-y-2">
             <li>• Random pixel values outside the scale</li>
             <li>• Inconsistent spacing between similar elements</li>

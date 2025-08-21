@@ -1,7 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chat" data-icon="chat" data-category="communication">
-  <title>Chat</title>
-  <desc>communication icon from Comcast Business Design System</desc>
-<g id="Chat">
-<path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M6 4C4.89543 4 4 4.89543 4 6V26.5858L8.29289 22.2929C8.48043 22.1054 8.73478 22 9 22H26C27.1046 22 28 21.1046 28 20V6C28 4.89543 27.1046 4 26 4H6ZM2 6C2 3.79086 3.79086 2 6 2H26C28.2091 2 30 3.79086 30 6V20C30 22.2091 28.2091 24 26 24H9.41421L3.70711 29.7071C3.42111 29.9931 2.99099 30.0787 2.61732 29.9239C2.24364 29.7691 2 29.4045 2 29V6Z" fill="#15172B"/>
-</g>
-</svg>

@@ -6,6 +6,7 @@ import {
   semanticTypography,
   tailwindTypography
 } from '../src/tokens/typography-consolidated';
+import { Typography, Title, Body, Label, Code } from '../src/components/ui/typography';
 
 const meta: Meta = {
   title: 'Design System/Typography',
@@ -147,6 +148,161 @@ export const TypographyShowcase: Story = {
           and <strong>Lato</strong> for body text and content. All typography follows Figma specifications.
         </p>
       </div>
+
+      {/* Font Family Overview */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-gray-900" style={{ fontFamily: fontFamilies.primary.stack }}>
+          Font Families
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {Object.entries(fontFamilies).map(([key, font]) => (
+            <div key={key} className="p-4 border border-gray-200 rounded-lg">
+              <h3 className="text-sm font-medium text-gray-900 mb-2 uppercase">{key} Font</h3>
+              <div className="mb-3">
+                <div 
+                  className="text-lg mb-1"
+                  style={{ fontFamily: font.stack }}
+                >
+                  {font.name}
+                </div>
+                <div className="text-xs text-gray-500">{font.usage}</div>
+              </div>
+              <div className="text-xs text-gray-400">
+                Weights: {font.weights.join(', ')}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* New Title System Showcase */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-gray-900" style={{ fontFamily: fontFamilies.primary.stack }}>
+          Complete Title System
+        </h2>
+        <p className="text-sm text-gray-600">
+          Enhanced title hierarchy with multiple weight variants and proper semantic usage.
+        </p>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Regular Title Weights */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-gray-900">Regular Titles</h3>
+            {Object.entries(typeScale.title).map(([variant, styles]) => (
+              <TypographySample
+                key={`title-${variant}`}
+                label={`Title ${variant.toUpperCase()}`}
+                styles={{ ...styles, fontFamily: 'Montserrat' }}
+                text={`Title ${variant.toUpperCase()} - ${styles.usage}`}
+                category="title"
+              />
+            ))}
+          </div>
+
+          {/* Medium Title Weights */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-gray-900">Medium Weight Titles</h3>
+            {Object.entries(typeScale.titleMedium).map(([variant, styles]) => (
+              <TypographySample
+                key={`title-medium-${variant}`}
+                label={`Title ${variant.toUpperCase()} Medium`}
+                styles={{ ...styles, fontFamily: 'Montserrat' }}
+                text={`Title ${variant.toUpperCase()} Medium - ${styles.usage}`}
+                category="title-medium"
+              />
+            ))}
+          </div>
+
+          {/* Semibold Title Weights */}
+          <div className="space-y-4 lg:col-span-2">
+            <h3 className="text-lg font-medium text-gray-900">Semibold Titles</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Object.entries(typeScale.titleSemibold).map(([variant, styles]) => (
+                <TypographySample
+                  key={`title-semibold-${variant}`}
+                  label={`Title ${variant.toUpperCase()} Semibold`}
+                  styles={{ ...styles, fontFamily: 'Montserrat' }}
+                  text={`Title ${variant.toUpperCase()} Semibold - ${styles.usage}`}
+                  category="title-semibold"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Complete Body System */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-gray-900" style={{ fontFamily: fontFamilies.primary.stack }}>
+          Complete Body Text System
+        </h2>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Regular Body Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-gray-900">Regular Body Text</h3>
+            {Object.entries(typeScale.body).filter(([key]) => !['base', 'lg', 'sm'].includes(key)).map(([variant, styles]) => (
+              <TypographySample
+                key={`body-${variant}`}
+                label={`Body ${variant.toUpperCase()}`}
+                styles={{ ...styles, fontFamily: 'Lato' }}
+                text={`Body ${variant.toUpperCase()} - ${styles.usage}. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`}
+                category="body"
+              />
+            ))}
+          </div>
+
+          {/* Semibold Body Text */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-gray-900">Semibold Body Text</h3>
+            {Object.entries(typeScale.bodySemibold).map(([variant, styles]) => (
+              <TypographySample
+                key={`body-semibold-${variant}`}
+                label={`Body ${variant.toUpperCase()} Semibold`}
+                styles={{ ...styles, fontFamily: 'Lato' }}
+                text={`Body ${variant.toUpperCase()} Semibold - ${styles.usage}. Important emphasized content.`}
+                category="body-semibold"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Typography */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold text-gray-900" style={{ fontFamily: fontFamilies.primary.stack }}>
+          Interactive Elements
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-gray-900">Button Typography</h3>
+            {Object.entries(typeScale.interactive.button).map(([size, styles]) => (
+              <TypographySample
+                key={`button-${size}`}
+                label={`Button ${size}`}
+                styles={{ ...styles, fontFamily: 'Lato' }}
+                text={`Button ${size} - ${styles.usage}`}
+                category="button"
+              />
+            ))}
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-gray-900">Label Typography</h3>
+            {Object.entries(typeScale.interactive.label).map(([size, styles]) => (
+              <TypographySample
+                key={`label-${size}`}
+                label={`Label ${size}`}
+                styles={{ ...styles, fontFamily: 'Lato' }}
+                text={`Label ${size} - ${styles.usage}`}
+                category="label"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Font Families Overview */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -1160,6 +1316,188 @@ export const FontLoadingTest: Story = {
           the Google Fonts may still be loading. Check your network tab for font loading status.
         </p>
       </div>
+    </div>
+  )
+};
+
+// Typography Utility Components Story
+export const TypographyComponents: Story = {
+  render: () => (
+    <div className="p-8 space-y-12">
+      <div className="text-center space-y-4">
+        <Title level={1}>Typography Utility Components</Title>
+        <Body size="xl">
+          Easy-to-use React components that automatically apply the correct typography styles from our design system.
+        </Body>
+      </div>
+
+      {/* Title Component Examples */}
+      <section className="space-y-6">
+        <Title level={2}>Title Components</Title>
+        <Body>The Title component provides semantic heading levels with proper weight variations.</Body>
+        
+        <div className="space-y-4">
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Title level={1}>Level 1 Title (H1)</Title>
+            <Code inline>&lt;Title level={1}&gt;Level 1 Title&lt;/Title&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Title level={2} weight="semibold">Level 2 Semibold Title (H2)</Title>
+            <Code inline>&lt;Title level={2} weight="semibold"&gt;Level 2 Title&lt;/Title&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Title level={3} weight="medium">Level 3 Medium Title (H3)</Title>
+            <Code inline>&lt;Title level={3} weight="medium"&gt;Level 3 Title&lt;/Title&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Title level={4}>Level 4 Title (H4)</Title>
+            <Code inline>&lt;Title level={4}&gt;Level 4 Title&lt;/Title&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Title level={5}>Level 5 Title (H5)</Title>
+            <Code inline>&lt;Title level={5}&gt;Level 5 Title&lt;/Title&gt;</Code>
+          </div>
+        </div>
+      </section>
+
+      {/* Body Component Examples */}
+      <section className="space-y-6">
+        <Title level={2}>Body Text Components</Title>
+        <Body>The Body component provides all body text sizes with optional semibold variants.</Body>
+        
+        <div className="space-y-4">
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Body size="xl">Extra Large Body Text - Perfect for introductions and lead paragraphs that need more visual weight.</Body>
+            <Code inline>&lt;Body size="xl"&gt;Extra Large Body Text&lt;/Body&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Body size="l">Large Body Text - The default size for most content. Provides excellent readability for extended reading.</Body>
+            <Code inline>&lt;Body size="l"&gt;Large Body Text&lt;/Body&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Body size="m">Medium Body Text - Ideal for secondary content, captions, and supporting information.</Body>
+            <Code inline>&lt;Body size="m"&gt;Medium Body Text&lt;/Body&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Body size="s">Small Body Text - Perfect for helper text, metadata, and compact layouts.</Body>
+            <Code inline>&lt;Body size="s"&gt;Small Body Text&lt;/Body&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Body size="xs">Extra Small Body Text - Used for fine print, timestamps, and minimal text elements.</Body>
+            <Code inline>&lt;Body size="xs"&gt;Extra Small Body Text&lt;/Body&gt;</Code>
+          </div>
+        </div>
+      </section>
+
+      {/* Semibold Body Examples */}
+      <section className="space-y-6">
+        <Title level={3}>Semibold Body Text</Title>
+        <Body>Use semibold variants to emphasize important content within body text.</Body>
+        
+        <div className="space-y-4">
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Body size="l" weight="semibold">Large Semibold Body Text - For emphasized content that needs attention.</Body>
+            <Code inline>&lt;Body size="l" weight="semibold"&gt;Emphasized Text&lt;/Body&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Body size="m" weight="semibold">Medium Semibold Body Text - Perfect for important secondary information.</Body>
+            <Code inline>&lt;Body size="m" weight="semibold"&gt;Important Text&lt;/Body&gt;</Code>
+          </div>
+        </div>
+      </section>
+
+      {/* Label and Code Examples */}
+      <section className="space-y-6">
+        <Title level={2}>Labels and Code</Title>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <Title level={3}>Label Components</Title>
+            
+            <div className="p-4 border border-gray-200 rounded-lg">
+              <Label size="base">Base Label Text</Label>
+              <Code inline>&lt;Label size="base"&gt;Label Text&lt;/Label&gt;</Code>
+            </div>
+            
+            <div className="p-4 border border-gray-200 rounded-lg">
+              <Label size="sm">Small Label Text</Label>
+              <Code inline>&lt;Label size="sm"&gt;Small Label&lt;/Label&gt;</Code>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <Title level={3}>Code Components</Title>
+            
+            <div className="p-4 border border-gray-200 rounded-lg">
+              <Body>This is <Code inline>inline code</Code> within text.</Body>
+              <Code inline>&lt;Code inline&gt;inline code&lt;/Code&gt;</Code>
+            </div>
+            
+            <div className="p-4 border border-gray-200 rounded-lg">
+              <Code>
+{`function example() {
+  return "block code";
+}`}
+              </Code>
+              <Code inline>&lt;Code&gt;block code&lt;/Code&gt;</Code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Direct Typography Component */}
+      <section className="space-y-6">
+        <Title level={2}>Direct Typography Component</Title>
+        <Body>For advanced use cases, use the Typography component directly with specific variants.</Body>
+        
+        <div className="space-y-4">
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Typography variant="title-5xl-semibold">Direct Typography Usage</Typography>
+            <Code inline>&lt;Typography variant="title-5xl-semibold"&gt;Text&lt;/Typography&gt;</Code>
+          </div>
+          
+          <div className="p-4 border border-gray-200 rounded-lg">
+            <Typography variant="body-l-semibold" as="span">Custom element with typography</Typography>
+            <Code inline>&lt;Typography variant="body-l-semibold" as="span"&gt;Text&lt;/Typography&gt;</Code>
+          </div>
+        </div>
+      </section>
+
+      {/* Usage Guidelines */}
+      <section className="space-y-6">
+        <Title level={2}>Usage Guidelines</Title>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="p-6 bg-green-50 border border-green-200 rounded-lg">
+            <Title level={4} className="text-green-700">Do</Title>
+            <ul className="space-y-2 mt-4">
+              <Body size="m" as="li">• Use semantic title levels (1-5) for proper document structure</Body>
+              <Body size="m" as="li">• Choose appropriate body sizes based on content hierarchy</Body>
+              <Body size="m" as="li">• Use semibold variants sparingly for emphasis</Body>
+              <Body size="m" as="li">• Prefer the semantic components (Title, Body) over direct Typography</Body>
+            </ul>
+          </div>
+          
+          <div className="p-6 bg-red-50 border border-red-200 rounded-lg">
+            <Title level={4} className="text-red-700">Don't</Title>
+            <ul className="space-y-2 mt-4">
+              <Body size="m" as="li">• Skip heading levels (e.g., H1 directly to H3)</Body>
+              <Body size="m" as="li">• Use title components for body content</Body>
+              <Body size="m" as="li">• Override font families unless absolutely necessary</Body>
+              <Body size="m" as="li">• Mix typography systems - stick to the design system</Body>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
   )
 };

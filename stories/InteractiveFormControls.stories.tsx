@@ -4,6 +4,7 @@ import { Button } from '../src/components/ui/button';
 import { Checkbox } from '../src/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '../src/components/ui/radio-group';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../src/components/ui/card';
+import { Title, Body } from '../src/components/ui/typography';
 
 const meta: Meta = {
   title: 'Interactive Form Controls',
@@ -59,12 +60,12 @@ export const CheckboxStatesDemo: Story = {
     return (
       <div className="space-y-8 max-w-4xl">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-[#15172B] font-primary mb-4">
+          <Title level={1} weight="semibold" className="text-[#15172B] mb-4">
             Interactive Checkbox States
-          </h1>
-          <p className="text-[#70717D] font-secondary">
+          </Title>
+          <Body size="l" className="text-[#70717D]">
             Interact with checkboxes to see all states in action
-          </p>
+          </Body>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -78,7 +79,7 @@ export const CheckboxStatesDemo: Story = {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-4">
-                <h4 className="font-medium text-[#15172B] font-primary">Communication</h4>
+                <Title level={4} weight="medium" className="text-[#15172B]">Communication</Title>
                 <div className="space-y-3">
                   <Checkbox
                     label="Email Notifications"
@@ -102,7 +103,7 @@ export const CheckboxStatesDemo: Story = {
               </div>
 
               <div className="space-y-4">
-                <h4 className="font-medium text-[#15172B] font-primary">Marketing</h4>
+                <Title level={4} weight="medium" className="text-[#15172B]">Marketing</Title>
                 <div className="space-y-3">
                   <Checkbox
                     label="Marketing Emails"
@@ -207,7 +208,7 @@ export const CheckboxStatesDemo: Story = {
 
             {/* Loading States Demo */}
             <div className="space-y-4">
-              <h4 className="font-medium text-[#15172B] font-primary">Loading States Demo</h4>
+              <Title level={4} weight="medium" className="text-[#15172B]">Loading States Demo</Title>
               <div className="flex flex-wrap gap-4">
                 <Button 
                   variant="primary" 
@@ -362,12 +363,12 @@ export const RadioButtonStatesDemo: Story = {
     return (
       <div className="space-y-8 max-w-4xl">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-[#15172B] font-primary mb-4">
+          <Title level={1} weight="semibold" className="text-[#15172B] mb-4">
             Interactive Radio Button States
-          </h1>
-          <p className="text-[#70717D] font-secondary">
+          </Title>
+          <Body size="l" className="text-[#70717D]">
             Select options to see radio button states and form validation
-          </p>
+          </Body>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -382,11 +383,11 @@ export const RadioButtonStatesDemo: Story = {
             <CardContent className="space-y-6">
               {/* Business Type - Required */}
               <div>
-                <h4 className="font-medium text-[#15172B] font-primary mb-4 flex items-center gap-1">
+                <Title level={4} weight="medium" className="text-[#15172B] mb-4 flex items-center gap-1">
                   Business Type
                   <span className="text-[#424454]">*</span>
                   {!businessType && <span className="text-[#D11314] text-sm ml-2">(Required)</span>}
-                </h4>
+                </Title>
                 <RadioGroup value={businessType} onValueChange={setBusinessType}>
                   <div className="space-y-3">
                     <RadioGroupItem 
@@ -407,7 +408,7 @@ export const RadioButtonStatesDemo: Story = {
 
               {/* Service Level */}
               <div>
-                <h4 className="font-medium text-[#15172B] font-primary mb-4">Service Level</h4>
+                <Title level={4} weight="medium" className="text-[#15172B] mb-4">Service Level</Title>
                 <RadioGroup value={serviceLevel} onValueChange={setServiceLevel}>
                   <div className="space-y-3">
                     <RadioGroupItem 
@@ -433,11 +434,11 @@ export const RadioButtonStatesDemo: Story = {
 
               {/* Contract Length - Required */}
               <div>
-                <h4 className="font-medium text-[#15172B] font-primary mb-4 flex items-center gap-1">
+                <Title level={4} weight="medium" className="text-[#15172B] mb-4 flex items-center gap-1">
                   Contract Length
                   <span className="text-[#424454]">*</span>
                   {!contractLength && <span className="text-[#D11314] text-sm ml-2">(Required)</span>}
-                </h4>
+                </Title>
                 <RadioGroup value={contractLength} onValueChange={setContractLength}>
                   <div className="space-y-3">
                     <RadioGroupItem 
@@ -740,12 +741,12 @@ export const CombinedFormDemo: Story = {
     return (
       <div className="space-y-8 max-w-4xl">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-[#15172B] font-primary mb-4">
+          <Title level={1} weight="semibold" className="text-[#15172B] mb-4">
             Complete Form Interactions
-          </h1>
-          <p className="text-[#70717D] font-secondary">
+          </Title>
+          <Body size="l" className="text-[#70717D]">
             Combined checkbox and radio button interactions with validation
-          </p>
+          </Body>
         </div>
 
         <Card>
@@ -758,11 +759,11 @@ export const CombinedFormDemo: Story = {
           <CardContent className="space-y-8">
             {/* Account Type - Radio Group */}
             <div>
-              <h4 className="font-medium text-[#15172B] font-primary mb-4 flex items-center gap-2">
+              <Title level={4} weight="medium" className="text-[#15172B] mb-4 flex items-center gap-2">
                 Account Type
                 <span className="text-[#424454]">*</span>
                 {errors.accountType && <span className="text-[#D11314] text-sm">(Required)</span>}
-              </h4>
+              </Title>
               <RadioGroup 
                 value={formData.accountType} 
                 onValueChange={(value) => setFormData(prev => ({...prev, accountType: value}))}
@@ -777,7 +778,7 @@ export const CombinedFormDemo: Story = {
 
             {/* Notification Preferences - Checkboxes */}
             <div>
-              <h4 className="font-medium text-[#15172B] font-primary mb-4">Notification Preferences</h4>
+              <Title level={4} weight="medium" className="text-[#15172B] mb-4">Notification Preferences</Title>
               <div className="space-y-3">
                 <Checkbox
                   label="Email Notifications"
@@ -802,7 +803,7 @@ export const CombinedFormDemo: Story = {
 
             {/* Billing Frequency - Radio Group */}
             <div>
-              <h4 className="font-medium text-[#15172B] font-primary mb-4">Billing Frequency</h4>
+              <Title level={4} weight="medium" className="text-[#15172B] mb-4">Billing Frequency</Title>
               <RadioGroup 
                 value={formData.billingFrequency} 
                 onValueChange={(value) => setFormData(prev => ({...prev, billingFrequency: value}))}
@@ -817,7 +818,7 @@ export const CombinedFormDemo: Story = {
 
             {/* Support Level - Radio Group */}
             <div>
-              <h4 className="font-medium text-[#15172B] font-primary mb-4">Support Level</h4>
+              <Title level={4} weight="medium" className="text-[#15172B] mb-4">Support Level</Title>
               <RadioGroup 
                 value={formData.supportLevel} 
                 onValueChange={(value) => setFormData(prev => ({...prev, supportLevel: value}))}

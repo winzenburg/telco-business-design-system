@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { CheckIcon } from "lucide-react"
+// Removed lucide-react dependency - using design system icon instead
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../../utils/cn"
@@ -154,7 +154,7 @@ const Checkbox = React.forwardRef<
           {...props}
         >
           <CheckboxPrimitive.Indicator className="flex items-center justify-center text-current">
-            <CheckIcon className="size-3 stroke-[3]" />
+            <Icon name="check" size={12} className="text-current" decorative />
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
         {label && (

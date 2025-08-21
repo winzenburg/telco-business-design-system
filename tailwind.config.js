@@ -86,10 +86,10 @@ module.exports = {
         ...require('./src/tokens/design-system-elevation').tailwindShadows,
       },
       
-      // Comcast Business Brand Colors - Consolidated System
+      // Comcast Business Brand Colors - Design System Colors
       colors: {
-        // Use consolidated color system with Figma secondary colors
-        ...require('./src/tokens/colors-consolidated').tailwindColors,
+        // Use design system colors as primary color system
+        ...require('./src/tokens/design-system-colors').colors,
         
         // Primary Brand Colors (Updated with Figma exact colors)
         primary: {

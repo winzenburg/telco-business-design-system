@@ -1,7 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EcoBill" data-icon="ecobill" data-category="general">
-  <title>EcoBill</title>
-  <desc>general icon from Comcast Business Design System</desc>
-<g id="EcoBill">
-<path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M2 19C2 9.61116 9.61116 2 19 2H29C29.5523 2 30 2.44772 30 3V13C30 22.3888 22.3888 30 13 30H3C2.44772 30 2 29.5523 2 29V19ZM19 4C10.7157 4 4 10.7157 4 19V26.5858L14 16.5858V9C14 8.44772 14.4477 8 15 8C15.5523 8 16 8.44772 16 9V14.5858L24.2929 6.29289C24.6834 5.90237 25.3166 5.90237 25.7071 6.29289C26.0976 6.68342 26.0976 7.31658 25.7071 7.70711L12.4142 21H18C18.5523 21 19 21.4477 19 22C19 22.5523 18.5523 23 18 23H10.4142L5.41421 28H13C21.2843 28 28 21.2843 28 13V4H19Z" fill="#15172B"/>
-</g>
-</svg>

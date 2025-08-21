@@ -1,7 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Video Monitoring" data-icon="videomonitoring" data-category="media">
-  <title>Video Monitoring</title>
-  <desc>media icon from Comcast Business Design System</desc>
-<g id="Video Monitoring">
-<path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M2 5C2 4.44772 2.44772 4 3 4H29C29.5523 4 30 4.44772 30 5V12C30 12.5523 29.5523 13 29 13V17C29 24.1797 23.1797 30 16 30C8.8203 30 3 24.1797 3 17V13C2.44772 13 2 12.5523 2 12V5ZM27 17V13H5V17C5 23.0751 9.92487 28 16 28C22.0751 28 27 23.0751 27 17ZM28 6V11H4V6H28ZM18 21C18 22.1046 17.1046 23 16 23C14.8954 23 14 22.1046 14 21C14 19.8954 14.8954 19 16 19C17.1046 19 18 19.8954 18 21ZM20 21C20 23.2091 18.2091 25 16 25C13.7909 25 12 23.2091 12 21C12 18.7909 13.7909 17 16 17C18.2091 17 20 18.7909 20 21Z" fill="#15172B"/>
-</g>
-</svg>

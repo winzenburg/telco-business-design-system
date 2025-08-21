@@ -1,4 +1,22 @@
-import { semanticTokens } from '../tokens/colors-consolidated';
+// Using hardcoded colors temporarily until chart color system is properly integrated
+const chartColors = {
+  dataVisualization: {
+    categorical: {
+      cat1: '#0D62FF',
+      cat2: '#4A89FF',
+      cat3: '#86B0FF',
+      cat4: '#C2D8FF',
+      cat5: '#EBF1FF',
+    },
+    signal: {
+      critical: '#DC2626',
+      high: '#F97316',
+      medium: '#EAB308',
+      low: '#10B981',
+      positive: '#059669',
+    }
+  }
+};
 
 // Sample data generators for chart examples
 export const generateMonthlyData = () => [
@@ -21,11 +39,11 @@ export const generateUsageData = () => [
 ];
 
 export const generateServiceData = () => [
-  { name: 'Internet Pro', value: 400, fill: semanticTokens.dataVisualization.categorical.cat1 },
-  { name: 'Voice Services', value: 300, fill: semanticTokens.dataVisualization.categorical.cat2 },
-  { name: 'Security Suite', value: 300, fill: semanticTokens.dataVisualization.categorical.cat3 },
-  { name: 'WiFi Pro', value: 200, fill: semanticTokens.dataVisualization.categorical.cat4 },
-  { name: 'Cloud Backup', value: 150, fill: semanticTokens.dataVisualization.categorical.cat5 },
+  { name: 'Internet Pro', value: 400, fill: chartColors.dataVisualization.categorical.cat1 },
+  { name: 'Voice Services', value: 300, fill: chartColors.dataVisualization.categorical.cat2 },
+  { name: 'Security Suite', value: 300, fill: chartColors.dataVisualization.categorical.cat3 },
+  { name: 'WiFi Pro', value: 200, fill: chartColors.dataVisualization.categorical.cat4 },
+  { name: 'Cloud Backup', value: 150, fill: chartColors.dataVisualization.categorical.cat5 },
 ];
 
 export const generatePerformanceData = () => [
@@ -56,48 +74,48 @@ export const generateSignalBarData = () => [
 export const getCategoricalConfig = () => ({
   bandwidth: {
     label: 'Bandwidth Usage',
-    color: semanticTokens.dataVisualization.categorical.cat1,
+    color: chartColors.dataVisualization.categorical.cat1,
   },
   users: {
     label: 'Active Users',
-    color: semanticTokens.dataVisualization.categorical.cat2,
+    color: chartColors.dataVisualization.categorical.cat2,
   },
   revenue: {
     label: 'Revenue ($)',
-    color: semanticTokens.dataVisualization.categorical.cat3,
+    color: chartColors.dataVisualization.categorical.cat3,
   },
 });
 
 export const getSignalConfig = () => ({
   critical: {
     label: 'Critical',
-    color: semanticTokens.dataVisualization.signal.critical,
+    color: chartColors.dataVisualization.signal.critical,
   },
   high: {
     label: 'High Priority',
-    color: semanticTokens.dataVisualization.signal.high,
+    color: chartColors.dataVisualization.signal.high,
   },
   medium: {
     label: 'Medium Priority',
-    color: semanticTokens.dataVisualization.signal.medium,
+    color: chartColors.dataVisualization.signal.medium,
   },
   low: {
     label: 'Low Priority',
-    color: semanticTokens.dataVisualization.signal.low,
+    color: chartColors.dataVisualization.signal.low,
   },
   positive: {
     label: 'Positive',
-    color: semanticTokens.dataVisualization.signal.positive,
+    color: chartColors.dataVisualization.signal.positive,
   },
 });
 
 export const getRadarConfig = () => ({
   A: {
     label: 'Current Plan',
-    color: semanticTokens.dataVisualization.categorical.cat1,
+    color: chartColors.dataVisualization.categorical.cat1,
   },
   B: {
     label: 'Competitor',
-    color: semanticTokens.dataVisualization.categorical.cat2,
+    color: chartColors.dataVisualization.categorical.cat2,
   },
 });
