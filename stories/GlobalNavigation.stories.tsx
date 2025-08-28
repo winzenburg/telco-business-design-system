@@ -3,7 +3,7 @@ import React from 'react';
 import { GlobalNavigation } from '../src/components/GlobalNavigation';
 
 const meta: Meta<typeof GlobalNavigation> = {
-  title: 'Navigation/Global Navigation',
+  title: 'Components/GlobalNavigation',
   component: GlobalNavigation,
   parameters: {
     layout: 'fullscreen',

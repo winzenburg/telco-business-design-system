@@ -4,6 +4,19 @@ import '../src/styles/tailwind.css';
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          'Components',
+          ['Accordion', 'Alert', 'Avatar', 'Badge', 'Breadcrumb', 'Button', 'Card', 'Chart', 'Checkbox', 'Command', 'Dialog', 'FormElements', 'GlobalNavigation', 'Input', 'Label', 'List', 'Menu', 'Navigation', 'Popover', 'Progress', 'RadioGroup', 'Select', 'Separator', 'Sheet', 'Skeleton', 'Slider', 'Switch', 'Table', 'Tabs', 'Textarea', 'Toast', 'Tooltip'],
+          'Design System',
+          ['Elevation & Shadows', 'Grid & Layout', 'Icons', 'Spacing', 'Token Patterns', 'Typography'],
+          'Enterprise',
+          ['Billing', 'Dashboard', 'Reports', 'Service Management', 'Settings', 'User Management', 'Workflows'],
+        ],
+      },
+    },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {

@@ -313,4 +313,14 @@
   .focus-ring-error {
     @apply focus-visible:ring-2 focus-visible:ring-error-500 focus-visible:ring-offset-2;
   }
+
+  /* Skeleton shimmer animation */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
 } 

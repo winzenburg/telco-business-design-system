@@ -1,0 +1,48 @@
+{
+  "name": "@comcast-business/docs",
+  "version": "1.0.0",
+  "description": "Documentation and Storybook for Comcast Business Design System",
+  "private": true,
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build",
+    "build:docs": "build-storybook -o dist",
+    "serve": "npx http-server dist",
+    "clean": "rm -rf dist/ storybook-static/",
+    "lint": "eslint stories --ext .ts,.tsx",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "storybook",
+    "documentation",
+    "comcast",
+    "business",
+    "design-system"
+  ],
+  "author": "Comcast Business Design System Team",
+  "license": "MIT",
+  "dependencies": {
+    "@comcast-business/components": "workspace:*",
+    "@comcast-business/design-tokens": "workspace:*",
+    "@comcast-business/icons": "workspace:*",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.0",
+    "@storybook/addon-interactions": "^7.6.0",
+    "@storybook/addon-links": "^7.6.0",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.0",
+    "@storybook/react": "^7.6.0",
+    "@storybook/react-vite": "^7.6.0",
+    "@storybook/test": "^7.6.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/node": "^20.0.0",
+    "storybook": "^7.6.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "eslint": "^8.0.0"
+  }
+}

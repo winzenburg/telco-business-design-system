@@ -256,6 +256,7 @@ export const svgImports = {
   "doublechevron": () => import('../assets/icons/doublechevron.svg?raw'),
   "chevron": () => import('../assets/icons/chevron.svg?raw'),
   "arrow": () => import('../assets/icons/arrow.svg?raw'),
+  "uiarrows": () => import('../assets/icons/uiarrows.svg?raw'),
   "sort": () => import('../assets/icons/sort.svg?raw'),
   "externallink": () => import('../assets/icons/externallink.svg?raw'),
   "sizexl32x32directionright": () => import('../assets/icons/sizexl32x32directionright.svg?raw'),
@@ -4106,7 +4107,10 @@ export const icons = {
     "category": "navigation",
     "description": "",
     "key": "uiarrows",
-    "exportable": true
+    "exportable": true,
+    "fileName": "uiarrows.svg",
+    "filePath": "src/assets/icons/uiarrows.svg",
+    "relativePath": "src/assets/icons/uiarrows.svg"
 },
   "sort": {
     "name": ".Sort",

@@ -58,13 +58,13 @@ export const HeaderNavigation: Story = {
         {/* Primary Header */}
         <div className="border border-gray-200 rounded-lg overflow-hidden">
           <header className="bg-white border-b border-gray-200 px-6 py-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between min-w-0 gap-4">
               {/* Logo */}
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">CB</span>
+              <div className="flex items-center gap-3 min-w-0 flex-shrink-0">
+                <div className="w-8 h-8 bg-[#0D62FF] rounded flex items-center justify-center flex-shrink-0">
+                  <span className="text-white font-bold text-sm">C</span>
                 </div>
-                <span className="text-xl font-semibold font-primary">Comcast Business</span>
+                <span className="text-xl font-semibold font-primary text-gray-900 whitespace-nowrap">Comcast Business</span>
               </div>
 
               {/* Navigation Items */}
@@ -92,16 +92,16 @@ export const HeaderNavigation: Story = {
               </nav>
 
               {/* Account Menu */}
-              <div className="relative">
+              <div className="relative flex-shrink-0">
                 <button
                   onClick={() => setIsAccountOpen(!isAccountOpen)}
-                  className="flex items-center gap-2 px-3 py-2 rounded-md hover:bg-gray-50 font-secondary"
+                  className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-gray-50 font-secondary min-w-0"
                 >
-                  <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-sm font-medium">JD</span>
                   </div>
-                  <span className="hidden sm:block">John Doe</span>
-<ChevronDown className="h-4 w-4" />
+                  <span className="hidden sm:block text-gray-900 font-medium whitespace-nowrap">John Doe</span>
+                  <ChevronDown className="h-4 w-4 flex-shrink-0" />
                 </button>
 
                 {isAccountOpen && (

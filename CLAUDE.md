@@ -6,10 +6,18 @@
 
 ## Canonical Sources (read these first)
 
+- **Repository Overview & Workflow** → `./packages/docs/context/README.md`
 - **Visual Foundations / Tokens** → `./packages/docs/context/style-guide.md`
 - **Design Principles (binding rules)** → `./packages/docs/context/design-principles.md`
 - **Design Review Process & Merge Gates** → `./packages/docs/context/design-review-slash-command.md`
 - **Design Heuristics (automation hints)** → `./packages/docs/context/design-heuristics.yaml`
+
+### UX Reasoning Documents
+- **structure, hierarchy, and user goal modeling** → `./packages/docs/context/ux-principles.md`
+- **maps tasks to UI patterns** → `./packages/docs/context/interaction-patterns.md`
+- **page structure and role-based layout rules** → `./packages/docs/context/layout-decisions.md`
+- **inclusive design and accessibility guidance** → `./packages/docs/context/inclusive-ux.md`
+
 
 > If any document conflicts, **Design Principles** win. The Style Guide supplies values; the Review doc enforces the bar; Heuristics inform automation.
 
@@ -25,6 +33,7 @@
 - **Performance**: SSR-safe, tree-shakeable, zero layout thrash on theme switch; avoid runtime CSS-in-JS (prefer CSS vars with precompiled styles or zero-runtime solutions).
 - **Icons policy (resolved)**: Icon components use `currentColor` by default; support `colorToken="<token-name>"` (component resolves token → value). Authors never paste hex.
 - **Never do**: invent tokens/variants ad-hoc; nth-child hacks that break composition; `dangerouslySetInnerHTML` in primitives; console errors in normal flows.
+- **Component Organization**: Each component should be displayed as a standalone page in Storybook. **Never organize components in folder/category structures** within the Storybook navigation. Each component gets its own top-level page for discoverability and ease of use.
 
 ---
 

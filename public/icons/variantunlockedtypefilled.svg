@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Variant=Unlocked, Type=Filled" data-icon="variantunlockedtypefilled" data-category="security">
+  <title>Variant=Unlocked, Type=Filled</title>
+  <desc>security icon from Comcast Business Design System</desc>
+<g id="Variant=Unlocked, Type=Filled">
+<g id="shape">
+<path d="M3 17.6667C3 15.6416 4.64162 14 6.66667 14H25.3333C27.3584 14 29 15.6416 29 17.6667V26.3333C29 28.3584 27.3584 30 25.3333 30H6.66667C4.64162 30 3 28.3584 3 26.3333V17.6667Z" fill="#15172B"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 4C12.586 4 10 6.28149 10 9.5V15C10 15.5523 9.55228 16 9 16C8.44772 16 8 15.5523 8 15V9.5C8 4.98653 11.682 2 16 2C19.7275 2 22.9906 4.21631 23.808 7.77621C23.9316 8.31449 23.5955 8.85104 23.0572 8.97464C22.5189 9.09823 21.9823 8.76207 21.8588 8.22379C21.2841 5.72095 18.9569 4 16 4Z" fill="#15172B"/>
+</g>
+</g>
+</svg>

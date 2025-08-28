@@ -1,0 +1,51 @@
+{
+  "name": "@comcast-business/icons",
+  "version": "1.0.0",
+  "description": "Icon components and assets for Comcast Business Design System",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "assets/",
+    "src/"
+  ],
+  "scripts": {
+    "build": "tsc && npm run build:icons",
+    "build:icons": "node scripts/generate-icons.js",
+    "clean": "rm -rf dist/",
+    "dev": "tsc --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "react",
+    "comcast",
+    "business",
+    "design-system"
+  ],
+  "author": "Comcast Business Design System Team",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./assets": "./assets/",
+    "./registry": "./dist/icon-registry.js"
+  }
+}

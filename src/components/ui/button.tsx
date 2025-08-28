@@ -7,8 +7,13 @@ import { cn } from "../../utils/cn"
 // Button component with Figma specifications
 
 const buttonVariants = cva(
-  // Base styles from Figma: inline-flex, justify-center, align-items-center, gap-10px, height-40px
-  "appearance-none border-0 inline-flex items-center justify-center gap-2.5 h-10 shrink-0 font-primary font-semibold text-sm leading-[160%] text-white transition-all duration-150 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none select-none disabled:bg-neutral-300 disabled:text-neutral-600 data-[loading=true]:bg-primary-500",
+  [
+    // Base styles from Figma: inline-flex, justify-center, align-items-center, gap-10px, height-40px
+    "appearance-none border-0 inline-flex items-center justify-center gap-2.5 h-10 shrink-0 font-primary font-semibold text-sm leading-[160%]",
+    "transition-all duration-150 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none select-none",
+    "disabled:bg-neutral-300 disabled:text-neutral-600 data-[loading=true]:bg-primary-500",
+    "relative overflow-hidden", // For ripple effect support
+  ],
   {
     variants: {
       variant: {
@@ -69,19 +74,58 @@ const buttonVariants = cva(
         xl: "h-12 px-6 py-3 text-lg rounded-[4px]",
         
         // Icon only buttons - From Figma: Blue-400 background, white border, all 6 states
-        icon: "size-10 p-0 rounded-[6px] bg-primary-400 border border-white text-white hover:bg-primary-500 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] data-[loading=true]:bg-primary-400 [&_svg]:size-5",
+        icon: "size-10 p-0 rounded-[6px] [&_svg]:size-5",
         
         // Small icon - 32px size
-        "icon-sm": "size-8 p-0 rounded-[6px] bg-primary-400 border border-white text-white hover:bg-primary-500 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] data-[loading=true]:bg-primary-400 [&_svg]:size-4",
+        "icon-sm": "size-8 p-0 rounded-[6px] [&_svg]:size-4",
         
         // Large icon - 48px size  
-        "icon-lg": "size-12 p-0 rounded-[6px] bg-primary-400 border border-white text-white hover:bg-primary-500 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] data-[loading=true]:bg-primary-400 [&_svg]:size-6",
+        "icon-lg": "size-12 p-0 rounded-[6px] [&_svg]:size-6",
+        
       },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
     },
+    compoundVariants: [
+      // Icon button variants that inherit proper colors and states
+      {
+        size: ["icon", "icon-sm", "icon-lg"],
+        variant: "default",
+        className: "bg-primary-400 border border-white text-white hover:bg-primary-500 hover:text-white hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:text-white active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] data-[loading=true]:bg-primary-400",
+      },
+      {
+        size: ["icon", "icon-sm", "icon-lg"],
+        variant: "primary",
+        className: "bg-primary-400 border border-white text-white hover:bg-primary-500 hover:text-white hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:text-white active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] data-[loading=true]:bg-primary-400",
+      },
+      {
+        size: ["icon", "icon-sm", "icon-lg"],
+        variant: "secondary",
+        className: "bg-white border border-figma-border text-primary-500 hover:bg-primary-50 hover:text-primary-600 hover:border-primary-500 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-neutral-300 active:text-primary-700 active:border-figma-border active:translate-y-px disabled:bg-white disabled:text-black/50 disabled:border-neutral-300 focus-visible:border-figma-border focus-visible:shadow-[0_0_0_1.5px_#0D62FF]",
+      },
+      {
+        size: ["icon", "icon-sm", "icon-lg"],
+        variant: "tertiary",
+        className: "bg-primary-50 border border-transparent text-primary-500 hover:bg-primary-100 hover:text-primary-600 active:bg-primary-200 active:text-primary-700 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2",
+      },
+      {
+        size: ["icon", "icon-sm", "icon-lg"],
+        variant: "ghost",
+        className: "bg-transparent border border-transparent text-primary-500 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 active:text-primary-700 disabled:bg-transparent disabled:text-neutral-500 focus-visible:bg-transparent focus-visible:text-primary-500 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2",
+      },
+      {
+        size: ["icon", "icon-sm", "icon-lg"],
+        variant: "destructive",
+        className: "bg-red-500 border border-transparent text-white hover:bg-red-600 hover:text-white hover:shadow-sm active:bg-red-700 active:text-white active:translate-y-px focus-visible:outline-2 focus-visible:outline-red-500 focus-visible:outline-offset-2",
+      },
+      {
+        size: ["icon", "icon-sm", "icon-lg"],
+        variant: "outline",
+        className: "bg-white border border-neutral-300 text-neutral-700 hover:bg-neutral-50 hover:text-neutral-800 hover:border-neutral-400 active:bg-neutral-100 active:text-neutral-900 active:border-neutral-500 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2",
+      },
+    ],
   }
 )
 
@@ -105,6 +149,10 @@ export interface ButtonProps
    * Make button full width
    */
   fullWidth?: boolean
+  /**
+   * Elevation level (0-5)
+   */
+  elevation?: 0 | 1 | 2 | 3 | 4 | 5
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -119,55 +167,71 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     children,
     disabled,
     fullWidth = false,
+    elevation = 0,
+    onClick,
     ...props 
   }, ref) => {
     const Comp = asChild ? Slot : "button"
     
     // Handle loading state
     const isDisabled = disabled || loading
+    
+    // Elevation classes
+    const elevationClasses = {
+      0: '',
+      1: 'shadow-sm',
+      2: 'shadow-md', 
+      3: 'shadow-lg',
+      4: 'shadow-xl',
+      5: 'shadow-2xl',
+    }
 
     return (
-      <Comp
-        className={cn(
-          buttonVariants({ variant, size }), 
-          fullWidth && "w-full",
-          className
-        )}
-        ref={ref}
-        disabled={isDisabled}
-        data-loading={loading}
-        aria-busy={loading}
-        {...props}
-      >
-        {loading && (
-          <svg
-            className="animate-spin"
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M12.5 22C18.0228 22 22.5 17.5228 22.5 12C22.5 6.47715 18.0228 2 12.5 2C6.97715 2 2.5 6.47715 2.5 12C2.5 17.5228 6.97715 22 12.5 22ZM12.5 19C16.366 19 19.5 15.866 19.5 12C19.5 8.13401 16.366 5 12.5 5C8.63401 5 5.5 8.13401 5.5 12C5.5 15.866 8.63401 19 12.5 19Z"
-              fill="white"
-              fillOpacity="0.25"
-            />
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M12.5 3.50005C12.5 2.67162 11.8245 1.98822 11.0053 2.11101C6.67908 2.75943 3.25943 6.17909 2.61101 10.5053C2.48822 11.3245 3.17162 12 4.00005 12C4.82847 12 5.48336 11.3206 5.65877 10.511C6.23737 7.84019 8.34019 5.73737 11.011 5.15877C11.8206 4.98336 12.5 4.32847 12.5 3.50005Z"
-              fill="white"
-            />
-          </svg>
-        )}
-        {leftIcon && !loading && leftIcon}
-        {!loading && children}
-        {rightIcon && !loading && rightIcon}
-      </Comp>
+      <>
+        <Comp
+          className={cn(
+            buttonVariants({ variant, size }),
+            fullWidth && "w-full",
+            elevationClasses[elevation],
+            className
+          )}
+          ref={ref}
+          disabled={isDisabled}
+          data-loading={loading}
+          aria-busy={loading}
+          onClick={onClick}
+          {...props}
+        >
+          {loading && (
+            <svg
+              className="animate-spin"
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="24"
+              viewBox="0 0 25 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M12.5 22C18.0228 22 22.5 17.5228 22.5 12C22.5 6.47715 18.0228 2 12.5 2C6.97715 2 2.5 6.47715 2.5 12C2.5 17.5228 6.97715 22 12.5 22ZM12.5 19C16.366 19 19.5 15.866 19.5 12C19.5 8.13401 16.366 5 12.5 5C8.63401 5 5.5 8.13401 5.5 12C5.5 15.866 8.63401 19 12.5 19Z"
+                fill="white"
+                fillOpacity="0.25"
+              />
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M12.5 3.50005C12.5 2.67162 11.8245 1.98822 11.0053 2.11101C6.67908 2.75943 3.25943 6.17909 2.61101 10.5053C2.48822 11.3245 3.17162 12 4.00005 12C4.82847 12 5.48336 11.3206 5.65877 10.511C6.23737 7.84019 8.34019 5.73737 11.011 5.15877C11.8206 4.98336 12.5 4.32847 12.5 3.50005Z"
+                fill="white"
+              />
+            </svg>
+          )}
+          {leftIcon && !loading && leftIcon}
+          {!loading && children}
+          {rightIcon && !loading && rightIcon}
+        </Comp>
+      </>
     )
   }
 )

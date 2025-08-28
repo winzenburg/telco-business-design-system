@@ -1,0 +1,43 @@
+{
+  "name": "@comcast-business/design-tokens",
+  "version": "1.0.0",
+  "description": "Design tokens for Comcast Business Design System",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "tokens/",
+    "src/"
+  ],
+  "scripts": {
+    "build": "tsc && style-dictionary build",
+    "clean": "rm -rf dist/",
+    "dev": "tsc --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "design-tokens",
+    "comcast",
+    "business",
+    "design-system"
+  ],
+  "author": "Comcast Business Design System Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "style-dictionary": "^4.0.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./tokens": "./tokens/",
+    "./css": "./dist/css/",
+    "./scss": "./dist/scss/"
+  }
+}

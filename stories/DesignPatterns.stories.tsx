@@ -5,23 +5,51 @@ import { Button } from '../src/components/ui/button';
 import { Label } from '../src/components/ui/label';
 import { Textarea } from '../src/components/ui/textarea';
 import { Checkbox } from '../src/components/ui/checkbox';
-import { Users } from 'lucide-react';
-import { Title, Body } from '../src/components/ui/typography';
-import { 
-  patternCompliance, 
-  figmaPatterns, 
-  getOverallCompliance, 
-  getComponentsByCompliance 
-} from '../src/utils/pattern-tracker';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../src/components/ui/card';
+import { Badge } from '../src/components/ui/badge';
+import { Separator } from '../src/components/ui/separator';
+import { Users, CheckCircle, AlertTriangle, Info } from 'lucide-react';
 
 const meta: Meta = {
-  title: 'Design System/Figma Patterns',
+  title: 'Design System/Token Patterns',
   parameters: {
     layout: 'padded',
     docs: {
       description: {
-        component: 'Comprehensive guide to Figma design patterns used throughout the Comcast Business Design System. These patterns ensure pixel-perfect consistency with Figma specifications.',
+        component: 'Token-compliant design patterns following CLAUDE.md guidelines. Demonstrates semantic design tokens, accessible implementations, and consistent styling across all components.',
       },
+      page: () => (
+        <div>
+          <h1>Design System Token Patterns</h1>
+          <p>This guide demonstrates how to implement components using semantic design tokens following CLAUDE.md guidelines. All examples use tokens instead of literal values, ensuring consistency and maintainability.</p>
+          
+          <h2>Tokens Used</h2>
+          <table>
+            <thead>
+              <tr><th>Token</th><th>Usage</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>--ds-color-text-primary</td><td>Primary text, headings</td><td>#15172B</td></tr>
+              <tr><td>--ds-color-text-muted</td><td>Secondary text, descriptions</td><td>#70717D</td></tr>
+              <tr><td>--ds-color-bg-canvas</td><td>Page backgrounds</td><td>#FFFFFF</td></tr>
+              <tr><td>--ds-color-bg-surface</td><td>Card, surface backgrounds</td><td>#F9FAFB</td></tr>
+              <tr><td>--ds-color-border-default</td><td>Borders, dividers</td><td>#E8EAEF</td></tr>
+              <tr><td>--ds-color-intent-primary</td><td>Primary actions, focus</td><td>#0D62FF</td></tr>
+              <tr><td>--ds-color-intent-success</td><td>Success states</td><td>#16A34A</td></tr>
+              <tr><td>--ds-color-intent-warning</td><td>Warning states</td><td>#F59E0B</td></tr>
+              <tr><td>--ds-color-intent-destructive</td><td>Error states</td><td>#D11314</td></tr>
+              <tr><td>--ds-font-family-heading</td><td>Headings, titles</td><td>Montserrat</td></tr>
+              <tr><td>--ds-font-family-body</td><td>Body text, labels</td><td>Lato</td></tr>
+              <tr><td>--ds-spacing-2</td><td>Small spacing</td><td>0.5rem</td></tr>
+              <tr><td>--ds-spacing-4</td><td>Component spacing</td><td>1rem</td></tr>
+              <tr><td>--ds-spacing-6</td><td>Section spacing</td><td>1.5rem</td></tr>
+              <tr><td>--ds-spacing-8</td><td>Layout spacing</td><td>2rem</td></tr>
+              <tr><td>--ds-border-radius-sm</td><td>Small corners</td><td>0.25rem</td></tr>
+              <tr><td>--ds-border-radius-md</td><td>Default corners</td><td>0.375rem</td></tr>
+            </tbody>
+          </table>
+        </div>
+      ),
     },
   },
   tags: ['autodocs'],
@@ -30,780 +58,562 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Typography Patterns
+// Token-Compliant Typography Patterns
 export const TypographyPatterns: Story = {
   render: () => (
-    <div className="space-y-8">
+    <div className="space-y-[var(--ds-spacing-8)]">
       <div className="text-center">
-        <Title level={2} weight="semibold" className="mb-4">Typography Patterns</Title>
-        <Body size="l" className="text-gray-600">Standard typography patterns extracted from Figma with exact specifications</Body>
+        <h2 className="text-2xl font-semibold mb-[var(--ds-spacing-4)] text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">
+          Token-Based Typography
+        </h2>
+        <p className="text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)]">
+          All typography uses semantic design tokens following CLAUDE.md guidelines
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Label Typography */}
-        <div className="space-y-4">
-          <Title level={3} className="text-lg">Label Typography</Title>
-          <div className="p-4 border border-gray-200 rounded-lg space-y-3">
-            <div className="space-y-2">
-              <Label>Standard Label</Label>
-              <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
-                className="flex items-center gap-1 text-sm font-medium text-black font-primary"
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--ds-spacing-8)]">
+        {/* Heading Typography */}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">Heading Typography</CardTitle>
+            <CardDescription className="text-[var(--ds-color-text-muted)]">
+              Token-compliant heading styles
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-[var(--ds-spacing-4)]">
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <h1 className="text-3xl font-bold text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">
+                Heading Level 1
+              </h1>
+              <code className="block text-sm bg-[var(--ds-color-bg-surface)] p-2 rounded-[var(--ds-border-radius-sm)] text-[var(--ds-color-text-muted)]">
+                font-[var(--ds-font-family-heading)] text-[var(--ds-color-text-primary)]
               </code>
             </div>
             
-            <div className="space-y-2">
-              <Label className="flex items-center gap-1 text-sm font-medium text-black font-primary">
-                Required Label
-                <span className="text-red-500">*</span>
-              </Label>
-              <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
-                {`{required && <span className="text-red-500">*</span>}`}
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <h2 className="text-2xl font-semibold text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">
+                Heading Level 2
+              </h2>
+              <code className="block text-sm bg-[var(--ds-color-bg-surface)] p-2 rounded-[var(--ds-border-radius-sm)] text-[var(--ds-color-text-muted)]">
+                font-[var(--ds-font-family-heading)] text-[var(--ds-color-text-primary)]
               </code>
             </div>
 
-            <div className="text-xs text-gray-600 font-secondary p-2 bg-blue-50 rounded">
-              <strong>Figma CSS:</strong><br />
-              display: flex;<br />
-              align-items: center;<br />
-              gap: 4px;<br />
-              color: neutral/black;
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <h3 className="text-lg font-medium text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">
+                Heading Level 3
+              </h3>
+              <code className="block text-sm bg-[var(--ds-color-bg-surface)] p-2 rounded-[var(--ds-border-radius-sm)] text-[var(--ds-color-text-muted)]">
+                font-[var(--ds-font-family-heading)] text-[var(--ds-color-text-primary)]
+              </code>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         {/* Body Typography */}
-        <div className="space-y-4">
-          <Title level={3} className="text-lg">Body Typography</Title>
-          <div className="p-4 border border-gray-200 rounded-lg space-y-4">
-            <div className="space-y-2">
-              <Body size="m" className="text-gray-600">
-                Body/S (14px) - Subcopy text
-              </Body>
-              <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
-                {`style={{ fontSize: '14px', lineHeight: '18.2px' }}`}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">Body Typography</CardTitle>
+            <CardDescription className="text-[var(--ds-color-text-muted)]">
+              Token-compliant body text styles
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-[var(--ds-spacing-4)]">
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <p className="text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-body)]">
+                Primary body text using semantic tokens
+              </p>
+              <code className="block text-sm bg-[var(--ds-color-bg-surface)] p-2 rounded-[var(--ds-border-radius-sm)] text-[var(--ds-color-text-muted)]">
+                font-[var(--ds-font-family-body)] text-[var(--ds-color-text-primary)]
               </code>
             </div>
 
-            <div className="space-y-2">
-              <Body size="s" className="text-gray-800">
-                Body/XS (12px) - Hint text
-              </Body>
-              <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
-                {`style={{ fontSize: '12px', lineHeight: '15.6px' }}`}
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <p className="text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)]">
+                Secondary body text for descriptions and helper content
+              </p>
+              <code className="block text-sm bg-[var(--ds-color-bg-surface)] p-2 rounded-[var(--ds-border-radius-sm)] text-[var(--ds-color-text-muted)]">
+                font-[var(--ds-font-family-body)] text-[var(--ds-color-text-muted)]
               </code>
             </div>
 
-            <div className="text-xs text-gray-600 font-secondary p-2 bg-blue-50 rounded">
-              <strong>Figma CSS:</strong><br />
-              font-family: Lato;<br />
-              font-weight: 400;<br />
-              line-height: 130%;<br />
-              letter-spacing: 0;
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <Label className="block text-sm font-medium text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-body)]">
+                Form Label Style
+              </Label>
+              <code className="block text-sm bg-[var(--ds-color-bg-surface)] p-2 rounded-[var(--ds-border-radius-sm)] text-[var(--ds-color-text-muted)]">
+                font-[var(--ds-font-family-body)] text-[var(--ds-color-text-primary)]
+              </code>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   ),
 };
 
-// Color System Patterns
+// Token-Compliant Color System
 export const ColorSystemPatterns: Story = {
   render: () => (
-    <div className="space-y-8">
+    <div className="space-y-[var(--ds-spacing-8)]">
       <div className="text-center">
-        <Title level={2} weight="semibold" className="mb-4">Color System Patterns</Title>
-        <Body size="l" className="text-gray-600">Consistent color mapping from Figma neutral palette</Body>
+        <h2 className="text-2xl font-semibold mb-[var(--ds-spacing-4)] text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">
+          Semantic Color Tokens
+        </h2>
+        <p className="text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)]">
+          All colors use semantic tokens for consistency and theme flexibility
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Neutral Colors */}
-        <div className="space-y-3">
-          <h3 className="text-base font-medium font-primary">Neutral Colors</h3>
-          
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-black rounded border"></div>
-              <div className="text-sm">
-                <div className="font-medium text-black font-primary">neutral/black</div>
-                <code className="text-xs text-gray-600">text-black</code>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--ds-spacing-6)]">
+        {/* Text Colors */}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">Text Colors</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-[var(--ds-spacing-4)]">
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-[var(--ds-color-text-primary)] rounded border"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Primary Text</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-text-primary</code>
+                </div>
               </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-gray-600 rounded border"></div>
-              <div className="text-sm">
-                <div className="font-medium text-black font-primary">neutral/grey-600</div>
-                <code className="text-xs text-gray-600">text-gray-600</code>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-gray-800 rounded border"></div>
-              <div className="text-sm">
-                <div className="font-medium text-black font-primary">neutral/grey-800</div>
-                <code className="text-xs text-gray-600">text-gray-800</code>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-gray-400 rounded border"></div>
-              <div className="text-sm">
-                <div className="font-medium text-black font-primary">neutral/grey-400</div>
-                <code className="text-xs text-gray-600">border-gray-400</code>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* State Colors */}
-        <div className="space-y-3">
-          <h3 className="text-base font-medium font-primary">State Colors</h3>
-          
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded border" style={{ backgroundColor: '#0D62FF' }}></div>
-              <div className="text-sm">
-                <div className="font-medium text-black font-primary">Focus Blue</div>
-                <code className="text-xs text-gray-600">#0D62FF</code>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-red-500 rounded border"></div>
-              <div className="text-sm">
-                <div className="font-medium text-black font-primary">Error Red</div>
-                <code className="text-xs text-gray-600">text-red-500</code>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-green-600 rounded border"></div>
-              <div className="text-sm">
-                <div className="font-medium text-black font-primary">Success Green</div>
-                <code className="text-xs text-gray-600">text-green-600</code>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded border" style={{ backgroundColor: '#2B2D3F' }}></div>
-              <div className="text-sm">
-                <div className="font-medium text-black font-primary">Hover Gray</div>
-                <code className="text-xs text-gray-600">#2B2D3F</code>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Usage Examples */}
-        <div className="space-y-3 md:col-span-2">
-          <h3 className="text-base font-medium font-primary">Usage Examples</h3>
-          
-          <div className="space-y-2 text-sm">
-            <div><span className="text-black font-primary font-medium">Labels:</span> <code>text-black font-primary</code></div>
-            <div><span className="text-gray-600 font-secondary">Subcopy:</span> <code>text-gray-600 font-secondary</code></div>
-            <div><span className="text-gray-800 font-secondary">Hint text:</span> <code>text-gray-800 font-secondary</code></div>
-            <div><span className="text-red-500">Error state:</span> <code>text-red-500</code></div>
-            <div><span className="text-green-600">Success state:</span> <code>text-green-600</code></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  ),
-};
-
-// Input Patterns
-export const InputPatterns: Story = {
-  render: () => (
-    <div className="space-y-8">
-      <div className="text-center">
-        <Title level={2} weight="semibold" className="mb-4">Input Field Patterns</Title>
-        <Body size="l" className="text-gray-600">Complete input structure and styling patterns from Figma</Body>
-      </div>
-
-      <div className="space-y-8">
-        {/* Complete Structure */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Complete Input Structure</h3>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <Input
-                label="Email Address"
-                required
-                subcopy="We'll use this to send important updates"
-                placeholder="Enter your business email"
-                leftIcon="users"
-                hintText="Use your business email for better security"
-              />
               
-              <div className="text-xs text-gray-600 font-secondary p-3 bg-blue-50 rounded">
-                <strong>Structure Hierarchy:</strong><br />
-                1. Label (with required indicator)<br />
-                2. Subcopy (additional context)<br />
-                3. Input field (with icons)<br />
-                4. Hint text / Error message
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-[var(--ds-color-text-muted)] rounded border"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Muted Text</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-text-muted</code>
+                </div>
               </div>
             </div>
+          </CardContent>
+        </Card>
 
-            <div className="space-y-3">
-              <h4 className="font-medium font-primary">Code Pattern:</h4>
-              <code className="block text-xs bg-gray-100 p-3 rounded font-mono whitespace-pre-wrap">
-{`<Input
-  label="Email Address"
-  required
-  subcopy="Context text"
-  placeholder="Placeholder text"
-  leftIcon="iconName"
-  rightIcon="iconName"
-  hintText="Guidance text"
-  errorMessage="Error text"
-/>`}
-              </code>
+        {/* Intent Colors */}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">Intent Colors</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-[var(--ds-spacing-4)]">
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-[var(--ds-color-intent-primary)] rounded border"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Primary</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-intent-primary</code>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-[var(--ds-color-intent-success)] rounded border"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Success</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-intent-success</code>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-[var(--ds-color-intent-warning)] rounded border"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Warning</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-intent-warning</code>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-[var(--ds-color-intent-destructive)] rounded border"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Error</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-intent-destructive</code>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        {/* Sizing and Spacing */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Input Sizing & Spacing</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-medium font-primary mb-2">Dimensions</h4>
-              <ul className="text-sm font-secondary space-y-1">
-                <li>Height: <code>40px</code></li>
-                <li>Padding: <code>9px 13px</code></li>
-                <li>Border radius: <code>4px</code></li>
-                <li>Border: <code>1px solid</code></li>
-              </ul>
+        {/* Background Colors */}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">Background Colors</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-[var(--ds-spacing-4)]">
+            <div className="space-y-[var(--ds-spacing-2)]">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-[var(--ds-color-bg-canvas)] rounded border border-[var(--ds-color-border-default)]"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Canvas</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-bg-canvas</code>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 bg-[var(--ds-color-bg-surface)] rounded border"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Surface</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-bg-surface</code>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 border-2 border-[var(--ds-color-border-default)] rounded"></div>
+                <div className="text-sm">
+                  <div className="font-medium text-[var(--ds-color-text-primary)]">Border</div>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-border-default</code>
+                </div>
+              </div>
             </div>
-            
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-medium font-primary mb-2">Icons</h4>
-              <ul className="text-sm font-secondary space-y-1">
-                <li>Size: <code>16x16px</code></li>
-                <li>Gap: <code>10px</code></li>
-                <li>Alignment: <code>flex-start</code></li>
-                <li>Color: <code>neutral/grey-600</code></li>
-              </ul>
-            </div>
-            
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-medium font-primary mb-2">Typography</h4>
-              <ul className="text-sm font-secondary space-y-1">
-                <li>Font: <code>Lato</code></li>
-                <li>Size: <code>14px</code></li>
-                <li>Line height: <code>130%</code></li>
-                <li>Weight: <code>400</code></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   ),
 };
 
-// Component Structure Patterns
-export const ComponentStructurePatterns: Story = {
+// Token-Compliant Component Patterns
+export const ComponentPatterns: Story = {
   render: () => (
-    <div className="space-y-8">
+    <div className="space-y-[var(--ds-spacing-8)]">
       <div className="text-center">
-        <Title level={2} weight="semibold" className="mb-4">Component Structure Patterns</Title>
-        <Body size="l" className="text-gray-600">Consistent patterns applied across all form components</Body>
+        <h2 className="text-2xl font-semibold mb-[var(--ds-spacing-4)] text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">
+          Token-Compliant Components
+        </h2>
+        <p className="text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)]">
+          Components implemented with semantic tokens following CLAUDE.md guidelines
+        </p>
       </div>
 
-      <div className="space-y-8">
-        {/* Layout Patterns */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Layout Patterns</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <h4 className="font-medium font-primary">Flex Layout Standard</h4>
-              <div className="p-4 border border-gray-200 rounded-lg">
-                <div className="flex items-center gap-1 text-sm font-medium text-black font-primary mb-2">
-                  Example Label
-                  <span className="text-red-500">*</span>
-                </div>
-                <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
-                  display: flex;<br />
-                  align-items: center;<br />
-                  gap: 4px;
-                </code>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h4 className="font-medium font-primary">Icon Positioning</h4>
-              <div className="p-4 border border-gray-200 rounded-lg">
-                <div className="flex items-start gap-[10px]">
-<Users className="flex w-4 h-4 items-start text-gray-600" />
-                  <span className="text-sm font-secondary">Icon alignment</span>
-                </div>
-                <code className="block text-xs bg-gray-100 p-2 rounded font-mono mt-2">
-                  align-items: flex-start;<br />
-                  gap: 10px;<br />
-                  size: 16x16px;
-                </code>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* All Components Example */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Pattern Applied Across Components</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <Input
-                label="Input Field"
-                required
-                subcopy="Input with all patterns applied"
-                placeholder="Consistent styling"
-                leftIcon="users"
-                hintText="Follows Figma patterns exactly"
-              />
-
-              <Textarea
-                label="Textarea Field"
-                placeholder="Multi-line input with same patterns"
-                style={{ fontSize: '14px', lineHeight: '18.2px' }}
-              />
-            </div>
-
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label className="flex items-center gap-1 text-sm font-medium text-black font-primary">
-                  Checkbox Options
-                </Label>
-                <div className="space-y-2">
-                  <Checkbox 
-                    label="Option 1" 
-                    helperText="Helper text with consistent styling"
+      <div className="space-y-[var(--ds-spacing-8)]">
+        {/* Form Components */}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">Form Component Pattern</CardTitle>
+            <CardDescription className="text-[var(--ds-color-text-muted)]">
+              Complete form structure using semantic tokens
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-[var(--ds-spacing-6)]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--ds-spacing-6)]">
+              <div className="space-y-[var(--ds-spacing-4)]">
+                <div>
+                  <Label className="text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-body)]" htmlFor="business-email">
+                    Business Email <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+                  </Label>
+                  <Input
+                    id="business-email"
+                    placeholder="Enter your business email"
+                    className="border-[var(--ds-color-border-default)] focus:border-[var(--ds-color-intent-primary)]"
                   />
-                  <Checkbox 
-                    label="Option 2" 
+                  <p className="text-sm text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)] mt-1">
+                    We'll use this for important service updates
+                  </p>
+                </div>
+                
+                <div>
+                  <Label className="text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-body)]" htmlFor="company-message">
+                    Message
+                  </Label>
+                  <Textarea
+                    id="company-message"
+                    placeholder="Tell us about your business needs..."
+                    className="border-[var(--ds-color-border-default)] focus:border-[var(--ds-color-intent-primary)] min-h-[100px]"
                   />
                 </div>
+
+                <div className="space-y-3">
+                  <Label className="text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-body)]">
+                    Service Options
+                  </Label>
+                  <div className="space-y-2">
+                    <label className="flex items-center space-x-2">
+                      <Checkbox />
+                      <span className="text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-body)]">Business Internet</span>
+                    </label>
+                    <label className="flex items-center space-x-2">
+                      <Checkbox />
+                      <span className="text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-body)]">Voice Services</span>
+                    </label>
+                    <label className="flex items-center space-x-2">
+                      <Checkbox />
+                      <span className="text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-body)]">Security Suite</span>
+                    </label>
+                  </div>
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <Label className="flex items-center gap-1 text-sm font-medium text-black font-primary">
-                  Button Examples
-                </Label>
+              <div className="space-y-[var(--ds-spacing-4)]">
+                <div className="p-[var(--ds-spacing-4)] bg-[var(--ds-color-bg-surface)] rounded-[var(--ds-border-radius-md)] border border-[var(--ds-color-border-default)]">
+                  <h4 className="font-semibold text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)] mb-2">
+                    Token Implementation
+                  </h4>
+                  <code className="block text-sm text-[var(--ds-color-text-muted)] font-mono whitespace-pre-wrap">
+{`// Label styling
+text-[var(--ds-color-text-primary)]
+font-[var(--ds-font-family-body)]
+
+// Input borders
+border-[var(--ds-color-border-default)]
+focus:border-[var(--ds-color-intent-primary)]
+
+// Helper text
+text-[var(--ds-color-text-muted)]
+
+// Required indicator
+text-[var(--ds-color-intent-destructive)]`}
+                  </code>
+                </div>
+                
                 <div className="flex gap-2">
-                  <Button size="md">Primary</Button>
-                  <Button variant="secondary" size="md">Secondary</Button>
+                  <Button variant="outline" className="flex-1">
+                    Cancel
+                  </Button>
+                  <Button variant="default" className="flex-1">
+                    Submit
+                  </Button>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
+
+        {/* State Patterns */}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">Interactive State Patterns</CardTitle>
+            <CardDescription className="text-[var(--ds-color-text-muted)]">
+              Component states using semantic intent tokens
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-[var(--ds-spacing-6)]">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[var(--ds-spacing-4)]">
+              <div className="p-[var(--ds-spacing-4)] border border-[var(--ds-color-border-default)] rounded-[var(--ds-border-radius-md)] bg-[var(--ds-color-bg-canvas)]">
+                <div className="flex items-center gap-2 mb-2">
+                  <Info className="size-4 text-[var(--ds-color-intent-primary)]" />
+                  <span className="font-medium text-[var(--ds-color-text-primary)]">Default</span>
+                </div>
+                <p className="text-sm text-[var(--ds-color-text-muted)]">Normal state</p>
+                <Badge variant="outline" className="mt-2">Normal</Badge>
+              </div>
+              
+              <div className="p-[var(--ds-spacing-4)] border border-[var(--ds-color-intent-success)] rounded-[var(--ds-border-radius-md)] bg-[var(--ds-color-intent-success)]/5">
+                <div className="flex items-center gap-2 mb-2">
+                  <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                  <span className="font-medium text-[var(--ds-color-text-primary)]">Success</span>
+                </div>
+                <p className="text-sm text-[var(--ds-color-text-muted)]">Success state</p>
+                <Badge variant="default" className="mt-2 bg-[var(--ds-color-intent-success)]">Success</Badge>
+              </div>
+              
+              <div className="p-[var(--ds-spacing-4)] border border-[var(--ds-color-intent-warning)] rounded-[var(--ds-border-radius-md)] bg-[var(--ds-color-intent-warning)]/5">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertTriangle className="size-4 text-[var(--ds-color-intent-warning)]" />
+                  <span className="font-medium text-[var(--ds-color-text-primary)]">Warning</span>
+                </div>
+                <p className="text-sm text-[var(--ds-color-text-muted)]">Warning state</p>
+                <Badge variant="secondary" className="mt-2 bg-[var(--ds-color-intent-warning)]/20 text-[var(--ds-color-intent-warning)]">Warning</Badge>
+              </div>
+              
+              <div className="p-[var(--ds-spacing-4)] border border-[var(--ds-color-intent-destructive)] rounded-[var(--ds-border-radius-md)] bg-[var(--ds-color-intent-destructive)]/5">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertTriangle className="size-4 text-[var(--ds-color-intent-destructive)]" />
+                  <span className="font-medium text-[var(--ds-color-text-primary)]">Error</span>
+                </div>
+                <p className="text-sm text-[var(--ds-color-text-muted)]">Error state</p>
+                <Badge variant="destructive" className="mt-2">Error</Badge>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Layout Patterns */}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">Spacing & Layout Tokens</CardTitle>
+            <CardDescription className="text-[var(--ds-color-text-muted)]">
+              Consistent spacing using semantic spacing tokens
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-[var(--ds-spacing-4)]">
+              <div className="p-[var(--ds-spacing-2)] bg-[var(--ds-color-intent-primary)]/10 rounded-[var(--ds-border-radius-sm)]">
+                <code className="text-sm text-[var(--ds-color-text-primary)]">--ds-spacing-2 (0.5rem)</code>
+              </div>
+              <div className="p-[var(--ds-spacing-4)] bg-[var(--ds-color-intent-primary)]/10 rounded-[var(--ds-border-radius-sm)]">
+                <code className="text-sm text-[var(--ds-color-text-primary)]">--ds-spacing-4 (1rem)</code>
+              </div>
+              <div className="p-[var(--ds-spacing-6)] bg-[var(--ds-color-intent-primary)]/10 rounded-[var(--ds-border-radius-md)]">
+                <code className="text-sm text-[var(--ds-color-text-primary)]">--ds-spacing-6 (1.5rem)</code>
+              </div>
+              <div className="p-[var(--ds-spacing-8)] bg-[var(--ds-color-intent-primary)]/10 rounded-[var(--ds-border-radius-md)]">
+                <code className="text-sm text-[var(--ds-color-text-primary)]">--ds-spacing-8 (2rem)</code>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   ),
-};
-
-// State Management Patterns
-export const StateManagementPatterns: Story = {
-  render: () => (
-    <div className="space-y-8">
-      <div className="text-center">
-        <h2 className="text-2xl font-semibold mb-4 font-primary">State Management Patterns</h2>
-        <p className="text-gray-600 font-secondary">Consistent interactive states across all components</p>
-      </div>
-
-      <div className="space-y-8">
-        {/* State Colors */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Interactive State Colors</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 border border-gray-400 rounded-[4px] bg-white">
-              <div className="font-medium font-primary mb-1">Default</div>
-              <div className="text-sm text-gray-600 font-secondary">border-gray-400</div>
-            </div>
-            
-            <div className="p-4 border rounded-[4px] bg-white" style={{ borderColor: '#2B2D3F' }}>
-              <div className="font-medium font-primary mb-1">Hover</div>
-              <div className="text-sm text-gray-600 font-secondary">#2B2D3F</div>
-            </div>
-            
-            <div className="p-4 border-2 rounded-[4px] bg-white ring-2 ring-offset-2" style={{ borderColor: '#0D62FF', ringColor: '#0D62FF' }}>
-              <div className="font-medium font-primary mb-1">Focus</div>
-              <div className="text-sm text-gray-600 font-secondary">#0D62FF + ring</div>
-            </div>
-            
-            <div className="p-4 border border-red-500 rounded-[4px] bg-white">
-              <div className="font-medium font-primary mb-1">Error</div>
-              <div className="text-sm text-gray-600 font-secondary">border-red-500</div>
-            </div>
-          </div>
-        </div>
-
-        {/* State Implementation */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">State Implementation Pattern</h3>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <Input
-                label="Default State"
-                placeholder="Normal input field"
-                leftIcon="users"
-                hintText="Default gray border"
-              />
-              
-              <Input
-                label="Error State"
-                required
-                placeholder="Invalid input"
-                leftIcon="users"
-                defaultValue="invalid-data"
-                error
-                errorMessage="This field has an error"
-              />
-              
-              <Input
-                label="Success State"
-                placeholder="Valid input"
-                leftIcon="users"
-                rightIcon="required"
-                defaultValue="valid@email.com"
-                success
-                hintText="✓ Input is valid"
-              />
-            </div>
-
-            <div className="space-y-3">
-              <h4 className="font-medium font-primary">CSS Pattern:</h4>
-              <code className="block text-xs bg-gray-100 p-3 rounded font-mono whitespace-pre-wrap">
-{`// Base styles
-border: 1px solid;
-border-radius: 4px;
-transition: border-color, box-shadow;
-
-// State variants
-.default { border-color: #9CA3AF; }
-.hover { border-color: #2B2D3F; }
-.focus { 
-  border-color: #0D62FF;
-  ring: 2px #0D62FF;
-  ring-offset: 2px;
-}
-.error { border-color: #EF4444; }
-.success { border-color: #16A34A; }`}
-              </code>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  ),
-};
-
-// Pattern Compliance Dashboard
-export const PatternComplianceDashboard: Story = {
-  render: () => {
-    const overallCompliance = getOverallCompliance();
-    const { compliant, needsWork } = getComponentsByCompliance(80);
-
-    return (
-      <div className="space-y-8">
-        <div className="text-center">
-          <h2 className="text-2xl font-semibold mb-4 font-primary">Pattern Compliance Dashboard</h2>
-          <p className="text-gray-600 font-secondary">Real-time tracking of Figma pattern implementation across components</p>
-        </div>
-
-        {/* Overall Score */}
-        <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg">
-          <div className="text-4xl font-bold text-green-600 mb-2">{overallCompliance}%</div>
-          <div className="text-lg font-medium font-primary">Overall Pattern Compliance</div>
-          <div className="text-sm text-gray-600 font-secondary mt-1">
-            Last updated: {new Date().toLocaleDateString()}
-          </div>
-        </div>
-
-        {/* Component Status */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Compliant Components */}
-          <div className="p-4 border border-green-200 bg-green-50 rounded-lg">
-            <h3 className="text-lg font-medium font-primary text-green-800 mb-3">
-              ✅ Fully Compliant ({compliant.length})
-            </h3>
-            <div className="space-y-2">
-              {compliant.map(component => (
-                <div key={component} className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="font-secondary text-green-700">{component}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Components Needing Work */}
-          <div className="p-4 border border-orange-200 bg-orange-50 rounded-lg">
-            <h3 className="text-lg font-medium font-primary text-orange-800 mb-3">
-              🔧 Needs Refinement ({needsWork.length})
-            </h3>
-            <div className="space-y-2">
-              {needsWork.map(component => (
-                <div key={component} className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span className="font-secondary text-orange-700">{component}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Detailed Compliance */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Component Details</h3>
-          
-          <div className="grid gap-4">
-            {patternCompliance.map(comp => {
-              const total = Object.values(comp.typography).length +
-                           Object.values(comp.layout).length +
-                           Object.values(comp.colors).length +
-                           Object.values(comp.states).length;
-
-              const passed = Object.values(comp.typography).filter(Boolean).length +
-                            Object.values(comp.layout).filter(Boolean).length +
-                            Object.values(comp.colors).filter(Boolean).length +
-                            Object.values(comp.states).filter(Boolean).length;
-
-              const percentage = Math.round((passed / total) * 100);
-
-              return (
-                <div key={comp.component} className="p-4 border border-gray-200 rounded-lg">
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-medium font-primary">{comp.component}</h4>
-                    <div className="flex items-center gap-2">
-                      <div className={`text-sm font-medium ${percentage >= 80 ? 'text-green-600' : 'text-orange-600'}`}>
-                        {percentage}%
-                      </div>
-                      <div className="w-16 h-2 bg-gray-200 rounded">
-                        <div 
-                          className={`h-full rounded ${percentage >= 80 ? 'bg-green-500' : 'bg-orange-500'}`}
-                          style={{ width: `${percentage}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs">
-                    <div>
-                      <div className="font-medium font-primary mb-1">Typography</div>
-                      <div className="space-y-1">
-                        {Object.entries(comp.typography).map(([key, value]) => (
-                          <div key={key} className={`flex items-center gap-1 ${value ? 'text-green-600' : 'text-gray-400'}`}>
-                            <span>{value ? '✓' : '○'}</span>
-                            <span className="font-secondary">{key}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="font-medium font-primary mb-1">Layout</div>
-                      <div className="space-y-1">
-                        {Object.entries(comp.layout).map(([key, value]) => (
-                          <div key={key} className={`flex items-center gap-1 ${value ? 'text-green-600' : 'text-gray-400'}`}>
-                            <span>{value ? '✓' : '○'}</span>
-                            <span className="font-secondary">{key}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="font-medium font-primary mb-1">Colors</div>
-                      <div className="space-y-1">
-                        {Object.entries(comp.colors).map(([key, value]) => (
-                          <div key={key} className={`flex items-center gap-1 ${value ? 'text-green-600' : 'text-gray-400'}`}>
-                            <span>{value ? '✓' : '○'}</span>
-                            <span className="font-secondary">{key}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <div className="font-medium font-primary mb-1">States</div>
-                      <div className="space-y-1">
-                        {Object.entries(comp.states).map(([key, value]) => (
-                          <div key={key} className={`flex items-center gap-1 ${value ? 'text-green-600' : 'text-gray-400'}`}>
-                            <span>{value ? '✓' : '○'}</span>
-                            <span className="font-secondary">{key}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-3 text-xs text-gray-500 font-secondary">
-                    Last updated: {comp.lastUpdated} • Figma version: {comp.figmaVersion}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Pattern Reference */}
-        <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-          <h3 className="text-lg font-medium font-primary mb-3">Live Pattern Reference</h3>
-          <div className="text-sm font-secondary space-y-2">
-            <p><strong>Auto-updating:</strong> This dashboard updates automatically as components are refined</p>
-            <p><strong>Tracked patterns:</strong> Typography, Layout, Colors, Interactive States</p>
-            <p><strong>Compliance threshold:</strong> 80% for "Fully Compliant" status</p>
-            <p><strong>Next review:</strong> Components below 80% should be prioritized for pattern updates</p>
-          </div>
-        </div>
-      </div>
-    );
-  },
 };
 
 // Implementation Guide
-export const ImplementationGuide: Story = {
+export const TokenImplementationGuide: Story = {
   render: () => (
-    <div className="space-y-8">
+    <div className="space-y-[var(--ds-spacing-8)]">
       <div className="text-center">
-        <h2 className="text-2xl font-semibold mb-4 font-primary">Implementation Guide</h2>
-        <p className="text-gray-600 font-secondary">Step-by-step guide to apply Figma patterns in your components</p>
+        <h2 className="text-2xl font-semibold mb-[var(--ds-spacing-4)] text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">
+          CLAUDE.md Implementation Guide
+        </h2>
+        <p className="text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)]">
+          Step-by-step guide to implement token-compliant components following CLAUDE.md guidelines
+        </p>
       </div>
 
-      <div className="space-y-8">
-        {/* Checklist */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Implementation Checklist</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-medium font-primary mb-3">Typography ✓</h4>
-              <ul className="space-y-2 text-sm font-secondary">
-                <li>✅ Labels use <code>text-black font-primary</code></li>
-                <li>✅ Body text uses exact pixel values</li>
-                <li>✅ Line heights set to 130%</li>
-                <li>✅ Font families: Montserrat/Lato</li>
-                <li>✅ Letter spacing: 0</li>
-              </ul>
+      <div className="space-y-[var(--ds-spacing-8)]">
+        {/* Compliance Checklist */}
+        <Card className="border-[var(--ds-color-border-default)]">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">CLAUDE.md Compliance Checklist</CardTitle>
+            <CardDescription className="text-[var(--ds-color-text-muted)]">
+              Essential requirements for all components
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[var(--ds-spacing-6)]">
+              <div className="space-y-[var(--ds-spacing-4)]">
+                <h4 className="font-semibold text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">✅ Token Requirements</h4>
+                <ul className="space-y-2 text-sm text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)]">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                    Use semantic color tokens (--ds-color-*)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                    Use spacing tokens (--ds-spacing-*)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                    Use typography tokens (--ds-font-*)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                    No literal hex/rgb/px values
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="space-y-[var(--ds-spacing-4)]">
+                <h4 className="font-semibold text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)]">🔒 Accessibility Requirements</h4>
+                <ul className="space-y-2 text-sm text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)]">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                    WCAG 2.1 AA compliance
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                    Keyboard navigation support
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                    Proper ARIA attributes
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="size-4 text-[var(--ds-color-intent-success)]" />
+                    Visible focus indicators
+                  </li>
+                </ul>
+              </div>
             </div>
-            
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-medium font-primary mb-3">Layout ✓</h4>
-              <ul className="space-y-2 text-sm font-secondary">
-                <li>✅ Flex layouts with proper gaps</li>
-                <li>✅ 4px border radius standard</li>
-                <li>✅ 16x16px icon sizing</li>
-                <li>✅ Consistent padding/margins</li>
-                <li>✅ Proper alignment patterns</li>
-              </ul>
-            </div>
-            
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-medium font-primary mb-3">Colors ✓</h4>
-              <ul className="space-y-2 text-sm font-secondary">
-                <li>✅ Neutral palette mapping</li>
-                <li>✅ State color consistency</li>
-                <li>✅ Focus blue (#0D62FF)</li>
-                <li>✅ Error/success states</li>
-                <li>✅ Proper contrast ratios</li>
-              </ul>
-            </div>
-            
-            <div className="p-4 border border-gray-200 rounded-lg">
-              <h4 className="font-medium font-primary mb-3">States ✓</h4>
-              <ul className="space-y-2 text-sm font-secondary">
-                <li>✅ All 9 input states implemented</li>
-                <li>✅ Consistent hover/focus styles</li>
-                <li>✅ Proper disabled states</li>
-                <li>✅ Error/success feedback</li>
-                <li>✅ Loading state handling</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        {/* Migration Example */}
-        <div className="space-y-4">
-          <h3 className="text-lg font-medium font-primary">Migration Example</h3>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="space-y-3">
-              <h4 className="font-medium font-primary text-red-600">Before (Inconsistent)</h4>
-              <div className="p-4 border border-gray-200 rounded-lg bg-red-50">
-                <code className="block text-xs font-mono whitespace-pre-wrap">
-{`// Old pattern - inconsistent
-<label className="text-sm font-medium text-gray-700">
+        {/* Before/After Example */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--ds-spacing-6)]">
+          <Card className="border-[var(--ds-color-intent-destructive)]">
+            <CardHeader>
+              <CardTitle className="text-[var(--ds-color-intent-destructive)]">❌ Non-Compliant (Before)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="p-[var(--ds-spacing-4)] bg-[var(--ds-color-intent-destructive)]/5 rounded-[var(--ds-border-radius-md)]">
+                <code className="block text-sm text-[var(--ds-color-text-primary)] font-mono whitespace-pre-wrap">
+{`// Hard-coded values - AVOID
+<label className="text-gray-700 font-medium">
   Email *
 </label>
 <input 
-  className="rounded-md border-gray-300 px-3 py-2"
-  placeholder="Enter email"
+  className="border-gray-300 p-3"
+  style={{ color: '#15172B' }}
 />
-<p className="text-xs text-gray-500">
+<p style={{ fontSize: '12px', color: '#70717D' }}>
   Helper text
 </p>`}
                 </code>
               </div>
-            </div>
+            </CardContent>
+          </Card>
 
-            <div className="space-y-3">
-              <h4 className="font-medium font-primary text-green-600">✅ After (Figma Pattern)</h4>
-              <div className="p-4 border border-gray-200 rounded-lg bg-green-50">
-                <code className="block text-xs font-mono whitespace-pre-wrap">
-{`// New pattern - Figma accurate
-<Input
-  label="Email"
-  required
-  subcopy="Additional context"
-  placeholder="Enter email"
-  leftIcon="users"
-  hintText="Helper text"
-/>`}
+          <Card className="border-[var(--ds-color-intent-success)]">
+            <CardHeader>
+              <CardTitle className="text-[var(--ds-color-intent-success)]">✅ Token-Compliant (After)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="p-[var(--ds-spacing-4)] bg-[var(--ds-color-intent-success)]/5 rounded-[var(--ds-border-radius-md)]">
+                <code className="block text-sm text-[var(--ds-color-text-primary)] font-mono whitespace-pre-wrap">
+{`// Semantic tokens - CORRECT
+<Label className="text-[var(--ds-color-text-primary)]
+                 font-[var(--ds-font-family-body)]"
+       htmlFor="email">
+  Email <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+</Label>
+<Input 
+  id="email"
+  className="border-[var(--ds-color-border-default)]"
+/>
+<p className="text-[var(--ds-color-text-muted)] 
+             font-[var(--ds-font-family-body)]">
+  Helper text
+</p>`}
                 </code>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Quick Reference */}
-        <div className="p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-          <h3 className="text-lg font-medium font-primary mb-4">Quick Reference</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm font-secondary">
-            <div>
-              <strong className="font-primary">Labels:</strong><br />
-              <code>flex items-center gap-1 text-black font-primary</code>
+        <Card className="border-[var(--ds-color-intent-primary)] bg-[var(--ds-color-intent-primary)]/5">
+          <CardHeader>
+            <CardTitle className="text-[var(--ds-color-text-primary)]">🚀 Quick Token Reference</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--ds-spacing-4)] text-sm font-[var(--ds-font-family-body)]">
+              <div>
+                <strong className="text-[var(--ds-color-text-primary)]">Primary Text:</strong><br />
+                <code className="text-[var(--ds-color-text-muted)]">text-[var(--ds-color-text-primary)]</code>
+              </div>
+              <div>
+                <strong className="text-[var(--ds-color-text-primary)]">Muted Text:</strong><br />
+                <code className="text-[var(--ds-color-text-muted)]">text-[var(--ds-color-text-muted)]</code>
+              </div>
+              <div>
+                <strong className="text-[var(--ds-color-text-primary)]">Primary Action:</strong><br />
+                <code className="text-[var(--ds-color-text-muted)]">bg-[var(--ds-color-intent-primary)]</code>
+              </div>
+              <div>
+                <strong className="text-[var(--ds-color-text-primary)]">Error State:</strong><br />
+                <code className="text-[var(--ds-color-text-muted)]">text-[var(--ds-color-intent-destructive)]</code>
+              </div>
+              <div>
+                <strong className="text-[var(--ds-color-text-primary)]">Card Border:</strong><br />
+                <code className="text-[var(--ds-color-text-muted)]">border-[var(--ds-color-border-default)]</code>
+              </div>
+              <div>
+                <strong className="text-[var(--ds-color-text-primary)]">Layout Spacing:</strong><br />
+                <code className="text-[var(--ds-color-text-muted)]">gap-[var(--ds-spacing-6)]</code>
+              </div>
             </div>
-            <div>
-              <strong className="font-primary">Border radius:</strong><br />
-              <code>rounded-[4px]</code>
-            </div>
-            <div>
-              <strong className="font-primary">Icons:</strong><br />
-              <code>16x16px, text-gray-600</code>
-            </div>
-            <div>
-              <strong className="font-primary">Body text:</strong><br />
-              <code>14px/18.2px Lato</code>
-            </div>
-            <div>
-              <strong className="font-primary">Hint text:</strong><br />
-              <code>12px/15.6px text-gray-800</code>
-            </div>
-            <div>
-              <strong className="font-primary">Focus state:</strong><br />
-              <code>border-[#0D62FF] ring-2</code>
-            </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   ),

@@ -3,6 +3,7 @@
 
 // Core UI Components - use wildcard exports for better tree-shaking
 export * from './ui/button';
+export * from './ui/button-group';
 export * from './ui/input';
 export * from './ui/card';
 // Export label separately to avoid conflicts
@@ -34,15 +35,34 @@ export * from './ui/tooltip';
 // Layout Components
 export * from './ui/separator';
 export * from './ui/breadcrumb';
+export * from './ui/list';
 
 // Interactive Components
 export * from './ui/switch';
 export * from './ui/slider';
 export * from './ui/accordion';
 export * from './ui/popover';
-export * from './ui/dropdown-menu';
+export * from './ui/menu';
 export * from './ui/sheet';
 export * from './ui/command';
+
+// Backwards compatibility aliases for DropdownMenu API
+export {
+  Menu as DropdownMenu,
+  MenuTrigger as DropdownMenuTrigger,
+  MenuContent as DropdownMenuContent,
+  MenuItem as DropdownMenuItem,
+  MenuCheckboxItem as DropdownMenuCheckboxItem,
+  MenuRadioItem as DropdownMenuRadioItem,
+  MenuLabel as DropdownMenuLabel,
+  MenuSeparator as DropdownMenuSeparator,
+  MenuGroup as DropdownMenuGroup,
+  MenuPortal as DropdownMenuPortal,
+  MenuSub as DropdownMenuSub,
+  MenuSubContent as DropdownMenuSubContent,
+  MenuSubTrigger as DropdownMenuSubTrigger,
+  MenuRadioGroup as DropdownMenuRadioGroup,
+} from './ui/menu';
 
 // Icon System
 export * from './Icon';

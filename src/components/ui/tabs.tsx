@@ -25,8 +25,8 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  // Base styles using design system colors
-  "inline-flex w-fit items-center justify-center bg-white border border-[#F1F2F6] rounded-lg p-1",
+  // Base styles using design system colors - let height size naturally
+  "inline-flex w-fit items-center bg-white border border-[#F1F2F6] rounded-lg p-1",
   {
     variants: {
       variant: {
@@ -35,9 +35,9 @@ const tabsListVariants = cva(
         pills: "bg-transparent border-0 gap-1",
       },
       size: {
-        sm: "h-8 text-sm",
-        default: "h-10 text-sm",
-        lg: "h-12 text-base",
+        sm: "text-sm",
+        default: "text-sm", 
+        lg: "text-base",
       },
     },
     defaultVariants: {
@@ -67,14 +67,14 @@ function TabsList({
 }
 
 const tabsTriggerVariants = cva(
-  // Base styles using design system colors and typography
-  "inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 font-secondary font-medium text-[#70717D] transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D62FF] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  // Base styles with proper font styling
+  "relative inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 font-secondary font-medium transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D62FF] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "data-[state=active]:bg-[#0D62FF] data-[state=active]:text-white data-[state=active]:shadow-sm hover:text-[#2B2D3F]",
-        enclosed: "data-[state=active]:bg-white data-[state=active]:text-[#0D62FF] data-[state=active]:border data-[state=active]:border-[#0D62FF] hover:text-[#2B2D3F]",
-        pills: "rounded-full border border-[#F1F2F6] data-[state=active]:bg-[#0D62FF] data-[state=active]:text-white data-[state=active]:border-[#0D62FF] hover:bg-[#F9F9FA]",
+        default: "text-[#70717D] hover:text-[#2B2D3F] data-[state=active]:bg-[#0D62FF] data-[state=active]:text-white data-[state=active]:shadow-sm",
+        enclosed: "text-[#70717D] hover:text-[#2B2D3F] data-[state=active]:bg-white data-[state=active]:text-[#0D62FF] data-[state=active]:shadow-md data-[state=active]:border data-[state=active]:border-[#0D62FF]",
+        pills: "text-[#70717D] rounded-full border border-[#F1F2F6] hover:bg-[#F9F9FA] hover:border-[#70717D] data-[state=active]:bg-[#0D62FF] data-[state=active]:text-white data-[state=active]:border-[#0D62FF] data-[state=active]:shadow-sm",
       },
     },
     defaultVariants: {

@@ -1,0 +1,78 @@
+# Design Heuristics (Clean, token‑first)
+
+design_system:
+  name: "Comcast Business Design System"
+  version: "1.0.0"
+  focus: "Enterprise business applications"
+
+# Heuristics are expressed as token references, not raw values.
+# The tokens package resolves actual values per theme/brand/density.
+
+heuristics:
+
+  visual_consistency:
+    spacing:
+      baseline_token: "--ds.space.1"     # 4px
+      scale_tokens: ["--ds.space.1","--ds.space.2","--ds.space.3","--ds.space.4","--ds.space.5","--ds.space.6","--ds.space.8","--ds.space.10","--ds.space.12"]
+      usage: "Use spacing tokens for margin/padding/gap; no ad-hoc numbers."
+    typography:
+      heading_font_token: "--ds.font.family.heading"
+      body_font_token: "--ds.font.family.body"
+      size_tokens: ["--ds.font.size.sm","--ds.font.size.md","--ds.font.size.lg","--ds.font.size.xl","--ds.font.size.2xl"]
+      line_height_tokens: ["--ds.font.line.body","--ds.font.line.heading"]
+      hierarchy: "Use role-based sizes; maintain clear visual hierarchy."
+    colors:
+      text_primary_token: "--ds.color.text.primary"
+      text_muted_token: "--ds.color.text.muted"
+      bg_canvas_token: "--ds.color.bg.canvas"
+      bg_surface_token: "--ds.color.bg.surface"
+      border_default_token: "--ds.color.border.default"
+      intent_tokens:
+        primary: "--ds.color.intent.primary"
+        destructive: "--ds.color.intent.destructive"
+        success: "--ds.color.intent.success"
+        warning: "--ds.color.intent.warning"
+        info: "--ds.color.intent.info"
+      usage: "Use semantic color tokens; never paste hex/rgb."
+    radius_tokens:
+      sm: "--ds.radius.sm"
+      md: "--ds.radius.md"
+      lg: "--ds.radius.lg"
+    elevation_tokens:
+      sm: "--ds.shadow.sm"
+      md: "--ds.shadow.md"
+      lg: "--ds.shadow.lg"
+
+  interaction_patterns:
+    hover:
+      duration_token: "--ds.motion.duration.fast"
+      easing_token: "--ds.motion.easing.standard"
+      usage: "Subtle feedback; avoid distracting motion."
+    focus:
+      ring_token: "--ds.focus.ring"
+      rules: "Always visible focus; meets contrast; consistent shape."
+    states: ["default","hover","focus","active","disabled","loading","error"]
+
+  accessibility:
+    wcag_level: "2.1 AA"
+    keyboard: "Full traversal; Enter/Space activation; ESC closes overlays"
+    contrast:
+      text_min: "4.5:1"
+      large_text_min: "3:1"
+      icon_min: "3:1"
+    aria_patterns:
+      dialog: "Use ARIA dialog with labelledby, focus trap, ESC closes"
+      menu: "menu/menuitem with roving tabindex and typeahead"
+
+  responsiveness:
+    viewports: [375, 768, 1440]
+    rules:
+      - "No horizontal scroll at target viewports"
+      - "Touch targets ≥44px on mobile"
+      - "Layouts adapt; content does not overlap"
+
+  code_health:
+    tokens_only: true
+    reuse_primitives: true
+    no_magic_numbers: true
+    forward_ref: true

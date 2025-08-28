@@ -68,7 +68,7 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
     <tbody
       data-slot="table-body"
       className={cn(
-        "[&_tr:last-child]:border-0 [&_tr]:border-b [&_tr]:border-[#F1F2F6] [&_tr]:hover:bg-[#F9F9FA] [&_tr]:transition-colors [&_td]:font-secondary [&_td]:text-[#424454]",
+        "[&_tr:last-child]:border-0 [&_tr]:border-b [&_tr]:border-[#F1F2F6] [&_tr]:transition-colors [&_td]:font-secondary [&_td]:text-[#424454]",
         className
       )}
       {...props}
