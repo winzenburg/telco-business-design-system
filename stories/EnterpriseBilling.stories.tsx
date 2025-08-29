@@ -110,13 +110,13 @@ export const EnterpriseBillingInterface: Story = {
     const totalPending = billingData.filter(inv => inv.status !== 'Paid').reduce((sum, invoice) => sum + parseFloat(invoice.amount.replace('$', '').replace(',', '')), 0);
 
     return (
-      <div className="min-h-screen bg-[#F9F9FA]">
+      <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-white border-b border-[#F1F2F6] px-6 py-4">
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-primary font-semibold text-xl text-[#2B2D3F]">Enterprise Billing</h1>
-              <p className="text-sm text-[#70717D]">Manage invoices, payments, and service usage</p>
+              <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Enterprise Billing</h1>
+              <p className="text-sm text-[var(--ds-color-text-muted)]">Manage invoices, payments, and service usage</p>
             </div>
             <div className="flex items-center gap-3">
               <Button variant="outline">Export Report</Button>
@@ -130,40 +130,40 @@ export const EnterpriseBillingInterface: Story = {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[#70717D]">Total Billed (YTD)</CardTitle>
+                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Total Billed (YTD)</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-[#2B2D3F]">${totalBilled.toLocaleString()}</div>
-                <p className="text-sm text-[#70717D] mt-1">5 invoices this year</p>
+                <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">${totalBilled.toLocaleString()}</div>
+                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">5 invoices this year</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[#70717D]">Total Paid</CardTitle>
+                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Total Paid</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-green-600">${totalPaid.toLocaleString()}</div>
-                <p className="text-sm text-[#70717D] mt-1">3 invoices paid</p>
+                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">3 invoices paid</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[#70717D]">Outstanding Balance</CardTitle>
+                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Outstanding Balance</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-red-600">${totalPending.toLocaleString()}</div>
-                <p className="text-sm text-[#70717D] mt-1">2 invoices pending</p>
+                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">2 invoices pending</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[#70717D]">Next Payment Due</CardTitle>
+                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Next Payment Due</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-[#2B2D3F]">Apr 30</div>
+                <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">Apr 30</div>
                 <p className="text-sm text-red-600 mt-1">2 days overdue</p>
               </CardContent>
             </Card>
@@ -181,15 +181,15 @@ export const EnterpriseBillingInterface: Story = {
                   <div key={index} className="space-y-2">
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="font-medium text-[#2B2D3F]">{service.service}</span>
-                        <span className="text-sm text-[#70717D] ml-2">
+                        <span className="font-medium text-[var(--ds-color-text-primary)]">{service.service}</span>
+                        <span className="text-sm text-[var(--ds-color-text-muted)] ml-2">
                           {service.usage} {service.limit !== 'Unlimited' && service.limit !== '24/7 Active' && `/ ${service.limit}`}
                         </span>
                       </div>
                       <div className="text-right">
-                        <div className="font-medium text-[#2B2D3F]">{service.cost}</div>
+                        <div className="font-medium text-[var(--ds-color-text-primary)]">{service.cost}</div>
                         {service.limit !== 'Unlimited' && service.limit !== '24/7 Active' && (
-                          <div className="text-sm text-[#70717D]">{service.percentage}% used</div>
+                          <div className="text-sm text-[var(--ds-color-text-muted)]">{service.percentage}% used</div>
                         )}
                       </div>
                     </div>
@@ -205,8 +205,8 @@ export const EnterpriseBillingInterface: Story = {
                 <Separator />
 
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-[#2B2D3F]">Estimated Monthly Total</span>
-                  <span className="font-semibold text-[#2B2D3F] text-lg">$13,120.00</span>
+                  <span className="font-semibold text-[var(--ds-color-text-primary)]">Estimated Monthly Total</span>
+                  <span className="font-semibold text-[var(--ds-color-text-primary)] text-lg">$13,120.00</span>
                 </div>
               </div>
             </CardContent>
@@ -278,7 +278,7 @@ export const EnterpriseBillingInterface: Story = {
             </CardHeader>
 
             <CardContent>
-              <div className="rounded-lg border border-[#F1F2F6] bg-white">
+              <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-canvas)]">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -308,7 +308,7 @@ export const EnterpriseBillingInterface: Story = {
                           />
                         </TableCell>
                         <TableCell>
-                          <span className="font-medium text-[#0D62FF]">{invoice.id}</span>
+                          <span className="font-medium text-[var(--ds-color-intent-primary)]">{invoice.id}</span>
                         </TableCell>
                         <TableCell>{invoice.date}</TableCell>
                         <TableCell>
@@ -363,7 +363,7 @@ export const EnterpriseBillingInterface: Story = {
 
               {/* Pagination */}
               <div className="flex items-center justify-between mt-4">
-                <div className="text-sm text-[#70717D]">
+                <div className="text-sm text-[var(--ds-color-text-muted)]">
                   Showing {filteredInvoices.length} of {billingData.length} invoices
                 </div>
                 <div className="flex items-center gap-2">
@@ -387,7 +387,7 @@ export const EnterpriseBillingInterface: Story = {
                 <CardDescription>Manage your payment methods</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-3 p-4 border border-[#F1F2F6] rounded-lg">
+                <div className="space-y-3 p-4 border border-[var(--ds-color-border-default)] rounded-lg">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-6 bg-blue-600 rounded text-white text-xs flex items-center justify-center font-bold">
@@ -395,14 +395,14 @@ export const EnterpriseBillingInterface: Story = {
                       </div>
                       <div>
                         <p className="text-sm font-medium">**** **** **** 4532</p>
-                        <p className="text-xs text-[#70717D]">Expires 12/26</p>
+                        <p className="text-xs text-[var(--ds-color-text-muted)]">Expires 12/26</p>
                       </div>
                     </div>
                     <Badge variant="secondary">Primary</Badge>
                   </div>
                 </div>
 
-                <div className="space-y-3 p-4 border border-[#F1F2F6] rounded-lg">
+                <div className="space-y-3 p-4 border border-[var(--ds-color-border-default)] rounded-lg">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-6 bg-red-600 rounded text-white text-xs flex items-center justify-center font-bold">
@@ -410,7 +410,7 @@ export const EnterpriseBillingInterface: Story = {
                       </div>
                       <div>
                         <p className="text-sm font-medium">**** **** **** 8901</p>
-                        <p className="text-xs text-[#70717D]">Expires 08/25</p>
+                        <p className="text-xs text-[var(--ds-color-text-muted)]">Expires 08/25</p>
                       </div>
                     </div>
                     <Button variant="outline" size="sm">Edit</Button>

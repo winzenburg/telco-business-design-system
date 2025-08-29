@@ -30,7 +30,7 @@ function SelectValue({
 
 const selectTriggerVariants = cva(
   // Base styles matching Input component
-  "flex w-full items-center justify-between gap-2 rounded-[4px] border bg-[var(--ds-color-bg-canvas] px-[13px] py-[9px] text-sm transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 text-[var(--ds-color-text-primary] font-secondary placeholder:text-[var(--ds-color-text-muted]",
+  "flex w-full items-center justify-between gap-2 rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-canvas] px-[13px] py-[9px] text-sm transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 text-[var(--ds-color-text-primary] font-secondary placeholder:text-[var(--ds-color-text-muted]",
   {
     variants: {
       variant: {
@@ -104,7 +104,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-[4px] border border-[var(--ds-color-[^]]*] bg-[var(--ds-color-[^]]*] text-[var(--ds-color-[^]]*] shadow-lg opacity-100 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-[^]]*] bg-[var(--ds-color-[^]]*] text-[var(--ds-color-[^]]*] shadow-lg opacity-100 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className
@@ -151,7 +151,7 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-default select-none items-center rounded-[4px] py-2 pl-3 pr-8 text-sm font-secondary transition-colors focus:bg-[var(--ds-color-bg-surface] focus:text-[var(--ds-color-text-primary] focus:outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:bg-[var(--ds-color-bg-surface] hover:text-[var(--ds-color-text-primary]",
+        "relative flex w-full cursor-default select-none items-center rounded-[var(--ds-radius-sm)] py-2 pl-3 pr-8 text-sm font-secondary transition-colors focus:bg-[var(--ds-color-bg-surface] focus:text-[var(--ds-color-text-primary] focus:outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:bg-[var(--ds-color-bg-surface] hover:text-[var(--ds-color-text-primary]",
         className
       )}
       {...props}
@@ -255,7 +255,7 @@ function SelectSkeleton({
           {hasSubcopy && <Skeleton className="h-3 w-32" />}
         </div>
       )}
-      <Skeleton className={cn("w-full rounded-[4px]", heights[size])} />
+      <Skeleton className={cn("w-full rounded-[var(--ds-radius-sm)]", heights[size])} />
     </div>
   )
 }

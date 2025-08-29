@@ -167,13 +167,13 @@ export const EnterpriseServiceManagementInterface: Story = {
     const avgUptime = serviceData.reduce((acc, s) => acc + s.uptime, 0) / serviceData.length;
 
     return (
-      <div className="min-h-screen bg-[#F9F9FA]">
+      <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-white border-b border-[#F1F2F6] px-6 py-4">
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-primary font-semibold text-xl text-[#2B2D3F]">Service Management</h1>
-              <p className="text-sm text-[#70717D]">Monitor and manage all enterprise services</p>
+              <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Service Management</h1>
+              <p className="text-sm text-[var(--ds-color-text-muted)]">Monitor and manage all enterprise services</p>
             </div>
             <div className="flex items-center gap-3">
               <Dialog>
@@ -237,41 +237,41 @@ export const EnterpriseServiceManagementInterface: Story = {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[#70717D]">Active Services</CardTitle>
+                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Active Services</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-green-600">{activeServices}</div>
-                <p className="text-sm text-[#70717D] mt-1">Running normally</p>
+                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">Running normally</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[#70717D]">Warning Services</CardTitle>
+                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Warning Services</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-orange-600">{warningServices}</div>
-                <p className="text-sm text-[#70717D] mt-1">Require attention</p>
+                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">Require attention</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[#70717D]">In Maintenance</CardTitle>
+                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">In Maintenance</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-yellow-600">{maintenanceServices}</div>
-                <p className="text-sm text-[#70717D] mt-1">Scheduled work</p>
+                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">Scheduled work</p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[#70717D]">Avg. Uptime</CardTitle>
+                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Avg. Uptime</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-[#2B2D3F]">{avgUptime.toFixed(1)}%</div>
-                <p className="text-sm text-[#70717D] mt-1">Last 30 days</p>
+                <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">{avgUptime.toFixed(1)}%</div>
+                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">Last 30 days</p>
               </CardContent>
             </Card>
           </div>
@@ -365,7 +365,7 @@ export const EnterpriseServiceManagementInterface: Story = {
             </CardHeader>
 
             <CardContent>
-              <div className="rounded-lg border border-[#F1F2F6] bg-white">
+              <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-canvas)]">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -396,12 +396,12 @@ export const EnterpriseServiceManagementInterface: Story = {
                         </TableCell>
                         <TableCell>
                           <div>
-                            <div className="font-medium text-[#2B2D3F]">{service.name}</div>
-                            <div className="text-sm text-[#70717D]">{service.id}</div>
+                            <div className="font-medium text-[var(--ds-color-text-primary)]">{service.name}</div>
+                            <div className="text-sm text-[var(--ds-color-text-muted)]">{service.id}</div>
                           </div>
                         </TableCell>
                         <TableCell>
-                          <span className="text-[#424454]">{service.location}</span>
+                          <span className="text-[var(--ds-color-text-primary)]">{service.location}</span>
                         </TableCell>
                         <TableCell>
                           <Badge variant="outline">{service.type}</Badge>
@@ -416,10 +416,10 @@ export const EnterpriseServiceManagementInterface: Story = {
                           </div>
                         </TableCell>
                         <TableCell>
-                          <span className="text-[#424454]">{service.bandwidth}</span>
+                          <span className="text-[var(--ds-color-text-primary)]">{service.bandwidth}</span>
                         </TableCell>
                         <TableCell>
-                          <span className="text-sm text-[#70717D]">{service.lastChecked}</span>
+                          <span className="text-sm text-[var(--ds-color-text-muted)]">{service.lastChecked}</span>
                         </TableCell>
                         <TableCell>
                           <DropdownMenu>
@@ -465,18 +465,18 @@ export const EnterpriseServiceManagementInterface: Story = {
               <CardContent>
                 <div className="space-y-4">
                   {incidentData.map((incident) => (
-                    <div key={incident.id} className="border border-[#F1F2F6] rounded-lg p-4">
+                    <div key={incident.id} className="border border-[var(--ds-color-border-default)] rounded-lg p-4">
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <p className="font-medium text-[#2B2D3F]">{incident.title}</p>
-                          <p className="text-sm text-[#70717D]">{incident.id} • {incident.service}</p>
+                          <p className="font-medium text-[var(--ds-color-text-primary)]">{incident.title}</p>
+                          <p className="text-sm text-[var(--ds-color-text-muted)]">{incident.id} • {incident.service}</p>
                         </div>
                         <div className="flex items-center gap-2">
                           {getSeverityBadge(incident.severity)}
                           {getIncidentStatusBadge(incident.status)}
                         </div>
                       </div>
-                      <div className="flex items-center justify-between text-sm text-[#70717D]">
+                      <div className="flex items-center justify-between text-sm text-[var(--ds-color-text-muted)]">
                         <span>Assigned to: {incident.assignee}</span>
                         <span>{incident.reported}</span>
                       </div>
@@ -498,11 +498,11 @@ export const EnterpriseServiceManagementInterface: Story = {
               <CardContent>
                 <div className="space-y-4">
                   {maintenanceData.map((maintenance) => (
-                    <div key={maintenance.id} className="border border-[#F1F2F6] rounded-lg p-4">
+                    <div key={maintenance.id} className="border border-[var(--ds-color-border-default)] rounded-lg p-4">
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <p className="font-medium text-[#2B2D3F]">{maintenance.title}</p>
-                          <p className="text-sm text-[#70717D]">{maintenance.id} • {maintenance.services.join(', ')}</p>
+                          <p className="font-medium text-[var(--ds-color-text-primary)]">{maintenance.title}</p>
+                          <p className="text-sm text-[var(--ds-color-text-muted)]">{maintenance.id} • {maintenance.services.join(', ')}</p>
                         </div>
                         <Badge 
                           className={
@@ -516,7 +516,7 @@ export const EnterpriseServiceManagementInterface: Story = {
                           {maintenance.status}
                         </Badge>
                       </div>
-                      <div className="space-y-1 text-sm text-[#70717D]">
+                      <div className="space-y-1 text-sm text-[var(--ds-color-text-muted)]">
                         <div className="flex items-center gap-1"><Icon name="configure" size={14} />{maintenance.scheduled} ({maintenance.duration})</div>
                         <div className="flex items-center gap-1"><Icon name="alert" size={14} />{maintenance.impact}</div>
                       </div>

@@ -101,16 +101,16 @@ type Story = StoryObj<typeof meta>;
 
 export const ExecutiveDashboard: Story = {
   render: () => (
-    <div className="min-h-screen bg-[#F9F9FA]">
+    <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
       {/* Header */}
-      <header className="bg-white border-b border-[#F1F2F6] px-6 py-4">
+      <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#0D62FF] rounded flex items-center justify-center text-white font-bold text-sm">CB</div>
+              <div className="w-8 h-8 bg-[var(--ds-color-intent-primary)] rounded flex items-center justify-center text-white font-bold text-sm">CB</div>
               <div>
-                <h1 className="font-primary font-semibold text-xl text-[#2B2D3F]">Executive Dashboard</h1>
-                <p className="text-sm text-[#70717D]">Real-time business insights</p>
+                <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Executive Dashboard</h1>
+                <p className="text-sm text-[var(--ds-color-text-muted)]">Real-time business insights</p>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ export const ExecutiveDashboard: Story = {
             <Avatar className="w-8 h-8">
               <AvatarFallback>JD</AvatarFallback>
             </Avatar>
-            <span className="text-sm font-medium text-[#2B2D3F]">John Doe</span>
+            <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">John Doe</span>
           </div>
         </div>
       </header>
@@ -129,60 +129,60 @@ export const ExecutiveDashboard: Story = {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#70717D]">Monthly Revenue</CardTitle>
+              <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Monthly Revenue</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-[#2B2D3F]">$2.4M</div>
+              <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">$2.4M</div>
               <div className="flex items-center gap-2 mt-2">
                 <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
                   ↗ +12.5%
                 </Badge>
-                <span className="text-sm text-[#70717D]">vs last month</span>
+                <span className="text-sm text-[var(--ds-color-text-muted)]">vs last month</span>
               </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#70717D]">Active Services</CardTitle>
+              <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Active Services</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-[#2B2D3F]">12,847</div>
+              <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">12,847</div>
               <div className="flex items-center gap-2 mt-2">
                 <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
                   → +234
                 </Badge>
-                <span className="text-sm text-[#70717D]">this month</span>
+                <span className="text-sm text-[var(--ds-color-text-muted)]">this month</span>
               </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#70717D]">System Uptime</CardTitle>
+              <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">System Uptime</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-[#2B2D3F]">99.97%</div>
+              <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">99.97%</div>
               <div className="flex items-center gap-2 mt-2">
                 <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
                   Excellent
                 </Badge>
-                <span className="text-sm text-[#70717D]">30-day avg</span>
+                <span className="text-sm text-[var(--ds-color-text-muted)]">30-day avg</span>
               </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[#70717D]">Support Tickets</CardTitle>
+              <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Support Tickets</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-[#2B2D3F]">127</div>
+              <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">127</div>
               <div className="flex items-center gap-2 mt-2">
                 <Badge variant="destructive" className="bg-red-50 text-red-700 border-red-200">
                   ↗ +23
                 </Badge>
-                <span className="text-sm text-[#70717D]">open tickets</span>
+                <span className="text-sm text-[var(--ds-color-text-muted)]">open tickets</span>
               </div>
             </CardContent>
           </Card>
@@ -201,16 +201,16 @@ export const ExecutiveDashboard: Story = {
                 <div className="h-[300px] w-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <RechartsLineChart data={servicePerformanceTrend}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                     <XAxis 
                       dataKey="name" 
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <YAxis 
                       domain={[95, 100]}
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <ChartTooltip />
                     <Line 
@@ -248,21 +248,21 @@ export const ExecutiveDashboard: Story = {
                 <Separator className="my-4" />
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="text-center p-4 bg-[#F9F9FA] rounded-lg">
-                    <div className="text-2xl font-bold text-[#2B2D3F]">847</div>
-                    <div className="text-sm text-[#70717D]">Locations Served</div>
+                  <div className="text-center p-4 bg-[var(--ds-color-bg-surface)] rounded-lg">
+                    <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">847</div>
+                    <div className="text-sm text-[var(--ds-color-text-muted)]">Locations Served</div>
                   </div>
-                  <div className="text-center p-4 bg-[#F9F9FA] rounded-lg">
-                    <div className="text-2xl font-bold text-[#2B2D3F]">2.3TB</div>
-                    <div className="text-sm text-[#70717D]">Data Processed Today</div>
+                  <div className="text-center p-4 bg-[var(--ds-color-bg-surface)] rounded-lg">
+                    <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">2.3TB</div>
+                    <div className="text-sm text-[var(--ds-color-text-muted)]">Data Processed Today</div>
                   </div>
-                  <div className="text-center p-4 bg-[#F9F9FA] rounded-lg">
-                    <div className="text-2xl font-bold text-[#2B2D3F]">99.1%</div>
-                    <div className="text-sm text-[#70717D]">Avg Performance</div>
+                  <div className="text-center p-4 bg-[var(--ds-color-bg-surface)] rounded-lg">
+                    <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">99.1%</div>
+                    <div className="text-sm text-[var(--ds-color-text-muted)]">Avg Performance</div>
                   </div>
-                  <div className="text-center p-4 bg-[#F9F9FA] rounded-lg">
-                    <div className="text-2xl font-bold text-[#2B2D3F]">24/7</div>
-                    <div className="text-sm text-[#70717D]">Monitoring</div>
+                  <div className="text-center p-4 bg-[var(--ds-color-bg-surface)] rounded-lg">
+                    <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">24/7</div>
+                    <div className="text-sm text-[var(--ds-color-text-muted)]">Monitoring</div>
                   </div>
                 </div>
               </CardContent>
@@ -305,9 +305,9 @@ export const ExecutiveDashboard: Story = {
                           className="w-3 h-3 rounded-full" 
                           style={{ backgroundColor: service.fill }}
                         />
-                        <span className="text-sm font-medium text-[#2B2D3F]">{service.name}</span>
+                        <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">{service.name}</span>
                       </div>
-                      <span className="text-sm font-semibold text-[#70717D]">{service.value.toLocaleString()}</span>
+                      <span className="text-sm font-semibold text-[var(--ds-color-text-muted)]">{service.value.toLocaleString()}</span>
                     </div>
                   ))}\n                </div>
               </CardContent>
@@ -327,15 +327,15 @@ export const ExecutiveDashboard: Story = {
               <div className="h-[250px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <RechartsBarChart data={ticketPriority}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                     <XAxis 
                       dataKey="name" 
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <YAxis 
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <ChartTooltip />
                     <Bar dataKey="value" radius={[4, 4, 0, 0]}>
@@ -359,15 +359,15 @@ export const ExecutiveDashboard: Story = {
               <div className="h-[250px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <RechartsAreaChart data={revenueData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                     <XAxis 
                       dataKey="name" 
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <YAxis 
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <ChartTooltip />
                     <Area 

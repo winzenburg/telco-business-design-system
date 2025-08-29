@@ -162,10 +162,10 @@ export const ColorSystemPatterns: Story = {
           
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded border" style={{ backgroundColor: '#0D62FF' }}></div>
+              <div className="w-6 h-6 rounded border" style={{ backgroundColor: 'var(--ds-color-intent-primary)' }}></div>
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">Focus Blue</div>
-                <code className="text-xs text-gray-600">#0D62FF</code>
+                <code className="text-xs text-gray-600">var(--ds-color-intent-primary)</code>
               </div>
             </div>
             
@@ -186,10 +186,10 @@ export const ColorSystemPatterns: Story = {
             </div>
             
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded border" style={{ backgroundColor: '#2B2D3F' }}></div>
+              <div className="w-6 h-6 rounded border" style={{ backgroundColor: 'var(--ds-color-text-primary)' }}></div>
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">Hover Gray</div>
-                <code className="text-xs text-gray-600">#2B2D3F</code>
+                <code className="text-xs text-gray-600">var(--ds-color-text-primary)</code>
               </div>
             </div>
           </div>
@@ -427,14 +427,14 @@ export const StateManagementPatterns: Story = {
               <div className="text-sm text-gray-600 font-secondary">border-gray-400</div>
             </div>
             
-            <div className="p-4 border rounded-[4px] bg-white" style={{ borderColor: '#2B2D3F' }}>
+            <div className="p-4 border rounded-[4px] bg-white" style={{ borderColor: 'var(--ds-color-text-primary)' }}>
               <div className="font-medium font-primary mb-1">Hover</div>
-              <div className="text-sm text-gray-600 font-secondary">#2B2D3F</div>
+              <div className="text-sm text-gray-600 font-secondary">var(--ds-color-text-primary)</div>
             </div>
             
-            <div className="p-4 border-2 rounded-[4px] bg-white ring-2 ring-offset-2" style={{ borderColor: '#0D62FF', ringColor: '#0D62FF' }}>
+            <div className="p-4 border-2 rounded-[4px] bg-white ring-2 ring-offset-2" style={{ borderColor: 'var(--ds-color-intent-primary)', ringColor: 'var(--ds-color-intent-primary)' }}>
               <div className="font-medium font-primary mb-1">Focus</div>
-              <div className="text-sm text-gray-600 font-secondary">#0D62FF + ring</div>
+              <div className="text-sm text-gray-600 font-secondary">var(--ds-color-intent-primary) + ring</div>
             </div>
             
             <div className="p-4 border border-red-500 rounded-[4px] bg-white">
@@ -487,15 +487,15 @@ border-radius: 4px;
 transition: border-color, box-shadow;
 
 // State variants
-.default { border-color: #9CA3AF; }
-.hover { border-color: #2B2D3F; }
+.default { border-color: var(--ds-color-border-default); }
+.hover { border-color: var(--ds-color-text-primary); }
 .focus { 
-  border-color: #0D62FF;
-  ring: 2px #0D62FF;
+  border-color: var(--ds-color-intent-primary);
+  ring: 2px var(--ds-color-intent-primary);
   ring-offset: 2px;
 }
-.error { border-color: #EF4444; }
-.success { border-color: #16A34A; }`}
+.error { border-color: var(--ds-color-intent-destructive); }
+.success { border-color: var(--ds-color-intent-success); }`}
               </code>
             </div>
           </div>
@@ -711,7 +711,7 @@ export const ImplementationGuide: Story = {
               <ul className="space-y-2 text-sm font-secondary">
                 <li>✅ Neutral palette mapping</li>
                 <li>✅ State color consistency</li>
-                <li>✅ Focus blue (#0D62FF)</li>
+                <li>✅ Focus blue (var(--ds-color-intent-primary))</li>
                 <li>✅ Error/success states</li>
                 <li>✅ Proper contrast ratios</li>
               </ul>
@@ -800,7 +800,7 @@ export const ImplementationGuide: Story = {
             </div>
             <div>
               <strong className="font-primary">Focus state:</strong><br />
-              <code>border-[#0D62FF] ring-2</code>
+              <code>border-[var(--ds-color-intent-primary)] ring-2</code>
             </div>
           </div>
         </div>

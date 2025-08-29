@@ -24,16 +24,16 @@ const ColorSwatch: React.FC<{ color: string; name: string; value: string; descri
   value,
   description 
 }) => (
-  <div className="flex flex-col items-center p-4 border border-[#E8EAEF] rounded-lg bg-white shadow-sm">
+  <div className="flex flex-col items-center p-4 border border-[var(--ds-color-border-default)] rounded-lg bg-white shadow-sm">
     <div 
-      className="w-16 h-16 rounded-lg border border-[#E8EAEF] shadow-sm mb-3"
+      className="w-16 h-16 rounded-lg border border-[var(--ds-color-border-default)] shadow-sm mb-3"
       style={{ backgroundColor: color }}
     />
     <div className="text-center">
-      <div className="font-medium text-[#15172B] text-sm">{name}</div>
-      <div className="font-mono text-xs text-[#70717D] mt-1">{value}</div>
+      <div className="font-medium text-[var(--ds-color-text-primary)] text-sm">{name}</div>
+      <div className="font-mono text-xs text-[var(--ds-color-text-muted)] mt-1">{value}</div>
       {description && (
-        <div className="text-xs text-[#70717D] mt-1 max-w-[120px]">{description}</div>
+        <div className="text-xs text-[var(--ds-color-text-muted)] mt-1 max-w-[120px]">{description}</div>
       )}
     </div>
   </div>
@@ -46,8 +46,8 @@ const ColorSection: React.FC<{
 }> = ({ title, description, colors: colorArray }) => (
   <div className="mb-12">
     <div className="mb-6">
-      <h2 className="text-2xl font-bold text-[#15172B] font-primary mb-2">{title}</h2>
-      <p className="text-[#70717D] max-w-2xl">{description}</p>
+      <h2 className="text-2xl font-bold text-[var(--ds-color-text-primary)] font-primary mb-2">{title}</h2>
+      <p className="text-[var(--ds-color-text-muted)] max-w-2xl">{description}</p>
     </div>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
       {colorArray.map(({ name, value, description }) => (
@@ -65,13 +65,13 @@ const ColorSection: React.FC<{
 
 export const AllColors: Story = {
   render: () => (
-    <div className="p-8 bg-[#F9FAFB] min-h-screen">
+    <div className="p-8 bg-[var(--ds-color-bg-surface)] min-h-screen">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-3xl font-bold text-[#15172B] font-primary mb-4">
+          <h1 className="text-3xl font-bold text-[var(--ds-color-text-primary)] font-primary mb-4">
             Comcast Business Design System Colors
           </h1>
-          <p className="text-lg text-[#70717D] max-w-3xl">
+          <p className="text-lg text-[var(--ds-color-text-muted)] max-w-3xl">
             Our comprehensive color palette designed for accessibility, brand consistency, 
             and effective data visualization across all Comcast Business applications.
           </p>
@@ -174,12 +174,12 @@ export const AllColors: Story = {
         />
 
         {/* Usage Guidelines */}
-        <div className="mt-16 p-6 bg-white rounded-lg border border-[#E8EAEF]">
-          <h2 className="text-xl font-bold text-[#15172B] font-primary mb-4">Usage Guidelines</h2>
+        <div className="mt-16 p-6 bg-white rounded-lg border border-[var(--ds-color-border-default)]">
+          <h2 className="text-xl font-bold text-[var(--ds-color-text-primary)] font-primary mb-4">Usage Guidelines</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-[#15172B] mb-2">Accessibility</h3>
-              <ul className="text-sm text-[#70717D] space-y-1">
+              <h3 className="font-semibold text-[var(--ds-color-text-primary)] mb-2">Accessibility</h3>
+              <ul className="text-sm text-[var(--ds-color-text-muted)] space-y-1">
                 <li>• All colors meet WCAG 2.1 AA contrast requirements</li>
                 <li>• Text colors provide 4.5:1 minimum contrast ratio</li>
                 <li>• UI elements provide 3:1 minimum contrast ratio</li>
@@ -187,8 +187,8 @@ export const AllColors: Story = {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-[#15172B] mb-2">Implementation</h3>
-              <ul className="text-sm text-[#70717D] space-y-1">
+              <h3 className="font-semibold text-[var(--ds-color-text-primary)] mb-2">Implementation</h3>
+              <ul className="text-sm text-[var(--ds-color-text-muted)] space-y-1">
                 <li>• Use design tokens from the color system</li>
                 <li>• Avoid hardcoded hex values in components</li>
                 <li>• Test colors in both light and dark contexts</li>

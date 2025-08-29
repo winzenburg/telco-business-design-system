@@ -68,7 +68,7 @@ const barChartData = [
 ];
 
 const pieChartData = [
-  { name: 'Group A', value: 400, fill: '#0D62FF' },
+  { name: 'Group A', value: 400, fill: 'var(--ds-color-intent-primary)' },
   { name: 'Group B', value: 300, fill: '#4A89FF' },
   { name: 'Group C', value: 300, fill: '#86B0FF' },
   { name: 'Group D', value: 200, fill: '#C2D8FF' },
@@ -85,23 +85,23 @@ export const LineChart: Story = {
         <CardContent>
           <div className="h-[300px] w-full">
             <RechartsLineChart width={600} height={300} data={lineChartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
               <XAxis 
                 dataKey="name" 
-                tick={{ fontSize: 12, fill: '#70717D' }}
-                axisLine={{ stroke: '#F1F2F6' }}
+                tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
               />
               <YAxis 
-                tick={{ fontSize: 12, fill: '#70717D' }}
-                axisLine={{ stroke: '#F1F2F6' }}
+                tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
               />
               <ChartTooltip />
               <Line 
                 type="monotone" 
                 dataKey="series1" 
-                stroke="#0D62FF"
+                stroke="var(--ds-color-intent-primary)"
                 strokeWidth={3}
-                dot={{ fill: "#0D62FF", r: 4 }}
+                dot={{ fill: "var(--ds-color-intent-primary)", r: 4 }}
                 activeDot={{ r: 6 }}
               />
               <Line 
@@ -131,23 +131,23 @@ export const AreaChart: Story = {
         <CardContent>
           <div className="h-[300px] w-full">
             <RechartsAreaChart width={600} height={300} data={areaChartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
               <XAxis 
                 dataKey="name" 
-                tick={{ fontSize: 12, fill: '#70717D' }}
-                axisLine={{ stroke: '#F1F2F6' }}
+                tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
               />
               <YAxis 
-                tick={{ fontSize: 12, fill: '#70717D' }}
-                axisLine={{ stroke: '#F1F2F6' }}
+                tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
               />
               <ChartTooltip />
               <Area 
                 type="monotone" 
                 dataKey="value" 
-                stroke="#0D62FF"
+                stroke="var(--ds-color-intent-primary)"
                 strokeWidth={2}
-                fill="#0D62FF20"
+                fill="var(--ds-color-intent-primary)20"
                 fillOpacity={0.6}
               />
             </RechartsAreaChart>
@@ -169,18 +169,18 @@ export const BarChart: Story = {
         <CardContent>
           <div className="h-[350px] w-full">
             <RechartsBarChart width={600} height={350} data={barChartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
               <XAxis 
                 dataKey="name" 
-                tick={{ fontSize: 12, fill: '#70717D' }}
-                axisLine={{ stroke: '#F1F2F6' }}
+                tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
               />
               <YAxis 
-                tick={{ fontSize: 12, fill: '#70717D' }}
-                axisLine={{ stroke: '#F1F2F6' }}
+                tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
               />
               <ChartTooltip />
-              <Bar dataKey="value1" fill="#0D62FF" />
+              <Bar dataKey="value1" fill="var(--ds-color-intent-primary)" />
               <Bar dataKey="value2" fill="#4A89FF" />
               <Bar dataKey="value3" fill="#86B0FF" />
             </RechartsBarChart>
@@ -242,9 +242,9 @@ export const SmallCharts: Story = {
                 <Area 
                   type="monotone" 
                   dataKey="value" 
-                  stroke="#0D62FF"
+                  stroke="var(--ds-color-intent-primary)"
                   strokeWidth={2}
-                  fill="#0D62FF30"
+                  fill="var(--ds-color-intent-primary)30"
                   fillOpacity={0.8}
                 />
                 <ChartTooltip />
@@ -371,9 +371,9 @@ export const CategoricalColorTheme: Story = {
             <CardContent>
               <div className="h-[300px] w-full">
                 <RechartsBarChart width={400} height={300} data={categoricalBarData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
-                  <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#70717D' }} />
-                  <YAxis tick={{ fontSize: 12, fill: '#70717D' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                  <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
+                  <YAxis tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <ChartTooltip />
                   <Bar dataKey="service1" fill={categoricalColors.cat1} />
                   <Bar dataKey="service2" fill={categoricalColors.cat2} />
@@ -426,9 +426,9 @@ export const SequentialColorTheme: Story = {
             <CardContent>
               <div className="h-[300px] w-full">
                 <RechartsBarChart width={400} height={300} data={sequentialData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
-                  <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#70717D' }} />
-                  <YAxis tick={{ fontSize: 12, fill: '#70717D' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                  <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
+                  <YAxis tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <ChartTooltip />
                   <Bar dataKey="value">
                     {sequentialData.map((entry, index) => (
@@ -448,9 +448,9 @@ export const SequentialColorTheme: Story = {
             <CardContent>
               <div className="h-[300px] w-full">
                 <RechartsAreaChart width={400} height={300} data={heatmapData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
-                  <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#70717D' }} />
-                  <YAxis tick={{ fontSize: 12, fill: '#70717D' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                  <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
+                  <YAxis tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <ChartTooltip />
                   <Area type="monotone" dataKey="low" stackId="1" stroke={sequentialColors.seq2} fill={sequentialColors.seq2} fillOpacity={0.8} />
                   <Area type="monotone" dataKey="medium" stackId="1" stroke={sequentialColors.seq4} fill={sequentialColors.seq4} fillOpacity={0.8} />
@@ -524,9 +524,9 @@ export const SignalColorTheme: Story = {
             <CardContent>
               <div className="h-[300px] w-full">
                 <RechartsLineChart width={400} height={300} data={statusTrendData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
-                  <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#70717D' }} />
-                  <YAxis tick={{ fontSize: 12, fill: '#70717D' }} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                  <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
+                  <YAxis tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <ChartTooltip />
                   <Line type="monotone" dataKey="critical" stroke={signalColors.critical} strokeWidth={2} />
                   <Line type="monotone" dataKey="high" stroke={signalColors.high} strokeWidth={2} />

@@ -54,13 +54,13 @@ export const EnterpriseSettingsInterface: Story = {
     const [autoBackup, setAutoBackup] = useState(true);
 
     return (
-      <div className="min-h-screen bg-[#F9F9FA]">
+      <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-white border-b border-[#F1F2F6] px-6 py-4">
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-primary font-semibold text-xl text-[#2B2D3F]">Enterprise Settings</h1>
-              <p className="text-sm text-[#70717D]">Manage your organization's configuration and preferences</p>
+              <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Enterprise Settings</h1>
+              <p className="text-sm text-[var(--ds-color-text-muted)]">Manage your organization's configuration and preferences</p>
             </div>
             <div className="flex items-center gap-3">
               <Button variant="outline">Export Config</Button>
@@ -106,7 +106,7 @@ export const EnterpriseSettingsInterface: Story = {
                           id="org-id"
                           defaultValue="ORG-12345"
                           disabled
-                          className="bg-[#F9F9FA]"
+                          className="bg-[var(--ds-color-bg-surface)]"
                         />
                       </div>
                     </div>
@@ -200,7 +200,7 @@ export const EnterpriseSettingsInterface: Story = {
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
                         <Label>Two-Factor Authentication</Label>
-                        <p className="text-sm text-[#70717D]">
+                        <p className="text-sm text-[var(--ds-color-text-muted)]">
                           Require 2FA for all user accounts
                         </p>
                       </div>
@@ -300,7 +300,7 @@ export const EnterpriseSettingsInterface: Story = {
                             <Input placeholder="192.168.1.0/24" />
                             <Button variant="outline" size="sm">Add</Button>
                           </div>
-                          <div className="flex items-center gap-2 p-2 bg-[#F9F9FA] rounded">
+                          <div className="flex items-center gap-2 p-2 bg-[var(--ds-color-bg-surface)] rounded">
                             <span className="text-sm">192.168.1.0/24</span>
                             <Badge variant="outline">Corporate Network</Badge>
                             <Button variant="ghost" size="sm" className="ml-auto">Remove</Button>
@@ -325,7 +325,7 @@ export const EnterpriseSettingsInterface: Story = {
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
                         <Label>Enable Email Notifications</Label>
-                        <p className="text-sm text-[#70717D]">
+                        <p className="text-sm text-[var(--ds-color-text-muted)]">
                           Send notifications via email
                         </p>
                       </div>
@@ -336,7 +336,7 @@ export const EnterpriseSettingsInterface: Story = {
                     </div>
 
                     {emailNotifications && (
-                      <div className="space-y-4 pl-4 border-l-2 border-[#F1F2F6]">
+                      <div className="space-y-4 pl-4 border-l-2 border-[var(--ds-color-border-default)]">
                         <div className="space-y-3">
                           <div className="flex items-center space-x-2">
                             <Checkbox id="service-alerts" defaultChecked />
@@ -369,12 +369,12 @@ export const EnterpriseSettingsInterface: Story = {
                           <div className="space-y-2">
                             <Input placeholder="admin@company.com" />
                             <div className="space-y-1">
-                              <div className="flex items-center gap-2 p-2 bg-[#F9F9FA] rounded text-sm">
+                              <div className="flex items-center gap-2 p-2 bg-[var(--ds-color-bg-surface)] rounded text-sm">
                                 <span>admin@acme.com</span>
                                 <Badge variant="outline">Primary</Badge>
                                 <Button variant="ghost" size="sm" className="ml-auto">Remove</Button>
                               </div>
-                              <div className="flex items-center gap-2 p-2 bg-[#F9F9FA] rounded text-sm">
+                              <div className="flex items-center gap-2 p-2 bg-[var(--ds-color-bg-surface)] rounded text-sm">
                                 <span>it-alerts@acme.com</span>
                                 <Button variant="ghost" size="sm" className="ml-auto">Remove</Button>
                               </div>
@@ -397,7 +397,7 @@ export const EnterpriseSettingsInterface: Story = {
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
                         <Label>Enable SMS Notifications</Label>
-                        <p className="text-sm text-[#70717D]">
+                        <p className="text-sm text-[var(--ds-color-text-muted)]">
                           Send critical alerts via SMS
                         </p>
                       </div>
@@ -539,7 +539,7 @@ export const EnterpriseSettingsInterface: Story = {
 
                     <div className="space-y-3">
                       <Label>Payment Method</Label>
-                      <div className="space-y-3 p-4 border border-[#F1F2F6] rounded-lg bg-[#F9F9FA]">
+                      <div className="space-y-3 p-4 border border-[var(--ds-color-border-default)] rounded-lg bg-[var(--ds-color-bg-surface)]">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <div className="w-8 h-6 bg-blue-600 rounded text-white text-xs flex items-center justify-center font-bold">
@@ -547,7 +547,7 @@ export const EnterpriseSettingsInterface: Story = {
                             </div>
                             <div>
                               <p className="text-sm font-medium">**** **** **** 4532</p>
-                              <p className="text-xs text-[#70717D]">Expires 12/26</p>
+                              <p className="text-xs text-[var(--ds-color-text-muted)]">Expires 12/26</p>
                             </div>
                           </div>
                           <Badge variant="secondary">Primary</Badge>
@@ -622,7 +622,7 @@ export const EnterpriseSettingsInterface: Story = {
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
                         <Label>Maintenance Mode</Label>
-                        <p className="text-sm text-[#70717D]">
+                        <p className="text-sm text-[var(--ds-color-text-muted)]">
                           Enable maintenance mode for system updates
                         </p>
                       </div>
@@ -637,7 +637,7 @@ export const EnterpriseSettingsInterface: Story = {
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
                         <Label>Automatic Backups</Label>
-                        <p className="text-sm text-[#70717D]">
+                        <p className="text-sm text-[var(--ds-color-text-muted)]">
                           Automatically backup system data daily
                         </p>
                       </div>
@@ -667,17 +667,17 @@ export const EnterpriseSettingsInterface: Story = {
                     <div className="space-y-3">
                       <Label>API Configuration</Label>
                       <div className="space-y-2">
-                        <div className="flex items-center justify-between p-3 border border-[#F1F2F6] rounded-lg">
+                        <div className="flex items-center justify-between p-3 border border-[var(--ds-color-border-default)] rounded-lg">
                           <div>
                             <p className="text-sm font-medium">API Rate Limiting</p>
-                            <p className="text-xs text-[#70717D]">1000 requests per hour</p>
+                            <p className="text-xs text-[var(--ds-color-text-muted)]">1000 requests per hour</p>
                           </div>
                           <Button variant="outline" size="sm">Configure</Button>
                         </div>
-                        <div className="flex items-center justify-between p-3 border border-[#F1F2F6] rounded-lg">
+                        <div className="flex items-center justify-between p-3 border border-[var(--ds-color-border-default)] rounded-lg">
                           <div>
                             <p className="text-sm font-medium">Webhook Endpoints</p>
-                            <p className="text-xs text-[#70717D]">3 endpoints configured</p>
+                            <p className="text-xs text-[var(--ds-color-text-muted)]">3 endpoints configured</p>
                           </div>
                           <Button variant="outline" size="sm">Manage</Button>
                         </div>

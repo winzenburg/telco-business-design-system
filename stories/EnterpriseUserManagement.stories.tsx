@@ -142,13 +142,13 @@ export const UserManagementInterface: Story = {
     };
 
     return (
-      <div className="min-h-screen bg-[#F9F9FA]">
+      <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-white border-b border-[#F1F2F6] px-6 py-4">
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-primary font-semibold text-xl text-[#2B2D3F]">User Management</h1>
-              <p className="text-sm text-[#70717D]">Manage enterprise user accounts and permissions</p>
+              <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">User Management</h1>
+              <p className="text-sm text-[var(--ds-color-text-muted)]">Manage enterprise user accounts and permissions</p>
             </div>
             <div className="flex items-center gap-3">
               <Dialog>
@@ -267,7 +267,7 @@ export const UserManagementInterface: Story = {
             </CardHeader>
 
             <CardContent>
-              <div className="rounded-lg border border-[#F1F2F6] bg-white">
+              <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-canvas)]">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -358,8 +358,8 @@ export const UserManagementInterface: Story = {
                               </AvatarFallback>
                             </Avatar>
                             <div>
-                              <div className="font-medium text-[#2B2D3F]">{user.name}</div>
-                              <div className="text-sm text-[#70717D]">{user.email}</div>
+                              <div className="font-medium text-[var(--ds-color-text-primary)]">{user.name}</div>
+                              <div className="text-sm text-[var(--ds-color-text-muted)]">{user.email}</div>
                             </div>
                           </div>
                         </TableCell>
@@ -367,13 +367,13 @@ export const UserManagementInterface: Story = {
                           {getRoleBadge(user.role)}
                         </TableCell>
                         <TableCell>
-                          <span className="text-[#424454]">{user.department}</span>
+                          <span className="text-[var(--ds-color-text-primary)]">{user.department}</span>
                         </TableCell>
                         <TableCell>
                           {getStatusBadge(user.status)}
                         </TableCell>
                         <TableCell>
-                          <span className="text-[#424454]">{user.lastLogin}</span>
+                          <span className="text-[var(--ds-color-text-primary)]">{user.lastLogin}</span>
                         </TableCell>
                         <TableCell>
                           <div className="flex flex-wrap gap-1">
@@ -416,7 +416,7 @@ export const UserManagementInterface: Story = {
 
               {/* Pagination */}
               <div className="flex items-center justify-between mt-4">
-                <div className="text-sm text-[#70717D]">
+                <div className="text-sm text-[var(--ds-color-text-muted)]">
                   Showing {filteredUsers.length} of {sampleUsers.length} users
                 </div>
                 <div className="flex items-center gap-2">

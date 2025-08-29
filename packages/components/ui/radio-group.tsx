@@ -11,7 +11,7 @@ import { cva } from "class-variance-authority"
 // Container variants for hover state background
 const radioContainerVariants = cva(
   // Base styles matching design specifications
-  "flex items-center gap-2 px-[5px] py-[3px] rounded-[4px] transition-colors",
+  "flex items-center gap-2 px-[5px] py-[3px] rounded-[var(--ds-radius-sm)] transition-colors",
   {
     variants: {
       radioState: {

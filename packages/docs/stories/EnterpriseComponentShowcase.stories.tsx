@@ -44,10 +44,10 @@ export const ComponentShowcase: Story = {
         <div className="space-y-8">
           {/* Page Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-[#15172B] font-primary mb-2">
+            <h1 className="text-3xl font-bold text-[var(--ds-color-text-primary)] font-primary mb-2">
               Enterprise Design System Components
             </h1>
-            <p className="text-[#70717D] font-secondary">
+            <p className="text-[var(--ds-color-text-muted)] font-secondary">
               Comprehensive showcase of all updated components with enterprise design principles
             </p>
           </div>
@@ -108,7 +108,7 @@ export const ComponentShowcase: Story = {
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="space-y-3">
-                  <h4 className="font-medium text-[#15172B] font-primary">Navigation</h4>
+                  <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary">Navigation</h4>
                   <div className="flex gap-3">
                     <Icon name="chevron" size={24} />
                     <Icon name="arrow" size={24} />
@@ -118,7 +118,7 @@ export const ComponentShowcase: Story = {
                 </div>
                 
                 <div className="space-y-3">
-                  <h4 className="font-medium text-[#15172B] font-primary">Interface</h4>
+                  <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary">Interface</h4>
                   <div className="flex gap-3">
                     <Icon name="check" size={24} />
                     <Icon name="plus" size={24} />
@@ -128,7 +128,7 @@ export const ComponentShowcase: Story = {
                 </div>
                 
                 <div className="space-y-3">
-                  <h4 className="font-medium text-[#15172B] font-primary">Communication</h4>
+                  <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary">Communication</h4>
                   <div className="flex gap-3">
                     <Icon name="chat" size={24} />
                     <Icon name="conference" size={24} />
@@ -138,7 +138,7 @@ export const ComponentShowcase: Story = {
                 </div>
                 
                 <div className="space-y-3">
-                  <h4 className="font-medium text-[#15172B] font-primary">Business</h4>
+                  <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary">Business</h4>
                   <div className="flex gap-3">
                     <Icon name="analytics" size={24} />
                     <Icon name="document" size={24} />
@@ -182,7 +182,7 @@ export const ComponentShowcase: Story = {
               </div>
 
               <div className="space-y-3">
-                <h4 className="font-medium text-[#15172B] font-primary">Service Preferences</h4>
+                <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary">Service Preferences</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Checkbox
                     label="24/7 Priority Support"
@@ -301,36 +301,36 @@ export const ComponentShowcase: Story = {
                     <Card variant="interactive">
                       <CardHeader>
                         <CardTitle className="text-lg flex items-center gap-2">
-                          <Icon name="wifi" size={16} color="#16a34a" />
+                          <Icon name="wifi" size={16} color="var(--ds-color-intent-success)" />
                           Internet Service
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-[#70717D]">100 Mbps Business Internet with 99.9% uptime guarantee</p>
+                        <p className="text-[var(--ds-color-text-muted)]">100 Mbps Business Internet with 99.9% uptime guarantee</p>
                       </CardContent>
                     </Card>
                     
                     <Card variant="interactive">
                       <CardHeader>
                         <CardTitle className="text-lg flex items-center gap-2">
-                          <Icon name="conference" size={16} color="#2563eb" />
+                          <Icon name="conference" size={16} color="var(--ds-color-intent-primary)" />
                           Voice Service  
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-[#70717D]">Business VoIP with advanced call management features</p>
+                        <p className="text-[var(--ds-color-text-muted)]">Business VoIP with advanced call management features</p>
                       </CardContent>
                     </Card>
                     
                     <Card variant="interactive">
                       <CardHeader>
                         <CardTitle className="text-lg flex items-center gap-2">
-                          <Icon name="blockers" size={16} color="#dc2626" />
+                          <Icon name="blockers" size={16} color="var(--ds-color-intent-destructive)" />
                           Security Suite
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-[#70717D]">Advanced threat protection and firewall management</p>
+                        <p className="text-[var(--ds-color-text-muted)]">Advanced threat protection and firewall management</p>
                       </CardContent>
                     </Card>
                   </div>
@@ -338,25 +338,25 @@ export const ComponentShowcase: Story = {
                 
                 <TabsContent value="usage" className="space-y-4">
                   <div className="text-center p-8 bg-gray-100 rounded-lg">
-                    <Icon name="analytics" size={48} color="#B4B5BB" className="mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-[#15172B] mb-2">Usage Analytics</h3>
-                    <p className="text-[#70717D]">Interactive charts and usage reports would be displayed here</p>
+                    <Icon name="analytics" size={48} color="var(--ds-color-text-muted)" className="mx-auto mb-4" />
+                    <h3 className="text-lg font-semibold text-[var(--ds-color-text-primary)] mb-2">Usage Analytics</h3>
+                    <p className="text-[var(--ds-color-text-muted)]">Interactive charts and usage reports would be displayed here</p>
                   </div>
                 </TabsContent>
                 
                 <TabsContent value="billing" className="space-y-4">
                   <div className="text-center p-8 bg-gray-100 rounded-lg">
-                    <Icon name="wallet" size={48} color="#B4B5BB" className="mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-[#15172B] mb-2">Billing History</h3>
-                    <p className="text-[#70717D]">Payment history and invoice management would be displayed here</p>
+                    <Icon name="wallet" size={48} color="var(--ds-color-text-muted)" className="mx-auto mb-4" />
+                    <h3 className="text-lg font-semibold text-[var(--ds-color-text-primary)] mb-2">Billing History</h3>
+                    <p className="text-[var(--ds-color-text-muted)]">Payment history and invoice management would be displayed here</p>
                   </div>
                 </TabsContent>
                 
                 <TabsContent value="support" className="space-y-4">
                   <div className="text-center p-8 bg-gray-100 rounded-lg">
-                    <Icon name="gethelp" size={48} color="#B4B5BB" className="mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-[#15172B] mb-2">Support Center</h3>
-                    <p className="text-[#70717D]">Support tickets and help resources would be displayed here</p>
+                    <Icon name="gethelp" size={48} color="var(--ds-color-text-muted)" className="mx-auto mb-4" />
+                    <h3 className="text-lg font-semibold text-[var(--ds-color-text-primary)] mb-2">Support Center</h3>
+                    <p className="text-[var(--ds-color-text-muted)]">Support tickets and help resources would be displayed here</p>
                   </div>
                 </TabsContent>
               </Tabs>
@@ -376,7 +376,7 @@ export const ComponentShowcase: Story = {
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <h4 className="font-medium text-[#15172B] font-primary mb-4">Primary Actions</h4>
+                <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary mb-4">Primary Actions</h4>
                 <div className="flex flex-wrap gap-3">
                   <Button variant="primary" size="lg">
                     <Icon name="plus" size={16} className="mr-2" />
@@ -394,7 +394,7 @@ export const ComponentShowcase: Story = {
               </div>
 
               <div>
-                <h4 className="font-medium text-[#15172B] font-primary mb-4">Status Badges</h4>
+                <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary mb-4">Status Badges</h4>
                 <div className="flex flex-wrap gap-3">
                   <Badge variant="success" dot>Service Active</Badge>
                   <Badge variant="warning" dot>Maintenance Scheduled</Badge>
@@ -422,68 +422,68 @@ export const ComponentShowcase: Story = {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Icon name="check" size={16} color="#16a34a" className="mt-1" />
+                    <Icon name="check" size={16} color="var(--ds-color-intent-success)" className="mt-1" />
                     <div>
-                      <h4 className="font-medium text-[#15172B]">Consistent CVA Patterns</h4>
-                      <p className="text-sm text-[#70717D]">Class Variance Authority used across all components for maintainable styling</p>
+                      <h4 className="font-medium text-[var(--ds-color-text-primary)]">Consistent CVA Patterns</h4>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">Class Variance Authority used across all components for maintainable styling</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Icon name="check" size={16} color="#16a34a" className="mt-1" />
+                    <Icon name="check" size={16} color="var(--ds-color-intent-success)" className="mt-1" />
                     <div>
-                      <h4 className="font-medium text-[#15172B]">Brand Color System</h4>
-                      <p className="text-sm text-[#70717D]">Comcast Business brand colors applied consistently throughout</p>
+                      <h4 className="font-medium text-[var(--ds-color-text-primary)]">Brand Color System</h4>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">Comcast Business brand colors applied consistently throughout</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Icon name="check" size={16} color="#16a34a" className="mt-1" />
+                    <Icon name="check" size={16} color="var(--ds-color-intent-success)" className="mt-1" />
                     <div>
-                      <h4 className="font-medium text-[#15172B]">Typography System</h4>
-                      <p className="text-sm text-[#70717D]">Montserrat for headings, Lato for body text with proper hierarchy</p>
+                      <h4 className="font-medium text-[var(--ds-color-text-primary)]">Typography System</h4>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">Montserrat for headings, Lato for body text with proper hierarchy</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Icon name="check" size={16} color="#16a34a" className="mt-1" />
+                    <Icon name="check" size={16} color="var(--ds-color-intent-success)" className="mt-1" />
                     <div>
-                      <h4 className="font-medium text-[#15172B]">4px Spacing Grid</h4>
-                      <p className="text-sm text-[#70717D]">Consistent spacing system for professional layouts</p>
+                      <h4 className="font-medium text-[var(--ds-color-text-primary)]">4px Spacing Grid</h4>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">Consistent spacing system for professional layouts</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Icon name="check" size={16} color="#16a34a" className="mt-1" />
+                    <Icon name="check" size={16} color="var(--ds-color-intent-success)" className="mt-1" />
                     <div>
-                      <h4 className="font-medium text-[#15172B]">Accessibility First</h4>
-                      <p className="text-sm text-[#70717D]">WCAG compliance with proper ARIA attributes and focus management</p>
+                      <h4 className="font-medium text-[var(--ds-color-text-primary)]">Accessibility First</h4>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">WCAG compliance with proper ARIA attributes and focus management</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Icon name="check" size={16} color="#16a34a" className="mt-1" />
+                    <Icon name="check" size={16} color="var(--ds-color-intent-success)" className="mt-1" />
                     <div>
-                      <h4 className="font-medium text-[#15172B]">High-Quality Icons</h4>
-                      <p className="text-sm text-[#70717D]">273 optimized SVG icons from Figma with perfect scaling</p>
+                      <h4 className="font-medium text-[var(--ds-color-text-primary)]">High-Quality Icons</h4>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">273 optimized SVG icons from Figma with perfect scaling</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Icon name="check" size={16} color="#16a34a" className="mt-1" />
+                    <Icon name="check" size={16} color="var(--ds-color-intent-success)" className="mt-1" />
                     <div>
-                      <h4 className="font-medium text-[#15172B]">TypeScript Support</h4>
-                      <p className="text-sm text-[#70717D]">Full type safety with comprehensive interfaces and variants</p>
+                      <h4 className="font-medium text-[var(--ds-color-text-primary)]">TypeScript Support</h4>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">Full type safety with comprehensive interfaces and variants</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <Icon name="check" size={16} color="#16a34a" className="mt-1" />
+                    <Icon name="check" size={16} color="var(--ds-color-intent-success)" className="mt-1" />
                     <div>
-                      <h4 className="font-medium text-[#15172B]">Performance Optimized</h4>
-                      <p className="text-sm text-[#70717D]">Tree-shaking, lazy loading, and minimal bundle impact</p>
+                      <h4 className="font-medium text-[var(--ds-color-text-primary)]">Performance Optimized</h4>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">Tree-shaking, lazy loading, and minimal bundle impact</p>
                     </div>
                   </div>
                 </div>
@@ -510,10 +510,10 @@ export const PerformanceFeatures: Story = {
       <main className="max-w-6xl mx-auto p-6">
         <div className="space-y-8">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-[#15172B] font-primary mb-2">
+            <h1 className="text-3xl font-bold text-[var(--ds-color-text-primary)] font-primary mb-2">
               Performance & Developer Experience
             </h1>
-            <p className="text-[#70717D] font-secondary">
+            <p className="text-[var(--ds-color-text-muted)] font-secondary">
               Enterprise-grade performance optimizations and developer tooling
             </p>
           </div>
@@ -568,7 +568,7 @@ export const PerformanceFeatures: Story = {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-3">
-                <h4 className="font-medium text-[#15172B] font-primary">Button States</h4>
+                <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary">Button States</h4>
                 <div className="flex flex-wrap gap-3">
                   <Button>Default</Button>
                   <Button loading>Loading</Button>
@@ -577,7 +577,7 @@ export const PerformanceFeatures: Story = {
               </div>
               
               <div className="space-y-3">
-                <h4 className="font-medium text-[#15172B] font-primary">Interactive Badges</h4>
+                <h4 className="font-medium text-[var(--ds-color-text-primary)] font-primary">Interactive Badges</h4>
                 <div className="flex flex-wrap gap-3">
                   <Badge interactive onClick={() => alert('Badge clicked!')}>
                     Clickable Badge

@@ -54,28 +54,28 @@ const buttonVariants = cva(
       },
       size: {
         // Text Button size - From Figma: 24px height
-        sm: "h-6 px-3 py-1 text-sm rounded-[4px]",
+        sm: "h-6 px-3 py-1 text-sm rounded-[var(--ds-radius-sm)]",
         
         // Medium size - Alias for default to maintain compatibility
-        md: "py-[9px] px-[13px] text-sm rounded-[4px]",
+        md: "py-[9px] px-[13px] text-sm rounded-[var(--ds-radius-sm)]",
         
         // Default size - From Figma: padding: 9px 13px, border-radius: 4px
-        default: "py-[9px] px-[13px] text-sm rounded-[4px]",
+        default: "py-[9px] px-[13px] text-sm rounded-[var(--ds-radius-sm)]",
         
         // Large size - Scaled up from default
-        lg: "h-12 px-6 py-3 text-lg rounded-[4px]",
+        lg: "h-12 px-6 py-3 text-lg rounded-[var(--ds-radius-sm)]",
         
         // Extra Large size - Alias for large to maintain compatibility
-        xl: "h-12 px-6 py-3 text-lg rounded-[4px]",
+        xl: "h-12 px-6 py-3 text-lg rounded-[var(--ds-radius-sm)]",
         
         // Icon only buttons
-        icon: "size-10 p-0 rounded-[6px] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-5",
+        icon: "size-10 p-0 rounded-[var(--ds-radius-sm)] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-5",
         
         // Small icon - 32px size
-        "icon-sm": "size-8 p-0 rounded-[6px] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-4",
+        "icon-sm": "size-8 p-0 rounded-[var(--ds-radius-sm)] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-4",
         
         // Large icon - 48px size  
-        "icon-lg": "size-12 p-0 rounded-[6px] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-6",
+        "icon-lg": "size-12 p-0 rounded-[var(--ds-radius-sm)] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-6",
       },
     },
     defaultVariants: {

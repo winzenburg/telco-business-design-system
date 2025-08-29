@@ -7,7 +7,7 @@ function Skeleton({
   return (
     <div
       className={cn(
-        "animate-pulse rounded-[4px] bg-gradient-to-r from-[var(--ds-color-[^]]*]) via-[var(--ds-color-[^]]*]) to-[var(--ds-color-[^]]*]) bg-[length:200%_100%]",
+        "animate-pulse rounded-[var(--ds-radius-sm)] bg-gradient-to-r from-[var(--ds-color-[^]]*]) via-[var(--ds-color-[^]]*]) to-[var(--ds-color-[^]]*]) bg-[length:200%_100%]",
         "animate-[shimmer_1.5s_ease-in-out_infinite]",
         className
       )}
@@ -75,7 +75,7 @@ function InputSkeleton({
       {/* Input field skeleton - only this has the loading effect */}
       <div className="relative">
         <Skeleton className={cn(
-          "w-full rounded-[4px]",
+          "w-full rounded-[var(--ds-radius-sm)]",
           sizeClasses[size]
         )} />
       </div>

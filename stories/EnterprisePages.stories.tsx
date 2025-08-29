@@ -186,7 +186,7 @@ export const Dashboard: Story = {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold text-gray-900">Service Health</h2>
               <div className="flex items-center gap-2">
-                <span className="text-sm font-medium text-[#70717D]">View:</span>
+                <span className="text-sm font-medium text-[var(--ds-color-text-muted)]">View:</span>
                 <Badge chipType="filter" size="sm" selected={true} onSelect={() => console.log('All selected')}>All</Badge>
                 <Badge chipType="filter" size="sm" onSelect={() => console.log('Critical selected')}>Critical</Badge>
                 <Badge chipType="filter" size="sm" onSelect={() => console.log('Issues selected')}>Issues</Badge>
@@ -199,8 +199,8 @@ export const Dashboard: Story = {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-2xl font-bold text-[#2B2D3F]">12</div>
-                      <div className="text-sm text-[#70717D]">Active Services</div>
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">12</div>
+                      <div className="text-sm text-[var(--ds-color-text-muted)]">Active Services</div>
                     </div>
                     <div className="flex items-center gap-1">
                       <div className="w-2 h-2 rounded-full bg-green-500"></div>
@@ -214,8 +214,8 @@ export const Dashboard: Story = {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-2xl font-bold text-[#2B2D3F]">1.12 TB</div>
-                      <div className="text-sm text-[#70717D]">Data Usage</div>
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">1.12 TB</div>
+                      <div className="text-sm text-[var(--ds-color-text-muted)]">Data Usage</div>
                     </div>
                     <div className="text-sm text-blue-600 font-medium">+15%</div>
                   </div>
@@ -226,8 +226,8 @@ export const Dashboard: Story = {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-2xl font-bold text-[#2B2D3F]">3</div>
-                      <div className="text-sm text-[#70717D]">Open Tickets</div>
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">3</div>
+                      <div className="text-sm text-[var(--ds-color-text-muted)]">Open Tickets</div>
                     </div>
                     <Badge variant="warning" size="sm">2 Critical</Badge>
                   </div>
@@ -238,8 +238,8 @@ export const Dashboard: Story = {
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-2xl font-bold text-[#2B2D3F]">99.5%</div>
-                      <div className="text-sm text-[#70717D]">Uptime</div>
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">99.5%</div>
+                      <div className="text-sm text-[var(--ds-color-text-muted)]">Uptime</div>
                     </div>
                     <div className="flex items-center gap-1">
                       <div className="w-2 h-2 rounded-full bg-green-500"></div>
@@ -277,16 +277,16 @@ export const Dashboard: Story = {
               <div className="h-[280px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <RechartsBarChart data={serviceStatusData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                     <XAxis 
                       dataKey="name" 
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <YAxis 
                       domain={[95, 100]}
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <ChartTooltip formatter={(value) => [`${value}%`, 'Uptime']} />
                     <Bar 
@@ -310,22 +310,22 @@ export const Dashboard: Story = {
               <div className="h-[280px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <RechartsAreaChart data={monthlyUsageData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                     <XAxis 
                       dataKey="name" 
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <YAxis 
                       yAxisId="usage"
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <YAxis 
                       yAxisId="cost"
                       orientation="right"
-                      tick={{ fontSize: 12, fill: '#70717D' }}
-                      axisLine={{ stroke: '#F1F2F6' }}
+                      tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                     />
                     <ChartTooltip />
                     <Area 
@@ -1789,10 +1789,10 @@ export const ServiceManagement: Story = {
                   <div className="h-[300px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       <RechartsBarChart data={servicePerformanceData}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                         <XAxis 
                           dataKey="name" 
-                          tick={{ fontSize: 11, fill: '#70717D' }}
+                          tick={{ fontSize: 11, fill: 'var(--ds-color-text-muted)' }}
                           angle={-45}
                           textAnchor="end"
                           height={80}
@@ -1800,15 +1800,15 @@ export const ServiceManagement: Story = {
                         <YAxis 
                           yAxisId="uptime"
                           domain={[95, 100]}
-                          tick={{ fontSize: 12, fill: '#70717D' }}
-                          axisLine={{ stroke: '#F1F2F6' }}
+                          tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                          axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                         />
                         <YAxis 
                           yAxisId="satisfaction"
                           orientation="right"
                           domain={[0, 5]}
-                          tick={{ fontSize: 12, fill: '#70717D' }}
-                          axisLine={{ stroke: '#F1F2F6' }}
+                          tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                          axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                         />
                         <ChartTooltip />
                         <Bar 
@@ -1868,9 +1868,9 @@ export const ServiceManagement: Story = {
                             className="w-3 h-3 rounded-full" 
                             style={{ backgroundColor: service.fill }}
                           />
-                          <span className="text-sm font-medium text-[#2B2D3F]">{service.name}</span>
+                          <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">{service.name}</span>
                         </div>
-                        <span className="text-sm font-semibold text-[#70717D]">{service.value}%</span>
+                        <span className="text-sm font-semibold text-[var(--ds-color-text-muted)]">{service.value}%</span>
                       </div>
                     ))}
                   </div>

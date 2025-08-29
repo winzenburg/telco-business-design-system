@@ -50,7 +50,7 @@ export const BasicIcon: Story = {
   args: {
     name: 'analytics',
     size: 24,
-    color: '#0D62FF',
+    color: 'var(--ds-color-intent-primary)',
   },
 };
 
@@ -98,7 +98,7 @@ export const IconPicker: Story = {
               {copyFeedback}
             </div>
           )}
-          <Icon name={selectedIcon} size={64} color="#0D62FF" />
+          <Icon name={selectedIcon} size={64} color="var(--ds-color-intent-primary)" />
           <p className="mt-3 text-lg font-medium">{selectedIcon}</p>
           <p className="text-sm text-gray-600 mb-4">
             {getIcon(selectedIcon)?.category} • {getIcon(selectedIcon)?.size?.width}×{getIcon(selectedIcon)?.size?.height}
@@ -196,7 +196,7 @@ export const IconPicker: Story = {
                 <Icon 
                   name={iconName as keyof typeof icons} 
                   size={32} 
-                  color={selectedIcon === iconName ? '#0D62FF' : '#374151'}
+                  color={selectedIcon === iconName ? 'var(--ds-color-intent-primary)' : 'var(--ds-color-text-muted)'}
                 />
               </button>
             ))}
@@ -216,7 +216,7 @@ export const IconPicker: Story = {
                   <Icon 
                     name={iconName as keyof typeof icons} 
                     size={24} 
-                    color={selectedIcon === iconName ? '#0D62FF' : '#374151'}
+                    color={selectedIcon === iconName ? 'var(--ds-color-intent-primary)' : 'var(--ds-color-text-muted)'}
                   />
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-sm truncate">{iconName}</p>
@@ -289,7 +289,7 @@ export const AllIconsBrowser: Story = {
                         <Icon 
                           name={iconName as keyof typeof icons} 
                           size={20} 
-                          color="#374151"
+                          color="var(--ds-color-text-muted)"
                         />
                         <span className="text-xs text-gray-500 mt-1 text-center group-hover:text-gray-700 truncate w-full">
                           {iconName.length > 8 ? `${iconName.substring(0, 8)}...` : iconName}

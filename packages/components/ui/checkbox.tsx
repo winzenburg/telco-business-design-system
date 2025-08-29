@@ -15,7 +15,7 @@ import { type IconName } from "../../tokens/design-system-icons"
 // Checkbox variants using design system tokens
 const checkboxVariants = cva(
   // Base styles with token-based colors
-  "peer size-4 shrink-0 rounded-[4px] border bg-[var(--ds-color-bg-surface] transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+  "peer size-4 shrink-0 rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-surface] transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
@@ -40,7 +40,7 @@ const checkboxVariants = cva(
 // Container variants for hover state background using tokens
 const checkboxContainerVariants = cva(
   // Base styles with token-based colors
-  "flex items-center gap-2 px-[5px] py-[3px] rounded-[4px] transition-colors",
+  "flex items-center gap-2 px-[5px] py-[3px] rounded-[var(--ds-radius-sm)] transition-colors",
   {
     variants: {
       checkboxState: {
@@ -99,7 +99,7 @@ function CheckboxSkeleton({
     <div className={cn("space-y-2", className)} {...props}>
       <div className="flex items-center space-x-2">
         {/* Checkbox skeleton */}
-        <Skeleton className="size-4 rounded-[4px]" />
+        <Skeleton className="size-4 rounded-[var(--ds-radius-sm)]" />
         {/* Label skeleton */}
         {hasLabel && (
           <div className="flex items-center gap-1">

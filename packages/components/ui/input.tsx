@@ -11,7 +11,7 @@ import { InputSkeleton } from "./skeleton"
 
 const inputVariants = cva(
   // Base styles using exact Figma specifications
-  "flex w-full items-center gap-[7px] self-stretch rounded-[4px] border bg-[var(--ds-color-bg-canvas] transition-colors file:border-0 file:bg-transparent focus-visible:outline-none disabled:cursor-not-allowed selection:bg-[var(--ds-color-intent-primary]/20 overflow-hidden text-ellipsis text-[var(--ds-color-text-primary] font-secondary placeholder:overflow-hidden placeholder:text-ellipsis placeholder:text-[var(--ds-color-text-muted] placeholder:font-normal placeholder:leading-[130%] placeholder:tracking-normal",
+  "flex w-full items-center gap-[7px] self-stretch rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-canvas] transition-colors file:border-0 file:bg-transparent focus-visible:outline-none disabled:cursor-not-allowed selection:bg-[var(--ds-color-intent-primary]/20 overflow-hidden text-ellipsis text-[var(--ds-color-text-primary] font-secondary placeholder:overflow-hidden placeholder:text-ellipsis placeholder:text-[var(--ds-color-text-muted] placeholder:font-normal placeholder:leading-[130%] placeholder:tracking-normal",
   {
     variants: {
       variant: {
@@ -218,9 +218,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               <Icon 
                 name={leftIcon as any} 
                 size={16}
-                className="text-[var(--ds-color-text-muted]"
                 className={cn(
-                  "flex w-4 h-4 items-start",
+                  "text-[var(--ds-color-text-muted] flex w-4 h-4 items-start",
                   disabled && "opacity-50"
                 )} 
               />
@@ -254,17 +253,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                   <Icon 
                     name="configure" 
                     size={16}
-                    className="text-[var(--ds-color-text-muted]"
-                    className="flex w-4 h-4 items-start" 
+                    className={cn(
+                      "text-[var(--ds-color-text-muted] flex w-4 h-4 items-start"
+                    )} 
                   />
                 </div>
               ) : rightIcon ? (
                 <Icon 
                   name={rightIcon as any} 
                   size={16}
-                  className="text-[var(--ds-color-text-muted]"
                   className={cn(
-                    "flex w-4 h-4 items-start",
+                    "text-[var(--ds-color-text-muted] flex w-4 h-4 items-start",
                     disabled && "opacity-50"
                   )} 
                 />

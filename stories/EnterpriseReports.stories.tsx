@@ -209,13 +209,13 @@ export const EnterpriseReportsInterface: Story = {
     };
 
     return (
-      <div className="min-h-screen bg-[#F9F9FA]">
+      <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-white border-b border-[#F1F2F6] px-6 py-4">
+        <header className="bg-white border-b border-[var(--ds-color-border-default)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-primary font-semibold text-xl text-[#2B2D3F]">Enterprise Reports</h1>
-              <p className="text-sm text-[#70717D]">Analytics, insights, and data exports for your business</p>
+              <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Enterprise Reports</h1>
+              <p className="text-sm text-[var(--ds-color-text-muted)]">Analytics, insights, and data exports for your business</p>
             </div>
             <div className="flex items-center gap-3">
               <Button variant="outline">Schedule Report</Button>
@@ -240,15 +240,15 @@ export const EnterpriseReportsInterface: Story = {
                 {analyticsData.map((metric, index) => (
                   <Card key={index}>
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-medium text-[#70717D]">{metric.metric}</CardTitle>
+                      <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">{metric.metric}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-[#2B2D3F]">{metric.current}</div>
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">{metric.current}</div>
                       <div className="flex items-center gap-2 mt-2">
                         <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
                           {metric.change}
                         </Badge>
-                        <span className="text-sm text-[#70717D]">vs last period</span>
+                        <span className="text-sm text-[var(--ds-color-text-muted)]">vs last period</span>
                       </div>
                     </CardContent>
                   </Card>
@@ -264,10 +264,10 @@ export const EnterpriseReportsInterface: Story = {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {performanceReports.slice(0, 4).map((report) => (
-                      <div key={report.id} className="flex items-center justify-between p-3 border border-[#F1F2F6] rounded-lg">
+                      <div key={report.id} className="flex items-center justify-between p-3 border border-[var(--ds-color-border-default)] rounded-lg">
                         <div>
-                          <p className="text-sm font-medium text-[#2B2D3F]">{report.name}</p>
-                          <p className="text-xs text-[#70717D]">{report.lastGenerated} • {report.size}</p>
+                          <p className="text-sm font-medium text-[var(--ds-color-text-primary)]">{report.name}</p>
+                          <p className="text-xs text-[var(--ds-color-text-muted)]">{report.lastGenerated} • {report.size}</p>
                         </div>
                         <div className="flex items-center gap-2">
                           {getStatusBadge(report.status)}
@@ -292,29 +292,29 @@ export const EnterpriseReportsInterface: Story = {
                     <div className="space-y-4">
                       <div>
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm font-medium text-[#2B2D3F]">Internet Uptime</span>
-                          <span className="text-sm text-[#70717D]">99.97%</span>
+                          <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">Internet Uptime</span>
+                          <span className="text-sm text-[var(--ds-color-text-muted)]">99.97%</span>
                         </div>
                         <Progress value={99.97} className="h-2" />
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm font-medium text-[#2B2D3F]">Phone Service</span>
-                          <span className="text-sm text-[#70717D]">99.95%</span>
+                          <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">Phone Service</span>
+                          <span className="text-sm text-[var(--ds-color-text-muted)]">99.95%</span>
                         </div>
                         <Progress value={99.95} className="h-2" />
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm font-medium text-[#2B2D3F]">Security Systems</span>
-                          <span className="text-sm text-[#70717D]">100%</span>
+                          <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">Security Systems</span>
+                          <span className="text-sm text-[var(--ds-color-text-muted)]">100%</span>
                         </div>
                         <Progress value={100} className="h-2" />
                       </div>
                       <div>
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm font-medium text-[#2B2D3F]">TV Services</span>
-                          <span className="text-sm text-[#70717D]">98.8%</span>
+                          <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">TV Services</span>
+                          <span className="text-sm text-[var(--ds-color-text-muted)]">98.8%</span>
                         </div>
                         <Progress value={98.8} className="h-2" />
                       </div>
@@ -382,7 +382,7 @@ export const EnterpriseReportsInterface: Story = {
                 </CardHeader>
 
                 <CardContent>
-                  <div className="rounded-lg border border-[#F1F2F6] bg-white">
+                  <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-white">
                     <Table>
                       <TableHeader>
                         <TableRow>
@@ -412,8 +412,8 @@ export const EnterpriseReportsInterface: Story = {
                             </TableCell>
                             <TableCell>
                               <div>
-                                <div className="font-medium text-[#2B2D3F]">{report.name}</div>
-                                <div className="text-sm text-[#70717D]">{report.id}</div>
+                                <div className="font-medium text-[var(--ds-color-text-primary)]">{report.name}</div>
+                                <div className="text-sm text-[var(--ds-color-text-muted)]">{report.id}</div>
                               </div>
                             </TableCell>
                             <TableCell>
@@ -452,7 +452,7 @@ export const EnterpriseReportsInterface: Story = {
 
                   {/* Pagination */}
                   <div className="flex items-center justify-between mt-4">
-                    <div className="text-sm text-[#70717D]">
+                    <div className="text-sm text-[var(--ds-color-text-muted)]">
                       Showing {filteredReports.length} of {performanceReports.length} reports
                     </div>
                     <div className="flex items-center gap-2">
@@ -481,24 +481,24 @@ export const EnterpriseReportsInterface: Story = {
                   <div className="h-[320px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       <RechartsLineChart data={networkPerformanceData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                      <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                       <XAxis 
                         dataKey="name" 
-                        tick={{ fontSize: 12, fill: '#70717D' }}
-                        axisLine={{ stroke: '#F1F2F6' }}
+                        tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                        axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                       />
                       <YAxis 
                         yAxisId="uptime"
                         domain={[98, 100]}
-                        tick={{ fontSize: 12, fill: '#70717D' }}
-                        axisLine={{ stroke: '#F1F2F6' }}
+                        tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                        axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                       />
                       <YAxis 
                         yAxisId="throughput"
                         orientation="right"
                         domain={[0, 1200]}
-                        tick={{ fontSize: 12, fill: '#70717D' }}
-                        axisLine={{ stroke: '#F1F2F6' }}
+                        tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                        axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                       />
                       <ChartTooltip />
                       <Line 
@@ -525,7 +525,7 @@ export const EnterpriseReportsInterface: Story = {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Service Distribution Pie Chart */}
-                    <Card className="border-[#F1F2F6]">
+                    <Card className="border-[var(--ds-color-border-default)]">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-base">Service Distribution</CardTitle>
                         <CardDescription className="text-xs">Usage by service type</CardDescription>
@@ -567,7 +567,7 @@ export const EnterpriseReportsInterface: Story = {
                     </Card>
 
                     {/* Regional Performance Bar Chart */}
-                    <Card className="border-[#F1F2F6]">
+                    <Card className="border-[var(--ds-color-border-default)]">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-base">Regional Performance</CardTitle>
                         <CardDescription className="text-xs">Uptime by region</CardDescription>
@@ -578,14 +578,14 @@ export const EnterpriseReportsInterface: Story = {
                             <RechartsBarChart data={regionalPerformanceData}>
                             <XAxis 
                               dataKey="region" 
-                              tick={{ fontSize: 10, fill: '#70717D' }}
+                              tick={{ fontSize: 10, fill: 'var(--ds-color-text-muted)' }}
                               angle={-45}
                               textAnchor="end"
                               height={60}
                             />
                             <YAxis 
                               domain={[98, 100]}
-                              tick={{ fontSize: 10, fill: '#70717D' }}
+                              tick={{ fontSize: 10, fill: 'var(--ds-color-text-muted)' }}
                             />
                             <ChartTooltip />
                             <Bar dataKey="performance" radius={[2, 2, 0, 0]}>
@@ -600,7 +600,7 @@ export const EnterpriseReportsInterface: Story = {
                     </Card>
 
                     {/* Peak Usage Hours */}
-                    <Card className="border-[#F1F2F6]">
+                    <Card className="border-[var(--ds-color-border-default)]">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-base">Peak Usage Hours</CardTitle>
                         <CardDescription className="text-xs">Daily traffic patterns</CardDescription>
@@ -657,15 +657,15 @@ export const EnterpriseReportsInterface: Story = {
                     <div className="h-[280px] w-full">
                       <ResponsiveContainer width="100%" height="100%">
                         <RechartsAreaChart data={usageTrendData}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                         <XAxis 
                           dataKey="name" 
-                          tick={{ fontSize: 12, fill: '#70717D' }}
-                          axisLine={{ stroke: '#F1F2F6' }}
+                          tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                          axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                         />
                         <YAxis 
-                          tick={{ fontSize: 12, fill: '#70717D' }}
-                          axisLine={{ stroke: '#F1F2F6' }}
+                          tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                          axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                         />
                         <ChartTooltip />
                         <Area 
@@ -711,18 +711,18 @@ export const EnterpriseReportsInterface: Story = {
                     <div className="h-[280px] w-full">
                       <ResponsiveContainer width="100%" height="100%">
                         <RechartsBarChart data={locationCostsData}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="#F1F2F6" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
                         <XAxis 
                           dataKey="name" 
-                          tick={{ fontSize: 10, fill: '#70717D' }}
+                          tick={{ fontSize: 10, fill: 'var(--ds-color-text-muted)' }}
                           angle={-45}
                           textAnchor="end"
                           height={80}
                           interval={0}
                         />
                         <YAxis 
-                          tick={{ fontSize: 12, fill: '#70717D' }}
-                          axisLine={{ stroke: '#F1F2F6' }}
+                          tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
+                          axisLine={{ stroke: 'var(--ds-color-border-default)' }}
                         />
                         <ChartTooltip 
                           formatter={(value) => [`$${value.toLocaleString()}`, 'Monthly Cost']}
@@ -745,7 +745,7 @@ export const EnterpriseReportsInterface: Story = {
                   <CardDescription>Detailed service consumption across all business locations</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="rounded-lg border border-[#F1F2F6] bg-white">
+                  <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-white">
                     <Table>
                       <TableHeader>
                         <TableRow>
@@ -760,7 +760,7 @@ export const EnterpriseReportsInterface: Story = {
                         {usageData.map((location, index) => (
                           <TableRow key={index}>
                             <TableCell>
-                              <span className="font-medium text-[#2B2D3F]">{location.location}</span>
+                              <span className="font-medium text-[var(--ds-color-text-primary)]">{location.location}</span>
                             </TableCell>
                             <TableCell>
                               <div className="space-y-1">
@@ -775,7 +775,7 @@ export const EnterpriseReportsInterface: Story = {
                               <span>{location.tv}</span>
                             </TableCell>
                             <TableCell>
-                              <span className="font-medium text-[#2B2D3F]">{location.cost}</span>
+                              <span className="font-medium text-[var(--ds-color-text-primary)]">{location.cost}</span>
                             </TableCell>
                           </TableRow>
                         ))}
@@ -785,21 +785,21 @@ export const EnterpriseReportsInterface: Story = {
 
                   {/* Usage Summary */}
                   <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div className="text-center p-4 bg-[#F9F9FA] rounded-lg">
-                      <div className="text-2xl font-bold text-[#2B2D3F]">2.37 TB</div>
-                      <div className="text-sm text-[#70717D]">Total Internet Usage</div>
+                    <div className="text-center p-4 bg-[var(--ds-color-bg-surface)] rounded-lg">
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">2.37 TB</div>
+                      <div className="text-sm text-[var(--ds-color-text-muted)]">Total Internet Usage</div>
                     </div>
-                    <div className="text-center p-4 bg-[#F9F9FA] rounded-lg">
-                      <div className="text-2xl font-bold text-[#2B2D3F]">32.3k</div>
-                      <div className="text-sm text-[#70717D]">Total Phone Minutes</div>
+                    <div className="text-center p-4 bg-[var(--ds-color-bg-surface)] rounded-lg">
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">32.3k</div>
+                      <div className="text-sm text-[var(--ds-color-text-muted)]">Total Phone Minutes</div>
                     </div>
-                    <div className="text-center p-4 bg-[#F9F9FA] rounded-lg">
-                      <div className="text-2xl font-bold text-[#2B2D3F]">368</div>
-                      <div className="text-sm text-[#70717D]">Total TV Hours</div>
+                    <div className="text-center p-4 bg-[var(--ds-color-bg-surface)] rounded-lg">
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">368</div>
+                      <div className="text-sm text-[var(--ds-color-text-muted)]">Total TV Hours</div>
                     </div>
-                    <div className="text-center p-4 bg-[#F9F9FA] rounded-lg">
-                      <div className="text-2xl font-bold text-[#2B2D3F]">$23.7k</div>
-                      <div className="text-sm text-[#70717D]">Total Monthly Cost</div>
+                    <div className="text-center p-4 bg-[var(--ds-color-bg-surface)] rounded-lg">
+                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">$23.7k</div>
+                      <div className="text-sm text-[var(--ds-color-text-muted)]">Total Monthly Cost</div>
                     </div>
                   </div>
                 </CardContent>

@@ -35,7 +35,7 @@ export const TailwindTest: Story = {
         {/* Inline styles as fallback */}
         <div style={{ 
           padding: '16px', 
-          backgroundColor: '#0D62FF', 
+          backgroundColor: 'var(--ds-color-intent-primary)', 
           color: 'white', 
           border: '2px solid #000',
           borderRadius: '4px'

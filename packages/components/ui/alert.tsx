@@ -11,7 +11,7 @@ import { type IconName } from "../../tokens/design-system-icons"
 
 const alertVariants = cva(
   // Base styles using design system spacing and typography
-  "relative w-full rounded-[4px] border p-4 transition-colors",
+  "relative w-full rounded-[var(--ds-radius-sm)] border p-4 transition-colors",
   {
     variants: {
       variant: {
