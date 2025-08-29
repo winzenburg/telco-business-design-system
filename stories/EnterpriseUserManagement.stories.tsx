@@ -36,6 +36,7 @@ import {
   DialogTrigger,
   Label,
 } from '../src/components';
+import { Icon } from '../src/components/Icon/Icon';
 
 const meta: Meta = {
   title: 'Enterprise/User Management',
@@ -117,11 +118,11 @@ export const UserManagementInterface: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'Active':
-          return <Badge className="bg-green-50 text-green-700 border-green-200">Active</Badge>;
+          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Active</Badge>;
         case 'Inactive':
           return <Badge variant="secondary">Inactive</Badge>;
         case 'Pending':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200">Pending</Badge>;
+          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="alert" size={12} />}>Pending</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -130,11 +131,11 @@ export const UserManagementInterface: Story = {
     const getRoleBadge = (role: string) => {
       switch (role) {
         case 'Admin':
-          return <Badge className="bg-blue-50 text-blue-700 border-blue-200">Admin</Badge>;
+          return <Badge className="bg-blue-50 text-blue-700 border-blue-200" leadingIcon={<Icon name="configure" size={12} />}>Admin</Badge>;
         case 'Manager':
-          return <Badge className="bg-purple-50 text-purple-700 border-purple-200">Manager</Badge>;
+          return <Badge className="bg-purple-50 text-purple-700 border-purple-200" leadingIcon={<Icon name="users" size={12} />}>Manager</Badge>;
         case 'User':
-          return <Badge variant="outline">User</Badge>;
+          return <Badge variant="outline" leadingIcon={<Icon name="users" size={12} />}>User</Badge>;
         default:
           return <Badge variant="outline">{role}</Badge>;
       }
@@ -391,7 +392,7 @@ export const UserManagementInterface: Story = {
                         <TableCell>
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" size="sm">⋮</Button>
+                              <Button variant="ghost" size="sm"><Icon name="contextmenu" size={16} /></Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
                               <DropdownMenuItem>View Profile</DropdownMenuItem>

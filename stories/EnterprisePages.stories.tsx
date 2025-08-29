@@ -187,9 +187,9 @@ export const Dashboard: Story = {
               <h2 className="text-lg font-semibold text-gray-900">Service Health</h2>
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium text-[#70717D]">View:</span>
-                <Badge chipType="filter" selected={true} onSelect={() => console.log('All selected')}>All</Badge>
-                <Badge chipType="filter" onSelect={() => console.log('Critical selected')}>Critical</Badge>
-                <Badge chipType="filter" onSelect={() => console.log('Issues selected')}>Issues</Badge>
+                <Badge chipType="filter" size="sm" selected={true} onSelect={() => console.log('All selected')}>All</Badge>
+                <Badge chipType="filter" size="sm" onSelect={() => console.log('Critical selected')}>Critical</Badge>
+                <Badge chipType="filter" size="sm" onSelect={() => console.log('Issues selected')}>Issues</Badge>
               </div>
             </div>
             
@@ -355,7 +355,7 @@ export const Dashboard: Story = {
             {/* Support Panel - Task-Oriented Actions */}
             <div className="space-y-6">
               {/* Quick Actions */}
-              <Card variant="outlined">
+              <Card >
                 <CardHeader>
                   <CardTitle className="text-base">Quick Actions</CardTitle>
                 </CardHeader>
@@ -412,7 +412,7 @@ export const Dashboard: Story = {
         {/* Quick Actions & Recent Activity */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Quick Actions */}
-          <Card variant="outlined">
+          <Card >
             <CardHeader>
               <CardTitle className="text-lg font-semibold text-gray-900 font-primary">Quick Actions</CardTitle>
               <CardDescription className="text-gray-600 font-secondary">Common tasks and shortcuts</CardDescription>
@@ -618,7 +618,7 @@ export const ServiceRequestForm: Story = {
             </div>
 
             {/* Company Information */}
-            <Card variant="outlined">
+            <Card >
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-gray-900 font-primary">
                   <Icon name="configure" size={20} className="text-primary-600" />
@@ -697,7 +697,7 @@ export const ServiceRequestForm: Story = {
             </Card>
 
             {/* Service Selection */}
-            <Card variant="outlined">
+            <Card >
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-gray-900 font-primary">
                   <Icon name="videomonitoring" size={20} className="text-primary-600" />
@@ -709,8 +709,8 @@ export const ServiceRequestForm: Story = {
                 </CardDescription>
                 <div className="flex gap-2 mt-3">
                   <Badge chipType="assist" size="sm">Popular Choices</Badge>
-                  <Badge chipType="filter" selected={formData.services.includes('internet-pro')} onSelect={() => handleServiceChange('internet-pro', !formData.services.includes('internet-pro'))}>Internet Pro</Badge>
-                  <Badge chipType="filter" selected={formData.services.includes('business-voice')} onSelect={() => handleServiceChange('business-voice', !formData.services.includes('business-voice'))}>Voice</Badge>
+                  <Badge chipType="filter" size="sm" selected={formData.services.includes('internet-pro')} onSelect={() => handleServiceChange('internet-pro', !formData.services.includes('internet-pro'))}>Internet Pro</Badge>
+                  <Badge chipType="filter" size="sm" selected={formData.services.includes('business-voice')} onSelect={() => handleServiceChange('business-voice', !formData.services.includes('business-voice'))}>Voice</Badge>
                 </div>
               </CardHeader>
               <CardDivider />
@@ -788,7 +788,7 @@ export const ServiceRequestForm: Story = {
             </Card>
 
             {/* Terms & Submit */}
-            <Card variant="elevated">
+            <Card >
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-gray-900 font-primary">
                   <Icon name="document" size={20} className="text-primary-600" />
@@ -897,7 +897,7 @@ export const ServiceProvisioningTaskflow: Story = {
       switch (currentStep) {
         case 1:
           return (
-            <Card variant="filled">
+            <Card >
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg font-primary text-gray-900">
                   <Icon name="videomonitoring" size={20} className="text-primary-600" />
@@ -909,7 +909,7 @@ export const ServiceProvisioningTaskflow: Story = {
                 </CardDescription>
                 <div className="flex gap-2 mt-3">
                   <Badge chipType="assist" size="sm">Most Popular</Badge>
-                  <Badge chipType="filter" selected={formData.location === 'headquarters'} onSelect={() => setFormData(prev => ({...prev, location: 'headquarters'}))}>Headquarters</Badge>
+                  <Badge chipType="filter" size="sm" selected={formData.location === 'headquarters'} onSelect={() => setFormData(prev => ({...prev, location: 'headquarters'}))}>Headquarters</Badge>
                 </div>
               </CardHeader>
               <CardDivider />
@@ -944,7 +944,7 @@ export const ServiceProvisioningTaskflow: Story = {
           );
         case 2:
           return (
-            <Card variant="filled">
+            <Card >
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg font-primary text-gray-900">
                   <Icon name="configure" size={20} className="text-primary-600" />
@@ -956,8 +956,8 @@ export const ServiceProvisioningTaskflow: Story = {
                 </CardDescription>
                 <div className="flex gap-2 mt-3">
                   <Badge chipType="assist" size="sm">Business Grade</Badge>
-                  <Badge chipType="filter" selected={formData.serviceType === 'dedicated'} onSelect={() => setFormData(prev => ({...prev, serviceType: 'dedicated'}))}>Dedicated</Badge>
-                  <Badge chipType="filter" selected={formData.bandwidth === '1gbps'} onSelect={() => setFormData(prev => ({...prev, bandwidth: '1gbps'}))}>1 Gbps</Badge>
+                  <Badge chipType="filter" size="sm" selected={formData.serviceType === 'dedicated'} onSelect={() => setFormData(prev => ({...prev, serviceType: 'dedicated'}))}>Dedicated</Badge>
+                  <Badge chipType="filter" size="sm" selected={formData.bandwidth === '1gbps'} onSelect={() => setFormData(prev => ({...prev, bandwidth: '1gbps'}))}>1 Gbps</Badge>
                 </div>
               </CardHeader>
               <CardDivider />
@@ -1275,7 +1275,7 @@ export const ServiceProvisioningTaskflow: Story = {
             {renderStepContent()}
 
             {/* Enhanced Navigation with Progress */}
-            <Card variant="outlined">
+            <Card >
               <CardContent className="py-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
@@ -1399,8 +1399,8 @@ export const QuickActionTaskflow: Story = {
                   <Badge chipType="assist" size="sm">Instant Resets</Badge>
                   <Badge chipType="assist" size="sm">Live Monitoring</Badge>
                   <Badge chipType="assist" size="sm">Bulk Actions</Badge>
-                  <Badge chipType="filter" selected={true} onSelect={() => console.log('All services selected')}>All Services</Badge>
-                  <Badge chipType="filter" onSelect={() => console.log('Offline only')}>Offline Only</Badge>
+                  <Badge chipType="filter" size="sm" selected={true} onSelect={() => console.log('All services selected')}>All Services</Badge>
+                  <Badge chipType="filter" size="sm" onSelect={() => console.log('Offline only')}>Offline Only</Badge>
                 </div>
               </div>
               
@@ -1419,7 +1419,6 @@ export const QuickActionTaskflow: Story = {
               {services.map((service) => (
                 <Card 
                   key={service.id} 
-                  variant={service.status === 'offline' ? 'outlined' : 'elevated'} 
                   onCardClick={() => console.log('Navigate to service details:', service.name)}
                 >
                   <CardContent className="p-6">
@@ -1488,7 +1487,7 @@ export const QuickActionTaskflow: Story = {
             </div>
 
             {/* Bulk Actions */}
-            <Card variant="outlined">
+            <Card >
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg font-primary text-gray-900">
                   <Icon name="configure" size={20} className="text-primary-600" />
@@ -1500,8 +1499,8 @@ export const QuickActionTaskflow: Story = {
                 </CardDescription>
                 <div className="flex gap-2 mt-3">
                   <Badge chipType="assist" size="sm">Quick Actions</Badge>
-                  <Badge chipType="filter" selected={true} onSelect={() => console.log('All services')}>All Services</Badge>
-                  <Badge chipType="filter" onSelect={() => console.log('Critical only')}>Critical Only</Badge>
+                  <Badge chipType="filter" size="sm" selected={true} onSelect={() => console.log('All services')}>All Services</Badge>
+                  <Badge chipType="filter" size="sm" onSelect={() => console.log('Critical only')}>Critical Only</Badge>
                 </div>
               </CardHeader>
               <CardDivider />
@@ -1608,13 +1607,11 @@ export const ServiceManagement: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'active':
-          return <Badge variant="default" className="bg-green-100 text-green-800 border-green-200">
-            <Icon name="check" size={12} className="mr-1" />
+          return <Badge variant="default" className="bg-green-100 text-green-800 border-green-200" leadingIcon={<Icon name="check" size={12} />}>
             Active
           </Badge>;
         case 'pending':
-          return <Badge variant="secondary" className="bg-amber-100 text-amber-800 border-amber-200">
-            <Icon name="alert" size={12} className="mr-1" />
+          return <Badge variant="secondary" className="bg-amber-100 text-amber-800 border-amber-200" leadingIcon={<Icon name="alert" size={12} />}>
             Pending
           </Badge>;
         default:
@@ -1644,16 +1641,16 @@ export const ServiceManagement: Story = {
                 </p>
                 <div className="flex flex-wrap gap-2 text-sm">
                   <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                    🔧 Configuration management
+                    <Icon name="configure" size={16} className="inline mr-1" /> Configuration management
                   </Badge>
                   <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                    📈 Performance monitoring
+                    <Icon name="analytics" size={16} className="inline mr-1" /> Performance monitoring
                   </Badge>
                   <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">
-                    💰 Billing optimization
+                    <Icon name="money" size={16} className="inline mr-1" /> Billing optimization
                   </Badge>
                   <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">
-                    👥 Access control
+                    <Icon name="users" size={16} className="inline mr-1" /> Access control
                   </Badge>
                 </div>
               </div>
@@ -2438,16 +2435,16 @@ export const AddVoiceUserTaskflow: Story = {
               </p>
               <div className="flex flex-wrap gap-2 text-sm">
                 <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
-                  📞 Phone & extension setup
+                  <Icon name="configure" size={16} className="inline mr-1" /> Phone & extension setup
                 </Badge>
                 <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                  ✉️ Voicemail configuration
+                  <Icon name="voicemail" size={16} className="inline mr-1" /> Voicemail configuration
                 </Badge>
                 <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">
-                  🔒 Permission management
+                  <Icon name="configure" size={16} className="inline mr-1" /> Permission management
                 </Badge>
                 <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200">
-                  📦 Equipment delivery
+                  <Icon name="truck" size={16} className="inline mr-1" /> Equipment delivery
                 </Badge>
               </div>
             </div>

@@ -29,6 +29,7 @@ import {
   Separator,
   Progress,
 } from '../src/components';
+import { Icon } from '../src/components/Icon/Icon';
 
 const meta: Meta = {
   title: 'Enterprise/Billing',
@@ -94,11 +95,11 @@ export const EnterpriseBillingInterface: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'Paid':
-          return <Badge className="bg-green-50 text-green-700 border-green-200">Paid</Badge>;
+          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Paid</Badge>;
         case 'Pending':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200">Pending</Badge>;
+          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="alert" size={12} />}>Pending</Badge>;
         case 'Overdue':
-          return <Badge variant="destructive">Overdue</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>Overdue</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -336,7 +337,7 @@ export const EnterpriseBillingInterface: Story = {
                         <TableCell>
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" size="sm">⋮</Button>
+                              <Button variant="ghost" size="sm"><Icon name="contextmenu" size={16} /></Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
                               <DropdownMenuItem>View Invoice</DropdownMenuItem>

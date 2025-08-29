@@ -42,6 +42,7 @@ import {
   Textarea,
   Label,
 } from '../src/components';
+import { Icon } from '../src/components/Icon/Icon';
 
 const meta: Meta = {
   title: 'Enterprise/Service Management',
@@ -118,15 +119,15 @@ export const EnterpriseServiceManagementInterface: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'Active':
-          return <Badge className="bg-green-50 text-green-700 border-green-200">Active</Badge>;
+          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Active</Badge>;
         case 'Maintenance':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200">Maintenance</Badge>;
+          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="configure" size={12} />}>Maintenance</Badge>;
         case 'Warning':
-          return <Badge className="bg-orange-50 text-orange-700 border-orange-200">Warning</Badge>;
+          return <Badge className="bg-orange-50 text-orange-700 border-orange-200" leadingIcon={<Icon name="alert" size={12} />}>Warning</Badge>;
         case 'Inactive':
           return <Badge variant="secondary">Inactive</Badge>;
         case 'Critical':
-          return <Badge variant="destructive">Critical</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>Critical</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -135,11 +136,11 @@ export const EnterpriseServiceManagementInterface: Story = {
     const getSeverityBadge = (severity: string) => {
       switch (severity) {
         case 'High':
-          return <Badge variant="destructive">High</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>High</Badge>;
         case 'Medium':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200">Medium</Badge>;
+          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="alert" size={12} />}>Medium</Badge>;
         case 'Low':
-          return <Badge className="bg-blue-50 text-blue-700 border-blue-200">Low</Badge>;
+          return <Badge className="bg-blue-50 text-blue-700 border-blue-200" leadingIcon={<Icon name="alert" size={12} />}>Low</Badge>;
         default:
           return <Badge variant="outline">{severity}</Badge>;
       }
@@ -148,13 +149,13 @@ export const EnterpriseServiceManagementInterface: Story = {
     const getIncidentStatusBadge = (status: string) => {
       switch (status) {
         case 'Open':
-          return <Badge variant="destructive">Open</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>Open</Badge>;
         case 'In Progress':
-          return <Badge className="bg-blue-50 text-blue-700 border-blue-200">In Progress</Badge>;
+          return <Badge className="bg-blue-50 text-blue-700 border-blue-200" leadingIcon={<Icon name="configure" size={12} />}>In Progress</Badge>;
         case 'Scheduled':
-          return <Badge className="bg-purple-50 text-purple-700 border-purple-200">Scheduled</Badge>;
+          return <Badge className="bg-purple-50 text-purple-700 border-purple-200" leadingIcon={<Icon name="configure" size={12} />}>Scheduled</Badge>;
         case 'Resolved':
-          return <Badge className="bg-green-50 text-green-700 border-green-200">Resolved</Badge>;
+          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Resolved</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -423,7 +424,7 @@ export const EnterpriseServiceManagementInterface: Story = {
                         <TableCell>
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
-                              <Button variant="ghost" size="sm">⋮</Button>
+                              <Button variant="ghost" size="sm"><Icon name="contextmenu" size={16} /></Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
                               <DropdownMenuItem>View Details</DropdownMenuItem>
@@ -516,8 +517,8 @@ export const EnterpriseServiceManagementInterface: Story = {
                         </Badge>
                       </div>
                       <div className="space-y-1 text-sm text-[#70717D]">
-                        <div>📅 {maintenance.scheduled} ({maintenance.duration})</div>
-                        <div>⚠️ {maintenance.impact}</div>
+                        <div className="flex items-center gap-1"><Icon name="configure" size={14} />{maintenance.scheduled} ({maintenance.duration})</div>
+                        <div className="flex items-center gap-1"><Icon name="alert" size={14} />{maintenance.impact}</div>
                       </div>
                     </div>
                   ))}

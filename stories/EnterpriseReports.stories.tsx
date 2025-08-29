@@ -34,6 +34,7 @@ import {
   Separator,
   ChartTooltip,
 } from '../src/components';
+import { Icon } from '../src/components/Icon/Icon';
 
 // Import Recharts components
 import {
@@ -186,11 +187,11 @@ export const EnterpriseReportsInterface: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'Ready':
-          return <Badge className="bg-green-50 text-green-700 border-green-200">Ready</Badge>;
+          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Ready</Badge>;
         case 'Generating':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200">Generating</Badge>;
+          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="configure" size={12} />}>Generating</Badge>;
         case 'Failed':
-          return <Badge variant="destructive">Failed</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>Failed</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -429,7 +430,7 @@ export const EnterpriseReportsInterface: Story = {
                             <TableCell>
                               <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                  <Button variant="ghost" size="sm">⋮</Button>
+                                  <Button variant="ghost" size="sm"><Icon name="contextmenu" size={16} /></Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
                                   <DropdownMenuItem>View Report</DropdownMenuItem>

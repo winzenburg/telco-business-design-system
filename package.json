@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "rollup -c",
+    "build": "storybook build",
     "build:storybook": "storybook build",
     "test": "jest",
     "test:watch": "jest --watch",
