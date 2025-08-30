@@ -116,7 +116,7 @@ export const OptimizedIcon: React.FC<OptimizedIconProps> = ({
  * Icon component with inline SVG for better performance and reliability
  * This version fetches the SVG content and inlines it for maximum compatibility
  */
-interface InlineIconProps extends Omit<OptimizedIconProps, 'loading'> {
+export interface InlineIconProps extends Omit<OptimizedIconProps, 'loading'> {
   /** Fallback content when icon fails to load */
   fallback?: React.ReactNode;
 }

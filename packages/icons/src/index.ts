@@ -3,7 +3,7 @@
 
 // Main Icon component
 export { Icon, IconGroup } from './Icon';
-export type { IconProps, IconGroupProps, IconName } from './Icon';
+export type { IconProps, IconGroupProps } from './Icon';
 
 // Optimized Icon components
 export { InlineIcon } from './OptimizedIcon';

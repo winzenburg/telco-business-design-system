@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     dts({
       include: ['packages/components/**/*', 'packages/icons/**/*', 'packages/tokens/**/*'],
-      exclude: ['**/*.stories.tsx', '**/*.test.tsx', '**/tests/**/*', '**/form.tsx'],
+      exclude: ['**/*.stories.tsx', '**/*.test.tsx', '**/tests/**/*', '**/form.tsx', '**/design-system-icons.ts', '**/chart.tsx', '**/unified-chart.tsx', '**/enhanced-menu.tsx', '**/figma-*.ts', '**/utils/figma.ts', '**/utils/chart-data.ts', '**/utils/slot.ts'],
       outDir: 'dist/types',
       tsconfigPath: './tsconfig.build.json',
     }),
