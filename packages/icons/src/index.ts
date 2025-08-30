@@ -13,4 +13,4 @@ export type { InlineIconProps } from './OptimizedIcon';
 export { usePreloadIcons, loadSVG } from './Icon';
 
 // Icon registry (re-export from tokens)
-export type { IconName } from '../../tokens/design-system-icons';
+export type { IconName } from '../../tokens/design-system-icons-types';

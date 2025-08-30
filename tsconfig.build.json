@@ -20,6 +20,14 @@
     "**/*.test.ts",
     "**/*.test.tsx",
     "**/*.stories.tsx",
-    "**/form.tsx"
+    "**/form.tsx",
+    "**/design-system-icons.ts",
+    "**/chart.tsx",
+    "**/unified-chart.tsx", 
+    "**/enhanced-menu.tsx",
+    "**/figma-*.ts",
+    "**/utils/figma.ts",
+    "**/utils/chart-data.ts",
+    "**/utils/slot.ts"
   ]
 }

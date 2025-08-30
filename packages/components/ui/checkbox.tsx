@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../utils/cn"
 import { Skeleton } from "./skeleton"
 import { Icon } from "../../icons/src/Icon"
-import { type IconName } from "../../tokens/design-system-icons"
+import { type IconName } from "../../tokens/design-system-icons-types"
 
 // Checkbox component following Comcast Business Design System
 // Uses semantic design tokens for proper light/dark theme support

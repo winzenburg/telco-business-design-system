@@ -41,7 +41,7 @@ export {
   iconUsage,
   getIcon,
   getIconsByCategory
-} from './design-system-icons';
+} from './design-system-icons-types';
 
 export * from './design-system-elevation';
 export * from './design-system-motion'; 

@@ -7,7 +7,7 @@ import {
   iconCategories,
   getIcon,
   getIconsByCategory
-} from '../../tokens/design-system-icons';
+} from '../../tokens/design-system-icons-types';
 
 const meta: Meta<typeof Icon> = {
   

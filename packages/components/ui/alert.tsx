@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "../utils/cn"
 import { Icon } from "../../icons/src/Icon"
-import { type IconName } from "../../tokens/design-system-icons"
+import { type IconName } from "../../tokens/design-system-icons-types"
 
 // Alert component following Comcast Business Design System
 // Colors: Brand colors for variants, consistent with design system
