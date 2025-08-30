@@ -13,13 +13,4 @@ export type { InlineIconProps } from './OptimizedIcon';
 export { usePreloadIcons, loadSVG } from './Icon';
 
 // Icon registry (re-export from tokens)
-export type { CoreIconName, IconMetadata } from '@comcast-business/design-tokens';
-export { 
-  CORE_ICONS, 
-  getAllAvailableIcons, 
-  getIconMetadata, 
-  getIconsByCategory, 
-  searchIcons, 
-  getIconPath, 
-  CRITICAL_ICONS 
-} from '@comcast-business/design-tokens';
+export type { IconName } from '../../tokens/design-system-icons';
