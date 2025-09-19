@@ -94,8 +94,8 @@ module.exports = {
       
       // Comcast Business Brand Colors - Design System Colors
       colors: {
-        // Use design system colors as primary color system
-        ...require('../tokens/design-system-colors').colors,
+        // Use clean design system colors to avoid circular references
+        ...require('../tokens/design-system-colors').cleanColorsForTailwind,
         
         // Primary Brand Colors (Updated with Figma exact colors)
         primary: {

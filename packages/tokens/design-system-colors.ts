@@ -316,6 +316,23 @@ export const tailwindColors = {
   'pageBackground': colors.pageBackground,
 };
 
+// Clean colors object for Tailwind config - excludes problematic exports
+export const cleanColorsForTailwind = {
+  "blue": colors.blue,
+  "neutral": colors.neutral,
+  "red": colors.red,
+  "green": colors.green,
+  "yellow": colors.yellow,
+  "orange": colors.orange,
+  "purple": colors.purple,
+  "navy": colors.navy,
+  "sky": colors.sky,
+  "teal": colors.teal,
+  "black": colors.black,
+  "white": colors.white,
+  "pageBackground": colors.pageBackground,
+};
+
 // Color system utilities
 export const colorSystem = {
   // Text colors
