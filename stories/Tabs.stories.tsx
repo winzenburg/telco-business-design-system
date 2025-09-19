@@ -1,19 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { 
+import {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger,
+  TabsTrigger
+} from '../packages/components/ui/tabs';
+import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle
-} from '../src/components';
+} from '../packages/components/ui/card';
+import { Input } from '../packages/components/ui/input';
+import { Button } from '../packages/components/ui/button';
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Components/Tabs',
+  title: 'Tabs',
   component: Tabs,
   parameters: {
     layout: 'padded',
@@ -45,14 +49,15 @@ export const Default: Story = {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <label>Name</label>
-              <input className="w-full p-2 border rounded" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <label>Username</label>
-              <input className="w-full p-2 border rounded" defaultValue="@peduarte" />
-            </div>
+            <Input
+              label="Name"
+              defaultValue="Pedro Duarte"
+              className="mb-4"
+            />
+            <Input
+              label="Username"
+              defaultValue="@peduarte"
+            />
           </CardContent>
         </Card>
       </TabsContent>
@@ -65,14 +70,15 @@ export const Default: Story = {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <label>Current password</label>
-              <input type="password" className="w-full p-2 border rounded" />
-            </div>
-            <div className="space-y-1">
-              <label>New password</label>
-              <input type="password" className="w-full p-2 border rounded" />
-            </div>
+            <Input
+              label="Current password"
+              type="password"
+              className="mb-4"
+            />
+            <Input
+              label="New password"
+              type="password"
+            />
           </CardContent>
         </Card>
       </TabsContent>

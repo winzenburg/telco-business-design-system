@@ -4,7 +4,7 @@ import { Badge, Avatar } from '../src/components';
 import { Star, Heart, User, Plus, Filter, Tag, Check, X, Settings, ChevronDown } from 'lucide-react';
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/Badge',
+  title: 'Badge',
   component: Badge,
   parameters: {
     layout: 'padded',

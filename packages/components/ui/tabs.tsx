@@ -11,10 +11,12 @@ import { Body } from "./typography"
 // Colors: Canvas background, border tokens, primary intent for active states
 // Typography: Lato Medium for tab labels
 
+export type TabsProps = React.ComponentProps<typeof TabsPrimitive.Root>
+
 function Tabs({
   className,
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Root>) {
+}: TabsProps) {
   return (
     <TabsPrimitive.Root
       data-slot="tabs"
@@ -26,12 +28,12 @@ function Tabs({
 
 const tabsListVariants = cva(
   // Base styles using design system colors
-  "inline-flex w-fit items-center justify-center bg-[var(--ds-color-bg-canvas] border border-[var(--ds-color-border-default] rounded-lg p-1",
+  "inline-flex w-fit items-center justify-center bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-neutral-300)] rounded-lg p-1",
   {
     variants: {
       variant: {
-        default: "bg-[var(--ds-color-[^]]*])",
-        enclosed: "bg-[var(--ds-color-[^]]*])",
+        default: "bg-[var(--ds-color-bg-surface)]",
+        enclosed: "bg-[var(--ds-color-bg-surface)]",
         pills: "bg-transparent border-0 gap-1",
       },
       size: {
@@ -68,13 +70,13 @@ function TabsList({
 
 const tabsTriggerVariants = cva(
   // Base styles using design system colors and typography
-  "inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 font-secondary font-medium text-[var(--ds-color-text-muted] transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 font-secondary font-medium text-[var(--ds-color-text-muted)] transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "data-[state=active]:bg-[var(--ds-color-intent-primary] data-[state=active]:text-[var(--ds-color-bg-canvas] data-[state=active]:shadow-sm hover:text-[var(--ds-color-text-primary]",
-        enclosed: "data-[state=active]:bg-[var(--ds-color-bg-canvas] data-[state=active]:text-[var(--ds-color-intent-primary] data-[state=active]:border data-[state=active]:border-[var(--ds-color-intent-primary] hover:text-[var(--ds-color-text-primary]",
-        pills: "rounded-full border border-[var(--ds-color-border-default] data-[state=active]:bg-[var(--ds-color-intent-primary] data-[state=active]:text-[var(--ds-color-bg-canvas] data-[state=active]:border-[var(--ds-color-intent-primary] hover:bg-[var(--ds-color-bg-surface]",
+        default: "data-[state=active]:bg-[var(--ds-color-intent-primary)] data-[state=active]:text-[var(--ds-color-bg-canvas)] data-[state=active]:shadow-sm hover:text-[var(--ds-color-text-primary)]",
+        enclosed: "data-[state=active]:bg-[var(--ds-color-bg-canvas)] data-[state=active]:text-[var(--ds-color-intent-primary)] data-[state=active]:border data-[state=active]:border-[var(--ds-color-intent-primary)] hover:text-[var(--ds-color-text-primary)]",
+        pills: "rounded-full border border-[var(--ds-color-neutral-300)] data-[state=active]:bg-[var(--ds-color-intent-primary)] data-[state=active]:text-[var(--ds-color-bg-canvas)] data-[state=active]:border-[var(--ds-color-intent-primary)] hover:bg-[var(--ds-color-bg-surface)]",
       },
     },
     defaultVariants: {
@@ -109,7 +111,7 @@ function TabsContent({
     <TabsPrimitive.Content
       data-slot="tabs-content"
       className={cn(
-        "mt-4 rounded-lg bg-[var(--ds-color-bg-canvas] p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary] focus-visible:ring-offset-2 opacity-100",
+        "mt-4 rounded-lg bg-[var(--ds-color-bg-canvas)] p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 opacity-100",
         className
       )}
       {...props}

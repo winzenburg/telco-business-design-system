@@ -5,7 +5,7 @@ import { cn } from "../../utils/cn"
 import { Title, Body, Label as TypographyLabel } from "./typography"
 
 // Form component following Comcast Business Design System
-// Typography: Default body text using #2B2D3F, labels and helper text as per design system
+// Typography: Default body text using design tokens, labels and helper text as per design system
 
 const formVariants = cva(
   "space-y-6",
@@ -91,14 +91,14 @@ const FormLabel = React.forwardRef<HTMLLabelElement, FormLabelProps>(
       <TypographyLabel
         className={cn(
           "leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
-          error ? "text-red-500" : "text-[#2B2D3F]",
+          error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-primary)]",
           className
         )}
         ref={ref}
         {...props}
       >
         {children}
-        {required && <span className="ml-1 text-red-500">*</span>}
+        {required && <span className="ml-1 text-[var(--ds-color-intent-destructive)]">*</span>}
       </TypographyLabel>
     )
   }
@@ -119,7 +119,7 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionPr
       <p
         className={cn(
           "text-xs",
-          error ? "text-red-500" : "text-[#70717D]",
+          error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-muted)]",
           className
         )}
         ref={ref}
@@ -149,10 +149,10 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
         as="p"
         className={cn(
           {
-            "text-red-500": type === "error",
-            "text-green-600": type === "success", 
-            "text-orange-500": type === "warning",
-            "text-[#0D62FF]": type === "info",
+            "text-[var(--ds-color-intent-destructive)]": type === "error",
+            "text-[var(--ds-color-intent-success)]": type === "success", 
+            "text-[var(--ds-color-intent-warning)]": type === "warning",
+            "text-[var(--ds-color-intent-info)]": type === "info",
           },
           className
         )}
@@ -189,12 +189,12 @@ const FormSection = React.forwardRef<HTMLDivElement, FormSectionProps>(
         {(title || description) && (
           <div className="space-y-1">
             {title && (
-              <Title level={4} weight="semibold" className="text-[#2B2D3F]">
+              <Title level={4} weight="semibold" className="text-[var(--ds-color-text-primary)]">
                 {title}
               </Title>
             )}
             {description && (
-              <Body size="m" className="text-[#70717D]">
+              <Body size="m" className="text-[var(--ds-color-text-muted)]">
                 {description}
               </Body>
             )}

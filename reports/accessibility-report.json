@@ -1,0 +1,146 @@
+{
+  "timestamp": "2025-09-18T17:53:32.871Z",
+  "storybookUrl": "http://localhost:6006",
+  "summary": {
+    "total": 22,
+    "passed": 22,
+    "failed": 0,
+    "errors": 0,
+    "totalViolations": 0
+  },
+  "results": [
+    {
+      "story": "button--primary",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "button--secondary",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "button--ghost",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "button--destructive",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "input--default",
+      "violations": 0,
+      "passes": 8,
+      "status": "✅"
+    },
+    {
+      "story": "input--with-label",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "input--error-state",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "checkbox--default",
+      "violations": 0,
+      "passes": 17,
+      "status": "✅"
+    },
+    {
+      "story": "radio-group--default",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "select--default",
+      "violations": 0,
+      "passes": 15,
+      "status": "✅"
+    },
+    {
+      "story": "dialog--default",
+      "violations": 0,
+      "passes": 12,
+      "status": "✅"
+    },
+    {
+      "story": "dropdown-menu--default",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "tabs--default",
+      "violations": 0,
+      "passes": 22,
+      "status": "✅"
+    },
+    {
+      "story": "accordion--default",
+      "violations": 0,
+      "passes": 15,
+      "status": "✅"
+    },
+    {
+      "story": "alert--all-variants",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "badge--default",
+      "violations": 0,
+      "passes": 11,
+      "status": "✅"
+    },
+    {
+      "story": "card--default",
+      "violations": 0,
+      "passes": 14,
+      "status": "✅"
+    },
+    {
+      "story": "tooltip--default",
+      "violations": 0,
+      "passes": 13,
+      "status": "✅"
+    },
+    {
+      "story": "toast--default",
+      "violations": 0,
+      "passes": 18,
+      "status": "✅"
+    },
+    {
+      "story": "switch--default",
+      "violations": 0,
+      "passes": 17,
+      "status": "✅"
+    },
+    {
+      "story": "slider--default",
+      "violations": 0,
+      "passes": 16,
+      "status": "✅"
+    },
+    {
+      "story": "progress--default",
+      "violations": 0,
+      "passes": 16,
+      "status": "✅"
+    }
+  ],
+  "violations": []
+}

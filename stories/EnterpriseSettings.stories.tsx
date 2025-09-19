@@ -6,28 +6,36 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Button,
-  Input,
-  Label,
-  Switch,
+} from '../src/components/ui/card';
+import { Button } from '../src/components/ui/button';
+import { Input } from '../src/components/ui/input';
+import { Label } from '../src/components/ui/label';
+import { Switch } from '../src/components/ui/switch';
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
+} from '../src/components/ui/select';
+import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-  Textarea,
-  Badge,
-  Separator,
+} from '../src/components/ui/tabs';
+import { Textarea } from '../src/components/ui/textarea';
+import { Badge } from '../src/components/ui/badge';
+import { Separator } from '../src/components/ui/separator';
+import {
   RadioGroup,
   RadioGroupItem,
-  Checkbox,
+} from '../src/components/ui/radio-group';
+import { Checkbox } from '../src/components/ui/checkbox';
+import {
   Alert,
   AlertDescription,
-} from '../src/components';
+} from '../src/components/ui/alert';
 
 const meta: Meta = {
   title: 'Enterprise/Settings',

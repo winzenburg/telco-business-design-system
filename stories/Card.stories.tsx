@@ -15,7 +15,7 @@ import {
 import { Heart, Share, Bookmark, MoreHorizontal, Star, Play, Download } from 'lucide-react';
 
 const meta: Meta<typeof Card> = {
-  title: 'Components/Card',
+  title: 'Card',
   component: Card,
   parameters: {
     layout: 'padded',

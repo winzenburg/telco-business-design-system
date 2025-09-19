@@ -20,8 +20,8 @@ const ChartContainer = React.forwardRef<
       data-chart={chartId}
       ref={ref}
       className={cn(
-        "flex justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-[var(--ds-color-[^]]*] [&_.recharts-cartesian-grid_line]:stroke-[var(--ds-color-[^]]*] [&_.recharts-curve.recharts-tooltip-cursor]:stroke-[var(--ds-color-[^]]*] [&_.recharts-dot]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_]:stroke-[var(--ds-color-[^]]*] [&_.recharts-radial-bar-background-sector]:fill-[var(--ds-color-[^]]*] [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-[var(--ds-color-[^]]*] [&_.recharts-reference-line_]:stroke-[var(--ds-color-[^]]*] [&_.recharts-sector]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
-        className || "w-full h-full"
+        "flex justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-[var(--ds-color-text-muted)] [&_.recharts-cartesian-grid_line]:stroke-[var(--ds-color-border-default)] [&_.recharts-curve.recharts-tooltip-cursor]:stroke-[var(--ds-color-border-default)] [&_.recharts-dot]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_]:stroke-[var(--ds-color-border-default)] [&_.recharts-radial-bar-background-sector]:fill-[var(--ds-color-bg-surface)] [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-[var(--ds-color-bg-surface)] [&_.recharts-reference-line_]:stroke-[var(--ds-color-border-default)] [&_.recharts-sector]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
+        className || "h-full w-full"
       )}
       {...props}
     >
@@ -75,13 +75,20 @@ const ChartTooltip = RechartsPrimitive.Tooltip
 
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
+  Omit<React.ComponentProps<typeof RechartsPrimitive.Tooltip>, 'content'> &
     React.ComponentProps<"div"> & {
       hideLabel?: boolean
       hideIndicator?: boolean
       indicator?: "line" | "dot" | "dashed"
       nameKey?: string
       labelKey?: string
+      active?: boolean
+      payload?: any[]
+      label?: any
+      labelFormatter?: (value: any) => string
+      formatter?: (value: any) => string
+      color?: string
+      labelClassName?: string
     }
 >(
   (
@@ -138,7 +145,7 @@ const ChartTooltipContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-[var(--ds-color-[^]]*] px-2.5 py-1.5 text-xs shadow-xl",
+          "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-[var(--ds-color-border-default)] px-2.5 py-1.5 text-xs shadow-xl",
           className
         )}
         style={{
@@ -149,7 +156,7 @@ const ChartTooltipContent = React.forwardRef<
         {!nestLabel ? (
           <div className={cn("grid gap-1.5", labelClassName)}>
             {tooltipLabel && (
-              <div className="font-medium text-[var(--ds-color-[^]]*]">{tooltipLabel}</div>
+              <div className="font-medium text-[var(--ds-color-text-primary)]">{tooltipLabel}</div>
             )}
           </div>
         ) : null}
@@ -163,7 +170,7 @@ const ChartTooltipContent = React.forwardRef<
               <div
                 key={item.dataKey}
                 className={cn(
-                  "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-[var(--ds-color-[^]]*]",
+                  "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-[var(--ds-color-text-muted)]",
                   indicator === "dot" && "items-center"
                 )}
               >
@@ -177,7 +184,7 @@ const ChartTooltipContent = React.forwardRef<
                       !hideIndicator && (
                         <div
                           className={cn(
-                            "shrink-0 rounded-[2px] border-[--color-border] bg-[--color-bg]",
+                            "shrink-0 rounded-[var(--ds-spacing-0.5)] border-[--color-border] bg-[--color-bg]",
                             {
                               "h-2.5 w-2.5": indicator === "dot",
                               "w-1": indicator === "line",
@@ -203,16 +210,16 @@ const ChartTooltipContent = React.forwardRef<
                     >
                       <div className="grid gap-1.5">
                         {nestLabel ? (
-                          <div className={cn("font-medium text-[var(--ds-color-[^]]*]", labelClassName)}>
+                          <div className={cn("font-medium text-[var(--ds-color-text-primary)]", labelClassName)}>
                             {tooltipLabel}
                           </div>
                         ) : null}
-                        <div className="text-[var(--ds-color-[^]]*]">
+                        <div className="text-[var(--ds-color-text-muted)]">
                           {itemConfig?.label || item.name}
                         </div>
                       </div>
                       {item.value && (
-                        <div className="font-mono font-medium tabular-nums text-[var(--ds-color-[^]]*]">
+                        <div className="font-mono font-medium tabular-nums text-[var(--ds-color-text-primary)]">
                           {item.value.toLocaleString()}
                         </div>
                       )}
@@ -233,10 +240,11 @@ const ChartLegend = RechartsPrimitive.Legend
 
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div"> &
-    Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
+  React.ComponentProps<"div"> & {
       hideIcon?: boolean
       nameKey?: string
+      payload?: any[]
+      verticalAlign?: "top" | "bottom" | "middle"
     }
 >(({ className, hideIcon = false, payload, verticalAlign = "bottom", nameKey }, ref) => {
   if (!payload?.length) {
@@ -260,7 +268,7 @@ const ChartLegendContent = React.forwardRef<
           <div
             key={item.value}
             className={cn(
-              "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-[var(--ds-color-[^]]*]"
+              "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-[var(--ds-color-text-muted)]"
             )}
           >
             {itemConfig?.icon && !hideIcon ? (
@@ -268,14 +276,14 @@ const ChartLegendContent = React.forwardRef<
             ) : (
               !hideIcon && (
                 <div
-                  className="h-2 w-2 shrink-0 rounded-[2px]"
+                  className="h-2 w-2 shrink-0 rounded-[var(--ds-spacing-0.5)]"
                   style={{
                     backgroundColor: item.color,
                   }}
                 />
               )
             )}
-            <div className="text-[var(--ds-color-[^]]*]">{itemConfig?.label || item.value}</div>
+            <div className="text-[var(--ds-color-text-primary)]">{itemConfig?.label || item.value}</div>
           </div>
         )
       })}
@@ -291,3 +299,6 @@ export {
   ChartLegend,
   ChartLegendContent,
 }
+
+// Default export for lazy loading
+export default ChartContainer

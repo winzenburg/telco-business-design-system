@@ -17,17 +17,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary Button - From Figma: #0D62FF background, white text, pressed: #052766, focus: white border + blue shadow
+        // Primary Button - Using CSS variables for colors
         default:
-          "bg-primary-500 text-white border border-transparent hover:bg-primary-600 hover:shadow-sm active:bg-primary-800 active:translate-y-px focus-visible:border-white focus-visible:shadow-[0_0_0_1.5px_#0D62FF]",
+          "bg-primary-500 text-white border border-transparent hover:bg-primary-600 hover:shadow-sm active:bg-primary-800 active:translate-y-px focus-visible:border-white focus-visible:ring-2 focus-visible:ring-primary-500",
         
         // Alias for 'primary' to maintain compatibility with custom Button
         primary:
-          "bg-primary-500 text-white border border-transparent hover:bg-primary-600 hover:shadow-sm active:bg-primary-800 active:translate-y-px focus-visible:border-white focus-visible:shadow-[0_0_0_1.5px_#0D62FF]",
+          "bg-primary-500 text-white border border-transparent hover:bg-primary-600 hover:shadow-sm active:bg-primary-800 active:translate-y-px focus-visible:border-white focus-visible:ring-2 focus-visible:ring-primary-500",
         
         // Secondary Button - All 6 states from Figma
         secondary:
-          "bg-white text-primary-500 border border-figma-border hover:bg-primary-50 hover:border-primary-500 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-neutral-300 active:border-figma-border active:translate-y-px disabled:bg-white disabled:text-black/50 disabled:border-neutral-300 focus-visible:border-figma-border focus-visible:shadow-[0_0_0_1.5px_#0D62FF] focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 data-[loading=true]:bg-white data-[loading=true]:text-primary-500 data-[loading=true]:border-figma-border",
+          "bg-white text-primary-500 border border-figma-border hover:bg-primary-50 hover:border-primary-500 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-neutral-300 active:border-figma-border active:translate-y-px disabled:bg-white disabled:text-black/50 disabled:border-neutral-300 focus-visible:border-figma-border focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 data-[loading=true]:bg-white data-[loading=true]:text-primary-500 data-[loading=true]:border-figma-border",
         
         // Tertiary Button - Similar to ghost but with subtle background
         tertiary:
@@ -35,15 +35,15 @@ const buttonVariants = cva(
         
         // Ghost Button - All 6 states from Figma: transparent background, blue text, 14px font, 600 weight
         ghost:
-          "bg-transparent text-primary-500 border border-transparent text-sm font-semibold hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 active:text-primary-700 disabled:bg-transparent disabled:text-neutral-500 focus-visible:bg-transparent focus-visible:text-primary-500 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 data-[loading=true]:bg-transparent data-[loading=true]:text-primary-500",
+          "bg-transparent text-primary-500 border border-transparent text-sm font-semibold hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 active:text-primary-700 disabled:bg-transparent disabled:text-neutral-500 focus-visible:bg-transparent focus-visible:text-primary-500 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 data-[loading=true]:bg-transparent data-[loading=true]:text-primary-500",
         
         // Submit Button - Same as primary with distinct naming for form contexts
         submit:
-          "bg-primary-500 text-white border border-transparent hover:bg-primary-600 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-800 active:translate-y-px disabled:bg-neutral-300 disabled:text-neutral-600 focus-visible:border-white focus-visible:shadow-[0_0_0_1.5px_#0D62FF] data-[loading=true]:bg-primary-500",
+          "bg-primary-500 text-white border border-transparent hover:bg-primary-600 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-800 active:translate-y-px disabled:bg-neutral-300 disabled:text-neutral-600 focus-visible:border-white focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] data-[loading=true]:bg-primary-500",
         
-        // Text Button - From Figma: minimal styling, blue text, 24px height
+        // Text Button - text only, no height constraint
         link:
-          "bg-transparent text-primary-500 underline-offset-4 hover:underline hover:text-primary-600 active:text-primary-700 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 p-0 h-6 text-sm font-semibold",
+          "bg-transparent text-primary-500 underline-offset-4 hover:underline hover:text-primary-600 active:text-primary-700 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2 p-0 h-auto text-sm font-semibold",
         
         // Danger Button - Alias for destructive to maintain compatibility
         danger:
@@ -58,29 +58,29 @@ const buttonVariants = cva(
           "bg-white text-neutral-700 border border-neutral-300 hover:bg-neutral-50 hover:text-neutral-800 hover:border-neutral-400 active:bg-neutral-100 active:text-neutral-900 active:border-neutral-500 focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2",
       },
       size: {
-        // Text Button size - From Figma: 24px height
-        sm: "h-6 px-3 py-1 text-sm rounded-[4px]",
-        
+        // Default size - From Figma: 40px height
+        default: "h-10 px-3 py-2 text-sm rounded",
+
+        // Small size - Same 40px height
+        sm: "h-10 px-3 py-2 text-sm rounded",
+
         // Medium size - Alias for default to maintain compatibility
-        md: "py-[9px] px-[13px] text-sm rounded-[4px]",
+        md: "h-10 px-3 py-2 text-sm rounded",
+
+        // Large size - Same 40px height
+        lg: "h-10 px-4 py-2 text-sm rounded",
+
+        // Extra Large size - Same 40px height
+        xl: "h-10 px-4 py-2 text-sm rounded",
         
-        // Default size - From Figma: padding: 9px 13px, border-radius: 4px
-        default: "py-[9px] px-[13px] text-sm rounded-[4px]",
-        
-        // Large size - Scaled up from default
-        lg: "h-12 px-6 py-3 text-lg rounded-[4px]",
-        
-        // Extra Large size - Alias for large to maintain compatibility
-        xl: "h-12 px-6 py-3 text-lg rounded-[4px]",
-        
-        // Icon only buttons - From Figma: Blue-400 background, white border, all 6 states
-        icon: "size-10 p-0 rounded-[6px] [&_svg]:size-5",
-        
-        // Small icon - 32px size
-        "icon-sm": "size-8 p-0 rounded-[6px] [&_svg]:size-4",
-        
-        // Large icon - 48px size  
-        "icon-lg": "size-12 p-0 rounded-[6px] [&_svg]:size-6",
+        // Icon only buttons - 40px size
+        icon: "size-10 p-0 rounded [&_svg]:size-5",
+
+        // Small icon - Same 40px size
+        "icon-sm": "size-10 p-0 rounded [&_svg]:size-5",
+
+        // Large icon - Same 40px size
+        "icon-lg": "size-10 p-0 rounded [&_svg]:size-5",
         
       },
     },
@@ -93,17 +93,17 @@ const buttonVariants = cva(
       {
         size: ["icon", "icon-sm", "icon-lg"],
         variant: "default",
-        className: "bg-primary-400 border border-white text-white hover:bg-primary-500 hover:text-white hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:text-white active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] data-[loading=true]:bg-primary-400",
+        className: "bg-primary-400 border border-white text-white hover:bg-primary-500 hover:text-white hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:text-white active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] data-[loading=true]:bg-primary-400",
       },
       {
         size: ["icon", "icon-sm", "icon-lg"],
         variant: "primary",
-        className: "bg-primary-400 border border-white text-white hover:bg-primary-500 hover:text-white hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:text-white active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] data-[loading=true]:bg-primary-400",
+        className: "bg-primary-400 border border-white text-white hover:bg-primary-500 hover:text-white hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-primary-600 active:text-white active:translate-y-px disabled:bg-neutral-300 disabled:border-neutral-400 disabled:text-neutral-600 focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] data-[loading=true]:bg-primary-400",
       },
       {
         size: ["icon", "icon-sm", "icon-lg"],
         variant: "secondary",
-        className: "bg-white border border-figma-border text-primary-500 hover:bg-primary-50 hover:text-primary-600 hover:border-primary-500 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-neutral-300 active:text-primary-700 active:border-figma-border active:translate-y-px disabled:bg-white disabled:text-black/50 disabled:border-neutral-300 focus-visible:border-figma-border focus-visible:shadow-[0_0_0_1.5px_#0D62FF]",
+        className: "bg-white border border-figma-border text-primary-500 hover:bg-primary-50 hover:text-primary-600 hover:border-primary-500 hover:shadow-[0_2px_8px_-3px_rgba(221,221,226,1)] active:bg-neutral-300 active:text-primary-700 active:border-figma-border active:translate-y-px disabled:bg-white disabled:text-black/50 disabled:border-neutral-300 focus-visible:border-figma-border focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
       },
       {
         size: ["icon", "icon-sm", "icon-lg"],
@@ -113,7 +113,7 @@ const buttonVariants = cva(
       {
         size: ["icon", "icon-sm", "icon-lg"],
         variant: "ghost",
-        className: "bg-transparent border border-transparent text-primary-500 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 active:text-primary-700 disabled:bg-transparent disabled:text-neutral-500 focus-visible:bg-transparent focus-visible:text-primary-500 focus-visible:shadow-[0_0_0_1.5px_#0D62FF] focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2",
+        className: "bg-transparent border border-transparent text-primary-500 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 active:text-primary-700 disabled:bg-transparent disabled:text-neutral-500 focus-visible:bg-transparent focus-visible:text-primary-500 focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2",
       },
       {
         size: ["icon", "icon-sm", "icon-lg"],
@@ -130,29 +130,40 @@ const buttonVariants = cva(
 )
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'>,
     VariantProps<typeof buttonVariants> {
+  /**
+   * Render as a different element or component
+   * @default false
+   */
   asChild?: boolean
   /**
    * Show loading state with spinner
+   * @default false
    */
   loading?: boolean
   /**
-   * Icon to display before the button text
+   * Icon or content to display before the button text
    */
   leftIcon?: React.ReactNode
   /**
-   * Icon to display after the button text
+   * Icon or content to display after the button text
    */
   rightIcon?: React.ReactNode
   /**
    * Make button full width
+   * @default false
    */
   fullWidth?: boolean
   /**
-   * Elevation level (0-5)
+   * Test identifier for automated testing
+   * @example 'submit-button'
    */
-  elevation?: 0 | 1 | 2 | 3 | 4 | 5
+  'data-testid'?: string
+  /**
+   * Whether the button is pressed (for toggle buttons)
+   */
+  'aria-pressed'?: boolean
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -167,7 +178,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     children,
     disabled,
     fullWidth = false,
-    elevation = 0,
     onClick,
     ...props 
   }, ref) => {
@@ -176,15 +186,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     // Handle loading state
     const isDisabled = disabled || loading
     
-    // Elevation classes
-    const elevationClasses = {
-      0: '',
-      1: 'shadow-sm',
-      2: 'shadow-md', 
-      3: 'shadow-lg',
-      4: 'shadow-xl',
-      5: 'shadow-2xl',
-    }
 
     return (
       <>
@@ -192,7 +193,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className={cn(
             buttonVariants({ variant, size }),
             fullWidth && "w-full",
-            elevationClasses[elevation],
             className
           )}
           ref={ref}

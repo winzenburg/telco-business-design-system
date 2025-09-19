@@ -14,7 +14,7 @@ import {
 } from '../src/components';
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Components/Dialog',
+  title: 'Dialog',
   component: Dialog,
   parameters: {
     layout: 'padded',

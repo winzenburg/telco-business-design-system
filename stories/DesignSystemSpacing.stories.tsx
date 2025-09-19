@@ -11,7 +11,7 @@ import {
 } from '../src/tokens/design-system-spacing';
 
 const meta: Meta = {
-  title: 'Design System/Spacing',
+  title: ' Foundations/Spacing',
   parameters: {
     layout: 'padded',
     docs: {

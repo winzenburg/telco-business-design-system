@@ -6,37 +6,47 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Button,
-  Input,
-  Badge,
+} from '../src/components/ui/card';
+import { Button } from '../src/components/ui/button';
+import { Input } from '../src/components/ui/input';
+import { Badge } from '../src/components/ui/badge';
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
+} from '../src/components/ui/select';
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-  Checkbox,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+} from '../src/components/ui/table';
+import { Checkbox } from '../src/components/ui/checkbox';
+import {
+  Menu,
+  MenuContent,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from '../src/components/ui/menu';
+import {
   Avatar,
   AvatarFallback,
+} from '../src/components/ui/avatar';
+import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  Label,
-} from '../src/components';
-import { Icon } from '../src/components/Icon/Icon';
+} from '../src/components/ui/dialog';
+import { Label } from '../src/components/ui/label';
+import { Icon } from '../packages/icons/src/Icon';
 
 const meta: Meta = {
   title: 'Enterprise/User Management',
@@ -118,11 +128,11 @@ export const UserManagementInterface: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'Active':
-          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Active</Badge>;
+          return <Badge variant="success" leadingIcon={<Icon name="check" size={14} />}>Active</Badge>;
         case 'Inactive':
           return <Badge variant="secondary">Inactive</Badge>;
         case 'Pending':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="alert" size={12} />}>Pending</Badge>;
+          return <Badge variant="warning" leadingIcon={<Icon name="alert" size={14} />}>Pending</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -131,11 +141,11 @@ export const UserManagementInterface: Story = {
     const getRoleBadge = (role: string) => {
       switch (role) {
         case 'Admin':
-          return <Badge className="bg-blue-50 text-blue-700 border-blue-200" leadingIcon={<Icon name="configure" size={12} />}>Admin</Badge>;
+          return <Badge variant="info" leadingIcon={<Icon name="configure" size={14} />}>Admin</Badge>;
         case 'Manager':
-          return <Badge className="bg-purple-50 text-purple-700 border-purple-200" leadingIcon={<Icon name="users" size={12} />}>Manager</Badge>;
+          return <Badge variant="secondary" leadingIcon={<Icon name="users" size={14} />}>Manager</Badge>;
         case 'User':
-          return <Badge variant="outline" leadingIcon={<Icon name="users" size={12} />}>User</Badge>;
+          return <Badge variant="outline" leadingIcon={<Icon name="users" size={14} />}>User</Badge>;
         default:
           return <Badge variant="outline">{role}</Badge>;
       }
@@ -208,7 +218,7 @@ export const UserManagementInterface: Story = {
                 <div className="flex items-center gap-2">
                   <Badge variant="outline">{filteredUsers.length} users</Badge>
                   {selectedUsers.length > 0 && (
-                    <Badge className="bg-blue-50 text-blue-700 border-blue-200">
+                    <Badge variant="info">
                       {selectedUsers.length} selected
                     </Badge>
                   )}
@@ -390,23 +400,23 @@ export const UserManagementInterface: Story = {
                           </div>
                         </TableCell>
                         <TableCell>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
+                          <Menu>
+                            <MenuTrigger asChild>
                               <Button variant="ghost" size="sm"><Icon name="contextmenu" size={16} /></Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem>View Profile</DropdownMenuItem>
-                              <DropdownMenuItem>Edit User</DropdownMenuItem>
-                              <DropdownMenuItem>Reset Password</DropdownMenuItem>
-                              <DropdownMenuSeparator />
-                              <DropdownMenuItem>Change Role</DropdownMenuItem>
-                              <DropdownMenuItem>Manage Access</DropdownMenuItem>
-                              <DropdownMenuSeparator />
-                              <DropdownMenuItem className="text-red-600">
+                            </MenuTrigger>
+                            <MenuContent align="end">
+                              <MenuItem>View Profile</MenuItem>
+                              <MenuItem>Edit User</MenuItem>
+                              <MenuItem>Reset Password</MenuItem>
+                              <MenuSeparator />
+                              <MenuItem>Change Role</MenuItem>
+                              <MenuItem>Manage Access</MenuItem>
+                              <MenuSeparator />
+                              <MenuItem className="text-red-600">
                                 Deactivate User
-                              </DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                              </MenuItem>
+                            </MenuContent>
+                          </Menu>
                         </TableCell>
                       </TableRow>
                     ))}

@@ -12,8 +12,8 @@ const listVariants = cva(
     variants: {
       variant: {
         default: "bg-white",
-        elevated: "bg-white shadow-sm border border-[#F1F2F6] rounded-lg",
-        outlined: "border border-[#F1F2F6] rounded-lg",
+        elevated: "bg-white shadow-sm border border-[var(--ds-color-border-muted)] rounded-lg",
+        outlined: "border border-[var(--ds-color-border-muted)] rounded-lg",
       },
       density: {
         default: "",
@@ -32,15 +32,15 @@ const listVariants = cva(
 const listItemVariants = cva(
   [
     "flex items-center w-full px-4 py-3 text-left transition-colors duration-200",
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0D62FF] focus-visible:ring-offset-2",
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
     "disabled:pointer-events-none disabled:opacity-50",
   ],
   {
     variants: {
       variant: {
-        default: "hover:bg-[#F9F9FA] active:bg-[#F1F2F6]",
-        clickable: "cursor-pointer hover:bg-[#F9F9FA] active:bg-[#F1F2F6]",
-        selected: "bg-[#EBF1FF] text-[#0D62FF] hover:bg-[#E5EFFF]",
+        default: "hover:bg-[var(--ds-color-bg-surface)] active:bg-[var(--ds-color-border-muted)]",
+        clickable: "cursor-pointer hover:bg-[var(--ds-color-bg-surface)] active:bg-[var(--ds-color-border-muted)]",
+        selected: "bg-[var(--ds-color-intent-primary)]/10 text-[var(--ds-color-intent-primary)] hover:bg-[var(--ds-color-intent-primary)]/15",
         disabled: "opacity-50 cursor-not-allowed",
       },
       size: {
@@ -173,7 +173,7 @@ const ListItemText = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "text-sm font-medium text-[#2B2D3F] truncate leading-5",
+      "text-sm font-medium text-[var(--ds-color-text-primary)] truncate leading-5",
       className
     )}
     {...props}
@@ -189,7 +189,7 @@ const ListItemSecondaryText = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "text-xs text-[#70717D] truncate leading-4 mt-0.5",
+      "text-xs text-[var(--ds-color-text-muted)] truncate leading-4 mt-0.5",
       className
     )}
     {...props}
@@ -205,7 +205,7 @@ const ListItemSupportingText = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "text-xs text-[#9D9EA7] truncate leading-4 mt-0.5",
+      "text-xs text-[var(--ds-color-text-muted)] truncate leading-4 mt-0.5",
       className
     )}
     {...props}
@@ -235,7 +235,7 @@ const ListSectionHeader = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "px-4 py-2 text-xs font-semibold text-[#70717D] uppercase tracking-wider",
+      "px-4 py-2 text-xs font-semibold text-[var(--ds-color-text-muted)] uppercase tracking-wider",
       className
     )}
     role="heading"
@@ -252,7 +252,7 @@ const ListDivider = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <hr
     ref={ref}
-    className={cn("border-0 border-t border-[#F1F2F6] mx-4", className)}
+    className={cn("border-0 border-t border-[var(--ds-color-border-muted)] mx-4", className)}
     role="separator"
     {...props}
   />

@@ -21,14 +21,33 @@ export interface IconData {
 
 // Core icon names (build-safe list without imports)
 export const coreIconNames = [
-  "blockers", "numbers", "configure", "device", "document", "folder", 
-  "performancethreshold", "feedback", "conference", "wallet", "internet", 
-  "wifi", "analytics", "clipboard", "byod", "shareddata", "shoppingbag", 
-  "fees", "bell", "close", "backarrow", "menu", "contextmenu", "refresh", 
-  "externallink2", "externallink1", "maximize", "minimize", "directionright", 
-  "directiondown", "directionleft", "directionup", "stateunsorted", 
-  "stateascending", "statedescending", "alert", "check", "chevron", "arrow", 
-  "doublechevron", "globalnav", "plus", "minus", "search", "download", "upload"
+  // Original icons
+  "blockers", "numbers", "configure", "device", "document", "folder",
+  "performancethreshold", "feedback", "conference", "wallet", "internet",
+  "wifi", "analytics", "clipboard", "byod", "shareddata", "shoppingbag",
+  "fees", "bell", "close", "backarrow", "menu", "contextmenu", "refresh",
+  "externallink2", "externallink1", "maximize", "minimize", "directionright",
+  "directiondown", "directionleft", "directionup", "stateunsorted",
+  "stateascending", "statedescending", "alert", "check", "chevron", "arrow",
+  "doublechevron", "globalnav", "plus", "minus", "search", "download", "upload",
+  // All icons from icon-registry
+  "avpause", "avplay", "avrecord", "avstop", "browser", "camera", "cartempty",
+  "chat", "cloud", "cloudupload", "complete", "ethernet", "filteralt", "grabber",
+  "login", "logout", "message", "money", "notifications", "password", "paymentcard",
+  "percent", "piechart", "playcircle", "portal", "pricetag", "report",
+  "securityquestion", "sort", "switchaccounts", "users", "variantlockedtypefilled",
+  "variantlockedtypeoutline", "variantunlockedtypefilled", "variantunlockedtypeoutline",
+  "video", "voicemail",
+  // Additional UI icons
+  "filter", "edit", "delete", "copy", "paste", "undo", "redo",
+  "save", "share", "print", "export", "import", "link", "unlink", "eye",
+  "eyeOff", "lock", "unlock", "user", "settings", "help", "info",
+  "warning", "error", "success", "star", "heart", "thumbsUp", "thumbsDown",
+  "comment", "calendar", "clock", "location", "map", "phone", "email",
+  "notification", "attachment", "image", "audio",
+  "file", "code", "terminal", "database", "server", "sync",
+  "backup", "restore", "trash", "archive", "flag", "bookmark", "tag",
+  "label", "category", "home", "dashboard", "chart", "graph"
 ] as const;
 
 // Type definitions

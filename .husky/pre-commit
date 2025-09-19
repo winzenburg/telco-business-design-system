@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running pre-commit validation..."
+
+# Run token validation first (fastest check)
+echo "🎨 Validating design tokens..."
+npm run validate:tokens
+if [ $? -ne 0 ]; then
+  echo "❌ Token validation failed! Fix hard-coded colors and pixel values."
+  exit 1
+fi
+
+# Run ESLint to catch any other issues
+echo "📝 Running ESLint..."
+npm run lint --silent
+if [ $? -ne 0 ]; then
+  echo "❌ ESLint validation failed! Run 'npm run lint' to see details."
+  exit 1
+fi
+
+# Run comprehensive acceptance criteria validation
+echo "🎯 Validating acceptance criteria..."
+npm run validate:acceptance-criteria
+
+echo "✅ Pre-commit validation complete!"

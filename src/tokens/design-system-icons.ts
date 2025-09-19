@@ -5368,8 +5368,8 @@ export const getIconsBySize = (size: string) => {
 
 export const getAllSVGPaths = (): string[] => {
   return Object.values(icons)
-    .filter(icon => icon.relativePath)
-    .map(icon => icon.relativePath!);
+    .filter(icon => (icon as any).relativePath)
+    .map(icon => (icon as any).relativePath!);
 };
 
 // Icon usage guidelines

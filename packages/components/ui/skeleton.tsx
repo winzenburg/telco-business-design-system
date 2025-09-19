@@ -1,13 +1,15 @@
 import { cn } from "../utils/cn"
 
+export type SkeletonProps = React.HTMLAttributes<HTMLDivElement>
+
 function Skeleton({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: SkeletonProps) {
   return (
     <div
       className={cn(
-        "animate-pulse rounded-[var(--ds-radius-sm)] bg-gradient-to-r from-[var(--ds-color-[^]]*]) via-[var(--ds-color-[^]]*]) to-[var(--ds-color-[^]]*]) bg-[length:200%_100%]",
+        "animate-pulse rounded-[var(--ds-radius-sm)]",
         "animate-[shimmer_1.5s_ease-in-out_infinite]",
         className
       )}
@@ -71,7 +73,7 @@ function InputSkeleton({
           {hasSubcopy && <div className="h-4 w-48" />} {/* Spacer for subcopy */}
         </div>
       )}
-      
+
       {/* Input field skeleton - only this has the loading effect */}
       <div className="relative">
         <Skeleton className={cn(
@@ -79,7 +81,7 @@ function InputSkeleton({
           sizeClasses[size]
         )} />
       </div>
-      
+
       {/* Helper text spacer - no skeleton */}
       <div className="h-4 w-32 mt-1" />
     </div>

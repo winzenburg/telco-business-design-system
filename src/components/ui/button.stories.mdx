@@ -1,0 +1,144 @@
+# Button Component
+
+## Design Intent
+
+The Button component is a fundamental interactive element used to trigger actions throughout the application. Use buttons for:
+
+- **Primary actions**: Main call-to-action on a page (use `primary` variant)
+- **Secondary actions**: Supporting actions that don't compete with primary (use `secondary` variant)
+- **Tertiary actions**: Subtle actions within complex interfaces (use `ghost` variant)
+- **Destructive actions**: Actions that delete, remove, or cause irreversible changes (use `destructive` variant)
+
+### When to Use
+- Triggering form submissions
+- Opening modals or dialogs
+- Navigating to new pages or sections
+- Confirming user actions
+- Toggling interface states
+
+### When to Avoid
+- For navigation that changes URL (use Link component instead)
+- For toggles or switches (use Toggle or Switch components)
+- For selecting options (use Radio buttons or Checkboxes)
+
+## Tokens Used
+
+| Token Category | Token Name | CSS Variable | Usage |
+|----------------|------------|--------------|-------|
+| **Colors** | `primary-500` | `--ds-color-blue-500` | Primary button background |
+| | `primary-600` | `--ds-color-blue-600` | Primary button hover state |
+| | `primary-800` | `--ds-color-blue-800` | Primary button active state |
+| | `red-500` | `--ds-color-red-500` | Destructive button background |
+| | `red-600` | `--ds-color-red-600` | Destructive button hover state |
+| | `neutral-300` | `--ds-color-neutral-300` | Disabled button background |
+| | `neutral-500` | `--ds-color-neutral-500` | Disabled button text |
+| **Spacing** | `py-2` | `8px` | Default vertical padding |
+| | `px-3` | `12px` | Default horizontal padding |
+| | `px-6` | `24px` | Large horizontal padding |
+| | `py-3` | `12px` | Large vertical padding |
+| **Typography** | `text-sm` | `14px` | Default button text size |
+| | `text-lg` | `18px` | Large button text size |
+| | `font-semibold` | `600` | Button text weight |
+| **Border Radius** | `rounded-sm` | `2px` | Button corner radius |
+| **Shadows** | `shadow-sm` | `0 1px 2px 0 rgb(0 0 0 / 0.05)` | Button elevation |
+| | `ring-2` | `2px` | Focus ring width |
+
+## Accessibility Contract
+
+### Keyboard Interactions
+
+| Key | Action |
+|-----|--------|
+| `Enter` | Activates the button |
+| `Space` | Activates the button |
+| `Tab` | Moves focus to next focusable element |
+| `Shift + Tab` | Moves focus to previous focusable element |
+
+### ARIA Patterns
+- Uses semantic `<button>` element by default
+- Supports `aria-busy="true"` during loading states
+- Maintains proper focus management
+- Provides clear visual focus indicators
+- Supports screen reader announcements for state changes
+
+### Focus Management
+- Clear focus indicators with 2px ring in primary color
+- Focus is trapped within button during activation
+- Focus returns to logical next element after modal actions
+- Loading state maintains focus on button element
+
+## Responsive/Adaptive Behavior
+
+### Breakpoints
+- **Mobile (320px+)**: Full-width buttons for better touch targets
+- **Tablet (768px+)**: Inline buttons with adequate spacing
+- **Desktop (1024px+)**: Standard button sizing with hover states
+
+### Density Variations
+- **Compact**: Reduced padding for dense interfaces (`py-1 px-2`)
+- **Standard**: Default spacing (`py-2 px-3`)
+- **Comfortable**: Increased spacing for accessibility (`py-3 px-4`)
+
+### Touch Targets
+- Minimum 44×44px touch target on mobile devices
+- Icon buttons maintain 40×40px minimum size
+- Adequate spacing between adjacent buttons (8px minimum)
+
+## Performance Notes
+
+### SSR-Safe Implementation
+- No client-side only features that break server-side rendering
+- Proper hydration without layout shifts
+- CSS-in-JS avoided in favor of CSS variables
+- Tree-shakeable with ES modules
+
+### Bundle Impact
+- Base component: ~2kb gzipped
+- No runtime CSS generation
+- Leverages design system tokens for consistency
+- Optimized for modern bundlers (Webpack, Vite, etc.)
+
+### No Layout Thrash Guarantees
+- Consistent sizing across all states
+- Smooth transitions using CSS transforms
+- Loading states maintain button dimensions
+- Theme switching doesn't cause reflow
+
+## Variants
+
+### Primary (`primary`)
+Use for the main action on a page. Only one primary button should be visible in a given context.
+
+### Secondary (`secondary`) 
+Use for secondary actions that support the primary action but don't compete for attention.
+
+### Ghost (`ghost`)
+Use for tertiary actions, often in toolbars or as subtle interaction triggers.
+
+### Destructive (`destructive`)
+Use for actions that delete, remove, or cause irreversible changes. Always provide clear confirmation.
+
+## Sizes
+
+### Small (`sm`)
+Use in compact interfaces or when space is constrained (24px height).
+
+### Medium/Default (`md`)
+Standard button size for most use cases (40px height).
+
+### Large (`lg`)
+Use for prominent actions or when increased touch targets are needed (48px height).
+
+## States
+
+### Default
+Normal interactive state with hover and focus effects.
+
+### Disabled
+Non-interactive state for unavailable actions. Use `disabled` prop.
+
+### Loading
+Shows progress during async operations. Use `loading` prop with spinner.
+
+### With Icons
+Supports `leftIcon` and `rightIcon` props for enhanced meaning and visual hierarchy.

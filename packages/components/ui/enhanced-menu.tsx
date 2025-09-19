@@ -30,7 +30,7 @@ const EnhancedMenuSub = MenuPrimitive.Sub
 const EnhancedMenuRadioGroup = MenuPrimitive.RadioGroup
 
 const menuContentVariants = cva(
-  "z-50 min-w-[12rem] overflow-hidden rounded-lg border border-[var(--ds-color-border-default] bg-[var(--ds-color-bg-canvas] p-1 text-[var(--ds-color-text-primary] shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+  "z-50 min-w-[12rem] overflow-hidden rounded-lg border border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-canvas)] p-1 text-[var(--ds-color-text-primary)] shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
   {
     variants: {
       size: {
@@ -54,7 +54,7 @@ const EnhancedMenuSubTrigger = React.forwardRef<
   <MenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-[var(--ds-color-text-primary] outline-none focus:bg-[var(--ds-color-bg-surface] data-[state=open]:bg-[var(--ds-color-bg-surface] hover:bg-[var(--ds-color-bg-surface]",
+      "flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm text-[var(--ds-color-text-primary)] outline-none focus:bg-[var(--ds-color-bg-surface)] data-[state=open]:bg-[var(--ds-color-bg-surface)] hover:bg-[var(--ds-color-bg-surface)]",
       inset && "pl-8",
       className
     )}
@@ -112,11 +112,11 @@ const EnhancedMenuItem = React.forwardRef<
   <MenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-[var(--ds-color-bg-surface] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-[var(--ds-color-bg-surface)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
       destructive
-        ? "text-[var(--ds-color-intent-destructive] focus:bg-[var(--ds-color-intent-destructive]/10 focus:text-[var(--ds-color-intent-destructive]"
-        : "text-[var(--ds-color-text-primary] focus:text-[var(--ds-color-intent-primary]",
+        ? "text-[var(--ds-color-intent-destructive] focus:bg-[var(--ds-color-intent-destructive]/10 focus:text-[var(--ds-color-intent-destructive)]"
+        : "text-[var(--ds-color-text-primary)] focus:text-[var(--ds-color-intent-primary)]",
       className
     )}
     {...props}
@@ -131,7 +131,7 @@ const EnhancedMenuCheckboxItem = React.forwardRef<
   <MenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-[var(--ds-color-text-primary] outline-none transition-colors focus:bg-[var(--ds-color-bg-surface] focus:text-[var(--ds-color-intent-primary] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-[var(--ds-color-text-primary)] outline-none transition-colors focus:bg-[var(--ds-color-bg-surface)] focus:text-[var(--ds-color-intent-primary] data-[disabled]:pointer-events-none data-[disabled)]:opacity-50",
       className
     )}
     checked={checked}
@@ -154,7 +154,7 @@ const EnhancedMenuRadioItem = React.forwardRef<
   <MenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-[var(--ds-color-text-primary] outline-none transition-colors focus:bg-[var(--ds-color-bg-surface] focus:text-[var(--ds-color-intent-primary] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm text-[var(--ds-color-text-primary)] outline-none transition-colors focus:bg-[var(--ds-color-bg-surface)] focus:text-[var(--ds-color-intent-primary] data-[disabled]:pointer-events-none data-[disabled)]:opacity-50",
       className
     )}
     {...props}
@@ -178,7 +178,7 @@ const EnhancedMenuLabel = React.forwardRef<
   <MenuPrimitive.Label
     ref={ref}
     className={cn(
-      "px-2 py-1.5 text-sm font-semibold text-[var(--ds-color-text-muted]",
+      "px-2 py-1.5 text-sm font-semibold text-[var(--ds-color-text-muted)]",
       inset && "pl-8",
       className
     )}
@@ -193,7 +193,7 @@ const EnhancedMenuSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <MenuPrimitive.Separator
     ref={ref}
-    className={cn("-mx-1 my-1 h-px bg-[var(--ds-color-border-default]", className)}
+    className={cn("-mx-1 my-1 h-px bg-[var(--ds-color-border-default)]", className)}
     {...props}
   />
 ))
@@ -205,7 +205,7 @@ const EnhancedMenuShortcut = ({
 }: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
     <span
-      className={cn("ml-auto text-xs tracking-widest text-[var(--ds-color-text-muted]", className)}
+      className={cn("ml-auto text-xs tracking-widest text-[var(--ds-color-text-muted)]", className)}
       {...props}
     />
   )
@@ -245,10 +245,10 @@ const EnhancedMenuDivider = React.forwardRef<HTMLDivElement, EnhancedMenuDivider
       className={cn("relative -mx-1 my-1", className)}
       {...props}
     >
-      <div className="h-px bg-[var(--ds-color-border-default]" />
+      <div className="h-px bg-[var(--ds-color-border-default)]" />
       {label && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="px-2 text-xs text-[var(--ds-color-text-muted] bg-[var(--ds-color-bg-canvas]">
+          <span className="px-2 text-xs text-[var(--ds-color-text-muted)] bg-[var(--ds-color-bg-canvas)]">
             {label}
           </span>
         </div>

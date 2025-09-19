@@ -7,7 +7,7 @@ import { Search, Mail, Phone, Globe, ExternalLink, AlertTriangle, Check } from '
 import { Title, Body } from '../src/components/ui/typography';
 
 const meta: Meta<typeof Input> = {
-  title: 'Components/Input',
+  title: 'Input',
   component: Input,
   parameters: {
     layout: 'centered',

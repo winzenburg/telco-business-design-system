@@ -1,4 +1,4 @@
-import { colors } from '../tokens/design-system-colors';
+import { colors } from '../../tokens/design-system-colors';
 
 // Data Visualization Colors - Using the proper design system colors
 const chartColors = {

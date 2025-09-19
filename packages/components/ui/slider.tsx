@@ -3,9 +3,11 @@ import * as SliderPrimitive from "@radix-ui/react-slider"
 
 import { cn } from "../utils/cn"
 
+export type SliderProps = React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
+
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
+  SliderProps
 >(({ className, ...props }, ref) => (
   <SliderPrimitive.Root
     ref={ref}
@@ -15,10 +17,10 @@ const Slider = React.forwardRef<
     )}
     {...props}
   >
-    <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-[var(--ds-color-[^]]*])">
-      <SliderPrimitive.Range className="absolute h-full bg-[var(--ds-color-[^]]*])" />
+    <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-[var(--ds-color-bg-surface)]">
+      <SliderPrimitive.Range className="absolute h-full bg-[var(--ds-color-intent-primary)]" />
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-[var(--ds-color-[^]]*]) bg-[var(--ds-color-[^]]*]) transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-[^]]*]) focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" />
+    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-[var(--ds-color-neutral-400)] bg-[var(--ds-color-bg-surface)] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" />
   </SliderPrimitive.Root>
 ))
 Slider.displayName = SliderPrimitive.Root.displayName

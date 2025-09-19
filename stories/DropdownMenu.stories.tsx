@@ -15,7 +15,7 @@ import {
 import { MoreHorizontal, Settings, User, CreditCard, LogOut } from 'lucide-react';
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: 'Components/Dropdown Menu',
+  title: 'DropdownMenu',
   component: DropdownMenu,
   parameters: {
     layout: 'padded',

@@ -1,0 +1,216 @@
+{
+  "summary": {
+    "totalViolations": 31,
+    "errors": 6,
+    "warnings": 13,
+    "info": 12,
+    "files": 3
+  },
+  "violations": {
+    "packages/docs/stories/ServiceRequestWorkflow.stories.mdx": [
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "missing-section",
+        "section": "Do / Don't",
+        "severity": "error",
+        "message": "Missing required section: \"Do / Don't\""
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "invalid-tokens-table",
+        "severity": "error",
+        "message": "Tokens Used table missing required columns: Token Category, Token Name, Usage"
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Keyboard\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"ARIA\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Screen reader\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Focus\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"mount time\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"SSR\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"bundle\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceRequestWorkflow.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"theme switch\" information"
+      }
+    ],
+    "packages/docs/stories/ServiceManagementWorkflow.stories.mdx": [
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "missing-section",
+        "section": "Do / Don't",
+        "severity": "error",
+        "message": "Missing required section: \"Do / Don't\""
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "invalid-tokens-table",
+        "severity": "error",
+        "message": "Tokens Used table missing required columns: Token Category, Token Name, Usage"
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Keyboard\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"ARIA\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Screen reader\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Focus\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"mount time\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"SSR\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"bundle\" information"
+      },
+      {
+        "file": "packages/docs/stories/ServiceManagementWorkflow.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"theme switch\" information"
+      }
+    ],
+    "packages/docs/stories/EnterpriseDashboard.stories.mdx": [
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "missing-section",
+        "section": "Do / Don't",
+        "severity": "error",
+        "message": "Missing required section: \"Do / Don't\""
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "invalid-tokens-table",
+        "severity": "error",
+        "message": "Tokens Used table missing required columns: Token Category, Token Name, Usage"
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "hardcoded-values-in-docs",
+        "severity": "warning",
+        "message": "Found hard-coded color values in tokens table: rgb("
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Keyboard\" information"
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"ARIA\" information"
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Screen reader\" information"
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "incomplete-accessibility",
+        "severity": "warning",
+        "message": "Accessibility section missing \"Focus\" information"
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"mount time\" information"
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"SSR\" information"
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"bundle\" information"
+      },
+      {
+        "file": "packages/docs/stories/EnterpriseDashboard.stories.mdx",
+        "type": "incomplete-performance",
+        "severity": "info",
+        "message": "Performance Notes missing \"theme switch\" information"
+      }
+    ]
+  },
+  "compliance": {
+    "score": 0,
+    "requiredSections": [
+      "Design Intent",
+      "Tokens Used",
+      "Accessibility",
+      "Performance Notes",
+      "Do / Don't"
+    ]
+  }
+}

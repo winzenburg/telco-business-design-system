@@ -1,0 +1,782 @@
+# Design System — Claude Code Guide (Router · Rules · Tasks)
+
+> Purpose: make Claude Code (and agents) produce **token-true, accessible, performant** components and enforce that quality in CI. Keep this file lean; push depth into the linked sources.
+
+## 🚀 Quick Reference
+
+**After ANY changes:**
+```bash
+npm run lint && npm run typecheck && npm run build
+```
+
+**🚨 CRITICAL: Ensure changes are reflected in Storybook:**
+```bash
+npm run force-reload    # Force timestamp updates on all files
+npm run verify:storybook # Verify all changes are visible
+```
+
+**Before ANY PR:**
+```bash
+npm run validate:tokens && npm run validate:a11y && npm run test
+```
+
+**Common Fixes:**
+- TypeScript errors? → Check [Section 6](#6-fix-typescript-build-errors-for-npm-distribution)
+- Hard-coded colors? → Use tokens from `packages/tokens/`
+- Missing icons? → Sync `design-system-icons-types.ts` with `icon-registry.ts`
+- Build failing? → Run `npm run build` and check error patterns
+
+---
+
+## Canonical Sources (read these first)
+
+- **Repository Overview & Workflow** → `./packages/docs/context/README.md`
+- **Visual Foundations / Tokens** → `./packages/docs/context/style-guide.md`
+- **Border Hierarchy Rules (ENFORCED)** → `./packages/docs/context/border-hierarchy-rules.md`
+- **Design Principles (binding rules)** → `./packages/docs/context/design-principles.md`
+- **Design Review Process & Merge Gates** → `./packages/docs/context/design-review-slash-command.md`
+- **Design Heuristics (automation hints)** → `./packages/docs/context/design-heuristics.yaml`
+- **Visual Regression Testing** → `./packages/docs/context/visual-regression-testing.md`
+- **Performance Optimization** → `./reports/performance-optimization-report.md`
+
+### UX Reasoning Documents
+- **structure, hierarchy, and user goal modeling** → `./packages/docs/context/ux-principles.md`
+- **maps tasks to UI patterns** → `./packages/docs/context/interaction-patterns.md`
+- **page structure and role-based layout rules** → `./packages/docs/context/layout-decisions.md`
+- **inclusive design and accessibility guidance** → `./packages/docs/context/inclusive-ux.md`
+
+### Quality & Standards Documents
+- **discipline-specific excellence checklists** → `./packages/docs/context/quality-checklists.md`
+- **development playbooks and specialized prompts** → `./packages/docs/context/development-playbooks.md`
+- **storybook standards and documentation requirements** → `./packages/docs/context/storybook-standards.md`
+- **systematic gap remediation patterns & templates** → `./packages/docs/context/implementation-patterns.md`
+- **performance optimization patterns & budgets** → `./packages/docs/context/performance-patterns.md`
+
+> If any document conflicts, **Design Principles** win. The Style Guide supplies values; the Review doc enforces the bar; Heuristics inform automation.
+
+---
+
+## 🛡️ Circular Reference Prevention Rules (MANDATORY)
+
+These rules MUST be followed to prevent deployment failures:
+
+### 1. Tailwind Config Isolation
+- **NEVER** import token files in ANY Tailwind configuration
+- **ALWAYS** hardcode values directly in Tailwind configs
+- **WHY**: Tailwind's PostCSS processing can't handle complex module imports
+
+### 2. Token Export Hygiene
+- **NEVER** use `export *` from token files
+- **ALWAYS** use selective named exports
+- **NEVER** reference a module's own exports within the same file
+- **WHY**: Wildcard exports can inadvertently export circular references
+
+### 3. Build Testing Protocol
+Before ANY deployment:
+```bash
+# 1. Test the actual build command that Netlify will run
+npm run build:storybook
+
+# 2. Run the circular reference diagnostic
+npm run diagnose:circular  # Add this script to package.json
+
+# 3. If errors occur, check the Tailwind configs FIRST
+grep -n "require.*tokens" packages/docs/tailwind.config.js
+```
+
+### 4. Multiple Token Directories
+- **CHECK** both `src/tokens/` and `packages/tokens/` for consistency
+- **ENSURE** both directories have identical fixes
+- **WHY**: Build tools may reference either directory unpredictably
+
+### 5. Emergency Response
+If you see "Maximum call stack size exceeded":
+1. **IMMEDIATELY** check Tailwind configs for imports
+2. **REMOVE** all token imports from Tailwind configs
+3. **HARDCODE** values as a temporary fix
+4. **TEST** locally before pushing
+
+---
+
+## Non-Negotiable Guardrails (binding)
+
+- **Tokens only** for color, typography, spacing, radius, shadow, motion. **No literal hex/rgb/px** in component code.
+- **Border Hierarchy (ENFORCED)**: Form inputs use `--ds-color-neutral-400` (#B4B5BB), structural elements use `--ds-color-neutral-300` (#DDDDE2). Never use `--ds-color-border-default` directly.
+- **Theming** via CSS variables from `@company/tokens`; support light/dark, density, and RTL. No inline color overrides.
+- **Variants / Sizes**: default set = `primary | secondary | ghost | destructive` and `sm | md | lg` unless a spec says otherwise; keep prop names consistent across components.
+- **Accessibility (WCAG 2.1 AA)**: complete name/role/value; full keyboard operability; **visible focus**; correct ARIA patterns; contrast meets AA.
+- **API shape**: typed props, `forwardRef`, controlled **and** uncontrolled where relevant; stable event contracts; no breaking prop renames without migration.
+- **Performance**: SSR-safe, tree-shakeable, zero layout thrash on theme switch; avoid runtime CSS-in-JS (prefer CSS vars with precompiled styles or zero-runtime solutions). Components >20KB must use lazy loading. Bundle must stay under 200KB total, 50KB initial load.
+- **Icons policy (resolved)**: Icon components use `currentColor` by default; support `colorToken="<token-name>"` (component resolves token → value). Authors never paste hex.
+- **Module Exports (CRITICAL)**: NEVER use `export *` from token files. Always use selective named exports to prevent circular references. See [Token Export Guidelines](#token-export-guidelines).
+- **Circular Reference Prevention**: Token files must not reference their own exports within the same module. Use separate constants or direct values for internal references.
+- **Never do**: invent tokens/variants ad-hoc; nth-child hacks that break composition; `dangerouslySetInnerHTML` in primitives; console errors in normal flows; wildcard exports from token modules.
+- **Component Organization**: Each component should be displayed as a standalone page in Storybook. **Never organize components in folder/category structures** within the Storybook navigation. Each component gets its own top-level page for discoverability and ease of use.
+
+### Component API Consistency Rules
+- **Props naming**: `size` (not `sizes`), `variant` (not `variants`), `className` (not `class`)
+- **Event handlers**: `onClick`, `onChange`, `onFocus` (always camelCase with "on" prefix)
+- **Boolean props**: `disabled`, `required`, `checked` (never `isDisabled`, `isRequired`)
+- **Compound components**: Export as `Component.Item`, `Component.Header`, etc.
+- **Ref forwarding**: ALL interactive components must forward refs properly
+- **Children types**: Explicitly type as `React.ReactNode` when accepting any content
+
+### API Consistency Standards\n\n#### Required Props Pattern\n```typescript\n// ✅ ALL components must support these base props\ninterface BaseComponentProps {\n  className?: string\n  'data-testid'?: string  // For testing\n  id?: string\n}\n\n// ✅ Interactive components extend with these\ninterface InteractiveProps extends BaseComponentProps {\n  disabled?: boolean\n  loading?: boolean\n  size?: 'sm' | 'default' | 'lg'  // Standardized sizes\n  variant?: 'default' | 'primary' | 'secondary' | 'ghost' | 'destructive'\n  onClick?: (event: React.MouseEvent) => void\n  onFocus?: (event: React.FocusEvent) => void\n  onBlur?: (event: React.FocusEvent) => void\n}\n\n// ✅ Form components add these\ninterface FormComponentProps extends InteractiveProps {\n  label?: string\n  required?: boolean\n  error?: boolean\n  errorMessage?: string\n  hintText?: string\n  'aria-label'?: string\n  'aria-describedby'?: string\n  'aria-invalid'?: boolean\n}\n```\n\n#### Naming Standards\n- **Props**: `size` (not `sizes`), `variant` (not `variants`), `className` (not `class`)\n- **Events**: `onClick`, `onChange`, `onFocus` (camelCase with \"on\" prefix)\n- **Booleans**: `disabled`, `required`, `checked` (never `isDisabled`, `isRequired`)\n- **Icons**: `leftIcon`, `rightIcon` as `React.ReactNode` (not string names)\n- **❌ Never**: Demo props like `inputState`, `buttonState` in production APIs\n\n#### Required Implementation\n- Use `React.forwardRef` for ALL interactive components\n- Import shared interfaces from `packages/components/types/base-props.ts`\n- Include comprehensive ARIA support\n- Support `data-testid` for automated testing\n- Generate docs with `npm run generate:api-docs`\n\n### Critical Import Patterns
+```typescript
+// Components
+import { Button, Card } from '../ui/button'  // ✅ Relative paths within packages
+import { colors } from '../../tokens/design-system-colors'  // ✅ Two levels up for tokens
+
+// Utils
+import { cn } from '../utils/cn'  // ✅ Standard classname utility
+import { cva } from 'class-variance-authority'  // ✅ For variants
+
+// Types
+import type { VariantProps } from 'class-variance-authority'
+import * as React from 'react'  // ✅ Always namespace React
+
+// Icons (after sync)
+import { CoreIconName } from '../../tokens/design-system-icons-types'
+```
+
+---
+
+## Token Export Guidelines
+
+### 🚨 CRITICAL: Preventing Circular References
+
+**The Problem**: Using `export *` from token files can export circular references that cause "Maximum call stack size exceeded" errors during build, especially with Tailwind CSS processing.
+
+**The Solution**: Always use selective named exports from token modules.
+
+### ✅ Correct Token Export Patterns
+
+```typescript
+// ✅ GOOD: Selective named exports (prevents circular refs)
+export {
+  colors,
+  cleanColorsForTailwind,  // Safe for Tailwind configs
+  tailwindColors,
+  primaryColorUsage,
+  brand,
+  blue, neutral, red, green, yellow, orange, purple,
+  black, white, pageBackground,
+  navy, sky, teal,
+  getColor
+} from './design-system-colors';
+
+// ✅ GOOD: Define constants first, then use in multiple places
+const SPECIAL_COLORS = {
+  black: "#15172B",
+  white: "#FFFFFF",
+  pageBackground: "#EDEFEF"
+};
+
+export const colors = {
+  black: SPECIAL_COLORS.black,
+  white: SPECIAL_COLORS.white,
+  pageBackground: SPECIAL_COLORS.pageBackground,
+  // ... other colors
+};
+
+export const colorSystem = {
+  bg: {
+    page: SPECIAL_COLORS.pageBackground,  // Direct reference, no circular ref
+    pure: SPECIAL_COLORS.white,
+  }
+};
+```
+
+### ❌ Patterns That Cause Issues
+
+```typescript
+// ❌ BAD: Wildcard exports (exports everything including circular refs)
+export * from './design-system-colors';
+
+// ❌ BAD: Self-referencing within same module
+export const colors = { white: "#FFFFFF" };
+export const colorSystem = {
+  bg: { pure: colors.white }  // Circular reference!
+};
+
+// ❌ BAD: Using exports within same module
+export const white = colors.white;
+export const utils = { bg: white };  // References export from same file
+```
+
+### 🔧 Token File Architecture
+
+1. **Define base constants first**
+2. **Build objects from constants**
+3. **Create utilities from constants (not exports)**
+4. **Export selectively, never with wildcards**
+5. **NEVER import tokens in Tailwind configs - hardcode values instead**
+
+### ⚠️ CRITICAL: Tailwind Configuration Rules
+
+**NEVER import token files in Tailwind configs!** This is the #1 cause of circular reference build failures.
+
+#### ❌ WRONG - Causes Circular References
+```javascript
+// packages/docs/tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      ...require('../tokens/design-system-colors').colors, // ❌ NEVER DO THIS
+    },
+    spacing: {
+      ...require('../tokens/design-system-spacing').spacing, // ❌ CAUSES CIRCULAR REFS
+    }
+  }
+}
+```
+
+#### ✅ CORRECT - Hardcoded Values
+```javascript
+// packages/docs/tailwind.config.js
+module.exports = {
+  theme: {
+    colors: {
+      // ✅ Hardcode all values directly
+      blue: {
+        50: "#F5F8FF",
+        100: "#EBF1FF",
+        500: "#0D62FF",
+      },
+      neutral: {
+        50: "#FCFCFC",
+        100: "#F9F9FA",
+        // ... etc
+      }
+    }
+  }
+}
+```
+
+**Why This Matters:**
+- Tailwind's PostCSS processing uses `cloneDeep` which traverses all object references
+- Token imports create complex reference chains that can become circular
+- Netlify's build environment may resolve modules differently than local development
+- The error "Maximum call stack size exceeded" in `cloneDeep.js` is ALWAYS a circular reference issue
+
+### 🛠️ Debugging Circular References
+
+If you see "Maximum call stack size exceeded":
+
+1. **Check all `export *` statements** - replace with selective exports
+   ```bash
+   # Find all wildcard exports in token files
+   grep -r "export \*" packages/tokens/ src/tokens/
+   ```
+
+2. **Check for self-references** - token files referencing their own exports
+   ```bash
+   # Look for files that import and export from the same module
+   grep -r "colors\." packages/tokens/design-system-colors.ts
+   ```
+
+3. **Check Tailwind configs** - ensure they use `cleanColorsForTailwind`
+   ```bash
+   # Verify Tailwind configs use safe exports
+   grep -r "cleanColorsForTailwind" **/tailwind.config.js
+   ```
+
+4. **Check for duplicate token files** in different directories
+   ```bash
+   # Find duplicate token files that might have different content
+   find . -name "design-system-colors.ts" -not -path "./node_modules/*"
+   ```
+
+5. **Test build locally** with `npm run build:storybook`
+   ```bash
+   # This will show the exact error location
+   npm run build:storybook 2>&1 | grep -A 10 -B 10 "Maximum call stack"
+   ```
+
+### ⚡ Emergency Quick Fix
+
+**If Netlify is failing RIGHT NOW with circular reference errors:**
+
+```bash
+# 🚨 IMMEDIATE FIX - Run these commands in order:
+
+# 1. Backup configs
+cp tailwind.config.js tailwind.config.js.backup
+cp packages/docs/tailwind.config.js packages/docs/tailwind.config.js.backup
+
+# 2. Check which configs have token imports
+grep -r "require.*token\|import.*token" tailwind.config.js packages/docs/tailwind.config.js
+
+# 3. If ANY imports found, apply nuclear fix to BOTH configs
+# Edit both files and replace ALL color imports with hardcoded hex values
+
+# 4. Verify fix
+npm run build:storybook && echo "✅ FIXED - Deploy now!"
+```
+
+**Critical Rule:** If you see "Maximum call stack size exceeded" during ANY build process, **NEVER import token files in Tailwind configs**. Always hardcode the values.
+
+### 🔍 Quick Circular Reference Diagnostic
+
+Run this command to quickly identify potential circular reference sources:
+```bash
+# Complete circular reference diagnostic
+echo "🔍 Checking for circular reference patterns..." && \
+echo "===== Checking Tailwind configs for token imports =====" && \
+grep -n "require.*tokens\|import.*tokens" $(find . -name "tailwind.config.*" | grep -v node_modules) 2>/dev/null && \
+echo "⚠️  CRITICAL: Found token imports in Tailwind configs above - REMOVE THESE IMMEDIATELY" || echo "✅ No token imports in Tailwind configs" && \
+echo "===== Checking for wildcard exports =====" && \
+grep -r "export \*" packages/tokens/ src/tokens/ 2>/dev/null && \
+echo "📋 Found wildcard exports above - replace with selective exports" || echo "✅ No wildcard exports found" && \
+echo "===== Checking for duplicate token files =====" && \
+find . -name "design-system-colors.ts" -not -path "./node_modules/*" -exec echo "📁 Found token file: {}" \; && \
+echo "===== Checking for self-references =====" && \
+grep -r "colors\." packages/tokens/design-system-colors.ts src/tokens/design-system-colors.ts 2>/dev/null && \
+echo "⚠️  Found self-references above - use constants instead" || echo "✅ No self-references found"
+```
+
+### 🚨 Nuclear Fix Script
+
+If circular references persist after all other fixes, run this nuclear fix:
+```bash
+# Create a backup first
+cp packages/docs/tailwind.config.js packages/docs/tailwind.config.js.backup
+
+# Nuclear fix - remove ALL imports and hardcode everything
+cat > packages/docs/tailwind.config.js << 'EOF'
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './stories/**/*.{js,ts,jsx,tsx}',
+    './.storybook/**/*.{js,ts,jsx,tsx}',
+    '../components/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {
+      // ALL VALUES HARDCODED - NO IMPORTS
+      colors: {
+        // Paste your hardcoded colors here
+      },
+      spacing: {
+        // Paste your hardcoded spacing here
+      },
+      // etc...
+    }
+  },
+  plugins: [],
+  darkMode: 'class',
+}
+EOF
+
+echo "✅ Nuclear fix applied - ALL imports removed from Tailwind config"
+echo "⚠️  You must now manually add your design tokens as hardcoded values"
+```
+
+### 🚨 CRITICAL: Main Tailwind Config Also Requires Nuclear Fix
+
+**The root `tailwind.config.js` is ALSO vulnerable to circular references!**
+
+If you see "Maximum call stack size exceeded" during `npm run build:storybook`, the issue is likely in the main `tailwind.config.js` file, not just the docs config.
+
+#### Emergency Fix for Main Tailwind Config:
+```bash
+# Backup the main config
+cp tailwind.config.js tailwind.config.js.backup
+
+# Apply nuclear fix to main config - hardcode ALL color values
+# Edit tailwind.config.js and replace the colors section with hardcoded values:
+```
+
+**Critical Points:**
+- **NEVER import token files in ANY Tailwind config** (main or docs)
+- **ALWAYS hardcode color values** in Tailwind configurations
+- The error can appear in different configs depending on build context
+- Storybook uses the main `tailwind.config.js`, not just the docs version
+- Netlify may process configs in different order than local development
+
+#### Quick Check:
+```bash
+# Check both Tailwind configs for dangerous imports
+grep -r "require.*token\|import.*token" tailwind.config.js packages/docs/tailwind.config.js
+```
+
+If this returns ANY results, you have imports that MUST be removed and replaced with hardcoded values.
+
+### 📚 Case Study: Complete Circular Reference Resolution
+
+**Problem:** "Maximum call stack size exceeded" errors persisting on Netlify despite local fixes working.
+
+**Root Cause Discovery:**
+1. **Initial Fix** - Applied nuclear fix to `packages/docs/tailwind.config.js` ✅
+2. **Error Persisted** - Netlify still failing with same error in different location ❌
+3. **Deep Investigation** - Found that `npm run build:storybook` uses main `tailwind.config.js`, not docs config
+4. **Final Solution** - Applied nuclear fix to BOTH configs ✅
+
+**Key Insights:**
+- **Multiple Tailwind configs** can cause circular references independently
+- **Netlify build environment** may process configs differently than local development
+- **Storybook builds** use the main `tailwind.config.js`, creating a second vector for circular references
+- **PostCSS processing** during Storybook build can trigger the same `cloneDeep` errors as docs builds
+
+**The Complete Fix Pattern:**
+```bash
+# 1. Fix token file circular references
+# Replace wildcard exports with selective exports
+# Use constants pattern instead of self-references
+
+# 2. Apply nuclear fix to ALL Tailwind configs
+cp tailwind.config.js tailwind.config.js.backup
+cp packages/docs/tailwind.config.js packages/docs/tailwind.config.js.backup
+
+# Edit BOTH files to hardcode all color values
+# Remove ALL imports from token files
+
+# 3. Verify all build processes
+npm run build && echo "✅ Main build"
+npm run type-check && echo "✅ Type check"
+npm run build:storybook && echo "✅ Storybook build"
+```
+
+**Diagnostic Commands to Prevent Recurrence:**
+```bash
+# Check for ANY token imports in ANY Tailwind config
+find . -name "*tailwind.config*" -not -path "./node_modules/*" -exec grep -l "token\|require.*/" {} \;
+
+# Verify no wildcard exports remain in token files
+grep -r "export \*" packages/tokens/ src/tokens/ 2>/dev/null || echo "✅ No wildcards"
+
+# Check for self-references in color files
+grep -r "colors\." packages/tokens/design-system-colors.ts src/tokens/design-system-colors.ts 2>/dev/null || echo "✅ No self-refs"
+```
+
+**Success Indicators:**
+- `npm run build` completes without errors
+- `npm run build:storybook` completes without stack overflow
+- No "Maximum call stack size exceeded" in any build process
+- Netlify deployment succeeds
+
+**Lesson Learned:**
+When circular reference errors persist after partial fixes, always check for **multiple configuration files** that might be importing tokens. The error can manifest in different build contexts (main build vs. Storybook build) even when the underlying cause is the same pattern.
+
+---
+
+## Essential Commands (memorize these)
+
+```bash
+# Build & Quality Checks
+npm run build          # Build for NPM distribution
+npm run type-check     # Run TypeScript type checking
+npm run lint           # ESLint with auto-fix
+npm run test           # Run all tests (unit + integration)
+npm run test:a11y      # Accessibility tests with axe-core
+npm run storybook      # Start Storybook dev server
+npm run storybook:build # Build static Storybook
+
+# CI Quality Gates (must pass)
+npm run validate:tokens     # Ensure no hard-coded values + border hierarchy
+npm run validate:heuristics # Check design heuristic compliance
+npm run validate:docs       # Documentation completeness
+npm run validate:a11y       # Accessibility audit
+npm run check:api          # API stability check
+npm run analyze:bundle      # Bundle size analysis
+npm run verify:tree-shaking # Tree-shaking effectiveness
+npm run test:vrt           # Visual regression tests
+npm run force-reload       # Force Storybook hot reload
+npm run dev:fresh          # Complete Storybook restart
+```
+
+**CRITICAL**: Always run `npm run lint` and `npm run type-check` after making changes. These catch 90% of issues before PR.
+
+**🚨 MANDATORY**: After ANY token changes, also run:
+```bash
+npm run build:storybook  # Test for circular reference errors
+```
+This catches circular reference issues that only appear during Storybook builds (like the Netlify failures).
+
+---
+
+## Tasks / Playbooks (copy & run)
+
+### 1) Build from spec → implementation + tests + docs
+Using `./components/{Component}/spec.md` plus the Guardrails:
+- Generate `src/{Component}.tsx` (wrap Radix/Headless when applicable), Storybook stories (all variants/sizes + hover/focus/disabled + RTL + long text), tests (Vitest + Testing Library), **axe** checks (0 violations), and Playwright VRT snapshots (diff ≤ 1%).
+- Create MDX docs per docs style with a **"Tokens Used"** table listing the exact token keys.
+- Add a Changeset with correct semver and migration notes (if props/tokens changed).
+
+**Prompt**  
+"Build `{Component}` from `./components/{Component}/spec.md` following the Guardrails. Implement, add stories (states/RTL/long text), write tests + axe + VRT, write MDX with Tokens Used, and add a Changeset."
+
+---
+
+### 2) Sync tokens from Figma (Token Studio → code)
+- Compare the latest Token Studio export (see repo note or CI artifact path) to `packages/tokens/src/*.json`.
+- Propose a minimal-diff PR; preserve token names; if renaming, add aliases + deprecate for **2 minors**; run Style Dictionary; update typings; write migration notes; bump **minor**.
+
+**Prompt**  
+"Compare Figma Token Studio export with `packages/tokens/src/*.json`. Produce a minimal diff PR, run Style Dictionary, update typings, add aliases for renames, write migration notes, bump minor."
+
+---
+
+### 3) Deprecate & migrate props/tokens
+- Search for `{OldPropOrToken}`; generate a **codemod** to `{NewPropOrToken}`; update MDX and usage examples; add deprecation warnings slated for removal in **2 minors**.
+
+**Prompt**  
+"Migrate `{Old}` → `{New}` across repo via codemod, update docs and examples, add deprecation warnings, and include a Changeset."
+
+---
+
+### 4) Apply border hierarchy rules (CRITICAL)
+- **Form inputs** (input, textarea, select, checkbox, radio, time-picker): Use `--ds-color-neutral-400` (#B4B5BB)
+- **Structural elements** (table, card, accordion, dialog, sheet, separator): Use `--ds-color-neutral-300` (#DDDDE2)
+- Run `npm run fix:tokens` for automatic application; verify with `npm run validate:tokens`
+
+**Prompt**
+"Apply border hierarchy rules: form inputs use neutral-400, structural elements use neutral-300. Run validation and force Storybook reload to verify changes."
+
+---
+
+### 5) Hard-coded color / pixel sweep (gate)
+- Scan `packages/ui/src/**` for `#[0-9A-Fa-f]{6}`, `rgb(`, and `\b\d+px\b`. Replace with tokens or scale utilities; include diffs and rationale.
+
+**Prompt**
+"Find and replace hard-coded color/px in `packages/ui/src/**` with tokens/scale utilities; produce a diff and rationale."
+
+---
+
+### 6) Ensure Storybook reflects changes (MANDATORY)
+- After ANY component changes, run: `npm run force-reload && npm run verify:storybook`
+- If changes not visible: `npm run dev:fresh` (kills all processes, clears caches, restarts)
+- Manual verification: Navigate to component in Storybook, check borders match expected tokens
+
+**Prompt**
+"Force Storybook reload and verify all component changes are visible. Check table borders are light (neutral-300) and form input borders are darker (neutral-400)."
+
+---
+
+### 7) Update VRT baselines (rare; justified)
+- Only when intentional visual changes ship; update Playwright snapshots, attach before/after, and record rationale in PR.
+
+**Prompt**
+"Refresh VRT baselines for changed stories with before/after screenshots and a one-line rationale per story."
+
+---
+
+### 6) Performance optimization for heavy components
+- Components >20KB must be lazy loaded. Check with `npm run analyze:bundle`.
+- Use `packages/components/src/lazy/index.tsx` patterns for code splitting.
+- Ensure tree-shaking works with `npm run verify:tree-shaking`.
+
+**Prompt**
+"Check component size with bundle analyzer. If >20KB, implement lazy loading using existing patterns in packages/components/src/lazy/. Verify tree-shaking effectiveness."
+
+---
+
+### 7) Fix TypeScript build errors for NPM distribution
+When preparing NPM packages, these are the most common issues:
+
+**Common Error Patterns & Solutions:**
+- **"Type 'X' is not assignable"** → Add explicit type casting or fix prop spreading
+- **"Property 'children' is required"** → Explicitly pass children prop when using Typography components
+- **"Duplicate identifier"** → Rename interface to avoid conflicts (e.g., `ElevationLevel` → `ElevationData`)
+- **"Cannot find module"** → Check relative paths; tokens are at `../../tokens/`, not `../tokens/`
+- **"Type 'ForwardRefExoticComponent' not assignable"** → Use primitive elements directly or cast with `as any`
+- **Missing icon names** → Sync `design-system-icons-types.ts` with `icon-registry.ts`
+
+**Prompt**
+"Fix TypeScript build errors for NPM distribution. Run `npm run build`, identify errors, apply fixes from common patterns above."
+
+---
+
+### Run a design review on a PR
+Use the **design-review** agent.
+
+Input:
+- pr_number: {PR_NUMBER}
+- preview_url: {PREVIEW_URL}
+- storybook_url: {STORYBOOK_URL}
+- pages: ["/", "/checkout", "/settings"]   # optional
+- themes: ["light","dark"]
+- viewports: [{width:1440,height:900},{width:768,height:1024},{width:375,height:812}]
+
+Deliverables:
+- Markdown report + JSON summary + screenshots saved under reports/
+- Comment the Markdown report back to the PR (if CI provides a token)
+
+---
+
+## Deployment & Build Troubleshooting
+
+### 🚨 Critical Build Commands (run these after ANY token changes)
+
+```bash
+# 1. Always test build locally first
+npm run build:storybook      # Test for circular references & build issues
+npm run validate:tokens      # Check for hardcoded values/violations
+npm run typecheck           # Catch TypeScript errors early
+
+# 2. If build fails with "Maximum call stack size exceeded"
+# This indicates circular references in token system
+```
+
+### Common Netlify Deployment Failures & Solutions
+
+#### 1. "Maximum call stack size exceeded" in Tailwind Processing
+**Root Cause**: Circular references in design token exports OR token imports in Tailwind configs
+**Symptoms**: Build fails during Tailwind CSS processing with stack overflow in `cloneDeep.js`
+
+**IMMEDIATE FIX (Nuclear Option)**:
+```bash
+# 1. Find which Tailwind config is being used
+find . -name "tailwind.config.*" | grep -v node_modules
+
+# 2. Remove ALL require() or import statements from those configs
+# 3. Hardcode all token values directly in the config
+```
+
+**Solution Checklist**:
+- [ ] **FIRST**: Check if ANY Tailwind configs import from token files → REMOVE ALL IMPORTS
+- [ ] Hardcode all colors, spacing, typography values directly in Tailwind configs
+- [ ] Check all `export *` statements in token files → replace with selective exports
+- [ ] Verify no self-referencing within same module (colorSystem using same module's exports)
+- [ ] Check for duplicate token files in different directories (src/tokens vs packages/tokens)
+- [ ] Test locally with `npm run build:storybook` before pushing
+- [ ] If still failing, use the Nuclear Diagnostic command below
+
+#### 2. Wrong Build Command
+**Root Cause**: Netlify running incorrect build script
+**Solution**: Verify `netlify.toml` uses correct command:
+```toml
+[build]
+  command = "npm run build:storybook"  # ✅ For Storybook deployment
+  # NOT: "npm run build"               # ❌ For component library
+```
+
+#### 3. TypeScript Build Errors
+**Root Cause**: Type conflicts or missing definitions in NPM distribution
+**Solution**: Run `npm run build` first to catch TypeScript issues locally
+
+#### 4. Token Validation Failures
+**Root Cause**: Hardcoded colors/pixels in component code
+**Solution**:
+- Run `npm run validate:tokens` to identify violations
+- Use design system tokens instead of hardcoded values
+- Can bypass temporarily with `git commit --no-verify` for urgent fixes
+
+### Pre-Deployment Checklist
+
+**MANDATORY before any PR/deployment:**
+```bash
+# Core build validation
+npm run build:storybook     # Must succeed without circular ref errors
+npm run typecheck          # Must pass without TypeScript errors
+npm run lint               # Must pass linting
+
+# Design system validation
+npm run validate:tokens    # Should pass (can bypass for urgent fixes)
+npm run validate:a11y      # Should pass accessibility checks
+```
+
+### Emergency Deployment Recovery
+
+If deployment is failing repeatedly:
+
+1. **Identify the root cause** by checking Netlify build logs for error patterns
+2. **Test fixes locally** with `npm run build:storybook`
+3. **For circular reference errors**: Use the debugging steps in [Token Export Guidelines](#token-export-guidelines)
+4. **For urgent fixes**: Use `git commit --no-verify` to bypass pre-commit hooks temporarily
+5. **Create follow-up issues** to address any bypassed validations
+
+---
+
+## Performance Optimization Checklist
+
+When implementing or reviewing components, ensure:
+
+1. **Bundle Size**
+   - Tree-shakeable exports (named exports, not default)
+   - Lazy load heavy components (charts, editors)
+   - Check with: `npm run check:budgets`
+
+2. **Runtime Performance**
+   - No unnecessary re-renders (use `React.memo` where appropriate)
+   - Debounce/throttle expensive operations
+   - Virtual scrolling for long lists (>100 items)
+
+3. **CSS Performance**
+   - Use CSS variables for theming (no runtime style calculation)
+   - Avoid layout thrashing (batch DOM reads/writes)
+   - Prefer `transform` and `opacity` for animations
+
+---
+
+## Accessibility Testing Requirements
+
+**Every component MUST pass:**
+
+1. **Automated checks**: `npm run test:a11y` (0 violations)
+2. **Keyboard navigation**: Tab, Arrow keys, Enter, Escape work as expected
+3. **Screen reader**: Proper ARIA labels, live regions, announcements
+4. **Focus management**: Visible focus indicators, logical tab order
+5. **Color contrast**: AA minimum (4.5:1 for normal text, 3:1 for large)
+
+**Test with:**
+```bash
+# Run axe-core tests
+npm run test:a11y
+
+# Check specific component
+npm run test:a11y -- Button
+
+# Generate accessibility report
+npm run validate:a11y
+```
+
+---
+
+## NPM Package Distribution
+
+### Package Structure
+```
+dist/
+├── index.js        # CommonJS bundle
+├── index.mjs       # ESM bundle
+├── types/          # TypeScript definitions
+└── icons/          # Optimized icon assets
+```
+
+### Publishing Checklist
+1. **Version bump**: Use changesets (`npx changeset`)
+2. **Build check**: `npm run build` succeeds
+3. **Type exports**: All public APIs have TypeScript definitions
+4. **Peer deps**: React versions specified correctly
+5. **Tree-shaking**: Test with webpack/rollup bundle analyzer
+6. **Package size**: Under budget limits (check with `npm run check:budgets`)
+
+### Import Patterns Users Should Use
+```typescript
+// ✅ Best - lazy load heavy components
+import { Button } from '@comcast/comcast-business-design-system'
+import { LazyChart, LazyTable } from '@comcast/comcast-business-design-system/lazy'
+
+// ✅ Good - tree-shakeable for light components
+import { Button, Card, Input } from '@comcast/comcast-business-design-system'
+
+// ⚠️  Caution - pulls in heavy component synchronously
+import { Chart } from '@comcast/comcast-business-design-system'
+
+// ❌ Wrong - imports entire library
+import * as DS from '@comcast/comcast-business-design-system'
+```
+
+---
+
+# important-instruction-reminders
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
+When fixing TypeScript errors, ALWAYS run `npm run build` to verify fixes.
+When modifying components, ALWAYS run `npm run lint` and `npm run typecheck`.
+
+
+      IMPORTANT: this context may or may not be relevant to your tasks. You should not respond to this context unless it is highly relevant to your task.

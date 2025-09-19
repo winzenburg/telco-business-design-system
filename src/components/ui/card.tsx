@@ -5,22 +5,22 @@ import { cn } from "../../utils/cn"
 import { Title, Body } from "./typography"
 
 // Card component following Comcast Business Design System
-// Colors: White background, #F1F2F6 for subdued borders, #F9F9FA for surface hover
+// Colors: Using design tokens for consistent theming
 
 const cardVariants = cva(
   [
     // Base styles using design system colors
-    "flex flex-col rounded-xl text-[#2B2D3F] transition-all duration-200",
+    "flex flex-col rounded-xl text-[var(--ds-color-text-primary)] transition-all duration-200",
     "relative overflow-hidden", // For state layers and media
   ],
   {
     variants: {
       variant: {
-        default: "bg-white border border-[#F1F2F6] shadow-sm",
+        default: "bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-neutral-400)] shadow-sm",
         elevated: "bg-white shadow-lg hover:shadow-xl",
-        filled: "bg-[#F9F9FA] border border-[#F1F2F6]",
-        outlined: "bg-white border-2 border-[#70717D]",
-        interactive: "bg-white border border-[#F1F2F6] hover:bg-[#F9F9FA] cursor-pointer hover:shadow-md focus-within:shadow-lg focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2",
+        filled: "bg-[var(--ds-color-bg-surface)] border border-[var(--ds-color-neutral-400)]",
+        outlined: "bg-[var(--ds-color-bg-canvas)] border-2 border-[var(--ds-color-text-muted)]",
+        interactive: "bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-neutral-400)] hover:bg-[var(--ds-color-bg-surface)] cursor-pointer hover:shadow-md focus-within:shadow-lg focus-within:ring-2 focus-within:ring-[var(--ds-color-intent-primary)] focus-within:ring-offset-2",
       },
       padding: {
         none: "",
@@ -98,26 +98,30 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+function CardTitle({ className, children, ...props }: React.ComponentProps<"div">) {
   return (
     <Title
       level={4}
       weight="semibold"
       data-slot="card-title"
-      className={cn("text-[#2B2D3F]", className)}
+      className={cn("text-[var(--ds-color-text-primary)]", className)}
       {...props}
-    />
+    >
+      {children}
+    </Title>
   )
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+function CardDescription({ className, children, ...props }: React.ComponentProps<"div">) {
   return (
     <Body
       size="m"
       data-slot="card-description"
-      className={cn("text-[#70717D]", className)}
+      className={cn("text-[var(--ds-color-text-muted)]", className)}
       {...props}
-    />
+    >
+      {children}
+    </Body>
   )
 }
 
@@ -206,7 +210,7 @@ function CardDivider({ className, ...props }: React.ComponentProps<"hr">) {
   return (
     <hr
       data-slot="card-divider"
-      className={cn("mx-6 border-[#F1F2F6]", className)}
+      className={cn("mx-6 border-[var(--ds-color-border-default)]", className)}
       {...props}
     />
   )

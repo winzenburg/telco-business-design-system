@@ -5,6 +5,8 @@ import { cn } from "../utils/cn"
 
 const TooltipProvider = TooltipPrimitive.Provider
 
+export type TooltipProps = React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Root>
+
 const Tooltip = TooltipPrimitive.Root
 
 const TooltipTrigger = TooltipPrimitive.Trigger
@@ -17,7 +19,7 @@ const TooltipContent = React.forwardRef<
     ref={ref}
     sideOffset={sideOffset}
     className={cn(
-      "z-50 overflow-hidden rounded-md border border-[var(--ds-color-[^]]*] bg-[var(--ds-color-[^]]*] px-3 py-1.5 text-sm text-[var(--ds-color-[^]]*] shadow-md opacity-100 animate-in zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      "z-50 overflow-hidden rounded-md border border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-bg-surface)] px-3 py-1.5 text-sm text-[var(--ds-color-text-primary)] shadow-md opacity-100 animate-in zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
       className
     )}
     style={{ opacity: 1, ...props.style }}

@@ -5,7 +5,7 @@ import { cn } from "../../utils/cn"
 import { Title, Body } from "./typography"
 
 // Table component following Comcast Business Design System
-// Colors: White background, #F1F2F6 borders, #F9F9FA hover states
+// Colors: White background, var(--ds-color-border-muted) borders, var(--ds-color-bg-surface) hover states
 // Typography: Montserrat for headers, Lato for content
 
 const tableVariants = cva(
@@ -14,9 +14,9 @@ const tableVariants = cva(
   {
     variants: {
       variant: {
-        default: "border border-[#F1F2F6]",
-        striped: "border border-[#F1F2F6] [&_tbody_tr:nth-child(even)]:bg-[#F9F9FA]",
-        bordered: "border border-[#F1F2F6] [&_td]:border [&_th]:border [&_td]:border-[#F1F2F6] [&_th]:border-[#F1F2F6]",
+        default: "border border-[var(--ds-color-border-muted)]",
+        striped: "border border-[var(--ds-color-border-muted)] [&_tbody_tr:nth-child(even)]:bg-[var(--ds-color-bg-surface)]",
+        bordered: "border border-[var(--ds-color-border-muted)] [&_td]:border [&_th]:border [&_td]:border-[var(--ds-color-border-muted)] [&_th]:border-[var(--ds-color-border-muted)]",
       },
       size: {
         sm: "[&_th]:px-3 [&_th]:py-2 [&_td]:px-3 [&_td]:py-2",
@@ -39,7 +39,7 @@ function Table({ className, variant, size, ...props }: TableProps) {
   return (
     <div
       data-slot="table-container"
-      className="relative w-full overflow-x-auto rounded-lg border border-[#F1F2F6] bg-white shadow-sm"
+      className="relative w-full overflow-x-auto rounded-lg border border-[var(--ds-color-border-muted)] bg-white shadow-sm"
     >
       <table
         data-slot="table"
@@ -55,7 +55,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
     <thead
       data-slot="table-header"
       className={cn(
-        "bg-[#F9F9FA] [&_tr]:border-b [&_tr]:border-[#F1F2F6] [&_th]:font-primary [&_th]:text-[#2B2D3F] [&_th]:font-semibold [&_th]:text-left",
+        "bg-[var(--ds-color-bg-surface)] [&_tr]:border-b [&_tr]:border-[var(--ds-color-border-muted)] [&_th]:font-primary [&_th]:text-[var(--ds-color-text-primary)] [&_th]:font-semibold [&_th]:text-left",
         className
       )}
       {...props}
@@ -68,7 +68,7 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
     <tbody
       data-slot="table-body"
       className={cn(
-        "[&_tr:last-child]:border-0 [&_tr]:border-b [&_tr]:border-[#F1F2F6] [&_tr]:transition-colors [&_td]:font-secondary [&_td]:text-[#424454]",
+        "[&_tr:last-child]:border-0 [&_tr]:border-b [&_tr]:border-[var(--ds-color-border-muted)] [&_tr]:transition-colors [&_td]:font-secondary [&_td]:text-[var(--ds-color-text-secondary)]",
         className
       )}
       {...props}
@@ -94,7 +94,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b border-[#F1F2F6] transition-colors hover:bg-[#F9F9FA] data-[state=selected]:bg-[#F9F9FA]",
+        "border-b border-[var(--ds-color-border-muted)] transition-colors hover:bg-[var(--ds-color-bg-surface)] data-[state=selected]:bg-[var(--ds-color-bg-surface)]",
         className
       )}
       {...props}
@@ -107,7 +107,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-12 px-4 text-left align-middle font-primary font-semibold text-[#2B2D3F] whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        "h-12 px-4 text-left align-middle font-primary font-semibold text-[var(--ds-color-text-primary)] whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
         className
       )}
       {...props}
@@ -120,7 +120,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "px-4 py-3 align-middle font-secondary text-[#424454] whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        "px-4 py-3 align-middle font-secondary text-[var(--ds-color-text-secondary)] whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
         className
       )}
       {...props}

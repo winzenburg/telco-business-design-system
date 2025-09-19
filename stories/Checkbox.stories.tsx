@@ -3,7 +3,7 @@ import React from 'react';
 import { Checkbox, Label } from '../src/components';
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Components/Checkbox',
+  title: 'Checkbox',
   component: Checkbox,
   parameters: {
     layout: 'padded',

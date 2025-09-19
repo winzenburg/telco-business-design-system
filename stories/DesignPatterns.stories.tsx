@@ -11,7 +11,7 @@ import { Separator } from '../src/components/ui/separator';
 import { Users, CheckCircle, AlertTriangle, Info } from 'lucide-react';
 
 const meta: Meta = {
-  title: 'Design System/Token Patterns',
+  title: ' Foundations/Token Patterns',
   parameters: {
     layout: 'padded',
     docs: {

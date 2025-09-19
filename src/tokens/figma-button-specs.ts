@@ -15,7 +15,7 @@ export interface ButtonSpec {
   padding: string | null;
   fontSize: number | null;
   fontWeight: number | null;
-  fontFamily: string | null;
+  fontFamily?: string | null;
   border: {
     width: number;
     color: string;

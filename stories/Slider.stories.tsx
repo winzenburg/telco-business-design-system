@@ -3,7 +3,7 @@ import React from 'react';
 import { Slider } from '../src/components';
 
 const meta: Meta<typeof Slider> = {
-  title: 'Components/Slider',
+  title: 'Slider',
   component: Slider,
   parameters: {
     layout: 'padded',
@@ -25,6 +25,7 @@ export const Default: Story = {
     max: 100,
     step: 1,
     className: 'w-[60%]',
+    'aria-label': 'Volume slider',
   },
 };
 

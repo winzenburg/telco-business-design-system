@@ -108,7 +108,7 @@ export const Icon: React.FC<IconProps> = ({
         let svg: string;
         try {
           // Use fetch to load SVG files directly from public directory
-          const fileName = iconData.fileName || `${name}.svg`;
+          const fileName = (iconData as any).fileName || `${name}.svg`;
           const response = await fetch(`/icons/${fileName}`);
           if (response.ok) {
             svg = await response.text();

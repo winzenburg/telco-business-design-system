@@ -10,7 +10,7 @@ import {
 } from '../src/components/ui/toast';
 
 const meta: Meta<typeof Toast> = {
-  title: 'Components/Toast',
+  title: 'Toast',
   component: Toast,
   parameters: {
     layout: 'padded',

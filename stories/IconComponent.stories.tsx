@@ -11,7 +11,7 @@ import {
 
 const meta: Meta<typeof Icon> = {
   
-  title: 'Design System/Icons',
+  title: ' Foundations/Icons',
   component: Icon,
   parameters: {
     layout: 'padded',

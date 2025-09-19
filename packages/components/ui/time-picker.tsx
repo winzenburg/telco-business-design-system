@@ -10,12 +10,12 @@ import { Popover, PopoverContent, PopoverTrigger } from "./popover"
 import { Icon } from "../../icons/src/Icon"
 
 const timePickerVariants = cva(
-  "flex h-9 w-full rounded-md border border-[var(--ds-color-border-default] bg-[var(--ds-color-bg-canvas] px-3 py-1 text-sm text-[var(--ds-color-text-primary] shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[var(--ds-color-text-muted] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--ds-color-intent-primary] disabled:cursor-not-allowed disabled:opacity-50",
+  "flex h-9 w-full rounded-md border border-[var(--ds-color-neutral-400)] bg-[var(--ds-color-bg-canvas)] px-3 py-1 text-sm text-[var(--ds-color-text-primary)] shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-[var(--ds-color-text-muted)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--ds-color-intent-primary)] disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "border-[var(--ds-color-border-default]",
-        destructive: "border-[var(--ds-color-intent-destructive] focus-visible:ring-[var(--ds-color-intent-destructive]",
+        default: "border-[var(--ds-color-neutral-400)]",
+        destructive: "border-[var(--ds-color-intent-destructive)] focus-visible:ring-[var(--ds-color-intent-destructive)]",
       },
     },
     defaultVariants: {
@@ -101,7 +101,7 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
             className={cn(
               timePickerVariants({ variant }),
               "justify-between font-normal",
-              !value && "text-[var(--ds-color-text-muted]",
+              !value && "text-[var(--ds-color-text-muted)]",
               className
             )}
             disabled={disabled}
@@ -114,7 +114,7 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
           <div className="flex">
             {/* Hours */}
             <div className="flex flex-col">
-              <div className="px-3 py-2 text-sm font-medium text-[var(--ds-color-text-muted] border-b border-[var(--ds-color-border-default]">
+              <div className="px-3 py-2 text-sm font-medium text-[var(--ds-color-text-muted)] border-b border-[var(--ds-color-neutral-400)]">
                 Hour
               </div>
               <div className="max-h-48 overflow-y-auto">
@@ -123,8 +123,8 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
                     key={hour}
                     onClick={() => handleTimeSelect(hour, selectedMinute, format === '12' ? selectedPeriod : undefined)}
                     className={cn(
-                      "w-16 px-3 py-2 text-sm hover:bg-[var(--ds-color-bg-surface] text-center",
-                      selectedHour === hour && "bg-[var(--ds-color-intent-primary] text-[var(--ds-color-bg-canvas] hover:bg-[var(--ds-color-intent-primary]"
+                      "w-16 px-3 py-2 text-sm hover:bg-[var(--ds-color-bg-surface)] text-center",
+                      selectedHour === hour && "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-bg-canvas)] hover:bg-[var(--ds-color-intent-primary)]"
                     )}
                   >
                     {format === '24' ? hour.toString().padStart(2, '0') : hour}
@@ -134,8 +134,8 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
             </div>
             
             {/* Minutes */}
-            <div className="flex flex-col border-l border-[var(--ds-color-border-default]">
-              <div className="px-3 py-2 text-sm font-medium text-[var(--ds-color-text-muted] border-b border-[var(--ds-color-border-default]">
+            <div className="flex flex-col border-l border-[var(--ds-color-neutral-400)]">
+              <div className="px-3 py-2 text-sm font-medium text-[var(--ds-color-text-muted)] border-b border-[var(--ds-color-neutral-400)]">
                 Min
               </div>
               <div className="max-h-48 overflow-y-auto">
@@ -144,8 +144,8 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
                     key={minute}
                     onClick={() => handleTimeSelect(selectedHour, minute, format === '12' ? selectedPeriod : undefined)}
                     className={cn(
-                      "w-16 px-3 py-2 text-sm hover:bg-[var(--ds-color-bg-surface] text-center",
-                      selectedMinute === minute && "bg-[var(--ds-color-intent-primary] text-[var(--ds-color-bg-canvas] hover:bg-[var(--ds-color-intent-primary]"
+                      "w-16 px-3 py-2 text-sm hover:bg-[var(--ds-color-bg-surface)] text-center",
+                      selectedMinute === minute && "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-bg-canvas)] hover:bg-[var(--ds-color-intent-primary)]"
                     )}
                   >
                     {minute.toString().padStart(2, '0')}
@@ -156,8 +156,8 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
             
             {/* AM/PM */}
             {format === '12' && (
-              <div className="flex flex-col border-l border-[var(--ds-color-border-default]">
-                <div className="px-3 py-2 text-sm font-medium text-[var(--ds-color-text-muted] border-b border-[var(--ds-color-border-default]">
+              <div className="flex flex-col border-l border-[var(--ds-color-neutral-400)]">
+                <div className="px-3 py-2 text-sm font-medium text-[var(--ds-color-text-muted)] border-b border-[var(--ds-color-neutral-400)]">
                   Period
                 </div>
                 <div className="flex flex-col">
@@ -166,8 +166,8 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
                       key={period}
                       onClick={() => handleTimeSelect(selectedHour, selectedMinute, period)}
                       className={cn(
-                        "w-16 px-3 py-2 text-sm hover:bg-[var(--ds-color-bg-surface] text-center",
-                        selectedPeriod === period && "bg-[var(--ds-color-intent-primary] text-[var(--ds-color-bg-canvas] hover:bg-[var(--ds-color-intent-primary]"
+                        "w-16 px-3 py-2 text-sm hover:bg-[var(--ds-color-bg-surface)] text-center",
+                        selectedPeriod === period && "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-bg-canvas)] hover:bg-[var(--ds-color-intent-primary)]"
                       )}
                     >
                       {period}
@@ -178,7 +178,7 @@ const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
             )}
           </div>
           
-          <div className="p-3 border-t border-[var(--ds-color-border-default]">
+          <div className="p-3 border-t border-[var(--ds-color-neutral-400)]">
             <div className="flex gap-2">
               <Button
                 variant="outline"

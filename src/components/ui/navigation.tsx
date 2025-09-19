@@ -5,20 +5,20 @@ import { cn } from "../../utils/cn"
 
 // Navigation component following Comcast Business Design System
 // Typography: Action M Bold (for use in global nav only)
-// Colors: #2B2D3F for default text, #0D62FF for active states
+// Colors: var(--ds-color-text-primary) for default text, var(--ds-color-intent-primary) for active states
 
 const navigationVariants = cva(
   // Base styles - Action M Bold typography for global nav
-  "inline-flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D62FF] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         // Global navigation - uses Action M Bold as per design system rules
-        global: "font-bold text-[#2B2D3F] hover:text-[#0D62FF] data-[active=true]:text-[#0D62FF] px-4 py-2",
+        global: "font-bold text-[var(--ds-color-text-primary)] hover:text-[var(--ds-color-intent-primary)] data-[active=true]:text-[var(--ds-color-intent-primary)] px-4 py-2",
         // Secondary navigation for other contexts
-        secondary: "font-medium text-[#2B2D3F] hover:text-[#0D62FF] data-[active=true]:text-[#0D62FF] px-3 py-2",
+        secondary: "font-medium text-[var(--ds-color-text-primary)] hover:text-[var(--ds-color-intent-primary)] data-[active=true]:text-[var(--ds-color-intent-primary)] px-3 py-2",
         // Breadcrumb style
-        breadcrumb: "font-medium text-[#70717D] hover:text-[#2B2D3F] data-[active=true]:text-[#2B2D3F] px-2 py-1",
+        breadcrumb: "font-medium text-[var(--ds-color-text-muted)] hover:text-[var(--ds-color-text-primary)] data-[active=true]:text-[var(--ds-color-text-primary)] px-2 py-1",
       },
       size: {
         sm: "text-sm",
@@ -111,7 +111,7 @@ const GlobalNav = React.forwardRef<HTMLElement, GlobalNavProps>(
     return (
       <header
         className={cn(
-          "flex items-center justify-between px-6 py-4 bg-white border-b border-[#F1F2F6]",
+          "flex items-center justify-between px-6 py-4 bg-white border-b border-[var(--ds-color-border-muted)]",
           className
         )}
         ref={ref}

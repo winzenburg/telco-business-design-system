@@ -2,7 +2,7 @@
 // Auto-generated from Figma shadow analysis
 // Generated on 2025-08-06T00:23:05.895Z
 
-export interface ElevationLevel {
+export interface ElevationData {
   name: string;
   description: string;
   boxShadow: string;

@@ -1,0 +1,124 @@
+{
+  "summary": {
+    "totalViolations": 12,
+    "errors": 8,
+    "warnings": 4,
+    "files": 9
+  },
+  "violations": {
+    "packages/docs/stories/Typography.stories.tsx": [
+      {
+        "file": "packages/docs/stories/Typography.stories.tsx",
+        "type": "unlabeled-input",
+        "value": "<input \n                  className=\"w-full px-3 py-2 border border-gray-300 rounded-md\"\n                  placeholder=\"Input text using Lato\"\n                  style={{ \n                    fontFamily: fontFamilies.secondary.stack,\n                    fontSize: typeScale.body.m.fontSize,\n                    lineHeight: typeScale.body.m.lineHeight\n                  }}\n                />",
+        "line": 579,
+        "message": "Input without proper labeling. Add id with label, aria-label, or aria-labelledby.",
+        "severity": "error"
+      },
+      {
+        "file": "packages/docs/stories/Typography.stories.tsx",
+        "type": "unlabeled-input",
+        "value": "<input \n                  type=\"email\" \n                  className=\"w-full px-3 py-2 border border-gray-300 rounded-md\"\n                  placeholder=\"Enter your email\"\n                  style={{\n                    fontFamily: fontFamilies.secondary.stack,\n                    fontSize: typeScale.body.l.fontSize\n                  }}\n                />",
+        "line": 1185,
+        "message": "Input without proper labeling. Add id with label, aria-label, or aria-labelledby.",
+        "severity": "error"
+      }
+    ],
+    "packages/docs/stories/IconComponent.stories.tsx": [
+      {
+        "file": "packages/docs/stories/IconComponent.stories.tsx",
+        "type": "unlabeled-input",
+        "value": "<input\n              type=\"text\"\n              value={searchQuery}\n              onChange={(e) =>",
+        "line": 128,
+        "message": "Input without proper labeling. Add id with label, aria-label, or aria-labelledby.",
+        "severity": "error"
+      }
+    ],
+    "packages/docs/stories/DesignSystemSpacing.stories.tsx": [
+      {
+        "file": "packages/docs/stories/DesignSystemSpacing.stories.tsx",
+        "type": "unlabeled-input",
+        "value": "<input \n                type=\"email\" \n                className=\"w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500\"\n                placeholder=\"Enter your email\"\n              />",
+        "line": 352,
+        "message": "Input without proper labeling. Add id with label, aria-label, or aria-labelledby.",
+        "severity": "error"
+      },
+      {
+        "file": "packages/docs/stories/DesignSystemSpacing.stories.tsx",
+        "type": "unlabeled-input",
+        "value": "<input \n                type=\"password\" \n                className=\"w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500\"\n                placeholder=\"Enter your password\"\n              />",
+        "line": 365,
+        "message": "Input without proper labeling. Add id with label, aria-label, or aria-labelledby.",
+        "severity": "error"
+      }
+    ],
+    "packages/docs/stories/DesignSystemElevation.stories.tsx": [
+      {
+        "file": "packages/docs/stories/DesignSystemElevation.stories.tsx",
+        "type": "unlabeled-input",
+        "value": "<input className=\"shadow-elevation-sm rounded border p-2\" />",
+        "line": 319,
+        "message": "Input without proper labeling. Add id with label, aria-label, or aria-labelledby.",
+        "severity": "error"
+      }
+    ],
+    "packages/docs/stories/DesignPatterns.stories.tsx": [
+      {
+        "file": "packages/docs/stories/DesignPatterns.stories.tsx",
+        "type": "unlabeled-input",
+        "value": "<input \n  className=\"rounded-md border-gray-300 px-3 py-2\"\n  placeholder=\"Enter email\"\n/>",
+        "line": 746,
+        "message": "Input without proper labeling. Add id with label, aria-label, or aria-labelledby.",
+        "severity": "error"
+      }
+    ],
+    "packages/docs/stories/components/Input.stories.tsx": [
+      {
+        "file": "packages/docs/stories/components/Input.stories.tsx",
+        "type": "missing-tabindex",
+        "value": "onBlur={(e) => validateEmail(e.target.value)}",
+        "line": 339,
+        "message": "Custom focus handler found without tabIndex. Ensure element is keyboard accessible.",
+        "severity": "warning"
+      },
+      {
+        "file": "packages/docs/stories/components/Input.stories.tsx",
+        "type": "missing-tabindex",
+        "value": "onBlur={(e) => validatePhone(e.target.value)}",
+        "line": 356,
+        "message": "Custom focus handler found without tabIndex. Ensure element is keyboard accessible.",
+        "severity": "warning"
+      }
+    ],
+    "packages/docs/stories/components/Checkbox.stories.tsx": [
+      {
+        "file": "packages/docs/stories/components/Checkbox.stories.tsx",
+        "type": "color-only-information",
+        "value": "className=\"text-sm text-red-600 mt-2\">Please accept all required terms to continue.<",
+        "line": 195,
+        "message": "Information may be conveyed by color only. Add icons or text to support meaning.",
+        "severity": "warning"
+      }
+    ],
+    "packages/components/ui/input.tsx": [
+      {
+        "file": "packages/components/ui/input.tsx",
+        "type": "unlabeled-input",
+        "value": "<input\n            id={inputId}\n            type={type}\n            disabled={disabled || loading}\n            aria-invalid={error ? 'true' : undefined}\n            aria-describedby={[\n              error && errorMessage ? errorId : undefined,\n              displayHintText ? hintId : undefined\n            ].filter(Boolean).join(' ') || undefined}\n            aria-required={required || undefined}\n            aria-busy={loading || undefined}\n            className={cn(\n              inputVariants({ variant: finalVariant, size }),\n              paddingLeft,\n              paddingRight,\n              \"font-secondary\",\n              className\n            )}\n            style={{\n              fontSize: '14px',\n              lineHeight: '130%',\n              fontWeight: 400,\n              letterSpacing: '0',\n              fontStyle: 'normal',\n              ...props.style\n            }}\n            ref={ref}\n            {...props}\n          />",
+        "line": 185,
+        "message": "Input without proper labeling. Add id with label, aria-label, or aria-labelledby.",
+        "severity": "error"
+      }
+    ],
+    "packages/components/src/AIDashboardSimple.tsx": [
+      {
+        "file": "packages/components/src/AIDashboardSimple.tsx",
+        "type": "color-only-information",
+        "value": "className=\"bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg\">\n              {error}\n            <",
+        "line": 36,
+        "message": "Information may be conveyed by color only. Add icons or text to support meaning.",
+        "severity": "warning"
+      }
+    ]
+  }
+}

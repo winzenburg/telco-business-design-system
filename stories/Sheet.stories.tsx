@@ -14,7 +14,7 @@ import {
 } from '../src/components';
 
 const meta: Meta<typeof Sheet> = {
-  title: 'Components/Sheet',
+  title: 'Sheet',
   component: Sheet,
   parameters: {
     layout: 'padded',

@@ -1,0 +1,117 @@
+# Token Architecture Configuration
+version: 1.0.0
+namespace: comcast-business
+
+token_categories:
+  color:
+    required:
+      - bg: "Background colors"
+      - fg: "Foreground/text colors"
+      - border: "Border colors"
+      - primary: "Primary brand colors"
+      - secondary: "Secondary brand colors"
+      - destructive: "Destructive/danger colors"
+      - success: "Success state colors"
+      - warning: "Warning state colors"
+      - info: "Information state colors"
+      - muted: "Muted/disabled colors"
+      - focus: "Focus ring colors"
+    
+    enterprise_specific:
+      - service-active: "Active service status"
+      - service-pending: "Pending service status"
+      - service-inactive: "Inactive service status"
+      - billing-overdue: "Overdue billing status"
+
+  spacing:
+    scale: [0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24]
+    unit: "rem"
+    base: 16
+
+  typography:
+    families:
+      sans: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+      mono: "'JetBrains Mono', 'Cascadia Code', Consolas, monospace"
+    
+    sizes:
+      xs: "0.75rem"
+      sm: "0.875rem"
+      base: "1rem"
+      lg: "1.125rem"
+      xl: "1.25rem"
+      "2xl": "1.5rem"
+      "3xl": "1.875rem"
+      "4xl": "2.25rem"
+    
+    weights:
+      normal: 400
+      medium: 500
+      semibold: 600
+      bold: 700
+
+  radius:
+    values:
+      none: "0"
+      sm: "0.125rem"
+      default: "0.25rem"
+      md: "0.375rem"
+      lg: "0.5rem"
+      xl: "0.75rem"
+      full: "9999px"
+
+  shadow:
+    levels:
+      sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)"
+      default: "0 1px 3px 0 rgb(0 0 0 / 0.1)"
+      md: "0 4px 6px -1px rgb(0 0 0 / 0.1)"
+      lg: "0 10px 15px -3px rgb(0 0 0 / 0.1)"
+      xl: "0 20px 25px -5px rgb(0 0 0 / 0.1)"
+
+  motion:
+    duration:
+      instant: "0ms"
+      fast: "150ms"
+      normal: "250ms"
+      slow: "350ms"
+      slower: "500ms"
+    
+    easing:
+      linear: "linear"
+      ease-in: "cubic-bezier(0.4, 0, 1, 1)"
+      ease-out: "cubic-bezier(0, 0, 0.2, 1)"
+      ease-in-out: "cubic-bezier(0.4, 0, 0.2, 1)"
+
+validation_rules:
+  - name: "no-raw-values"
+    description: "No hex codes, rgb values, or pixel values in component code"
+    pattern: "/#[0-9A-Fa-f]{3,6}|rgb\\(|\\d+px/"
+    severity: "error"
+  
+  - name: "token-prefix"
+    description: "All tokens must use --ds- prefix"
+    pattern: "/--ds-/"
+    severity: "error"
+  
+  - name: "semantic-tokens"
+    description: "Use semantic tokens over raw color tokens"
+    severity: "warning"
+
+theming:
+  modes:
+    - light
+    - dark
+  
+  brand_variants:
+    - default
+    - enterprise
+    - government
+  
+  density_modes:
+    - comfortable
+    - compact
+    - spacious
+
+output:
+  css_file: "packages/tokens/dist/tokens.css"
+  typescript_file: "packages/tokens/dist/tokens.ts"
+  scss_file: "packages/tokens/dist/tokens.scss"

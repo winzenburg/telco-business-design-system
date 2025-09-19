@@ -14,7 +14,7 @@ import {
 import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
 
 const meta: Meta<typeof Command> = {
-  title: 'Components/Command',
+  title: 'Command',
   component: Command,
   parameters: {
     layout: 'padded',

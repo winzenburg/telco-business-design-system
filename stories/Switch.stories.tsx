@@ -3,7 +3,7 @@ import React from 'react';
 import { Switch, Label } from '../src/components';
 
 const meta: Meta<typeof Switch> = {
-  title: 'Components/Switch',
+  title: 'Switch',
   component: Switch,
   parameters: {
     layout: 'padded',

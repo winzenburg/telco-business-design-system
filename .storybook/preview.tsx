@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
+import '../packages/tokens/css-variables.css';
 import '../src/styles/tailwind.css';
 
 const preview: Preview = {
@@ -41,6 +42,10 @@ const preview: Preview = {
         {
           name: 'gray',
           value: '#f5f5f5',
+        },
+        {
+          name: 'page',
+          value: '#EDEFEF',
         },
       ],
     },

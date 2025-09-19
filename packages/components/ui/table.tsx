@@ -10,13 +10,13 @@ import { Title, Body } from "./typography"
 
 const tableVariants = cva(
   // Base styles using design system colors and typography
-  "w-full caption-bottom border-collapse bg-[var(--ds-color-bg-canvas] opacity-100",
+  "w-full caption-bottom border-collapse bg-[var(--ds-color-bg-canvas)] opacity-100",
   {
     variants: {
       variant: {
-        default: "border border-[var(--ds-color-border-default]",
-        striped: "border border-[var(--ds-color-border-default] [&_tbody_tr:nth-child(even)]:bg-[var(--ds-color-bg-surface]",
-        bordered: "border border-[var(--ds-color-border-default] [&_td]:border [&_th]:border [&_td]:border-[var(--ds-color-border-default] [&_th]:border-[var(--ds-color-border-default]",
+        default: "",
+        striped: "[&_tbody_tr:nth-child(even)]:bg-[var(--ds-color-bg-surface)]",
+        bordered: "[&_td]:border [&_th]:border [&_td]:border-[var(--ds-color-neutral-300)] [&_th]:border-[var(--ds-color-neutral-300)]",
       },
       size: {
         sm: "[&_th]:px-3 [&_th]:py-2 [&_td]:px-3 [&_td]:py-2",
@@ -39,7 +39,7 @@ function Table({ className, variant, size, ...props }: TableProps) {
   return (
     <div
       data-slot="table-container"
-      className="relative w-full overflow-x-auto rounded-lg border border-[var(--ds-color-border-default] bg-[var(--ds-color-bg-canvas] shadow-sm opacity-100"
+      className="relative w-full overflow-x-auto rounded-lg bg-[var(--ds-color-bg-canvas)] opacity-100"
     >
       <table
         data-slot="table"
@@ -55,7 +55,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
     <thead
       data-slot="table-header"
       className={cn(
-        "bg-[var(--ds-color-bg-surface] [&_tr]:border-b [&_tr]:border-[var(--ds-color-border-default] [&_th]:font-primary [&_th]:text-[var(--ds-color-text-primary] [&_th]:font-semibold [&_th]:text-left",
+        "bg-[var(--ds-color-bg-surface)] [&_tr]:border-b [&_tr]:border-[var(--ds-color-neutral-300)] [&_th]:font-primary [&_th]:text-[var(--ds-color-text-primary)] [&_th]:font-semibold [&_th]:text-left",
         className
       )}
       {...props}
@@ -68,7 +68,7 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
     <tbody
       data-slot="table-body"
       className={cn(
-        "[&_tr:last-child]:border-0 [&_tr]:border-b [&_tr]:border-[var(--ds-color-border-default] [&_tr]:hover:bg-[var(--ds-color-bg-surface] [&_tr]:transition-colors [&_td]:font-secondary [&_td]:text-[var(--ds-color-text-primary]",
+        "[&_tr:last-child]:border-0 [&_tr]:border-b [&_tr]:border-[var(--ds-color-neutral-300)] [&_tr]:hover:bg-[var(--ds-color-bg-surface)] [&_tr]:transition-colors [&_td]:font-secondary [&_td]:text-[var(--ds-color-text-primary)]",
         className
       )}
       {...props}
@@ -81,7 +81,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
     <tfoot
       data-slot="table-footer"
       className={cn(
-        "bg-[var(--ds-color-[^]]*] border-t border-[var(--ds-color-[^]]*] font-medium [&>tr]:last:border-b-0",
+        "bg-[var(--ds-color-bg-surface)] border-t border-[var(--ds-color-neutral-300)] font-medium [&>tr]:last:border-b-0",
         className
       )}
       {...props}
@@ -94,7 +94,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
     <tr
       data-slot="table-row"
       className={cn(
-        "border-b border-[var(--ds-color-border-default] transition-colors hover:bg-[var(--ds-color-bg-surface] data-[state=selected]:bg-[var(--ds-color-bg-surface]",
+        "border-b border-[var(--ds-color-neutral-300)] transition-colors hover:bg-[var(--ds-color-bg-surface)] data-[state=selected]:bg-[var(--ds-color-bg-surface)]",
         className
       )}
       {...props}
@@ -107,7 +107,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
     <th
       data-slot="table-head"
       className={cn(
-        "h-12 px-4 text-left align-middle font-primary font-semibold text-[var(--ds-color-text-primary] whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]:translate-y-[2px]",
+        "h-12 px-4 text-left align-middle font-primary font-semibold text-[var(--ds-color-text-primary)] whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[var(--ds-spacing-0.5)]",
         className
       )}
       {...props}
@@ -120,7 +120,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
     <td
       data-slot="table-cell"
       className={cn(
-        "px-4 py-3 align-middle font-secondary text-[var(--ds-color-text-primary] whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]:translate-y-[2px]",
+        "px-4 py-3 align-middle font-secondary text-[var(--ds-color-text-primary)] whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[var(--ds-spacing-0.5)]",
         className
       )}
       {...props}
@@ -135,7 +135,7 @@ function TableCaption({
   return (
     <caption
       data-slot="table-caption"
-      className={cn("text-[var(--ds-color-[^]]*] mt-4 text-sm", className)}
+      className={cn("text-[var(--ds-color-text-muted)] mt-4 text-sm", className)}
       {...props}
     />
   )
@@ -151,3 +151,7 @@ export {
   TableCell,
   TableCaption,
 }
+
+// Default export for lazy loading
+export default Table
+/* Explicit reload trigger Wed Sep 17 09:29:56 MDT 2025 */

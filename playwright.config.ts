@@ -22,6 +22,12 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    
+    /* VRT configuration per Acceptance Criteria (≤ 1% diff) */
+    expect: {
+      threshold: 0.01, // 1% maximum difference
+      mode: 'pixel'
+    }
   },
 
   /* Configure projects for major browsers */
@@ -42,14 +48,24 @@ export default defineConfig({
     },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 12'] },
+    },
+    
+    /* RTL testing per Acceptance Criteria */
+    {
+      name: 'RTL Desktop',
+      use: { 
+        ...devices['Desktop Chrome'],
+        locale: 'ar-SA', // Arabic locale for RTL
+        timezoneId: 'Asia/Riyadh'
+      },
+    },
 
     /* Test against branded browsers. */
     // {
@@ -64,8 +80,9 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm run storybook',
+    command: 'npm run dev',
     url: 'http://localhost:6006',
     reuseExistingServer: !process.env.CI,
+    timeout: 120 * 1000,
   },
 });

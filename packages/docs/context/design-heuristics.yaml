@@ -76,3 +76,190 @@ heuristics:
     reuse_primitives: true
     no_magic_numbers: true
     forward_ref: true
+
+  validation_heuristics:
+    # Token violations (critical)
+    - id: tokens-only-colors
+      pattern: "(#(?:[0-9a-fA-F]{3}){1,2}|rgb\\(|rgba\\(|hsl\\(|hsla\\()"
+      severity: error
+      guidance: "Use design tokens via CSS vars; no literal colors."
+    
+    - id: hard-coded-spacing
+      pattern: "\\b\\d+px\\b(?!.*(?:border|outline|stroke))"
+      severity: error
+      guidance: "Use spacing tokens (--ds.space.*) instead of pixel values."
+    
+    - id: non-token-styles
+      pattern: "(margin|padding|gap):\\s*\\d+(?:px|rem|em)"
+      severity: error
+      guidance: "Use Tailwind spacing classes or CSS custom properties from tokens."
+    
+    - id: inline-styles-violations
+      pattern: "style=\\{\\{[^}]*(?:color|backgroundColor|margin|padding)[^}]*\\}\\}"
+      severity: error
+      guidance: "Move styles to CSS/Tailwind classes using design tokens."
+
+    # Component structure warnings
+    - id: deep-nesting
+      pattern: ">{5}" # heuristic for >5 nested elements
+      severity: warn
+      guidance: "Reduce nesting; extract subcomponents for clarity."
+    
+    - id: god-component-props
+      pattern: "interface\\s+\\w+Props[^}]{200,}" # Large prop interfaces
+      severity: warn
+      guidance: "Component has many props; consider splitting into smaller components."
+    
+    - id: god-component-jsx
+      pattern: "return\\s*\\([\\s\\S]{800,}\\)" # Large JSX returns
+      severity: warn
+      guidance: "Large component; extract subcomponents for better maintainability."
+    
+    - id: excessive-conditional-rendering
+      pattern: "\\{[^}]*\\?[^:]*:[^}]*\\?[^}]*:" # Nested ternaries
+      severity: warn
+      guidance: "Complex conditional rendering; extract to variables or subcomponents."
+
+    # Prop drilling detection
+    - id: prop-drilling-simple
+      pattern: "\\w+={\\w+}" # props passed through unchanged
+      severity: info
+      guidance: "Consider React Context or state management for deeply passed props."
+    
+    - id: prop-drilling-spread
+      pattern: "\\.\\.\\.[\\w.]+(?=\\s*})" # spread operators often indicate prop drilling
+      severity: info
+      guidance: "Excessive prop spreading may indicate architectural issues."
+
+    # Over-abstraction patterns
+    - id: over-abstraction-wrapper
+      pattern: "function\\s+\\w+\\([^)]*\\)\\s*\\{\\s*return\\s+\\w+\\([^)]*\\);\\s*\\}"
+      severity: info
+      guidance: "Prefer small, clear duplication over single-use wrapper functions."
+    
+    - id: over-abstraction-identity
+      pattern: "const\\s+\\w+\\s*=\\s*\\([^)]*\\)\\s*=>\\s*\\w+;"
+      severity: info
+      guidance: "Identity functions add indirection without value."
+    
+    - id: generic-util-overuse
+      pattern: "(?:get|set|handle|make|create|build)\\w*Utils?"
+      severity: info
+      guidance: "Generic utilities often hide complexity; prefer specific, clear functions."
+
+    # Refactoring anti-patterns (Fowler/Beck/Ousterhout)
+    - id: god-component-lines
+      pattern: "(?:function|const)\\s+\\w+[\\s\\S]{2000,}" # Components >2000 chars (~300 lines)
+      severity: error
+      guidance: "Component too large (>300 lines). Split by responsibility: data, presentation, interaction."
+    
+    - id: deep-inheritance-pattern
+      pattern: "extends\\s+\\w+\\s+extends\\s+\\w+"
+      severity: warn
+      guidance: "Avoid deep inheritance (>2 levels). Prefer composition with slots/render props."
+    
+    - id: shallow-module-pattern
+      pattern: "interface\\s+\\w+Props\\s*{[\\s\\S]*?}[\\s\\S]*?=>\\s*<\\w+[^>]*\\/>;"
+      severity: info
+      guidance: "Shallow module detected. Complex interface with minimal functionality - consider deeper abstraction."
+    
+    - id: premature-abstraction
+      pattern: "(?:Base|Abstract|Generic)\\w+(?:Component|Hook|Util)"
+      severity: warn
+      guidance: "Base/Abstract prefixes suggest premature abstraction. Wait for 3+ stable use cases."
+    
+    - id: megacomponent-concerns
+      pattern: "(?:useState|useEffect)[\\s\\S]*?(?:useState|useEffect)[\\s\\S]*?(?:useState|useEffect)[\\s\\S]*?(?:useState|useEffect)"
+      severity: warn
+      guidance: "Component handling multiple concerns. Extract hooks or split by responsibility."
+    
+    - id: cognitive-load-props
+      pattern: "interface\\s+\\w+Props\\s*{[\\s\\S]*?\\w+\\?:\\s*[\\w\\|\\s]*;[\\s\\S]*?\\w+\\?:\\s*[\\w\\|\\s]*;[\\s\\S]*?\\w+\\?:\\s*[\\w\\|\\s]*;[\\s\\S]*?\\w+\\?:\\s*[\\w\\|\\s]*;"
+      severity: info
+      guidance: "Many optional props increase cognitive load. Consider variant enums or builder pattern."
+    
+    - id: boolean-prop-explosion
+      pattern: "(?:\\w+)\\?:\\s*boolean[\\s\\S]*?(?:\\w+)\\?:\\s*boolean[\\s\\S]*?(?:\\w+)\\?:\\s*boolean[\\s\\S]*?(?:\\w+)\\?:\\s*boolean"
+      severity: warn
+      guidance: "4+ boolean props suggest need for variant/state enum. Reduces cognitive complexity."
+
+    # Performance and maintainability
+    - id: inline-object-creation
+      pattern: "\\{[^}]*\\}(?=\\s*})" # objects created in JSX
+      severity: warn
+      guidance: "Move object creation outside render to prevent unnecessary re-renders."
+    
+    - id: magic-numbers
+      pattern: "\\b(?:[2-9]|[1-9]\\d+)(?=\\s*[,;)])" # numbers > 1 (excluding common values)
+      severity: info
+      guidance: "Extract magic numbers to named constants with semantic meaning."
+    
+    - id: hardcoded-strings
+      pattern: '"[A-Za-z\\s]{15,}"' # Long string literals
+      severity: info
+      guidance: "Long strings should be extracted to constants or i18n keys."
+
+    # API design patterns
+    - id: boolean-props-overuse
+      pattern: "\\w+\\?:\\s*boolean.*\\w+\\?:\\s*boolean.*\\w+\\?:\\s*boolean"
+      severity: warn
+      guidance: "Many boolean props suggest the need for a variant/state enum."
+    
+    - id: inconsistent-event-naming
+      pattern: "(?:onClick|onPress|onTap)(?!.*(?:onClick|onPress|onTap))"
+      severity: warn
+      guidance: "Use consistent event naming across components (prefer onClick)."
+    
+    - id: missing-forward-ref
+      pattern: "export\\s+const\\s+\\w+\\s*=\\s*\\([^)]*\\)\\s*=>\\s*<"
+      severity: info
+      guidance: "Consider React.forwardRef for reusable components to support refs."
+
+    # Accessibility patterns
+    - id: missing-aria-label-interactive
+      pattern: "<(?:button|input|select)[^>]*(?!.*aria-label)[^>]*>(?!</?button>)"
+      severity: warn
+      guidance: "Interactive elements should have accessible names (aria-label or children)."
+    
+    - id: div-button-antipattern
+      pattern: "<div[^>]*onClick"
+      severity: error
+      guidance: "Use semantic button elements instead of div with onClick."
+
+    # Performance antipatterns
+    - id: array-index-key
+      pattern: "key={\\w*index\\w*}"
+      severity: warn
+      guidance: "Avoid array indexes as keys; use stable, unique identifiers."
+    
+    - id: useeffect-missing-deps
+      pattern: "useEffect\\([^,]*,\\s*\\[\\s*\\]\\)" # Empty dependency array
+      severity: info
+      guidance: "Empty dependency arrays often indicate missing dependencies."
+
+    # Architecture signals
+    - id: circular-dependency-risk
+      pattern: "import.*\\.\\..*\\.\\..*\\.\\." # Relative imports going up multiple levels
+      severity: warn
+      guidance: "Deep relative imports may indicate architectural issues or circular dependencies."
+    
+    - id: barrel-export-overuse
+      pattern: "export\\s*\\*\\s*from" # Barrel exports
+      severity: info
+      guidance: "Excessive barrel exports can hurt tree-shaking and increase bundle size."
+
+    # Anti-patterns specific to design systems
+    - id: css-in-js-runtime
+      pattern: "styled\\.|css`|styled\\("
+      severity: warn
+      guidance: "Prefer CSS variables and utility classes over runtime CSS-in-JS."
+    
+    - id: theme-access-direct
+      pattern: "theme\\.[a-zA-Z]+" # Direct theme object access
+      severity: warn
+      guidance: "Use CSS custom properties instead of direct theme object access."
+    
+    - id: component-specific-styles
+      pattern: "\\.[a-zA-Z-]+\\s*\\{[^}]*(?:color|background|margin|padding)[^}]*\\}"
+      severity: info
+      guidance: "Component-specific styles should use design tokens and be reusable."

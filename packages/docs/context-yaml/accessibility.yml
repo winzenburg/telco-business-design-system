@@ -1,0 +1,123 @@
+# Accessibility Standards Configuration
+version: 1.0.0
+standard: WCAG 2.2 AA
+
+core_requirements:
+  keyboard_navigation:
+    required_patterns:
+      - tab_navigation: "All interactive elements must be keyboard accessible"
+      - focus_visible: "Focus indicators must be clearly visible"
+      - skip_links: "Skip navigation links for main content areas"
+      - escape_key: "ESC key closes modals and dropdowns"
+    
+    key_bindings:
+      activation: ["Space", "Enter"]
+      navigation: ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      dismissal: ["Escape"]
+      shortcuts:
+        search: "Cmd+K or Ctrl+K"
+        help: "?"
+        menu: "Cmd+M or Ctrl+M"
+
+  aria_requirements:
+    required_attributes:
+      - role: "Appropriate ARIA role for custom elements"
+      - label: "aria-label or aria-labelledby for all controls"
+      - state: "aria-expanded, aria-selected, aria-checked as needed"
+      - live_regions: "aria-live for dynamic content updates"
+    
+    enterprise_patterns:
+      - status_announcements: "Service status changes announced to screen readers"
+      - form_validation: "Error messages associated with form fields"
+      - data_tables: "Proper table headers and relationships"
+      - loading_states: "Loading indicators with appropriate ARIA"
+
+  color_contrast:
+    text:
+      normal:
+        small: 4.5
+        large: 3.0
+      enhanced:
+        small: 7.0
+        large: 4.5
+    
+    non_text:
+      ui_components: 3.0
+      graphics: 3.0
+    
+    enterprise_requirements:
+      status_indicators: "Must meet 3:1 for meaningful colors"
+      data_visualizations: "Charts must have patterns in addition to color"
+
+  form_accessibility:
+    requirements:
+      - unique_ids: "All form controls must have unique IDs"
+      - label_association: "Labels properly associated via htmlFor"
+      - error_messaging: "Errors announced and associated with fields"
+      - required_indication: "Required fields clearly marked"
+      - help_text: "Instructions associated with complex fields"
+    
+    enterprise_patterns:
+      - multi_step_forms: "Progress indicators for wizards"
+      - bulk_operations: "Clear feedback for batch actions"
+      - validation_timing: "Inline validation with appropriate timing"
+
+testing_requirements:
+  automated:
+    tools:
+      - axe-core: "Automated accessibility testing"
+      - jest-axe: "Unit test integration"
+      - playwright: "End-to-end accessibility tests"
+    
+    coverage:
+      - all_components: "100% of components must pass axe tests"
+      - all_stories: "Every Storybook story must be tested"
+      - all_states: "Test all interactive states"
+
+  manual:
+    screen_readers:
+      - NVDA: "Windows testing"
+      - JAWS: "Windows enterprise testing"
+      - VoiceOver: "macOS/iOS testing"
+    
+    keyboard_testing:
+      - tab_order: "Logical tab sequence"
+      - focus_management: "Focus moves appropriately"
+      - shortcuts: "No conflicts with OS/browser shortcuts"
+
+  enterprise_scenarios:
+    - dashboard_navigation: "Complex dashboard keyboard navigation"
+    - data_table_interaction: "Large table navigation and interaction"
+    - form_completion: "Multi-step form completion"
+    - bulk_operations: "Batch action accessibility"
+
+component_patterns:
+  modals:
+    - focus_trap: "Focus trapped within modal"
+    - return_focus: "Focus returns to trigger on close"
+    - escape_close: "ESC key closes modal"
+    - title_required: "Modal must have accessible title"
+  
+  tables:
+    - headers: "Proper th elements with scope"
+    - sorting: "Sort controls keyboard accessible"
+    - pagination: "Page controls accessible"
+    - row_actions: "Actions accessible via keyboard"
+  
+  forms:
+    - fieldsets: "Related fields grouped in fieldsets"
+    - validation: "Errors announced to screen readers"
+    - progress: "Multi-step progress communicated"
+    - submission: "Clear submission feedback"
+
+documentation:
+  required_sections:
+    - keyboard_support: "Document all keyboard interactions"
+    - screen_reader_notes: "Special considerations for AT"
+    - aria_usage: "ARIA attributes and their purpose"
+    - known_issues: "Any accessibility limitations"
+  
+  examples:
+    - basic_usage: "Simple accessible implementation"
+    - complex_scenarios: "Enterprise use cases"
+    - common_mistakes: "What to avoid"

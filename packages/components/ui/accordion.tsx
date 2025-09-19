@@ -4,6 +4,8 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import { cn } from "../utils/cn"
 import { Icon } from "../../icons/src/Icon"
 
+export type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>
+
 const Accordion = AccordionPrimitive.Root
 
 const AccordionItem = React.forwardRef<
@@ -12,7 +14,7 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn("border-b border-[var(--ds-color-border-default]", className)}
+    className={cn("border-b border-[var(--ds-color-neutral-300)]", className)}
     {...props}
   />
 ))
@@ -26,7 +28,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex flex-1 items-center justify-between py-4 font-medium text-[var(--ds-color-text-primary] transition-all hover:text-[var(--ds-color-intent-primary] [&[data-state=open]>*:last-child]:rotate-180",
+        "flex flex-1 items-center justify-between py-4 font-medium text-[var(--ds-color-text-primary)] transition-all hover:text-[var(--ds-color-intent-primary)] [&[data-state=open]>*:last-child]:rotate-180",
         className
       )}
       {...props}
@@ -35,7 +37,7 @@ const AccordionTrigger = React.forwardRef<
       <Icon 
         name="sizexl32x32directiondown" 
         size={16} 
-        className="text-[var(--ds-color-text-muted] shrink-0 transition-transform duration-200" 
+        className="text-[var(--ds-color-text-muted)] shrink-0 transition-transform duration-200" 
       />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
@@ -51,7 +53,7 @@ const AccordionContent = React.forwardRef<
     className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    <div className={cn("pb-4 pt-0 text-[var(--ds-color-text-muted]", className)}>{children}</div>
+    <div className={cn("pb-4 pt-0 text-[var(--ds-color-text-muted)]", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ))
 

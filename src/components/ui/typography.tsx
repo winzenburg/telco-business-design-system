@@ -109,11 +109,11 @@ function getVariantStyles(variant: string): React.CSSProperties {
   }
   
   // Add appropriate font family
-  let fontFamily = fontFamilies.secondary.stack // Default to Lato
+  let fontFamily: string = fontFamilies.secondary.stack as string // Default to Lato
   if (category === 'display' || category === 'title' || category === 'heading' || category === 'button' || category === 'label') {
-    fontFamily = fontFamilies.primary.stack // Montserrat for headings and UI
+    fontFamily = fontFamilies.primary.stack as string // Montserrat for headings and UI
   } else if (category === 'code') {
-    fontFamily = fontFamilies.mono.stack // Monospace for code
+    fontFamily = fontFamilies.mono.stack as string // Monospace for code
   }
   
   return {

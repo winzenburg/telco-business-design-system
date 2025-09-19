@@ -4,11 +4,13 @@ import { ChevronRight, MoreHorizontal } from "lucide-react"
 
 import { cn } from "../utils/cn"
 
+export type BreadcrumbProps = React.ComponentPropsWithoutRef<"nav"> & {
+  separator?: React.ComponentType<{ className?: string }>
+}
+
 const Breadcrumb = React.forwardRef<
   HTMLElement,
-  React.ComponentPropsWithoutRef<"nav"> & {
-    separator?: React.ComponentType<{ className?: string }>
-  }
+  BreadcrumbProps
 >(({ ...props }, ref) => <nav ref={ref} aria-label="breadcrumb" {...props} />)
 Breadcrumb.displayName = "Breadcrumb"
 
@@ -19,7 +21,7 @@ const BreadcrumbList = React.forwardRef<
   <ol
     ref={ref}
     className={cn(
-      "flex flex-wrap items-center gap-1.5 break-words text-sm text-[var(--ds-color-text-muted] sm:gap-2.5",
+      "flex flex-wrap items-center gap-1.5 break-words text-sm text-[var(--ds-color-text-muted)] sm:gap-2.5",
       className
     )}
     {...props}
@@ -51,7 +53,7 @@ const BreadcrumbLink = React.forwardRef<
     <Comp
       ref={ref}
       className={cn(
-        "transition-colors text-[var(--ds-color-intent-primary] hover:text-[var(--ds-color-intent-primary]/80 font-medium",
+        "transition-colors text-[var(--ds-color-intent-primary] hover:text-[var(--ds-color-intent-primary)]/80 font-medium",
         className
       )}
       {...props}
@@ -69,7 +71,7 @@ const BreadcrumbPage = React.forwardRef<
     role="link"
     aria-disabled="true"
     aria-current="page"
-    className={cn("font-medium text-[var(--ds-color-text-primary]", className)}
+    className={cn("font-medium text-[var(--ds-color-text-primary)]", className)}
     {...props}
   />
 ))
@@ -83,7 +85,7 @@ const BreadcrumbSeparator = ({
   <li
     role="presentation"
     aria-hidden="true"
-    className={cn("[&>svg]:size-3.5 text-[var(--ds-color-text-muted]", className)}
+    className={cn("[&>svg]:size-3.5 text-[var(--ds-color-text-muted)]", className)}
     {...props}
   >
     {children ?? <ChevronRight />}

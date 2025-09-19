@@ -1,0 +1,250 @@
+name: Performance Budget Check
+
+on:
+  pull_request:
+    paths:
+      - 'packages/**/*.ts'
+      - 'packages/**/*.tsx'
+      - 'src/**/*.ts'
+      - 'src/**/*.tsx'
+      - 'package.json'
+      - 'vite.config.ts'
+      - 'rollup.config.js'
+
+jobs:
+  performance-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history for comparisons
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build library
+        run: npm run build:lib
+
+      - name: Analyze bundle size
+        id: analyze
+        run: |
+          npm run analyze:bundle > bundle-analysis.txt 2>&1 || true
+          cat bundle-analysis.txt
+
+          # Extract key metrics for PR comment
+          if [ -f "reports/bundle-analysis.json" ]; then
+            TOTAL_SIZE=$(jq '.summary.totalSize' reports/bundle-analysis.json)
+            GZIPPED_SIZE=$(jq '.summary.totalGzipped' reports/bundle-analysis.json)
+            VIOLATIONS=$(jq '.summary.violationCount' reports/bundle-analysis.json)
+
+            echo "total_size=$TOTAL_SIZE" >> $GITHUB_OUTPUT
+            echo "gzipped_size=$GZIPPED_SIZE" >> $GITHUB_OUTPUT
+            echo "violations=$VIOLATIONS" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Verify tree-shaking
+        id: treeshake
+        run: |
+          npm run verify:tree-shaking > tree-shake.txt 2>&1 || true
+          cat tree-shake.txt
+
+          # Check if tree-shaking passed
+          if grep -q "PASSED" tree-shake.txt; then
+            echo "tree_shake_status=✅ Passed" >> $GITHUB_OUTPUT
+          else
+            echo "tree_shake_status=❌ Failed" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Compare with base branch
+        id: compare
+        run: |
+          # Checkout base branch
+          git checkout ${{ github.base_ref }}
+          npm ci
+          npm run build:lib
+          npm run analyze:bundle > base-bundle.txt 2>&1 || true
+
+          if [ -f "reports/bundle-analysis.json" ]; then
+            BASE_SIZE=$(jq '.summary.totalSize' reports/bundle-analysis.json)
+            BASE_GZIPPED=$(jq '.summary.totalGzipped' reports/bundle-analysis.json)
+
+            # Checkout PR branch again
+            git checkout ${{ github.head_ref }}
+
+            # Calculate differences
+            CURRENT_SIZE=${{ steps.analyze.outputs.total_size }}
+            CURRENT_GZIPPED=${{ steps.analyze.outputs.gzipped_size }}
+
+            SIZE_DIFF=$((CURRENT_SIZE - BASE_SIZE))
+            GZIPPED_DIFF=$((CURRENT_GZIPPED - BASE_GZIPPED))
+
+            # Calculate percentages
+            if [ $BASE_SIZE -ne 0 ]; then
+              SIZE_PERCENT=$(( (SIZE_DIFF * 100) / BASE_SIZE ))
+            else
+              SIZE_PERCENT=0
+            fi
+
+            echo "size_diff=$SIZE_DIFF" >> $GITHUB_OUTPUT
+            echo "gzipped_diff=$GZIPPED_DIFF" >> $GITHUB_OUTPUT
+            echo "size_percent=$SIZE_PERCENT" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload analysis reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-reports
+          path: |
+            reports/bundle-analysis.json
+            reports/bundle-analysis.html
+            bundle-analysis.txt
+            tree-shake.txt
+
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            // Read the analysis results
+            const totalSize = '${{ steps.analyze.outputs.total_size }}' || '0';
+            const gzippedSize = '${{ steps.analyze.outputs.gzipped_size }}' || '0';
+            const violations = '${{ steps.analyze.outputs.violations }}' || '0';
+            const treeShakeStatus = '${{ steps.treeshake.outputs.tree_shake_status }}' || '❓ Unknown';
+            const sizeDiff = '${{ steps.compare.outputs.size_diff }}' || '0';
+            const gzippedDiff = '${{ steps.compare.outputs.gzipped_diff }}' || '0';
+            const sizePercent = '${{ steps.compare.outputs.size_percent }}' || '0';
+
+            // Format sizes
+            const formatSize = (bytes) => {
+              const kb = (bytes / 1024).toFixed(2);
+              return `${kb}KB`;
+            };
+
+            // Determine emoji based on size change
+            const getSizeEmoji = (diff) => {
+              if (diff > 5) return '🔴';
+              if (diff > 0) return '🟡';
+              if (diff < -5) return '🟢';
+              return '⚪';
+            };
+
+            // Build comment
+            let comment = `## 📊 Bundle Size Analysis\n\n`;
+            comment += `### Current Metrics\n`;
+            comment += `| Metric | Value |\n`;
+            comment += `| --- | --- |\n`;
+            comment += `| **Total Size** | ${formatSize(totalSize)} |\n`;
+            comment += `| **Gzipped** | ${formatSize(gzippedSize)} |\n`;
+            comment += `| **Budget Violations** | ${violations > 0 ? '❌' : '✅'} ${violations} |\n`;
+            comment += `| **Tree Shaking** | ${treeShakeStatus} |\n`;
+            comment += `\n`;
+
+            if (sizeDiff !== '0') {
+              comment += `### Size Changes\n`;
+              comment += `| Metric | Change | % |\n`;
+              comment += `| --- | --- | --- |\n`;
+              comment += `| **Total** | ${getSizeEmoji(sizePercent)} ${sizeDiff > 0 ? '+' : ''}${formatSize(sizeDiff)} | ${sizePercent > 0 ? '+' : ''}${sizePercent}% |\n`;
+              comment += `| **Gzipped** | ${getSizeEmoji(sizePercent)} ${gzippedDiff > 0 ? '+' : ''}${formatSize(gzippedDiff)} | - |\n`;
+              comment += `\n`;
+            }
+
+            // Add recommendations if violations exist
+            if (violations > 0) {
+              comment += `### ⚠️ Action Required\n`;
+              comment += `This PR exceeds performance budgets. Please review the [bundle analysis report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.\n\n`;
+              comment += `**Suggestions:**\n`;
+              comment += `- Consider lazy loading heavy components\n`;
+              comment += `- Review dependencies for smaller alternatives\n`;
+              comment += `- Ensure tree-shaking is working correctly\n`;
+            }
+
+            comment += `\n---\n`;
+            comment += `*[View detailed report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}) • Generated by Performance Budget Check*`;
+
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(comment =>
+              comment.body.includes('Bundle Size Analysis')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: comment
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
+
+      - name: Check performance gate
+        run: |
+          VIOLATIONS=${{ steps.analyze.outputs.violations }}
+          SIZE_PERCENT=${{ steps.compare.outputs.size_percent }}
+
+          # Fail if violations exist
+          if [ "$VIOLATIONS" -gt 0 ]; then
+            echo "❌ Performance budgets exceeded!"
+            exit 1
+          fi
+
+          # Warn if size increased significantly
+          if [ "$SIZE_PERCENT" -gt 10 ]; then
+            echo "⚠️ Bundle size increased by more than 10%"
+            exit 1
+          fi
+
+          echo "✅ Performance checks passed!"
+
+  # Lighthouse CI job for runtime performance
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun --collect.staticDistDir=./storybook-static --collect.url=http://localhost:6006 || true
+
+      - name: Upload Lighthouse results
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results
+          path: .lighthouseci/

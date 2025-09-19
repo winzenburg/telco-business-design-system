@@ -15,11 +15,11 @@ const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[var(--ds-color-[^]]*]) border-[var(--ds-color-[^]]*]) text-[var(--ds-color-[^]]*]) [&>svg]:text-[var(--ds-color-[^]]*])",
-        info: "border-[var(--ds-color-[^]]*]) bg-[var(--ds-color-[^]]*])/10 text-[var(--ds-color-[^]]*]) [&>svg]:text-[var(--ds-color-[^]]*])",
-        success: "border-[var(--ds-color-[^]]*]) bg-[var(--ds-color-[^]]*]) text-[var(--ds-color-[^]]*]) [&>svg]:text-[var(--ds-color-[^]]*])",
-        warning: "border-[var(--ds-color-[^]]*]) bg-[var(--ds-color-[^]]*]) text-[var(--ds-color-[^]]*]) [&>svg]:text-[var(--ds-color-[^]]*])",
-        destructive: "border-[var(--ds-color-[^]]*]) bg-[var(--ds-color-[^]]*])/10 text-[var(--ds-color-[^]]*]) [&>svg]:text-[var(--ds-color-[^]]*]),"
+        default: "bg-[var(--ds-color-bg-canvas)] border-[var(--ds-color-neutral-300)] text-[var(--ds-color-text-primary)] [&>svg]:text-[var(--ds-color-text-primary)]",
+        info: "border-[var(--ds-color-intent-info)] bg-[var(--ds-color-intent-info)]/10 text-[var(--ds-color-intent-info)] [&>svg]:text-[var(--ds-color-intent-info)]",
+        success: "border-[var(--ds-color-intent-success)] bg-[var(--ds-color-intent-success)]/10 text-[var(--ds-color-intent-success)] [&>svg]:text-[var(--ds-color-intent-success)]",
+        warning: "border-[var(--ds-color-intent-warning)] bg-[var(--ds-color-intent-warning)]/10 text-[var(--ds-color-intent-warning)] [&>svg]:text-[var(--ds-color-intent-warning)]",
+        destructive: "border-[var(--ds-color-intent-destructive)] bg-[var(--ds-color-intent-destructive)]/10 text-[var(--ds-color-intent-destructive)] [&>svg]:text-[var(--ds-color-intent-destructive)]"
       },
       size: {
         sm: "p-3 text-sm",
@@ -54,7 +54,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       default: "alert",
       info: "alert",
       success: "check",
-      warning: "alert", 
+      warning: "alert",
       destructive: "alert",
     }
 
@@ -69,12 +69,12 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       >
         <div className="flex items-start gap-3">
           {displayIcon && (
-            <Icon 
-              name={displayIcon} 
-              size={16} 
+            <Icon
+              name={displayIcon}
+              size={16}
               color="currentColor"
-              className="flex-shrink-0 mt-0.5" 
-              decorative 
+              className="flex-shrink-0 mt-0.5"
+              decorative
             />
           )}
           <div className="flex-1">

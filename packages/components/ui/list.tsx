@@ -5,13 +5,13 @@ import { ChevronRight } from "lucide-react"
 import { cn } from "../utils/cn"
 
 const listVariants = cva(
-  "divide-y divide-[var(--ds-color-border-default]",
+  "divide-y divide-[var(--ds-color-border-default)]",
   {
     variants: {
       variant: {
-        default: "bg-[var(--ds-color-bg-canvas] border border-[var(--ds-color-border-default] rounded-lg",
+        default: "bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-border-default)] rounded-lg",
         plain: "bg-transparent",
-        card: "bg-[var(--ds-color-bg-canvas] border border-[var(--ds-color-border-default] rounded-lg shadow-sm",
+        card: "bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-border-default)] rounded-lg shadow-sm",
       },
     },
     defaultVariants: {
@@ -21,13 +21,13 @@ const listVariants = cva(
 )
 
 const listItemVariants = cva(
-  "flex items-center gap-3 px-4 py-3 text-sm text-[var(--ds-color-text-primary] transition-colors hover:bg-[var(--ds-color-bg-surface] focus:bg-[var(--ds-color-bg-surface] focus:outline-none focus:ring-1 focus:ring-[var(--ds-color-intent-primary] focus:ring-inset",
+  "flex items-center gap-3 px-4 py-3 text-sm text-[var(--ds-color-text-primary)] transition-colors hover:bg-[var(--ds-color-bg-surface)] focus:bg-[var(--ds-color-bg-surface)] focus:outline-none focus:ring-1 focus:ring-[var(--ds-color-intent-primary)] focus:ring-inset",
   {
     variants: {
       variant: {
         default: "",
-        interactive: "cursor-pointer hover:bg-[var(--ds-color-bg-surface] active:bg-[var(--ds-color-bg-surface]/80",
-        selected: "bg-[var(--ds-color-intent-primary]/5 border-r-2 border-r-[var(--ds-color-intent-primary]",
+        interactive: "cursor-pointer hover:bg-[var(--ds-color-bg-surface)] active:bg-[var(--ds-color-bg-surface)]/80",
+        selected: "bg-[var(--ds-color-intent-primary]/5 border-r-2 border-r-[var(--ds-color-intent-primary)]",
       },
       size: {
         sm: "px-3 py-2 text-xs",
@@ -67,16 +67,15 @@ interface ListItemProps
   asChild?: boolean
 }
 
-const ListItem = React.forwardRef<HTMLButtonElement, ListItemProps>(
+const ListItem = React.forwardRef<HTMLElement, ListItemProps>(
   ({ className, variant, size, leading, trailing, subtitle, children, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? "div" : "button"
-    
-    return (
-      <Comp
-        ref={ref}
-        className={cn(listItemVariants({ variant, size }), className)}
-        {...(asChild ? {} : props)}
-      >
+    if (asChild) {
+      return (
+        <div
+          ref={ref as React.Ref<HTMLDivElement>}
+          className={cn(listItemVariants({ variant, size }), className)}
+          {...(props as any)}
+        >
         {leading && (
           <div className="flex-shrink-0">
             {leading}
@@ -84,11 +83,11 @@ const ListItem = React.forwardRef<HTMLButtonElement, ListItemProps>(
         )}
         
         <div className="flex-1 text-left">
-          <div className="font-medium text-[var(--ds-color-text-primary]">
+          <div className="font-medium text-[var(--ds-color-text-primary)]">
             {children}
           </div>
           {subtitle && (
-            <div className="text-xs text-[var(--ds-color-text-muted] mt-1">
+            <div className="text-xs text-[var(--ds-color-text-muted)] mt-1">
               {subtitle}
             </div>
           )}
@@ -99,8 +98,40 @@ const ListItem = React.forwardRef<HTMLButtonElement, ListItemProps>(
             {trailing}
           </div>
         )}
-      </Comp>
-    )
+      </div>
+      );
+    }
+
+    return (
+      <button
+        ref={ref as React.Ref<HTMLButtonElement>}
+        className={cn(listItemVariants({ variant, size }), className)}
+        {...props as React.ButtonHTMLAttributes<HTMLButtonElement>}
+      >
+        {leading && (
+          <div className="flex-shrink-0">
+            {leading}
+          </div>
+        )}
+
+        <div className="flex-1 text-left">
+          <div className="font-medium text-[var(--ds-color-text-primary)]">
+            {children}
+          </div>
+          {subtitle && (
+            <div className="text-xs text-[var(--ds-color-text-muted)] mt-1">
+              {subtitle}
+            </div>
+          )}
+        </div>
+
+        {trailing && (
+          <div className="flex-shrink-0">
+            {trailing}
+          </div>
+        )}
+      </button>
+    );
   }
 )
 ListItem.displayName = "ListItem"
@@ -114,7 +145,7 @@ const ListSection = React.forwardRef<HTMLDivElement, ListSectionProps>(
   ({ className, title, children, ...props }, ref) => (
     <div ref={ref} className={cn("space-y-1", className)} {...props}>
       {title && (
-        <div className="px-4 py-2 text-xs font-medium text-[var(--ds-color-text-muted] uppercase tracking-wide bg-[var(--ds-color-bg-surface]">
+        <div className="px-4 py-2 text-xs font-medium text-[var(--ds-color-text-muted)] uppercase tracking-wide bg-[var(--ds-color-bg-surface)]">
           {title}
         </div>
       )}
@@ -135,15 +166,15 @@ const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
     <div
       ref={ref}
       className={cn(
-        "flex items-center justify-between px-4 py-3 border-b border-[var(--ds-color-border-default] bg-[var(--ds-color-bg-surface]",
+        "flex items-center justify-between px-4 py-3 border-b border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-surface)]",
         className
       )}
       {...props}
     >
       <div>
-        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary]">{title}</h3>
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">{title}</h3>
         {subtitle && (
-          <p className="text-xs text-[var(--ds-color-text-muted] mt-1">{subtitle}</p>
+          <p className="text-xs text-[var(--ds-color-text-muted)] mt-1">{subtitle}</p>
         )}
       </div>
       {action && <div>{action}</div>}
@@ -162,7 +193,7 @@ const NavigationListItem = React.forwardRef<HTMLButtonElement, NavigationListIte
     <ListItem
       ref={ref}
       variant="interactive"
-      trailing={showChevron ? <ChevronRight className="h-4 w-4 text-[var(--ds-color-text-muted]" /> : undefined}
+      trailing={showChevron ? <ChevronRight className="h-4 w-4 text-[var(--ds-color-text-muted)]" /> : undefined}
       {...props}
     />
   )

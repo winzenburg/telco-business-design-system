@@ -6,43 +6,55 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Button,
-  Input,
-  Badge,
+} from '../src/components/ui/card';
+import { Button } from '../src/components/ui/button';
+import { Input } from '../src/components/ui/input';
+import { Badge } from '../src/components/ui/badge';
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
+} from '../src/components/ui/select';
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-  Checkbox,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  Switch,
-  Progress,
+} from '../src/components/ui/table';
+import { Checkbox } from '../src/components/ui/checkbox';
+import {
+  Menu,
+  MenuContent,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from '../src/components/ui/menu';
+import { Switch } from '../src/components/ui/switch';
+import { Progress } from '../src/components/ui/progress';
+import {
   Alert,
   AlertDescription,
-  Separator,
+} from '../src/components/ui/alert';
+import { Separator } from '../src/components/ui/separator';
+import {
   Avatar,
   AvatarFallback,
+} from '../src/components/ui/avatar';
+import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  Textarea,
-  Label,
-} from '../src/components';
-import { Icon } from '../src/components/Icon/Icon';
+} from '../src/components/ui/dialog';
+import { Textarea } from '../src/components/ui/textarea';
+import { Label } from '../src/components/ui/label';
+import { Icon } from '../packages/icons/src/Icon';
 
 const meta: Meta = {
   title: 'Enterprise/Service Management',
@@ -119,15 +131,15 @@ export const EnterpriseServiceManagementInterface: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'Active':
-          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Active</Badge>;
+          return <Badge variant="success" leadingIcon={<Icon name="check" size={14} />}>Active</Badge>;
         case 'Maintenance':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="configure" size={12} />}>Maintenance</Badge>;
+          return <Badge variant="warning" leadingIcon={<Icon name="configure" size={14} />}>Maintenance</Badge>;
         case 'Warning':
-          return <Badge className="bg-orange-50 text-orange-700 border-orange-200" leadingIcon={<Icon name="alert" size={12} />}>Warning</Badge>;
+          return <Badge variant="warning" leadingIcon={<Icon name="alert" size={14} />}>Warning</Badge>;
         case 'Inactive':
           return <Badge variant="secondary">Inactive</Badge>;
         case 'Critical':
-          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>Critical</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={14} />}>Critical</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -136,11 +148,11 @@ export const EnterpriseServiceManagementInterface: Story = {
     const getSeverityBadge = (severity: string) => {
       switch (severity) {
         case 'High':
-          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>High</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={14} />}>High</Badge>;
         case 'Medium':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="alert" size={12} />}>Medium</Badge>;
+          return <Badge variant="warning" leadingIcon={<Icon name="alert" size={14} />}>Medium</Badge>;
         case 'Low':
-          return <Badge className="bg-blue-50 text-blue-700 border-blue-200" leadingIcon={<Icon name="alert" size={12} />}>Low</Badge>;
+          return <Badge variant="info" leadingIcon={<Icon name="alert" size={14} />}>Low</Badge>;
         default:
           return <Badge variant="outline">{severity}</Badge>;
       }
@@ -149,13 +161,13 @@ export const EnterpriseServiceManagementInterface: Story = {
     const getIncidentStatusBadge = (status: string) => {
       switch (status) {
         case 'Open':
-          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>Open</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={14} />}>Open</Badge>;
         case 'In Progress':
-          return <Badge className="bg-blue-50 text-blue-700 border-blue-200" leadingIcon={<Icon name="configure" size={12} />}>In Progress</Badge>;
+          return <Badge variant="info" leadingIcon={<Icon name="configure" size={14} />}>In Progress</Badge>;
         case 'Scheduled':
-          return <Badge className="bg-purple-50 text-purple-700 border-purple-200" leadingIcon={<Icon name="configure" size={12} />}>Scheduled</Badge>;
+          return <Badge variant="secondary" leadingIcon={<Icon name="configure" size={14} />}>Scheduled</Badge>;
         case 'Resolved':
-          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Resolved</Badge>;
+          return <Badge variant="success" leadingIcon={<Icon name="check" size={14} />}>Resolved</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -306,7 +318,7 @@ export const EnterpriseServiceManagementInterface: Story = {
                   <CardDescription>Real-time status of all enterprise services</CardDescription>
                 </div>
                 {selectedServices.length > 0 && (
-                  <Badge className="bg-blue-50 text-blue-700 border-blue-200">
+                  <Badge variant="info">
                     {selectedServices.length} selected
                   </Badge>
                 )}
@@ -422,26 +434,26 @@ export const EnterpriseServiceManagementInterface: Story = {
                           <span className="text-sm text-[var(--ds-color-text-muted)]">{service.lastChecked}</span>
                         </TableCell>
                         <TableCell>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
+                          <Menu>
+                            <MenuTrigger asChild>
                               <Button variant="ghost" size="sm"><Icon name="contextmenu" size={16} /></Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem>View Details</DropdownMenuItem>
-                              <DropdownMenuItem>Run Diagnostics</DropdownMenuItem>
-                              <DropdownMenuItem>View Logs</DropdownMenuItem>
-                              <DropdownMenuSeparator />
-                              <DropdownMenuItem>Restart Service</DropdownMenuItem>
-                              <DropdownMenuItem>Schedule Maintenance</DropdownMenuItem>
-                              <DropdownMenuSeparator />
-                              <DropdownMenuItem>Configure Settings</DropdownMenuItem>
+                            </MenuTrigger>
+                            <MenuContent align="end">
+                              <MenuItem>View Details</MenuItem>
+                              <MenuItem>Run Diagnostics</MenuItem>
+                              <MenuItem>View Logs</MenuItem>
+                              <MenuSeparator />
+                              <MenuItem>Restart Service</MenuItem>
+                              <MenuItem>Schedule Maintenance</MenuItem>
+                              <MenuSeparator />
+                              <MenuItem>Configure Settings</MenuItem>
                               {service.status === 'Active' ? (
-                                <DropdownMenuItem className="text-red-600">Disable Service</DropdownMenuItem>
+                                <MenuItem className="text-red-600">Disable Service</MenuItem>
                               ) : (
-                                <DropdownMenuItem className="text-green-600">Enable Service</DropdownMenuItem>
+                                <MenuItem className="text-green-600">Enable Service</MenuItem>
                               )}
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                            </MenuContent>
+                          </Menu>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -504,13 +516,13 @@ export const EnterpriseServiceManagementInterface: Story = {
                           <p className="font-medium text-[var(--ds-color-text-primary)]">{maintenance.title}</p>
                           <p className="text-sm text-[var(--ds-color-text-muted)]">{maintenance.id} • {maintenance.services.join(', ')}</p>
                         </div>
-                        <Badge 
-                          className={
-                            maintenance.status === 'Scheduled' 
-                              ? "bg-blue-50 text-blue-700 border-blue-200" 
+                        <Badge
+                          variant={
+                            maintenance.status === 'Scheduled'
+                              ? "info"
                               : maintenance.status === 'Approved'
-                              ? "bg-green-50 text-green-700 border-green-200"
-                              : "bg-yellow-50 text-yellow-700 border-yellow-200"
+                              ? "success"
+                              : "warning"
                           }
                         >
                           {maintenance.status}

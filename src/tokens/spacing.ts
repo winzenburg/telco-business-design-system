@@ -169,11 +169,11 @@ export const getSpacing = (token: SpacingToken): string => {
 };
 
 export const getSizing = (token: SizingToken): string => {
-  return sizing[token];
+  return sizing[token] as string;
 };
 
 export const getLayout = (token: LayoutToken): string => {
-  return layout[token];
+  return layout[token] as unknown as string;
 };
 
 // Responsive utility

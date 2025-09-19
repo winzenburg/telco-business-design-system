@@ -307,8 +307,8 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                   <Cell
                     key={`cell-${index}`}
                     fill={configKeys[index % configKeys.length] ? 
-                      config[configKeys[index % configKeys.length]]?.color || "#8884d8" : 
-                      "#8884d8"
+                      config[configKeys[index % configKeys.length]]?.color || "var(--ds-color-intent-primary)" : 
+                      "var(--ds-color-intent-primary)"
                     }
                   />
                 ))}

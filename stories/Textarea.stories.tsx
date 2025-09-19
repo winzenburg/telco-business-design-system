@@ -3,7 +3,7 @@ import React from 'react';
 import { Textarea, Label } from '../src/components';
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Components/Textarea',
+  title: 'Textarea',
   component: Textarea,
   parameters: {
     layout: 'padded',

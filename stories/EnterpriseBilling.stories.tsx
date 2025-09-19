@@ -6,30 +6,36 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Button,
-  Input,
-  Badge,
+} from '../src/components/ui/card';
+import { Button } from '../src/components/ui/button';
+import { Input } from '../src/components/ui/input';
+import { Badge } from '../src/components/ui/badge';
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
+} from '../src/components/ui/select';
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-  Checkbox,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  Separator,
-  Progress,
-} from '../src/components';
-import { Icon } from '../src/components/Icon/Icon';
+} from '../src/components/ui/table';
+import { Checkbox } from '../src/components/ui/checkbox';
+import {
+  Menu,
+  MenuContent,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from '../src/components/ui/menu';
+import { Separator } from '../src/components/ui/separator';
+import { Progress } from '../src/components/ui/progress';
+import { Icon } from '../packages/icons/src/Icon';
 
 const meta: Meta = {
   title: 'Enterprise/Billing',
@@ -95,11 +101,11 @@ export const EnterpriseBillingInterface: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'Paid':
-          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Paid</Badge>;
+          return <Badge variant="success" leadingIcon={<Icon name="check" size={14} />}>Paid</Badge>;
         case 'Pending':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="alert" size={12} />}>Pending</Badge>;
+          return <Badge variant="warning" leadingIcon={<Icon name="alert" size={14} />}>Pending</Badge>;
         case 'Overdue':
-          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>Overdue</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={14} />}>Overdue</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
@@ -221,7 +227,7 @@ export const EnterpriseBillingInterface: Story = {
                   <CardDescription>View and manage your billing history</CardDescription>
                 </div>
                 {selectedInvoices.length > 0 && (
-                  <Badge className="bg-blue-50 text-blue-700 border-blue-200">
+                  <Badge variant="info">
                     {selectedInvoices.length} selected
                   </Badge>
                 )}
@@ -335,25 +341,25 @@ export const EnterpriseBillingInterface: Story = {
                           {invoice.paymentDate || '-'}
                         </TableCell>
                         <TableCell>
-                          <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
+                          <Menu>
+                            <MenuTrigger asChild>
                               <Button variant="ghost" size="sm"><Icon name="contextmenu" size={16} /></Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent align="end">
-                              <DropdownMenuItem>View Invoice</DropdownMenuItem>
-                              <DropdownMenuItem>Download PDF</DropdownMenuItem>
-                              <DropdownMenuSeparator />
+                            </MenuTrigger>
+                            <MenuContent align="end">
+                              <MenuItem>View Invoice</MenuItem>
+                              <MenuItem>Download PDF</MenuItem>
+                              <MenuSeparator />
                               {invoice.status !== 'Paid' && (
                                 <>
-                                  <DropdownMenuItem>Make Payment</DropdownMenuItem>
-                                  <DropdownMenuItem>Set Up Auto-Pay</DropdownMenuItem>
-                                  <DropdownMenuSeparator />
+                                  <MenuItem>Make Payment</MenuItem>
+                                  <MenuItem>Set Up Auto-Pay</MenuItem>
+                                  <MenuSeparator />
                                 </>
                               )}
-                              <DropdownMenuItem>View Details</DropdownMenuItem>
-                              <DropdownMenuItem>Dispute Invoice</DropdownMenuItem>
-                            </DropdownMenuContent>
-                          </DropdownMenu>
+                              <MenuItem>View Details</MenuItem>
+                              <MenuItem>Dispute Invoice</MenuItem>
+                            </MenuContent>
+                          </Menu>
                         </TableCell>
                       </TableRow>
                     ))}

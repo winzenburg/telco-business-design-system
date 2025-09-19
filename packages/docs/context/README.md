@@ -21,7 +21,9 @@
 | `style-guide.md` | **Visual Foundations** | Tokens, typography, spacing, elevation, breakpoints, sizing scales, theme modes | Token taxonomy, value tables, examples mapped to token _names_ (not raw hex), and notes on density/RTL |
 | `design-principles.md` | **Binding Rules** | Non‑negotiable standards for components | Tokens‑only styling, API patterns (variants/sizes, `forwardRef`, controlled/uncontrolled), WCAG 2.1 AA, performance constraints, release/deprecation policy |
 | `design-review-slash-command.md` | **Review Process & Merge Gates** | How we verify changes and what blocks a merge | Phased review, triage matrix, ≥85% score, **zero a11y violations**, required Storybook coverage, artifact expectations |
-| `design-heuristics.yaml` | **Automation Heuristics** | Machine‑readable hints for agents and lint checks | Mappings to token keys (e.g., `--ds.color.text.primary`), spacing rules, do/don’t patterns for automated sweeps |
+| `design-heuristics.yaml` | **Automation Heuristics** | Machine‑readable hints for agents and lint checks | Mappings to token keys (e.g., `--ds.color.text.primary`), spacing rules, do/don't patterns for automated sweeps |
+| `circular-reference-prevention.md` | **Critical Infrastructure** | Preventing PostCSS circular reference build failures | Root cause analysis, complete fix patterns, diagnostic commands, emergency procedures for "Maximum call stack size exceeded" errors |
+| `emergency-procedures.md` | **Emergency Response** | Immediate fixes for production issues | Step-by-step procedures for circular references, TypeScript failures, Storybook issues, deployment failures |
 | `CLAUDE.md` | **Router · Rules · Tasks** | Entrypoint for Claude Code & agents | Canonical sources, guardrails, tasks/playbooks, the `design-review` agent spec, acceptance criteria |
 
 > Practical rule: **Principles set the bar** (the “musts”), **Style Guide supplies the values** (the “what”), **Review enforces** (the “prove it”), **Heuristics automate** (the “teach the bots”).

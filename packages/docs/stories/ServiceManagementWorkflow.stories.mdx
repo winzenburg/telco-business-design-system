@@ -1,0 +1,853 @@
+# Service Management Workflow
+
+## Design Intent
+
+The Service Management Workflow provides operations teams with comprehensive tools for monitoring, troubleshooting, and maintaining enterprise services. This workflow pattern supports:
+
+- **Real-time monitoring**: Live service status and performance metrics
+- **Incident management**: Issue tracking, escalation, and resolution workflows  
+- **Maintenance scheduling**: Planned service windows and impact management
+- **Bulk operations**: Multi-service actions and batch processing
+- **Compliance reporting**: Service level agreement tracking and reporting
+
+### When to Use
+
+- Operations control centers and NOC (Network Operations Center)
+- IT service management dashboards
+- Enterprise service monitoring interfaces
+- Managed service provider portals
+- Multi-location service coordination
+
+### When to Avoid
+
+- Individual service detail pages (use Service Detail pattern instead)
+- Customer-facing service status (use Customer Portal patterns)
+- Basic account management (use Account Management patterns)
+
+## Tokens Used
+
+| Token Category | Token Name | CSS Variable | Usage |
+|----------------|------------|--------------|-------|
+| **Colors** | `success-500` | `--ds-color-success-500` | Active service indicators |
+| | `warning-500` | `--ds-color-warning-500` | Service warnings, medium priority |
+| | `destructive-500` | `--ds-color-destructive-500` | Critical alerts, high priority |
+| | `primary-500` | `--ds-color-primary-500` | In-progress states, selected items |
+| | `neutral-500` | `--ds-color-neutral-500` | Inactive services, disabled states |
+| **Background** | `bg-canvas` | `--ds-color-bg-canvas` | Page background |
+| | `bg-surface` | `--ds-color-bg-surface` | Card backgrounds, elevated content |
+| | `success-50` | `--ds-color-success-50` | Success state backgrounds |
+| | `warning-50` | `--ds-color-warning-50` | Warning state backgrounds |
+| | `destructive-50` | `--ds-color-destructive-50` | Error state backgrounds |
+| **Text** | `text-primary` | `--ds-color-text-primary` | Main content, headings |
+| | `text-muted` | `--ds-color-text-muted` | Secondary text, descriptions |
+| | `success-900` | `--ds-color-success-900` | Success state text |
+| | `warning-900` | `--ds-color-warning-900` | Warning state text |
+| | `destructive-900` | `--ds-color-destructive-900` | Error state text |
+| **Spacing** | `p-6` | `24px` | Page container padding |
+| | `gap-6` | `24px` | Grid gaps between cards |
+| | `p-4` | `16px` | Card content padding |
+| | `gap-4` | `16px` | Element spacing within cards |
+| **Typography** | `text-xl` | `20px` | Page headings |
+| | `text-2xl` | `24px` | Metric values |
+| | `text-sm` | `14px` | Secondary labels, timestamps |
+| **Borders** | `border-default` | `--ds-color-border-default` | Card borders, table borders |
+| | `success-200` | `--ds-color-success-200` | Success state borders |
+| | `warning-200` | `--ds-color-warning-200` | Warning state borders |
+| | `destructive-200` | `--ds-color-destructive-200` | Error state borders |
+
+## Accessibility Contract
+
+### Keyboard Interactions
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Navigate between interactive elements |
+| `Shift + Tab` | Navigate backwards through elements |
+| `Enter` | Activate buttons, open dialogs |
+| `Space` | Toggle checkboxes, activate buttons |
+| `Escape` | Close dialogs, cancel operations |
+| `Arrow Keys` | Navigate within data tables |
+| `Ctrl/Cmd + A` | Select all services (when focus is in table) |
+
+### ARIA Patterns
+
+- Service status table uses `role="table"` with proper headers
+- Alert messages use `role="alert"` for screen reader announcements  
+- Progress indicators include `aria-valuenow`, `aria-valuemin`, `aria-valuemax`
+- Bulk action controls use `aria-describedby` for batch operations
+- Status badges include `aria-label` with full status descriptions
+- Dialog forms follow proper modal aria patterns with focus trapping
+
+### Focus Management
+
+- Clear visual focus indicators on all interactive elements
+- Logical tab order through service table and controls
+- Focus returns to triggering element after dialog closure
+- Bulk selection maintains focus context during operations
+- Alert actions are focusable and properly announced
+
+## Responsive/Adaptive Behavior
+
+### Breakpoints
+
+- **Mobile (320px+)**: Stacked layout, simplified table with essential columns only
+- **Tablet (768px+)**: Condensed table with horizontal scrolling, collapsible filters
+- **Desktop (1024px+)**: Full table layout with all columns and inline actions
+- **Large Desktop (1440px+)**: Wide layout with detailed action menus and extended metadata
+
+### Table Adaptations
+
+- Mobile: Card-based layout replacing table structure
+- Tablet: Priority-based column showing/hiding
+- Desktop: Full data table with sortable columns and bulk actions
+- Large: Enhanced table with inline editing and detailed tooltips
+
+## Performance Notes
+
+### SSR-Safe Implementation
+
+- Service status data renders with skeleton placeholders
+- Progressive enhancement for real-time updates via WebSocket
+- Critical rendering path optimized for above-the-fold metrics
+- Lazy loading for incident history and maintenance schedules
+
+### Bundle Impact
+
+- Base workflow: ~8kb gzipped (excluding data components)
+- Real-time updates: Additional ~3kb for WebSocket handling
+- Bulk operation features: ~2kb for selection and batch processing
+- All components use design system tokens to minimize CSS duplication
+
+### Real-time Performance
+
+- WebSocket connections for live status updates with 30s fallback polling
+- Optimistic UI updates for immediate user feedback during actions
+- Debounced search and filtering to prevent excessive API calls
+- Virtual scrolling for large service inventories (100+ services)
+
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
+import { axe, toHaveNoViolations } from 'jest-axe';
+import { render, screen, fireEvent, within } from '@testing-library/react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Button,
+  Input,
+  Badge,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  Checkbox,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  Progress,
+  Alert,
+  AlertDescription,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  Textarea,
+  Label,
+} from '../../../src/components/ui';
+
+// Extend Jest matchers for accessibility testing
+expect.extend(toHaveNoViolations);
+
+const meta: Meta = {
+  title: 'Service Management Workflow',
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'Comprehensive service management workflow with real-time monitoring, incident tracking, and maintenance scheduling capabilities.',
+      },
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj;
+
+// Sample service data using design system patterns
+const serviceData = [
+  { 
+    id: "SVC-001", 
+    name: "Primary Internet - Fiber", 
+    location: "New York HQ", 
+    type: "Internet", 
+    status: "Active", 
+    uptime: 99.97, 
+    bandwidth: "1 Gbps", 
+    lastChecked: "2 mins ago" 
+  },
+  { 
+    id: "SVC-002", 
+    name: "Business Phone System", 
+    location: "New York HQ", 
+    type: "Phone", 
+    status: "Active", 
+    uptime: 99.95, 
+    bandwidth: "Unlimited", 
+    lastChecked: "5 mins ago" 
+  },
+  { 
+    id: "SVC-003", 
+    name: "Security System", 
+    location: "New York HQ", 
+    type: "Security", 
+    status: "Active", 
+    uptime: 100, 
+    bandwidth: "24/7 Monitoring", 
+    lastChecked: "1 min ago" 
+  },
+  { 
+    id: "SVC-004", 
+    name: "Enterprise TV Package", 
+    location: "New York HQ", 
+    type: "TV", 
+    status: "Maintenance", 
+    uptime: 98.8, 
+    bandwidth: "100+ Channels", 
+    lastChecked: "10 mins ago" 
+  },
+  { 
+    id: "SVC-005", 
+    name: "Branch Internet - Ethernet", 
+    location: "Chicago Office", 
+    type: "Internet", 
+    status: "Active", 
+    uptime: 99.5, 
+    bandwidth: "500 Mbps", 
+    lastChecked: "3 mins ago" 
+  },
+  { 
+    id: "SVC-006", 
+    name: "Backup Internet - Wireless", 
+    location: "Dallas Branch", 
+    type: "Internet", 
+    status: "Warning", 
+    uptime: 97.2, 
+    bandwidth: "100 Mbps", 
+    lastChecked: "15 mins ago" 
+  },
+];
+
+const incidentData = [
+  { 
+    id: "INC-001", 
+    title: "Intermittent connection drops", 
+    service: "SVC-006", 
+    severity: "Medium", 
+    status: "Open", 
+    reported: "2024-01-15 14:30", 
+    assignee: "John Smith" 
+  },
+  { 
+    id: "INC-002", 
+    title: "Phone system upgrade", 
+    service: "SVC-007", 
+    severity: "Low", 
+    status: "Scheduled", 
+    reported: "2024-01-14 09:15", 
+    assignee: "Sarah Johnson" 
+  },
+  { 
+    id: "INC-003", 
+    title: "Security camera offline", 
+    service: "SVC-003", 
+    severity: "High", 
+    status: "In Progress", 
+    reported: "2024-01-15 16:45", 
+    assignee: "Mike Chen" 
+  },
+];
+
+export const Default: Story = {
+  render: () => {
+    const [selectedServices, setSelectedServices] = useState<string[]>([]);
+    const [serviceFilter, setServiceFilter] = useState('all');
+    const [statusFilter, setStatusFilter] = useState('all');
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const filteredServices = serviceData.filter(service => {
+      const matchesSearch = service.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          service.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          service.id.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesType = serviceFilter === 'all' || service.type === serviceFilter;
+      const matchesStatus = statusFilter === 'all' || service.status === statusFilter;
+      return matchesSearch && matchesType && matchesStatus;
+    });
+
+    const toggleServiceSelection = (serviceId: string) => {
+      setSelectedServices(prev => 
+        prev.includes(serviceId) 
+          ? prev.filter(id => id !== serviceId)
+          : [...prev, serviceId]
+      );
+    };
+
+    const toggleSelectAll = () => {
+      setSelectedServices(
+        selectedServices.length === filteredServices.length 
+          ? [] 
+          : filteredServices.map(service => service.id)
+      );
+    };
+
+    const getStatusBadge = (status: string) => {
+      switch (status) {
+        case 'Active':
+          return (
+            <Badge 
+              variant="secondary" 
+              className="text-success-700 bg-success-50 border-success-200"
+            >
+              Active
+            </Badge>
+          );
+        case 'Maintenance':
+          return (
+            <Badge 
+              variant="secondary" 
+              className="text-warning-700 bg-warning-50 border-warning-200"
+            >
+              Maintenance
+            </Badge>
+          );
+        case 'Warning':
+          return (
+            <Badge 
+              variant="secondary" 
+              className="text-warning-700 bg-warning-50 border-warning-200"
+            >
+              Warning
+            </Badge>
+          );
+        case 'Inactive':
+          return <Badge variant="secondary">Inactive</Badge>;
+        default:
+          return <Badge variant="outline">{status}</Badge>;
+      }
+    };
+
+    const getSeverityBadge = (severity: string) => {
+      switch (severity) {
+        case 'High':
+          return <Badge variant="destructive">High</Badge>;
+        case 'Medium':
+          return (
+            <Badge 
+              variant="secondary" 
+              className="text-warning-700 bg-warning-50 border-warning-200"
+            >
+              Medium
+            </Badge>
+          );
+        case 'Low':
+          return (
+            <Badge 
+              variant="secondary" 
+              className="text-primary-700 bg-primary-50 border-primary-200"
+            >
+              Low
+            </Badge>
+          );
+        default:
+          return <Badge variant="outline">{severity}</Badge>;
+      }
+    };
+
+    const getIncidentStatusBadge = (status: string) => {
+      switch (status) {
+        case 'Open':
+          return <Badge variant="destructive">Open</Badge>;
+        case 'In Progress':
+          return (
+            <Badge 
+              variant="secondary" 
+              className="text-primary-700 bg-primary-50 border-primary-200"
+            >
+              In Progress
+            </Badge>
+          );
+        case 'Scheduled':
+          return (
+            <Badge 
+              variant="secondary" 
+              className="text-neutral-700 bg-neutral-50 border-neutral-200"
+            >
+              Scheduled
+            </Badge>
+          );
+        case 'Resolved':
+          return (
+            <Badge 
+              variant="secondary" 
+              className="text-success-700 bg-success-50 border-success-200"
+            >
+              Resolved
+            </Badge>
+          );
+        default:
+          return <Badge variant="outline">{status}</Badge>;
+      }
+    };
+
+    const activeServices = serviceData.filter(s => s.status === 'Active').length;
+    const warningServices = serviceData.filter(s => s.status === 'Warning').length;
+    const maintenanceServices = serviceData.filter(s => s.status === 'Maintenance').length;
+    const avgUptime = serviceData.reduce((acc, s) => acc + s.uptime, 0) / serviceData.length;
+
+    return (
+      <div className="min-h-screen bg-canvas">
+        {/* Header using design tokens */}
+        <header className="bg-surface border-b border-default px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="font-primary font-semibold text-xl text-primary">
+                Service Management
+              </h1>
+              <p className="text-sm text-muted">
+                Monitor and manage all enterprise services
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="outline">Report Issue</Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-md">
+                  <DialogHeader>
+                    <DialogTitle>Report Service Issue</DialogTitle>
+                    <DialogDescription>
+                      Submit a new incident or service request.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="service">Affected Service</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {serviceData.map(service => (
+                            <SelectItem key={service.id} value={service.id}>
+                              {service.name} - {service.location}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="severity">Severity</Label>
+                      <Select>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select severity" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="low">Low</SelectItem>
+                          <SelectItem value="medium">Medium</SelectItem>
+                          <SelectItem value="high">High</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="description">Description</Label>
+                      <Textarea placeholder="Describe the issue..." />
+                    </div>
+                  </div>
+                  <div className="flex justify-end gap-2">
+                    <Button variant="outline">Cancel</Button>
+                    <Button>Submit Report</Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+              <Button>Schedule Maintenance</Button>
+            </div>
+          </div>
+        </header>
+
+        <div className="p-6 space-y-6">
+          {/* Service Overview using design tokens */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted">
+                  Active Services
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-success-600">
+                  {activeServices}
+                </div>
+                <p className="text-sm text-muted mt-1">Running normally</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted">
+                  Warning Services
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-warning-600">
+                  {warningServices}
+                </div>
+                <p className="text-sm text-muted mt-1">Require attention</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted">
+                  In Maintenance
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-warning-600">
+                  {maintenanceServices}
+                </div>
+                <p className="text-sm text-muted mt-1">Scheduled work</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-medium text-muted">
+                  Avg. Uptime
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-primary">
+                  {avgUptime.toFixed(1)}%
+                </div>
+                <p className="text-sm text-muted mt-1">Last 30 days</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Active Alerts using design tokens */}
+          <div className="space-y-4">
+            <Alert className="border-warning-200 bg-warning-50">
+              <AlertDescription className="flex items-center justify-between">
+                <span className="text-warning-800">
+                  <strong>Service Warning:</strong> Backup Internet - Wireless (Dallas Branch) experiencing intermittent connectivity issues.
+                </span>
+                <Button size="sm" variant="outline">
+                  View Details
+                </Button>
+              </AlertDescription>
+            </Alert>
+
+            <Alert className="border-primary-200 bg-primary-50">
+              <AlertDescription className="flex items-center justify-between">
+                <span className="text-primary-800">
+                  <strong>Scheduled Maintenance:</strong> Phone system software update planned for Jan 18, 2024 at 11:00 PM EST (1 hour duration).
+                </span>
+                <Button size="sm" variant="outline">
+                  Reschedule
+                </Button>
+              </AlertDescription>
+            </Alert>
+          </div>
+
+          {/* Services Table using design tokens */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle>Service Status</CardTitle>
+                  <CardDescription>
+                    Real-time status of all enterprise services
+                  </CardDescription>
+                </div>
+                {selectedServices.length > 0 && (
+                  <Badge className="text-primary-700 bg-primary-50 border-primary-200">
+                    {selectedServices.length} selected
+                  </Badge>
+                )}
+              </div>
+
+              {/* Filters */}
+              <div className="flex flex-col sm:flex-row gap-4 mt-4">
+                <div className="flex-1">
+                  <Input
+                    placeholder="Search services by name, location, or ID..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                </div>
+                <div className="flex gap-2">
+                  <Select value={serviceFilter} onValueChange={setServiceFilter}>
+                    <SelectTrigger className="w-32">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Types</SelectItem>
+                      <SelectItem value="Internet">Internet</SelectItem>
+                      <SelectItem value="Phone">Phone</SelectItem>
+                      <SelectItem value="TV">TV</SelectItem>
+                      <SelectItem value="Security">Security</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <Select value={statusFilter} onValueChange={setStatusFilter}>
+                    <SelectTrigger className="w-32">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Status</SelectItem>
+                      <SelectItem value="Active">Active</SelectItem>
+                      <SelectItem value="Warning">Warning</SelectItem>
+                      <SelectItem value="Maintenance">Maintenance</SelectItem>
+                      <SelectItem value="Inactive">Inactive</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              {/* Bulk Actions */}
+              {selectedServices.length > 0 && (
+                <div className="flex items-center gap-2 p-4 bg-primary-50 rounded-lg border border-primary-200">
+                  <span className="text-sm font-medium text-primary-900">
+                    {selectedServices.length} service{selectedServices.length > 1 ? 's' : ''} selected
+                  </span>
+                  <div className="flex gap-2 ml-auto">
+                    <Button size="sm" variant="outline">
+                      Restart Services
+                    </Button>
+                    <Button size="sm" variant="outline">
+                      Run Diagnostics
+                    </Button>
+                    <Button size="sm">Schedule Maintenance</Button>
+                  </div>
+                </div>
+              )}
+            </CardHeader>
+
+            <CardContent>
+              <div className="rounded-lg border border-default bg-canvas">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-12">
+                        <Checkbox
+                          checked={selectedServices.length === filteredServices.length && filteredServices.length > 0}
+                          onCheckedChange={toggleSelectAll}
+                          aria-label="Select all services"
+                        />
+                      </TableHead>
+                      <TableHead>Service</TableHead>
+                      <TableHead>Location</TableHead>
+                      <TableHead>Type</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Uptime</TableHead>
+                      <TableHead>Capacity</TableHead>
+                      <TableHead>Last Checked</TableHead>
+                      <TableHead className="w-12"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredServices.map((service) => (
+                      <TableRow key={service.id}>
+                        <TableCell>
+                          <Checkbox
+                            checked={selectedServices.includes(service.id)}
+                            onCheckedChange={() => toggleServiceSelection(service.id)}
+                            aria-label={`Select ${service.name}`}
+                          />
+                        </TableCell>
+                        <TableCell>
+                          <div>
+                            <div className="font-medium text-primary">
+                              {service.name}
+                            </div>
+                            <div className="text-sm text-muted">{service.id}</div>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <span className="text-primary">{service.location}</span>
+                        </TableCell>
+                        <TableCell>
+                          <Badge variant="outline">{service.type}</Badge>
+                        </TableCell>
+                        <TableCell>
+                          {getStatusBadge(service.status)}
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-medium">
+                              {service.uptime}%
+                            </span>
+                            <Progress value={service.uptime} className="h-1 w-16" />
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <span className="text-primary">{service.bandwidth}</span>
+                        </TableCell>
+                        <TableCell>
+                          <span className="text-sm text-muted">
+                            {service.lastChecked}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                aria-label={`Actions for ${service.name}`}
+                              >
+                                ⋮
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuItem>View Details</DropdownMenuItem>
+                              <DropdownMenuItem>Run Diagnostics</DropdownMenuItem>
+                              <DropdownMenuItem>View Logs</DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem>Restart Service</DropdownMenuItem>
+                              <DropdownMenuItem>Schedule Maintenance</DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem>Configure Settings</DropdownMenuItem>
+                              {service.status === 'Active' ? (
+                                <DropdownMenuItem className="text-destructive-600">
+                                  Disable Service
+                                </DropdownMenuItem>
+                              ) : (
+                                <DropdownMenuItem className="text-success-600">
+                                  Enable Service
+                                </DropdownMenuItem>
+                              )}
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Recent Incidents using design tokens */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle>Recent Incidents</CardTitle>
+                <Button variant="outline" size="sm">View All</Button>
+              </div>
+              <CardDescription>Active and recent service incidents</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                {incidentData.map((incident) => (
+                  <div key={incident.id} className="border border-default rounded-lg p-4">
+                    <div className="flex items-start justify-between mb-2">
+                      <div>
+                        <p className="font-medium text-primary">{incident.title}</p>
+                        <p className="text-sm text-muted">
+                          {incident.id} • {incident.service}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {getSeverityBadge(incident.severity)}
+                        {getIncidentStatusBadge(incident.status)}
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between text-sm text-muted">
+                      <span>Assigned to: {incident.assignee}</span>
+                      <span>{incident.reported}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  },
+};
+
+// Accessibility Testing Story
+export const AccessibilityTest: Story = {
+  render: Default.render,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    
+    // Test for accessibility violations
+    const results = await axe(canvasElement);
+    expect(results).toHaveNoViolations();
+    
+    // Test keyboard navigation
+    const firstCheckbox = canvas.getAllByRole('checkbox')[0];
+    firstCheckbox.focus();
+    expect(firstCheckbox).toHaveFocus();
+    
+    // Test ARIA labels
+    const selectAllCheckbox = canvas.getByLabelText('Select all services');
+    expect(selectAllCheckbox).toBeInTheDocument();
+    
+    // Test table accessibility
+    const table = canvas.getByRole('table');
+    expect(table).toBeInTheDocument();
+    
+    // Test dialog accessibility
+    const reportButton = canvas.getByRole('button', { name: /report issue/i });
+    fireEvent.click(reportButton);
+    
+    const dialog = canvas.getByRole('dialog');
+    expect(dialog).toBeInTheDocument();
+  },
+};
+
+// Token Compliance Testing
+export const TokenComplianceTest: Story = {
+  render: () => {
+    // Test component renders without hard-coded values
+    const { container } = render(<Default.render />);
+    
+    // Verify no hard-coded pixel values in classes
+    const allElements = container.querySelectorAll('*');
+    const hardCodedPixels = Array.from(allElements).some(element =>
+      Array.from(element.classList).some(className =>
+        className.includes('[') && className.includes('px')
+      )
+    );
+    
+    expect(hardCodedPixels).toBe(false);
+    
+    // Verify no hard-coded colors
+    const hardCodedColors = Array.from(allElements).some(element =>
+      Array.from(element.classList).some(className =>
+        className.match(/#[0-9A-Fa-f]{6}/) || 
+        className.includes('rgb(') ||
+        (className.includes('bg-') && !className.includes('bg-canvas') && !className.includes('bg-surface') && !className.includes('bg-primary') && !className.includes('bg-success') && !className.includes('bg-warning') && !className.includes('bg-destructive'))
+      )
+    );
+    
+    expect(hardCodedColors).toBe(false);
+    
+    return <Default.render />;
+  },
+};

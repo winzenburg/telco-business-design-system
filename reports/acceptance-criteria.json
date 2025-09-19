@@ -1,0 +1,61 @@
+{
+  "timestamp": "2025-09-08T19:37:06.548Z",
+  "overallScore": 14,
+  "passed": false,
+  "criteria": {
+    "accessibility": {
+      "passed": false,
+      "violations": [
+        {
+          "type": "validation-error",
+          "message": "Accessibility validation failed to run",
+          "details": "Command failed: node scripts/validate-accessibility.js\nfile:///Users/rwinze026/Projects/comcast-business-design-system/scripts/validate-accessibility.js:12\nimport { glob } from 'glob';\n         ^^^^\nSyntaxError: Named export 'glob' not found. The requested module 'glob' is a CommonJS module, which may not support all module.exports as named exports.\nCommonJS modules can always be imported via the default export, for example using:\n\nimport pkg from 'glob';\nconst { glob } = pkg;\n\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:228:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.18.0\n"
+        }
+      ],
+      "score": 0
+    },
+    "tokens": {
+      "passed": false,
+      "violations": [
+        {
+          "type": "validation-error",
+          "message": "Token validation failed to run",
+          "details": "Command failed: node scripts/validate-tokens.js\nfile:///Users/rwinze026/Projects/comcast-business-design-system/scripts/validate-tokens.js:12\nimport { glob } from 'glob';\n         ^^^^\nSyntaxError: Named export 'glob' not found. The requested module 'glob' is a CommonJS module, which may not support all module.exports as named exports.\nCommonJS modules can always be imported via the default export, for example using:\n\nimport pkg from 'glob';\nconst { glob } = pkg;\n\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:228:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.18.0\n"
+        }
+      ],
+      "score": 0
+    },
+    "api": {
+      "passed": false,
+      "violations": [
+        {
+          "type": "validation-error",
+          "message": "API validation failed",
+          "details": "Command failed: npm run type-check\n"
+        }
+      ],
+      "score": 0
+    },
+    "bundleSize": {
+      "passed": false,
+      "violations": [
+        {
+          "type": "validation-error",
+          "message": "Bundle size validation failed to run",
+          "details": "Command failed: node scripts/check-bundle-budgets.js\nfile:///Users/rwinze026/Projects/comcast-business-design-system/scripts/check-bundle-budgets.js:11\nimport { glob } from 'glob';\n         ^^^^\nSyntaxError: Named export 'glob' not found. The requested module 'glob' is a CommonJS module, which may not support all module.exports as named exports.\nCommonJS modules can always be imported via the default export, for example using:\n\nimport pkg from 'glob';\nconst { glob } = pkg;\n\n    at ModuleJob._instantiate (node:internal/modules/esm/module_job:228:21)\n    at async ModuleJob.run (node:internal/modules/esm/module_job:335:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:647:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)\n\nNode.js v22.18.0\n"
+        }
+      ],
+      "score": 0
+    },
+    "vrt": {
+      "passed": true,
+      "violations": [],
+      "score": 100
+    }
+  },
+  "summary": {
+    "totalCriteria": 5,
+    "passedCriteria": 1,
+    "totalViolations": 6
+  }
+}

@@ -13,7 +13,7 @@ import {
 import { Plus, Info, HelpCircle, Settings, Download, Share, Eye, Edit, Delete } from 'lucide-react';
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Components/Tooltip',
+  title: 'Tooltip',
   component: Tooltip,
   parameters: {
     layout: 'padded',

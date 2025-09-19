@@ -15,17 +15,17 @@ import { type IconName } from "../../tokens/design-system-icons-types"
 // Checkbox variants using design system tokens
 const checkboxVariants = cva(
   // Base styles with token-based colors
-  "peer size-4 shrink-0 rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-surface] transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+  "peer size-4 shrink-0 rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-surface)] transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "border-[var(--ds-color-border-default] data-[state=checked]:bg-[var(--ds-color-intent-primary] data-[state=checked]:border-[var(--ds-color-intent-primary] data-[state=checked]:text-[var(--ds-color-bg-canvas]",
-        error: "border-[var(--ds-color-intent-destructive] data-[state=checked]:bg-[var(--ds-color-intent-destructive] data-[state=checked]:border-[var(--ds-color-intent-destructive] data-[state=checked]:text-[var(--ds-color-bg-canvas]",
+        default: "border-[var(--ds-color-neutral-400)] data-[state=checked]:bg-[var(--ds-color-intent-primary)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:text-[var(--ds-color-bg-canvas)]",
+        error: "border-[var(--ds-color-intent-destructive] data-[state=checked]:bg-[var(--ds-color-intent-destructive] data-[state=checked]:border-[var(--ds-color-intent-destructive] data-[state=checked]:text-[var(--ds-color-bg-canvas)]",
       },
       checkboxState: {
         default: "",
-        hover: "border-[var(--ds-color-text-muted] data-[state=checked]:border-[var(--ds-color-intent-primary] data-[state=checked]:bg-[var(--ds-color-intent-primary]",
-        pressed: "border-[var(--ds-color-text-muted] data-[state=checked]:border-[var(--ds-color-intent-primary] data-[state=checked]:bg-[var(--ds-color-intent-primary]",
+        hover: "border-[var(--ds-color-text-muted)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:bg-[var(--ds-color-intent-primary)]",
+        pressed: "border-[var(--ds-color-text-muted)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:bg-[var(--ds-color-intent-primary)]",
         focused: "", // Focus styling now handled by container
         disabled: "opacity-50 cursor-not-allowed",
       },
@@ -40,14 +40,14 @@ const checkboxVariants = cva(
 // Container variants for hover state background using tokens
 const checkboxContainerVariants = cva(
   // Base styles with token-based colors
-  "flex items-center gap-2 px-[5px] py-[3px] rounded-[var(--ds-radius-sm)] transition-colors",
+  "flex items-center gap-2 px-1 py-1 rounded-[var(--ds-radius-sm)] transition-colors",
   {
     variants: {
       checkboxState: {
         default: "",
-        hover: "bg-[var(--ds-color-border-default]/20",
-        pressed: "bg-[var(--ds-color-border-default]/40",
-        focused: "bg-[var(--ds-color-bg-canvas]/20 shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
+        hover: "bg-[var(--ds-color-neutral-400)]/20",
+        pressed: "bg-[var(--ds-color-neutral-400)]/40",
+        focused: "bg-[var(--ds-color-bg-canvas)]/20 shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
         disabled: "",
       },
     },
@@ -137,7 +137,7 @@ const Checkbox = React.forwardRef<
         checkboxState,
       }),
       // Only apply interactive states when checkboxState is not explicitly set and not disabled
-      !checkboxState && !props.disabled && "hover:bg-[var(--ds-color-border-default]/20 active:bg-[var(--ds-color-border-default]/40 focus-within:bg-[var(--ds-color-bg-canvas]/20 focus-within:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]"
+      !checkboxState && !props.disabled && "hover:bg-[var(--ds-color-neutral-400]/20 active:bg-[var(--ds-color-neutral-400)]/40 focus-within:bg-[var(--ds-color-bg-canvas)]/20 focus-within:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]"
     )}>
         <CheckboxPrimitive.Root
           ref={ref}
@@ -154,7 +154,7 @@ const Checkbox = React.forwardRef<
           {...props}
         >
           <CheckboxPrimitive.Indicator className="flex items-center justify-center">
-            <Icon name="check" size={12} className="text-[var(--ds-color-bg-canvas] dark:text-[var(--ds-color-text-primary]" decorative />
+            <Icon name="check" size={12} className="text-[var(--ds-color-bg-canvas)] dark:text-[var(--ds-color-text-primary)]" decorative />
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
         {label && (
@@ -163,10 +163,10 @@ const Checkbox = React.forwardRef<
             className={cn(
               "flex items-center gap-1 font-secondary cursor-pointer peer-disabled:cursor-not-allowed",
               // Dynamic text color based on disabled state using tokens
-              props.disabled ? "text-[var(--ds-color-text-muted]" : "text-[var(--ds-color-text-primary]"
+              props.disabled ? "text-[var(--ds-color-text-muted)]" : "text-[var(--ds-color-text-primary)]"
             )}
             style={{
-              fontSize: '16px',
+              fontSize: 'var(--ds-spacing-4)',
               fontWeight: 700,
               lineHeight: '130%',
               letterSpacing: '0',
@@ -180,10 +180,10 @@ const Checkbox = React.forwardRef<
                   className={cn(
                     "font-secondary",
                     // Dynamic color for asterisk based on disabled state using tokens
-                    props.disabled ? "text-[var(--ds-color-text-muted]" : "text-[var(--ds-color-text-primary]"
+                    props.disabled ? "text-[var(--ds-color-text-muted)]" : "text-[var(--ds-color-text-primary)]"
                   )}
                   style={{
-                    fontSize: '16px',
+                    fontSize: 'var(--ds-spacing-4)',
                     fontWeight: 700,
                     lineHeight: '130%',
                     letterSpacing: '0',
@@ -198,7 +198,7 @@ const Checkbox = React.forwardRef<
               <Icon 
                 name={rightIcon} 
                 size={16}
-                className="size-4 text-[var(--ds-color-text-muted]" 
+                className="size-4 text-[var(--ds-color-text-muted)]" 
                 aria-hidden="true"
               />
             )}

@@ -1,0 +1,232 @@
+{
+  "timestamp": "2025-09-17T16:13:08.950Z",
+  "url": "http://localhost:6006/?path=/docs/table--docs",
+  "textElements": [
+    {
+      "type": "form-input",
+      "selector": "input:nth-of-type(1)",
+      "text": "Find components",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "13px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "input"
+    },
+    {
+      "type": "form-label",
+      "selector": "label:nth-of-type(1)",
+      "text": "Search for components",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "label"
+    },
+    {
+      "type": "navigation",
+      "selector": "nav:nth-of-type(2) div:nth-of-type(1)",
+      "text": "[data-radix-scroll-area-viewport] {\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n  -webkit-o",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "navigation",
+      "selector": "nav:nth-of-type(2) div:nth-of-type(2)",
+      "text": "Skip to canvasStorybookSearch for components⌘KAccordionAlertAvatarBadgeBreadcrumbCardChartCheckboxCo",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "navigation",
+      "selector": "nav:nth-of-type(2) div:nth-of-type(3)",
+      "text": "Skip to canvasStorybookSearch for components⌘KAccordionAlertAvatarBadgeBreadcrumbCardChartCheckboxCo",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "navigation",
+      "selector": "nav:nth-of-type(2) div:nth-of-type(4)",
+      "text": "Skip to canvasStorybookSearch for components⌘KAccordionAlertAvatarBadgeBreadcrumbCardChartCheckboxCo",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "navigation",
+      "selector": "nav:nth-of-type(2) div:nth-of-type(5)",
+      "text": "Skip to canvasStorybook",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(1)",
+      "text": "Skip to sidebar\n[data-radix-scroll-area-viewport] {\n  scrollbar-width: none;\n  -ms-overflow-style: n",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(2)",
+      "text": "Skip to sidebar\n[data-radix-scroll-area-viewport] {\n  scrollbar-width: none;\n  -ms-overflow-style: n",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(3)",
+      "text": "Skip to sidebar",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(9)",
+      "text": "Skip to sidebar",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(10)",
+      "text": "Skip to sidebar",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(11)",
+      "text": "Skip to sidebar",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(12)",
+      "text": "[data-radix-scroll-area-viewport] {\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n  -webkit-o",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgb(246, 249, 252)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(14)",
+      "text": "[data-radix-scroll-area-viewport] {\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n  -webkit-o",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(15)",
+      "text": "Skip to canvasStorybookSearch for components⌘KAccordionAlertAvatarBadgeBreadcrumbCardChartCheckboxCo",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(16)",
+      "text": "Skip to canvasStorybookSearch for components⌘KAccordionAlertAvatarBadgeBreadcrumbCardChartCheckboxCo",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(17)",
+      "text": "Skip to canvasStorybookSearch for components⌘KAccordionAlertAvatarBadgeBreadcrumbCardChartCheckboxCo",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(18)",
+      "text": "Skip to canvasStorybook",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "400",
+      "fontSize": "16px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    },
+    {
+      "type": "text-content",
+      "selector": "div:nth-of-type(19)",
+      "text": "Storybook",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontWeight": "700",
+      "fontSize": "14px",
+      "fontFamily": "\"Nunito Sans\", -apple-system, \".SFNSText-Regular\", \"San Francisco\", \"system-ui\", \"Segoe UI\", \"Helvetica Neue\", Helvetica, Arial, sans-serif",
+      "element": "div"
+    }
+  ],
+  "cssVariables": {},
+  "tableStyles": [],
+  "colorAnalysis": {
+    "potentialIssues": [],
+    "recommendations": []
+  }
+}

@@ -40,7 +40,7 @@ import {
 } from 'lucide-react';
 
 const meta: Meta<typeof List> = {
-  title: 'Components/List',
+  title: 'List',
   component: List,
   parameters: {
     layout: 'padded',

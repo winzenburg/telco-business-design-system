@@ -3,7 +3,7 @@ import React from 'react';
 import { RadioGroup, RadioGroupItem, Label } from '../src/components';
 
 const meta: Meta<typeof RadioGroup> = {
-  title: 'Components/RadioGroup',
+  title: 'RadioGroup',
   component: RadioGroup,
   parameters: {
     layout: 'padded',

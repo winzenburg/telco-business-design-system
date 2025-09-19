@@ -20,7 +20,7 @@ import {
 import { ChevronUp, ChevronDown, Download, Search } from 'lucide-react';
 
 const meta: Meta<typeof Table> = {
-  title: 'Components/Table',
+  title: 'Table',
   component: Table,
   parameters: {
     layout: 'padded',

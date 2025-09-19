@@ -9,7 +9,7 @@ import {
 } from '../src/components';
 
 const meta: Meta<typeof Select> = {
-  title: 'Components/Select',
+  title: 'Select',
   component: Select,
   parameters: {
     layout: 'padded',
@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[180px]" aria-label="Select a fruit">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>

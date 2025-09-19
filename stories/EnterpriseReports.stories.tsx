@@ -6,35 +6,47 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Button,
-  Input,
-  Badge,
+} from '../src/components/ui/card';
+import { Button } from '../src/components/ui/button';
+import { Input } from '../src/components/ui/input';
+import { Badge } from '../src/components/ui/badge';
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
+} from '../src/components/ui/select';
+import {
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-  Checkbox,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+} from '../src/components/ui/table';
+import { Checkbox } from '../src/components/ui/checkbox';
+import {
+  Menu,
+  MenuContent,
+  MenuItem,
+  MenuSeparator,
+  MenuTrigger,
+} from '../src/components/ui/menu';
+import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-  Progress,
-  Separator,
+} from '../src/components/ui/tabs';
+import { Progress } from '../src/components/ui/progress';
+import { Separator } from '../src/components/ui/separator';
+import {
+  ChartContainer,
   ChartTooltip,
-} from '../src/components';
-import { Icon } from '../src/components/Icon/Icon';
+  ChartTooltipContent,
+} from '../src/components/ui/chart';
+import { Icon } from '../packages/icons/src/Icon';
 
 // Import Recharts components
 import {
@@ -187,25 +199,25 @@ export const EnterpriseReportsInterface: Story = {
     const getStatusBadge = (status: string) => {
       switch (status) {
         case 'Ready':
-          return <Badge className="bg-green-50 text-green-700 border-green-200" leadingIcon={<Icon name="check" size={12} />}>Ready</Badge>;
+          return <Badge variant="success" leadingIcon={<Icon name="check" size={14} />}>Ready</Badge>;
         case 'Generating':
-          return <Badge className="bg-yellow-50 text-yellow-700 border-yellow-200" leadingIcon={<Icon name="configure" size={12} />}>Generating</Badge>;
+          return <Badge variant="warning" leadingIcon={<Icon name="configure" size={14} />}>Generating</Badge>;
         case 'Failed':
-          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={12} />}>Failed</Badge>;
+          return <Badge variant="destructive" leadingIcon={<Icon name="alert" size={14} />}>Failed</Badge>;
         default:
           return <Badge variant="outline">{status}</Badge>;
       }
     };
 
     const getTypeBadge = (type: string) => {
-      const colors = {
-        Performance: "bg-blue-50 text-blue-700 border-blue-200",
-        Availability: "bg-green-50 text-green-700 border-green-200",
-        Usage: "bg-purple-50 text-purple-700 border-purple-200",
-        Security: "bg-red-50 text-red-700 border-red-200",
-        Financial: "bg-orange-50 text-orange-700 border-orange-200",
+      const variants = {
+        Performance: "info",
+        Availability: "success",
+        Usage: "secondary",
+        Security: "destructive",
+        Financial: "warning",
       };
-      return <Badge className={colors[type as keyof typeof colors] || ""}>{type}</Badge>;
+      return <Badge variant={(variants[type as keyof typeof variants] || "outline") as any}>{type}</Badge>;
     };
 
     return (
@@ -245,7 +257,7 @@ export const EnterpriseReportsInterface: Story = {
                     <CardContent>
                       <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">{metric.current}</div>
                       <div className="flex items-center gap-2 mt-2">
-                        <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
+                        <Badge variant="success">
                           {metric.change}
                         </Badge>
                         <span className="text-sm text-[var(--ds-color-text-muted)]">vs last period</span>
@@ -334,7 +346,7 @@ export const EnterpriseReportsInterface: Story = {
                       <CardDescription>Generated reports and scheduled analytics</CardDescription>
                     </div>
                     {selectedReports.length > 0 && (
-                      <Badge className="bg-blue-50 text-blue-700 border-blue-200">
+                      <Badge variant="info">
                         {selectedReports.length} selected
                       </Badge>
                     )}
@@ -428,21 +440,21 @@ export const EnterpriseReportsInterface: Story = {
                             </TableCell>
                             <TableCell>{report.size}</TableCell>
                             <TableCell>
-                              <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
+                              <Menu>
+                                <MenuTrigger asChild>
                                   <Button variant="ghost" size="sm"><Icon name="contextmenu" size={16} /></Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end">
-                                  <DropdownMenuItem>View Report</DropdownMenuItem>
-                                  <DropdownMenuItem>Download PDF</DropdownMenuItem>
-                                  <DropdownMenuItem>Download CSV</DropdownMenuItem>
-                                  <DropdownMenuSeparator />
-                                  <DropdownMenuItem>Schedule</DropdownMenuItem>
-                                  <DropdownMenuItem>Share</DropdownMenuItem>
-                                  <DropdownMenuSeparator />
-                                  <DropdownMenuItem>Archive</DropdownMenuItem>
-                                </DropdownMenuContent>
-                              </DropdownMenu>
+                                </MenuTrigger>
+                                <MenuContent align="end">
+                                  <MenuItem>View Report</MenuItem>
+                                  <MenuItem>Download PDF</MenuItem>
+                                  <MenuItem>Download CSV</MenuItem>
+                                  <MenuSeparator />
+                                  <MenuItem>Schedule</MenuItem>
+                                  <MenuItem>Share</MenuItem>
+                                  <MenuSeparator />
+                                  <MenuItem>Archive</MenuItem>
+                                </MenuContent>
+                              </Menu>
                             </TableCell>
                           </TableRow>
                         ))}

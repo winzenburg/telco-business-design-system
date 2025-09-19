@@ -26,7 +26,7 @@ import {
 } from 'recharts';
 
 const meta: Meta = {
-  title: 'Components/Chart',
+  title: 'Chart',
   parameters: {
     layout: 'padded',
     docs: {

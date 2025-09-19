@@ -27,7 +27,7 @@ const getIcon = (iconName: string, size = 16, className = '') => {
 };
 
 const meta: Meta = {
-  title: 'Components/Navigation',
+  title: 'Navigation',
   parameters: {
     layout: 'fullscreen',
     docs: {

@@ -216,7 +216,7 @@ export const createFocusStyle = (type: keyof typeof focusRing) => {
   return {
     outline: ring.outline,
     outlineOffset: ring.outlineOffset,
-    ...(ring.boxShadow && { boxShadow: ring.boxShadow })
+    ...('boxShadow' in ring && { boxShadow: (ring as any).boxShadow })
   };
 };
 

@@ -1,0 +1,61 @@
+{
+  "url": "http://localhost:6006/?path=/story/table--zebrastriped",
+  "tables": [],
+  "textElements": [
+    {
+      "selector": "span:nth-child(2)",
+      "text": "⌘",
+      "color": "rgb(92, 104, 112)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontSize": "14px",
+      "fontWeight": "400"
+    },
+    {
+      "selector": "div:nth-child(3)",
+      "text": "Skip to sidebar",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgb(255, 255, 255)",
+      "fontSize": "16px",
+      "fontWeight": "400"
+    },
+    {
+      "selector": "a:nth-child(2)",
+      "text": "Skip to sidebar",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgb(246, 249, 252)",
+      "fontSize": "12px",
+      "fontWeight": "700"
+    },
+    {
+      "selector": "a:nth-child(3)",
+      "text": "Skip to canvas",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgb(246, 249, 252)",
+      "fontSize": "12px",
+      "fontWeight": "700"
+    },
+    {
+      "selector": "a:nth-child(4)",
+      "text": "Storybook",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontSize": "14px",
+      "fontWeight": "700"
+    },
+    {
+      "selector": "label:nth-child(1)",
+      "text": "Search for components",
+      "color": "rgb(46, 52, 56)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "fontSize": "16px",
+      "fontWeight": "400"
+    }
+  ],
+  "cssVariables": {},
+  "colorIssues": [],
+  "pageInfo": {
+    "title": "Storybook",
+    "hasStorybook": true,
+    "hasTable": false
+  }
+}

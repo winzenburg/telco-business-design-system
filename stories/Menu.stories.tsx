@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 
 const meta: Meta<typeof Menu> = {
-  title: 'Components/Menu',
+  title: 'Menu',
   component: Menu,
   parameters: {
     layout: 'padded',

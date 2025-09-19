@@ -169,11 +169,21 @@ export const getSpacing = (token: SpacingToken): string => {
 };
 
 export const getSizing = (token: SizingToken): string => {
-  return sizing[token];
+  const value = sizing[token];
+  if (typeof value === 'string') {
+    return value;
+  }
+  // For object values (like screens), return a JSON string or handle appropriately
+  return JSON.stringify(value);
 };
 
-export const getLayout = (token: LayoutToken): string => {
-  return layout[token];
+export const getLayout = (token: LayoutToken): string | number => {
+  const value = layout[token];
+  if (typeof value === 'string' || typeof value === 'number') {
+    return value;
+  }
+  // For object values, return a JSON string
+  return JSON.stringify(value);
 };
 
 // Responsive utility

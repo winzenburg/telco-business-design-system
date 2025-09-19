@@ -9,7 +9,7 @@ import {
 import { Typography, Title, Body, Label, Code } from '../src/components/ui/typography';
 
 const meta: Meta = {
-  title: 'Design System/Typography',
+  title: ' Foundations/Typography',
   parameters: {
     layout: 'fullscreen',
     docs: {

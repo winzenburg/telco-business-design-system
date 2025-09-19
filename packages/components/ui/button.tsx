@@ -8,74 +8,74 @@ import { cn } from "../utils/cn"
 
 const buttonVariants = cva(
   // Base styles
-  "appearance-none border-0 inline-flex items-center justify-center gap-2.5 h-10 shrink-0 font-primary font-semibold text-sm leading-[160%] transition-all duration-150 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none select-none disabled:bg-gray-300 disabled:text-gray-600 data-[loading=true]:bg-blue-500",
+  "appearance-none border-0 inline-flex items-center justify-center gap-2.5 h-10 shrink-0 font-primary font-semibold text-sm leading-[160%] transition-all duration-150 disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 outline-none select-none disabled:bg-[var(--ds-color-neutral-300)] disabled:text-[var(--ds-color-neutral-600)] data-[loading=true]:bg-[var(--ds-color-intent-primary)]",
   {
     variants: {
       variant: {
-        // Primary Button - Using standard Tailwind classes
+        // Primary Button - Using design tokens
         default:
-          "bg-blue-500 text-white border border-transparent hover:bg-blue-600 hover:shadow-sm active:bg-blue-700 active:translate-y-px focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-        
+          "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
+
         // Alias for 'primary' to maintain compatibility
         primary:
-          "bg-blue-500 text-white border border-transparent hover:bg-blue-600 hover:shadow-sm active:bg-blue-700 active:translate-y-px focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-        
+          "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
+
         // Secondary Button
         secondary:
-          "bg-white text-blue-500 border border-gray-200 hover:bg-gray-50 hover:border-blue-500 hover:shadow-sm active:bg-gray-100 active:border-gray-200 active:translate-y-px disabled:bg-white disabled:text-gray-400 disabled:border-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-        
+          "bg-[var(--ds-color-neutral-50)] text-[var(--ds-color-intent-primary)] border border-[var(--ds-color-border-muted)] hover:bg-[var(--ds-color-neutral-100)] hover:border-[var(--ds-color-intent-primary)] hover:shadow-sm active:bg-[var(--ds-color-neutral-200)] active:border-[var(--ds-color-border-muted)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-50)] disabled:text-[var(--ds-color-neutral-400)] disabled:border-[var(--ds-color-border-muted)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
+
         // Tertiary Button
         tertiary:
-          "bg-blue-50 text-blue-500 border border-transparent hover:bg-blue-100 hover:text-blue-500 active:bg-blue-200 active:text-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-        
+          "bg-[var(--ds-color-blue-50)] text-[var(--ds-color-intent-primary)] border border-transparent hover:bg-[var(--ds-color-blue-100)] hover:text-[var(--ds-color-intent-primary)] active:bg-[var(--ds-color-blue-200)] active:text-[var(--ds-color-intent-primary)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
+
         // Ghost Button
         ghost:
-          "bg-transparent text-blue-500 border border-transparent text-sm font-semibold hover:bg-gray-50 hover:text-blue-500 active:bg-gray-100 active:text-blue-500 disabled:bg-transparent disabled:text-gray-400 focus-visible:bg-transparent focus-visible:text-blue-500 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 data-[loading=true]:bg-transparent data-[loading=true]:text-blue-500",
-        
+          "bg-transparent text-[var(--ds-color-intent-primary)] border border-transparent text-sm font-semibold hover:bg-[var(--ds-color-neutral-100)] hover:text-[var(--ds-color-intent-primary)] active:bg-[var(--ds-color-neutral-200)] active:text-[var(--ds-color-intent-primary)] disabled:bg-transparent disabled:text-[var(--ds-color-neutral-400)] focus-visible:bg-transparent focus-visible:text-[var(--ds-color-intent-primary)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 data-[loading=true]:bg-transparent data-[loading=true]:text-[var(--ds-color-intent-primary)]",
+
         // Submit Button
         submit:
-          "bg-blue-500 text-white border border-transparent hover:bg-blue-600 hover:shadow-sm active:bg-blue-700 active:translate-y-px disabled:bg-gray-300 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 data-[loading=true]:bg-blue-500",
-        
-        // Link Button
+          "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 data-[loading=true]:bg-[var(--ds-color-intent-primary)]",
+
+        // Link Button - text only, no height constraint
         link:
-          "bg-transparent text-blue-500 underline-offset-4 hover:underline hover:text-blue-600 active:text-blue-700 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 p-0 h-6 text-sm font-semibold",
-        
+          "bg-transparent text-[var(--ds-color-intent-primary)] underline-offset-4 hover:underline hover:text-[var(--ds-color-intent-primary-hover)] active:text-[var(--ds-color-intent-primary-active)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 p-0 h-auto text-sm font-semibold",
+
         // Danger Button
         danger:
-          "bg-red-500 text-white border border-transparent hover:bg-red-600 hover:shadow-sm active:bg-red-700 active:translate-y-px focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2",
-        
+          "bg-[var(--ds-color-red-500)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-red-600)] hover:shadow-sm active:bg-[var(--ds-color-red-700)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-red-500)] focus-visible:ring-offset-2",
+
         // Destructive Button
         destructive:
-          "bg-red-500 text-white border border-transparent hover:bg-red-600 hover:shadow-sm active:bg-red-700 active:translate-y-px focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2",
-        
+          "bg-[var(--ds-color-red-500)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-red-600)] hover:shadow-sm active:bg-[var(--ds-color-red-700)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-red-500)] focus-visible:ring-offset-2",
+
         // Outline variant
         outline:
-          "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 hover:text-gray-700 hover:border-gray-200 active:bg-gray-50 active:text-gray-700 active:border-gray-200 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+          "bg-[var(--ds-color-neutral-50)] text-[var(--ds-color-neutral-700)] border border-[var(--ds-color-border-muted)] hover:bg-[var(--ds-color-neutral-100)] hover:text-[var(--ds-color-neutral-700)] hover:border-[var(--ds-color-border-muted)] active:bg-[var(--ds-color-neutral-100)] active:text-[var(--ds-color-neutral-700)] active:border-[var(--ds-color-border-muted)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
       },
       size: {
-        // Text Button size - From Figma: 24px height
-        sm: "h-6 px-3 py-1 text-sm rounded-[var(--ds-radius-sm)]",
-        
+        // Default size - Using design tokens for 40px height
+        default: "h-10 px-3 py-2 text-sm rounded",
+
         // Medium size - Alias for default to maintain compatibility
-        md: "py-[9px] px-[13px] text-sm rounded-[var(--ds-radius-sm)]",
-        
-        // Default size - From Figma: padding: 9px 13px, border-radius: 4px
-        default: "py-[9px] px-[13px] text-sm rounded-[var(--ds-radius-sm)]",
-        
-        // Large size - Scaled up from default
-        lg: "h-12 px-6 py-3 text-lg rounded-[var(--ds-radius-sm)]",
-        
-        // Extra Large size - Alias for large to maintain compatibility
-        xl: "h-12 px-6 py-3 text-lg rounded-[var(--ds-radius-sm)]",
-        
-        // Icon only buttons
-        icon: "size-10 p-0 rounded-[var(--ds-radius-sm)] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-5",
-        
-        // Small icon - 32px size
-        "icon-sm": "size-8 p-0 rounded-[var(--ds-radius-sm)] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-4",
-        
-        // Large icon - 48px size  
-        "icon-lg": "size-12 p-0 rounded-[var(--ds-radius-sm)] bg-blue-400 border border-white text-white hover:bg-blue-500 hover:shadow-sm active:bg-blue-600 active:translate-y-px disabled:bg-gray-300 disabled:border-gray-200 disabled:text-gray-600 focus-visible:ring-2 focus-visible:ring-blue-500 data-[loading=true]:bg-blue-400 [&_svg]:size-6",
+        md: "h-10 px-3 py-2 text-sm rounded",
+
+        // Small size - Same height as default (40px)
+        sm: "h-10 px-3 py-2 text-sm rounded",
+
+        // Large size - Same height as default (40px)
+        lg: "h-10 px-4 py-2 text-sm rounded",
+
+        // Extra Large size - Same height as default (40px)
+        xl: "h-10 px-4 py-2 text-sm rounded",
+
+        // Icon only buttons - 40px size using design tokens
+        icon: "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-[var(--ds-color-neutral-50)] hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
+
+        // Small icon - Same 40px size using design tokens
+        "icon-sm": "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-[var(--ds-color-neutral-50)] hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
+
+        // Large icon - Same 40px size using design tokens
+        "icon-lg": "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-[var(--ds-color-neutral-50)] hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
       },
     },
     defaultVariants: {

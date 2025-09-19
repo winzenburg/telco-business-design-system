@@ -3,7 +3,7 @@ import React from 'react';
 import { Skeleton } from '../src/components';
 
 const meta: Meta<typeof Skeleton> = {
-  title: 'Components/Skeleton',
+  title: 'Skeleton',
   component: Skeleton,
   parameters: {
     layout: 'padded',

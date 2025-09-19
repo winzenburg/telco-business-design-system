@@ -8,7 +8,7 @@ import { cn } from "../../utils/cn"
 import { Body } from "./typography"
 
 // Tabs component following Comcast Business Design System
-// Colors: White background, #F1F2F6 borders, #0D62FF for active states
+// Colors: White background, var(--ds-color-border-default) borders, var(--ds-color-intent-primary) for active states
 // Typography: Lato Medium for tab labels
 
 function Tabs({
@@ -26,12 +26,12 @@ function Tabs({
 
 const tabsListVariants = cva(
   // Base styles using design system colors - let height size naturally
-  "inline-flex w-fit items-center bg-white border border-[#F1F2F6] rounded-lg p-1",
+  "inline-flex w-fit items-center bg-white border border-[var(--ds-color-border-default)] rounded-lg p-1",
   {
     variants: {
       variant: {
         default: "bg-white",
-        enclosed: "bg-[#F9F9FA]",
+        enclosed: "bg-[var(--ds-color-bg-surface)]",
         pills: "bg-transparent border-0 gap-1",
       },
       size: {
@@ -68,13 +68,13 @@ function TabsList({
 
 const tabsTriggerVariants = cva(
   // Base styles with proper font styling
-  "relative inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 font-secondary font-medium transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D62FF] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "relative inline-flex items-center justify-center gap-2 rounded-md px-3 py-2 font-secondary font-medium transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "text-[#70717D] hover:text-[#2B2D3F] data-[state=active]:bg-[#0D62FF] data-[state=active]:text-white data-[state=active]:shadow-sm",
-        enclosed: "text-[#70717D] hover:text-[#2B2D3F] data-[state=active]:bg-white data-[state=active]:text-[#0D62FF] data-[state=active]:shadow-md data-[state=active]:border data-[state=active]:border-[#0D62FF]",
-        pills: "text-[#70717D] rounded-full border border-[#F1F2F6] hover:bg-[#F9F9FA] hover:border-[#70717D] data-[state=active]:bg-[#0D62FF] data-[state=active]:text-white data-[state=active]:border-[#0D62FF] data-[state=active]:shadow-sm",
+        default: "text-[var(--ds-color-text-muted)] hover:text-[var(--ds-color-text-primary)] data-[state=active]:bg-[var(--ds-color-intent-primary)] data-[state=active]:text-white data-[state=active]:shadow-sm",
+        enclosed: "text-[var(--ds-color-text-muted)] hover:text-[var(--ds-color-text-primary)] data-[state=active]:bg-white data-[state=active]:text-[var(--ds-color-intent-primary)] data-[state=active]:shadow-md data-[state=active]:border data-[state=active]:border-[var(--ds-color-intent-primary)]",
+        pills: "text-[var(--ds-color-text-muted)] rounded-full border border-[var(--ds-color-border-default)] hover:bg-[var(--ds-color-bg-surface)] hover:border-[var(--ds-color-text-muted)] data-[state=active]:bg-[var(--ds-color-intent-primary)] data-[state=active]:text-white data-[state=active]:border-[var(--ds-color-intent-primary)] data-[state=active]:shadow-sm",
       },
     },
     defaultVariants: {
@@ -109,7 +109,7 @@ function TabsContent({
     <TabsPrimitive.Content
       data-slot="tabs-content"
       className={cn(
-        "mt-4 rounded-lg bg-white p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D62FF] focus-visible:ring-offset-2",
+        "mt-4 rounded-lg bg-white p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
         className
       )}
       {...props}

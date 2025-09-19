@@ -6,15 +6,21 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Badge,
-  Button,
-  Progress,
-  Separator,
+} from '../src/components/ui/card';
+import { Badge } from '../src/components/ui/badge';
+import { Button } from '../src/components/ui/button';
+import { Progress } from '../src/components/ui/progress';
+import { Separator } from '../src/components/ui/separator';
+import {
   Avatar,
   AvatarFallback,
   AvatarImage,
+} from '../src/components/ui/avatar';
+import {
+  ChartContainer,
   ChartTooltip,
-} from '../src/components';
+  ChartTooltipContent,
+} from '../src/components/ui/chart';
 
 // Import Recharts components
 import {
@@ -134,7 +140,7 @@ export const ExecutiveDashboard: Story = {
             <CardContent>
               <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">$2.4M</div>
               <div className="flex items-center gap-2 mt-2">
-                <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
+                <Badge variant="success">
                   ↗ +12.5%
                 </Badge>
                 <span className="text-sm text-[var(--ds-color-text-muted)]">vs last month</span>
@@ -149,7 +155,7 @@ export const ExecutiveDashboard: Story = {
             <CardContent>
               <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">12,847</div>
               <div className="flex items-center gap-2 mt-2">
-                <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
+                <Badge variant="info">
                   → +234
                 </Badge>
                 <span className="text-sm text-[var(--ds-color-text-muted)]">this month</span>
@@ -164,7 +170,7 @@ export const ExecutiveDashboard: Story = {
             <CardContent>
               <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">99.97%</div>
               <div className="flex items-center gap-2 mt-2">
-                <Badge variant="secondary" className="bg-green-50 text-green-700 border-green-200">
+                <Badge variant="success">
                   Excellent
                 </Badge>
                 <span className="text-sm text-[var(--ds-color-text-muted)]">30-day avg</span>
@@ -179,7 +185,7 @@ export const ExecutiveDashboard: Story = {
             <CardContent>
               <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">127</div>
               <div className="flex items-center gap-2 mt-2">
-                <Badge variant="destructive" className="bg-red-50 text-red-700 border-red-200">
+                <Badge variant="destructive">
                   ↗ +23
                 </Badge>
                 <span className="text-sm text-[var(--ds-color-text-muted)]">open tickets</span>

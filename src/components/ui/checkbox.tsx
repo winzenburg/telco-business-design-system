@@ -9,7 +9,7 @@ import { Icon } from "../Icon"
 import { type IconName } from "../../tokens/design-system-icons"
 
 // Checkbox component following Comcast Business Design System
-// Default colors: #B4B5BB for border, #0D62FF when checked
+// Default colors: var(--ds-color-border-default) for border, var(--ds-color-intent-primary) when checked
 // Typography: Lato font family, consistent with Input patterns
 
 // Checkbox variants following Input component pattern
@@ -19,13 +19,13 @@ const checkboxVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-[#B4B5BB] data-[state=checked]:bg-[#0D62FF] data-[state=checked]:border-[#0D62FF] data-[state=checked]:text-white",
-        error: "border-[#D11314] data-[state=checked]:bg-[#D11314] data-[state=checked]:border-[#D11314] data-[state=checked]:text-white",
+        default: "border-[var(--ds-color-border-default)] data-[state=checked]:bg-[var(--ds-color-intent-primary)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:text-white",
+        error: "border-[var(--ds-color-intent-destructive)] data-[state=checked]:bg-[var(--ds-color-intent-destructive)] data-[state=checked]:border-[var(--ds-color-intent-destructive)] data-[state=checked]:text-white",
       },
       checkboxState: {
         default: "",
-        hover: "border-[#70717D] data-[state=checked]:border-[#0D62FF] data-[state=checked]:bg-[#0D62FF]",
-        pressed: "border-[#70717D] data-[state=checked]:border-[#0D62FF] data-[state=checked]:bg-[#0D62FF]",
+        hover: "border-[var(--ds-color-text-muted)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:bg-[var(--ds-color-intent-primary)]",
+        pressed: "border-[var(--ds-color-text-muted)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:bg-[var(--ds-color-intent-primary)]",
         focused: "", // Focus styling now handled by container
         disabled: "opacity-50 cursor-not-allowed",
       },
@@ -47,7 +47,7 @@ const checkboxContainerVariants = cva(
         default: "",
         hover: "bg-[rgba(180,181,187,0.2)]",
         pressed: "bg-[rgba(180,181,187,0.4)]",
-        focused: "bg-[rgba(255,255,255,0.2)] shadow-[0_0_0_1.5px_#0D62FF]",
+        focused: "bg-[rgba(255,255,255,0.2)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
         disabled: "",
       },
     },
@@ -137,7 +137,7 @@ const Checkbox = React.forwardRef<
         checkboxState,
       }),
       // Only apply interactive states when checkboxState is not explicitly set and not disabled
-      !checkboxState && !props.disabled && "hover:bg-[rgba(180,181,187,0.2)] active:bg-[rgba(180,181,187,0.4)] focus-within:bg-[rgba(255,255,255,0.2)] focus-within:shadow-[0_0_0_1.5px_#0D62FF]"
+      !checkboxState && !props.disabled && "hover:bg-[rgba(180,181,187,0.2)] active:bg-[rgba(180,181,187,0.4)] focus-within:bg-[rgba(255,255,255,0.2)] focus-within:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]"
     )}>
         <CheckboxPrimitive.Root
           ref={ref}
@@ -148,7 +148,7 @@ const Checkbox = React.forwardRef<
               checkboxState: checkboxState !== "focused" ? checkboxState : "default", // Let container handle focus styling
             }),
             // Override default focus-visible to match container focus ring
-            checkboxState !== "focused" && "focus-visible:shadow-[0_0_0_1.5px_#0D62FF]",
+            checkboxState !== "focused" && "focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
             className
           )}
           {...props}
@@ -163,7 +163,7 @@ const Checkbox = React.forwardRef<
             className={cn(
               "flex items-center gap-1 font-secondary cursor-pointer peer-disabled:cursor-not-allowed",
               // Dynamic text color based on disabled state
-              props.disabled ? "text-[#70717D]" : "text-[#424454]"
+              props.disabled ? "text-[var(--ds-color-text-muted)]" : "text-[var(--ds-color-text-secondary)]"
             )}
             style={{
               fontSize: '16px',
@@ -180,7 +180,7 @@ const Checkbox = React.forwardRef<
                   className={cn(
                     "font-secondary",
                     // Dynamic color for asterisk based on disabled state
-                    props.disabled ? "text-[#70717D]" : "text-[#424454]"
+                    props.disabled ? "text-[var(--ds-color-text-muted)]" : "text-[var(--ds-color-text-secondary)]"
                   )}
                   style={{
                     fontSize: '16px',
@@ -197,7 +197,7 @@ const Checkbox = React.forwardRef<
             {rightIcon && (
               <Icon 
                 name={rightIcon} 
-                className="size-4 text-[#70717D]" 
+                className="size-4 text-[var(--ds-color-text-muted)]" 
                 aria-hidden="true"
               />
             )}

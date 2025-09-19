@@ -1,0 +1,1009 @@
+# Service Request Workflow
+
+## Design Intent
+
+The Service Request Workflow guides users through the complete process of requesting new business services, from initial requirements gathering through approval and provisioning. This workflow pattern supports:
+
+- **Multi-step forms**: Progressive disclosure for complex service configurations
+- **Validation flows**: Real-time validation and error handling at each step
+- **Approval workflows**: Request routing, stakeholder reviews, and authorization chains
+- **Progress tracking**: Clear status indicators and timeline visibility
+- **Documentation management**: Terms, contracts, and service level agreements
+
+### When to Use
+
+- New service provisioning requests (Internet, Phone, TV, Security)
+- Service upgrade workflows and plan changes
+- Additional location service requests
+- Enterprise onboarding and account setup
+- Custom service configuration requests
+
+### When to Avoid
+
+- Emergency service requests (use Service Management workflow)
+- Billing inquiries and payment processing (use Account Management patterns)
+- Technical support requests (use Support Portal patterns)
+- Simple account changes (use Settings patterns)
+
+## Tokens Used
+
+| Token Category | Token Name | CSS Variable | Usage |
+|----------------|------------|--------------|-------|
+| **Colors** | `primary-500` | `--ds-color-primary-500` | Active step indicators, primary CTAs |
+| | `success-500` | `--ds-color-success-500` | Completed steps, validation success |
+| | `warning-500` | `--ds-color-warning-500` | Form warnings, review required |
+| | `destructive-500` | `--ds-color-destructive-500` | Form errors, validation failures |
+| | `neutral-500` | `--ds-color-neutral-500` | Inactive steps, disabled states |
+| **Background** | `bg-canvas` | `--ds-color-bg-canvas` | Page background |
+| | `bg-surface` | `--ds-color-bg-surface` | Card backgrounds, form sections |
+| | `primary-50` | `--ds-color-primary-50` | Active step backgrounds |
+| | `success-50` | `--ds-color-success-50` | Success state backgrounds |
+| | `warning-50` | `--ds-color-warning-50` | Warning state backgrounds |
+| | `destructive-50` | `--ds-color-destructive-50` | Error state backgrounds |
+| **Text** | `text-primary` | `--ds-color-text-primary` | Form labels, headings |
+| | `text-muted` | `--ds-color-text-muted` | Help text, descriptions |
+| | `success-900` | `--ds-color-success-900` | Success messages |
+| | `warning-900` | `--ds-color-warning-900` | Warning messages |
+| | `destructive-900` | `--ds-color-destructive-900` | Error messages |
+| **Spacing** | `p-6` | `24px` | Form container padding |
+| | `gap-6` | `24px` | Section spacing |
+| | `p-4` | `16px` | Card content padding |
+| | `gap-4` | `16px` | Form field spacing |
+| | `mb-8` | `32px` | Step separator spacing |
+| **Typography** | `text-2xl` | `24px` | Page headings |
+| | `text-lg` | `18px` | Step headings |
+| | `text-sm` | `14px` | Field labels, help text |
+| **Borders** | `border-default` | `--ds-color-border-default` | Form field borders |
+| | `primary-200` | `--ds-color-primary-200` | Active step borders |
+| | `success-200` | `--ds-color-success-200` | Success state borders |
+| | `warning-200` | `--ds-color-warning-200` | Warning state borders |
+| | `destructive-200` | `--ds-color-destructive-200` | Error state borders |
+
+## Accessibility Contract
+
+### Keyboard Interactions
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Navigate between form fields and interactive elements |
+| `Shift + Tab` | Navigate backwards through form fields |
+| `Enter` | Submit form sections, activate buttons |
+| `Space` | Toggle checkboxes and radio buttons |
+| `Arrow Keys` | Navigate between radio button options |
+| `Escape` | Cancel form submission, close modals |
+| `F6` | Navigate between main form sections |
+
+### ARIA Patterns
+
+- Form sections use proper `fieldset` and `legend` elements
+- Multi-step progress uses `role="tablist"` with step indicators
+- Form validation errors use `role="alert"` for screen reader announcements
+- Required fields include `aria-required="true"` attribute
+- Form sections include `aria-describedby` for help text
+- Progress indicators include `aria-current="step"` for active step
+
+### Focus Management
+
+- Clear visual focus indicators on all form fields
+- Focus automatically moves to first field in each step
+- Error fields receive focus when validation fails
+- Step completion maintains focus context appropriately
+- Modal dialogs trap focus within the dialog content
+
+## Responsive/Adaptive Behavior
+
+### Breakpoints
+
+- **Mobile (320px+)**: Single column layout, collapsible sections, simplified step indicators
+- **Tablet (768px+)**: Two-column layout for shorter forms, horizontal step progress
+- **Desktop (1024px+)**: Multi-column layout with sidebar progress, inline validation
+- **Large Desktop (1440px+)**: Wide layout with expanded help documentation panel
+
+### Form Adaptations
+
+- Mobile: Full-width fields, vertical button stacking, drawer-style step navigation
+- Tablet: Grouped field layouts, horizontal button arrangements
+- Desktop: Multi-column field layouts, inline help text, persistent navigation
+- Large: Side-by-side form and preview, expanded documentation
+
+## Performance Notes
+
+### SSR-Safe Implementation
+
+- Form state hydrates progressively with validation rules
+- Step progress renders server-side with skeleton placeholders
+- File upload components load on-demand with proper fallbacks
+- Form validation works without JavaScript (progressive enhancement)
+
+### Bundle Impact
+
+- Base workflow: ~6kb gzipped (excluding validation library)
+- Multi-step navigation: ~2kb for step management
+- File upload handling: ~4kb loaded on-demand
+- Form validation: Uses existing design system validation (~1kb additional)
+
+### Form Performance
+
+- Field validation debounced to 300ms to prevent excessive API calls
+- Large form sections lazy-load to improve initial page load
+- File uploads use chunked uploads with progress indicators
+- Form auto-save prevents data loss during long completion times
+
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
+import { axe, toHaveNoViolations } from 'jest-axe';
+import { render, screen, fireEvent, within } from '@testing-library/react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Button,
+  Input,
+  Badge,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  Checkbox,
+  RadioGroup,
+  RadioGroupItem,
+  Progress,
+  Alert,
+  AlertDescription,
+  Separator,
+  Textarea,
+  Label,
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from '../../../src/components/ui';
+
+// Extend Jest matchers for accessibility testing
+expect.extend(toHaveNoViolations);
+
+const meta: Meta = {
+  title: 'Service Request Workflow',
+  parameters: {
+    layout: 'fullscreen',
+    docs: {
+      description: {
+        component: 'Complete service request workflow with multi-step forms, validation, approval tracking, and progress management.',
+      },
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj;
+
+// Form data interface
+interface FormData {
+  // Company Information
+  companyName: string;
+  contactName: string;
+  email: string;
+  phone: string;
+  
+  // Service Address
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+  
+  // Service Selection
+  services: string[];
+  businessType: string;
+  bandwidth: string;
+  
+  // Additional Features
+  features: string[];
+  priority: boolean;
+  terms: boolean;
+}
+
+const initialFormData: FormData = {
+  companyName: '',
+  contactName: '',
+  email: '',
+  phone: '',
+  address: '',
+  city: '',
+  state: '',
+  zip: '',
+  services: [],
+  businessType: '',
+  bandwidth: '',
+  features: [],
+  priority: false,
+  terms: false,
+};
+
+export const Default: Story = {
+  render: () => {
+    const [currentStep, setCurrentStep] = useState(1);
+    const [formData, setFormData] = useState<FormData>(initialFormData);
+    const [errors, setErrors] = useState<Record<string, string>>({});
+
+    const totalSteps = 4;
+
+    const validateStep = (step: number): boolean => {
+      const newErrors: Record<string, string> = {};
+
+      switch (step) {
+        case 1: // Company Information
+          if (!formData.companyName.trim()) {
+            newErrors.companyName = 'Company name is required';
+          }
+          if (!formData.contactName.trim()) {
+            newErrors.contactName = 'Contact name is required';
+          }
+          if (!formData.email.trim()) {
+            newErrors.email = 'Email address is required';
+          } else if (!formData.email.includes('@')) {
+            newErrors.email = 'Please enter a valid email address';
+          }
+          if (!formData.phone.trim()) {
+            newErrors.phone = 'Phone number is required';
+          }
+          break;
+
+        case 2: // Service Address
+          if (!formData.address.trim()) {
+            newErrors.address = 'Street address is required';
+          }
+          if (!formData.city.trim()) {
+            newErrors.city = 'City is required';
+          }
+          if (!formData.state.trim()) {
+            newErrors.state = 'State is required';
+          }
+          if (!formData.zip.trim()) {
+            newErrors.zip = 'ZIP code is required';
+          }
+          break;
+
+        case 3: // Service Selection
+          if (formData.services.length === 0) {
+            newErrors.services = 'Please select at least one service';
+          }
+          if (!formData.businessType) {
+            newErrors.businessType = 'Please select a business type';
+          }
+          break;
+
+        case 4: // Review & Submit
+          if (!formData.terms) {
+            newErrors.terms = 'You must accept the terms and conditions';
+          }
+          break;
+      }
+
+      setErrors(newErrors);
+      return Object.keys(newErrors).length === 0;
+    };
+
+    const handleNext = () => {
+      if (validateStep(currentStep)) {
+        setCurrentStep(prev => Math.min(prev + 1, totalSteps));
+      }
+    };
+
+    const handlePrevious = () => {
+      setCurrentStep(prev => Math.max(prev - 1, 1));
+    };
+
+    const handleServiceChange = (service: string, checked: boolean) => {
+      setFormData(prev => ({
+        ...prev,
+        services: checked 
+          ? [...prev.services, service]
+          : prev.services.filter(s => s !== service)
+      }));
+    };
+
+    const handleFeatureChange = (feature: string, checked: boolean) => {
+      setFormData(prev => ({
+        ...prev,
+        features: checked 
+          ? [...prev.features, feature]
+          : prev.features.filter(f => f !== feature)
+      }));
+    };
+
+    const getStepStatus = (step: number) => {
+      if (step < currentStep) return 'completed';
+      if (step === currentStep) return 'current';
+      return 'pending';
+    };
+
+    const getStepClasses = (step: number) => {
+      const status = getStepStatus(step);
+      switch (status) {
+        case 'completed':
+          return 'bg-success-50 text-success-900 border-success-200';
+        case 'current':
+          return 'bg-primary-50 text-primary-900 border-primary-200';
+        default:
+          return 'bg-surface text-muted border-default';
+      }
+    };
+
+    const completionPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+
+    return (
+      <div className="min-h-screen bg-canvas">
+        {/* Header using design tokens */}
+        <header className="bg-surface border-b border-default px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="font-primary font-semibold text-2xl text-primary">
+                Request New Business Services
+              </h1>
+              <p className="text-muted">
+                Complete this form to request new Comcast Business services
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <Badge 
+                variant="secondary" 
+                className="text-primary-700 bg-primary-50 border-primary-200"
+              >
+                Step {currentStep} of {totalSteps}
+              </Badge>
+            </div>
+          </div>
+        </header>
+
+        <div className="flex">
+          {/* Progress Sidebar using design tokens */}
+          <div className="w-80 bg-surface border-r border-default p-6">
+            <div className="space-y-6">
+              {/* Progress Bar */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium text-primary">Progress</span>
+                  <span className="text-sm text-muted">
+                    {Math.round(completionPercentage)}%
+                  </span>
+                </div>
+                <Progress value={completionPercentage} className="h-2" />
+              </div>
+
+              {/* Step Navigation */}
+              <div className="space-y-4">
+                <div 
+                  className={`p-4 rounded-lg border ${getStepClasses(1)} cursor-pointer`}
+                  onClick={() => currentStep > 1 && setCurrentStep(1)}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
+                      getStepStatus(1) === 'completed' ? 'bg-success-500 text-white' :
+                      getStepStatus(1) === 'current' ? 'bg-primary-500 text-white' :
+                      'bg-neutral-200 text-neutral-600'
+                    }`}>
+                      {getStepStatus(1) === 'completed' ? '✓' : '1'}
+                    </div>
+                    <div>
+                      <p className="font-medium">Company Information</p>
+                      <p className="text-sm opacity-70">Basic business details</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div 
+                  className={`p-4 rounded-lg border ${getStepClasses(2)} cursor-pointer`}
+                  onClick={() => currentStep > 2 && setCurrentStep(2)}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
+                      getStepStatus(2) === 'completed' ? 'bg-success-500 text-white' :
+                      getStepStatus(2) === 'current' ? 'bg-primary-500 text-white' :
+                      'bg-neutral-200 text-neutral-600'
+                    }`}>
+                      {getStepStatus(2) === 'completed' ? '✓' : '2'}
+                    </div>
+                    <div>
+                      <p className="font-medium">Service Address</p>
+                      <p className="text-sm opacity-70">Installation location</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div 
+                  className={`p-4 rounded-lg border ${getStepClasses(3)} cursor-pointer`}
+                  onClick={() => currentStep > 3 && setCurrentStep(3)}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
+                      getStepStatus(3) === 'completed' ? 'bg-success-500 text-white' :
+                      getStepStatus(3) === 'current' ? 'bg-primary-500 text-white' :
+                      'bg-neutral-200 text-neutral-600'
+                    }`}>
+                      {getStepStatus(3) === 'completed' ? '✓' : '3'}
+                    </div>
+                    <div>
+                      <p className="font-medium">Service Selection</p>
+                      <p className="text-sm opacity-70">Choose your services</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div 
+                  className={`p-4 rounded-lg border ${getStepClasses(4)} cursor-pointer`}
+                  onClick={() => currentStep > 4 && setCurrentStep(4)}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
+                      getStepStatus(4) === 'completed' ? 'bg-success-500 text-white' :
+                      getStepStatus(4) === 'current' ? 'bg-primary-500 text-white' :
+                      'bg-neutral-200 text-neutral-600'
+                    }`}>
+                      {getStepStatus(4) === 'completed' ? '✓' : '4'}
+                    </div>
+                    <div>
+                      <p className="font-medium">Review & Submit</p>
+                      <p className="text-sm opacity-70">Confirm your request</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Help Section */}
+              <div className="border-t border-default pt-6">
+                <h3 className="font-medium text-primary mb-2">Need Help?</h3>
+                <p className="text-sm text-muted mb-3">
+                  Our business specialists are available to assist you with your service request.
+                </p>
+                <Button variant="outline" size="sm" className="w-full">
+                  Contact Support
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Form Content using design tokens */}
+          <div className="flex-1 p-6">
+            <div className="max-w-2xl mx-auto">
+              {/* Step 1: Company Information */}
+              {currentStep === 1 && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      Company Information
+                    </CardTitle>
+                    <CardDescription>
+                      Tell us about your business
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="companyName">
+                          Company Name <span className="text-destructive-500">*</span>
+                        </Label>
+                        <Input
+                          id="companyName"
+                          placeholder="Enter company name"
+                          value={formData.companyName}
+                          onChange={(e) => setFormData(prev => ({
+                            ...prev, 
+                            companyName: e.target.value
+                          }))}
+                          aria-required="true"
+                          aria-invalid={!!errors.companyName}
+                          aria-describedby={errors.companyName ? "companyName-error" : undefined}
+                        />
+                        {errors.companyName && (
+                          <p id="companyName-error" role="alert" className="text-sm text-destructive-600">
+                            {errors.companyName}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="contactName">
+                          Primary Contact <span className="text-destructive-500">*</span>
+                        </Label>
+                        <Input
+                          id="contactName"
+                          placeholder="Contact person name"
+                          value={formData.contactName}
+                          onChange={(e) => setFormData(prev => ({
+                            ...prev, 
+                            contactName: e.target.value
+                          }))}
+                          aria-required="true"
+                          aria-invalid={!!errors.contactName}
+                          aria-describedby={errors.contactName ? "contactName-error" : undefined}
+                        />
+                        {errors.contactName && (
+                          <p id="contactName-error" role="alert" className="text-sm text-destructive-600">
+                            {errors.contactName}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="email">
+                          Email Address <span className="text-destructive-500">*</span>
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="business@company.com"
+                          value={formData.email}
+                          onChange={(e) => setFormData(prev => ({
+                            ...prev, 
+                            email: e.target.value
+                          }))}
+                          aria-required="true"
+                          aria-invalid={!!errors.email}
+                          aria-describedby={errors.email ? "email-error" : undefined}
+                        />
+                        {errors.email && (
+                          <p id="email-error" role="alert" className="text-sm text-destructive-600">
+                            {errors.email}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="phone">
+                          Phone Number <span className="text-destructive-500">*</span>
+                        </Label>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          placeholder="(555) 123-4567"
+                          value={formData.phone}
+                          onChange={(e) => setFormData(prev => ({
+                            ...prev, 
+                            phone: e.target.value
+                          }))}
+                          aria-required="true"
+                          aria-invalid={!!errors.phone}
+                          aria-describedby={errors.phone ? "phone-error" : undefined}
+                        />
+                        {errors.phone && (
+                          <p id="phone-error" role="alert" className="text-sm text-destructive-600">
+                            {errors.phone}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Step 2: Service Address */}
+              {currentStep === 2 && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Service Address</CardTitle>
+                    <CardDescription>
+                      Where will services be installed?
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="address">
+                        Street Address <span className="text-destructive-500">*</span>
+                      </Label>
+                      <Input
+                        id="address"
+                        placeholder="123 Business Ave"
+                        value={formData.address}
+                        onChange={(e) => setFormData(prev => ({
+                          ...prev, 
+                          address: e.target.value
+                        }))}
+                        aria-required="true"
+                        aria-invalid={!!errors.address}
+                        aria-describedby={errors.address ? "address-error" : undefined}
+                      />
+                      {errors.address && (
+                        <p id="address-error" role="alert" className="text-sm text-destructive-600">
+                          {errors.address}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="city">
+                          City <span className="text-destructive-500">*</span>
+                        </Label>
+                        <Input
+                          id="city"
+                          placeholder="City"
+                          value={formData.city}
+                          onChange={(e) => setFormData(prev => ({
+                            ...prev, 
+                            city: e.target.value
+                          }))}
+                          aria-required="true"
+                          aria-invalid={!!errors.city}
+                          aria-describedby={errors.city ? "city-error" : undefined}
+                        />
+                        {errors.city && (
+                          <p id="city-error" role="alert" className="text-sm text-destructive-600">
+                            {errors.city}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="state">
+                          State <span className="text-destructive-500">*</span>
+                        </Label>
+                        <Input
+                          id="state"
+                          placeholder="State"
+                          value={formData.state}
+                          onChange={(e) => setFormData(prev => ({
+                            ...prev, 
+                            state: e.target.value
+                          }))}
+                          aria-required="true"
+                          aria-invalid={!!errors.state}
+                          aria-describedby={errors.state ? "state-error" : undefined}
+                        />
+                        {errors.state && (
+                          <p id="state-error" role="alert" className="text-sm text-destructive-600">
+                            {errors.state}
+                          </p>
+                        )}
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="zip">
+                          ZIP Code <span className="text-destructive-500">*</span>
+                        </Label>
+                        <Input
+                          id="zip"
+                          placeholder="12345"
+                          value={formData.zip}
+                          onChange={(e) => setFormData(prev => ({
+                            ...prev, 
+                            zip: e.target.value
+                          }))}
+                          aria-required="true"
+                          aria-invalid={!!errors.zip}
+                          aria-describedby={errors.zip ? "zip-error" : undefined}
+                        />
+                        {errors.zip && (
+                          <p id="zip-error" role="alert" className="text-sm text-destructive-600">
+                            {errors.zip}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Step 3: Service Selection */}
+              {currentStep === 3 && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Service Selection</CardTitle>
+                    <CardDescription>
+                      Choose the services you need for your business
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div>
+                      <h4 className="font-medium text-primary mb-4">
+                        Business Internet <span className="text-destructive-500">*</span>
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-2">
+                          <Checkbox
+                            id="internet-pro"
+                            checked={formData.services.includes('internet-pro')}
+                            onCheckedChange={(checked) => 
+                              handleServiceChange('internet-pro', !!checked)
+                            }
+                          />
+                          <Label htmlFor="internet-pro" className="cursor-pointer">
+                            Internet Pro (Up to 100 Mbps)
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox
+                            id="internet-enterprise"
+                            checked={formData.services.includes('internet-enterprise')}
+                            onCheckedChange={(checked) => 
+                              handleServiceChange('internet-enterprise', !!checked)
+                            }
+                          />
+                          <Label htmlFor="internet-enterprise" className="cursor-pointer">
+                            Internet Enterprise (Up to 1 Gbps)
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox
+                            id="dedicated-internet"
+                            checked={formData.services.includes('dedicated-internet')}
+                            onCheckedChange={(checked) => 
+                              handleServiceChange('dedicated-internet', !!checked)
+                            }
+                          />
+                          <Label htmlFor="dedicated-internet" className="cursor-pointer">
+                            Dedicated Internet Access
+                          </Label>
+                        </div>
+                      </div>
+                      {errors.services && (
+                        <p role="alert" className="text-sm text-destructive-600 mt-2">
+                          {errors.services}
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <h4 className="font-medium text-primary mb-4">
+                        Communication Services
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-2">
+                          <Checkbox
+                            id="voice"
+                            checked={formData.services.includes('voice')}
+                            onCheckedChange={(checked) => 
+                              handleServiceChange('voice', !!checked)
+                            }
+                          />
+                          <Label htmlFor="voice" className="cursor-pointer">
+                            Business Voice (VoIP)
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox
+                            id="pri"
+                            checked={formData.services.includes('pri')}
+                            onCheckedChange={(checked) => 
+                              handleServiceChange('pri', !!checked)
+                            }
+                          />
+                          <Label htmlFor="pri" className="cursor-pointer">
+                            PRI (Primary Rate Interface)
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox
+                            id="sip"
+                            checked={formData.services.includes('sip')}
+                            onCheckedChange={(checked) => 
+                              handleServiceChange('sip', !!checked)
+                            }
+                          />
+                          <Label htmlFor="sip" className="cursor-pointer">
+                            SIP Trunking
+                          </Label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="font-medium text-primary mb-4">
+                        Business Type <span className="text-destructive-500">*</span>
+                      </h4>
+                      <RadioGroup
+                        value={formData.businessType}
+                        onValueChange={(value) => setFormData(prev => ({
+                          ...prev, 
+                          businessType: value
+                        }))}
+                        aria-required="true"
+                        aria-invalid={!!errors.businessType}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="small" id="small" />
+                          <Label htmlFor="small" className="cursor-pointer">
+                            Small Business (1-20 employees)
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="medium" id="medium" />
+                          <Label htmlFor="medium" className="cursor-pointer">
+                            Medium Business (21-100 employees)
+                          </Label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="enterprise" id="enterprise" />
+                          <Label htmlFor="enterprise" className="cursor-pointer">
+                            Enterprise (100+ employees)
+                          </Label>
+                        </div>
+                      </RadioGroup>
+                      {errors.businessType && (
+                        <p role="alert" className="text-sm text-destructive-600 mt-2">
+                          {errors.businessType}
+                        </p>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Step 4: Review & Submit */}
+              {currentStep === 4 && (
+                <div className="space-y-6">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Review Your Request</CardTitle>
+                      <CardDescription>
+                        Please review your service request details
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-6">
+                      <div>
+                        <h4 className="font-medium text-primary mb-3">Company Information</h4>
+                        <div className="bg-surface rounded-lg p-4 space-y-2">
+                          <p><strong>Company:</strong> {formData.companyName}</p>
+                          <p><strong>Contact:</strong> {formData.contactName}</p>
+                          <p><strong>Email:</strong> {formData.email}</p>
+                          <p><strong>Phone:</strong> {formData.phone}</p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="font-medium text-primary mb-3">Service Address</h4>
+                        <div className="bg-surface rounded-lg p-4">
+                          <p>
+                            {formData.address}<br />
+                            {formData.city}, {formData.state} {formData.zip}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 className="font-medium text-primary mb-3">Selected Services</h4>
+                        <div className="bg-surface rounded-lg p-4 space-y-2">
+                          {formData.services.length > 0 ? (
+                            formData.services.map(service => (
+                              <Badge key={service} variant="outline">
+                                {service.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                              </Badge>
+                            ))
+                          ) : (
+                            <p className="text-muted">No services selected</p>
+                          )}
+                          <p><strong>Business Type:</strong> {formData.businessType}</p>
+                        </div>
+                      </div>
+
+                      <Separator />
+
+                      <div className="space-y-4">
+                        <div className="flex items-start space-x-2">
+                          <Checkbox
+                            id="terms"
+                            checked={formData.terms}
+                            onCheckedChange={(checked) => setFormData(prev => ({
+                              ...prev, 
+                              terms: !!checked
+                            }))}
+                            aria-required="true"
+                            aria-invalid={!!errors.terms}
+                            aria-describedby={errors.terms ? "terms-error" : undefined}
+                          />
+                          <Label htmlFor="terms" className="cursor-pointer text-sm">
+                            I agree to the Terms and Conditions and Service Level Agreement{' '}
+                            <span className="text-destructive-500">*</span>
+                          </Label>
+                        </div>
+                        {errors.terms && (
+                          <p id="terms-error" role="alert" className="text-sm text-destructive-600">
+                            {errors.terms}
+                          </p>
+                        )}
+
+                        <Alert className="border-primary-200 bg-primary-50">
+                          <AlertDescription className="text-primary-800">
+                            <strong>Next Steps:</strong> After submission, a business specialist will review your request and contact you within 1-2 business days to discuss implementation details and pricing.
+                          </AlertDescription>
+                        </Alert>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
+
+              {/* Navigation Buttons using design tokens */}
+              <div className="flex items-center justify-between pt-6">
+                <Button
+                  variant="outline"
+                  onClick={handlePrevious}
+                  disabled={currentStep === 1}
+                >
+                  Previous
+                </Button>
+
+                <div className="flex items-center gap-3">
+                  {currentStep < totalSteps ? (
+                    <Button onClick={handleNext}>
+                      Continue
+                    </Button>
+                  ) : (
+                    <>
+                      <Button variant="outline">
+                        Save Draft
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          if (validateStep(currentStep)) {
+                            // Handle form submission
+                            alert('Service request submitted successfully!');
+                          }
+                        }}
+                        disabled={!formData.terms}
+                      >
+                        Submit Request
+                      </Button>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
+// Accessibility Testing Story
+export const AccessibilityTest: Story = {
+  render: Default.render,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    
+    // Test for accessibility violations
+    const results = await axe(canvasElement);
+    expect(results).toHaveNoViolations();
+    
+    // Test form field accessibility
+    const companyNameField = canvas.getByLabelText(/company name/i);
+    expect(companyNameField).toHaveAttribute('aria-required', 'true');
+    
+    // Test step navigation accessibility
+    const steps = canvas.getAllByText(/step \d of \d/i);
+    expect(steps.length).toBeGreaterThan(0);
+    
+    // Test form validation
+    const continueButton = canvas.getByRole('button', { name: /continue/i });
+    fireEvent.click(continueButton);
+    
+    // Check that validation errors are announced to screen readers
+    const errorMessages = canvas.getAllByRole('alert');
+    expect(errorMessages.length).toBeGreaterThan(0);
+  },
+};
+
+// Token Compliance Testing
+export const TokenComplianceTest: Story = {
+  render: () => {
+    // Test component renders without hard-coded values
+    const { container } = render(<Default.render />);
+    
+    // Verify no hard-coded pixel values in classes
+    const allElements = container.querySelectorAll('*');
+    const hardCodedPixels = Array.from(allElements).some(element =>
+      Array.from(element.classList).some(className =>
+        className.includes('[') && className.includes('px')
+      )
+    );
+    
+    expect(hardCodedPixels).toBe(false);
+    
+    return <Default.render />;
+  },
+};

@@ -10,7 +10,7 @@ import {
 import { AlertTriangle, CheckCircle, Info, XCircle } from 'lucide-react';
 
 const meta: Meta<typeof Alert> = {
-  title: 'Components/Alert',
+  title: 'Alert',
   component: Alert,
   parameters: {
     layout: 'padded',

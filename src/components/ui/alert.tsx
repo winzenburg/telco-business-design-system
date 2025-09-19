@@ -13,7 +13,7 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: "bg-background text-foreground border-neutral-200",
-        info: "border-[#0D62FF]/20 bg-[#0D62FF]/5 text-[#0D62FF] [&>svg]:text-[#0D62FF]",
+        info: "border-[var(--ds-color-intent-primary)]/20 bg-[var(--ds-color-intent-primary)]/5 text-[var(--ds-color-intent-primary)] [&>svg]:text-[var(--ds-color-intent-primary)]",
         success: "border-green-200 bg-green-50 text-green-800 [&>svg]:text-green-600",
         warning: "border-orange-200 bg-orange-50 text-orange-800 [&>svg]:text-orange-600",
         destructive: "border-red-200 bg-red-50 text-red-800 [&>svg]:text-red-600",

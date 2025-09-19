@@ -91,14 +91,14 @@ const FormLabel = React.forwardRef<HTMLLabelElement, FormLabelProps>(
       <TypographyLabel
         className={cn(
           "leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
-          error ? "text-[var(--ds-color-intent-destructive]" : "text-[var(--ds-color-text-primary]",
+          error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-primary)]",
           className
         )}
         ref={ref}
         {...props}
       >
         {children}
-        {required && <span className="ml-1 text-[var(--ds-color-intent-destructive]">*</span>}
+        {required && <span className="ml-1 text-[var(--ds-color-intent-destructive)]">*</span>}
       </TypographyLabel>
     )
   }
@@ -119,7 +119,7 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionPr
       <p
         className={cn(
           "text-xs",
-          error ? "text-[var(--ds-color-intent-destructive]" : "text-[var(--ds-color-text-muted]",
+          error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-muted)]",
           className
         )}
         ref={ref}
@@ -149,10 +149,10 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
         as="p"
         className={cn(
           {
-            "text-[var(--ds-color-[^]]*])": type === "error",
-            "text-[var(--ds-color-[^]]*])": type === "success", 
-            "text-[var(--ds-color-[^]]*])": type === "warning",
-            "text-[var(--ds-color-[^]]*])": type === "info",
+            "text-[var(--ds-color-intent-destructive)]": type === "error",
+            "text-[var(--ds-color-intent-success)]": type === "success",
+            "text-[var(--ds-color-intent-warning)]": type === "warning",
+            "text-[var(--ds-color-intent-info)]": type === "info",
           },
           className
         )}
@@ -189,12 +189,12 @@ const FormSection = React.forwardRef<HTMLDivElement, FormSectionProps>(
         {(title || description) && (
           <div className="space-y-1">
             {title && (
-              <Title level={4} weight="semibold" className="text-[var(--ds-color-text-primary]">
+              <Title level={4} weight="semibold" className="text-[var(--ds-color-text-primary)]">
                 {title}
               </Title>
             )}
             {description && (
-              <Body size="m" className="text-[var(--ds-color-text-muted]">
+              <Body size="m" className="text-[var(--ds-color-text-muted)]">
                 {description}
               </Body>
             )}
@@ -225,7 +225,7 @@ const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
           "flex gap-3 pt-4",
           {
             "justify-start": align === "left",
-            "justify-center": align === "center", 
+            "justify-center": align === "center",
             "justify-end": align === "right",
           },
           className

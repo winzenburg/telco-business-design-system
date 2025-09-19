@@ -1,5 +1,5 @@
 // Figma API Integration for Design System
-import { Figma } from 'figma-api';
+import { Api as Figma } from 'figma-api';
 
 // Figma API configuration
 interface FigmaConfig {

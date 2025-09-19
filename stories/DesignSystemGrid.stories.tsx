@@ -14,7 +14,7 @@ import {
 } from '../src/tokens/design-system-grid';
 
 const meta: Meta = {
-  title: 'Design System/Grid & Layout',
+  title: ' Foundations/Grid & Layout',
   parameters: {
     layout: 'fullscreen',
     docs: {

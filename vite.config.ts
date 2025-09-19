@@ -15,33 +15,24 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'packages/components/src/index.ts'),
+      entry: {
+        index: resolve(__dirname, 'src/index.ts'),
+        core: resolve(__dirname, 'src/core.ts'),
+        lazy: resolve(__dirname, 'src/lazy.ts'),
+        tokens: resolve(__dirname, 'src/tokens/index.ts'),
+        components: resolve(__dirname, 'src/components/index.ts'),
+      },
       name: 'ComcastBusinessDesignSystem',
       formats: ['es', 'cjs'],
-      fileName: (format) => `index.${format === 'es' ? 'mjs' : 'js'}`,
     },
     rollupOptions: {
       external: [
         'react',
         'react-dom',
         'react/jsx-runtime',
-        '@radix-ui/react-accordion',
-        '@radix-ui/react-avatar', 
-        '@radix-ui/react-checkbox',
-        '@radix-ui/react-dialog',
-        '@radix-ui/react-dropdown-menu',
-        '@radix-ui/react-label',
-        '@radix-ui/react-popover',
-        '@radix-ui/react-progress',
-        '@radix-ui/react-radio-group',
-        '@radix-ui/react-select',
-        '@radix-ui/react-separator',
-        '@radix-ui/react-slider',
-        '@radix-ui/react-slot',
-        '@radix-ui/react-switch',
-        '@radix-ui/react-tabs',
-        '@radix-ui/react-toast',
-        '@radix-ui/react-tooltip',
+        // Externalize ALL Radix UI packages with regex
+        /^@radix-ui/,
+        // Externalize heavy dependencies
         'class-variance-authority',
         'clsx',
         'tailwind-merge',
@@ -49,6 +40,10 @@ export default defineConfig({
         'cmdk',
         'lucide-react',
       ],
+      treeshake: {
+        moduleSideEffects: false,
+        propertyReadSideEffects: false,
+      },
       output: {
         globals: {
           react: 'React',

@@ -1,0 +1,272 @@
+---
+title: ComponentName
+description: Brief one-line description of the component's purpose and primary use case.
+---
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { ComponentName } from '../../../components/ui/component-name';
+
+<Meta title="Components/ComponentName" component={ComponentName} />
+
+# ComponentName
+
+Brief description of the component's purpose and primary use cases in enterprise business applications.
+
+<Canvas>
+  <Story name="Default">
+    <ComponentName>Default example</ComponentName>
+  </Story>
+</Canvas>
+
+## Design Intent
+
+### Purpose
+Clear explanation of what business problem this component solves and why it exists.
+
+### When to Use
+- Primary use case with specific business context
+- Secondary use case with examples
+- Enterprise-specific scenarios
+
+### When Not to Use  
+- Alternative component recommendations
+- Situations where this component creates confusion
+- Anti-patterns to avoid
+
+## Variants & States
+
+### [Variant Name]
+Description and use case for this specific variant.
+
+<Canvas>
+  <Story name="Variant">
+    <ComponentName variant="example">Variant example</ComponentName>
+  </Story>
+</Canvas>
+
+### Interactive States
+Demonstration of hover, focus, active, disabled, and loading states.
+
+<Canvas>
+  <Story name="States">
+    <div className="space-y-4">
+      <ComponentName>Default</ComponentName>
+      <ComponentName disabled>Disabled</ComponentName>
+      <ComponentName loading>Loading</ComponentName>
+    </div>
+  </Story>
+</Canvas>
+
+## Tokens Used
+
+| Token Category | Token Name | Usage | Value |
+|----------------|------------|--------|-------|
+| Color | `--ds-color-primary` | Primary actions | `hsl(210, 100%, 50%)` |
+| Spacing | `--ds-space-md` | Internal padding | `1rem` |
+| Typography | `--ds-font-size-md` | Button text | `0.875rem` |
+| Border Radius | `--ds-radius-sm` | Corner rounding | `0.25rem` |
+| Shadow | `--ds-shadow-sm` | Elevation | `0 1px 2px rgba(0,0,0,0.1)` |
+
+## Accessibility
+
+### Keyboard Navigation
+- **Tab**: Focuses the component
+- **Enter/Space**: Activates the primary action  
+- **Escape**: Closes overlays or cancels actions
+- **Arrow Keys**: Navigation within component (if applicable)
+
+### ARIA Pattern
+- **Role**: `button`, `dialog`, `menu`, etc.
+- **States**: `aria-expanded`, `aria-selected`, `aria-checked`
+- **Labels**: `aria-label`, `aria-labelledby`, `aria-describedby`
+- **Live Regions**: `aria-live` for dynamic content announcements
+
+### Screen Reader Support
+- Component announces its purpose and state clearly
+- State changes are communicated to assistive technology
+- Error states include descriptive error messages
+- Loading states announce progress when applicable
+
+### Focus Management  
+- Focus indicator is clearly visible (meets 3:1 contrast ratio)
+- Focus order is logical and predictable
+- Focus is properly trapped in modal contexts
+- Focus returns to trigger element when closing overlays
+
+## Performance Notes
+
+### Rendering Performance
+- **Mount time**: < 16ms for initial render
+- **Re-render cost**: Minimal impact on parent component updates
+- **Memory footprint**: Optimized for large lists/repeated usage
+
+### Bundle Impact
+- **Size**: Component bundle ≤ 8kb gzipped
+- **Tree-shaking**: Exports are optimized for dead code elimination
+- **Dependencies**: Minimal external dependencies
+
+### Theme Switching
+- **No layout thrash**: Theme changes don't trigger layout recalculations
+- **CSS variables**: Uses CSS custom properties for theme-aware styling
+- **Performance**: Theme switch < 100ms visual update
+
+### SSR Compatibility
+- **Server-safe**: No client-only code in initial render
+- **Hydration**: Matches server and client rendering exactly
+- **Progressive enhancement**: Works without JavaScript for basic functionality
+
+## API Reference
+
+<ArgsTable of={ComponentName} />
+
+## Usage Examples
+
+### Basic Implementation
+```tsx
+import { ComponentName } from '@comcast/design-system';
+
+function MyApp() {
+  return (
+    <ComponentName variant="primary">
+      Click me
+    </ComponentName>
+  );
+}
+```
+
+### With Form Integration
+```tsx
+import { ComponentName } from '@comcast/design-system';
+import { useForm } from 'react-hook-form';
+
+function BusinessForm() {
+  const { handleSubmit } = useForm();
+  
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <ComponentName type="submit" variant="primary">
+        Submit Application
+      </ComponentName>
+    </form>
+  );
+}
+```
+
+### Enterprise Dashboard Example
+```tsx
+import { ComponentName } from '@comcast/design-system';
+
+function ServiceDashboard() {
+  return (
+    <div className="dashboard-actions">
+      <ComponentName 
+        variant="primary" 
+        onClick={() => createTicket()}
+        aria-describedby="create-help"
+      >
+        Create Support Ticket
+      </ComponentName>
+      <p id="create-help" className="text-sm text-muted-foreground">
+        Opens support ticket creation form
+      </p>
+    </div>
+  );
+}
+```
+
+## Do / Don't
+
+### ✅ Do
+
+**Use for primary actions**
+```tsx
+<ComponentName variant="primary">
+  Complete Purchase
+</ComponentName>
+```
+Primary actions should use the primary variant for visual hierarchy.
+
+**Provide accessible labels**
+```tsx
+<ComponentName aria-label="Close dialog">
+  <Icon name="close" />
+</ComponentName>
+```
+Icon-only components need descriptive labels for screen readers.
+
+**Handle loading states**
+```tsx
+<ComponentName loading={isSubmitting} disabled={isSubmitting}>
+  {isSubmitting ? 'Processing...' : 'Submit'}
+</ComponentName>
+```
+Communicate async operations clearly to users.
+
+### ❌ Don't
+
+**Don't use multiple primary actions**
+```tsx
+{/* ❌ Confusing hierarchy */}
+<div>
+  <ComponentName variant="primary">Save</ComponentName>
+  <ComponentName variant="primary">Submit</ComponentName>
+</div>
+```
+Use only one primary action per interface section.
+
+**Don't omit accessible names**
+```tsx
+{/* ❌ Screen reader cannot identify purpose */}
+<ComponentName>
+  <Icon name="settings" />
+</ComponentName>
+```
+Always provide accessible names for icon-only components.
+
+**Don't override design tokens**
+```tsx
+{/* ❌ Breaks design system consistency */}
+<ComponentName style={{ backgroundColor: '#ff0000' }}>
+  Custom Button
+</ComponentName>
+```
+Use design system variants instead of custom styling.
+
+## Related Components
+
+- [**RelatedComponent**](../related-component): Alternative for different use cases
+- [**ComplementaryComponent**](../complementary-component): Often used together
+- [**ParentComponent**](../parent-component): Contains this component
+
+## Migration Guide
+
+### From Previous Version
+If upgrading from a previous major version, see specific migration instructions:
+
+```bash
+# Run automated migration
+npx @comcast/design-system-codemods component-name-migration
+
+# Manual updates needed
+# - Update prop names: oldProp → newProp
+# - Review size variants: small → sm, large → lg
+# - Check TypeScript interfaces for breaking changes
+```
+
+## Changelog
+
+### v2.1.0
+- Added `loading` state with progress indicators
+- Improved keyboard navigation for screen readers
+- Fixed focus management in modal contexts
+
+### v2.0.0 
+- **BREAKING**: Renamed `size` prop to `variant`
+- Added new `destructive` variant
+- Improved contrast ratios for accessibility
+
+---
+
+**Last updated**: {new Date().toISOString().split('T')[0]}  
+**Component version**: 2.1.0  
+**Design system version**: 1.2.0

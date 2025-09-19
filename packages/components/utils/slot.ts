@@ -15,7 +15,7 @@ export const Slot = React.forwardRef<HTMLElement, SlotProps>(
       return React.cloneElement(children, {
         ...props,
         ...children.props,
-        ref: ref || children.ref,
+        ref: ref || (children as any).ref,
       });
     }
     return null;
@@ -46,5 +46,5 @@ export function forwardRef<T, P>(
 ): React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
 > {
-  return React.forwardRef(Component) as any;
+  return React.forwardRef(Component as React.ForwardRefRenderFunction<T, React.PropsWithoutRef<P>>) as any;
 } 

@@ -14,7 +14,7 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitive.Viewport
     ref={ref}
     className={cn(
-      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-md",
       className
     )}
     {...props}
@@ -27,11 +27,11 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "border border-[var(--ds-color-[^]]*] bg-[var(--ds-color-[^]]*] text-[var(--ds-color-[^]]*] opacity-100",
-        success: "border-[var(--ds-color-[^]]*]) bg-[var(--ds-color-[^]]*]) text-[var(--ds-color-[^]]*])",
-        warning: "border-[var(--ds-color-[^]]*]) bg-[var(--ds-color-[^]]*]) text-[var(--ds-color-[^]]*])", 
-        destructive: "border-[var(--ds-color-[^]]*]) bg-[var(--ds-color-[^]]*]) text-[var(--ds-color-[^]]*])",
-        info: "border-[var(--ds-color-[^]]*])/20 bg-[var(--ds-color-[^]]*])/5 text-[var(--ds-color-[^]]*]),"
+        default: "border border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-bg-surface)] text-[var(--ds-color-text-primary)] opacity-100",
+        success: "border-[var(--ds-color-status-success-border)] bg-[var(--ds-color-status-success-bg)] text-[var(--ds-color-status-success-text)]",
+        warning: "border-[var(--ds-color-status-warning-border)] bg-[var(--ds-color-status-warning-bg)] text-[var(--ds-color-status-warning-text)]",
+        destructive: "border-[var(--ds-color-intent-destructive)] bg-[var(--ds-color-status-error-bg)] text-[var(--ds-color-status-error-text)]",
+        info: "border-[var(--ds-color-status-info-border)] bg-[var(--ds-color-status-info-bg)] text-[var(--ds-color-status-info-text)]"
       },
     },
     defaultVariants: {
@@ -62,7 +62,7 @@ const ToastAction = React.forwardRef<
   <ToastPrimitive.Action
     ref={ref}
     className={cn(
-      "inline-flex h-8 shrink-0 items-center justify-center rounded-md border border-[var(--ds-color-[^]]*] bg-transparent px-3 text-sm font-medium ring-offset-[var(--ds-color-[^]]*] transition-colors hover:bg-[var(--ds-color-[^]]*] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-[^]]*] focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-[var(--ds-color-[^]]*] group-[.destructive]:hover:border-[var(--ds-color-[^]]*] group-[.destructive]:hover:bg-[var(--ds-color-[^]]*] group-[.destructive]:hover:text-[var(--ds-color-[^]]*] group-[.destructive]:focus:ring-[var(--ds-color-[^]]*]",
+      "inline-flex h-8 shrink-0 items-center justify-center rounded-md border border-[var(--ds-color-neutral-300)] bg-transparent px-3 text-sm font-medium ring-offset-[var(--ds-color-bg-canvas)] transition-colors hover:bg-[var(--ds-color-bg-surface)] focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-intent-primary)] focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-[var(--ds-color-intent-destructive)] group-[.destructive]:hover:border-[var(--ds-color-intent-destructive)] group-[.destructive]:hover:bg-[var(--ds-color-status-error-bg)] group-[.destructive]:hover:text-[var(--ds-color-status-error-text)] group-[.destructive]:focus:ring-[var(--ds-color-intent-destructive)]",
       className
     )}
     {...props}
@@ -77,7 +77,7 @@ const ToastClose = React.forwardRef<
   <ToastPrimitive.Close
     ref={ref}
     className={cn(
-      "absolute right-2 top-2 rounded-md p-1 text-[var(--ds-color-[^]]*]) opacity-0 transition-opacity hover:text-[var(--ds-color-[^]]*]) focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-[var(--ds-color-[^]]*]) group-[.destructive]:hover:text-[var(--ds-color-[^]]*]) group-[.destructive]:focus:ring-[var(--ds-color-[^]]*]) group-[.destructive]:focus:ring-offset-[var(--ds-color-[^]]*])",
+      "absolute right-2 top-2 rounded-md p-1 text-[var(--ds-color-text-muted)] opacity-0 transition-opacity hover:text-[var(--ds-color-text-primary)] focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-[var(--ds-color-status-error-text)] group-[.destructive]:hover:text-[var(--ds-color-status-error-text)] group-[.destructive]:focus:ring-[var(--ds-color-intent-destructive)] group-[.destructive]:focus:ring-offset-[var(--ds-color-status-error-bg)]",
       className
     )}
     toast-close=""
@@ -115,6 +115,9 @@ ToastDescription.displayName = ToastPrimitive.Description.displayName
 type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
 
 type ToastActionElement = React.ReactElement<typeof ToastAction>
+
+// Export useToast hook
+export { useToast } from '../../../src/hooks/use-toast'
 
 export {
   type ToastProps,

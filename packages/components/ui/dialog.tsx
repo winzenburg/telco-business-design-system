@@ -8,6 +8,8 @@ import { Icon } from "../../icons/src/Icon"
 // Typography: Title XL for headers, body text using design system tokens
 // Colors: Canvas background, border tokens, overlay with proper opacity
 
+export type DialogProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root>
+
 const Dialog = DialogPrimitive.Root
 
 const DialogTrigger = DialogPrimitive.Trigger
@@ -23,7 +25,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-[var(--ds-color-[^]]*]) backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "fixed inset-0 z-50 bg-[var(--ds-color-bg-overlay)] backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
     )}
     {...props}
@@ -41,7 +43,7 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         // Design system styling
-        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-6 bg-[var(--ds-color-[^]]*] border border-[var(--ds-color-[^]]*] p-6 shadow-lg duration-200 opacity-100",
+        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-6 bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-border-default)] p-6 shadow-lg duration-200 opacity-100",
         // Responsive sizing
         "sm:rounded-lg md:w-full",
         // Animations
@@ -52,8 +54,8 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-[var(--ds-color-bg-canvas] transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-intent-primary] focus:ring-offset-2 disabled:pointer-events-none">
-        <Icon name="close" size={16} className="text-[var(--ds-color-text-muted] hover:text-[var(--ds-color-text-primary] transition-colors" />
+      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-[var(--ds-color-bg-canvas)] transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-intent-primary)] focus:ring-offset-2 disabled:pointer-events-none">
+        <Icon name="close" size={16} className="text-[var(--ds-color-text-muted)] hover:text-[var(--ds-color-text-primary)] transition-colors" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
@@ -96,7 +98,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight text-[var(--ds-color-text-primary]",
+      "text-2xl font-semibold leading-none tracking-tight text-[var(--ds-color-text-primary)]",
       className
     )}
     {...props}
@@ -110,7 +112,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-[var(--ds-color-text-muted]", className)}
+    className={cn("text-sm text-[var(--ds-color-text-muted)]", className)}
     {...props}
   />
 ))

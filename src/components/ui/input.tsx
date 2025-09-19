@@ -6,38 +6,38 @@ import { Icon } from "../Icon"
 import { InputSkeleton } from "./skeleton"
 
 // Input component following Comcast Business Design System
-// Colors: #70717D for placeholder and default borders, #2B2D3F for text
-// Border hover: #2B2D3F, Focus: #0D62FF
+// Colors: Using design tokens for consistent theming
+// Border hover and focus states using design system tokens
 
 const inputVariants = cva(
   // Base styles using exact Figma specifications
-  "flex w-full items-center gap-[7px] self-stretch rounded-[4px] border bg-white transition-colors file:border-0 file:bg-transparent focus-visible:outline-none disabled:cursor-not-allowed selection:bg-gray-600 overflow-hidden text-ellipsis text-[#15172B] font-secondary placeholder:overflow-hidden placeholder:text-ellipsis placeholder:text-gray-600 placeholder:font-normal placeholder:leading-[130%] placeholder:tracking-normal",
+  "flex w-full items-center gap-[7px] self-stretch rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-canvas)] transition-colors file:border-0 file:bg-transparent focus-visible:outline-none disabled:cursor-not-allowed selection:bg-[var(--ds-color-intent-primary)]/20 overflow-hidden text-ellipsis text-[var(--ds-color-text-primary)] font-secondary placeholder:overflow-hidden placeholder:text-ellipsis placeholder:text-[var(--ds-color-text-muted)] placeholder:font-normal placeholder:leading-[130%] placeholder:tracking-normal",
   {
     variants: {
       variant: {
         // Default state - neutral/grey-400 border
-        default: "border-[#B4B5BB] hover:border-[#70717D] hover:bg-[#F9F9FA] hover:shadow-[0_4px_4px_-3px_#DDDDE2] focus-visible:border-[#B4B5BB] focus-visible:shadow-[0_0_0_1.5px_#0D62FF] active:border-[#B4B5BB]",
+        default: "border-[var(--ds-color-border-default)] hover:border-[var(--ds-color-text-muted)] hover:bg-[var(--ds-color-bg-surface)] hover:shadow-[var(--ds-shadow-sm)] focus-visible:border-[var(--ds-color-border-default)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] active:border-[var(--ds-color-border-default)]",
         
         // Error states
-        error: "border-[#D11314] hover:border-red-600 focus-visible:border-[#D11314] focus-visible:shadow-[0_0_0_1.5px_#0D62FF] active:border-[#D11314]",
+        error: "border-[var(--ds-color-intent-destructive)] hover:border-[var(--ds-color-intent-destructive)]/80 focus-visible:border-[var(--ds-color-intent-destructive)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] active:border-[var(--ds-color-intent-destructive)]",
         
         
         // Loading state
-        loading: "border-[#B4B5BB] hover:border-[#2B2D3F] focus-visible:border-[#B4B5BB] focus-visible:shadow-[0_0_0_1.5px_#0D62FF] cursor-wait",
+        loading: "border-[var(--ds-color-border-default)] hover:border-[var(--ds-color-text-primary)] focus-visible:border-[var(--ds-color-border-default)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] cursor-wait",
       },
       size: {
-        default: "h-10 px-[13px] py-[9px]",
+        default: "h-[var(--ds-spacing-10)] px-[13px] py-[9px]",
         sm: "h-8 px-2 py-1 text-xs",
         lg: "h-12 px-4 py-3 text-base",
       },
       inputState: {
         default: "",
-        active: "border-[#B4B5BB]",
-        focused: "border-[#B4B5BB] shadow-[0_0_0_1.5px_#0D62FF]",
-        hover: "border-[#70717D] bg-[#F9F9FA] shadow-[0_4px_4px_-3px_#DDDDE2]",
-        disabled: "border-[#DDDDE2] bg-[#F1F2F6] cursor-not-allowed",
-        errorFocused: "border-[#D11314] shadow-[0_0_0_1.5px_#0D62FF]",
-        errorFilled: "border-[#D11314]",
+        active: "border-[var(--ds-color-border-default)]",
+        focused: "border-[var(--ds-color-border-default)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
+        hover: "border-[var(--ds-color-text-muted)] bg-[var(--ds-color-bg-surface)] shadow-[var(--ds-shadow-sm)]",
+        disabled: "border-[var(--ds-color-border-muted)] bg-[var(--ds-color-bg-muted)] cursor-not-allowed",
+        errorFocused: "border-[var(--ds-color-intent-destructive)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
+        errorFilled: "border-[var(--ds-color-intent-destructive)]",
         loading: "cursor-wait",
       },
     },
@@ -184,7 +184,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               {label}
               {required && (
                 <span 
-                  className="text-[#15172B] font-secondary"
+                  className="text-[var(--ds-color-text-primary)] font-secondary"
                   style={{
                     fontSize: '14px',
                     fontWeight: 400,
@@ -198,7 +198,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </label>
             {/* Subcopy */}
             {subcopy && (
-              <p className="text-[#70717D] font-secondary font-normal leading-[130%] tracking-normal" style={{ 
+              <p className="text-[var(--ds-color-text-muted)] font-secondary font-normal leading-[130%] tracking-normal" style={{ 
                 fontSize: '14px', 
                 lineHeight: '130%',
                 fontWeight: 400,
@@ -274,7 +274,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {(displayHintText || (error && errorMessage)) && (
           <p className={cn(
             "font-secondary font-normal leading-[130%] tracking-normal mt-1",
-            error ? "text-[#D11314]" : "text-[#70717D]"
+            error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-muted)]"
           )} style={{ 
             fontSize: '14px', 
             lineHeight: '130%',

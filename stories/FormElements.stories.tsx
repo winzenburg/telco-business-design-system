@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../sr
 import { formElementSpecs, categorizedForms, formElementUsage } from '../src/tokens/figma-form-specs';
 
 const meta: Meta = {
-  title: 'Components/FormElements',
+  title: 'FormElements',
   parameters: {
     layout: 'padded',
     docs: {

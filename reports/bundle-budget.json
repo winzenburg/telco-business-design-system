@@ -1,0 +1,1762 @@
+{
+  "summary": {
+    "totalFiles": 287,
+    "withinBudget": 283,
+    "violations": 4,
+    "budgetLimit": 8
+  },
+  "violations": [
+    {
+      "file": "dist/tokens.js",
+      "sizeKb": 13.1,
+      "budgetKb": 8,
+      "overage": 5.1,
+      "severity": "error"
+    },
+    {
+      "file": "dist/doccallout-DmokYOsc.js",
+      "sizeKb": 53.26,
+      "budgetKb": 8,
+      "overage": 45.26,
+      "severity": "error"
+    },
+    {
+      "file": "dist/design-system-icons-BpZH4u8g.js",
+      "sizeKb": 17.61,
+      "budgetKb": 8,
+      "overage": 9.61,
+      "severity": "error"
+    },
+    {
+      "file": "dist/components.js",
+      "sizeKb": 18.8,
+      "budgetKb": 8,
+      "overage": 10.8,
+      "severity": "error"
+    }
+  ],
+  "results": [
+    {
+      "file": "dist/doccallout-DmokYOsc.js",
+      "sizeKb": 53.26,
+      "budgetKb": 8,
+      "withinBudget": false
+    },
+    {
+      "file": "dist/components.js",
+      "sizeKb": 18.8,
+      "budgetKb": 8,
+      "withinBudget": false
+    },
+    {
+      "file": "dist/design-system-icons-BpZH4u8g.js",
+      "sizeKb": 17.61,
+      "budgetKb": 8,
+      "withinBudget": false
+    },
+    {
+      "file": "dist/tokens.js",
+      "sizeKb": 13.1,
+      "budgetKb": 8,
+      "withinBudget": false
+    },
+    {
+      "file": "dist/badge-iTK8h5St.js",
+      "sizeKb": 7.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typography-consolidated-CXAx2jwL.js",
+      "sizeKb": 3.17,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/chart-CsfvDRXk.js",
+      "sizeKb": 2.24,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/fees-CZJGbXBJ.js",
+      "sizeKb": 1.81,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/Icon-CKkPDPSI.js",
+      "sizeKb": 1.77,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantlabels-Y_VWClOI.js",
+      "sizeKb": 1.68,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/varianthidden-tP_GDhw8.js",
+      "sizeKb": 1.61,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantoperatingtypeoutline-jbJgSMd2.js",
+      "sizeKb": 1.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1default-DrVYuOqD.js",
+      "sizeKb": 1.54,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantcallcompletetypeoutline-CR_c9Fv1.js",
+      "sizeKb": 1.43,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/autopay-BxPpn9oR.js",
+      "sizeKb": 1.43,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantcallforwardingalttypeoutline-kQ-YJaKm.js",
+      "sizeKb": 1.4,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantcallholdtypeoutline-D8tf-9Ri.js",
+      "sizeKb": 1.39,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/activecore-BV6c4h4x.js",
+      "sizeKb": 1.39,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantmissedcalltypeoutline-B2rN1gSW.js",
+      "sizeKb": 1.38,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantmicoff-BFDnOvJW.js",
+      "sizeKb": 1.38,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantincomingcalltypeoutline-4pOxNiHA.js",
+      "sizeKb": 1.37,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantoutgoingcalltypeoutline-0KuUnhfL.js",
+      "sizeKb": 1.36,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantcallforwardingtypeoutline-BjMCqpmM.js",
+      "sizeKb": 1.36,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/tradein-F0dWLwOR.js",
+      "sizeKb": 1.35,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1outline-CCsGLUfw.js",
+      "sizeKb": 1.35,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/deployment-BXCMg9NV.js",
+      "sizeKb": 1.34,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/speed-B_rihEyw.js",
+      "sizeKb": 1.28,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/gift-DmcwFoUk.js",
+      "sizeKb": 1.28,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant2-Moh3EqXK.js",
+      "sizeKb": 1.26,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/remote-Ckroww6c.js",
+      "sizeKb": 1.25,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/externallink1-BLaALgX9.js",
+      "sizeKb": 1.25,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant3-CkVkLV6I.js",
+      "sizeKb": 1.24,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/tool-Bdl7Y29h.js",
+      "sizeKb": 1.23,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantshown-iQ3o-TUA.js",
+      "sizeKb": 1.21,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/maximize-BLpUOfT8.js",
+      "sizeKb": 1.21,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantphonetypeoutline-CyNFoCFt.js",
+      "sizeKb": 1.2,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/shareddata-DXs-49vD.js",
+      "sizeKb": 1.18,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/dialog-CYtQRm_k.js",
+      "sizeKb": 1.17,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/powerfulnetwork-VMphokRw.js",
+      "sizeKb": 1.16,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/minus-n0ezEsIg.js",
+      "sizeKb": 1.15,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/securityquestion-DWCOipTb.js",
+      "sizeKb": 1.12,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/command-BkOasjVi.js",
+      "sizeKb": 1.12,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/vrheadset-1tfgfsce.js",
+      "sizeKb": 1.11,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantoperatingtypefilled-B0eglgR3.js",
+      "sizeKb": 1.08,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/stateunsorted-DGMsf6-F.js",
+      "sizeKb": 1.07,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/statedescending-BK5phxie.js",
+      "sizeKb": 1.07,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/stateascending-CQVhjoC1.js",
+      "sizeKb": 1.07,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/5g-ETAAVNDi.js",
+      "sizeKb": 1.07,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sort-B4Vq1qXU.js",
+      "sizeKb": 1.05,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/bell-DEJcHEEk.js",
+      "sizeKb": 1.05,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typetype4coloron-DU6OCmc_.js",
+      "sizeKb": 1.04,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/table-D2ve-LVk.js",
+      "sizeKb": 1.04,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexxs12-B-pOUIhU.js",
+      "sizeKb": 1.01,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizes20-DM8Ibctc.js",
+      "sizeKb": 1.01,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/arrow-D6jNKhkH.js",
+      "sizeKb": 1.01,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexxl80-CfyZCiD7.js",
+      "sizeKb": 1,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexl64-EgJs3s-v.js",
+      "sizeKb": 1,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizem24-CvHmLqfX.js",
+      "sizeKb": 0.99,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizel32-Tpv6ElW3.js",
+      "sizeKb": 0.99,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexs16-CqPFpwqE.js",
+      "sizeKb": 0.98,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/hotspot-CRQ1fu5v.js",
+      "sizeKb": 0.98,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/ar-pvosJffm.js",
+      "sizeKb": 0.97,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantdisabled-D7WgZYJn.js",
+      "sizeKb": 0.96,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantcallcompletetypefilled-d_EVa17a.js",
+      "sizeKb": 0.95,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/conference-_qoK3D3Q.js",
+      "sizeKb": 0.93,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantcallforwardingalttypefilled-DoJN6aLY.js",
+      "sizeKb": 0.91,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/unlink-DPBLhagB.js",
+      "sizeKb": 0.91,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantcallholdtypefilled-B_HLlZTD.js",
+      "sizeKb": 0.9,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantoutgoingcalltypefilled-BAaxaqZC.js",
+      "sizeKb": 0.88,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantmissedcalltypefilled-DyuIhJ8X.js",
+      "sizeKb": 0.88,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/stylefilled-DyYVbvqo.js",
+      "sizeKb": 0.88,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1filled-2LyT3nT7.js",
+      "sizeKb": 0.88,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/password-Rikv0wvc.js",
+      "sizeKb": 0.88,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/wifi-C3e_LtGw.js",
+      "sizeKb": 0.87,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantincomingcalltypefilled-D_VEiIu-.js",
+      "sizeKb": 0.87,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantmicon-CDSskj3Y.js",
+      "sizeKb": 0.86,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantcallforwardingtypefilled-BMBPVa-w.js",
+      "sizeKb": 0.86,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/link-CcgHcRY2.js",
+      "sizeKb": 0.86,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/device-SAWDEiX9.js",
+      "sizeKb": 0.86,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/cloudstorm-B8P-6BFA.js",
+      "sizeKb": 0.86,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/billsummarydefault-a-JRhnwc.js",
+      "sizeKb": 0.86,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/report-2MLfK0CV.js",
+      "sizeKb": 0.85,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/noannualcontract-DCe7bXl4.js",
+      "sizeKb": 0.84,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/noextracharge-DMN9peSS.js",
+      "sizeKb": 0.83,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/cartempty-C7ylATe3.js",
+      "sizeKb": 0.83,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/virtualassistant-fjw8m1Zs.js",
+      "sizeKb": 0.81,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/varianttwitter-CHX6AoWG.js",
+      "sizeKb": 0.81,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typeoutline-CcMdgakc.js",
+      "sizeKb": 0.81,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/styleoutline-CbXW8iJ9.js",
+      "sizeKb": 0.81,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/refresh-DFS4Q8qt.js",
+      "sizeKb": 0.8,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/pin-Cy4F18T4.js",
+      "sizeKb": 0.79,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/varianthighvolume-9UlNOXfd.js",
+      "sizeKb": 0.78,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typetype3coloron--HvM8cy1.js",
+      "sizeKb": 0.78,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/infotimer-DlpoAaMC.js",
+      "sizeKb": 0.78,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/filteralt-Bm1bcw58.js",
+      "sizeKb": 0.78,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/cloudupload-CLGJDdhV.js",
+      "sizeKb": 0.78,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/minimize-BgUf1eOF.js",
+      "sizeKb": 0.77,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/attachment-CWG4cfl0.js",
+      "sizeKb": 0.77,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/gethelp-Dtr7ON6E.js",
+      "sizeKb": 0.76,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/size20x20-DRM0p7I_.js",
+      "sizeKb": 0.75,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/notifications-B3LIfyN-.js",
+      "sizeKb": 0.75,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/clipboard-DyQ5T8TY.js",
+      "sizeKb": 0.75,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typefilled-CR-m2fZ4.js",
+      "sizeKb": 0.74,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/flow-BbN-BIwN.js",
+      "sizeKb": 0.74,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/buildingwip-BtHU5QBQ.js",
+      "sizeKb": 0.73,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/2factor-BCqCLils.js",
+      "sizeKb": 0.73,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantbluetooth-CiTXwQsE.js",
+      "sizeKb": 0.72,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/download-rBQ1kjHL.js",
+      "sizeKb": 0.72,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantphonetypefilled-kYAvsL2e.js",
+      "sizeKb": 0.71,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/upload-4o7-JTIw.js",
+      "sizeKb": 0.71,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/size32x32-lmzHn0-L.js",
+      "sizeKb": 0.71,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantenabled-DxeArRdh.js",
+      "sizeKb": 0.7,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/staticip-Cf_Y9dDv.js",
+      "sizeKb": 0.7,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/keypad-Pcc_TR-s.js",
+      "sizeKb": 0.7,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/complete-CitiNd74.js",
+      "sizeKb": 0.7,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/truck-Dz1YTs9I.js",
+      "sizeKb": 0.69,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/performancethreshold-CZKKhV6C.js",
+      "sizeKb": 0.69,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/login-C0ZrA850.js",
+      "sizeKb": 0.69,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantthumbuptypeoutline-CQVV3UV2.js",
+      "sizeKb": 0.68,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/numbers-BQZJzz4M.js",
+      "sizeKb": 0.68,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/logout-CbnJiVNU.js",
+      "sizeKb": 0.68,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/camera-C6A9_1Rl.js",
+      "sizeKb": 0.68,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantlinkedin-D0jkEy9p.js",
+      "sizeKb": 0.67,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/message-elal-3WJ.js",
+      "sizeKb": 0.67,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/globalnav-CsEy4WWx.js",
+      "sizeKb": 0.67,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/configure-nKIO0boW.js",
+      "sizeKb": 0.67,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantunlockedtypeoutline-Bsi2z5VL.js",
+      "sizeKb": 0.66,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantlockedtypeoutline-B2sgT72u.js",
+      "sizeKb": 0.66,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/document-DCHp9Csc.js",
+      "sizeKb": 0.66,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/ticketicon-BSZHjoCy.js",
+      "sizeKb": 0.65,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/switchaccounts-DPk7yFes.js",
+      "sizeKb": 0.65,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/stream-Dmh5MQRN.js",
+      "sizeKb": 0.65,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/simcard-BeF88WqG.js",
+      "sizeKb": 0.65,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1arrowdownandleft-CO_9FE6O.js",
+      "sizeKb": 0.65,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/portal-CM3q44Z4.js",
+      "sizeKb": 0.65,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/internet-fxZhm-xc.js",
+      "sizeKb": 0.65,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/directiondown-Ct30ERNq.js",
+      "sizeKb": 0.65,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantthumbdowntypeoutline-CKMhYMaH.js",
+      "sizeKb": 0.64,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1arrowdownandright-BXljaOpx.js",
+      "sizeKb": 0.64,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/piechart-DdyEtBR5.js",
+      "sizeKb": 0.64,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/doublechevron-CEx_V8V9.js",
+      "sizeKb": 0.64,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/addchannels-DbVnNOMf.js",
+      "sizeKb": 0.64,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantmute-p7lAGay2.js",
+      "sizeKb": 0.63,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantlowvolume-CcjuH7GC.js",
+      "sizeKb": 0.63,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/users-vKCBc1M6.js",
+      "sizeKb": 0.63,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/mobility-C36WC2mL.js",
+      "sizeKb": 0.63,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/directionright-dxRik65I.js",
+      "sizeKb": 0.63,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/byod-BzgVzrXG.js",
+      "sizeKb": 0.63,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/playcircle-BWHaljqi.js",
+      "sizeKb": 0.62,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/feedback-CQRXk7QH.js",
+      "sizeKb": 0.62,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/arrowwithbend-BsmjoYKj.js",
+      "sizeKb": 0.62,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantunlockedtypefilled-DsgK3vU1.js",
+      "sizeKb": 0.6,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantlockedtypefilled-DSiBgD1y.js",
+      "sizeKb": 0.6,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/qrcode-D-Qi29yD.js",
+      "sizeKb": 0.6,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/alert-dYkRBUHE.js",
+      "sizeKb": 0.6,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantthumbuptypefilled-DenkyzK7.js",
+      "sizeKb": 0.59,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantthumbdowntypefilled-BE4c1L5Y.js",
+      "sizeKb": 0.59,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantformerlytwitter-CBgF4nb9.js",
+      "sizeKb": 0.59,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/layer1-aQAea7WB.js",
+      "sizeKb": 0.59,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/directionleft-C69dbE0s.js",
+      "sizeKb": 0.59,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorwhitesizexxxl80x80-BJNfN_J3.js",
+      "sizeKb": 0.59,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/iconwrapper-Cccp-Kz7.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/headphones-D39L4Ebo.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/grabber-CnoqQVgc.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/ethernet-qkKH4APK.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/directionup-DQjpP_B2.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorwhitesizexxl64x64-BNzVGY8m.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorbluesizexxxl80x80-B_vt5TVd.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorblacksizexxxl80x80-D2vD3Di7.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/article-kCijkIZP.js",
+      "sizeKb": 0.58,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/video-Bao1Bcgw.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/shoppingbag-CLWjUe0M.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/search-BZc1_r-9.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant10-CVXb26SP.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/popover-BSzYRU6p.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/percent-BPRKwrTW.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/kit-C-loqEiU.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorwhitesizexxs12x12-CLa-ZCpf.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorwhitesizexs16x16-CRFDk6ge.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorwhitesizexl48x48-DHyODMnH.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorwhitesizes20x20-BfoYka6S.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorwhitesizem24x24-FKwgzYEI.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorwhitesizel32x32-GaSSF_xb.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorbluesizexxs12x12-DtiYNEc-.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorbluesizexxl64x64-fkSDYnrg.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorbluesizexs16x16-BTtPlE6k.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorbluesizes20x20-BO4S_GTA.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorbluesizem24x24-BArwIWPQ.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorbluesizel32x32-BGxNdQDP.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorblacksizexxs12x12-eQmfUzum.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorblacksizexxl64x64-KRWTbhmX.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorblacksizexs16x16-DKaW2yJL.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorblacksizem24x24-BQVlI8YV.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorblacksizel32x32-B3LXzEyi.js",
+      "sizeKb": 0.57,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/wallet-DjxOSyg3.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/videomonitoring-pfjSpoGs.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant8-B6REpPQL.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant7-Cjb3EB1n.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/paymentcard-B0QzsQqE.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/networkhealth-C1L_m6jZ.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/money-Bhoe-rVk.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/guide-DWHWLy6V.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/expandedtextbox-CktnV7XB.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorbluesizexl48x48-DPgo5Pkz.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorblacksizexl48x48-B6xIAya0.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/colorblacksizes20x20-BxmTdWZJ.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/analytics-BXNJ0Ols.js",
+      "sizeKb": 0.56,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/voicemail-DaVMPEJx.js",
+      "sizeKb": 0.55,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typeoutlinetoasttimerfalse-DeCjADcp.js",
+      "sizeKb": 0.55,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typeoutlinecolorfalse-B6-4YK6Q.js",
+      "sizeKb": 0.55,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/printer-Csl9rpyE.js",
+      "sizeKb": 0.55,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/logo1-BdUtPJcS.js",
+      "sizeKb": 0.55,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/ecobill-B7dLrwt4.js",
+      "sizeKb": 0.55,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/browser-BYP9nGoV.js",
+      "sizeKb": 0.55,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typeoutlinecoloron-HSvDZ_DE.js",
+      "sizeKb": 0.54,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typeoutlinecoloroff-BiAC3qSR.js",
+      "sizeKb": 0.54,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/styleoutlined-CoNSgdrO.js",
+      "sizeKb": 0.54,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/cloud-BoplhJ0Z.js",
+      "sizeKb": 0.54,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/addnewservices-DbXZQhp3.js",
+      "sizeKb": 0.54,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/toggle-BPt6NREm.js",
+      "sizeKb": 0.53,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/increase-Dv2jyDmu.js",
+      "sizeKb": 0.53,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/history-vifNUY1w.js",
+      "sizeKb": 0.53,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantfacebook-DqAm8MQN.js",
+      "sizeKb": 0.51,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typefilledcolortrue-Bxy-Weop.js",
+      "sizeKb": 0.51,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typefilledcolorfalse-CcB1Zmus.js",
+      "sizeKb": 0.51,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/shape-DPlV7OXA.js",
+      "sizeKb": 0.51,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant9-C7YXCtOs.js",
+      "sizeKb": 0.51,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/plus-C0_8p5nC.js",
+      "sizeKb": 0.51,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/close-CTCGzztr.js",
+      "sizeKb": 0.51,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/chat-DjObBMgg.js",
+      "sizeKb": 0.51,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typefilledtoasttimerfalse-Q9yubNPH.js",
+      "sizeKb": 0.5,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typefilledcoloron-D1dLN9MG.js",
+      "sizeKb": 0.5,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typefilledcoloroff-B30aiwdG.js",
+      "sizeKb": 0.5,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexs12x12directionup-VSKAktkU.js",
+      "sizeKb": 0.5,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/pricetag-Dsw1xF3A.js",
+      "sizeKb": 0.5,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/minimizealt-DKn5a-X4.js",
+      "sizeKb": 0.5,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/menu-Ck9Tdid8.js",
+      "sizeKb": 0.5,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/folder-CEK-1ry8.js",
+      "sizeKb": 0.5,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexs12x12directiondown-C4kK7Lkb.js",
+      "sizeKb": 0.49,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant6-b1Kh7mfG.js",
+      "sizeKb": 0.49,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/index.js",
+      "sizeKb": 0.49,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/icon-DzYq3_cb.js",
+      "sizeKb": 0.49,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/externallink-B6eJzv64.js",
+      "sizeKb": 0.49,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/blockers-D2DmUXpa.js",
+      "sizeKb": 0.49,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexl32x32directionup-BjJBCXFD.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexl32x32directionright-BBr68dL-.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexl32x32directionleft-DV-LC5Af.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexl32x32directiondown-DwxwbMYs.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizes16x16directionright-28MDoTgl.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizes16x16directionleft-CkQQjGom.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizes16x16directiondown-BWFOse3d.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizem20x20directionup-DqT2F-wV.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizem20x20directionleft-Ct66eRlh.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizem20x20directiondown-BFxxomlq.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizel24x24directionleft-NOTYaLVY.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/externallink2-BapLgomB.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/core.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/check-CdyKQm81.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/avplay-CjSH3cgu.js",
+      "sizeKb": 0.48,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/variantnovolume-D5KVh34d.js",
+      "sizeKb": 0.47,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexs12x12directionright-m8RV6VOL.js",
+      "sizeKb": 0.47,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizexs12x12directionleft-UiUnMQ8F.js",
+      "sizeKb": 0.47,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizes16x16directionup-DDtadRdh.js",
+      "sizeKb": 0.47,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizem20x20directionright-DCPzF5K5.js",
+      "sizeKb": 0.47,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizel24x24directionup-DhpTxeK2.js",
+      "sizeKb": 0.47,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizel24x24directionright-B5_aexZ_.js",
+      "sizeKb": 0.47,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/sizel24x24directiondown-CKC4ocit.js",
+      "sizeKb": 0.47,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/layout--2jiGdcm.js",
+      "sizeKb": 0.46,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/brackets-CNKWY2H3.js",
+      "sizeKb": 0.46,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant4--PKTOyLY.js",
+      "sizeKb": 0.45,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/contextmenu-BVxp8RPz.js",
+      "sizeKb": 0.45,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/backarrow-BneWzmSA.js",
+      "sizeKb": 0.44,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/avpause-LgwMum_5.js",
+      "sizeKb": 0.44,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant5-BCzw-Xrc.js",
+      "sizeKb": 0.43,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/avstop-Cg8BWH1o.js",
+      "sizeKb": 0.43,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/avrecord-DnQEBY-G.js",
+      "sizeKb": 0.42,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/uiarrows-UvSYtqpF.js",
+      "sizeKb": 0.4,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typetoasttimercoloron-Irpe9S8Z.js",
+      "sizeKb": 0.4,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typetoasttimertoasttimertrue-UvxvGZbP.js",
+      "sizeKb": 0.39,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/lazy.js",
+      "sizeKb": 0.39,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/typetoasttimercolortrue-aAS9Ntjj.js",
+      "sizeKb": 0.37,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/chevron-CoZn7Map.js",
+      "sizeKb": 0.35,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/bullet-CNUbbe0Y.js",
+      "sizeKb": 0.35,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/group1-B9uzTVdo.js",
+      "sizeKb": 0.34,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/property1variant11-Cc02s1w8.js",
+      "sizeKb": 0.32,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/ellipse32-DiKar1Qg.js",
+      "sizeKb": 0.31,
+      "budgetKb": 8,
+      "withinBudget": true
+    },
+    {
+      "file": "dist/cn-B6yFEsav.js",
+      "sizeKb": 0.16,
+      "budgetKb": 8,
+      "withinBudget": true
+    }
+  ]
+}

@@ -10,7 +10,7 @@ import {
 } from '../src/tokens/design-system-elevation';
 
 const meta: Meta = {
-  title: 'Design System/Elevation & Shadows',
+  title: ' Foundations/Elevation & Shadows',
   parameters: {
     layout: 'padded',
     docs: {

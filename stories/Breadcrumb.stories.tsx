@@ -11,7 +11,7 @@ import {
 import { Home } from 'lucide-react';
 
 const meta: Meta<typeof Breadcrumb> = {
-  title: 'Components/Breadcrumb',
+  title: 'Breadcrumb',
   component: Breadcrumb,
   parameters: {
     layout: 'padded',

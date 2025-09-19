@@ -6,25 +6,25 @@ import { cn } from "../../utils/cn"
 
 const badgeVariants = cva(
   [
-    "inline-flex items-center justify-center gap-1.5 rounded-full border font-medium transition-all duration-200",
+    "inline-flex items-center justify-center gap-1 rounded-full border font-medium transition-all duration-200",
     "focus:outline-none focus:ring-2 focus:ring-offset-2",
     "disabled:pointer-events-none disabled:opacity-50",
   ],
   {
     variants: {
       variant: {
-        default: "border-transparent bg-[#E8EAEF] text-[#2B2D3F] hover:bg-[#E8EAEF]/80",
+        default: "border-transparent bg-[var(--ds-color-bg-muted)] text-[var(--ds-color-text-primary)] hover:bg-[var(--ds-color-bg-muted)]/80",
         secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive: "border-transparent bg-red-500 text-white hover:bg-red-500/80",
         outline: "border-neutral-200 bg-transparent text-foreground hover:bg-neutral-50",
         success: "border-transparent bg-green-100 text-green-800 hover:bg-green-100/80",
         warning: "border-transparent bg-orange-100 text-orange-800 hover:bg-orange-100/80",
-        info: "border-transparent bg-[#0D62FF]/10 text-[#0D62FF] hover:bg-[#0D62FF]/20",
+        info: "border-transparent bg-[var(--ds-color-intent-primary)]/10 text-[var(--ds-color-intent-primary)] hover:bg-[var(--ds-color-intent-primary)]/20",
       },
       chipType: {
         badge: "",
         assist: "cursor-pointer hover:shadow-md active:scale-95",
-        filter: "cursor-pointer hover:shadow-md active:scale-95 data-[selected=true]:bg-[#0D62FF] data-[selected=true]:text-white data-[selected=true]:border-[#0D62FF]",
+        filter: "cursor-pointer hover:shadow-md active:scale-95 data-[selected=true]:bg-[var(--ds-color-intent-primary)] data-[selected=true]:text-white data-[selected=true]:border-[var(--ds-color-intent-primary)]",
         input: "cursor-pointer hover:shadow-md active:scale-95",
         suggestion: "cursor-pointer hover:shadow-md active:scale-95",
       },
@@ -43,7 +43,7 @@ const badgeVariants = cva(
 )
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'>,
     VariantProps<typeof badgeVariants> {
   leadingIcon?: React.ReactNode
   trailingIcon?: React.ReactNode
@@ -122,7 +122,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         aria-pressed={isFilter ? selected : undefined}
         aria-disabled={disabled}
         data-selected={selected}
-        disabled={disabled}
+        data-badge="true"
         {...props}
       >
         {avatar && (

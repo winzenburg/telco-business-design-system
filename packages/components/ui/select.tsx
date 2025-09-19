@@ -30,24 +30,24 @@ function SelectValue({
 
 const selectTriggerVariants = cva(
   // Base styles matching Input component
-  "flex w-full items-center justify-between gap-2 rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-canvas] px-[13px] py-[9px] text-sm transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 text-[var(--ds-color-text-primary] font-secondary placeholder:text-[var(--ds-color-text-muted]",
+  "flex w-full items-center justify-between gap-2 rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-canvas)] px-3 py-2 text-sm transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 text-[var(--ds-color-text-primary)] font-secondary placeholder:text-[var(--ds-color-text-muted)]",
   {
     variants: {
       variant: {
-        default: "border-[var(--ds-color-border-default] hover:border-[var(--ds-color-text-muted] hover:bg-[var(--ds-color-bg-surface] hover:shadow-[--ds.shadow.sm] focus-visible:border-[var(--ds-color-border-default] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] data-[state=open]:border-[var(--ds-color-border-default] data-[state=open]:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
-        error: "border-[var(--ds-color-intent-destructive] hover:border-[var(--ds-color-intent-destructive]/80 focus-visible:border-[var(--ds-color-intent-destructive] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] data-[state=open]:border-[var(--ds-color-intent-destructive] data-[state=open]:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
+        default: "border-[var(--ds-color-neutral-400)] hover:border-[var(--ds-color-text-muted)] hover:bg-[var(--ds-color-bg-surface)] hover:shadow-[--ds.shadow.sm] focus-visible:border-[var(--ds-color-neutral-400)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] data-[state=open]:border-[var(--ds-color-neutral-400)] data-[state=open]:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
+        error: "border-[var(--ds-color-intent-destructive] hover:border-[var(--ds-color-intent-destructive]/80 focus-visible:border-[var(--ds-color-intent-destructive)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] data-[state=open]:border-[var(--ds-color-intent-destructive] data-[state=open)]:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
       },
       size: {
-        default: "h-10 px-[13px] py-[9px]",
+        default: "h-10 px-3 py-2",
         sm: "h-8 px-2 py-1 text-xs",
         lg: "h-12 px-4 py-3 text-base",
       },
       selectState: {
         default: "",
-        hover: "border-[var(--ds-color-text-muted] bg-[var(--ds-color-bg-surface] shadow-[--ds.shadow.sm]",
-        focused: "border-[var(--ds-color-border-default] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
-        open: "border-[var(--ds-color-border-default] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
-        disabled: "border-[var(--ds-color-border-default] bg-[var(--ds-color-bg-surface] cursor-not-allowed opacity-50",
+        hover: "border-[var(--ds-color-text-muted)] bg-[var(--ds-color-bg-surface)] shadow-[--ds.shadow.sm]",
+        focused: "border-[var(--ds-color-neutral-400)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
+        open: "border-[var(--ds-color-neutral-400)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
+        disabled: "border-[var(--ds-color-neutral-400)] bg-[var(--ds-color-bg-surface)] cursor-not-allowed opacity-50",
       },
     },
     defaultVariants: {
@@ -87,7 +87,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <Icon name="chevron" size={16} className="rotate-90 shrink-0 text-[var(--ds-color-text-muted]" decorative />
+        <Icon name="chevron" size={16} className="rotate-90 shrink-0 text-[var(--ds-color-text-muted)]" decorative />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   )
@@ -104,7 +104,7 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-[^]]*] bg-[var(--ds-color-[^]]*] text-[var(--ds-color-[^]]*] shadow-lg opacity-100 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-[var(--ds-radius-sm)] border border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-bg-canvas)] text-[var(--ds-color-text-primary)] shadow-lg opacity-100 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
           position === "popper" &&
             "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className
@@ -136,7 +136,7 @@ function SelectLabel({
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
-      className={cn("py-1.5 pl-3 pr-8 text-xs font-secondary font-semibold text-[var(--ds-color-text-muted]", className)}
+      className={cn("py-1.5 pl-3 pr-8 text-xs font-secondary font-semibold text-[var(--ds-color-text-muted)]", className)}
       {...props}
     />
   )
@@ -151,14 +151,14 @@ function SelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "relative flex w-full cursor-default select-none items-center rounded-[var(--ds-radius-sm)] py-2 pl-3 pr-8 text-sm font-secondary transition-colors focus:bg-[var(--ds-color-bg-surface] focus:text-[var(--ds-color-text-primary] focus:outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:bg-[var(--ds-color-bg-surface] hover:text-[var(--ds-color-text-primary]",
+        "relative flex w-full cursor-default select-none items-center rounded-[var(--ds-radius-sm)] py-2 pl-3 pr-8 text-sm font-secondary transition-colors focus:bg-[var(--ds-color-bg-surface)] focus:text-[var(--ds-color-text-primary)] focus:outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:bg-[var(--ds-color-bg-surface)] hover:text-[var(--ds-color-text-primary)]",
         className
       )}
       {...props}
     >
       <span className="absolute right-2 flex size-4 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <Icon name="check" size={16} className="text-[var(--ds-color-intent-primary]" decorative />
+          <Icon name="check" size={16} className="text-[var(--ds-color-intent-primary)]" decorative />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText className="truncate">{children}</SelectPrimitive.ItemText>
@@ -173,7 +173,7 @@ function SelectSeparator({
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
-      className={cn("-mx-1 my-1 h-px bg-[var(--ds-color-border-default]", className)}
+      className={cn("-mx-1 my-1 h-px bg-[var(--ds-color-neutral-400)]", className)}
       {...props}
     />
   )
@@ -187,7 +187,7 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-1 text-[var(--ds-color-text-muted]",
+        "flex cursor-default items-center justify-center py-1 text-[var(--ds-color-text-muted)]",
         className
       )}
       {...props}
@@ -205,7 +205,7 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
       className={cn(
-        "flex cursor-default items-center justify-center py-1 text-[var(--ds-color-text-muted]",
+        "flex cursor-default items-center justify-center py-1 text-[var(--ds-color-text-muted)]",
         className
       )}
       {...props}
@@ -216,6 +216,8 @@ function SelectScrollDownButton({
 }
 
 // Comprehensive Select wrapper with label, error states, etc.
+export type SelectProps = SelectWrapperProps
+
 export interface SelectWrapperProps extends React.ComponentProps<typeof SelectPrimitive.Root> {
   label?: string
   required?: boolean
@@ -292,30 +294,18 @@ const SelectWrapper = React.forwardRef<
     <div className="space-y-0">
       {label && (
         <div className="space-y-1 mb-2">
-          <label className="flex items-center gap-1 text-sm font-medium text-[var(--ds-color-[^]]*]) font-primary">
+          <label className="flex items-center gap-1 text-sm font-medium text-[var(--ds-color-text-primary)]) font-primary">
             {label}
             {required && (
-              <span 
-                className="text-[var(--ds-color-[^]]*]) font-secondary"
-                style={{
-                  fontSize: '14px',
-                  fontWeight: 400,
-                  lineHeight: '130%',
-                  letterSpacing: '0'
-                }}
+              <span
+                className="text-[var(--ds-color-text-primary)] font-secondary text-sm font-normal leading-[130%] tracking-normal"
               >
                 *
               </span>
             )}
           </label>
           {subcopy && (
-            <p className="text-[var(--ds-color-text-muted] font-secondary font-normal leading-[130%] tracking-normal" style={{ 
-              fontSize: '14px', 
-              lineHeight: '130%',
-              fontWeight: 400,
-              letterSpacing: '0',
-              fontStyle: 'normal'
-            }}>
+            <p className="text-[var(--ds-color-text-muted)] font-secondary font-normal leading-[130%] tracking-normal text-sm">
               {subcopy}
             </p>
           )}
@@ -333,16 +323,9 @@ const SelectWrapper = React.forwardRef<
       
       {displayHintText && (
         <p className={cn(
-          "font-secondary font-normal leading-[130%] tracking-normal mt-1",
-          error ? "text-[var(--ds-color-intent-destructive]" : "text-[var(--ds-color-text-muted]"
-        )} style={{ 
-          fontSize: '14px', 
-          lineHeight: '130%',
-          fontWeight: 400,
-          letterSpacing: '0',
-          fontStyle: 'normal',
-          marginTop: '4px'
-        }}>
+          "font-secondary font-normal leading-[130%] tracking-normal mt-1 text-sm",
+          error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-muted)]"
+        )}>
           {displayHintText}
         </p>
       )}

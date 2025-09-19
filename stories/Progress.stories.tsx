@@ -3,7 +3,7 @@ import React from 'react';
 import { Progress } from '../src/components';
 
 const meta: Meta<typeof Progress> = {
-  title: 'Components/Progress',
+  title: 'Progress',
   component: Progress,
   parameters: {
     layout: 'padded',

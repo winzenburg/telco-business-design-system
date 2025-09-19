@@ -1,3 +1,33 @@
+<!-- Design System CSS Variables (inline for reliability) -->
+<style>
+:root {
+  /* Neutral Scale - Foundation Grayscale */
+  --ds-color-neutral-50: #FCFCFC;
+  --ds-color-neutral-100: #F9F9FA;
+  --ds-color-neutral-200: #F1F2F6;
+  --ds-color-neutral-300: #DDDDE2;
+  --ds-color-neutral-400: #B4B5BB;
+  --ds-color-neutral-500: #9D9EA7;
+  --ds-color-neutral-600: #70717D;
+  --ds-color-neutral-700: #595A69;
+  --ds-color-neutral-800: #424454;
+  --ds-color-neutral-900: #2B2D3F;
+
+  /* Blue Scale - Primary Brand Identity */
+  --ds-color-blue-500: #0D62FF;
+
+  /* Black - Default Text */
+  --ds-color-black: #15172B;
+
+  /* Border Colors */
+  --ds-color-border-default: var(--ds-color-neutral-600);
+  --ds-color-border-muted: var(--ds-color-neutral-200);
+
+  /* Page Background */
+  --ds-color-bg-page: #EDEFEF;
+}
+</style>
+
 <!-- Google Fonts for Figma Typography System -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,5 +56,15 @@
   /* Debug: Highlight when fonts aren't loading */
   * {
     font-synthesis: none;
+  }
+
+  /* All component areas get white background */
+  body,
+  .sb-show-main,
+  .sb-main-padded,
+  #storybook-root,
+  #storybook-docs,
+  #storybook-preview-wrapper {
+    background-color: #ffffff !important;
   }
 </style>

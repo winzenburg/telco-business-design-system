@@ -41,7 +41,7 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         // Design system styling
-        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-6 bg-white border border-[#F1F2F6] p-6 shadow-lg duration-200",
+        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-6 bg-white border border-[var(--ds-color-border-default)] p-6 shadow-lg duration-200",
         // Responsive sizing
         "sm:rounded-lg md:w-full",
         // Animations
@@ -51,8 +51,8 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#0D62FF] focus:ring-offset-2 disabled:pointer-events-none">
-        <Icon name="close" size={16} color="#70717D" className="hover:text-[#2B2D3F] transition-colors" />
+      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-intent-primary)] focus:ring-offset-2 disabled:pointer-events-none">
+        <Icon name="close" size={16} className="text-[var(--ds-color-text-muted)] hover:text-[var(--ds-color-text-primary)] transition-colors" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
@@ -95,7 +95,7 @@ const DialogTitle = React.forwardRef<
   <DialogPrimitive.Title
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight text-[#2B2D3F]",
+      "text-2xl font-semibold leading-none tracking-tight text-[var(--ds-color-text-primary)]",
       className
     )}
     {...props}
@@ -109,7 +109,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-[#70717D]", className)}
+    className={cn("text-sm text-[var(--ds-color-text-muted)]", className)}
     {...props}
   />
 ))

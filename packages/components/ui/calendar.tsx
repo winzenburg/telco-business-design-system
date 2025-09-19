@@ -118,7 +118,7 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
       <div
         ref={ref}
         className={cn(
-          "p-4 bg-[var(--ds-color-bg-canvas] border border-[var(--ds-color-border-default] rounded-lg shadow-sm",
+          "p-4 bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-border-default)] rounded-lg shadow-sm",
           className
         )}
         {...props}
@@ -134,7 +134,7 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
             <ChevronLeft className="h-4 w-4" />
           </Button>
           
-          <div className="font-semibold text-[var(--ds-color-text-primary] font-primary">
+          <div className="font-semibold text-[var(--ds-color-text-primary)] font-primary">
             {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
           </div>
           
@@ -153,7 +153,7 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
           {dayNames.map((day) => (
             <div
               key={day}
-              className="text-center text-sm font-medium text-[var(--ds-color-text-muted] font-secondary py-2"
+              className="text-center text-sm font-medium text-[var(--ds-color-text-muted)] font-secondary py-2"
             >
               {day}
             </div>
@@ -177,16 +177,16 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
                 onClick={() => handleDateSelect(date)}
                 disabled={isDisabled}
                 className={cn(
-                  "h-8 w-8 text-sm font-secondary rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-intent-primary] focus:ring-offset-2",
+                  "h-8 w-8 text-sm font-secondary rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-intent-primary)] focus:ring-offset-2",
                   {
                     // Outside days
-                    "text-[var(--ds-color-text-muted] hover:bg-[var(--ds-color-bg-surface]": isOutside,
+                    "text-[var(--ds-color-text-muted)] hover:bg-[var(--ds-color-bg-surface)]": isOutside,
                     // Regular days
-                    "text-[var(--ds-color-text-primary] hover:bg-[var(--ds-color-bg-surface]": !isOutside && !isSelected && !isTodayDate,
+                    "text-[var(--ds-color-text-primary)] hover:bg-[var(--ds-color-bg-surface)]": !isOutside && !isSelected && !isTodayDate,
                     // Today
-                    "bg-[var(--ds-color-bg-surface] text-[var(--ds-color-text-primary] font-semibold": isTodayDate && !isSelected,
+                    "bg-[var(--ds-color-bg-surface)] text-[var(--ds-color-text-primary)] font-semibold": isTodayDate && !isSelected,
                     // Selected
-                    "bg-[var(--ds-color-intent-primary] text-[var(--ds-color-bg-canvas] font-semibold": isSelected,
+                    "bg-[var(--ds-color-intent-primary] text-[var(--ds-color-bg-canvas)] font-semibold": isSelected,
                     // Disabled
                     "opacity-50 cursor-not-allowed": isDisabled,
                   }
@@ -205,3 +205,6 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
 Calendar.displayName = "Calendar"
 
 export { Calendar }
+
+// Default export for lazy loading
+export default Calendar
