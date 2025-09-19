@@ -113,6 +113,8 @@ export const colors = {
     "900": "#001A26"
   },
   "black": "#15172B",
+  "white": "#FFFFFF",
+  "pageBackground": "#EDEFEF",
   "teal": {
     "50": "#F0FDFA",
     "100": "#CCFBF1",
@@ -212,7 +214,7 @@ export const primaryColorUsage = {
     purpose: "Default text and essential UI elements",
     usage: [
       "Default body text and paragraphs",
-      "Headlines and titles", 
+      "Headlines and titles",
       "Icon default states",
       "Checkbox default states",
       "Radio button default states",
@@ -221,6 +223,20 @@ export const primaryColorUsage = {
     ],
     keyShades: {
       default: "Default body text, titles, and UI elements" // #15172B
+    }
+  },
+
+  specialPurpose: {
+    purpose: "Special-purpose colors that don't fit standard ramps",
+    usage: [
+      "Page backgrounds with subtle gray tone",
+      "Pure white backgrounds for maximum contrast",
+      "Specific UI requirements outside standard ramps"
+    ],
+    colors: {
+      pageBackground: "Page background with subtle gray (#EDEFEF) - Use for main page backgrounds",
+      white: "Pure white (#FFFFFF) - Use for maximum contrast backgrounds and overlays",
+      black: "Rich black (#15172B) - Default text color (already defined above)"
     }
   }
 };
@@ -270,6 +286,8 @@ export const yellow = colors.yellow;
 export const orange = colors.orange;
 export const purple = colors.purple;
 export const black = colors.black;
+export const white = colors.white;
+export const pageBackground = colors.pageBackground;
 export const navy = colors.navy;
 export const sky = colors.sky;
 export const teal = colors.teal;
@@ -304,6 +322,8 @@ export const colorSystem = {
     secondary: neutral['100'], // #F4F4F5
     muted: neutral['200'], // #E4E4E7
     inverse: neutral['900'], // #111827
+    page: pageBackground, // #EDEFEF - Special page background
+    pure: white, // #FFFFFF - Pure white
   },
   
   // Border colors
