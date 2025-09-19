@@ -322,8 +322,8 @@ export const colorSystem = {
     secondary: neutral['100'], // #F4F4F5
     muted: neutral['200'], // #E4E4E7
     inverse: neutral['900'], // #111827
-    page: pageBackground, // #EDEFEF - Special page background
-    pure: white, // #FFFFFF - Pure white
+    page: "#EDEFEF", // #EDEFEF - Special page background
+    pure: "#FFFFFF", // #FFFFFF - Pure white
   },
   
   // Border colors
