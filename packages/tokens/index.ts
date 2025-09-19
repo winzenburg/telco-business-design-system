@@ -1,8 +1,28 @@
 // Comcast Business Design System - Design Tokens
 // Consolidated token system for consistent design system implementation
 
-// Core design system tokens
-export * from './design-system-colors';
+// Core design system tokens - selective exports to avoid circular references
+export {
+  colors,
+  cleanColorsForTailwind,
+  tailwindColors,
+  primaryColorUsage,
+  brand,
+  blue,
+  neutral,
+  red,
+  green,
+  yellow,
+  orange,
+  purple,
+  black,
+  white,
+  pageBackground,
+  navy,
+  sky,
+  teal,
+  getColor
+} from './design-system-colors';
 export * from './css-variables';
 export * from './typography-consolidated';
 

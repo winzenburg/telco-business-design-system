@@ -398,4 +398,24 @@ export function createPaletteGradient<T extends keyof typeof colorPalettes>(
 }
 
 // Export everything for convenience
-export * from './design-system-colors';
+export {
+  colors,
+  cleanColorsForTailwind,
+  tailwindColors,
+  primaryColorUsage,
+  brand,
+  blue,
+  neutral,
+  red,
+  green,
+  yellow,
+  orange,
+  purple,
+  black,
+  white,
+  pageBackground,
+  navy,
+  sky,
+  teal,
+  getColor
+} from './design-system-colors';
