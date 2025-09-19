@@ -177,24 +177,24 @@ export {
 // Design system theme object for easy consumption
 export const theme = {
   // Colors - primary design system
-  colors: require('./design-system-colors').colors,
-  brand: require('./design-system-colors').brand,
-  
+  colors,
+  brand,
+
   // Typography - consolidated system
   typography: {
-    fontFamilies: require('./typography-consolidated').fontFamilies,
-    typeScale: require('./typography-consolidated').typeScale,
-    semanticTypography: require('./typography-consolidated').semanticTypography,
+    fontFamilies,
+    typeScale,
+    semanticTypography,
   },
-  
+
   // Spacing and layout
-  spacing: require('./design-system-spacing').spacing,
-  grid: require('./design-system-grid').breakpoints,
-  
+  spacing: designSystemSpacing,
+  grid: breakpoints,
+
   // Interactive elements
-  elevation: require('./design-system-elevation').elevationSystem,
-  motion: require('./design-system-motion').duration,
-  focus: require('./design-system-focus').focusRing,
+  elevation: elevationSystem,
+  motion: duration,
+  focus: focusRing,
 } as const;
 
 // Design system constants

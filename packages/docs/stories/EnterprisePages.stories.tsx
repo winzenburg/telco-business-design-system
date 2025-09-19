@@ -1,36 +1,36 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { Button } from '../../components/ui/button';
-import { Input } from '../../components/ui/input';
-import { Checkbox } from '../../components/ui/checkbox';
-import { RadioGroup, RadioGroupItem } from '../../components/ui/radio-group';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardAction } from '../../components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectWrapper } from '../../components/ui/select';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../components/ui/tabs';
-import { Alert, AlertDescription, AlertTitle } from '../../components/ui/alert';
-import { Badge } from '../../components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
-import { Form, FormField, FormLabel, FormMessage } from '../../components/ui/form';
-import { Icon } from '../../icons/src/Icon';
-import { GlobalNavigation } from '../../components/src/GlobalNavigation';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../../components/ui/accordion';
-import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../../components/ui/breadcrumb';
-import { Calendar } from '../../components/ui/calendar';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../../components/ui/dialog';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '../../components/ui/dropdown-menu';
-import { Progress } from '../../components/ui/progress';
-import { Separator } from '../../components/ui/separator';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '../../components/ui/sheet';
-import { Skeleton } from '../../components/ui/skeleton';
-import { Slider } from '../../components/ui/slider';
-import { Switch } from '../../components/ui/switch';
-import { Textarea } from '../../components/ui/textarea';
-import { Toast } from '../../components/ui/toast';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../../components/ui/tooltip';
-import { Typography, Title, Body, Label, Code } from '../../components/ui/typography';
-import { Label as InputLabel } from '../../components/ui/label';
-import { UnifiedChart } from '../../components/ui/unified-chart';
+import { Button } from '../../../packages/components/ui/button';
+import { Input } from '../../../packages/components/ui/input';
+import { Checkbox } from '../../../packages/components/ui/checkbox';
+import { RadioGroup, RadioGroupItem } from '../../../packages/components/ui/radio-group';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardAction } from '../../../packages/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectWrapper } from '../../../packages/components/ui/select';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../../packages/components/ui/tabs';
+import { Alert, AlertDescription, AlertTitle } from '../../../packages/components/ui/alert';
+import { Badge } from '../../../packages/components/ui/badge';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../packages/components/ui/table';
+import { Form, FormField, FormLabel, FormMessage } from '../../../packages/components/ui/form';
+import { Icon } from '../../../packages/icons/src/Icon';
+import { GlobalNavigation } from '../../../packages/components/src/GlobalNavigation';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../../../packages/components/ui/accordion';
+import { Avatar, AvatarFallback, AvatarImage } from '../../../packages/components/ui/avatar';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../../../packages/components/ui/breadcrumb';
+import { Calendar } from '../../../packages/components/ui/calendar';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '../../../packages/components/ui/dialog';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '../../../packages/components/ui/dropdown-menu';
+import { Progress } from '../../../packages/components/ui/progress';
+import { Separator } from '../../../packages/components/ui/separator';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '../../../packages/components/ui/sheet';
+import { Skeleton } from '../../../packages/components/ui/skeleton';
+import { Slider } from '../../../packages/components/ui/slider';
+import { Switch } from '../../../packages/components/ui/switch';
+import { Textarea } from '../../../packages/components/ui/textarea';
+import { Toast } from '../../../packages/components/ui/toast';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../../../packages/components/ui/tooltip';
+import { Typography, Title, Body, Label, Code } from '../../../packages/components/ui/typography';
+import { Label as InputLabel } from '../../../packages/components/ui/label';
+import { UnifiedChart } from '../../../packages/components/ui/unified-chart';
 
 const meta: Meta = {
   title: 'Enterprise Reference Pages',
@@ -63,10 +63,10 @@ export const Dashboard: Story = {
       <main className="p-6">
         {/* Page Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-[#15172B] font-primary mb-2">
+          <h1 className="text-3xl font-bold text-foreground font-primary mb-2">
             Account Dashboard
           </h1>
-          <p className="text-[#70717D] font-secondary">
+          <p className="text-muted-foreground font-secondary">
             Overview of your Comcast Business services and account status
           </p>
         </div>
@@ -76,19 +76,19 @@ export const Dashboard: Story = {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="#" className="text-[#70717D] hover:text-[#15172B]">
+                <BreadcrumbLink href="#" className="text-muted-foreground hover:text-foreground">
                   Home
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="#" className="text-[#70717D] hover:text-[#15172B]">
+                <BreadcrumbLink href="#" className="text-muted-foreground hover:text-foreground">
                   Account
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="text-[#15172B] font-medium">
+                <BreadcrumbPage className="text-foreground font-medium">
                   Dashboard
                 </BreadcrumbPage>
               </BreadcrumbItem>
@@ -106,11 +106,11 @@ export const Dashboard: Story = {
                     <Icon name="wifi" size={16} />
                   </AvatarFallback>
                 </Avatar>
-                <CardTitle className="text-sm font-medium text-[#70717D]">Active Services</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Active Services</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-[#15172B] mb-2">12</div>
+              <div className="text-2xl font-bold text-foreground mb-2">12</div>
               <Progress value={100} className="mb-2" />
               <div className="flex items-center gap-1">
                 <Badge variant="secondary" className="bg-green-100 text-green-700">
@@ -128,11 +128,11 @@ export const Dashboard: Story = {
                     <Icon name="money" size={16} />
                   </AvatarFallback>
                 </Avatar>
-                <CardTitle className="text-sm font-medium text-[#70717D]">Monthly Cost</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Monthly Cost</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-[#15172B] mb-2">$2,847</div>
+              <div className="text-2xl font-bold text-foreground mb-2">$2,847</div>
               <Progress value={85} className="mb-2" />
               <div className="flex items-center gap-2">
                 <Badge variant="outline" className="text-orange-600 border-orange-200">
@@ -150,11 +150,11 @@ export const Dashboard: Story = {
                     <Icon name="alert" size={16} />
                   </AvatarFallback>
                 </Avatar>
-                <CardTitle className="text-sm font-medium text-[#70717D]">Open Tickets</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Open Tickets</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-[#15172B] mb-2">3</div>
+              <div className="text-2xl font-bold text-foreground mb-2">3</div>
               <Progress value={30} className="mb-2" />
               <div className="flex items-center gap-2">
                 <Badge variant="destructive" className="text-xs">
@@ -172,11 +172,11 @@ export const Dashboard: Story = {
                     <Icon name="analytics" size={16} />
                   </AvatarFallback>
                 </Avatar>
-                <CardTitle className="text-sm font-medium text-[#70717D]">Bandwidth Usage</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Bandwidth Usage</CardTitle>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-[#15172B] mb-2">73%</div>
+              <div className="text-2xl font-bold text-foreground mb-2">73%</div>
               <Progress value={73} className="mb-2" />
               <div className="flex items-center gap-2">
                 <Badge variant="secondary" className="text-xs">
@@ -201,7 +201,7 @@ export const Dashboard: Story = {
               {/* Quick Actions with Tooltips */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg font-semibold text-[#15172B]">Quick Actions</CardTitle>
+                  <CardTitle className="text-lg font-semibold text-foreground">Quick Actions</CardTitle>
                   <CardDescription>Common tasks and shortcuts</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -275,7 +275,7 @@ export const Dashboard: Story = {
               {/* Recent Activity with Accordion */}
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg font-semibold text-[#15172B]">Recent Activity</CardTitle>
+                  <CardTitle className="text-lg font-semibold text-foreground">Recent Activity</CardTitle>
                   <CardDescription>Latest updates and changes</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -285,18 +285,18 @@ export const Dashboard: Story = {
                         <div className="flex items-center gap-3">
                           <Avatar className="h-6 w-6">
                             <AvatarFallback className="bg-blue-100">
-                              <Icon name="configure" size={12} color="#2563eb" />
+                              <Icon name="configure" size={12} style={{ color: 'var(--colors-text-blue-600)' }} />
                             </AvatarFallback>
                           </Avatar>
                           <div>
-                            <p className="text-sm font-medium text-[#15172B]">Service Configuration Updated</p>
-                            <p className="text-xs text-[#70717D]">2 hours ago</p>
+                            <p className="text-sm font-medium text-foreground">Service Configuration Updated</p>
+                            <p className="text-xs text-muted-foreground">2 hours ago</p>
                           </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className="pl-9 space-y-2">
-                          <p className="text-sm text-[#70717D]">Internet Pro plan settings modified</p>
+                          <p className="text-sm text-muted-foreground">Internet Pro plan settings modified</p>
                           <div className="flex gap-2">
                             <Badge variant="outline">Configuration</Badge>
                             <Badge variant="outline">Internet Pro</Badge>
@@ -310,18 +310,18 @@ export const Dashboard: Story = {
                         <div className="flex items-center gap-3">
                           <Avatar className="h-6 w-6">
                             <AvatarFallback className="bg-green-100">
-                              <Icon name="wifi" size={12} color="#16a34a" />
+                              <Icon name="wifi" size={12} style={{ color: 'var(--colors-text-green-600)' }} />
                             </AvatarFallback>
                           </Avatar>
                           <div>
-                            <p className="text-sm font-medium text-[#15172B]">Payment Processed</p>
-                            <p className="text-xs text-[#70717D]">1 day ago</p>
+                            <p className="text-sm font-medium text-foreground">Payment Processed</p>
+                            <p className="text-xs text-muted-foreground">1 day ago</p>
                           </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className="pl-9 space-y-2">
-                          <p className="text-sm text-[#70717D]">Monthly bill payment of $2,800</p>
+                          <p className="text-sm text-muted-foreground">Monthly bill payment of $2,800</p>
                           <div className="flex gap-2">
                             <Badge variant="secondary">Payment</Badge>
                             <Badge variant="secondary">$2,800</Badge>
@@ -335,18 +335,18 @@ export const Dashboard: Story = {
                         <div className="flex items-center gap-3">
                           <Avatar className="h-6 w-6">
                             <AvatarFallback className="bg-yellow-100">
-                              <Icon name="alert" size={12} color="#ca8a04" />
+                              <Icon name="alert" size={12} style={{ color: 'var(--colors-text-amber-600)' }} />
                             </AvatarFallback>
                           </Avatar>
                           <div>
-                            <p className="text-sm font-medium text-[#15172B]">Maintenance Scheduled</p>
-                            <p className="text-xs text-[#70717D]">3 days ago</p>
+                            <p className="text-sm font-medium text-foreground">Maintenance Scheduled</p>
+                            <p className="text-xs text-muted-foreground">3 days ago</p>
                           </div>
                         </div>
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className="pl-9 space-y-2">
-                          <p className="text-sm text-[#70717D]">Network maintenance on Sunday 2-4 AM</p>
+                          <p className="text-sm text-muted-foreground">Network maintenance on Sunday 2-4 AM</p>
                           <div className="flex gap-2">
                             <Badge variant="outline">Maintenance</Badge>
                             <Badge variant="outline">Sunday 2-4 AM</Badge>
@@ -373,7 +373,7 @@ export const Dashboard: Story = {
                       <Switch defaultChecked />
                       <div>
                         <p className="font-medium">Internet Pro Service</p>
-                        <p className="text-sm text-[#70717D]">100 Mbps • Active</p>
+                        <p className="text-sm text-muted-foreground">100 Mbps • Active</p>
                       </div>
                     </div>
                     <Badge variant="secondary">Active</Badge>
@@ -384,7 +384,7 @@ export const Dashboard: Story = {
                       <Switch defaultChecked />
                       <div>
                         <p className="font-medium">Business Voice</p>
-                        <p className="text-sm text-[#70717D]">20 Lines • Active</p>
+                        <p className="text-sm text-muted-foreground">20 Lines • Active</p>
                       </div>
                     </div>
                     <Badge variant="secondary">Active</Badge>
@@ -395,7 +395,7 @@ export const Dashboard: Story = {
                       <Switch />
                       <div>
                         <p className="font-medium">Security Suite</p>
-                        <p className="text-sm text-[#70717D]">Enhanced Protection • Inactive</p>
+                        <p className="text-sm text-muted-foreground">Enhanced Protection • Inactive</p>
                       </div>
                     </div>
                     <Badge variant="outline">Available</Badge>
@@ -505,10 +505,10 @@ export const ComplexForm: Story = {
           <div className="space-y-8">
             {/* Page Header */}
             <div>
-              <h1 className="text-2xl font-bold text-[#15172B] font-primary mb-2">
+              <h1 className="text-2xl font-bold text-foreground font-primary mb-2">
                 Request New Business Services
               </h1>
-              <p className="text-[#70717D] font-secondary">
+              <p className="text-muted-foreground font-secondary">
                 Complete this form to request new Comcast Business services for your organization
               </p>
             </div>
@@ -623,7 +623,7 @@ export const ComplexForm: Story = {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div>
-                  <h4 className="font-medium text-[#15172B] font-primary mb-4">Business Internet</h4>
+                  <h4 className="font-medium text-foreground font-primary mb-4">Business Internet</h4>
                   <div className="space-y-3">
                     <Checkbox
                       label="Internet Pro (Up to 100 Mbps)"
@@ -647,7 +647,7 @@ export const ComplexForm: Story = {
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-[#15172B] font-primary mb-4">Communication Services</h4>
+                  <h4 className="font-medium text-foreground font-primary mb-4">Communication Services</h4>
                   <div className="space-y-3">
                     <Checkbox
                       label="Business Voice (VoIP)"
@@ -671,7 +671,7 @@ export const ComplexForm: Story = {
                 </div>
 
                 <div>
-                  <h4 className="font-medium text-[#15172B] font-primary mb-4">Business Type</h4>
+                  <h4 className="font-medium text-foreground font-primary mb-4">Business Type</h4>
                   <RadioGroup 
                     value={formData.businessType}
                     onValueChange={(value) => setFormData(prev => ({...prev, businessType: value}))}
@@ -788,19 +788,19 @@ export const ServiceDetail: Story = {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="#" className="text-[#70717D] hover:text-[#15172B]">
+                  <BreadcrumbLink href="#" className="text-muted-foreground hover:text-foreground">
                     Dashboard
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="#" className="text-[#70717D] hover:text-[#15172B]">
+                  <BreadcrumbLink href="#" className="text-muted-foreground hover:text-foreground">
                     Services
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbPage className="text-[#15172B] font-medium">
+                  <BreadcrumbPage className="text-foreground font-medium">
                     Internet Pro - Main Office
                   </BreadcrumbPage>
                 </BreadcrumbItem>
@@ -815,7 +815,7 @@ export const ServiceDetail: Story = {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Icon name="wifi" size={20} color="#16a34a" />
+                    <Icon name="wifi" size={20} style={{ color: 'var(--colors-text-green-600)' }} />
                     Service Status
                   </CardTitle>
                 </CardHeader>
@@ -861,7 +861,7 @@ export const ServiceDetail: Story = {
                       <div className="space-y-4">
                         <div className="flex items-center justify-between">
                           <span className="text-sm font-medium">Current Usage</span>
-                          <span className="text-sm text-[#70717D]">847 GB / 1.2 TB</span>
+                          <span className="text-sm text-muted-foreground">847 GB / 1.2 TB</span>
                         </div>
                         <Progress value={73} className="h-3" />
                         
@@ -902,21 +902,21 @@ export const ServiceDetail: Story = {
                           <span className="text-sm font-medium">Download Speed</span>
                           <div className="flex items-center gap-2">
                             <Progress value={87} className="w-20" />
-                            <span className="text-sm text-[#70717D]">87 Mbps</span>
+                            <span className="text-sm text-muted-foreground">87 Mbps</span>
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-sm font-medium">Upload Speed</span>
                           <div className="flex items-center gap-2">
                             <Progress value={92} className="w-20" />
-                            <span className="text-sm text-[#70717D]">92 Mbps</span>
+                            <span className="text-sm text-muted-foreground">92 Mbps</span>
                           </div>
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-sm font-medium">Latency</span>
                           <div className="flex items-center gap-2">
                             <Progress value={25} className="w-20" />
-                            <span className="text-sm text-[#70717D]">15ms</span>
+                            <span className="text-sm text-muted-foreground">15ms</span>
                           </div>
                         </div>
                       </div>
@@ -937,21 +937,21 @@ export const ServiceDetail: Story = {
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Usage Threshold Alert</p>
-                            <p className="text-sm text-[#70717D]">Notify when usage exceeds 80%</p>
+                            <p className="text-sm text-muted-foreground">Notify when usage exceeds 80%</p>
                           </div>
                           <Switch defaultChecked />
                         </div>
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Performance Alert</p>
-                            <p className="text-sm text-[#70717D]">Notify when speed drops below 50%</p>
+                            <p className="text-sm text-muted-foreground">Notify when speed drops below 50%</p>
                           </div>
                           <Switch defaultChecked />
                         </div>
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="font-medium">Outage Alert</p>
-                            <p className="text-sm text-[#70717D]">Notify during service interruptions</p>
+                            <p className="text-sm text-muted-foreground">Notify during service interruptions</p>
                           </div>
                           <Switch defaultChecked />
                         </div>
@@ -969,44 +969,44 @@ export const ServiceDetail: Story = {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
-                      <Icon name="wifi" size={16} color="#16a34a" className="mt-1" />
+                      <Icon name="wifi" size={16} style={{ color: 'var(--colors-text-green-600)' }} className="mt-1" />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="font-medium text-[#15172B]">Service Restored</span>
+                          <span className="font-medium text-foreground">Service Restored</span>
                           <span className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">RESOLVED</span>
                         </div>
-                        <p className="text-sm text-[#70717D] mt-1">
+                        <p className="text-sm text-muted-foreground mt-1">
                           Brief connectivity interruption resolved automatically
                         </p>
-                        <p className="text-xs text-[#70717D] mt-1">2 hours ago</p>
+                        <p className="text-xs text-muted-foreground mt-1">2 hours ago</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
-                      <Icon name="configure" size={16} color="#2563eb" className="mt-1" />
+                      <Icon name="configure" size={16} style={{ color: 'var(--colors-text-blue-600)' }} className="mt-1" />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="font-medium text-[#15172B]">Configuration Updated</span>
+                          <span className="font-medium text-foreground">Configuration Updated</span>
                           <span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded">COMPLETED</span>
                         </div>
-                        <p className="text-sm text-[#70717D] mt-1">
+                        <p className="text-sm text-muted-foreground mt-1">
                           Firewall rules updated per support ticket #12345
                         </p>
-                        <p className="text-xs text-[#70717D] mt-1">1 day ago</p>
+                        <p className="text-xs text-muted-foreground mt-1">1 day ago</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
-                      <Icon name="analytics" size={16} color="#4b5563" className="mt-1" />
+                      <Icon name="analytics" size={16} style={{ color: 'var(--colors-text-gray-600)' }} className="mt-1" />
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="font-medium text-[#15172B]">Monthly Usage Report</span>
+                          <span className="font-medium text-foreground">Monthly Usage Report</span>
                           <span className="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded">GENERATED</span>
                         </div>
-                        <p className="text-sm text-[#70717D] mt-1">
+                        <p className="text-sm text-muted-foreground mt-1">
                           Usage report for March 2024 available for download
                         </p>
-                        <p className="text-xs text-[#70717D] mt-1">3 days ago</p>
+                        <p className="text-xs text-muted-foreground mt-1">3 days ago</p>
                       </div>
                     </div>
                   </div>
@@ -1030,9 +1030,9 @@ export const ServiceDetail: Story = {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium text-[#70717D]">Plan</label>
+                    <label className="text-sm font-medium text-muted-foreground">Plan</label>
                     <div className="flex items-center gap-2 mt-1">
-                      <p className="text-[#15172B] font-medium">Internet Pro 100 Mbps</p>
+                      <p className="text-foreground font-medium">Internet Pro 100 Mbps</p>
                       <Badge variant="secondary">Active</Badge>
                     </div>
                   </div>
@@ -1040,22 +1040,22 @@ export const ServiceDetail: Story = {
                   <Separator />
                   
                   <div>
-                    <label className="text-sm font-medium text-[#70717D]">Service Address</label>
-                    <p className="text-[#15172B] mt-1">123 Business Ave<br/>Philadelphia, PA 19103</p>
+                    <label className="text-sm font-medium text-muted-foreground">Service Address</label>
+                    <p className="text-foreground mt-1">123 Business Ave<br/>Philadelphia, PA 19103</p>
                   </div>
                   
                   <Separator />
                   
                   <div>
-                    <label className="text-sm font-medium text-[#70717D]">Account Manager</label>
+                    <label className="text-sm font-medium text-muted-foreground">Account Manager</label>
                     <div className="flex items-center gap-3 mt-2">
                       <Avatar className="h-10 w-10">
                         <AvatarImage src="/api/placeholder/40/40" alt="Sarah Johnson" />
                         <AvatarFallback className="bg-primary-100 text-primary-700">SJ</AvatarFallback>
                       </Avatar>
                       <div>
-                        <p className="text-[#15172B] font-medium">Sarah Johnson</p>
-                        <p className="text-[#70717D] text-sm">sarah.johnson@comcast.com</p>
+                        <p className="text-foreground font-medium">Sarah Johnson</p>
+                        <p className="text-muted-foreground text-sm">sarah.johnson@comcast.com</p>
                       </div>
                     </div>
                   </div>
@@ -1063,9 +1063,9 @@ export const ServiceDetail: Story = {
                   <Separator />
                   
                   <div>
-                    <label className="text-sm font-medium text-[#70717D]">Contract End</label>
+                    <label className="text-sm font-medium text-muted-foreground">Contract End</label>
                     <div className="flex items-center gap-2 mt-1">
-                      <p className="text-[#15172B] font-medium">December 15, 2024</p>
+                      <p className="text-foreground font-medium">December 15, 2024</p>
                       <Badge variant="outline" className="text-orange-600 border-orange-200">
                         9 months left
                       </Badge>
@@ -1136,7 +1136,7 @@ export const ServiceDetail: Story = {
                   <CardTitle>Need Help?</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-[#70717D] mb-4">
+                  <p className="text-sm text-muted-foreground mb-4">
                     Get 24/7 technical support for your business services
                   </p>
                   <Button variant="primary" size="sm" className="w-full">
@@ -1174,10 +1174,10 @@ export const EnhancedAdminDashboard: Story = {
             {/* Page Header */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <Typography variant="title-l" className="text-[#15172B] mb-2">
+                <Typography variant="title-l" className="text-foreground mb-2">
                   Enterprise Control Center
                 </Typography>
-                <Typography variant="body-l" className="text-[#70717D]">
+                <Typography variant="body-l" className="text-muted-foreground">
                   Comprehensive dashboard showcasing all design system components
                 </Typography>
               </div>

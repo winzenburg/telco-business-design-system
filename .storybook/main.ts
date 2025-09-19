@@ -2,9 +2,7 @@ import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   stories: [
-    '../stories/**/*.mdx',
-    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../packages/docs/stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
@@ -15,19 +13,28 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  viteFinal: async (config) => {
+    if (config.build) {
+      config.build.sourcemap = false;
+    }
+    config.logLevel = 'error';
+
+    // Ensure CSS variables are processed correctly
+    if (!config.css) {
+      config.css = {};
+    }
+    if (!config.css.preprocessorOptions) {
+      config.css.preprocessorOptions = {};
+    }
+
+    return config;
+  },
   docs: {
     autodocs: 'tag',
   },
   typescript: {
-    check: false,
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-    },
-  },
-  preview: {
-    config: './preview.tsx',
+    check: true,
+    reactDocgen: false,
   },
 };
 

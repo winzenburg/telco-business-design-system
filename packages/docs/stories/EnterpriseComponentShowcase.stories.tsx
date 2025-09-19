@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Button } from '../../components/ui/button';
-import { Input } from '../../components/ui/input';
-import { Checkbox } from '../../components/ui/checkbox';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectWrapper } from '../../components/ui/select';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../components/ui/tabs';
-import { Alert, AlertDescription, AlertTitle } from '../../components/ui/alert';
-import { Badge } from '../../components/ui/badge';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/table';
-import { Icon } from '../../icons/src/Icon';
-import { GlobalNavigation } from '../../components/src/GlobalNavigation';
+import { Button } from '../../../packages/components/ui/button';
+import { Input } from '../../../packages/components/ui/input';
+import { Checkbox } from '../../../packages/components/ui/checkbox';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../packages/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectWrapper } from '../../../packages/components/ui/select';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../../packages/components/ui/tabs';
+import { Alert, AlertDescription, AlertTitle } from '../../../packages/components/ui/alert';
+import { Badge } from '../../../packages/components/ui/badge';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../packages/components/ui/table';
+import { Icon } from '../../../packages/icons/src/Icon';
+import { GlobalNavigation } from '../../../packages/components/src/GlobalNavigation';
 
 const meta: Meta = {
   title: 'Examples/Enterprise Showcase',
