@@ -23,8 +23,41 @@ export {
   teal,
   getColor
 } from './design-system-colors';
-export * from './css-variables';
-export * from './typography-consolidated';
+// CSS Variables - selective exports
+export {
+  CSS_VARIABLES,
+  getCSSVariable,
+  getComputedCSSVariable,
+  setCSSVariable,
+  themeUtils,
+  colorPalettes,
+  getPaletteColors,
+  createPaletteGradient
+} from './css-variables';
+
+// CSS Variable types
+export type {
+  CSSVariableKey,
+  CSSVariableValue
+} from './css-variables';
+
+// Typography - selective exports
+export {
+  fontFamilies,
+  typeScale,
+  semanticTypography,
+  tailwindTypography,
+  getTypographyStyle,
+  fontWeightName,
+  pxToRem
+} from './typography-consolidated';
+
+// Typography types
+export type {
+  FontFamily,
+  TypeScaleCategory,
+  TypeScaleVariant
+} from './typography-consolidated';
 
 // Layout and spacing - export specific modules to avoid conflicts
 export { 
@@ -63,9 +96,58 @@ export {
   getIconsByCategory
 } from './design-system-icons-types';
 
-export * from './design-system-elevation';
-export * from './design-system-motion'; 
-export * from './design-system-focus';
+// Design system elevation - selective exports
+export {
+  elevationSystem,
+  semanticElevation,
+  tailwindShadows,
+  elevationUsage,
+  cssCustomProperties,
+  getElevation,
+  getSemanticElevation,
+  createElevationStyle
+} from './design-system-elevation';
+
+// Elevation types
+export type {
+  ElevationData,
+  SemanticElevation
+} from './design-system-elevation';
+
+// Design system motion - selective exports
+export {
+  duration,
+  easing,
+  motion,
+  tailwindMotion,
+  reducedMotion,
+  motionUsage,
+  getMotion,
+  createMotionStyle
+} from './design-system-motion';
+
+// Motion types
+export type {
+  MotionToken
+} from './design-system-motion';
+
+// Design system focus - selective exports
+export {
+  focusRing,
+  skipLinks,
+  screenReader,
+  liveRegions,
+  contrast,
+  touchTargets,
+  tailwindFocus,
+  accessibilityUsage,
+  getFocusRing
+} from './design-system-focus';
+
+// Focus types
+export type {
+  FocusToken
+} from './design-system-focus';
 
 export {
   componentSizes,
