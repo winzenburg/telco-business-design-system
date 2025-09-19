@@ -58,44 +58,223 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // Typography - Consolidated Font System
+      // Typography - Hardcoded to prevent circular refs
       fontFamily: {
-        ...require('../tokens/typography-consolidated').tailwindTypography.fontFamily,
         'sans': ['Montserrat', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         'lato': ['Lato', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
 
-      // Typography Scales
+      // Typography Scales - Hardcoded to prevent circular refs
       fontSize: {
-        ...require('../tokens/typography-consolidated').tailwindTypography.fontSize,
+        'xs': '0.75rem',
+        'sm': '0.875rem',
+        'base': '1rem',
+        'lg': '1.125rem',
+        'xl': '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.25rem',
+        '5xl': '3rem',
+        '6xl': '3.75rem',
       },
 
-      // Spacing System - 4px baseline
+      // Spacing System - Hardcoded to prevent circular refs
       spacing: {
-        ...require('../tokens/design-system-spacing').spacing,
+        'px': '1px',
+        '0': '0px',
+        '0.5': '0.125rem',
+        '1': '0.25rem',
+        '1.5': '0.375rem',
+        '2': '0.5rem',
+        '2.5': '0.625rem',
+        '3': '0.75rem',
+        '3.5': '0.875rem',
+        '4': '1rem',
+        '5': '1.25rem',
+        '6': '1.5rem',
+        '7': '1.75rem',
+        '8': '2rem',
+        '9': '2.25rem',
+        '10': '2.5rem',
+        '11': '2.75rem',
+        '12': '3rem',
+        '14': '3.5rem',
+        '16': '4rem',
+        '20': '5rem',
+        '24': '6rem',
+        '28': '7rem',
+        '32': '8rem',
+        '36': '9rem',
+        '40': '10rem',
+        '44': '11rem',
+        '48': '12rem',
+        '52': '13rem',
+        '56': '14rem',
+        '60': '15rem',
+        '64': '16rem',
+        '72': '18rem',
+        '80': '20rem',
+        '96': '24rem',
         // Custom Figma button spacing
         '3.25': '13px', // 13px horizontal padding
         '2.25': '9px',  // 9px vertical padding
       },
 
-      // Grid System - Adaptive design breakpoints
+      // Grid System - Hardcoded to prevent circular refs
       screens: {
-        ...require('../tokens/design-system-grid').tailwindGridConfig.screens,
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
       },
 
       gridTemplateColumns: {
-        ...require('../tokens/design-system-grid').tailwindGridConfig.gridTemplateColumns,
+        '13': 'repeat(13, minmax(0, 1fr))',
+        '14': 'repeat(14, minmax(0, 1fr))',
+        '15': 'repeat(15, minmax(0, 1fr))',
+        '16': 'repeat(16, minmax(0, 1fr))',
       },
 
-      // Elevation & Shadow System - From Figma analysis
+      // Elevation & Shadow System - Hardcoded to prevent circular refs
       boxShadow: {
-        ...require('../tokens/design-system-elevation').tailwindShadows,
+        'sm': '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+        'DEFAULT': '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+        'md': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+        'lg': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+        'xl': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+        '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+        'inner': 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
+        'none': 'none',
       },
       
-      // Comcast Business Brand Colors - Design System Colors
+      // Comcast Business Brand Colors - Design System Colors (hardcoded to prevent circular refs)
       colors: {
-        // Use clean design system colors to avoid circular references
-        ...require('../tokens/design-system-colors').cleanColorsForTailwind,
+        // Direct color definitions to avoid ANY circular references during Netlify build
+        "blue": {
+          "50": "#F5F8FF",
+          "100": "#EBF1FF",
+          "200": "#C2D8FF",
+          "300": "#86B0FF",
+          "400": "#4A89FF",
+          "500": "#0D62FF",
+          "600": "#0A4ECC",
+          "700": "#083B99",
+          "800": "#052766",
+          "900": "#031433"
+        },
+        "neutral": {
+          "50": "#FCFCFC",
+          "100": "#F9F9FA",
+          "200": "#F1F2F6",
+          "300": "#DDDDE2",
+          "400": "#B4B5BB",
+          "500": "#9D9EA7",
+          "600": "#70717D",
+          "700": "#595A69",
+          "800": "#424454",
+          "900": "#2B2D3F"
+        },
+        "red": {
+          "50": "#FEF2F2",
+          "100": "#FEE2E2",
+          "200": "#FECACA",
+          "300": "#FCA5A5",
+          "400": "#F87171",
+          "500": "#EF4444",
+          "600": "#DC2626",
+          "700": "#B91C1C",
+          "800": "#991B1B",
+          "900": "#7F1D1D"
+        },
+        "green": {
+          "50": "#F0FDF4",
+          "100": "#DCFCE7",
+          "200": "#BBF7D0",
+          "300": "#86EFAC",
+          "400": "#4ADE80",
+          "500": "#22C55E",
+          "600": "#16A34A",
+          "700": "#15803D",
+          "800": "#166534",
+          "900": "#14532D"
+        },
+        "yellow": {
+          "50": "#FEFCE8",
+          "100": "#FEF9C3",
+          "200": "#FEF08A",
+          "300": "#FDE047",
+          "400": "#FACC15",
+          "500": "#EAB308",
+          "600": "#CA8A04",
+          "700": "#A16207",
+          "800": "#854D0E",
+          "900": "#713F12"
+        },
+        "orange": {
+          "50": "#FFF7ED",
+          "100": "#FFEDD5",
+          "200": "#FED7AA",
+          "300": "#FDBA74",
+          "400": "#FB923C",
+          "500": "#F97316",
+          "600": "#EA580C",
+          "700": "#C2410C",
+          "800": "#9A3412",
+          "900": "#7C2D12"
+        },
+        "purple": {
+          "50": "#F7F7FF",
+          "100": "#F2F2FF",
+          "200": "#E4E2FF",
+          "300": "#CBC6FF",
+          "400": "#A89FFF",
+          "500": "#7561D4",
+          "600": "#5235A8",
+          "700": "#391A7D",
+          "800": "#260D52",
+          "900": "#130526"
+        },
+        "navy": {
+          "50": "#F2F5FF",
+          "100": "#E5E6F1",
+          "200": "#C0C1DC",
+          "300": "#9EA1CA",
+          "400": "#7F84B9",
+          "500": "#3E4796",
+          "600": "#000A73",
+          "700": "#00085E",
+          "800": "#00074B",
+          "900": "#00031D"
+        },
+        "sky": {
+          "50": "#EBFDFF",
+          "100": "#E5FCFF",
+          "200": "#D5F8FF",
+          "300": "#B6EFFD",
+          "400": "#8BE1FA",
+          "500": "#59CAF1",
+          "600": "#2FAEE0",
+          "700": "#1285B7",
+          "800": "#03496B",
+          "900": "#001A26"
+        },
+        "teal": {
+          "50": "#F0FDFA",
+          "100": "#CCFBF1",
+          "200": "#99F6E4",
+          "300": "#5EEAD4",
+          "400": "#2DD4BF",
+          "500": "#14B8A6",
+          "600": "#0D9488",
+          "700": "#0F766E",
+          "800": "#115E59",
+          "900": "#134E4A"
+        },
+        "black": "#15172B",
+        "white": "#FFFFFF",
+        "pageBackground": "#EDEFEF",
         
         // Primary Brand Colors (Updated with Figma exact colors)
         primary: {
