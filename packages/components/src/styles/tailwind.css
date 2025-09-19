@@ -1,5 +1,89 @@
 /* Design System CSS Variables - Complete Brand Color Ramp */
-@import url('../../../tokens/css-variables.css');
+/* NUCLEAR FIX: Inline CSS variables to prevent PostCSS circular references during build */
+
+:root {
+  /* Blue Scale - Primary Brand Identity */
+  --ds-color-blue-50: #F5F8FF;
+  --ds-color-blue-100: #EBF1FF;
+  --ds-color-blue-200: #C2D8FF;
+  --ds-color-blue-300: #86B0FF;
+  --ds-color-blue-400: #4A89FF;
+  --ds-color-blue-500: #0D62FF; /* Primary Brand Blue */
+  --ds-color-blue-600: #0A4ECC;
+  --ds-color-blue-700: #083B99;
+  --ds-color-blue-800: #052766;
+  --ds-color-blue-900: #031433;
+
+  /* Neutral Scale - Foundation Grayscale */
+  --ds-color-neutral-50: #FCFCFC;
+  --ds-color-neutral-100: #F9F9FA;
+  --ds-color-neutral-200: #F1F2F6;
+  --ds-color-neutral-300: #DDDDE2;
+  --ds-color-neutral-400: #B4B5BB;
+  --ds-color-neutral-500: #9D9EA7;
+  --ds-color-neutral-600: #70717D;
+  --ds-color-neutral-700: #595A69;
+  --ds-color-neutral-800: #424454;
+  --ds-color-neutral-900: #2B2D3F;
+
+  /* Navy Scale */
+  --ds-color-navy-50: #F4F5F9;
+  --ds-color-navy-100: #E9EBF3;
+  --ds-color-navy-200: #D3D7E7;
+  --ds-color-navy-300: #BDC3DB;
+  --ds-color-navy-400: #A7AFCF;
+  --ds-color-navy-500: #919BC3;
+  --ds-color-navy-600: #7B87B7;
+  --ds-color-navy-700: #6573AB;
+  --ds-color-navy-800: #4F5F9F;
+  --ds-color-navy-900: #394B93;
+
+  /* Special Colors */
+  --ds-color-black: #15172B;
+  --ds-color-white: #FFFFFF;
+  --ds-color-page-background: #EDEFEF;
+
+  /* Secondary Colors */
+  --ds-color-red-500: #EF4444;
+  --ds-color-green-500: #22C55E;
+  --ds-color-yellow-500: #EAB308;
+  --ds-color-orange-500: #F97316;
+  --ds-color-purple-500: #A855F7;
+  --ds-color-sky-500: #0EA5E9;
+  --ds-color-teal-500: #14B8A6;
+
+  /* Intent Colors */
+  --ds-color-intent-primary: #0D62FF;
+  --ds-color-intent-destructive: #EF4444;
+  --ds-color-intent-success: #22C55E;
+  --ds-color-intent-warning: #EAB308;
+
+  /* Text Colors */
+  --ds-color-text-primary: #15172B;
+  --ds-color-text-secondary: #595A69;
+  --ds-color-text-muted: #70717D;
+  --ds-color-text-inverse: #FCFCFC;
+
+  /* Background Colors */
+  --ds-color-bg-canvas: #FCFCFC;
+  --ds-color-bg-surface: #F9F9FA;
+  --ds-color-bg-muted: #F1F2F6;
+  --ds-color-bg-inverse: #2B2D3F;
+
+  /* Border Colors */
+  --ds-color-border-default: #70717D;
+  --ds-color-border-muted: #F1F2F6;
+  --ds-color-border-strong: #595A69;
+
+  /* Shadows */
+  --ds-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ds-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --ds-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  /* Focus Ring */
+  --ds-focus-ring: 0 0 0 2px #0D62FF;
+  --ds-focus-ring-offset: 2px;
+}
 
 /* Google Fonts - Figma Typography */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
