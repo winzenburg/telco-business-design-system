@@ -3,6 +3,13 @@
 // Pattern: "neutral30B1B1BD" → "neutral-300 #B1B1BD"
 // Pattern: "blue500D62FF" → "blue-500 #0D62FF"
 
+// Define special purpose colors as constants to avoid circular references
+const SPECIAL_COLORS = {
+  black: "#15172B",
+  white: "#FFFFFF",
+  pageBackground: "#EDEFEF"
+};
+
 export const colors = {
   "blue": {
     "50": "#F5F8FF",
@@ -112,7 +119,9 @@ export const colors = {
     "800": "#03496B",
     "900": "#001A26"
   },
-  "black": "#15172B",
+  "black": SPECIAL_COLORS.black,
+  "white": SPECIAL_COLORS.white,
+  "pageBackground": SPECIAL_COLORS.pageBackground,
   "teal": {
     "50": "#F0FDFA",
     "100": "#CCFBF1",
@@ -212,7 +221,7 @@ export const primaryColorUsage = {
     purpose: "Default text and essential UI elements",
     usage: [
       "Default body text and paragraphs",
-      "Headlines and titles", 
+      "Headlines and titles",
       "Icon default states",
       "Checkbox default states",
       "Radio button default states",
@@ -221,6 +230,20 @@ export const primaryColorUsage = {
     ],
     keyShades: {
       default: "Default body text, titles, and UI elements" // #15172B
+    }
+  },
+
+  specialPurpose: {
+    purpose: "Special-purpose colors that don't fit standard ramps",
+    usage: [
+      "Page backgrounds with subtle gray tone",
+      "Pure white backgrounds for maximum contrast",
+      "Specific UI requirements outside standard ramps"
+    ],
+    colors: {
+      pageBackground: "Page background with subtle gray (#EDEFEF) - Use for main page backgrounds",
+      white: "Pure white (#FFFFFF) - Use for maximum contrast backgrounds and overlays",
+      black: "Rich black (#15172B) - Default text color (already defined above)"
     }
   }
 };
@@ -270,22 +293,44 @@ export const yellow = colors.yellow;
 export const orange = colors.orange;
 export const purple = colors.purple;
 export const black = colors.black;
+export const white = colors.white;
+export const pageBackground = colors.pageBackground;
 export const navy = colors.navy;
 export const sky = colors.sky;
 export const teal = colors.teal;
 
-// Tailwind CSS compatible export
+// Tailwind CSS compatible export - use colors directly to avoid circular refs
 export const tailwindColors = {
-  'blue': blue,
-  'neutral': neutral,
-  'red': red,
-  'green': green,
-  'yellow': yellow,
-  'orange': orange,
-  'purple': purple,
-  'navy': navy,
-  'sky': sky,
-  'teal': teal,
+  'blue': colors.blue,
+  'neutral': colors.neutral,
+  'red': colors.red,
+  'green': colors.green,
+  'yellow': colors.yellow,
+  'orange': colors.orange,
+  'purple': colors.purple,
+  'navy': colors.navy,
+  'sky': colors.sky,
+  'teal': colors.teal,
+  'black': colors.black,
+  'white': colors.white,
+  'pageBackground': colors.pageBackground,
+};
+
+// Clean colors object for Tailwind config - excludes problematic exports
+export const cleanColorsForTailwind = {
+  "blue": colors.blue,
+  "neutral": colors.neutral,
+  "red": colors.red,
+  "green": colors.green,
+  "yellow": colors.yellow,
+  "orange": colors.orange,
+  "purple": colors.purple,
+  "navy": colors.navy,
+  "sky": colors.sky,
+  "teal": colors.teal,
+  "black": colors.black,
+  "white": colors.white,
+  "pageBackground": colors.pageBackground,
 };
 
 // Color system utilities
@@ -304,6 +349,8 @@ export const colorSystem = {
     secondary: neutral['100'], // #F4F4F5
     muted: neutral['200'], // #E4E4E7
     inverse: neutral['900'], // #111827
+    page: SPECIAL_COLORS.pageBackground, // #EDEFEF - Special page background
+    pure: SPECIAL_COLORS.white, // #FFFFFF - Pure white
   },
   
   // Border colors
