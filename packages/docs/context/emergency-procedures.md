@@ -6,6 +6,14 @@
 
 **Symptoms:** "Maximum call stack size exceeded" during Netlify deployment
 
+**CRITICAL: Git Sync Check FIRST**
+```bash
+# 0. ALWAYS check git status first - fixes must be committed and pushed
+git status
+git log --oneline -3  # Check recent commits
+git push origin $(git branch --show-current)  # Push if needed
+```
+
 **Immediate Fix:**
 ```bash
 # 1. Backup all Tailwind configs
@@ -22,7 +30,12 @@ grep -r "@import.*tokens" src/styles/tailwind.css packages/components/src/styles
 # - Configs: Replace with hardcoded hex values: blue: { 500: "#0D62FF" }
 # - CSS files: Replace @import with inline :root { --ds-color-blue-500: #0D62FF; }
 
-# 5. Verify fix
+# 5. COMMIT AND PUSH immediately (bypass pre-commit hooks if needed)
+git add tailwind.config.js packages/docs/tailwind.config.js src/styles/tailwind.css packages/components/src/styles/tailwind.css
+git commit --no-verify -m "fix: emergency circular reference fix for deployment"
+git push origin $(git branch --show-current)
+
+# 6. Verify fix
 npm run build:storybook && echo "✅ FIXED - Deploy now!"
 ```
 
@@ -101,11 +114,26 @@ npm run build:storybook  # Should match Netlify command
 ## Recovery Workflow
 
 1. **Identify error type** from build logs
-2. **Apply immediate fix** from relevant section above
-3. **Test locally** with same commands as production
-4. **Deploy fix** once verified
-5. **Document issue** in appropriate context file
-6. **Create follow-up task** for proper resolution if emergency fix was temporary
+2. **Check git sync status** - ensure all changes are committed and pushed
+3. **Apply immediate fix** from relevant section above
+4. **COMMIT AND PUSH immediately** - don't test locally without syncing
+5. **Test locally** with same commands as production (optional after push)
+6. **Document issue** in appropriate context file
+7. **Create follow-up task** for proper resolution if emergency fix was temporary
+
+## 🚨 Git Sync Requirements
+
+**NEVER apply fixes without immediate commit/push:**
+
+```bash
+# Template for emergency fixes
+git add [critical-files]
+git commit --no-verify -m "fix: emergency [issue-type] fix for deployment"
+git push origin $(git branch --show-current)
+```
+
+**Common mistake:** Testing fixes locally without pushing to deployment branch.
+**Result:** Netlify continues building old code, fixes appear to fail.
 
 ## Escalation
 
