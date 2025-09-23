@@ -4,17 +4,15 @@ import {
   Tabs,
   TabsContent,
   TabsList,
-  TabsTrigger
-} from '../packages/components/ui/tabs';
-import {
+  TabsTrigger,
   Card,
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle
-} from '../packages/components/ui/card';
-import { Input } from '../packages/components/ui/input';
-import { Button } from '../packages/components/ui/button';
+  CardTitle,
+  Input,
+  Button
+} from '../src/components';
 
 const meta: Meta<typeof Tabs> = {
   title: 'Tabs',
@@ -49,15 +47,20 @@ export const Default: Story = {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
-            <Input
-              label="Name"
-              defaultValue="Pedro Duarte"
-              className="mb-4"
-            />
-            <Input
-              label="Username"
-              defaultValue="@peduarte"
-            />
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-sm font-medium">Name</label>
+              <Input
+                id="name"
+                defaultValue="Pedro Duarte"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="username" className="text-sm font-medium">Username</label>
+              <Input
+                id="username"
+                defaultValue="@peduarte"
+              />
+            </div>
           </CardContent>
         </Card>
       </TabsContent>
@@ -70,15 +73,20 @@ export const Default: Story = {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
-            <Input
-              label="Current password"
-              type="password"
-              className="mb-4"
-            />
-            <Input
-              label="New password"
-              type="password"
-            />
+            <div className="space-y-2">
+              <label htmlFor="current" className="text-sm font-medium">Current Password</label>
+              <Input
+                id="current"
+                type="password"
+              />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="new" className="text-sm font-medium">New Password</label>
+              <Input
+                id="new"
+                type="password"
+              />
+            </div>
           </CardContent>
         </Card>
       </TabsContent>

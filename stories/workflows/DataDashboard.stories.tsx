@@ -30,6 +30,23 @@ import {
   Label,
 } from '../../src/components';
 import {
+  LineChart,
+  Line,
+  AreaChart,
+  Area,
+  BarChart,
+  Bar,
+  PieChart,
+  Pie,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
+import {
   TrendingUp,
   TrendingDown,
   Users,
@@ -40,8 +57,6 @@ import {
   Filter,
   Calendar,
   BarChart3,
-  PieChart,
-  LineChart,
   ArrowUp,
   ArrowDown,
   Minus,
@@ -90,6 +105,34 @@ const DashboardFlow = () => {
   const [selectedService, setSelectedService] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [refreshing, setRefreshing] = useState(false);
+
+  // Chart data
+  const trafficData = [
+    { time: '00:00', upload: 400, download: 2400, total: 2800 },
+    { time: '04:00', upload: 300, download: 1398, total: 1698 },
+    { time: '08:00', upload: 800, download: 9800, total: 10600 },
+    { time: '12:00', upload: 2780, download: 3908, total: 6688 },
+    { time: '16:00', upload: 1890, download: 4800, total: 6690 },
+    { time: '20:00', upload: 2390, download: 3800, total: 6190 },
+  ];
+
+  const userActivityData = [
+    { service: 'Internet', users: 1523, color: '#0D62FF' },
+    { service: 'Voice', users: 892, color: '#4A89FF' },
+    { service: 'Security', users: 445, color: '#86B0FF' },
+    { service: 'Backup', users: 234, color: '#C2D8FF' },
+    { service: 'VPN', users: 67, color: '#EBF1FF' },
+  ];
+
+  const costData = [
+    { name: 'Internet', value: 45, cost: 6750 },
+    { name: 'Voice', value: 30, cost: 4500 },
+    { name: 'Security', value: 15, cost: 2250 },
+    { name: 'Backup', value: 7, cost: 1050 },
+    { name: 'VPN', value: 3, cost: 450 },
+  ];
+
+  const COLORS = ['#0D62FF', '#4A89FF', '#86B0FF', '#C2D8FF', '#EBF1FF'];
 
   const handleRefresh = () => {
     setRefreshing(true);
@@ -494,9 +537,41 @@ const DashboardFlow = () => {
                 <CardDescription>Network traffic over the selected period</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-[300px] flex items-center justify-center bg-[var(--ds-color-neutral-100)] rounded">
-                  <LineChart className="h-16 w-16 text-[var(--ds-color-text-muted)]" />
-                  <span className="ml-4 text-[var(--ds-color-text-muted)]">Chart visualization would go here</span>
+                <div className="h-[300px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={trafficData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
+                      <XAxis dataKey="time" stroke="var(--ds-color-text-muted)" fontSize={12} />
+                      <YAxis stroke="var(--ds-color-text-muted)" fontSize={12} />
+                      <Tooltip
+                        contentStyle={{
+                          backgroundColor: 'white',
+                          border: '1px solid var(--ds-color-neutral-300)',
+                          borderRadius: '8px',
+                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                        }}
+                      />
+                      <Legend />
+                      <Area
+                        type="monotone"
+                        dataKey="download"
+                        stackId="1"
+                        stroke="#0D62FF"
+                        fill="#0D62FF"
+                        fillOpacity={0.6}
+                        name="Download (Mbps)"
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="upload"
+                        stackId="1"
+                        stroke="#4A89FF"
+                        fill="#4A89FF"
+                        fillOpacity={0.6}
+                        name="Upload (Mbps)"
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
                 </div>
               </CardContent>
             </Card>
@@ -555,9 +630,23 @@ const DashboardFlow = () => {
                 <CardDescription>Active users by service</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-[200px] flex items-center justify-center bg-[var(--ds-color-neutral-100)] rounded">
-                  <BarChart3 className="h-16 w-16 text-[var(--ds-color-text-muted)]" />
-                  <span className="ml-4 text-[var(--ds-color-text-muted)]">Bar chart visualization</span>
+                <div className="h-[200px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={userActivityData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
+                      <XAxis dataKey="service" stroke="var(--ds-color-text-muted)" fontSize={12} />
+                      <YAxis stroke="var(--ds-color-text-muted)" fontSize={12} />
+                      <Tooltip
+                        contentStyle={{
+                          backgroundColor: 'white',
+                          border: '1px solid var(--ds-color-neutral-300)',
+                          borderRadius: '8px',
+                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                        }}
+                      />
+                      <Bar dataKey="users" fill="#0D62FF" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
               </CardContent>
             </Card>
@@ -568,9 +657,37 @@ const DashboardFlow = () => {
                 <CardDescription>Monthly cost breakdown</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="h-[200px] flex items-center justify-center bg-[var(--ds-color-neutral-100)] rounded">
-                  <PieChart className="h-16 w-16 text-[var(--ds-color-text-muted)]" />
-                  <span className="ml-4 text-[var(--ds-color-text-muted)]">Pie chart visualization</span>
+                <div className="h-[200px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={costData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={40}
+                        outerRadius={80}
+                        paddingAngle={2}
+                        dataKey="value"
+                      >
+                        {costData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip
+                        contentStyle={{
+                          backgroundColor: 'white',
+                          border: '1px solid var(--ds-color-neutral-300)',
+                          borderRadius: '8px',
+                          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                        }}
+                        formatter={(value, name, props) => [
+                          `${value}%`,
+                          `$${props.payload.cost}`
+                        ]}
+                      />
+                      <Legend />
+                    </PieChart>
+                  </ResponsiveContainer>
                 </div>
               </CardContent>
             </Card>
