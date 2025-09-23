@@ -161,9 +161,9 @@ const Checkbox = React.forwardRef<
           <label
             htmlFor={checkboxId}
             className={cn(
-              'flex items-center gap-1 font-secondary cursor-pointer peer-disabled:cursor-not-allowed',
-              // Dynamic text color based on disabled state
-              props.disabled ? 'text-[var(--ds-color-text-muted)]' : 'text-[var(--ds-color-text-secondary)]',
+              'flex items-center gap-1 font-secondary',
+              // Dynamic text color and cursor based on disabled state
+              props.disabled ? 'text-[var(--ds-color-text-muted)] cursor-not-allowed' : 'text-[var(--ds-color-text-secondary)] cursor-pointer',
             )}
             style={{
               fontSize: '16px',
