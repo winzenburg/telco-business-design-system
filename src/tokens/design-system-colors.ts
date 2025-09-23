@@ -5,301 +5,301 @@
 
 // Define special purpose colors as constants to avoid circular references
 const SPECIAL_COLORS = {
-  black: "#15172B",
-  white: "#FFFFFF",
-  pageBackground: "#EDEFEF"
+  black: '#15172B',
+  white: '#FFFFFF',
+  pageBackground: '#EDEFEF',
 };
 
 export const colors = {
-  "blue": {
-    "50": "#F5F8FF",
-    "100": "#EBF1FF",
-    "200": "#C2D8FF",
-    "300": "#86B0FF",
-    "400": "#4A89FF",
-    "500": "#0D62FF",
-    "600": "#0A4ECC",
-    "700": "#083B99",
-    "800": "#052766",
-    "900": "#031433"
+  'blue': {
+    '50': '#F5F8FF',
+    '100': '#EBF1FF',
+    '200': '#C2D8FF',
+    '300': '#86B0FF',
+    '400': '#4A89FF',
+    '500': '#0D62FF',
+    '600': '#0A4ECC',
+    '700': '#083B99',
+    '800': '#052766',
+    '900': '#031433',
   },
-  "neutral": {
-    "50": "#FCFCFC",
-    "100": "#F9F9FA",
-    "200": "#F1F2F6",
-    "300": "#DDDDE2",
-    "400": "#B4B5BB",
-    "500": "#9D9EA7",
-    "600": "#70717D",
-    "700": "#595A69",
-    "800": "#424454",
-    "900": "#2B2D3F"
+  'neutral': {
+    '50': '#FCFCFC',
+    '100': '#F9F9FA',
+    '200': '#F1F2F6',
+    '300': '#DDDDE2',
+    '400': '#B4B5BB',
+    '500': '#9D9EA7',
+    '600': '#70717D',
+    '700': '#595A69',
+    '800': '#424454',
+    '900': '#2B2D3F',
   },
-  "red": {
-    "50": "#FEF2F2",
-    "100": "#FEE2E2",
-    "200": "#FECACA",
-    "300": "#FCA5A5",
-    "400": "#F87171",
-    "500": "#EF4444",
-    "600": "#DC2626",
-    "700": "#B91C1C",
-    "800": "#991B1B",
-    "900": "#7F1D1D"
+  'red': {
+    '50': '#FEF2F2',
+    '100': '#FEE2E2',
+    '200': '#FECACA',
+    '300': '#FCA5A5',
+    '400': '#F87171',
+    '500': '#EF4444',
+    '600': '#DC2626',
+    '700': '#B91C1C',
+    '800': '#991B1B',
+    '900': '#7F1D1D',
   },
-  "green": {
-    "50": "#F0FDF4",
-    "100": "#DCFCE7",
-    "200": "#BBF7D0",
-    "300": "#86EFAC",
-    "400": "#4ADE80",
-    "500": "#22C55E",
-    "600": "#16A34A",
-    "700": "#15803D",
-    "800": "#166534",
-    "900": "#14532D"
+  'green': {
+    '50': '#F0FDF4',
+    '100': '#DCFCE7',
+    '200': '#BBF7D0',
+    '300': '#86EFAC',
+    '400': '#4ADE80',
+    '500': '#22C55E',
+    '600': '#16A34A',
+    '700': '#15803D',
+    '800': '#166534',
+    '900': '#14532D',
   },
-  "yellow": {
-    "50": "#FEFCE8",
-    "100": "#FEF9C3",
-    "200": "#FEF08A",
-    "300": "#FDE047",
-    "400": "#FACC15",
-    "500": "#EAB308",
-    "600": "#CA8A04",
-    "700": "#A16207",
-    "800": "#854D0E",
-    "900": "#713F12"
+  'yellow': {
+    '50': '#FEFCE8',
+    '100': '#FEF9C3',
+    '200': '#FEF08A',
+    '300': '#FDE047',
+    '400': '#FACC15',
+    '500': '#EAB308',
+    '600': '#CA8A04',
+    '700': '#A16207',
+    '800': '#854D0E',
+    '900': '#713F12',
   },
-  "orange": {
-    "50": "#FFF7ED",
-    "100": "#FFEDD5",
-    "200": "#FED7AA",
-    "300": "#FDBA74",
-    "400": "#FB923C",
-    "500": "#F97316",
-    "600": "#EA580C",
-    "700": "#C2410C",
-    "800": "#9A3412",
-    "900": "#7C2D12"
+  'orange': {
+    '50': '#FFF7ED',
+    '100': '#FFEDD5',
+    '200': '#FED7AA',
+    '300': '#FDBA74',
+    '400': '#FB923C',
+    '500': '#F97316',
+    '600': '#EA580C',
+    '700': '#C2410C',
+    '800': '#9A3412',
+    '900': '#7C2D12',
   },
-  "purple": {
-    "50": "#F7F7FF",
-    "100": "#F2F2FF",
-    "200": "#E4E2FF",
-    "300": "#CBC6FF",
-    "400": "#A89FFF",
-    "500": "#7561D4",
-    "600": "#5235A8",
-    "700": "#391A7D",
-    "800": "#260D52",
-    "900": "#130526"
+  'purple': {
+    '50': '#F7F7FF',
+    '100': '#F2F2FF',
+    '200': '#E4E2FF',
+    '300': '#CBC6FF',
+    '400': '#A89FFF',
+    '500': '#7561D4',
+    '600': '#5235A8',
+    '700': '#391A7D',
+    '800': '#260D52',
+    '900': '#130526',
   },
-  "navy": {
-    "50": "#F2F5FF",
-    "100": "#E5E6F1",
-    "200": "#C0C1DC",
-    "300": "#9EA1CA",
-    "400": "#7F84B9",
-    "500": "#3E4796",
-    "600": "#000A73",
-    "700": "#00085E",
-    "800": "#00074B",
-    "900": "#00031D"
+  'navy': {
+    '50': '#F2F5FF',
+    '100': '#E5E6F1',
+    '200': '#C0C1DC',
+    '300': '#9EA1CA',
+    '400': '#7F84B9',
+    '500': '#3E4796',
+    '600': '#000A73',
+    '700': '#00085E',
+    '800': '#00074B',
+    '900': '#00031D',
   },
-  "sky": {
-    "50": "#EBFDFF",
-    "100": "#E5FCFF",
-    "200": "#D5F8FF",
-    "300": "#B6EFFD",
-    "400": "#8BE1FA",
-    "500": "#59CAF1",
-    "600": "#2FAEE0",
-    "700": "#1285B7",
-    "800": "#03496B",
-    "900": "#001A26"
+  'sky': {
+    '50': '#EBFDFF',
+    '100': '#E5FCFF',
+    '200': '#D5F8FF',
+    '300': '#B6EFFD',
+    '400': '#8BE1FA',
+    '500': '#59CAF1',
+    '600': '#2FAEE0',
+    '700': '#1285B7',
+    '800': '#03496B',
+    '900': '#001A26',
   },
-  "black": SPECIAL_COLORS.black,
-  "white": SPECIAL_COLORS.white,
-  "pageBackground": SPECIAL_COLORS.pageBackground,
-  "teal": {
-    "50": "#F0FDFA",
-    "100": "#CCFBF1",
-    "200": "#99F6E4",
-    "300": "#5EEAD4",
-    "400": "#2DD4BF",
-    "500": "#14B8A6",
-    "600": "#0D9488",
-    "700": "#0F766E",
-    "800": "#115E59",
-    "900": "#134E4A"
-  }
+  'black': SPECIAL_COLORS.black,
+  'white': SPECIAL_COLORS.white,
+  'pageBackground': SPECIAL_COLORS.pageBackground,
+  'teal': {
+    '50': '#F0FDFA',
+    '100': '#CCFBF1',
+    '200': '#99F6E4',
+    '300': '#5EEAD4',
+    '400': '#2DD4BF',
+    '500': '#14B8A6',
+    '600': '#0D9488',
+    '700': '#0F766E',
+    '800': '#115E59',
+    '900': '#134E4A',
+  },
 };
 
 // Primary Color Usage Definitions
 export const primaryColorUsage = {
   blue: {
-    purpose: "Default blue and primary brand identity for core interactions",
+    purpose: 'Default blue and primary brand identity for core interactions',
     usage: [
-      "Primary call-to-action buttons",
-      "Links and navigation elements", 
-      "Brand logos and key brand elements",
-      "Focus states and active states",
-      "Primary icons and illustrations",
-      "Selected states in UI components",
-      "Interactive elements on grey backgrounds"
+      'Primary call-to-action buttons',
+      'Links and navigation elements',
+      'Brand logos and key brand elements',
+      'Focus states and active states',
+      'Primary icons and illustrations',
+      'Selected states in UI components',
+      'Interactive elements on grey backgrounds',
     ],
     keyShades: {
-      50: "Light backgrounds and subtle highlights",
-      100: "Hover states for light elements", 
-      200: "Disabled states and light borders",
-      300: "Secondary interactive elements",
-      400: "Supporting interactive elements",
-              500: "Default Blue | Primary Blue - main brand identity", // #0D62FF
-      600: "Hover states for primary elements",
-      700: "Interactive on-grey blue - blue elements on grey backgrounds",
-      800: "High contrast text on light backgrounds",
-      900: "Maximum contrast and emphasis"
-    }
+      50: 'Light backgrounds and subtle highlights',
+      100: 'Hover states for light elements',
+      200: 'Disabled states and light borders',
+      300: 'Secondary interactive elements',
+      400: 'Supporting interactive elements',
+              500: 'Default Blue | Primary Blue - main brand identity', // #0D62FF
+      600: 'Hover states for primary elements',
+      700: 'Interactive on-grey blue - blue elements on grey backgrounds',
+      800: 'High contrast text on light backgrounds',
+      900: 'Maximum contrast and emphasis',
+    },
   },
-  
+
   neutral: {
-    purpose: "Text, backgrounds, borders, and structural elements",
+    purpose: 'Text, backgrounds, borders, and structural elements',
     usage: [
-      "Body text and headings",
-      "Background colors and surfaces",
-      "Borders and dividers",
-      "Card backgrounds and containers",
-      "Form inputs and controls",
-      "Placeholder text in input fields",
-      "Default border states",
-      "Subdued icons and secondary elements",
-      "Pressed states for interactive surfaces",
-      "Hover state borders and interactions",
-      "ADA compliant text on white backgrounds",
-      "Icons in neutral contexts"
+      'Body text and headings',
+      'Background colors and surfaces',
+      'Borders and dividers',
+      'Card backgrounds and containers',
+      'Form inputs and controls',
+      'Placeholder text in input fields',
+      'Default border states',
+      'Subdued icons and secondary elements',
+      'Pressed states for interactive surfaces',
+      'Hover state borders and interactions',
+      'ADA compliant text on white backgrounds',
+      'Icons in neutral contexts',
     ],
     keyShades: {
-      50: "Page backgrounds and lightest surfaces", // #FCFCFC
-      100: "Card backgrounds and subtle dividers",
-      200: "Light borders and inactive states",
-      300: "Surface Pressed - pressed states for interactive surfaces", // #DDDDE2
-      400: "Secondary text and disabled elements",
-      500: "Body text and standard icons",
-      600: "Lightest ADA compliant gray on white - placeholder text, default borders, subdued icons",
-      700: "Headings and important text",
-      800: "High emphasis text",
-      900: "Border on hover - hover state borders and maximum contrast text"
-    }
+      50: 'Page backgrounds and lightest surfaces', // #FCFCFC
+      100: 'Card backgrounds and subtle dividers',
+      200: 'Light borders and inactive states',
+      300: 'Surface Pressed - pressed states for interactive surfaces', // #DDDDE2
+      400: 'Secondary text and disabled elements',
+      500: 'Body text and standard icons',
+      600: 'Lightest ADA compliant gray on white - placeholder text, default borders, subdued icons',
+      700: 'Headings and important text',
+      800: 'High emphasis text',
+      900: 'Border on hover - hover state borders and maximum contrast text',
+    },
   },
-  
+
   navy: {
-    purpose: "Professional depth, headers, and sophisticated contrast",
+    purpose: 'Professional depth, headers, and sophisticated contrast',
     usage: [
-      "Navigation headers and top bars",
-      "Professional content sections",
-      "Dark theme elements",
-      "Sophisticated backgrounds",
-      "Secondary brand elements",
-      "High-end product features"
+      'Navigation headers and top bars',
+      'Professional content sections',
+      'Dark theme elements',
+      'Sophisticated backgrounds',
+      'Secondary brand elements',
+      'High-end product features',
     ],
     keyShades: {
-      50: "Light navy backgrounds", // #F2F5FF
-      100: "Subtle navy tints",
-      200: "Light navy borders",
-      300: "Medium navy elements",
-      400: "Interactive navy elements",
-      500: "Primary navy brand color", // #3E4796
-      600: "Deep navy interactions", // #000A73
-      700: "Dark navy emphasis",
-      800: "Very dark navy",
-      900: "Maximum navy contrast" // #00031D
-    }
+      50: 'Light navy backgrounds', // #F2F5FF
+      100: 'Subtle navy tints',
+      200: 'Light navy borders',
+      300: 'Medium navy elements',
+      400: 'Interactive navy elements',
+      500: 'Primary navy brand color', // #3E4796
+      600: 'Deep navy interactions', // #000A73
+      700: 'Dark navy emphasis',
+      800: 'Very dark navy',
+      900: 'Maximum navy contrast', // #00031D
+    },
   },
-  
+
   black: {
-    purpose: "Default text and essential UI elements",
+    purpose: 'Default text and essential UI elements',
     usage: [
-      "Default body text and paragraphs",
-      "Headlines and titles",
-      "Icon default states",
-      "Checkbox default states",
-      "Radio button default states",
-      "Primary text content",
-      "High contrast UI elements"
+      'Default body text and paragraphs',
+      'Headlines and titles',
+      'Icon default states',
+      'Checkbox default states',
+      'Radio button default states',
+      'Primary text content',
+      'High contrast UI elements',
     ],
     keyShades: {
-      default: "Default body text, titles, and UI elements" // #15172B
-    }
+      default: 'Default body text, titles, and UI elements', // #15172B
+    },
   },
 
   specialPurpose: {
     purpose: "Special-purpose colors that don't fit standard ramps",
     usage: [
-      "Page backgrounds with subtle gray tone",
-      "Pure white backgrounds for maximum contrast",
-      "Specific UI requirements outside standard ramps"
+      'Page backgrounds with subtle gray tone',
+      'Pure white backgrounds for maximum contrast',
+      'Specific UI requirements outside standard ramps',
     ],
     colors: {
-      pageBackground: "Page background with subtle gray (#EDEFEF) - Use for main page backgrounds",
-      white: "Pure white (#FFFFFF) - Use for maximum contrast backgrounds and overlays",
-      black: "Rich black (#15172B) - Default text color (already defined above)"
-    }
-  }
+      pageBackground: 'Page background with subtle gray (#EDEFEF) - Use for main page backgrounds',
+      white: 'Pure white (#FFFFFF) - Use for maximum contrast backgrounds and overlays',
+      black: 'Rich black (#15172B) - Default text color (already defined above)',
+    },
+  },
 };
 
 // Brand color definitions - NO circular references
 export const brand = {
   // Primary brand color (Blue-500 from your Figma)
-  primary: "#0D62FF", // Default Blue | Primary Blue
+  primary: '#0D62FF', // Default Blue | Primary Blue
 
   // Secondary brand colors
-  secondary: "#7561D4", // Purple-500
-  accent: "#14B8A6", // Teal-500
+  secondary: '#7561D4', // Purple-500
+  accent: '#14B8A6', // Teal-500
 
   // Semantic colors
-  success: "#22C55E", // Green-500
-  warning: "#EAB308", // Yellow-500
-  error: "#EF4444", // Red-500
-  info: "#4A89FF", // Blue-400
+  success: '#22C55E', // Green-500
+  warning: '#EAB308', // Yellow-500
+  error: '#EF4444', // Red-500
+  info: '#4A89FF', // Blue-400
 
   // Primary color families (the foundation) - use direct values
   primaryColors: {
     blue: {
-      "50": "#F5F8FF",
-      "100": "#EBF1FF",
-      "200": "#C2D8FF",
-      "300": "#86B0FF",
-      "400": "#4A89FF",
-      "500": "#0D62FF",
-      "600": "#0A4ECC",
-      "700": "#083B99",
-      "800": "#052766",
-      "900": "#031433"
+      '50': '#F5F8FF',
+      '100': '#EBF1FF',
+      '200': '#C2D8FF',
+      '300': '#86B0FF',
+      '400': '#4A89FF',
+      '500': '#0D62FF',
+      '600': '#0A4ECC',
+      '700': '#083B99',
+      '800': '#052766',
+      '900': '#031433',
     },
     neutral: {
-      "50": "#FCFCFC",
-      "100": "#F9F9FA",
-      "200": "#F1F2F6",
-      "300": "#DDDDE2",
-      "400": "#B4B5BB",
-      "500": "#9D9EA7",
-      "600": "#70717D",
-      "700": "#595A69",
-      "800": "#424454",
-      "900": "#2B2D3F"
+      '50': '#FCFCFC',
+      '100': '#F9F9FA',
+      '200': '#F1F2F6',
+      '300': '#DDDDE2',
+      '400': '#B4B5BB',
+      '500': '#9D9EA7',
+      '600': '#70717D',
+      '700': '#595A69',
+      '800': '#424454',
+      '900': '#2B2D3F',
     },
     navy: {
-      "50": "#F2F5FF",
-      "100": "#E5E6F1",
-      "200": "#C0C1DC",
-      "300": "#9EA1CA",
-      "400": "#7F84B9",
-      "500": "#3E4796",
-      "600": "#000A73",
-      "700": "#00085E",
-      "800": "#00074B",
-      "900": "#00031D"
+      '50': '#F2F5FF',
+      '100': '#E5E6F1',
+      '200': '#C0C1DC',
+      '300': '#9EA1CA',
+      '400': '#7F84B9',
+      '500': '#3E4796',
+      '600': '#000A73',
+      '700': '#00085E',
+      '800': '#00074B',
+      '900': '#00031D',
     },
     black: SPECIAL_COLORS.black,
   },
@@ -319,133 +319,133 @@ export const getColor = (family: string, shade: string | number): string | undef
 
 // Create individual color scales for easy import - NO circular references
 export const blue = {
-  "50": "#F5F8FF",
-  "100": "#EBF1FF",
-  "200": "#C2D8FF",
-  "300": "#86B0FF",
-  "400": "#4A89FF",
-  "500": "#0D62FF",
-  "600": "#0A4ECC",
-  "700": "#083B99",
-  "800": "#052766",
-  "900": "#031433"
+  '50': '#F5F8FF',
+  '100': '#EBF1FF',
+  '200': '#C2D8FF',
+  '300': '#86B0FF',
+  '400': '#4A89FF',
+  '500': '#0D62FF',
+  '600': '#0A4ECC',
+  '700': '#083B99',
+  '800': '#052766',
+  '900': '#031433',
 };
 
 export const neutral = {
-  "50": "#FCFCFC",
-  "100": "#F9F9FA",
-  "200": "#F1F2F6",
-  "300": "#DDDDE2",
-  "400": "#B4B5BB",
-  "500": "#9D9EA7",
-  "600": "#70717D",
-  "700": "#595A69",
-  "800": "#424454",
-  "900": "#2B2D3F"
+  '50': '#FCFCFC',
+  '100': '#F9F9FA',
+  '200': '#F1F2F6',
+  '300': '#DDDDE2',
+  '400': '#B4B5BB',
+  '500': '#9D9EA7',
+  '600': '#70717D',
+  '700': '#595A69',
+  '800': '#424454',
+  '900': '#2B2D3F',
 };
 
 export const red = {
-  "50": "#FEF2F2",
-  "100": "#FEE2E2",
-  "200": "#FECACA",
-  "300": "#FCA5A5",
-  "400": "#F87171",
-  "500": "#EF4444",
-  "600": "#DC2626",
-  "700": "#B91C1C",
-  "800": "#991B1B",
-  "900": "#7F1D1D"
+  '50': '#FEF2F2',
+  '100': '#FEE2E2',
+  '200': '#FECACA',
+  '300': '#FCA5A5',
+  '400': '#F87171',
+  '500': '#EF4444',
+  '600': '#DC2626',
+  '700': '#B91C1C',
+  '800': '#991B1B',
+  '900': '#7F1D1D',
 };
 
 export const green = {
-  "50": "#F0FDF4",
-  "100": "#DCFCE7",
-  "200": "#BBF7D0",
-  "300": "#86EFAC",
-  "400": "#4ADE80",
-  "500": "#22C55E",
-  "600": "#16A34A",
-  "700": "#15803D",
-  "800": "#166534",
-  "900": "#14532D"
+  '50': '#F0FDF4',
+  '100': '#DCFCE7',
+  '200': '#BBF7D0',
+  '300': '#86EFAC',
+  '400': '#4ADE80',
+  '500': '#22C55E',
+  '600': '#16A34A',
+  '700': '#15803D',
+  '800': '#166534',
+  '900': '#14532D',
 };
 
 export const yellow = {
-  "50": "#FEFCE8",
-  "100": "#FEF9C3",
-  "200": "#FEF08A",
-  "300": "#FDE047",
-  "400": "#FACC15",
-  "500": "#EAB308",
-  "600": "#CA8A04",
-  "700": "#A16207",
-  "800": "#854D0E",
-  "900": "#713F12"
+  '50': '#FEFCE8',
+  '100': '#FEF9C3',
+  '200': '#FEF08A',
+  '300': '#FDE047',
+  '400': '#FACC15',
+  '500': '#EAB308',
+  '600': '#CA8A04',
+  '700': '#A16207',
+  '800': '#854D0E',
+  '900': '#713F12',
 };
 
 export const orange = {
-  "50": "#FFF7ED",
-  "100": "#FFEDD5",
-  "200": "#FED7AA",
-  "300": "#FDBA74",
-  "400": "#FB923C",
-  "500": "#F97316",
-  "600": "#EA580C",
-  "700": "#C2410C",
-  "800": "#9A3412",
-  "900": "#7C2D12"
+  '50': '#FFF7ED',
+  '100': '#FFEDD5',
+  '200': '#FED7AA',
+  '300': '#FDBA74',
+  '400': '#FB923C',
+  '500': '#F97316',
+  '600': '#EA580C',
+  '700': '#C2410C',
+  '800': '#9A3412',
+  '900': '#7C2D12',
 };
 
 export const purple = {
-  "50": "#F7F7FF",
-  "100": "#F2F2FF",
-  "200": "#E4E2FF",
-  "300": "#CBC6FF",
-  "400": "#A89FFF",
-  "500": "#7561D4",
-  "600": "#5235A8",
-  "700": "#391A7D",
-  "800": "#260D52",
-  "900": "#130526"
+  '50': '#F7F7FF',
+  '100': '#F2F2FF',
+  '200': '#E4E2FF',
+  '300': '#CBC6FF',
+  '400': '#A89FFF',
+  '500': '#7561D4',
+  '600': '#5235A8',
+  '700': '#391A7D',
+  '800': '#260D52',
+  '900': '#130526',
 };
 
 export const navy = {
-  "50": "#F2F5FF",
-  "100": "#E5E6F1",
-  "200": "#C0C1DC",
-  "300": "#9EA1CA",
-  "400": "#7F84B9",
-  "500": "#3E4796",
-  "600": "#000A73",
-  "700": "#00085E",
-  "800": "#00074B",
-  "900": "#00031D"
+  '50': '#F2F5FF',
+  '100': '#E5E6F1',
+  '200': '#C0C1DC',
+  '300': '#9EA1CA',
+  '400': '#7F84B9',
+  '500': '#3E4796',
+  '600': '#000A73',
+  '700': '#00085E',
+  '800': '#00074B',
+  '900': '#00031D',
 };
 
 export const sky = {
-  "50": "#EBFDFF",
-  "100": "#E5FCFF",
-  "200": "#D5F8FF",
-  "300": "#B6EFFD",
-  "400": "#8BE1FA",
-  "500": "#59CAF1",
-  "600": "#2FAEE0",
-  "700": "#1285B7",
-  "800": "#03496B",
-  "900": "#001A26"
+  '50': '#EBFDFF',
+  '100': '#E5FCFF',
+  '200': '#D5F8FF',
+  '300': '#B6EFFD',
+  '400': '#8BE1FA',
+  '500': '#59CAF1',
+  '600': '#2FAEE0',
+  '700': '#1285B7',
+  '800': '#03496B',
+  '900': '#001A26',
 };
 
 export const teal = {
-  "50": "#F0FDFA",
-  "100": "#CCFBF1",
-  "200": "#99F6E4",
-  "300": "#5EEAD4",
-  "400": "#2DD4BF",
-  "500": "#14B8A6",
-  "600": "#0D9488",
-  "700": "#0F766E",
-  "800": "#115E59",
-  "900": "#134E4A"
+  '50': '#F0FDFA',
+  '100': '#CCFBF1',
+  '200': '#99F6E4',
+  '300': '#5EEAD4',
+  '400': '#2DD4BF',
+  '500': '#14B8A6',
+  '600': '#0D9488',
+  '700': '#0F766E',
+  '800': '#115E59',
+  '900': '#134E4A',
 };
 
 export const black = SPECIAL_COLORS.black;
@@ -454,98 +454,98 @@ export const pageBackground = SPECIAL_COLORS.pageBackground;
 
 // Tailwind CSS compatible export - NO circular refs
 export const tailwindColors = {
-  'blue': blue,
-  'neutral': neutral,
-  'red': red,
-  'green': green,
-  'yellow': yellow,
-  'orange': orange,
-  'purple': purple,
-  'navy': navy,
-  'sky': sky,
-  'teal': teal,
-  'black': black,
-  'white': white,
-  'pageBackground': pageBackground,
+  blue,
+  neutral,
+  red,
+  green,
+  yellow,
+  orange,
+  purple,
+  navy,
+  sky,
+  teal,
+  black,
+  white,
+  pageBackground,
 };
 
 // Clean colors object for Tailwind config - NO circular refs
 export const cleanColorsForTailwind = {
-  "blue": blue,
-  "neutral": neutral,
-  "red": red,
-  "green": green,
-  "yellow": yellow,
-  "orange": orange,
-  "purple": purple,
-  "navy": navy,
-  "sky": sky,
-  "teal": teal,
-  "black": black,
-  "white": white,
-  "pageBackground": pageBackground,
+  blue,
+  neutral,
+  red,
+  green,
+  yellow,
+  orange,
+  purple,
+  navy,
+  sky,
+  teal,
+  black,
+  white,
+  pageBackground,
 };
 
 // Color system utilities - NO circular references
 export const colorSystem = {
   // Text colors
   text: {
-    primary: "#2B2D3F", // neutral-900
-    secondary: "#595A69", // neutral-700
-    muted: "#9D9EA7", // neutral-500
-    inverse: "#FCFCFC", // neutral-50
+    primary: '#2B2D3F', // neutral-900
+    secondary: '#595A69', // neutral-700
+    muted: '#9D9EA7', // neutral-500
+    inverse: '#FCFCFC', // neutral-50
   },
 
   // Background colors
   bg: {
-    primary: "#FCFCFC", // neutral-50
-    secondary: "#F9F9FA", // neutral-100
-    muted: "#F1F2F6", // neutral-200
-    inverse: "#2B2D3F", // neutral-900
+    primary: '#FCFCFC', // neutral-50
+    secondary: '#F9F9FA', // neutral-100
+    muted: '#F1F2F6', // neutral-200
+    inverse: '#2B2D3F', // neutral-900
     page: SPECIAL_COLORS.pageBackground, // #EDEFEF - Special page background
     pure: SPECIAL_COLORS.white, // #FFFFFF - Pure white
   },
 
   // Border colors
   border: {
-    default: "#F1F2F6", // neutral-200
-    muted: "#F9F9FA", // neutral-100
-    strong: "#DDDDE2", // neutral-300
+    default: '#F1F2F6', // neutral-200
+    muted: '#F9F9FA', // neutral-100
+    strong: '#DDDDE2', // neutral-300
   },
 
   // Interactive states
   interactive: {
-    primary: "#0D62FF", // blue-500
-    hover: "#0A4ECC", // blue-600
-    active: "#083B99", // blue-700
-    disabled: "#DDDDE2", // neutral-300
+    primary: '#0D62FF', // blue-500
+    hover: '#0A4ECC', // blue-600
+    active: '#083B99', // blue-700
+    disabled: '#DDDDE2', // neutral-300
   },
 
   // Status colors
   status: {
     success: {
-      bg: "#F0FDF4", // green-50
-      border: "#BBF7D0", // green-200
-      text: "#15803D", // green-700
-      emphasis: "#22C55E", // green-500
+      bg: '#F0FDF4', // green-50
+      border: '#BBF7D0', // green-200
+      text: '#15803D', // green-700
+      emphasis: '#22C55E', // green-500
     },
     warning: {
-      bg: "#FEFCE8", // yellow-50
-      border: "#FEF08A", // yellow-200
-      text: "#A16207", // yellow-700
-      emphasis: "#EAB308", // yellow-500
+      bg: '#FEFCE8', // yellow-50
+      border: '#FEF08A', // yellow-200
+      text: '#A16207', // yellow-700
+      emphasis: '#EAB308', // yellow-500
     },
     error: {
-      bg: "#FEF2F2", // red-50
-      border: "#FECACA", // red-200
-      text: "#B91C1C", // red-700
-      emphasis: "#EF4444", // red-500
+      bg: '#FEF2F2', // red-50
+      border: '#FECACA', // red-200
+      text: '#B91C1C', // red-700
+      emphasis: '#EF4444', // red-500
     },
     info: {
-      bg: "#F5F8FF", // blue-50
-      border: "#C2D8FF", // blue-200
-      text: "#083B99", // blue-700
-      emphasis: "#0D62FF", // blue-500
+      bg: '#F5F8FF', // blue-50
+      border: '#C2D8FF', // blue-200
+      text: '#083B99', // blue-700
+      emphasis: '#0D62FF', // blue-500
     },
   },
 };
@@ -569,21 +569,21 @@ export const colorMapping = {
 export const colorCategories = {
   // Primary Colors (Core brand foundation) - NO circular refs
   primary: {
-    blue: blue,     // Main brand color family
-    neutral: neutral, // Foundation grayscale
-    navy: navy,     // Professional depth
-    black: black,   // Default text and UI elements
+    blue,     // Main brand color family
+    neutral, // Foundation grayscale
+    navy,     // Professional depth
+    black,   // Default text and UI elements
   },
 
   // Secondary Colors (Brand extensions) - NO circular refs
   secondary: {
-    red: red,       // Secondary brand color
-    yellow: yellow, // Secondary brand color
-    green: green,   // Secondary brand color
-    sky: sky,       // Secondary brand color
-    purple: purple, // Secondary brand color (lilac)
+    red,       // Secondary brand color
+    yellow, // Secondary brand color
+    green,   // Secondary brand color
+    sky,       // Secondary brand color
+    purple, // Secondary brand color (lilac)
   },
-  
+
   // Data Visualization Colors
   dataVisualization: {
     // Categorical colors - for distinct categories/groups in charts
@@ -595,7 +595,7 @@ export const colorCategories = {
       cat5: '#03496B',    // Category 5 - Dark blue
       cat6: '#DB9200',    // Category 6 - Orange/yellow
     },
-    
+
     // Sequential colors - for ordered data/gradients (7-step scale)
     sequential: {
       seq1: '#013841',    // Sequential 1 - Darkest
@@ -606,7 +606,7 @@ export const colorCategories = {
       seq6: '#26A54D',    // Sequential 6
       seq7: '#499F3C',    // Sequential 7 - Lightest
     },
-    
+
     // Signal colors - for status/alerts in data
     signal: {
       positive: '#4EA725',    // Positive outcomes

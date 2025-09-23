@@ -3,11 +3,29 @@
 
 echo "🔍 Running pre-commit validation..."
 
-# Run token validation first (fastest check)
+# Check for border-default usage (CRITICAL)
+echo "🚫 Checking for deprecated border-default usage..."
+if grep -r "ds-color-border-default" src/components/ui --include="*.tsx" --quiet; then
+  echo "❌ Found usage of deprecated --ds-color-border-default!"
+  echo "   Run: grep -r 'ds-color-border-default' src/components/ui --include='*.tsx'"
+  echo "   Fix: Form inputs → use --ds-color-neutral-400"
+  echo "        Structural → use --ds-color-neutral-300"
+  exit 1
+fi
+
+# Run token validation (fastest check)
 echo "🎨 Validating design tokens..."
 npm run validate:tokens
 if [ $? -ne 0 ]; then
   echo "❌ Token validation failed! Fix hard-coded colors and pixel values."
+  exit 1
+fi
+
+# Run TypeScript type check
+echo "📘 Running TypeScript checks..."
+npm run type-check
+if [ $? -ne 0 ]; then
+  echo "❌ TypeScript validation failed! Fix type errors before committing."
   exit 1
 fi
 
@@ -17,6 +35,14 @@ npm run lint --silent
 if [ $? -ne 0 ]; then
   echo "❌ ESLint validation failed! Run 'npm run lint' to see details."
   exit 1
+fi
+
+# Quick Storybook build check (catch circular refs early)
+echo "📚 Checking for circular references..."
+npm run build:storybook --quiet 2>&1 | grep -i "circular\|error" > /dev/null
+if [ $? -eq 0 ]; then
+  echo "⚠️  Warning: Potential issues detected in Storybook build"
+  echo "   Run 'npm run build:storybook' to see details"
 fi
 
 # Run comprehensive acceptance criteria validation

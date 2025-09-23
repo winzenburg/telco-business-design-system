@@ -65,7 +65,7 @@ export class FigmaDesignSystem {
       throw new Error('Figma API temporarily disabled for build');
       return null;
     } catch (error) {
-      console.error('Error fetching Figma file:', error);
+      // console.error('Error fetching Figma file:', error);
       throw error;
     }
   }
@@ -77,7 +77,7 @@ export class FigmaDesignSystem {
       throw new Error('Figma API temporarily disabled for build');
       return null;
     } catch (error) {
-      console.error('Error fetching Figma styles:', error);
+      // console.error('Error fetching Figma styles:', error);
       throw error;
     }
   }
@@ -89,7 +89,7 @@ export class FigmaDesignSystem {
       throw new Error('Figma API temporarily disabled for build');
       return null;
     } catch (error) {
-      console.error('Error fetching Figma style:', error);
+      // console.error('Error fetching Figma style:', error);
       throw error;
     }
   }
@@ -98,7 +98,7 @@ export class FigmaDesignSystem {
   async extractColorTokens(): Promise<Record<string, string>> {
     try {
       const colorTokens: Record<string, string> = {};
-      
+
       // First, try to get colors from formal styles
       try {
         const styles = await this.getStyles();
@@ -115,7 +115,7 @@ export class FigmaDesignSystem {
           }
         }
       } catch (error) {
-        console.log('No formal styles found, extracting from components...');
+        // console.log('No formal styles found, extracting from components...');
       }
 
       // If no formal styles, extract from components and frames
@@ -126,7 +126,7 @@ export class FigmaDesignSystem {
 
       return colorTokens;
     } catch (error) {
-      console.error('Error extracting color tokens:', error);
+      // console.error('Error extracting color tokens:', error);
       throw error;
     }
   }
@@ -151,7 +151,7 @@ export class FigmaDesignSystem {
       node.strokes.forEach((stroke: any) => {
         if (stroke.type === 'SOLID' && stroke.color) {
           const hexColor = this.rgbaToHex(stroke.color);
-          const colorName = this.generateColorName(node.name + '-stroke', hexColor);
+          const colorName = this.generateColorName(`${node.name}-stroke`, hexColor);
           colorTokens[colorName] = hexColor;
         }
       });
@@ -172,7 +172,7 @@ export class FigmaDesignSystem {
       .replace(/[^a-zA-Z0-9\s]/g, '')
       .replace(/\s+/g, '-')
       .toLowerCase();
-    
+
     return cleanName || `color-${hexColor.replace('#', '')}`;
   }
 
@@ -180,7 +180,7 @@ export class FigmaDesignSystem {
   async extractTypographyTokens(): Promise<Record<string, any>> {
     try {
       const typographyTokens: Record<string, any> = {};
-      
+
       // First, try to get typography from formal styles
       try {
         const styles = await this.getStyles();
@@ -200,7 +200,7 @@ export class FigmaDesignSystem {
           }
         }
       } catch (error) {
-        console.log('No formal text styles found, extracting from text layers...');
+        // console.log('No formal text styles found, extracting from text layers...');
       }
 
       // If no formal styles, extract from text layers
@@ -211,7 +211,7 @@ export class FigmaDesignSystem {
 
       return typographyTokens;
     } catch (error) {
-      console.error('Error extracting typography tokens:', error);
+      // console.error('Error extracting typography tokens:', error);
       throw error;
     }
   }
@@ -224,7 +224,7 @@ export class FigmaDesignSystem {
     if (node.type === 'TEXT' && node.style) {
       const textStyle = node.style;
       const styleName = this.generateTypographyName(node.name, textStyle.fontSize);
-      
+
       typographyTokens[styleName] = {
         fontSize: textStyle.fontSize,
         fontFamily: textStyle.fontFamily,
@@ -248,7 +248,7 @@ export class FigmaDesignSystem {
       .replace(/[^a-zA-Z0-9\s]/g, '')
       .replace(/\s+/g, '-')
       .toLowerCase();
-    
+
     // Map common font sizes to semantic names
     const sizeMap: Record<number, string> = {
       12: 'caption',
@@ -263,7 +263,7 @@ export class FigmaDesignSystem {
       60: 'display-medium',
       72: 'display-large',
     };
-    
+
     const sizeName = sizeMap[fontSize] || `text-${fontSize}`;
     return cleanName || sizeName;
   }
@@ -279,7 +279,7 @@ export class FigmaDesignSystem {
 
       return spacingTokens;
     } catch (error) {
-      console.error('Error extracting spacing tokens:', error);
+      // console.error('Error extracting spacing tokens:', error);
       throw error;
     }
   }
@@ -294,7 +294,7 @@ export class FigmaDesignSystem {
         node.paddingLeft,
         node.paddingRight,
         node.paddingTop,
-        node.paddingBottom
+        node.paddingBottom,
       ].filter(Boolean);
 
       paddings.forEach((padding: number) => {
@@ -352,7 +352,7 @@ export class FigmaDesignSystem {
       80: '20',
       96: '24',
     };
-    
+
     return spacingMap[value] || value.toString();
   }
 
@@ -365,7 +365,7 @@ export class FigmaDesignSystem {
 
     const toHex = (n: number) => {
       const hex = n.toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
+      return hex.length === 1 ? `0${hex}` : hex;
     };
 
     return `#${toHex(r)}${toHex(g)}${toHex(b)}${a < 255 ? toHex(a) : ''}`;
@@ -381,7 +381,7 @@ export class FigmaDesignSystem {
 
       return components;
     } catch (error) {
-      console.error('Error extracting components:', error);
+      // console.error('Error extracting components:', error);
       throw error;
     }
   }
@@ -434,7 +434,7 @@ export class FigmaDesignSystem {
         components,
       };
     } catch (error) {
-      console.error('Error generating design tokens:', error);
+      // console.error('Error generating design tokens:', error);
       throw error;
     }
   }
@@ -443,7 +443,7 @@ export class FigmaDesignSystem {
   async exportDesignTokens(outputPath: string) {
     try {
       const tokens = await this.generateDesignTokens();
-      
+
       // Create the tokens file content
       const tokensContent = `// Auto-generated from Figma
 // Generated on: ${new Date().toISOString()}
@@ -456,11 +456,11 @@ export const figmaSpacing = ${JSON.stringify(tokens.spacing, null, 2)};
 `;
 
       // In a real implementation, you would write this to a file
-      console.log('Design tokens generated:', tokensContent);
-      
+      // console.log('Design tokens generated:', tokensContent);
+
       return tokens;
     } catch (error) {
-      console.error('Error exporting design tokens:', error);
+      // console.error('Error exporting design tokens:', error);
       throw error;
     }
   }
@@ -478,16 +478,16 @@ export const figmaExample = async () => {
   const fileKey = process.env.FIGMA_FILE_KEY || '';
 
   if (!accessToken || !fileKey) {
-    console.warn('Please set FIGMA_ACCESS_TOKEN and FIGMA_FILE_KEY environment variables');
+    // console.warn('Please set FIGMA_ACCESS_TOKEN and FIGMA_FILE_KEY environment variables');
     return;
   }
 
   const figma = createFigmaClient(accessToken, fileKey);
-  
+
   try {
     const tokens = await figma.generateDesignTokens();
-    console.log('Figma design tokens:', tokens);
+    // console.log('Figma design tokens:', tokens);
   } catch (error) {
-    console.error('Error fetching Figma tokens:', error);
+    // console.error('Error fetching Figma tokens:', error);
   }
-}; 
+};

@@ -13,7 +13,7 @@ export const mediaQueries = {
   mobile: `@media (min-width: ${breakpoints.mobile})`,
   tablet: `@media (min-width: ${breakpoints.tablet})`,
   desktop: `@media (min-width: ${breakpoints.desktop})`,
-  
+
   // Max-width queries for mobile-first approach
   mobileOnly: `@media (max-width: ${parseInt(breakpoints.tablet) - 1}px)`,
   tabletOnly: `@media (min-width: ${breakpoints.tablet}) and (max-width: ${parseInt(breakpoints.desktop) - 1}px)`,
@@ -53,14 +53,14 @@ export const containers = {
     tablet: '100%',
     desktop: '100%',
   },
-  
+
   // Fixed max-width containers
   fixed: {
     mobile: breakpoints.mobile,
     tablet: breakpoints.tablet,
     desktop: breakpoints.desktop,
   },
-  
+
   // Content containers with optimal reading widths
   content: {
     mobile: '100%',
@@ -81,7 +81,7 @@ export const columns = {
     const spanGutters = (columnSpan - 1) * parseInt(config.gutters);
     return `${(singleColumnWidth * columnSpan) + spanGutters}px`;
   },
-  
+
   // Column span utilities for each breakpoint
   mobile: {
     1: '1/6',   // 1 of 6 columns
@@ -91,7 +91,7 @@ export const columns = {
     5: '5/6',   // 5 of 6 columns
     6: '6/6',   // Full width
   },
-  
+
   tablet: {
     1: '1/6',   // 1 of 6 columns
     2: '2/6',   // 2 of 6 columns (1/3)
@@ -100,7 +100,7 @@ export const columns = {
     5: '5/6',   // 5 of 6 columns
     6: '6/6',   // Full width
   },
-  
+
   desktop: {
     1: '1/12',  // 1 of 12 columns
     2: '2/12',  // 2 of 12 columns (1/6)
@@ -125,28 +125,28 @@ export const layoutPatterns = {
     tablet: { main: 4, sidebar: 2 },    // 2/3 + 1/3 on tablet
     desktop: { main: 8, sidebar: 4 },   // 2/3 + 1/3 on desktop
   },
-  
+
   // Three-column layouts
   threeColumn: {
     mobile: { left: 6, main: 6, right: 6 }, // All stacked on mobile
     tablet: { left: 2, main: 2, right: 2 }, // Equal thirds on tablet
     desktop: { left: 3, main: 6, right: 3 }, // 1/4 + 1/2 + 1/4 on desktop
   },
-  
+
   // Hero/featured layouts
   hero: {
     mobile: { content: 6 },    // Full width
     tablet: { content: 6 },    // Full width
     desktop: { content: 12 },  // Full width
   },
-  
+
   // Content with sidebar
   contentSidebar: {
     mobile: { content: 6, sidebar: 6 },   // Stacked
     tablet: { content: 4, sidebar: 2 },   // 2/3 + 1/3
     desktop: { content: 9, sidebar: 3 },  // 3/4 + 1/4
   },
-  
+
   // Card grids
   cardGrid: {
     mobile: { card: 6 },       // 1 per row
@@ -183,7 +183,7 @@ export const cssGrid = {
   mobile: `repeat(${grid.mobile.columns}, 1fr)`,
   tablet: `repeat(${grid.tablet.columns}, 1fr)`,
   desktop: `repeat(${grid.desktop.columns}, 1fr)`,
-  
+
   // Gap values that match gutter system
   gap: {
     mobile: grid.mobile.gutters,
@@ -200,7 +200,7 @@ export const flexbox = {
     tablet: grid.tablet.gutters,
     desktop: grid.desktop.gutters,
   },
-  
+
   // Common flex patterns
   patterns: {
     // Row with responsive wrapping
@@ -209,7 +209,7 @@ export const flexbox = {
       tablet: 'row',         // Row on tablet+
       desktop: 'row',        // Row on desktop
     },
-    
+
     // Responsive justify content
     justify: {
       mobile: 'center',      // Center on mobile
@@ -222,55 +222,55 @@ export const flexbox = {
 // Grid system usage guidelines
 export const gridUsage = {
   breakpoints: {
-    description: "Adaptive design with 3 key breakpoints",
+    description: 'Adaptive design with 3 key breakpoints',
     values: [
       {
-        name: "Mobile (Small)",
+        name: 'Mobile (Small)',
         size: breakpoints.mobile,
         columns: grid.mobile.columns,
         gutters: grid.mobile.gutters,
         margins: grid.mobile.margins,
-        usage: "Single column layouts, stacked components, compact spacing"
+        usage: 'Single column layouts, stacked components, compact spacing',
       },
       {
-        name: "Tablet (Medium)", 
+        name: 'Tablet (Medium)',
         size: breakpoints.tablet,
         columns: grid.tablet.columns,
         gutters: grid.tablet.gutters,
         margins: grid.tablet.margins,
-        usage: "Two-column layouts, moderate spacing, transitional sizing"
+        usage: 'Two-column layouts, moderate spacing, transitional sizing',
       },
       {
-        name: "Desktop (Large)",
+        name: 'Desktop (Large)',
         size: breakpoints.desktop,
         columns: grid.desktop.columns,
         gutters: grid.desktop.gutters,
         margins: grid.desktop.margins,
-        usage: "Multi-column layouts, optimal reading widths, generous spacing"
-      }
-    ]
+        usage: 'Multi-column layouts, optimal reading widths, generous spacing',
+      },
+    ],
   },
-  
+
   bestPractices: {
     mobile: [
-      "Design mobile-first with single column layouts",
-      "Use 8px gutters and margins for compact spacing",
-      "Stack components vertically for better readability",
-      "Prioritize essential content and actions"
+      'Design mobile-first with single column layouts',
+      'Use 8px gutters and margins for compact spacing',
+      'Stack components vertically for better readability',
+      'Prioritize essential content and actions',
     ],
     tablet: [
-      "Introduce two-column layouts where appropriate",
-      "Increase spacing to 20px gutters for better breathing room",
-      "Balance content density with usability",
-      "Consider landscape and portrait orientations"
+      'Introduce two-column layouts where appropriate',
+      'Increase spacing to 20px gutters for better breathing room',
+      'Balance content density with usability',
+      'Consider landscape and portrait orientations',
     ],
     desktop: [
-      "Utilize 12-column grid for flexible layouts",
-      "Implement multi-column content where beneficial",
-      "Maintain optimal line lengths for text content",
-      "Use generous spacing for improved hierarchy"
-    ]
-  }
+      'Utilize 12-column grid for flexible layouts',
+      'Implement multi-column content where beneficial',
+      'Maintain optimal line lengths for text content',
+      'Use generous spacing for improved hierarchy',
+    ],
+  },
 } as const;
 
 // Utility functions
@@ -298,19 +298,19 @@ export const tailwindGridConfig = {
     md: breakpoints.tablet,
     lg: breakpoints.desktop,
   },
-  
+
   gridTemplateColumns: {
     'mobile': cssGrid.mobile,
     'tablet': cssGrid.tablet,
     'desktop': cssGrid.desktop,
   },
-  
+
   gap: {
     'mobile': grid.mobile.gutters,
     'tablet': grid.tablet.gutters,
     'desktop': grid.desktop.gutters,
   },
-  
+
   padding: {
     'container-mobile': grid.mobile.margins,
     'container-tablet': grid.tablet.margins,

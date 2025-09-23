@@ -36,11 +36,10 @@ export interface CardProps
   extends React.ComponentProps<"div">,
     VariantProps<typeof cardVariants> {}
 
-function Card({ className, variant, padding, style, ...props }: CardProps) {
+function Card({ className, variant, padding, ...props }: CardProps) {
   return (
     <div
       className={cn(cardVariants({ variant, padding }), className)}
-      style={{ backgroundColor: '#FFFFFF', ...style }}
       {...props}
     />
   )
@@ -103,7 +102,7 @@ function CardContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-content"
-      className={cn("px-6", className)}
+      className={cn("px-6 pb-6", className)}
       {...props}
     />
   )

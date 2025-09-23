@@ -1,16 +1,12 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { 
+import {
   breakpoints,
   grid,
-  containers,
-  columns,
   layoutPatterns,
   responsiveSpacing,
   gridUsage,
   getBreakpoint,
-  getGridConfig,
-  getColumnSpan
 } from '../../tokens/design-system-grid';
 
 const meta: Meta = {
@@ -29,12 +25,12 @@ export default meta;
 type Story = StoryObj;
 
 // Grid Visualization Component
-const GridVisualization: React.FC<{ 
+const GridVisualization: React.FC<{
   breakpoint: keyof typeof grid;
   showGutters?: boolean;
 }> = ({ breakpoint, showGutters = true }) => {
   const config = grid[breakpoint];
-  
+
   return (
     <div className="mb-8">
       <div className="mb-4">
@@ -46,25 +42,25 @@ const GridVisualization: React.FC<{
           <p><strong>Margins:</strong> {config.margins}</p>
         </div>
       </div>
-      
+
       {/* Grid visualization */}
-      <div 
+      <div
         className="border border-gray-300 bg-white relative"
-        style={{ 
+        style={{
           maxWidth: config.maxWidth,
           padding: `0 ${config.margins}`,
-          margin: '0 auto'
+          margin: '0 auto',
         }}
       >
-        <div 
+        <div
           className="grid h-32"
-          style={{ 
+          style={{
             gridTemplateColumns: `repeat(${config.columns}, 1fr)`,
-            gap: showGutters ? config.gutters : '0'
+            gap: showGutters ? config.gutters : '0',
           }}
         >
           {Array.from({ length: config.columns }, (_, i) => (
-            <div 
+            <div
               key={i}
               className="bg-blue-100 border border-blue-300 flex items-center justify-center text-blue-800 font-medium text-sm"
             >
@@ -72,30 +68,30 @@ const GridVisualization: React.FC<{
             </div>
           ))}
         </div>
-        
+
         {/* Margin indicators */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-          <div 
+          <div
             className="absolute top-0 bottom-0 bg-red-100 border-l-2 border-r-2 border-red-400 opacity-50"
-            style={{ 
+            style={{
               left: '0',
-              width: config.margins
+              width: config.margins,
             }}
           />
-          <div 
+          <div
             className="absolute top-0 bottom-0 bg-red-100 border-l-2 border-r-2 border-red-400 opacity-50"
-            style={{ 
+            style={{
               right: '0',
-              width: config.margins
+              width: config.margins,
             }}
           />
         </div>
       </div>
-      
+
       <div className="mt-2 text-xs text-gray-500 text-center">
-        <span className="inline-block w-3 h-3 bg-blue-100 border border-blue-300 mr-1"></span>
+        <span className="inline-block w-3 h-3 bg-blue-100 border border-blue-300 mr-1" />
         Columns
-        <span className="inline-block w-3 h-3 bg-red-100 border border-red-400 mr-1 ml-4"></span>
+        <span className="inline-block w-3 h-3 bg-red-100 border border-red-400 mr-1 ml-4" />
         Margins ({config.margins})
       </div>
     </div>
@@ -109,26 +105,26 @@ const LayoutPatternDemo: React.FC<{
   description: string;
 }> = ({ pattern, title, description }) => {
   const patternConfig = layoutPatterns[pattern];
-  
+
   return (
     <div className="mb-8 p-6 border border-gray-200 rounded-lg bg-white">
       <div className="mb-4">
         <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
         <p className="text-gray-600 text-sm">{description}</p>
       </div>
-      
+
       {/* Mobile */}
       <div className="mb-6">
         <h4 className="font-medium text-gray-800 mb-2">Mobile (375px) - {grid.mobile.columns} columns</h4>
-        <div 
+        <div
           className="grid gap-2 border border-gray-200 p-2 rounded"
-          style={{ 
+          style={{
             gridTemplateColumns: `repeat(${grid.mobile.columns}, 1fr)`,
-            maxWidth: '375px'
+            maxWidth: 'var(--ds-breakpoint-mobile)',
           }}
         >
           {Object.entries(patternConfig.mobile).map(([key, cols], index) => (
-            <div 
+            <div
               key={`mobile-${key}`}
               className="bg-blue-100 border border-blue-300 p-2 text-xs text-blue-800 text-center"
               style={{ gridColumn: `span ${cols}` }}
@@ -138,19 +134,19 @@ const LayoutPatternDemo: React.FC<{
           ))}
         </div>
       </div>
-      
+
       {/* Tablet */}
       <div className="mb-6">
         <h4 className="font-medium text-gray-800 mb-2">Tablet (768px) - {grid.tablet.columns} columns</h4>
-        <div 
+        <div
           className="grid gap-2 border border-gray-200 p-2 rounded"
-          style={{ 
+          style={{
             gridTemplateColumns: `repeat(${grid.tablet.columns}, 1fr)`,
-            maxWidth: '500px'
+            maxWidth: 'var(--ds-breakpoint-tablet)',
           }}
         >
           {Object.entries(patternConfig.tablet).map(([key, cols], index) => (
-            <div 
+            <div
               key={`tablet-${key}`}
               className="bg-green-100 border border-green-300 p-2 text-xs text-green-800 text-center"
               style={{ gridColumn: `span ${cols}` }}
@@ -160,19 +156,19 @@ const LayoutPatternDemo: React.FC<{
           ))}
         </div>
       </div>
-      
+
       {/* Desktop */}
       <div>
         <h4 className="font-medium text-gray-800 mb-2">Desktop (1440px) - {grid.desktop.columns} columns</h4>
-        <div 
+        <div
           className="grid gap-2 border border-gray-200 p-2 rounded"
-          style={{ 
+          style={{
             gridTemplateColumns: `repeat(${grid.desktop.columns}, 1fr)`,
-            maxWidth: '700px'
+            maxWidth: 'var(--ds-breakpoint-desktop)',
           }}
         >
           {Object.entries(patternConfig.desktop).map(([key, cols], index) => (
-            <div 
+            <div
               key={`desktop-${key}`}
               className="bg-purple-100 border border-purple-300 p-2 text-xs text-purple-800 text-center"
               style={{ gridColumn: `span ${cols}` }}
@@ -189,21 +185,21 @@ const LayoutPatternDemo: React.FC<{
 // Responsive Demo Component
 const ResponsiveDemo: React.FC = () => {
   const [currentBreakpoint, setCurrentBreakpoint] = React.useState<keyof typeof breakpoints>('desktop');
-  
+
   React.useEffect(() => {
     const handleResize = () => {
       setCurrentBreakpoint(getBreakpoint(window.innerWidth));
     };
-    
+
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
+
   return (
     <div className="p-4 bg-gray-50 rounded-lg border-2 border-dashed border-gray-300">
       <div className="mb-4">
-        <h3 className="font-semibold text-gray-900">Current Breakpoint: 
+        <h3 className="font-semibold text-gray-900">Current Breakpoint:
           <span className="ml-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
             {currentBreakpoint} ({breakpoints[currentBreakpoint]})
           </span>
@@ -212,17 +208,17 @@ const ResponsiveDemo: React.FC = () => {
           Resize your browser window to see the breakpoint change
         </p>
       </div>
-      
-      <div className="grid gap-4" style={{ 
-        gridTemplateColumns: currentBreakpoint === 'mobile' ? 'repeat(6, 1fr)' : 
-                           currentBreakpoint === 'tablet' ? 'repeat(6, 1fr)' : 
-                           'repeat(12, 1fr)'
+
+      <div className="grid gap-4" style={{
+        gridTemplateColumns: currentBreakpoint === 'mobile' ? 'repeat(6, 1fr)' :
+                           currentBreakpoint === 'tablet' ? 'repeat(6, 1fr)' :
+                           'repeat(12, 1fr)',
       }}>
         {Array.from({ length: grid[currentBreakpoint].columns }, (_, i) => (
-          <div 
+          <div
             key={i}
             className="bg-white border border-gray-200 p-2 text-center text-xs font-medium"
-            style={{ minHeight: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            style={{ minHeight: 'var(--ds-spacing-10)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           >
             {i + 1}
           </div>
@@ -298,25 +294,25 @@ export const LayoutPatterns: Story = {
         </p>
       </div>
 
-      <LayoutPatternDemo 
+      <LayoutPatternDemo
         pattern="twoColumn"
         title="Two Column Layout"
         description="Classic content + sidebar layout that adapts from stacked on mobile to side-by-side on larger screens."
       />
 
-      <LayoutPatternDemo 
+      <LayoutPatternDemo
         pattern="threeColumn"
         title="Three Column Layout"
         description="Left sidebar + main content + right sidebar that stacks on mobile and flows responsively."
       />
 
-      <LayoutPatternDemo 
+      <LayoutPatternDemo
         pattern="contentSidebar"
         title="Content with Sidebar"
         description="Primary content area with complementary sidebar, optimized for different screen sizes."
       />
 
-      <LayoutPatternDemo 
+      <LayoutPatternDemo
         pattern="cardGrid"
         title="Card Grid"
         description="Responsive card layout: 1 per row on mobile, 2 per row on tablet, 3 per row on desktop."
@@ -339,18 +335,18 @@ export const ResponsiveSpacing: Story = {
       {Object.entries(responsiveSpacing).map(([breakpoint, spacing]) => (
         <div key={breakpoint} className="p-6 border border-gray-200 rounded-lg bg-white">
           <h3 className="text-xl font-semibold text-gray-900 capitalize mb-4">{breakpoint} Spacing</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             {Object.entries(spacing).map(([property, value]) => (
               <div key={property} className="text-center">
                 <div className="mb-2">
-                  <div 
+                  <div
                     className="bg-blue-500 mx-auto rounded"
-                    style={{ 
-                      width: property === 'containerPadding' || property === 'gutters' ? value : '40px',
-                      height: '16px'
+                    style={{
+                      width: property === 'containerPadding' || property === 'gutters' ? value : 'var(--ds-spacing-10)',
+                      height: 'var(--ds-spacing-4)',
                     }}
-                  ></div>
+                   />
                 </div>
                 <h4 className="font-medium text-gray-900 text-sm capitalize">{property}</h4>
                 <p className="text-xs text-gray-600">{value}</p>
@@ -362,7 +358,7 @@ export const ResponsiveSpacing: Story = {
           <div className="bg-gray-50 rounded-lg p-4">
             <h4 className="font-medium text-gray-800 mb-3">Example Layout</h4>
             <div style={{ padding: spacing.containerPadding }}>
-              <div 
+              <div
                 className="bg-white border border-gray-200 rounded mb-2 p-3"
                 style={{ marginBottom: spacing.sectionSpacing }}
               >
@@ -410,7 +406,7 @@ export const UsageGuidelines: Story = {
               <p><code className="bg-gray-200 px-2 py-1 rounded">grid-cols-desktop</code> 12 columns</p>
             </div>
           </div>
-          
+
           <div>
             <h3 className="font-medium text-gray-900 mb-3">React/CSS Usage</h3>
             <div className="space-y-2 text-sm font-mono">
@@ -442,7 +438,7 @@ export const UsageGuidelines: Story = {
       {/* Code Examples */}
       <div className="bg-white p-6 border border-gray-200 rounded-lg">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Code Examples</h3>
-        
+
         <div className="space-y-6">
           <div>
             <h4 className="font-medium text-gray-800 mb-2">Responsive Grid Layout</h4>
@@ -455,7 +451,7 @@ export const UsageGuidelines: Story = {
 </div>`}
             </pre>
           </div>
-          
+
           <div>
             <h4 className="font-medium text-gray-800 mb-2">Container with Responsive Padding</h4>
             <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">

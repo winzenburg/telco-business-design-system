@@ -9,14 +9,14 @@ export const spacing = {
   // Base unit
   0: '0px',
   1: '4px',   // 1 * 4px = 4px (micro spacing)
-  
+
   // Standard spacing values
   2: '8px',   // 2 * 4px = 8px (small)
   3: '12px',  // 3 * 4px = 12px (medium-small)
   4: '16px',  // 4 * 4px = 16px (medium)
   5: '20px',  // 5 * 4px = 20px (medium-large)
   6: '24px',  // 6 * 4px = 24px (large)
-  
+
   // Extended scale for larger spacing needs
   7: '28px',  // 7 * 4px = 28px
   8: '32px',  // 8 * 4px = 32px (extra large)
@@ -39,7 +39,7 @@ export const semanticSpacing = {
     xl: spacing[6],     // 24px - extra large padding
     xxl: spacing[8],    // 32px - section padding
   },
-  
+
   // Margin values
   margin: {
     none: spacing[0],
@@ -50,7 +50,7 @@ export const semanticSpacing = {
     xl: spacing[6],     // 24px - extra large margin
     xxl: spacing[8],    // 32px - section margin
   },
-  
+
   // Gap values (for flexbox/grid)
   gap: {
     none: spacing[0],
@@ -60,7 +60,7 @@ export const semanticSpacing = {
     lg: spacing[5],     // 20px - large gap
     xl: spacing[6],     // 24px - extra large gap
   },
-  
+
   // Component-specific spacing
   component: {
     // Button internal spacing
@@ -70,28 +70,28 @@ export const semanticSpacing = {
       md: `${spacing[4]} ${spacing[6]}`,  // 16px 24px
       lg: `${spacing[5]} ${spacing[8]}`,  // 20px 32px
     },
-    
+
     // Card spacing
     card: {
       padding: spacing[4],    // 16px internal padding
       margin: spacing[4],     // 16px between cards
       gap: spacing[3],        // 12px between card elements
     },
-    
+
     // Form spacing
     form: {
       fieldGap: spacing[4],      // 16px between form fields
       labelGap: spacing[2],      // 8px between label and input
       sectionGap: spacing[6],    // 24px between form sections
     },
-    
+
     // Layout spacing
     layout: {
       sectionGap: spacing[8],    // 32px between page sections
       containerPadding: spacing[4], // 16px container padding
       headerHeight: spacing[16],    // 64px header height
-    }
-  }
+    },
+  },
 } as const;
 
 // Responsive spacing utilities
@@ -107,7 +107,7 @@ export const responsiveSpacing = {
   desktop: {
     containerPadding: spacing[8],  // 32px on desktop
     sectionGap: spacing[12],       // 48px between sections on desktop
-  }
+  },
 } as const;
 
 // Layout grid system based on spacing
@@ -115,7 +115,7 @@ export const grid = {
   // Column gaps
   columnGap: spacing[6],        // 24px between columns
   rowGap: spacing[6],           // 24px between rows
-  
+
   // Container max widths
   container: {
     sm: '640px',    // Small container
@@ -124,51 +124,51 @@ export const grid = {
     xl: '1280px',   // Extra large container
     xxl: '1536px',  // 2X large container
   },
-  
+
   // Breakpoints
   breakpoints: {
     sm: '640px',
-    md: '768px', 
+    md: '768px',
     lg: '1024px',
     xl: '1280px',
     xxl: '1536px',
-  }
+  },
 } as const;
 
 // Usage guidelines and patterns
 export const spacingUsage = {
   standard: {
-    description: "Standard spacing values for consistent layout",
+    description: 'Standard spacing values for consistent layout',
     values: [
-      { name: "8px", usage: "Small margins, tight spacing between related elements" },
-      { name: "12px", usage: "Small-medium spacing, form field gaps" },
-      { name: "16px", usage: "Medium spacing, most common for padding and margins" },
-      { name: "20px", usage: "Large spacing between unrelated elements" },
-      { name: "24px", usage: "Extra large spacing, section dividers" }
-    ]
+      { name: '8px', usage: 'Small margins, tight spacing between related elements' },
+      { name: '12px', usage: 'Small-medium spacing, form field gaps' },
+      { name: '16px', usage: 'Medium spacing, most common for padding and margins' },
+      { name: '20px', usage: 'Large spacing between unrelated elements' },
+      { name: '24px', usage: 'Extra large spacing, section dividers' },
+    ],
   },
-  
+
   patterns: {
     stack: {
-      description: "Vertical spacing between stacked elements",
+      description: 'Vertical spacing between stacked elements',
       small: spacing[3],    // 12px - tight stacking
       medium: spacing[4],   // 16px - normal stacking
       large: spacing[6],    // 24px - loose stacking
     },
-    
+
     inline: {
-      description: "Horizontal spacing between inline elements",
+      description: 'Horizontal spacing between inline elements',
       tight: spacing[2],    // 8px - buttons in a group
       normal: spacing[4],   // 16px - navigation items
       loose: spacing[6],    // 24px - separated items
     },
-    
+
     container: {
-      description: "Container and wrapper spacing",
+      description: 'Container and wrapper spacing',
       internal: spacing[4], // 16px - internal container padding
       external: spacing[6], // 24px - spacing around containers
-    }
-  }
+    },
+  },
 } as const;
 
 // Utility functions
@@ -183,8 +183,8 @@ export const getSemanticSpacing = (category: keyof typeof semanticSpacing, size:
 export const spacingRem = Object.fromEntries(
   Object.entries(spacing).map(([key, value]) => [
     key,
-    value === '0px' ? '0' : `${parseFloat(value) / 16}rem`
-  ])
+    value === '0px' ? '0' : `${parseFloat(value) / 16}rem`,
+  ]),
 ) as Record<keyof typeof spacing, string>;
 
 // Export everything as default

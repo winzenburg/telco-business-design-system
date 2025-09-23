@@ -14,8 +14,8 @@ const chartColors = {
       medium: '#EAB308',
       low: '#10B981',
       positive: '#059669',
-    }
-  }
+    },
+  },
 };
 
 // Sample data generators for chart examples

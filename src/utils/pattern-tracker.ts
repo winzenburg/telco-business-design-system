@@ -184,13 +184,13 @@ export const figmaPatterns = {
     },
     bodyS: {
       css: 'font-family: Lato; font-size: 14px; font-weight: 400; line-height: 130%;',
-      styles: { fontSize: '14px', lineHeight: '18.2px', fontWeight: '400', letterSpacing: '0' },
+      styles: { fontSize: 'var(--ds-font-size-sm)', lineHeight: 'var(--ds-line-height-normal)', fontWeight: '400', letterSpacing: '0' },
       tailwind: 'font-secondary font-normal leading-[130%] tracking-normal',
       figmaProperty: 'body/S',
     },
     bodyXS: {
       css: 'font-family: Lato; font-size: 12px; font-weight: 400; line-height: 130%;',
-      styles: { fontSize: '12px', lineHeight: '15.6px', fontWeight: '400', letterSpacing: '0' },
+      styles: { fontSize: 'var(--ds-font-size-xs)', lineHeight: 'var(--ds-line-height-tight)', fontWeight: '400', letterSpacing: '0' },
       tailwind: 'font-secondary font-normal leading-[130%] tracking-normal',
       figmaProperty: 'body/XS',
     },
@@ -213,13 +213,13 @@ export const figmaPatterns = {
     },
   },
   colors: {
-    neutralBlack: { hex: '#000000', tailwind: 'text-black', figmaToken: 'neutral/black' },
-    neutralGrey600: { hex: '#70717D', tailwind: 'text-gray-600', figmaToken: 'neutral/grey-600' },
-    neutralGrey800: { hex: '#424454', tailwind: 'text-gray-800', figmaToken: 'neutral/grey-800' },
-    neutralGrey400: { hex: '#B4B5BB', tailwind: 'border-gray-400', figmaToken: 'neutral/grey-400' },
-    focusBlue: { hex: '#0D62FF', tailwind: 'border-[#0D62FF]', figmaToken: 'primary/blue' },
-    errorRed: { hex: '#EF4444', tailwind: 'text-red-500', figmaToken: 'error/red' },
-    successGreen: { hex: '#16A34A', tailwind: 'text-green-600', figmaToken: 'success/green' },
+    neutralBlack: { hex: 'var(--ds-color-black)', tailwind: 'text-black', figmaToken: 'neutral/black' },
+    neutralGrey600: { hex: 'var(--ds-color-neutral-600)', tailwind: 'text-gray-600', figmaToken: 'neutral/grey-600' },
+    neutralGrey800: { hex: 'var(--ds-color-neutral-800)', tailwind: 'text-gray-800', figmaToken: 'neutral/grey-800' },
+    neutralGrey400: { hex: 'var(--ds-color-neutral-400)', tailwind: 'border-gray-400', figmaToken: 'neutral/grey-400' },
+    focusBlue: { hex: 'var(--ds-color-intent-primary)', tailwind: 'border-primary-500', figmaToken: 'primary/blue' },
+    errorRed: { hex: 'var(--ds-color-red-500)', tailwind: 'text-red-500', figmaToken: 'error/red' },
+    successGreen: { hex: 'var(--ds-color-green-600)', tailwind: 'text-green-600', figmaToken: 'success/green' },
   },
 };
 
@@ -281,10 +281,10 @@ export const getComponentsByCompliance = (threshold: number = 80): {
 // Update pattern compliance when components are refined
 export const updatePatternCompliance = (
   componentName: string,
-  updates: Partial<Omit<PatternCompliance, 'component' | 'lastUpdated' | 'figmaVersion'>>
+  updates: Partial<Omit<PatternCompliance, 'component' | 'lastUpdated' | 'figmaVersion'>>,
 ): void => {
   const index = patternCompliance.findIndex(comp => comp.component === componentName);
-  
+
   if (index !== -1) {
     patternCompliance[index] = {
       ...patternCompliance[index],

@@ -1,46 +1,46 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { X } from "lucide-react"
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { X } from 'lucide-react';
 
-import { cn } from "../../utils/cn"
+import { cn } from '../../utils/cn';
 
 const badgeVariants = cva(
   [
-    "inline-flex items-center justify-center gap-1 rounded-full border font-medium transition-all duration-200",
-    "focus:outline-none focus:ring-2 focus:ring-offset-2",
-    "disabled:pointer-events-none disabled:opacity-50",
+    'inline-flex items-center justify-center gap-1 rounded-full border font-medium transition-all duration-200',
+    'focus:outline-none focus:ring-2 focus:ring-offset-2',
+    'disabled:pointer-events-none disabled:opacity-50',
   ],
   {
     variants: {
       variant: {
-        default: "border-transparent bg-[var(--ds-color-bg-muted)] text-[var(--ds-color-text-primary)] hover:bg-[var(--ds-color-bg-muted)]/80",
-        secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive: "border-transparent bg-red-500 text-white hover:bg-red-500/80",
-        outline: "border-neutral-200 bg-transparent text-foreground hover:bg-neutral-50",
-        success: "border-transparent bg-green-100 text-green-800 hover:bg-green-100/80",
-        warning: "border-transparent bg-orange-100 text-orange-800 hover:bg-orange-100/80",
-        info: "border-transparent bg-[var(--ds-color-intent-primary)]/10 text-[var(--ds-color-intent-primary)] hover:bg-[var(--ds-color-intent-primary)]/20",
+        default: 'border-transparent bg-[var(--ds-color-bg-muted)] text-[var(--ds-color-text-primary)] hover:bg-[var(--ds-color-bg-muted)]/80',
+        secondary: 'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        destructive: 'border-transparent bg-red-500 text-white hover:bg-red-500/80',
+        outline: 'border-neutral-200 bg-transparent text-foreground hover:bg-neutral-50',
+        success: 'border-transparent bg-green-100 text-green-800 hover:bg-green-100/80',
+        warning: 'border-transparent bg-orange-100 text-orange-800 hover:bg-orange-100/80',
+        info: 'border-transparent bg-[var(--ds-color-intent-primary)]/10 text-[var(--ds-color-intent-primary)] hover:bg-[var(--ds-color-intent-primary)]/20',
       },
       chipType: {
-        badge: "",
-        assist: "cursor-pointer hover:shadow-md active:scale-95",
-        filter: "cursor-pointer hover:shadow-md active:scale-95 data-[selected=true]:bg-[var(--ds-color-intent-primary)] data-[selected=true]:text-white data-[selected=true]:border-[var(--ds-color-intent-primary)]",
-        input: "cursor-pointer hover:shadow-md active:scale-95",
-        suggestion: "cursor-pointer hover:shadow-md active:scale-95",
+        badge: '',
+        assist: 'cursor-pointer hover:shadow-md active:scale-95',
+        filter: 'cursor-pointer hover:shadow-md active:scale-95 data-[selected=true]:bg-[var(--ds-color-intent-primary)] data-[selected=true]:text-white data-[selected=true]:border-[var(--ds-color-intent-primary)]',
+        input: 'cursor-pointer hover:shadow-md active:scale-95',
+        suggestion: 'cursor-pointer hover:shadow-md active:scale-95',
       },
       size: {
-        sm: "h-6 px-2 text-xs min-w-6",
-        default: "h-8 px-3 text-sm min-w-8",
-        lg: "h-10 px-4 text-base min-w-10",
+        sm: 'h-6 px-2 text-xs min-w-6',
+        default: 'h-8 px-3 text-sm min-w-8',
+        lg: 'h-10 px-4 text-base min-w-10',
       },
     },
     defaultVariants: {
-      variant: "default",
-      chipType: "badge",
-      size: "default",
+      variant: 'default',
+      chipType: 'badge',
+      size: 'default',
     },
-  }
-)
+  },
+);
 
 export interface BadgeProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'>,
@@ -56,64 +56,64 @@ export interface BadgeProps
 }
 
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
-  ({ 
-    className, 
-    variant, 
-    chipType, 
-    size, 
-    leadingIcon, 
-    trailingIcon, 
+  ({
+    className,
+    variant,
+    chipType,
+    size,
+    leadingIcon,
+    trailingIcon,
     avatar,
-    dismissible, 
+    dismissible,
     onDismiss,
     selected,
     onSelect,
     disabled,
     onClick,
-    children, 
-    ...props 
+    children,
+    ...props
   }, ref) => {
-    const isInteractive = chipType !== 'badge' || onClick
-    const isFilter = chipType === 'filter'
-    
+    const isInteractive = chipType !== 'badge' || onClick;
+    const isFilter = chipType === 'filter';
+
     const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-      if (disabled) return
-      
+      if (disabled) return;
+
       if (isFilter && onSelect) {
-        onSelect(!selected)
+        onSelect(!selected);
       }
-      
-      onClick?.(e)
-    }
+
+      onClick?.(e);
+    };
 
     const handleDismiss = (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation()
-      onDismiss?.()
-    }
+      e.stopPropagation();
+      onDismiss?.();
+    };
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-      if (disabled) return
-      
+      if (disabled) return;
+
       if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault()
-        handleClick(e as any)
+        e.preventDefault();
+        handleClick(e as any);
       }
-      
+
       if (e.key === 'Delete' || e.key === 'Backspace') {
         if (dismissible && onDismiss) {
-          e.preventDefault()
-          onDismiss()
+          e.preventDefault();
+          onDismiss();
         }
       }
-    }
+    };
 
     return (
       <div
         ref={ref}
         className={cn(
           badgeVariants({ variant, chipType, size }),
-          isInteractive && "cursor-pointer",
-          className
+          isInteractive && 'cursor-pointer',
+          className,
         )}
         onClick={isInteractive ? handleClick : undefined}
         onKeyDown={isInteractive ? handleKeyDown : undefined}
@@ -153,10 +153,10 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
           </button>
         )}
       </div>
-    )
-  }
-)
+    );
+  },
+);
 
-Badge.displayName = "Badge"
+Badge.displayName = 'Badge';
 
-export { Badge, badgeVariants }
+export { Badge, badgeVariants };

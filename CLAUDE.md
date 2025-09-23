@@ -26,6 +26,11 @@ npm run build:storybook  # Test for circular reference errors
 ```
 This catches circular reference issues that only appear during Storybook builds (like the Netlify failures).
 
+**🔴 IMMEDIATE FIXES NEEDED (as of Sep 23):**
+- 10 components still using `--ds-color-border-default` (run `grep -r "border-default" src/components/ui`)
+- TypeScript errors in index files blocking builds
+- See `./packages/docs/context/automated-compliance-checks.md` for full list
+
 ---
 
 ## Canonical Sources (read these first)
@@ -55,6 +60,7 @@ This catches circular reference issues that only appear during Storybook builds 
 ### ⚠️ Critical Infrastructure
 - **Circular Reference Prevention** → `./packages/docs/context/circular-reference-prevention.md`
 - **Emergency Procedures** → `./packages/docs/context/emergency-procedures.md`
+- **Automated Compliance Checks** → `./packages/docs/context/automated-compliance-checks.md` ← NEW: Pre-build validation rules
 
 > If any document conflicts, **Design Principles** win. The Style Guide supplies values; the Review doc enforces the bar; Heuristics inform automation.
 
@@ -150,12 +156,14 @@ Using `./components/{Component}/spec.md` plus the Guardrails:
 ---
 
 ### 4) Apply border hierarchy rules (CRITICAL)
-- **Form inputs** (input, textarea, select, checkbox, radio, time-picker): Use `--ds-color-neutral-400` (#B4B5BB)
-- **Structural elements** (table, card, accordion, dialog, sheet, separator): Use `--ds-color-neutral-300` (#DDDDE2)
+- **Form inputs** (input, textarea, select, checkbox, radio, command, form): Use `--ds-color-neutral-400` (#B4B5BB)
+- **Structural elements** (table, card, accordion, dialog, sheet, separator, tabs, tooltip, toast, popover, breadcrumb): Use `--ds-color-neutral-300` (#DDDDE2)
+- **NEVER use** `--ds-color-border-default` directly - it's deprecated
 - Run `npm run fix:tokens` for automatic application; verify with `npm run validate:tokens`
+- **Current violations (Sep 23):** checkbox, radio-group, command, card, dialog, sheet, tabs, popover, breadcrumb, chart
 
 **Prompt**
-"Apply border hierarchy rules: form inputs use neutral-400, structural elements use neutral-300. Run validation and force Storybook reload to verify changes."
+"Fix ALL border-default usage in ui components. Apply border hierarchy: form inputs use neutral-400, structural use neutral-300. Verify with grep and force Storybook reload."
 
 ---
 

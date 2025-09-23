@@ -174,27 +174,36 @@ export {
   responsive
 } from './spacing';
 
+// Import for theme object creation
+import { colors, brand } from './design-system-colors';
+import { fontFamilies, typeScale, semanticTypography } from './typography-consolidated';
+import { spacing } from './design-system-spacing';
+import { grid } from './design-system-grid';
+import { getElevation } from './design-system-elevation';
+import { motion } from './design-system-motion';
+import focusVisibility from './design-system-focus';
+
 // Design system theme object for easy consumption
 export const theme = {
   // Colors - primary design system
-  colors,
-  brand,
+  colors: colors,
+  brand: brand,
 
   // Typography - consolidated system
   typography: {
-    fontFamilies,
-    typeScale,
-    semanticTypography,
+    fontFamilies: fontFamilies,
+    typeScale: typeScale,
+    semanticTypography: semanticTypography,
   },
 
   // Spacing and layout
-  spacing: designSystemSpacing,
-  grid: breakpoints,
+  spacing: spacing,
+  grid: grid,
 
   // Interactive elements
-  elevation: elevationSystem,
-  motion: duration,
-  focus: focusRing,
+  elevation: getElevation,
+  motion: motion,
+  focus: focusVisibility,
 } as const;
 
 // Design system constants

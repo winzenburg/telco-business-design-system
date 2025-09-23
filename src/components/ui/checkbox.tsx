@@ -1,61 +1,61 @@
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+import * as React from 'react';
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 // Removed lucide-react dependency - using design system icon instead
-import { cva, type VariantProps } from "class-variance-authority"
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from "../../utils/cn"
-import { Skeleton } from "./skeleton"
-import { Icon } from "../Icon"
-import { type IconName } from "../../tokens/design-system-icons"
+import { cn } from '../../utils/cn';
+import { Skeleton } from './skeleton';
+import { Icon } from '../Icon';
+import { type IconName } from '../../tokens/design-system-icons';
 
 // Checkbox component following Comcast Business Design System
-// Default colors: var(--ds-color-border-default) for border, var(--ds-color-intent-primary) when checked
+// Default colors: var(--ds-color-neutral-400) for border, var(--ds-color-intent-primary) when checked
 // Typography: Lato font family, consistent with Input patterns
 
 // Checkbox variants following Input component pattern
 const checkboxVariants = cva(
   // Base styles
-  "peer size-4 shrink-0 rounded-[4px] border bg-white transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+  'peer size-4 shrink-0 rounded-[4px] border bg-white transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: "border-[var(--ds-color-border-default)] data-[state=checked]:bg-[var(--ds-color-intent-primary)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:text-white",
-        error: "border-[var(--ds-color-intent-destructive)] data-[state=checked]:bg-[var(--ds-color-intent-destructive)] data-[state=checked]:border-[var(--ds-color-intent-destructive)] data-[state=checked]:text-white",
+        default: 'border-[var(--ds-color-neutral-400)] data-[state=checked]:bg-[var(--ds-color-intent-primary)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:text-white',
+        error: 'border-[var(--ds-color-intent-destructive)] data-[state=checked]:bg-[var(--ds-color-intent-destructive)] data-[state=checked]:border-[var(--ds-color-intent-destructive)] data-[state=checked]:text-white',
       },
       checkboxState: {
-        default: "",
-        hover: "border-[var(--ds-color-text-muted)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:bg-[var(--ds-color-intent-primary)]",
-        pressed: "border-[var(--ds-color-text-muted)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:bg-[var(--ds-color-intent-primary)]",
-        focused: "", // Focus styling now handled by container
-        disabled: "opacity-50 cursor-not-allowed",
+        default: '',
+        hover: 'border-[var(--ds-color-text-muted)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:bg-[var(--ds-color-intent-primary)]',
+        pressed: 'border-[var(--ds-color-text-muted)] data-[state=checked]:border-[var(--ds-color-intent-primary)] data-[state=checked]:bg-[var(--ds-color-intent-primary)]',
+        focused: '', // Focus styling now handled by container
+        disabled: 'opacity-50 cursor-not-allowed',
       },
     },
     defaultVariants: {
-      variant: "default",
-      checkboxState: "default",
+      variant: 'default',
+      checkboxState: 'default',
     },
-  }
-)
+  },
+);
 
 // Container variants for hover state background
 const checkboxContainerVariants = cva(
   // Base styles matching design specifications
-  "flex items-center gap-2 px-[5px] py-[3px] rounded-[4px] transition-colors",
+  'flex items-center gap-2 px-[5px] py-[3px] rounded-[4px] transition-colors',
   {
     variants: {
       checkboxState: {
-        default: "",
-        hover: "bg-[rgba(180,181,187,0.2)]",
-        pressed: "bg-[rgba(180,181,187,0.4)]",
-        focused: "bg-[rgba(255,255,255,0.2)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
-        disabled: "",
+        default: '',
+        hover: 'bg-[rgba(180,181,187,0.2)]',
+        pressed: 'bg-[rgba(180,181,187,0.4)]',
+        focused: 'bg-[rgba(255,255,255,0.2)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
+        disabled: '',
       },
     },
     defaultVariants: {
-      checkboxState: "default",
+      checkboxState: 'default',
     },
-  }
-)
+  },
+);
 
 export interface CheckboxProps extends React.ComponentProps<typeof CheckboxPrimitive.Root>, VariantProps<typeof checkboxVariants> {
   /**
@@ -73,7 +73,7 @@ export interface CheckboxProps extends React.ComponentProps<typeof CheckboxPrimi
   /**
    * Visual state override
    */
-  checkboxState?: "default" | "hover" | "pressed" | "focused" | "disabled"
+  checkboxState?: 'default' | 'hover' | 'pressed' | 'focused' | 'disabled'
   /**
    * Show skeleton loading state
    */
@@ -96,7 +96,7 @@ function CheckboxSkeleton({
   className?: string
 } & React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn("space-y-2", className)} {...props}>
+    <div className={cn('space-y-2', className)} {...props}>
       <div className="flex items-center space-x-2">
         {/* Checkbox skeleton */}
         <Skeleton className="size-4 rounded-[4px]" />
@@ -110,7 +110,7 @@ function CheckboxSkeleton({
         )}
       </div>
     </div>
-  )
+  );
 }
 
 const Checkbox = React.forwardRef<
@@ -120,16 +120,16 @@ const Checkbox = React.forwardRef<
   // Show skeleton if requested
   if (skeleton) {
     return (
-      <CheckboxSkeleton 
+      <CheckboxSkeleton
         hasLabel={!!label}
         hasIcon={!!rightIcon}
         className={className}
       />
-    )
+    );
   }
 
   // Generate unique ID if not provided
-  const checkboxId = id || `checkbox-${React.useId()}`
+  const checkboxId = id || `checkbox-${React.useId()}`;
 
   return (
     <div className={cn(
@@ -137,19 +137,19 @@ const Checkbox = React.forwardRef<
         checkboxState,
       }),
       // Only apply interactive states when checkboxState is not explicitly set and not disabled
-      !checkboxState && !props.disabled && "hover:bg-[rgba(180,181,187,0.2)] active:bg-[rgba(180,181,187,0.4)] focus-within:bg-[rgba(255,255,255,0.2)] focus-within:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]"
+      !checkboxState && !props.disabled && 'hover:bg-[rgba(180,181,187,0.2)] active:bg-[rgba(180,181,187,0.4)] focus-within:bg-[rgba(255,255,255,0.2)] focus-within:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
     )}>
         <CheckboxPrimitive.Root
           ref={ref}
           id={checkboxId}
           className={cn(
             checkboxVariants({
-              variant: error ? "error" : "default",
-              checkboxState: checkboxState !== "focused" ? checkboxState : "default", // Let container handle focus styling
+              variant: error ? 'error' : 'default',
+              checkboxState: checkboxState !== 'focused' ? checkboxState : 'default', // Let container handle focus styling
             }),
             // Override default focus-visible to match container focus ring
-            checkboxState !== "focused" && "focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
-            className
+            checkboxState !== 'focused' && 'focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
+            className,
           )}
           {...props}
         >
@@ -158,36 +158,36 @@ const Checkbox = React.forwardRef<
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
         {label && (
-          <label 
+          <label
             htmlFor={checkboxId}
             className={cn(
-              "flex items-center gap-1 font-secondary cursor-pointer peer-disabled:cursor-not-allowed",
+              'flex items-center gap-1 font-secondary cursor-pointer peer-disabled:cursor-not-allowed',
               // Dynamic text color based on disabled state
-              props.disabled ? "text-[var(--ds-color-text-muted)]" : "text-[var(--ds-color-text-secondary)]"
+              props.disabled ? 'text-[var(--ds-color-text-muted)]' : 'text-[var(--ds-color-text-secondary)]',
             )}
             style={{
               fontSize: '16px',
               fontWeight: 700,
               lineHeight: '130%',
               letterSpacing: '0',
-              fontStyle: 'normal'
+              fontStyle: 'normal',
             }}
           >
             <span className="flex items-center gap-1">
               {label}
               {required && (
-                <span 
+                <span
                   className={cn(
-                    "font-secondary",
+                    'font-secondary',
                     // Dynamic color for asterisk based on disabled state
-                    props.disabled ? "text-[var(--ds-color-text-muted)]" : "text-[var(--ds-color-text-secondary)]"
+                    props.disabled ? 'text-[var(--ds-color-text-muted)]' : 'text-[var(--ds-color-text-secondary)]',
                   )}
                   style={{
                     fontSize: '16px',
                     fontWeight: 700,
                     lineHeight: '130%',
                     letterSpacing: '0',
-                    fontStyle: 'normal'
+                    fontStyle: 'normal',
                   }}
                 >
                   *
@@ -195,17 +195,17 @@ const Checkbox = React.forwardRef<
               )}
             </span>
             {rightIcon && (
-              <Icon 
-                name={rightIcon} 
-                className="size-4 text-[var(--ds-color-text-muted)]" 
+              <Icon
+                name={rightIcon}
+                className="size-4 text-[var(--ds-color-text-muted)]"
                 aria-hidden="true"
               />
             )}
           </label>
         )}
     </div>
-  )
-})
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
+  );
+});
+Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
-export { Checkbox, CheckboxSkeleton }
+export { Checkbox, CheckboxSkeleton };

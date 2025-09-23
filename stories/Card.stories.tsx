@@ -441,3 +441,69 @@ export const Interactive: Story = {
     );
   },
 };
+
+// Story demonstrating the balanced layout: header top-aligned, content bottom-aligned
+export const BalancedLayout: Story = {
+  render: () => (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+      {/* Short content card */}
+      <Card className="h-64">
+        <CardHeader>
+          <CardTitle>Quick Service</CardTitle>
+          <CardDescription>Fast and reliable internet service for small businesses.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-2">
+            <div className="text-2xl font-bold text-primary">$49/mo</div>
+            <Button className="w-full">Get Started</Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Medium content card */}
+      <Card className="h-64">
+        <CardHeader>
+          <CardTitle>Business Pro</CardTitle>
+          <CardDescription>Enhanced internet with additional features for growing businesses.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-3">
+            <ul className="text-sm space-y-1 text-muted-foreground">
+              <li>• Up to 100 Mbps</li>
+              <li>• 24/7 Support</li>
+            </ul>
+            <div className="text-2xl font-bold text-primary">$99/mo</div>
+            <Button className="w-full">Choose Plan</Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Long content card */}
+      <Card className="h-64">
+        <CardHeader>
+          <CardTitle>Enterprise</CardTitle>
+          <CardDescription>Complete solution for large organizations with advanced needs.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-3">
+            <ul className="text-sm space-y-1 text-muted-foreground">
+              <li>• Up to 1 Gbps</li>
+              <li>• Dedicated Support</li>
+              <li>• Security Suite</li>
+              <li>• Priority Service</li>
+            </ul>
+            <div className="text-2xl font-bold text-primary">$299/mo</div>
+            <Button className="w-full">Contact Sales</Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Demonstrates balanced card layout where headers are top-aligned and content (pricing/actions) is bottom-aligned, creating visual harmony even with varying content lengths.'
+      }
+    }
+  }
+};

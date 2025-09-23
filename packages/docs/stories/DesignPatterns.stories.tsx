@@ -338,7 +338,7 @@ export const ComponentStructurePatterns: Story = {
             <div className="space-y-4">
               <h4 className="font-medium font-primary">Icon Positioning</h4>
               <div className="p-4 border border-gray-200 rounded-lg">
-                <div className="flex items-start gap-[10px]">
+                <div className="flex items-start gap-2.5">
 <Users className="flex w-4 h-4 items-start text-gray-600" />
                   <span className="text-sm font-secondary">Icon alignment</span>
                 </div>
@@ -370,7 +370,7 @@ export const ComponentStructurePatterns: Story = {
               <Textarea
                 label="Textarea Field"
                 placeholder="Multi-line input with same patterns"
-                style={{ fontSize: '14px', lineHeight: '18.2px' }}
+                style={{ fontSize: 'var(--ds-font-size-sm)', lineHeight: 'var(--ds-line-height-normal)' }}
               />
             </div>
 
@@ -422,22 +422,22 @@ export const StateManagementPatterns: Story = {
           <h3 className="text-lg font-medium font-primary">Interactive State Colors</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 border border-gray-400 rounded-[4px] bg-white">
+            <div className="p-4 border border-gray-400 rounded bg-white">
               <div className="font-medium font-primary mb-1">Default</div>
               <div className="text-sm text-gray-600 font-secondary">border-gray-400</div>
             </div>
             
-            <div className="p-4 border rounded-[4px] bg-white" style={{ borderColor: 'var(--ds-color-text-primary)' }}>
+            <div className="p-4 border rounded bg-white" style={{ borderColor: 'var(--ds-color-text-primary)' }}>
               <div className="font-medium font-primary mb-1">Hover</div>
               <div className="text-sm text-gray-600 font-secondary">var(--ds-color-text-primary)</div>
             </div>
             
-            <div className="p-4 border-2 rounded-[4px] bg-white ring-2 ring-offset-2" style={{ borderColor: 'var(--ds-color-intent-primary)', ringColor: 'var(--ds-color-intent-primary)' }}>
+            <div className="p-4 border-2 rounded bg-white ring-2 ring-offset-2" style={{ borderColor: 'var(--ds-color-intent-primary)', ringColor: 'var(--ds-color-intent-primary)' }}>
               <div className="font-medium font-primary mb-1">Focus</div>
               <div className="text-sm text-gray-600 font-secondary">var(--ds-color-intent-primary) + ring</div>
             </div>
             
-            <div className="p-4 border border-red-500 rounded-[4px] bg-white">
+            <div className="p-4 border border-red-500 rounded bg-white">
               <div className="font-medium font-primary mb-1">Error</div>
               <div className="text-sm text-gray-600 font-secondary">border-red-500</div>
             </div>
@@ -784,7 +784,7 @@ export const ImplementationGuide: Story = {
             </div>
             <div>
               <strong className="font-primary">Border radius:</strong><br />
-              <code>rounded-[4px]</code>
+              <code>rounded</code>
             </div>
             <div>
               <strong className="font-primary">Icons:</strong><br />

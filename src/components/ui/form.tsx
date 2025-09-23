@@ -1,27 +1,27 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from "../../utils/cn"
-import { Title, Body, Label as TypographyLabel } from "./typography"
+import { cn } from '../../utils/cn';
+import { Title, Body, Label as TypographyLabel } from './typography';
 
 // Form component following Comcast Business Design System
 // Typography: Default body text using design tokens, labels and helper text as per design system
 
 const formVariants = cva(
-  "space-y-6",
+  'space-y-6',
   {
     variants: {
       layout: {
-        vertical: "space-y-6",
-        horizontal: "space-y-4",
-        inline: "flex flex-wrap gap-4 items-end",
+        vertical: 'space-y-6',
+        horizontal: 'space-y-4',
+        inline: 'flex flex-wrap gap-4 items-end',
       },
     },
     defaultVariants: {
-      layout: "vertical",
+      layout: 'vertical',
     },
-  }
-)
+  },
+);
 
 export interface FormProps
   extends React.FormHTMLAttributes<HTMLFormElement>,
@@ -37,10 +37,10 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
       >
         {children}
       </form>
-    )
-  }
-)
-Form.displayName = "Form"
+    );
+  },
+);
+Form.displayName = 'Form';
 
 // Form Field Container
 export interface FormFieldProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -59,19 +59,19 @@ const FormField = React.forwardRef<HTMLDivElement, FormFieldProps>(
     return (
       <div
         className={cn(
-          "space-y-2",
-          error && "space-y-1",
-          className
+          'space-y-2',
+          error && 'space-y-1',
+          className,
         )}
         ref={ref}
         {...props}
       >
         {children}
       </div>
-    )
-  }
-)
-FormField.displayName = "FormField"
+    );
+  },
+);
+FormField.displayName = 'FormField';
 
 // Form Label
 export interface FormLabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
@@ -90,9 +90,9 @@ const FormLabel = React.forwardRef<HTMLLabelElement, FormLabelProps>(
     return (
       <TypographyLabel
         className={cn(
-          "leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
-          error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-primary)]",
-          className
+          'leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+          error ? 'text-[var(--ds-color-intent-destructive)]' : 'text-[var(--ds-color-text-primary)]',
+          className,
         )}
         ref={ref}
         {...props}
@@ -100,10 +100,10 @@ const FormLabel = React.forwardRef<HTMLLabelElement, FormLabelProps>(
         {children}
         {required && <span className="ml-1 text-[var(--ds-color-intent-destructive)]">*</span>}
       </TypographyLabel>
-    )
-  }
-)
-FormLabel.displayName = "FormLabel"
+    );
+  },
+);
+FormLabel.displayName = 'FormLabel';
 
 // Form Description/Helper Text
 export interface FormDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
@@ -118,29 +118,29 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionPr
     return (
       <p
         className={cn(
-          "text-xs",
-          error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-muted)]",
-          className
+          'text-xs',
+          error ? 'text-[var(--ds-color-intent-destructive)]' : 'text-[var(--ds-color-text-muted)]',
+          className,
         )}
         ref={ref}
         {...props}
       />
-    )
-  }
-)
-FormDescription.displayName = "FormDescription"
+    );
+  },
+);
+FormDescription.displayName = 'FormDescription';
 
 // Form Message (for validation feedback)
 export interface FormMessageProps extends React.HTMLAttributes<HTMLParagraphElement> {
   /**
    * Message type
    */
-  type?: "error" | "success" | "warning" | "info"
+  type?: 'error' | 'success' | 'warning' | 'info'
 }
 
 const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
-  ({ className, type = "error", children, ...props }, ref) => {
-    if (!children) return null
+  ({ className, type = 'error', children, ...props }, ref) => {
+    if (!children) return null;
 
     return (
       <Body
@@ -149,22 +149,22 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
         as="p"
         className={cn(
           {
-            "text-[var(--ds-color-intent-destructive)]": type === "error",
-            "text-[var(--ds-color-intent-success)]": type === "success", 
-            "text-[var(--ds-color-intent-warning)]": type === "warning",
-            "text-[var(--ds-color-intent-info)]": type === "info",
+            'text-[var(--ds-color-intent-destructive)]': type === 'error',
+            'text-[var(--ds-color-intent-success)]': type === 'success',
+            'text-[var(--ds-color-intent-warning)]': type === 'warning',
+            'text-[var(--ds-color-intent-info)]': type === 'info',
           },
-          className
+          className,
         )}
         ref={ref}
         {...props}
       >
         {children}
       </Body>
-    )
-  }
-)
-FormMessage.displayName = "FormMessage"
+    );
+  },
+);
+FormMessage.displayName = 'FormMessage';
 
 // Form Section (for grouping related fields)
 export interface FormSectionProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -182,7 +182,7 @@ const FormSection = React.forwardRef<HTMLDivElement, FormSectionProps>(
   ({ className, title, description, children, ...props }, ref) => {
     return (
       <div
-        className={cn("space-y-4", className)}
+        className={cn('space-y-4', className)}
         ref={ref}
         {...props}
       >
@@ -204,41 +204,41 @@ const FormSection = React.forwardRef<HTMLDivElement, FormSectionProps>(
           {children}
         </div>
       </div>
-    )
-  }
-)
-FormSection.displayName = "FormSection"
+    );
+  },
+);
+FormSection.displayName = 'FormSection';
 
 // Form Actions (for submit/cancel buttons)
 export interface FormActionsProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Alignment of actions
    */
-  align?: "left" | "center" | "right"
+  align?: 'left' | 'center' | 'right'
 }
 
 const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
-  ({ className, align = "right", children, ...props }, ref) => {
+  ({ className, align = 'right', children, ...props }, ref) => {
     return (
       <div
         className={cn(
-          "flex gap-3 pt-4",
+          'flex gap-3 pt-4',
           {
-            "justify-start": align === "left",
-            "justify-center": align === "center", 
-            "justify-end": align === "right",
+            'justify-start': align === 'left',
+            'justify-center': align === 'center',
+            'justify-end': align === 'right',
           },
-          className
+          className,
         )}
         ref={ref}
         {...props}
       >
         {children}
       </div>
-    )
-  }
-)
-FormActions.displayName = "FormActions"
+    );
+  },
+);
+FormActions.displayName = 'FormActions';
 
 export {
   Form,
@@ -249,4 +249,4 @@ export {
   FormSection,
   FormActions,
   formVariants,
-}
+};

@@ -10,7 +10,7 @@ import {
 } from '../src/tokens/design-system-icons';
 
 const meta: Meta<typeof Icon> = {
-  
+
   title: ' Foundations/Icons',
   component: Icon,
   parameters: {
@@ -21,6 +21,7 @@ const meta: Meta<typeof Icon> = {
       },
     },
   },
+  tags: ['autodocs'],
   argTypes: {
     name: {
       control: 'select',

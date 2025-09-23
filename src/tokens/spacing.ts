@@ -40,7 +40,7 @@ export const sizing = {
   min: 'min-content',
   max: 'max-content',
   fit: 'fit-content',
-  
+
   // Container sizes
   container: {
     sm: '640px',
@@ -184,4 +184,4 @@ export const responsive = {
   lg: `@media (min-width: ${layout.breakpoints.lg})`,
   xl: `@media (min-width: ${layout.breakpoints.xl})`,
   '2xl': `@media (min-width: ${layout.breakpoints['2xl']})`,
-} as const; 
+} as const;

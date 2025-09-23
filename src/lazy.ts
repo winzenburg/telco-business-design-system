@@ -18,6 +18,6 @@ export const LazyComponentWrapper = ({ children, fallback }: { children: React.R
   return React.createElement(
     Suspense,
     { fallback: fallback || React.createElement('div', {}, 'Loading...') },
-    children
+    children,
   );
 };

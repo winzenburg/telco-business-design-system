@@ -1,52 +1,83 @@
-// Comcast Business Design System - Components
-// Optimized exports to reduce bundle size and improve tree-shaking
+// Optimized exports for tree-shaking and smaller bundle size
 
-// Core UI Components - use wildcard exports for better tree-shaking
-export * from './ui/button';
-export * from './ui/button-group';
-export * from './ui/input';
-export * from './ui/card';
-// Export label separately to avoid conflicts
+// Core Components
+export { Button, buttonVariants } from './ui/button';
+export { Input } from './ui/input';
 export { Label } from './ui/label';
-export * from './ui/checkbox';
-export * from './ui/select';
-export * from './ui/tabs';
-export * from './ui/table';
-export * from './ui/dialog';
-export * from './ui/form';
-export * from './ui/textarea';
-export * from './ui/radio-group';
-export * from './ui/skeleton';
-export * from './ui/navigation';
-export * from './ui/typography';
+export { Badge, badgeVariants } from './ui/badge';
 
-// Data Display Components
-export * from './ui/chart';
-export * from './ui/unified-chart';
-export * from './ui/avatar';
-export * from './ui/progress';
-
-// Feedback Components  
-export * from './ui/alert';
-export * from './ui/badge';
-export * from './ui/toast';
-export * from './ui/tooltip';
+// Form Components
+export { Checkbox } from './ui/checkbox';
+export { RadioGroup, RadioGroupItem } from './ui/radio-group';
+export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+export { Slider } from './ui/slider';
+export { Switch } from './ui/switch';
+export { Textarea } from './ui/textarea';
 
 // Layout Components
-export * from './ui/separator';
-export * from './ui/breadcrumb';
-export * from './ui/list';
+export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, CardMedia, CardActions, CardDivider } from './ui/card';
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
+export { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+export { Separator } from './ui/separator';
 
-// Interactive Components
-export * from './ui/switch';
-export * from './ui/slider';
-export * from './ui/accordion';
-export * from './ui/popover';
-export * from './ui/menu';
-export * from './ui/sheet';
-export * from './ui/command';
+// Feedback Components
+export { Alert, AlertDescription, AlertTitle, AlertActions } from './ui/alert';
+export { Progress } from './ui/progress';
+export { Skeleton } from './ui/skeleton';
+export {
+  Toast,
+  ToastAction,
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+} from './ui/toast';
 
-// Backwards compatibility aliases for DropdownMenu API
+// Overlay Components
+export {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog';
+
+export {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from './ui/sheet';
+
+export { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, TooltipHeader, TooltipBody, TooltipArrow } from './ui/tooltip';
+
+// Menu Components (DropdownMenu is an alias)
+export {
+  Menu,
+  MenuTrigger,
+  MenuContent,
+  MenuItem,
+  MenuCheckboxItem,
+  MenuRadioItem,
+  MenuLabel,
+  MenuSeparator,
+  MenuShortcut,
+  MenuGroup,
+  MenuPortal,
+  MenuSub,
+  MenuSubContent,
+  MenuSubTrigger,
+  MenuRadioGroup,
+} from './ui/menu';
+
+// DropdownMenu aliases for backwards compatibility
 export {
   Menu as DropdownMenu,
   MenuTrigger as DropdownMenuTrigger,
@@ -64,9 +95,59 @@ export {
   MenuRadioGroup as DropdownMenuRadioGroup,
 } from './ui/menu';
 
-// Icon System
-export * from './Icon';
+// Navigation
+export {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from './ui/breadcrumb';
 
-// Comcast Business Specific Components
-export { ComcastBusinessLogo } from './ComcastBusinessLogo';
-export { GlobalNavigation } from './GlobalNavigation'; 
+// Data Display
+export { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+export { List, ListItem, ListSection, ListItemContent, ListItemLeading, ListItemTrailing, ListItemText, ListItemSecondaryText, ListItemSupportingText, ListSectionHeader, ListDivider } from './ui/list';
+export { Typography } from './ui/typography';
+export { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from './ui/chart';
+
+// Aliases
+export { Label as FormLabel } from './ui/label';
+
+// Command Components
+export {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from './ui/command';
+
+// Table Components
+export {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from './ui/table';
+
+// Utilities
+export { cn } from '../utils/cn';
+
+// Type exports - separate for better tree-shaking
+export type { ButtonProps } from './ui/button';
+export type { InputProps } from './ui/input';
+export type { BadgeProps } from './ui/badge';
+export type { CheckboxProps } from './ui/checkbox';
+export type { CardProps } from './ui/card';
+export type { TabsListProps, TabsTriggerProps } from './ui/tabs';
+export type { ToastProps, ToastActionElement } from './ui/toast';
+export type { TypographyProps } from './ui/typography';

@@ -21,7 +21,7 @@ export {
   navy,
   sky,
   teal,
-  getColor
+  getColor,
 } from './design-system-colors';
 // Typography - selective exports
 export {
@@ -31,28 +31,28 @@ export {
   tailwindTypography,
   getTypographyStyle,
   fontWeightName,
-  pxToRem
+  pxToRem,
 } from './typography-consolidated';
 
 // Typography types
 export type {
   FontFamily,
   TypeScaleCategory,
-  TypeScaleVariant
+  TypeScaleVariant,
 } from './typography-consolidated';
 
 // Layout and spacing - export specific modules to avoid conflicts
-export { 
+export {
   spacing as designSystemSpacing,
   semanticSpacing,
   responsiveSpacing,
   grid as spacingGrid,
   spacingUsage,
   getSpacing as getDesignSystemSpacing,
-  getSemanticSpacing
+  getSemanticSpacing,
 } from './design-system-spacing';
 
-export { 
+export {
   breakpoints,
   mediaQueries,
   grid as gridSystem,
@@ -64,18 +64,18 @@ export {
   gridUsage,
   getBreakpoint,
   getGridConfig,
-  getColumnSpan
+  getColumnSpan,
 } from './design-system-grid';
 
 // Other design system modules
-export { 
+export {
   icons,
   iconsByCategory,
   iconCategories,
   commonIconSizes as designSystemIconSizes,
   iconUsage,
   getIcon,
-  getIconsByCategory
+  getIconsByCategory,
 } from './design-system-icons';
 
 // Design system elevation - selective exports
@@ -87,13 +87,13 @@ export {
   cssCustomProperties,
   getElevation,
   getSemanticElevation,
-  createElevationStyle
+  createElevationStyle,
 } from './design-system-elevation';
 
 // Elevation types
 export type {
   ElevationData,
-  SemanticElevation
+  SemanticElevation,
 } from './design-system-elevation';
 
 // Design system motion - selective exports
@@ -105,12 +105,12 @@ export {
   reducedMotion,
   motionUsage,
   getMotion,
-  createMotionStyle
+  createMotionStyle,
 } from './design-system-motion';
 
 // Motion types
 export type {
-  MotionToken
+  MotionToken,
 } from './design-system-motion';
 
 // Design system focus - selective exports
@@ -123,12 +123,12 @@ export {
   touchTargets,
   tailwindFocus,
   accessibilityUsage,
-  getFocusRing
+  getFocusRing,
 } from './design-system-focus';
 
 // Focus types
 export type {
-  FocusToken
+  FocusToken,
 } from './design-system-focus';
 
 export {
@@ -142,41 +142,50 @@ export {
   getComponentSize,
   getIconSize,
   createSizeStyle,
-  getResponsiveSize
+  getResponsiveSize,
 } from './design-system-sizing';
 
 // Legacy spacing system - export with different names to avoid conflicts
-export { 
+export {
   spacing as legacySpacing,
   sizing,
   layout,
   getSpacing as getLegacySpacing,
   getSizing,
   getLayout,
-  responsive
+  responsive,
 } from './spacing';
 
 // Design system theme object for easy consumption
+// Import all required modules
+import * as designSystemColors from './design-system-colors';
+import * as typographyConsolidated from './typography-consolidated';
+import * as designSystemSpacing from './design-system-spacing';
+import * as designSystemGrid from './design-system-grid';
+import * as designSystemElevation from './design-system-elevation';
+import * as designSystemMotion from './design-system-motion';
+import * as designSystemFocus from './design-system-focus';
+
 export const theme = {
   // Colors - primary design system
-  colors: require('./design-system-colors').colors,
-  brand: require('./design-system-colors').brand,
-  
+  colors: designSystemColors.colors,
+  brand: designSystemColors.brand,
+
   // Typography - consolidated system
   typography: {
-    fontFamilies: require('./typography-consolidated').fontFamilies,
-    typeScale: require('./typography-consolidated').typeScale,
-    semanticTypography: require('./typography-consolidated').semanticTypography,
+    fontFamilies: typographyConsolidated.fontFamilies,
+    typeScale: typographyConsolidated.typeScale,
+    semanticTypography: typographyConsolidated.semanticTypography,
   },
-  
+
   // Spacing and layout
-  spacing: require('./design-system-spacing').spacing,
-  grid: require('./design-system-grid').breakpoints,
-  
+  spacing: designSystemSpacing.spacing,
+  grid: designSystemGrid.breakpoints,
+
   // Interactive elements
-  elevation: require('./design-system-elevation').elevationSystem,
-  motion: require('./design-system-motion').duration,
-  focus: require('./design-system-focus').focusRing,
+  elevation: designSystemElevation.elevationSystem,
+  motion: designSystemMotion.duration,
+  focus: designSystemFocus.focusRing,
 } as const;
 
 // Design system constants

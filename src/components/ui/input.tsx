@@ -1,9 +1,9 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from "../../utils/cn"
-import { Icon } from "../Icon"
-import { InputSkeleton } from "./skeleton"
+import { cn } from '../../utils/cn';
+import { Icon } from '../Icon';
+import { InputSkeleton } from './skeleton';
 
 // Input component following Comcast Business Design System
 // Colors: Using design tokens for consistent theming
@@ -11,59 +11,59 @@ import { InputSkeleton } from "./skeleton"
 
 const inputVariants = cva(
   // Base styles using exact Figma specifications
-  "flex w-full items-center gap-[7px] self-stretch rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-canvas)] transition-colors file:border-0 file:bg-transparent focus-visible:outline-none disabled:cursor-not-allowed selection:bg-[var(--ds-color-intent-primary)]/20 overflow-hidden text-ellipsis text-[var(--ds-color-text-primary)] font-secondary placeholder:overflow-hidden placeholder:text-ellipsis placeholder:text-[var(--ds-color-text-muted)] placeholder:font-normal placeholder:leading-[130%] placeholder:tracking-normal",
+  'flex w-full items-center gap-[7px] self-stretch rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-canvas)] transition-colors file:border-0 file:bg-transparent focus-visible:outline-none disabled:cursor-not-allowed selection:bg-[var(--ds-color-intent-primary)]/20 overflow-hidden text-ellipsis text-[var(--ds-color-text-primary)] font-secondary placeholder:overflow-hidden placeholder:text-ellipsis placeholder:text-[var(--ds-color-text-muted)] placeholder:font-normal placeholder:leading-[130%] placeholder:tracking-normal',
   {
     variants: {
       variant: {
-        // Default state - neutral/grey-400 border
-        default: "border-[var(--ds-color-border-default)] hover:border-[var(--ds-color-text-muted)] hover:bg-[var(--ds-color-bg-surface)] hover:shadow-[var(--ds-shadow-sm)] focus-visible:border-[var(--ds-color-border-default)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] active:border-[var(--ds-color-border-default)]",
-        
+        // Default state - neutral-400 border for form inputs
+        default: 'border-[var(--ds-color-neutral-400)] hover:border-[var(--ds-color-text-muted)] hover:bg-[var(--ds-color-bg-surface)] hover:shadow-[var(--ds-shadow-sm)] focus-visible:border-[var(--ds-color-neutral-400)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] active:border-[var(--ds-color-neutral-400)]',
+
         // Error states
-        error: "border-[var(--ds-color-intent-destructive)] hover:border-[var(--ds-color-intent-destructive)]/80 focus-visible:border-[var(--ds-color-intent-destructive)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] active:border-[var(--ds-color-intent-destructive)]",
-        
-        
+        error: 'border-[var(--ds-color-intent-destructive)] hover:border-[var(--ds-color-intent-destructive)]/80 focus-visible:border-[var(--ds-color-intent-destructive)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] active:border-[var(--ds-color-intent-destructive)]',
+
+
         // Loading state
-        loading: "border-[var(--ds-color-border-default)] hover:border-[var(--ds-color-text-primary)] focus-visible:border-[var(--ds-color-border-default)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] cursor-wait",
+        loading: 'border-[var(--ds-color-neutral-400)] hover:border-[var(--ds-color-text-primary)] focus-visible:border-[var(--ds-color-neutral-400)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] cursor-wait',
       },
       size: {
-        default: "h-[var(--ds-spacing-10)] px-[13px] py-[9px]",
-        sm: "h-8 px-2 py-1 text-xs",
-        lg: "h-12 px-4 py-3 text-base",
+        default: 'h-[var(--ds-spacing-10)] px-[13px] py-[9px]',
+        sm: 'h-8 px-2 py-1 text-xs',
+        lg: 'h-12 px-4 py-3 text-base',
       },
       inputState: {
-        default: "",
-        active: "border-[var(--ds-color-border-default)]",
-        focused: "border-[var(--ds-color-border-default)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
-        hover: "border-[var(--ds-color-text-muted)] bg-[var(--ds-color-bg-surface)] shadow-[var(--ds-shadow-sm)]",
-        disabled: "border-[var(--ds-color-border-muted)] bg-[var(--ds-color-bg-muted)] cursor-not-allowed",
-        errorFocused: "border-[var(--ds-color-intent-destructive)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
-        errorFilled: "border-[var(--ds-color-intent-destructive)]",
-        loading: "cursor-wait",
+        default: '',
+        active: 'border-[var(--ds-color-neutral-400)]',
+        focused: 'border-[var(--ds-color-neutral-400)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
+        hover: 'border-[var(--ds-color-text-muted)] bg-[var(--ds-color-bg-surface)] shadow-[var(--ds-shadow-sm)]',
+        disabled: 'border-[var(--ds-color-border-muted)] bg-[var(--ds-color-bg-muted)] cursor-not-allowed',
+        errorFocused: 'border-[var(--ds-color-intent-destructive)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
+        errorFilled: 'border-[var(--ds-color-intent-destructive)]',
+        loading: 'cursor-wait',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
-      inputState: "default",
+      variant: 'default',
+      size: 'default',
+      inputState: 'default',
     },
-  }
-)
+  },
+);
 
 const inputWrapperVariants = cva(
-  "relative flex items-center",
+  'relative flex items-center',
   {
     variants: {
       size: {
-        default: "",
-        sm: "",
-        lg: "",
+        default: '',
+        sm: '',
+        lg: '',
       },
     },
     defaultVariants: {
-      size: "default",
+      size: 'default',
     },
-  }
-)
+  },
+);
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
@@ -124,11 +124,11 @@ export interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ 
-    className, 
-    variant, 
-    size, 
-    type = "text",
+  ({
+    className,
+    variant,
+    size,
+    type = 'text',
     error = false,
     loading = false,
     skeleton = false,
@@ -143,24 +143,24 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     iconSize = 16,
     inputState,
     disabled,
-    ...props 
+    ...props
   }, ref) => {
     // Determine variant based on error/loading states
-    const finalVariant = loading ? "loading" : error ? "error" : variant
+    const finalVariant = loading ? 'loading' : error ? 'error' : variant;
 
     // Determine state - explicit inputState overrides natural states
-    const finalInputState = inputState || 
-      (disabled ? "disabled" : 
-       loading ? "loading" : 
-       error && props.value ? "errorFilled" :
-       "default")
+    const finalInputState = inputState ||
+      (disabled ? 'disabled' :
+       loading ? 'loading' :
+       error && props.value ? 'errorFilled' :
+       'default');
 
     // Calculate padding based on icons
-    const paddingLeft = leftIcon ? (size === "sm" ? "pl-8" : size === "lg" ? "pl-12" : "pl-10") : "pl-3"
-    const paddingRight = rightIcon || loading ? (size === "sm" ? "pr-8" : size === "lg" ? "pr-12" : "pr-10") : "pr-3"
+    const paddingLeft = leftIcon ? (size === 'sm' ? 'pl-8' : size === 'lg' ? 'pl-12' : 'pl-10') : 'pl-3';
+    const paddingRight = rightIcon || loading ? (size === 'sm' ? 'pr-8' : size === 'lg' ? 'pr-12' : 'pr-10') : 'pr-3';
 
     // Use hintText if provided, fallback to helperText for backward compatibility
-    const displayHintText = hintText || helperText
+    const displayHintText = hintText || helperText;
 
     // Show skeleton loading state
     if (skeleton) {
@@ -172,7 +172,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           hasIcon={!!leftIcon}
           className={className}
         />
-      )
+      );
     }
 
     return (
@@ -183,13 +183,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <label className="flex items-center gap-1 text-sm font-medium text-black font-primary">
               {label}
               {required && (
-                <span 
+                <span
                   className="text-[var(--ds-color-text-primary)] font-secondary"
                   style={{
                     fontSize: '14px',
                     fontWeight: 400,
                     lineHeight: '130%',
-                    letterSpacing: '0'
+                    letterSpacing: '0',
                   }}
                 >
                   *
@@ -198,30 +198,30 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </label>
             {/* Subcopy */}
             {subcopy && (
-              <p className="text-[var(--ds-color-text-muted)] font-secondary font-normal leading-[130%] tracking-normal" style={{ 
-                fontSize: '14px', 
+              <p className="text-[var(--ds-color-text-muted)] font-secondary font-normal leading-[130%] tracking-normal" style={{
+                fontSize: '14px',
                 lineHeight: '130%',
                 fontWeight: 400,
                 letterSpacing: '0',
-                fontStyle: 'normal'
+                fontStyle: 'normal',
               }}>
                 {subcopy}
               </p>
             )}
           </div>
         )}
-        
+
         {/* Input field */}
         <div className={cn(inputWrapperVariants({ size }))}>
           {leftIcon && (
             <div className="absolute left-3 z-10 flex items-start gap-[10px] pointer-events-none">
-              <Icon 
-                name={leftIcon as any} 
+              <Icon
+                name={leftIcon as any}
                 size={16}
                 className={cn(
-                  "flex w-4 h-4 items-start text-gray-600",
-                  disabled && "opacity-50"
-                )} 
+                  'flex w-4 h-4 items-start text-gray-600',
+                  disabled && 'opacity-50',
+                )}
               />
             </div>
           )}
@@ -232,16 +232,16 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               inputVariants({ variant: finalVariant, size, inputState: finalInputState }),
               paddingLeft,
               paddingRight,
-              "font-secondary",
-              className
+              'font-secondary',
+              className,
             )}
-            style={{ 
-              fontSize: '14px', 
+            style={{
+              fontSize: '14px',
               lineHeight: '130%',
               fontWeight: 400,
               letterSpacing: '0',
               fontStyle: 'normal',
-              ...props.style
+              ...props.style,
             }}
             ref={ref}
             {...props}
@@ -250,46 +250,46 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <div className="absolute right-3 z-10 flex items-start gap-[10px] pointer-events-none">
               {loading ? (
                 <div className="animate-spin">
-                  <Icon 
-                    name="configure" 
+                  <Icon
+                    name="configure"
                     size={16}
-                    className="flex w-4 h-4 items-start text-gray-600" 
+                    className="flex w-4 h-4 items-start text-gray-600"
                   />
                 </div>
               ) : rightIcon ? (
-                <Icon 
-                  name={rightIcon as any} 
+                <Icon
+                  name={rightIcon as any}
                   size={16}
                   className={cn(
-                    "flex w-4 h-4 items-start text-gray-600",
-                    disabled && "opacity-50"
-                  )} 
+                    'flex w-4 h-4 items-start text-gray-600',
+                    disabled && 'opacity-50',
+                  )}
                 />
               ) : null}
             </div>
           )}
         </div>
-        
+
         {/* Hint text or error message */}
         {(displayHintText || (error && errorMessage)) && (
           <p className={cn(
-            "font-secondary font-normal leading-[130%] tracking-normal mt-1",
-            error ? "text-[var(--ds-color-intent-destructive)]" : "text-[var(--ds-color-text-muted)]"
-          )} style={{ 
-            fontSize: '14px', 
+            'font-secondary font-normal leading-[130%] tracking-normal mt-1',
+            error ? 'text-[var(--ds-color-intent-destructive)]' : 'text-[var(--ds-color-text-muted)]',
+          )} style={{
+            fontSize: '14px',
             lineHeight: '130%',
             fontWeight: 400,
             letterSpacing: '0',
             fontStyle: 'normal',
-            marginTop: '4px'
+            marginTop: '4px',
           }}>
             {error && errorMessage ? errorMessage : displayHintText}
           </p>
         )}
       </div>
-    )
-  }
-)
-Input.displayName = "Input"
+    );
+  },
+);
+Input.displayName = 'Input';
 
-export { Input, inputVariants, InputSkeleton }
+export { Input, inputVariants, InputSkeleton };

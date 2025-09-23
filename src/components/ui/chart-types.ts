@@ -25,7 +25,7 @@ export interface BaseChartProps {
 }
 
 // Line and area specific types
-export type LineType = "linear" | "monotone" | "step" | "stepBefore" | "stepAfter"
+export type LineType = 'linear' | 'monotone' | 'step' | 'stepBefore' | 'stepAfter'
 
 // Layout types for bar charts
-export type BarChartLayout = "horizontal" | "vertical"
+export type BarChartLayout = 'horizontal' | 'vertical'

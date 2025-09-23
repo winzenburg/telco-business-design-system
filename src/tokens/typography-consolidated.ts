@@ -13,17 +13,17 @@ export const fontFamilies = {
     category: 'sans-serif',
     usage: 'Headings, buttons, navigation, and primary UI elements',
     weights: [300, 400, 500, 600, 700],
-    fallback: 'system-ui, sans-serif'
+    fallback: 'system-ui, sans-serif',
   },
 
   // Secondary font - Lato (body text and content)
   secondary: {
     name: 'Lato',
     stack: 'Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif',
-    category: 'sans-serif', 
+    category: 'sans-serif',
     usage: 'Body text, paragraphs, and content areas',
     weights: [300, 400, 500, 700],
-    fallback: 'system-ui, sans-serif'
+    fallback: 'system-ui, sans-serif',
   },
 
   // Action font - Lato (buttons and interactive elements)
@@ -33,7 +33,7 @@ export const fontFamilies = {
     category: 'sans-serif',
     usage: 'Buttons, call-to-action elements, and interactive text',
     weights: [400, 600, 700],
-    fallback: 'system-ui, sans-serif'
+    fallback: 'system-ui, sans-serif',
   },
 
   // Monospace font - JetBrains Mono (code and data)
@@ -43,8 +43,8 @@ export const fontFamilies = {
     category: 'monospace',
     usage: 'Code blocks, technical data, and fixed-width content',
     weights: [400, 500, 700],
-    fallback: 'monospace'
-  }
+    fallback: 'monospace',
+  },
 } as const;
 
 // ===== LAYER 2: TYPOGRAPHY SCALE =====
@@ -58,22 +58,22 @@ export const typeScale = {
       lineHeight: '1.1',      // 79.2px
       letterSpacing: '-0.02em',
       fontWeight: 700,
-      usage: 'Hero headlines, marketing'
+      usage: 'Hero headlines, marketing',
     },
     xl: {
       fontSize: '3.75rem',    // 60px
       lineHeight: '1.15',     // 69px
       letterSpacing: '-0.02em',
       fontWeight: 700,
-      usage: 'Page headlines'
+      usage: 'Page headlines',
     },
     lg: {
       fontSize: '3rem',       // 48px
       lineHeight: '1.2',      // 57.6px
       letterSpacing: '-0.01em',
       fontWeight: 600,
-      usage: 'Section headlines'
-    }
+      usage: 'Section headlines',
+    },
   },
 
   // Title hierarchy - Complete title system from Figma
@@ -83,50 +83,50 @@ export const typeScale = {
       lineHeight: '76.8px',   // 76.8px
       letterSpacing: '0',     // normal
       fontWeight: 400,        // normal (regular weight)
-      usage: 'Title 5XL - Hero headlines, landing pages'
+      usage: 'Title 5XL - Hero headlines, landing pages',
     },
     '4xl': {
       fontSize: '3rem',       // 48px
       lineHeight: '1.15',     // 55.2px
       letterSpacing: '-0.02em',
       fontWeight: 400,
-      usage: 'Title 4XL - Page headlines, major sections'
+      usage: 'Title 4XL - Page headlines, major sections',
     },
     '3xl': {
       fontSize: '2.25rem',    // 36px
       lineHeight: '1.25',     // 45px
       letterSpacing: '-0.01em',
       fontWeight: 400,
-      usage: 'Title 3XL - Section headers'
+      usage: 'Title 3XL - Section headers',
     },
     '2xl': {
       fontSize: '1.875rem',   // 30px
       lineHeight: '1.3',      // 39px
       letterSpacing: '-0.005em',
       fontWeight: 400,
-      usage: 'Title 2XL - Subsection headers'
+      usage: 'Title 2XL - Subsection headers',
     },
     xl: {
       fontSize: '1.5rem',     // 24px
       lineHeight: '1.35',     // 32.4px
       letterSpacing: 'normal',
       fontWeight: 400,
-      usage: 'Title XL - Component titles'
+      usage: 'Title XL - Component titles',
     },
     l: {
       fontSize: '1.25rem',    // 20px
       lineHeight: '1.4',      // 28px
       letterSpacing: 'normal',
       fontWeight: 400,
-      usage: 'Title L - Card titles, modal headers'
+      usage: 'Title L - Card titles, modal headers',
     },
     m: {
       fontSize: '1.125rem',   // 18px
       lineHeight: '1.45',     // 26.1px
       letterSpacing: 'normal',
       fontWeight: 400,
-      usage: 'Title M - Small headings, form sections'
-    }
+      usage: 'Title M - Small headings, form sections',
+    },
   },
 
   // Title variants with different weights
@@ -136,15 +136,15 @@ export const typeScale = {
       lineHeight: '1.25',     // 45px
       letterSpacing: '-0.01em',
       fontWeight: 500,
-      usage: 'Title 3XL Medium - Lighter section headers'
+      usage: 'Title 3XL Medium - Lighter section headers',
     },
     '2xl': {
       fontSize: '1.875rem',   // 30px
       lineHeight: '1.3',      // 39px
       letterSpacing: '-0.005em',
       fontWeight: 500,
-      usage: 'Title 2XL Medium - Lighter subsection headers'
-    }
+      usage: 'Title 2XL Medium - Lighter subsection headers',
+    },
   },
 
   titleSemibold: {
@@ -153,36 +153,36 @@ export const typeScale = {
       lineHeight: '76.8px',   // 76.8px
       letterSpacing: '0',     // normal
       fontWeight: 600,        // semibold
-      usage: 'Title 5XL Semibold - Heavy hero headlines'
+      usage: 'Title 5XL Semibold - Heavy hero headlines',
     },
     '4xl': {
       fontSize: '3rem',       // 48px
       lineHeight: '1.15',     // 55.2px
       letterSpacing: '-0.02em',
       fontWeight: 600,
-      usage: 'Title 4XL Semibold - Heavy page headlines'
+      usage: 'Title 4XL Semibold - Heavy page headlines',
     },
     xl: {
       fontSize: '1.5rem',     // 24px
       lineHeight: '1.35',     // 32.4px
       letterSpacing: 'normal',
       fontWeight: 600,
-      usage: 'Title XL Semibold - Heavy component titles'
+      usage: 'Title XL Semibold - Heavy component titles',
     },
     l: {
       fontSize: '1.25rem',    // 20px
       lineHeight: '1.4',      // 28px
       letterSpacing: 'normal',
       fontWeight: 600,
-      usage: 'Title L Semibold - Heavy card titles'
+      usage: 'Title L Semibold - Heavy card titles',
     },
     m: {
       fontSize: '1.125rem',   // 18px
       lineHeight: '1.45',     // 26.1px
       letterSpacing: 'normal',
       fontWeight: 600,
-      usage: 'Title M Semibold - Heavy small headings'
-    }
+      usage: 'Title M Semibold - Heavy small headings',
+    },
   },
 
   // Heading sizes - Standard content hierarchy (kept for backward compatibility)
@@ -192,36 +192,36 @@ export const typeScale = {
       lineHeight: '1.25',     // 45px
       letterSpacing: '-0.01em',
       fontWeight: 600,
-      usage: 'H1 - Main page title'
+      usage: 'H1 - Main page title',
     },
     '3xl': {
       fontSize: '1.875rem',   // 30px
       lineHeight: '1.3',      // 39px
       letterSpacing: '-0.005em',
       fontWeight: 600,
-      usage: 'H2 - Section headers'
+      usage: 'H2 - Section headers',
     },
     '2xl': {
       fontSize: '1.5rem',     // 24px
       lineHeight: '1.35',     // 32.4px
       letterSpacing: 'normal',
       fontWeight: 600,
-      usage: 'H3 - Subsection headers'
+      usage: 'H3 - Subsection headers',
     },
     xl: {
       fontSize: '1.25rem',    // 20px
       lineHeight: '1.4',      // 28px
       letterSpacing: 'normal',
       fontWeight: 600,
-      usage: 'H4 - Component titles'
+      usage: 'H4 - Component titles',
     },
     lg: {
       fontSize: '1.125rem',   // 18px
       lineHeight: '1.45',     // 26.1px
       letterSpacing: 'normal',
       fontWeight: 500,
-      usage: 'H5 - Card titles'
-    }
+      usage: 'H5 - Card titles',
+    },
   },
 
   // Body sizes - Content and reading text (Lato)
@@ -231,35 +231,35 @@ export const typeScale = {
       lineHeight: '1.6',      // 28.8px
       letterSpacing: 'normal',
       fontWeight: 400,
-      usage: 'Body XL - Large body text, introductions'
+      usage: 'Body XL - Large body text, introductions',
     },
     l: {
       fontSize: '1rem',       // 16px
       lineHeight: '1.6',      // 25.6px
       letterSpacing: 'normal',
       fontWeight: 400,
-      usage: 'Body L - Default body text, paragraphs'
+      usage: 'Body L - Default body text, paragraphs',
     },
     m: {
       fontSize: '0.875rem',   // 14px
       lineHeight: '1.6',      // 22.4px
       letterSpacing: 'normal',
       fontWeight: 400,
-      usage: 'Body M - Secondary text, captions'
+      usage: 'Body M - Secondary text, captions',
     },
     s: {
       fontSize: '0.75rem',    // 12px
       lineHeight: '1.5',      // 18px
       letterSpacing: '0.01em',
       fontWeight: 400,
-      usage: 'Body S - Small text, helper text'
+      usage: 'Body S - Small text, helper text',
     },
     xs: {
       fontSize: '0.625rem',   // 10px
       lineHeight: '1.4',      // 14px
       letterSpacing: '0.01em',
       fontWeight: 400,
-      usage: 'Body XS - Fine print, metadata, timestamps'
+      usage: 'Body XS - Fine print, metadata, timestamps',
     },
     // Legacy aliases for backward compatibility
     base: {
@@ -267,22 +267,22 @@ export const typeScale = {
       lineHeight: '1.6',      // 22.4px
       letterSpacing: 'normal',
       fontWeight: 400,
-      usage: 'Alias for Body M'
+      usage: 'Alias for Body M',
     },
     lg: {
       fontSize: '1rem',       // 16px
       lineHeight: '1.6',      // 25.6px
       letterSpacing: 'normal',
       fontWeight: 400,
-      usage: 'Alias for Body L'
+      usage: 'Alias for Body L',
     },
     sm: {
       fontSize: '0.75rem',    // 12px
       lineHeight: '1.5',      // 18px
       letterSpacing: '0.01em',
       fontWeight: 400,
-      usage: 'Alias for Body S'
-    }
+      usage: 'Alias for Body S',
+    },
   },
 
   // Body semibold variants - For emphasis and importance
@@ -292,29 +292,29 @@ export const typeScale = {
       lineHeight: '1.6',      // 25.6px
       letterSpacing: 'normal',
       fontWeight: 600,
-      usage: 'Body L Semibold - Emphasized body text'
+      usage: 'Body L Semibold - Emphasized body text',
     },
     m: {
       fontSize: '0.875rem',   // 14px
       lineHeight: '1.6',      // 22.4px
       letterSpacing: 'normal',
       fontWeight: 600,
-      usage: 'Body M Semibold - Emphasized secondary text'
+      usage: 'Body M Semibold - Emphasized secondary text',
     },
     s: {
       fontSize: '0.75rem',    // 12px
       lineHeight: '1.5',      // 18px
       letterSpacing: '0.01em',
       fontWeight: 600,
-      usage: 'Body S Semibold - Emphasized small text'
+      usage: 'Body S Semibold - Emphasized small text',
     },
     xs: {
       fontSize: '0.625rem',   // 10px
       lineHeight: '1.4',      // 14px
       letterSpacing: '0.01em',
       fontWeight: 600,
-      usage: 'Body XS Semibold - Emphasized fine print'
-    }
+      usage: 'Body XS Semibold - Emphasized fine print',
+    },
   },
 
   // Interactive elements - Buttons, links, labels
@@ -325,41 +325,41 @@ export const typeScale = {
         lineHeight: '1.5',      // 24px
         letterSpacing: '0.005em',
         fontWeight: 500,
-        usage: 'Large buttons'
+        usage: 'Large buttons',
       },
       base: {
         fontSize: '0.875rem',   // 14px
         lineHeight: '1.5',      // 21px
         letterSpacing: '0.005em',
         fontWeight: 500,
-        usage: 'Default buttons'
+        usage: 'Default buttons',
       },
       sm: {
         fontSize: '0.75rem',    // 12px
         lineHeight: '1.5',      // 18px
         letterSpacing: '0.01em',
         fontWeight: 500,
-        usage: 'Small buttons, chips'
-      }
+        usage: 'Small buttons, chips',
+      },
     },
-    
+
     label: {
       base: {
         fontSize: '0.875rem',   // 14px
         lineHeight: '1.4',      // 19.6px
         letterSpacing: '0.005em',
         fontWeight: 500,
-        usage: 'Form labels, tags'
+        usage: 'Form labels, tags',
       },
       sm: {
         fontSize: '0.75rem',    // 12px
         lineHeight: '1.4',      // 16.8px
         letterSpacing: '0.01em',
         fontWeight: 500,
-        usage: 'Small labels, badges'
-      }
-    }
-  }
+        usage: 'Small labels, badges',
+      },
+    },
+  },
 } as const;
 
 // ===== LAYER 3: SEMANTIC TYPOGRAPHY =====
@@ -380,8 +380,8 @@ export const semanticTypography = {
       ...typeScale.title['2xl'],
       fontFamily: fontFamilies.primary.stack,
       fontWeight: 400,
-      opacity: 0.8
-    }
+      opacity: 0.8,
+    },
   },
 
   // Title hierarchy - complete system
@@ -443,7 +443,7 @@ export const semanticTypography = {
     smallSemibold: {
       ...typeScale.titleSemibold.m,
       fontFamily: fontFamilies.primary.stack,
-    }
+    },
   },
 
   // Content hierarchy
@@ -471,13 +471,13 @@ export const semanticTypography = {
     caption: {
       ...typeScale.body.s,
       fontFamily: fontFamilies.secondary.stack,
-      opacity: 0.7
+      opacity: 0.7,
     },
     fine: {
       ...typeScale.body.xs,
       fontFamily: fontFamilies.secondary.stack,
-      opacity: 0.6
-    }
+      opacity: 0.6,
+    },
   },
 
   // Body text variants - complete system
@@ -518,7 +518,7 @@ export const semanticTypography = {
     extraSmallSemibold: {
       ...typeScale.bodySemibold.xs,
       fontFamily: fontFamilies.secondary.stack,
-    }
+    },
   },
 
   // UI components
@@ -530,7 +530,7 @@ export const semanticTypography = {
     buttonSecondary: {
       ...typeScale.interactive.button.base,
       fontFamily: fontFamilies.primary.stack,
-      fontWeight: 400
+      fontWeight: 400,
     },
     label: {
       ...typeScale.interactive.label.base,
@@ -539,7 +539,7 @@ export const semanticTypography = {
     input: {
       ...typeScale.body.lg,
       fontFamily: fontFamilies.secondary.stack,
-    }
+    },
   },
 
   // Special cases
@@ -548,15 +548,15 @@ export const semanticTypography = {
       fontSize: '0.875rem',   // 14px
       lineHeight: '1.4',      // 19.6px
       fontFamily: fontFamilies.mono.stack,
-      fontWeight: 400
+      fontWeight: 400,
     },
     block: {
       fontSize: '0.875rem',   // 14px
       lineHeight: '1.6',      // 22.4px
       fontFamily: fontFamilies.mono.stack,
-      fontWeight: 400
-    }
-  }
+      fontWeight: 400,
+    },
+  },
 } as const;
 
 // ===== TAILWIND CSS COMPATIBLE EXPORTS =====
@@ -634,8 +634,8 @@ export const tailwindTypography = {
     normal: '400',
     medium: '500',
     semibold: '600',
-    bold: '700'
-  }
+    bold: '700',
+  },
 } as const;
 
 // ===== UTILITY FUNCTIONS =====
@@ -650,9 +650,9 @@ export const fontWeightName = (weight: number): string => {
   const weights: Record<number, string> = {
     300: 'Light',
     400: 'Regular',
-    500: 'Medium', 
+    500: 'Medium',
     600: 'Semibold',
-    700: 'Bold'
+    700: 'Bold',
   };
   return weights[weight] || 'Regular';
 };
@@ -677,5 +677,5 @@ export default {
   tailwindTypography,
   getTypographyStyle,
   fontWeightName,
-  pxToRem
+  pxToRem,
 };

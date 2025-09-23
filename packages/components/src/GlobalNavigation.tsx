@@ -1,9 +1,9 @@
-import * as React from "react"
-import { cn } from "../utils/cn"
-import { Icon } from "../../icons/src/Icon"
+import * as React from 'react';
+import { cn } from '../utils/cn';
+import { Icon } from '../../icons/src/Icon';
 // Using public assets for monorepo compatibility
-const comcastBusinessLogoWhite = "/assets/comcast-business-logo-white.png"
-const userAvatar = "/assets/user-avatar.png"
+const comcastBusinessLogoWhite = '/assets/comcast-business-logo-white.png';
+const userAvatar = '/assets/user-avatar.png';
 
 // Global Navigation component following Comcast Business Design System
 // Blue gradient background with logo, navigation, and user info
@@ -14,7 +14,7 @@ export interface GlobalNavigationProps extends React.HTMLAttributes<HTMLElement>
    */
   userName?: string
   /**
-   * Current section/page title 
+   * Current section/page title
    */
   sectionTitle?: string
   /**
@@ -30,39 +30,39 @@ export interface GlobalNavigationProps extends React.HTMLAttributes<HTMLElement>
 export const GlobalNavigation = React.forwardRef<
   HTMLElement,
   GlobalNavigationProps
->(({ 
-  className, 
-  userName = "David", 
-  sectionTitle = "ENTERPRISE SOLUTIONS",
+>(({
+  className,
+  userName = 'David',
+  sectionTitle = 'ENTERPRISE SOLUTIONS',
   showSearch = true,
   showUserProfile = true,
-  ...props 
+  ...props
 }, ref) => {
   return (
     <nav
       ref={ref}
       className={cn(
         // Base layout
-        "flex items-center justify-between px-6 py-3 h-16",
+        'flex items-center justify-between px-6 py-3 h-16',
         // Comcast brand blue background
-        "bg-[var(--ds-color-navy-900)]",
-        className
+        'bg-[var(--ds-color-navy-900)]',
+        className,
       )}
       {...props}
     >
       {/* Left Section - Logo and Hamburger */}
       <div className="flex items-center gap-4">
         {/* Hamburger Menu */}
-        <button 
+        <button
           className="text-white hover:text-white/80 transition-colors p-1"
           aria-label="Open menu"
         >
-          <svg 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
             strokeWidth="2"
             className="size-6"
           >
@@ -74,7 +74,7 @@ export const GlobalNavigation = React.forwardRef<
 
         {/* Comcast Business Logo */}
         <div className="flex items-center">
-          <img 
+          <img
             src={comcastBusinessLogoWhite}
             alt="Comcast Business"
             className="h-8 w-auto"
@@ -93,7 +93,7 @@ export const GlobalNavigation = React.forwardRef<
       <div className="flex items-center gap-4">
         {/* Search Icon */}
         {showSearch && (
-          <button 
+          <button
             className="text-white hover:text-white/80 transition-colors p-2"
             aria-label="Search"
           >
@@ -107,11 +107,11 @@ export const GlobalNavigation = React.forwardRef<
             <span className="text-white font-medium font-secondary">
               Hello, {userName}
             </span>
-            <button 
+            <button
               className="flex items-center justify-center rounded-full hover:bg-white/20 transition-colors p-1"
               aria-label="User profile"
             >
-              <img 
+              <img
                 src={userAvatar}
                 alt="User avatar"
                 className="w-[42px] h-[36px]"
@@ -121,7 +121,7 @@ export const GlobalNavigation = React.forwardRef<
         )}
       </div>
     </nav>
-  )
-})
+  );
+});
 
-GlobalNavigation.displayName = "GlobalNavigation"
+GlobalNavigation.displayName = 'GlobalNavigation';

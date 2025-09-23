@@ -19,7 +19,7 @@ export const Slot = React.forwardRef<HTMLElement, SlotProps>(
       });
     }
     return null;
-  }
+  },
 );
 
 Slot.displayName = 'Slot';
@@ -42,9 +42,9 @@ export function mergeProps<T extends Record<string, any>>(
  * Helps with component ref forwarding
  */
 export function forwardRef<T, P>(
-  Component: React.ForwardRefRenderFunction<T, React.PropsWithoutRef<P>>
+  Component: React.ForwardRefRenderFunction<T, React.PropsWithoutRef<P>>,
 ): React.ForwardRefExoticComponent<
   React.PropsWithoutRef<P> & React.RefAttributes<T>
 > {
   return React.forwardRef(Component as any) as any;
-} 
+}

@@ -7,10 +7,10 @@ export { cn } from './cn';
 // Form validation utilities
 export * from './validation';
 
-// Component development utilities  
+// Component development utilities
 export * from './slot';
 export * from './pattern-tracker';
 export * from './chart-data';
 
 // Figma integration utilities
-export * from './figma'; 
+export * from './figma';

@@ -27,7 +27,7 @@ export interface IconProps {
  */
 const createFallbackIcon = (name: string, category: string): string => {
   const iconsByCategory: Record<string, string> = {
-    navigation: `<path d="M8 12l4-4 4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`,
+    navigation: '<path d="M8 12l4-4 4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
     interface: `<rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
                 <path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="2"/>`,
     communication: `<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
@@ -37,11 +37,11 @@ const createFallbackIcon = (name: string, category: string): string => {
     media: `<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
             <polygon points="10,8 16,12 10,16" fill="currentColor"/>`,
     general: `<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <circle cx="12" cy="12" r="3" fill="currentColor"/>`
+              <circle cx="12" cy="12" r="3" fill="currentColor"/>`,
   };
 
   const iconPath = iconsByCategory[category] || iconsByCategory.general;
-  
+
   return `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${name}">
     <title>${name}</title>
     ${iconPath}
@@ -50,28 +50,28 @@ const createFallbackIcon = (name: string, category: string): string => {
 
 /**
  * Icon component that dynamically loads SVG icons from the design system.
- * 
+ *
  * Features:
  * - Dynamic SVG loading with tree-shaking
  * - Accessible by default with proper ARIA attributes
  * - Customizable size and color
  * - Loading and error states
  * - TypeScript support with auto-completion
- * 
+ *
  * @example
  * ```tsx
  * // Basic usage
  * <Icon name="edit" size={24} />
- * 
+ *
  * // With custom styling
- * <Icon 
- *   name="delete" 
- *   size="2rem" 
- *   color="red" 
+ * <Icon
+ *   name="delete"
+ *   size="2rem"
+ *   color="red"
  *   className="cursor-pointer"
  *   onClick={handleDelete}
  * />
- * 
+ *
  * // Decorative icon
  * <Icon name="star" decorative />
  * ```
@@ -98,7 +98,7 @@ export const Icon: React.FC<IconProps> = ({
       try {
         setLoading(true);
         setError(null);
-        
+
         const iconData = getIcon(name);
         if (!iconData) {
           throw new Error(`Icon "${name}" not found in design system`);
@@ -120,7 +120,7 @@ export const Icon: React.FC<IconProps> = ({
           const category = iconData.category || 'general';
           svg = createFallbackIcon(iconData.name, category);
         }
-        
+
         if (mounted) {
           setSvgContent(svg);
           setLoading(false);
@@ -147,7 +147,7 @@ export const Icon: React.FC<IconProps> = ({
 
   // Show error state
   if (error || !svgContent) {
-    console.warn(`Icon loading error for "${name}":`, error);
+    // console.warn(`Icon loading error for "${name}":`, error);
     return <>{errorFallback}</>;
   }
 
@@ -165,6 +165,9 @@ export const Icon: React.FC<IconProps> = ({
     <span
       className={`inline-flex items-center justify-center ${onClick ? 'cursor-pointer' : ''} ${className}`}
       onClick={onClick}
+      onKeyDown={onClick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onClick(); } : undefined}
+      role={onClick ? 'button' : undefined}
+      tabIndex={onClick ? 0 : undefined}
       dangerouslySetInnerHTML={{ __html: processedSVG }}
     />
   );
@@ -182,7 +185,7 @@ function processSVGContent(
     ariaLabel?: string;
     decorative: boolean;
     onClick: boolean;
-  }
+  },
 ): string {
   let processed = svgContent;
 
@@ -192,14 +195,14 @@ function processSVGContent(
   // Add size attributes
   processed = processed.replace(
     /(<svg[^>]*?)(?:\s+width="[^"]*")?(?:\s+height="[^"]*")?/,
-    `$1 width="${sizeValue}" height="${sizeValue}"`
+    `$1 width="${sizeValue}" height="${sizeValue}"`,
   );
 
   // Add/update viewBox if not present (assuming square icons)
   if (!processed.includes('viewBox=') && typeof options.size === 'number') {
     processed = processed.replace(
       /(<svg[^>]*?)/,
-      `$1 viewBox="0 0 ${options.size} ${options.size}"`
+      `$1 viewBox="0 0 ${options.size} ${options.size}"`,
     );
   }
 
@@ -214,7 +217,7 @@ function processSVGContent(
 
   // Handle accessibility
   if (options.decorative) {
-    processed = processed.replace(/(<svg[^>]*?)/, `$1 aria-hidden="true"`);
+    processed = processed.replace(/(<svg[^>]*?)/, '$1 aria-hidden="true"');
     // Remove aria-label if present
     processed = processed.replace(/\s+aria-label="[^"]*"/, '');
   } else if (options.ariaLabel) {
@@ -223,12 +226,12 @@ function processSVGContent(
 
   // Add role if not present
   if (!processed.includes('role=')) {
-    processed = processed.replace(/(<svg[^>]*?)/, `$1 role="img"`);
+    processed = processed.replace(/(<svg[^>]*?)/, '$1 role="img"');
   }
 
   // Add pointer events if clickable
   if (options.onClick) {
-    processed = processed.replace(/(<svg[^>]*?)/, `$1 style="cursor: pointer;"`);
+    processed = processed.replace(/(<svg[^>]*?)/, '$1 style="cursor: pointer;"');
   }
 
   return processed;
@@ -240,8 +243,8 @@ function processSVGContent(
 export const usePreloadIcons = (iconNames: IconName[]) => {
   useEffect(() => {
     const preloadPromises = iconNames.map(name => {
-      return loadSVG(name).catch(err => {
-        console.warn(`Failed to preload icon "${name}":`, err);
+      return loadSVG(name).catch(_err => {
+        // console.warn(`Failed to preload icon "${name}":`, err);
       });
     });
 

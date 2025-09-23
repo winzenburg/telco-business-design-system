@@ -40,4 +40,4 @@ export const ComcastBusinessDesignSystem = {
   },
 } as const;
 
-export default ComcastBusinessDesignSystem; 
+export default ComcastBusinessDesignSystem;

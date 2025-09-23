@@ -6,7 +6,7 @@
 /**
  * Standard size variants used across all components
  */
-export type ComponentSize = "xs" | "sm" | "md" | "lg" | "xl";
+export type ComponentSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 /**
  * Base props that all interactive components should inherit
@@ -16,17 +16,17 @@ export interface BaseComponentProps {
    * Component size variant
    */
   size?: ComponentSize;
-  
+
   /**
    * Loading state for the component
    */
   loading?: boolean;
-  
+
   /**
    * Disabled state for the component
    */
   disabled?: boolean;
-  
+
   /**
    * Additional CSS classes
    */
@@ -41,7 +41,7 @@ export interface FormComponentProps extends BaseComponentProps {
    * Error state - can be boolean or error message string
    */
   error?: boolean | string;
-  
+
   /**
    * Required field indicator
    */
@@ -56,7 +56,7 @@ export interface IconComponentProps extends BaseComponentProps {
    * Icon to display on the left side
    */
   leftIcon?: React.ReactNode;
-  
+
   /**
    * Icon to display on the right side
    */
@@ -66,17 +66,17 @@ export interface IconComponentProps extends BaseComponentProps {
 /**
  * Standard color variants used across components
  */
-export type ColorVariant = 
-  | "default"
-  | "primary" 
-  | "secondary"
-  | "success"
-  | "warning"
-  | "destructive"
-  | "info"
-  | "outline"
-  | "ghost"
-  | "link";
+export type ColorVariant =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'destructive'
+  | 'info'
+  | 'outline'
+  | 'ghost'
+  | 'link';
 
 /**
  * Props for components that support color variants
@@ -91,9 +91,9 @@ export interface VariantComponentProps extends BaseComponentProps {
 /**
  * Combined props for full-featured interactive components
  */
-export interface InteractiveComponentProps 
-  extends FormComponentProps, 
-          IconComponentProps, 
+export interface InteractiveComponentProps
+  extends FormComponentProps,
+          IconComponentProps,
           VariantComponentProps {
   /**
    * Full width component
@@ -109,11 +109,11 @@ export interface LayoutComponentProps extends BaseComponentProps {
    * Responsive behavior
    */
   responsive?: boolean;
-  
+
   /**
    * Spacing variant
    */
-  spacing?: "none" | "sm" | "md" | "lg" | "xl";
+  spacing?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 /**
@@ -124,7 +124,7 @@ export interface DataDisplayProps extends BaseComponentProps {
    * Empty state content
    */
   emptyState?: React.ReactNode;
-  
+
   /**
    * Loading state content
    */

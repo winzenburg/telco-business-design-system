@@ -1,45 +1,45 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { X } from "lucide-react"
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { X } from 'lucide-react';
 
-import { cn } from "../../utils/cn"
+import { cn } from '../../utils/cn';
 
 const alertVariants = cva(
   [
-    "relative w-full border transition-all duration-300",
-    "[&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground",
+    'relative w-full border transition-all duration-300',
+    '[&>svg~*]:pl-7 [&>svg+div]:-translate-y-1 [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground',
   ],
   {
     variants: {
       variant: {
-        default: "bg-background text-foreground border-neutral-200",
-        info: "border-[var(--ds-color-intent-primary)]/20 bg-[var(--ds-color-intent-primary)]/5 text-[var(--ds-color-intent-primary)] [&>svg]:text-[var(--ds-color-intent-primary)]",
-        success: "border-green-200 bg-green-50 text-green-800 [&>svg]:text-green-600",
-        warning: "border-orange-200 bg-orange-50 text-orange-800 [&>svg]:text-orange-600",
-        destructive: "border-red-200 bg-red-50 text-red-800 [&>svg]:text-red-600",
+        default: 'bg-background text-foreground border-neutral-200',
+        info: 'border-[var(--ds-color-intent-primary)]/20 bg-[var(--ds-color-intent-primary)]/5 text-[var(--ds-color-intent-primary)] [&>svg]:text-[var(--ds-color-intent-primary)]',
+        success: 'border-green-200 bg-green-50 text-green-800 [&>svg]:text-green-600',
+        warning: 'border-orange-200 bg-orange-50 text-orange-800 [&>svg]:text-orange-600',
+        destructive: 'border-red-200 bg-red-50 text-red-800 [&>svg]:text-red-600',
       },
       layout: {
-        standard: "rounded-lg p-4",
-        banner: "rounded-none p-4 shadow-md",
-        floating: "rounded-xl p-4 shadow-lg mx-4 my-2",
+        standard: 'rounded-lg p-4',
+        banner: 'rounded-none p-4 shadow-md',
+        floating: 'rounded-xl p-4 shadow-lg mx-4 my-2',
       },
       position: {
-        static: "",
-        fixed: "fixed top-0 left-0 right-0 z-50",
-        sticky: "sticky top-0 z-40",
+        static: '',
+        fixed: 'fixed top-0 left-0 right-0 z-50',
+        sticky: 'sticky top-0 z-40',
       },
     },
     defaultVariants: {
-      variant: "default",
-      layout: "standard",
-      position: "static",
+      variant: 'default',
+      layout: 'standard',
+      position: 'static',
     },
-  }
-)
+  },
+);
 
 const Alert = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & 
+  React.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof alertVariants> & {
     dismissible?: boolean
     onDismiss?: () => void
@@ -62,20 +62,22 @@ const Alert = React.forwardRef<
       </button>
     )}
   </div>
-))
-Alert.displayName = "Alert"
+));
+Alert.displayName = 'Alert';
 
 const AlertTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <h5
     ref={ref}
-    className={cn("mb-1 font-semibold leading-none tracking-tight", className)}
+    className={cn('mb-1 font-semibold leading-none tracking-tight', className)}
     {...props}
-  />
-))
-AlertTitle.displayName = "AlertTitle"
+  >
+    {children}
+  </h5>
+));
+AlertTitle.displayName = 'AlertTitle';
 
 const AlertDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -83,11 +85,11 @@ const AlertDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("text-sm [&_p]:leading-relaxed", className)}
+    className={cn('text-sm [&_p]:leading-relaxed', className)}
     {...props}
   />
-))
-AlertDescription.displayName = "AlertDescription"
+));
+AlertDescription.displayName = 'AlertDescription';
 
 // Alert Actions Component for buttons
 const AlertActions = React.forwardRef<
@@ -96,10 +98,10 @@ const AlertActions = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center gap-2 mt-3", className)}
+    className={cn('flex items-center gap-2 mt-3', className)}
     {...props}
   />
-))
-AlertActions.displayName = "AlertActions"
+));
+AlertActions.displayName = 'AlertActions';
 
-export { Alert, AlertTitle, AlertDescription, AlertActions, alertVariants }
+export { Alert, AlertTitle, AlertDescription, AlertActions, alertVariants };

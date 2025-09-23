@@ -58,12 +58,12 @@ class TreeShakeVerifier {
   async testComponentImports(testDir) {
     console.log('Testing individual component imports...\n');
 
-    const components = ['Button', 'Input', 'Select', 'Dialog', 'Table'];
+    const components = ['Button', 'Input', 'Card', 'Badge', 'Label'];
 
     for (const component of components) {
       // Create test file
       const testFile = `
-import { ${component} } from '../dist/index.mjs';
+import { ${component} } from '../dist/index.js';
 export { ${component} };
 `;
 

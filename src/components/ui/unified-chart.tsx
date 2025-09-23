@@ -1,20 +1,20 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import { 
+import * as React from 'react';
+import {
   Bar, BarChart as RechartsBarChart,
   Line, LineChart as RechartsLineChart,
   Area, AreaChart as RechartsAreaChart,
   Pie, PieChart as RechartsPieChart,
   RadarChart as RechartsRadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
   RadialBarChart as RechartsRadialBarChart, RadialBar,
-  CartesianGrid, XAxis, YAxis, Cell
-} from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from "./chart"
-import { ChartConfig, LineType, BarChartLayout } from "./chart-types"
+  CartesianGrid, XAxis, YAxis, Cell,
+} from 'recharts';
+import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent } from './chart';
+import { ChartConfig, LineType, BarChartLayout } from './chart-types';
 
 // Unified chart type
-export type ChartType = "bar" | "line" | "area" | "pie" | "radar" | "radialBar"
+export type ChartType = 'bar' | 'line' | 'area' | 'pie' | 'radar' | 'radialBar'
 
 // Comprehensive chart props interface
 export interface UnifiedChartProps {
@@ -22,23 +22,23 @@ export interface UnifiedChartProps {
   data: any[]
   config: ChartConfig
   className?: string
-  
+
   // Common display options
   showGrid?: boolean
   showTooltip?: boolean
   showLegend?: boolean
   showXAxis?: boolean
   showYAxis?: boolean
-  
+
   // Bar chart specific
   layout?: BarChartLayout
   stacked?: boolean
-  
+
   // Line/Area chart specific
   showDots?: boolean
   lineType?: LineType
   strokeWidth?: number
-  
+
   // Pie chart specific
   dataKey?: string
   nameKey?: string
@@ -47,16 +47,16 @@ export interface UnifiedChartProps {
   paddingAngle?: number
   startAngle?: number
   endAngle?: number
-  
+
   // Radar chart specific
   polarGrid?: boolean
   polarAngleAxis?: boolean
   polarRadiusAxis?: boolean
-  
+
   // Radial bar chart specific
   cx?: string | number
   cy?: string | number
-  
+
   // Recharts props passthrough
   margin?: { top?: number; right?: number; bottom?: number; left?: number }
 }
@@ -67,62 +67,62 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
     data,
     config,
     className,
-    
+
     // Common defaults
     showGrid = true,
     showTooltip = true,
     showLegend = false,
     showXAxis = true,
     showYAxis = true,
-    
+
     // Bar chart defaults
-    layout = "vertical",
+    layout = 'vertical',
     stacked = false,
-    
+
     // Line/Area chart defaults
     showDots = true,
-    lineType = "monotone",
+    lineType = 'monotone',
     strokeWidth = 2,
-    
+
     // Pie chart defaults
-    dataKey = "value",
-    nameKey = "name",
+    dataKey = 'value',
+    nameKey = 'name',
     innerRadius = 0,
     outerRadius = 80,
     paddingAngle = 0,
     startAngle = 90,
     endAngle = 450,
-    
+
     // Radar chart defaults
     polarGrid = true,
     polarAngleAxis = true,
     polarRadiusAxis = false,
-    
+
     // Radial bar defaults
-    cx = "50%",
-    cy = "50%",
-    
+    cx = '50%',
+    cy = '50%',
+
     // Margin defaults
     margin = { top: 20, right: 30, left: 20, bottom: 5 },
-    
+
     ...props
   }, ref) => {
-    const configKeys = Object.keys(config).filter(key => config[key].color)
-    
+    const configKeys = Object.keys(config).filter(key => config[key].color);
+
     const renderChart = () => {
       switch (type) {
-        case "bar":
+        case 'bar':
           return (
             <RechartsBarChart data={data} layout={layout} margin={margin}>
               {showGrid && (
-                <CartesianGrid 
-                  {...(layout === "horizontal" 
-                    ? { horizontal: false } 
+                <CartesianGrid
+                  {...(layout === 'horizontal'
+                    ? { horizontal: false }
                     : { vertical: false }
                   )}
                 />
               )}
-              {layout === "vertical" ? (
+              {layout === 'vertical' ? (
                 <>
                   {showXAxis && (
                     <XAxis
@@ -173,20 +173,20 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                   dataKey={key}
                   fill={config[key].color}
                   radius={4}
-                  stackId={stacked ? "a" : undefined}
+                  stackId={stacked ? 'a' : undefined}
                 />
               ))}
               {showLegend && (
                 <ChartLegend content={<ChartLegendContent />} />
               )}
             </RechartsBarChart>
-          )
-          
-        case "line":
+          );
+
+        case 'line':
           return (
             <RechartsLineChart data={data} margin={margin}>
               {showGrid && (
-                <CartesianGrid 
+                <CartesianGrid
                   strokeDasharray="3 3"
                   vertical={false}
                 />
@@ -220,16 +220,16 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                   dataKey={key}
                   stroke={config[key].color}
                   strokeWidth={strokeWidth}
-                  dot={showDots ? { 
-                    fill: config[key].color, 
+                  dot={showDots ? {
+                    fill: config[key].color,
                     strokeWidth: 2,
-                    r: 4 
+                    r: 4,
                   } : false}
-                  activeDot={{ 
-                    r: 6, 
+                  activeDot={{
+                    r: 6,
                     stroke: config[key].color,
                     strokeWidth: 2,
-                    fill: config[key].color
+                    fill: config[key].color,
                   }}
                 />
               ))}
@@ -237,9 +237,9 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                 <ChartLegend content={<ChartLegendContent />} />
               )}
             </RechartsLineChart>
-          )
-          
-        case "area":
+          );
+
+        case 'area':
           return (
             <RechartsAreaChart data={data} margin={margin}>
               {showGrid && (
@@ -276,16 +276,16 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                   fill={config[key].color}
                   fillOpacity={0.6}
                   strokeWidth={strokeWidth}
-                  stackId={stacked ? "a" : index}
+                  stackId={stacked ? 'a' : index}
                 />
               ))}
               {showLegend && (
                 <ChartLegend content={<ChartLegendContent />} />
               )}
             </RechartsAreaChart>
-          )
-          
-        case "pie":
+          );
+
+        case 'pie':
           return (
             <RechartsPieChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
               {showTooltip && (
@@ -306,9 +306,9 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                 {data.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={configKeys[index % configKeys.length] ? 
-                      config[configKeys[index % configKeys.length]]?.color || "var(--ds-color-intent-primary)" : 
-                      "var(--ds-color-intent-primary)"
+                    fill={configKeys[index % configKeys.length] ?
+                      config[configKeys[index % configKeys.length]]?.color || 'var(--ds-color-intent-primary)' :
+                      'var(--ds-color-intent-primary)'
                     }
                   />
                 ))}
@@ -317,9 +317,9 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                 <ChartLegend content={<ChartLegendContent />} />
               )}
             </RechartsPieChart>
-          )
-          
-        case "radar":
+          );
+
+        case 'radar':
           return (
             <RechartsRadarChart data={data} margin={{ top: 20, right: 80, bottom: 20, left: 80 }}>
               {polarGrid && <PolarGrid />}
@@ -342,9 +342,9 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                 <ChartLegend content={<ChartLegendContent />} />
               )}
             </RechartsRadarChart>
-          )
-          
-        case "radialBar":
+          );
+
+        case 'radialBar':
           return (
             <RechartsRadialBarChart
               data={data}
@@ -369,12 +369,12 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
                 <ChartLegend content={<ChartLegendContent />} />
               )}
             </RechartsRadialBarChart>
-          )
-          
+          );
+
         default:
-          return <div>Unsupported chart type: {type}</div>
+          return <div>Unsupported chart type: {type}</div>;
       }
-    }
+    };
 
     return (
       <ChartContainer
@@ -385,11 +385,11 @@ const UnifiedChart = React.forwardRef<HTMLDivElement, UnifiedChartProps>(
       >
         {renderChart()}
       </ChartContainer>
-    )
-  }
-)
+    );
+  },
+);
 
-UnifiedChart.displayName = "UnifiedChart"
+UnifiedChart.displayName = 'UnifiedChart';
 
 // Export legacy component interfaces for backward compatibility
 export interface BarChartProps extends Omit<UnifiedChartProps, 'type'> {
@@ -432,32 +432,32 @@ export interface RadialChartProps extends Omit<UnifiedChartProps, 'type'> {
 // Backward compatible exports that use the unified component
 export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) => (
   <UnifiedChart {...props} type="bar" ref={ref} />
-))
-BarChart.displayName = "BarChart"
+));
+BarChart.displayName = 'BarChart';
 
 export const LineChart = React.forwardRef<HTMLDivElement, LineChartProps>(({ type, ...props }, ref) => (
   <UnifiedChart {...props} type="line" lineType={type} ref={ref} />
-))
-LineChart.displayName = "LineChart"
+));
+LineChart.displayName = 'LineChart';
 
 export const AreaChart = React.forwardRef<HTMLDivElement, AreaChartProps>(({ type, ...props }, ref) => (
   <UnifiedChart {...props} type="area" lineType={type} ref={ref} />
-))
-AreaChart.displayName = "AreaChart"
+));
+AreaChart.displayName = 'AreaChart';
 
 export const PieChart = React.forwardRef<HTMLDivElement, PieChartProps>((props, ref) => (
   <UnifiedChart {...props} type="pie" ref={ref} />
-))
-PieChart.displayName = "PieChart"
+));
+PieChart.displayName = 'PieChart';
 
 export const RadarChart = React.forwardRef<HTMLDivElement, RadarChartProps>((props, ref) => (
   <UnifiedChart {...props} type="radar" ref={ref} />
-))
-RadarChart.displayName = "RadarChart"
+));
+RadarChart.displayName = 'RadarChart';
 
 export const RadialChart = React.forwardRef<HTMLDivElement, RadialChartProps>((props, ref) => (
   <UnifiedChart {...props} type="radialBar" ref={ref} />
-))
-RadialChart.displayName = "RadialChart"
+));
+RadialChart.displayName = 'RadialChart';
 
-export { UnifiedChart }
+export { UnifiedChart };

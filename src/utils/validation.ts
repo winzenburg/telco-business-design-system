@@ -36,7 +36,7 @@ export function hasError(error: boolean | string | undefined): boolean {
 export function getValidationClasses(
   error: boolean | string | undefined,
   baseClasses: string = '',
-  errorClasses: string = 'border-red-500 focus:border-red-500 focus:ring-red-500'
+  errorClasses: string = 'border-red-500 focus:border-red-500 focus:ring-red-500',
 ): string {
   if (hasError(error)) {
     return `${baseClasses} ${errorClasses}`;
@@ -50,16 +50,16 @@ export function getValidationClasses(
 export function formatValidationMessage(
   error: boolean | string | undefined,
   required?: boolean,
-  fieldName?: string
+  fieldName?: string,
 ): string | undefined {
   if (typeof error === 'string' && error.length > 0) {
     return error;
   }
-  
+
   if (error === true && required && fieldName) {
     return `${fieldName} is required`;
   }
-  
+
   return undefined;
 }
 
@@ -71,23 +71,23 @@ export const validationRules = {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(value);
   },
-  
+
   phone: (value: string): boolean => {
     const phoneRegex = /^\+?[\d\s-()]+$/;
     return phoneRegex.test(value) && value.replace(/\D/g, '').length >= 10;
   },
-  
+
   required: (value: string | undefined | null): boolean => {
     return Boolean(value && value.trim().length > 0);
   },
-  
+
   minLength: (value: string, min: number): boolean => {
     return value.length >= min;
   },
-  
+
   maxLength: (value: string, max: number): boolean => {
     return value.length <= max;
-  }
+  },
 };
 
 /**
@@ -98,7 +98,7 @@ export function validateField(
   rules: Array<{
     rule: (val: string) => boolean;
     message: string;
-  }>
+  }>,
 ): ValidationState {
   for (const { rule, message } of rules) {
     if (!rule(value)) {
@@ -106,14 +106,14 @@ export function validateField(
         isValid: false,
         error: message,
         isDirty: true,
-        isTouched: true
+        isTouched: true,
       };
     }
   }
-  
+
   return {
     isValid: true,
     isDirty: true,
-    isTouched: true
+    isTouched: true,
   };
 }

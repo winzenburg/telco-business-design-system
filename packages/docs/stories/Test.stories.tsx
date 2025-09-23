@@ -33,12 +33,12 @@ export const TailwindTest: Story = {
         </button>
         
         {/* Inline styles as fallback */}
-        <div style={{ 
-          padding: '16px', 
-          backgroundColor: 'var(--ds-color-intent-primary)', 
-          color: 'white', 
-          border: '2px solid #000',
-          borderRadius: '4px'
+        <div style={{
+          padding: 'var(--ds-spacing-4)',
+          backgroundColor: 'var(--ds-color-intent-primary)',
+          color: 'white',
+          border: 'var(--ds-spacing-0.5) solid var(--ds-color-black)',
+          borderRadius: 'var(--ds-radius-sm)'
         }}>
           Inline styles (fallback)
         </div>

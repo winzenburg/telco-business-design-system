@@ -19,7 +19,7 @@ describe('Button Component', () => {
       render(
         <Button asChild>
           <a href="/test">Link Button</a>
-        </Button>
+        </Button>,
       );
       expect(screen.getByRole('link')).toBeInTheDocument();
     });
@@ -83,7 +83,7 @@ describe('Button Component', () => {
     it('handles click events', () => {
       const handleClick = jest.fn();
       render(<Button onClick={handleClick}>Click me</Button>);
-      
+
       fireEvent.click(screen.getByRole('button'));
       expect(handleClick).toHaveBeenCalledTimes(1);
     });
@@ -129,7 +129,7 @@ describe('Button Component', () => {
       render(
         <Button loading leftIcon={<LeftIcon />} rightIcon={<RightIcon />}>
           Loading
-        </Button>
+        </Button>,
       );
       expect(screen.queryByTestId('left-icon')).not.toBeInTheDocument();
       expect(screen.queryByTestId('right-icon')).not.toBeInTheDocument();
@@ -159,7 +159,7 @@ describe('Button Component', () => {
 
     it('should have no accessibility violations (all variants)', async () => {
       const variants = ['primary', 'secondary', 'ghost', 'destructive'] as const;
-      
+
       for (const variant of variants) {
         const { container } = render(<Button variant={variant}>{variant} Button</Button>);
         const results = await axe(container);
@@ -197,13 +197,13 @@ describe('Button Component', () => {
       const handleClick = jest.fn();
       render(<Button onClick={handleClick}>Keyboard Button</Button>);
       const button = screen.getByRole('button');
-      
+
       // Test Enter key
       fireEvent.keyDown(button, { key: 'Enter', code: 'Enter' });
-      
-      // Test Space key  
+
+      // Test Space key
       fireEvent.keyDown(button, { key: ' ', code: 'Space' });
-      
+
       expect(button).toBeInTheDocument(); // Should remain functional
     });
   });
@@ -231,7 +231,7 @@ describe('Button Component', () => {
     it('forwards ref to button element', () => {
       const ref = React.createRef<HTMLButtonElement>();
       render(<Button ref={ref}>Ref Button</Button>);
-      
+
       expect(ref.current).toBeInstanceOf(HTMLButtonElement);
       expect(ref.current).toHaveTextContent('Ref Button');
     });
@@ -242,19 +242,19 @@ describe('Button Component', () => {
     it('uses design system classes (no hard-coded values)', () => {
       render(<Button>Token Button</Button>);
       const button = screen.getByRole('button');
-      
+
       // Should use Tailwind classes that map to design tokens
       const classList = Array.from(button.classList);
-      
+
       // Check that no hard-coded pixel values are present in classes
-      const hasHardCodedPixels = classList.some(className => 
-        className.includes('[') && className.includes('px')
+      const hasHardCodedPixels = classList.some(className =>
+        className.includes('[') && className.includes('px'),
       );
       expect(hasHardCodedPixels).toBe(false);
-      
+
       // Should have semantic color classes
-      expect(classList.some(className => 
-        className.includes('primary-') || className.includes('neutral-')
+      expect(classList.some(className =>
+        className.includes('primary-') || className.includes('neutral-'),
       )).toBe(true);
     });
   });

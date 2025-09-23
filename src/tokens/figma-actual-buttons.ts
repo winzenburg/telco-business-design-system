@@ -42,3857 +42,3857 @@ export interface ActualButtonSpec {
 // All actual button specifications
 export const actualButtonSpecs: ActualButtonSpec[] = [
   {
-    "name": "Text Button",
-    "id": "6:3826",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:3826',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:3827",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:3827',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:3828",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:3828',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#031433"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#031433',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:3829",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:3829',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#15172b80"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#15172b80',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:3830",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:3830',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "7:2882",
-    "type": "INSTANCE",
-    "size": {
-      "width": 22,
-      "height": 24
+    'name': 'Text Button',
+    'id': '7:2882',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 22,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Text Button",
-    "id": "6:4107",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4107',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4108",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4108',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4109",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4109',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#031433"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#031433',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4110",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4110',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#15172b80"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#15172b80',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4111",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4111',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "7:2883",
-    "type": "INSTANCE",
-    "size": {
-      "width": 22,
-      "height": 24
+    'name': 'Text Button',
+    'id': '7:2883',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 22,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Text Button",
-    "id": "6:4248",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4248',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4249",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4249',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4250",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4250',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#031433"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#031433',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4251",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4251',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#15172b80"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#15172b80',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4252",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4252',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "7:2884",
-    "type": "INSTANCE",
-    "size": {
-      "width": 22,
-      "height": 24
+    'name': 'Text Button',
+    'id': '7:2884',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 22,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Text Button",
-    "id": "6:4389",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4389',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4390",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4390',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4391",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4391',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4392",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4392',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff99"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff99',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4393",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4393',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "7:2885",
-    "type": "INSTANCE",
-    "size": {
-      "width": 22,
-      "height": 24
+    'name': 'Text Button',
+    'id': '7:2885',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 22,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Text Button",
-    "id": "6:4530",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4530',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4531",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4531',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4532",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4532',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4533",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4533',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff99"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff99',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4534",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4534',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "7:2886",
-    "type": "INSTANCE",
-    "size": {
-      "width": 22,
-      "height": 24
+    'name': 'Text Button',
+    'id': '7:2886',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 22,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Text Button",
-    "id": "6:4672",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4672',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4673",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4673',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4674",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4674',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4675",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4675',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff99"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff99',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "6:4676",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '6:4676',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "7:2887",
-    "type": "INSTANCE",
-    "size": {
-      "width": 22,
-      "height": 24
+    'name': 'Text Button',
+    'id': '7:2887',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 22,
+      'height': 24,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9429",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9429',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9430",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9430',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#b4b5bb33",
-        "opacity": 0.20000000298023224
-      }
+        'type': 'SOLID',
+        'color': '#b4b5bb33',
+        'opacity': 0.20000000298023224,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9431",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9431',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#b4b5bb66",
-        "opacity": 0.4000000059604645
-      }
+        'type': 'SOLID',
+        'color': '#b4b5bb66',
+        'opacity': 0.4000000059604645,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9432",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9432',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#9d9ea7"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#9d9ea7',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9433",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9433',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "511:20376",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '511:20376',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "7:2809",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '7:2809',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9686",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9686',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9687",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9687',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#b4b5bb33",
-        "opacity": 0.20000000298023224
-      }
+        'type': 'SOLID',
+        'color': '#b4b5bb33',
+        'opacity': 0.20000000298023224,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9688",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9688',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#b4b5bb66",
-        "opacity": 0.4000000059604645
-      }
+        'type': 'SOLID',
+        'color': '#b4b5bb66',
+        'opacity': 0.4000000059604645,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9689",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9689',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#9d9ea7"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#9d9ea7',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9690",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9690',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "511:20375",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '511:20375',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "7:2808",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '7:2808',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9702",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9702',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9703",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9703',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#b4b5bb33",
-        "opacity": 0.20000000298023224
-      }
+        'type': 'SOLID',
+        'color': '#b4b5bb33',
+        'opacity': 0.20000000298023224,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9704",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9704',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#b4b5bb66",
-        "opacity": 0.4000000059604645
-      }
+        'type': 'SOLID',
+        'color': '#b4b5bb66',
+        'opacity': 0.4000000059604645,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0a4ecc"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0a4ecc',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9705",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9705',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#9d9ea7"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#9d9ea7',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9706",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9706',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "511:20374",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '511:20374',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "7:2807",
-    "type": "INSTANCE",
-    "size": {
-      "width": 46,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '7:2807',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 46,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9718",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9718',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9719",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9719',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff33",
-        "opacity": 0.20000000298023224
-      }
+        'type': 'SOLID',
+        'color': '#ffffff33',
+        'opacity': 0.20000000298023224,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9720",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9720',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff66",
-        "opacity": 0.4000000059604645
-      }
+        'type': 'SOLID',
+        'color': '#ffffff66',
+        'opacity': 0.4000000059604645,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9721",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9721',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff99"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff99',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9722",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9722',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "511:20454",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '511:20454',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "7:2806",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '7:2806',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9734",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9734',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9735",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9735',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff33",
-        "opacity": 0.20000000298023224
-      }
+        'type': 'SOLID',
+        'color': '#ffffff33',
+        'opacity': 0.20000000298023224,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9736",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9736',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff66",
-        "opacity": 0.4000000059604645
-      }
+        'type': 'SOLID',
+        'color': '#ffffff66',
+        'opacity': 0.4000000059604645,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9737",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9737',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff99"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff99',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "2:9738",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '2:9738',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "511:20453",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '511:20453',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "7:2805",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '7:2805',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "6:4693",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '6:4693',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "6:4694",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '6:4694',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff33",
-        "opacity": 0.20000000298023224
-      }
+        'type': 'SOLID',
+        'color': '#ffffff33',
+        'opacity': 0.20000000298023224,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "6:4695",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '6:4695',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff66",
-        "opacity": 0.4000000059604645
-      }
+        'type': 'SOLID',
+        'color': '#ffffff66',
+        'opacity': 0.4000000059604645,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "6:4696",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '6:4696',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff99"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff99',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "6:4697",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '6:4697',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "width": 1.5,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'width': 1.5,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "511:20452",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '511:20452',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Ghost Button",
-    "id": "7:2801",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '7:2801',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Primary Button",
-    "id": "5768:89431",
-    "type": "INSTANCE",
-    "size": {
-      "width": 88,
-      "height": 40
+    'name': 'Primary Button',
+    'id': '5768:89431',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 88,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": null
+    'strokes': [],
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Secondary Button",
-    "id": "5768:99688",
-    "type": "INSTANCE",
-    "size": {
-      "width": 121,
-      "height": 40
+    'name': 'Secondary Button',
+    'id': '5768:99688',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 121,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#9ea1ca",
-        "width": 1,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#9ea1ca',
+        'width': 1,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": null
+    'effects': [],
+    'textStyle': null,
   },
   {
-    "name": "Primary Button",
-    "id": "5768:89426",
-    "type": "INSTANCE",
-    "size": {
-      "width": 84,
-      "height": 40
+    'name': 'Primary Button',
+    'id': '5768:89426',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 84,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "5768:99826",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '5768:99826',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Ghost Button",
-    "id": "5768:100055",
-    "type": "INSTANCE",
-    "size": {
-      "width": 69,
-      "height": 40
+    'name': 'Ghost Button',
+    'id': '5768:100055',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 69,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 4,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Secondary Button",
-    "id": "5768:99683",
-    "type": "INSTANCE",
-    "size": {
-      "width": 103,
-      "height": 40
+    'name': 'Secondary Button',
+    'id': '5768:99683',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 103,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#ffffff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#ffffff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [
+    'strokes': [
       {
-        "type": "SOLID",
-        "color": "#9ea1ca",
-        "width": 1,
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#9ea1ca',
+        'width': 1,
+        'opacity': 1,
+      },
     ],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Text Button",
-    "id": "5768:101438",
-    "type": "INSTANCE",
-    "size": {
-      "width": 67,
-      "height": 24
+    'name': 'Text Button',
+    'id': '5768:101438',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 67,
+      'height': 24,
     },
-    "cornerRadius": 0,
-    "fills": [],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#0d62ff"
-    }
+    'cornerRadius': 0,
+    'fills': [],
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#0d62ff',
+    },
   },
   {
-    "name": "Submit Button",
-    "id": "5768:101396",
-    "type": "INSTANCE",
-    "size": {
-      "width": 165,
-      "height": 40
+    'name': 'Submit Button',
+    'id': '5768:101396',
+    'type': 'INSTANCE',
+    'size': {
+      'width': 165,
+      'height': 40,
     },
-    "cornerRadius": 4,
-    "fills": [
+    'cornerRadius': 4,
+    'fills': [
       {
-        "type": "SOLID",
-        "color": "#0d62ff",
-        "opacity": 1
-      }
+        'type': 'SOLID',
+        'color': '#0d62ff',
+        'opacity': 1,
+      },
     ],
-    "strokes": [],
-    "effects": [],
-    "textStyle": {
-      "fontFamily": "Montserrat",
-      "fontSize": 14,
-      "fontWeight": 600,
-      "lineHeight": 22.399999618530273,
-      "letterSpacing": null,
-      "textColor": "#ffffff"
-    }
-  }
+    'strokes': [],
+    'effects': [],
+    'textStyle': {
+      'fontFamily': 'Montserrat',
+      'fontSize': 14,
+      'fontWeight': 600,
+      'lineHeight': 22.399999618530273,
+      'letterSpacing': null,
+      'textColor': '#ffffff',
+    },
+  },
 ];
 
 // Button variants organized by type
 export const buttonVariants = {
-  "primary": [
+  'primary': [
     {
-      "name": "Primary Button",
-      "id": "5768:89431",
-      "type": "INSTANCE",
-      "size": {
-        "width": 88,
-        "height": 40
+      'name': 'Primary Button',
+      'id': '5768:89431',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 88,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Primary Button",
-      "id": "5768:89426",
-      "type": "INSTANCE",
-      "size": {
-        "width": 84,
-        "height": 40
+      'name': 'Primary Button',
+      'id': '5768:89426',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 84,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Submit Button",
-      "id": "5768:101396",
-      "type": "INSTANCE",
-      "size": {
-        "width": 165,
-        "height": 40
+      'name': 'Submit Button',
+      'id': '5768:101396',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 165,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
-    }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
+    },
   ],
-  "secondary": [
+  'secondary': [
     {
-      "name": "Secondary Button",
-      "id": "5768:99688",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Secondary Button',
+      'id': '5768:99688',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#9ea1ca",
-          "width": 1,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#9ea1ca',
+          'width': 1,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": null
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Secondary Button",
-      "id": "5768:99683",
-      "type": "INSTANCE",
-      "size": {
-        "width": 103,
-        "height": 40
+      'name': 'Secondary Button',
+      'id': '5768:99683',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 103,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#9ea1ca",
-          "width": 1,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#9ea1ca',
+          'width': 1,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
-    }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
+    },
   ],
-  "ghost": [
+  'ghost': [
     {
-      "name": "Ghost Button",
-      "id": "2:9429",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9429',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9430",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9430',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#b4b5bb33",
-          "opacity": 0.20000000298023224
-        }
+          'type': 'SOLID',
+          'color': '#b4b5bb33',
+          'opacity': 0.20000000298023224,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9431",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9431',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#b4b5bb66",
-          "opacity": 0.4000000059604645
-        }
+          'type': 'SOLID',
+          'color': '#b4b5bb66',
+          'opacity': 0.4000000059604645,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9432",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9432',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#9d9ea7"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#9d9ea7',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9433",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9433',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "511:20376",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '511:20376',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "7:2809",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '7:2809',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9686",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9686',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9687",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9687',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#b4b5bb33",
-          "opacity": 0.20000000298023224
-        }
+          'type': 'SOLID',
+          'color': '#b4b5bb33',
+          'opacity': 0.20000000298023224,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9688",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9688',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#b4b5bb66",
-          "opacity": 0.4000000059604645
-        }
+          'type': 'SOLID',
+          'color': '#b4b5bb66',
+          'opacity': 0.4000000059604645,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9689",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9689',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#9d9ea7"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#9d9ea7',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9690",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9690',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "511:20375",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '511:20375',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "7:2808",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '7:2808',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9702",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9702',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9703",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9703',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#b4b5bb33",
-          "opacity": 0.20000000298023224
-        }
+          'type': 'SOLID',
+          'color': '#b4b5bb33',
+          'opacity': 0.20000000298023224,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9704",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9704',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#b4b5bb66",
-          "opacity": 0.4000000059604645
-        }
+          'type': 'SOLID',
+          'color': '#b4b5bb66',
+          'opacity': 0.4000000059604645,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9705",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9705',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#9d9ea7"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#9d9ea7',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9706",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9706',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "511:20374",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '511:20374',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "7:2807",
-      "type": "INSTANCE",
-      "size": {
-        "width": 46,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '7:2807',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 46,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9718",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9718',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9719",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9719',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff33",
-          "opacity": 0.20000000298023224
-        }
+          'type': 'SOLID',
+          'color': '#ffffff33',
+          'opacity': 0.20000000298023224,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9720",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9720',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff66",
-          "opacity": 0.4000000059604645
-        }
+          'type': 'SOLID',
+          'color': '#ffffff66',
+          'opacity': 0.4000000059604645,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9721",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9721',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff99"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff99',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9722",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9722',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "511:20454",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '511:20454',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "7:2806",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '7:2806',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9734",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9734',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9735",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9735',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff33",
-          "opacity": 0.20000000298023224
-        }
+          'type': 'SOLID',
+          'color': '#ffffff33',
+          'opacity': 0.20000000298023224,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9736",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9736',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff66",
-          "opacity": 0.4000000059604645
-        }
+          'type': 'SOLID',
+          'color': '#ffffff66',
+          'opacity': 0.4000000059604645,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9737",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9737',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff99"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff99',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "2:9738",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '2:9738',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "511:20453",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '511:20453',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "7:2805",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '7:2805',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "6:4693",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '6:4693',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "6:4694",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '6:4694',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff33",
-          "opacity": 0.20000000298023224
-        }
+          'type': 'SOLID',
+          'color': '#ffffff33',
+          'opacity': 0.20000000298023224,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "6:4695",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '6:4695',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff66",
-          "opacity": 0.4000000059604645
-        }
+          'type': 'SOLID',
+          'color': '#ffffff66',
+          'opacity': 0.4000000059604645,
+        },
       ],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "6:4696",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '6:4696',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff99"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff99',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "6:4697",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '6:4697',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "511:20452",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '511:20452',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "7:2801",
-      "type": "INSTANCE",
-      "size": {
-        "width": 121,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '7:2801',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 121,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Ghost Button",
-      "id": "5768:99826",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '5768:99826',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Ghost Button",
-      "id": "5768:100055",
-      "type": "INSTANCE",
-      "size": {
-        "width": 69,
-        "height": 40
+      'name': 'Ghost Button',
+      'id': '5768:100055',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 69,
+        'height': 40,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
-    }
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
+    },
   ],
-  "text": [
+  'text': [
     {
-      "name": "Text Button",
-      "id": "6:3826",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:3826',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:3827",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:3827',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:3828",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:3828',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#031433"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#031433',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:3829",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:3829',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#15172b80"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#15172b80',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:3830",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:3830',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "7:2882",
-      "type": "INSTANCE",
-      "size": {
-        "width": 22,
-        "height": 24
+      'name': 'Text Button',
+      'id': '7:2882',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 22,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Text Button",
-      "id": "6:4107",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4107',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4108",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4108',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4109",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4109',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#031433"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#031433',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4110",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4110',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#15172b80"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#15172b80',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4111",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4111',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "7:2883",
-      "type": "INSTANCE",
-      "size": {
-        "width": 22,
-        "height": 24
+      'name': 'Text Button',
+      'id': '7:2883',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 22,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Text Button",
-      "id": "6:4248",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4248',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4249",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4249',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4250",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4250',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#031433"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#031433',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4251",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4251',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#15172b80"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#15172b80',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4252",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4252',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#0d62ff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#0d62ff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0a4ecc"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0a4ecc',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "7:2884",
-      "type": "INSTANCE",
-      "size": {
-        "width": 22,
-        "height": 24
+      'name': 'Text Button',
+      'id': '7:2884',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 22,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Text Button",
-      "id": "6:4389",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4389',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4390",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4390',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4391",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4391',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4392",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4392',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff99"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff99',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4393",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4393',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "7:2885",
-      "type": "INSTANCE",
-      "size": {
-        "width": 22,
-        "height": 24
+      'name': 'Text Button',
+      'id': '7:2885',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 22,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Text Button",
-      "id": "6:4530",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4530',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4531",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4531',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4532",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4532',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4533",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4533',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff99"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff99',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4534",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4534',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "7:2886",
-      "type": "INSTANCE",
-      "size": {
-        "width": 22,
-        "height": 24
+      'name': 'Text Button',
+      'id': '7:2886',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 22,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Text Button",
-      "id": "6:4672",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4672',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4673",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4673',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4674",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4674',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4675",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4675',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff99"
-      }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff99',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "6:4676",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '6:4676',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [
+      'cornerRadius': 4,
+      'fills': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'opacity': 1,
+        },
       ],
-      "strokes": [
+      'strokes': [
         {
-          "type": "SOLID",
-          "color": "#ffffff",
-          "width": 1.5,
-          "opacity": 1
-        }
+          'type': 'SOLID',
+          'color': '#ffffff',
+          'width': 1.5,
+          'opacity': 1,
+        },
       ],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#ffffff"
-      }
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#ffffff',
+      },
     },
     {
-      "name": "Text Button",
-      "id": "7:2887",
-      "type": "INSTANCE",
-      "size": {
-        "width": 22,
-        "height": 24
+      'name': 'Text Button',
+      'id': '7:2887',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 22,
+        'height': 24,
       },
-      "cornerRadius": 4,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": null
+      'cornerRadius': 4,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': null,
     },
     {
-      "name": "Text Button",
-      "id": "5768:101438",
-      "type": "INSTANCE",
-      "size": {
-        "width": 67,
-        "height": 24
+      'name': 'Text Button',
+      'id': '5768:101438',
+      'type': 'INSTANCE',
+      'size': {
+        'width': 67,
+        'height': 24,
       },
-      "cornerRadius": 0,
-      "fills": [],
-      "strokes": [],
-      "effects": [],
-      "textStyle": {
-        "fontFamily": "Montserrat",
-        "fontSize": 14,
-        "fontWeight": 600,
-        "lineHeight": 22.399999618530273,
-        "letterSpacing": null,
-        "textColor": "#0d62ff"
-      }
-    }
+      'cornerRadius': 0,
+      'fills': [],
+      'strokes': [],
+      'effects': [],
+      'textStyle': {
+        'fontFamily': 'Montserrat',
+        'fontSize': 14,
+        'fontWeight': 600,
+        'lineHeight': 22.399999618530273,
+        'letterSpacing': null,
+        'textColor': '#0d62ff',
+      },
+    },
   ],
-  "critical": [],
-  "disabled": []
+  'critical': [],
+  'disabled': [],
 };
 
 // Common styling patterns found across buttons
 export const commonButtonStyles = {
-  "cornerRadius": [
+  'cornerRadius': [
     0,
-    4
+    4,
   ],
-  "heights": [
+  'heights': [
     24,
-    40
+    40,
   ],
-  "backgroundColors": [
-    "#ffffff",
-    "#b4b5bb33",
-    "#b4b5bb66",
-    "#ffffff33",
-    "#ffffff66",
-    "#0d62ff"
+  'backgroundColors': [
+    '#ffffff',
+    '#b4b5bb33',
+    '#b4b5bb66',
+    '#ffffff33',
+    '#ffffff66',
+    '#0d62ff',
   ],
-  "borderColors": [
-    "#0d62ff",
-    "#ffffff",
-    "#9ea1ca"
+  'borderColors': [
+    '#0d62ff',
+    '#ffffff',
+    '#9ea1ca',
   ],
-  "fontFamilies": [
-    "Montserrat"
+  'fontFamilies': [
+    'Montserrat',
   ],
-  "fontSizes": [
-    14
+  'fontSizes': [
+    14,
   ],
-  "fontWeights": [
-    600
-  ]
+  'fontWeights': [
+    600,
+  ],
 };
 
 // Analysis summary
@@ -3904,9 +3904,9 @@ export const buttonAnalysis = {
     ghost: 44,
     text: 37,
     critical: 0,
-    disabled: 0
+    disabled: 0,
   },
-  commonStyles: commonButtonStyles
+  commonStyles: commonButtonStyles,
 };
 
 // Helper functions
@@ -3921,34 +3921,34 @@ export const getButtonsByVariant = (variant: keyof typeof buttonVariants) => {
 // Figma button styles for shadcn/ui integration
 export const figmaButtonCSS = {
   primary: {
-    backgroundColor: "#0d62ff",
-    borderColor: "transparent",
-    borderRadius: "4px",
-    height: "40px",
-    fontSize: "16px",
-    fontWeight: "500",
-    fontFamily: "Montserrat"
+    backgroundColor: '#0d62ff',
+    borderColor: 'transparent',
+    borderRadius: '4px',
+    height: '40px',
+    fontSize: '16px',
+    fontWeight: '500',
+    fontFamily: 'Montserrat',
   },
-  
+
   secondary: {
-    backgroundColor: "#ffffff",
-    borderColor: "#9ea1ca",
-    borderRadius: "4px",
-    height: "40px",
-    fontSize: "16px",
-    fontWeight: "500",
-    fontFamily: "Montserrat"
+    backgroundColor: '#ffffff',
+    borderColor: '#9ea1ca',
+    borderRadius: '4px',
+    height: '40px',
+    fontSize: '16px',
+    fontWeight: '500',
+    fontFamily: 'Montserrat',
   },
-  
+
   ghost: {
-    backgroundColor: "transparent",
-    borderColor: "transparent",
-    borderRadius: "4px",
-    height: "40px",
-    fontSize: "14px",
-    fontWeight: "600",
-    fontFamily: "Montserrat"
-  }
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    borderRadius: '4px',
+    height: '40px',
+    fontSize: '14px',
+    fontWeight: '600',
+    fontFamily: 'Montserrat',
+  },
 };
 
 export default {
@@ -3958,5 +3958,5 @@ export default {
   buttonAnalysis,
   figmaButtonCSS,
   getButtonByName,
-  getButtonsByVariant
+  getButtonsByVariant,
 } as const;

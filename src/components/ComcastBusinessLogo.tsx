@@ -1,5 +1,5 @@
-import * as React from "react"
-import { cn } from "../utils/cn"
+import * as React from 'react';
+import { cn } from '../utils/cn';
 
 // Comcast Business Logo component
 // Official logo following Comcast brand guidelines
@@ -8,28 +8,28 @@ export interface ComcastBusinessLogoProps extends React.SVGProps<SVGSVGElement> 
   /**
    * Logo color variant
    */
-  variant?: "white" | "blue" | "dark"
+  variant?: 'white' | 'blue' | 'dark'
   /**
    * Logo size
    */
-  size?: "sm" | "md" | "lg"
+  size?: 'sm' | 'md' | 'lg'
 }
 
 export const ComcastBusinessLogo = React.forwardRef<
   SVGSVGElement,
   ComcastBusinessLogoProps
->(({ className, variant = "white", size = "md", ...props }, ref) => {
+>(({ className, variant = 'white', size = 'md', ...props }, ref) => {
   const sizeClasses = {
-    sm: "h-6 w-auto",
-    md: "h-8 w-auto", 
-    lg: "h-12 w-auto"
-  }
+    sm: 'h-6 w-auto',
+    md: 'h-8 w-auto',
+    lg: 'h-12 w-auto',
+  };
 
   const colorClasses = {
-    white: "text-white",
-    blue: "text-[#0D62FF]",
-    dark: "text-[#15172B]"
-  }
+    white: 'text-white',
+    blue: 'text-[#0D62FF]',
+    dark: 'text-[#15172B]',
+  };
 
   return (
     <svg
@@ -48,7 +48,7 @@ export const ComcastBusinessLogo = React.forwardRef<
         <path d="M24 12c-6.1 0-11 4.9-11 11s4.9 11 11 11 11-4.9 11-11-4.9-11-11-11zm0 17c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"/>
         <circle cx="24" cy="23" r="3"/>
       </g>
-      
+
       {/* COMCAST Text */}
       <g>
         <path d="M54 16.5c-2.8 0-5.1 1.2-6.8 3.2v-2.9h-3.2v16.4h3.2v-8.7c0-3.1 1.8-5.2 4.4-5.2 2.4 0 4 1.8 4 4.6v9.3h3.2v-9.8c0-4.1-2.4-6.9-6.8-6.9z"/>
@@ -59,7 +59,7 @@ export const ComcastBusinessLogo = React.forwardRef<
         <path d="M135.5 30.7c-2.2 0-4-1.8-4-4.2v-6.8h5.2v-2.9h-5.2v-4.5h-3.2v4.5h-2.8v2.9h2.8v7.2c0 3.8 2.6 6.5 6.4 6.5 1.2 0 2.3-.3 3.3-.8l-1-2.7c-.6.4-1.1.6-1.5.6z"/>
         <path d="M146.8 16.5c-2.8 0-5.1 1.2-6.8 3.2v-2.9h-3.2v16.4h3.2v-8.7c0-3.1 1.8-5.2 4.4-5.2 2.4 0 4 1.8 4 4.6v9.3h3.2v-9.8c0-4.1-2.4-6.9-6.8-6.9z"/>
       </g>
-      
+
       {/* BUSINESS Text */}
       <g>
         <path d="M54 35h6.8c2.9 0 4.8 1.5 4.8 3.8 0 1.5-.8 2.7-2.1 3.2 1.6.4 2.6 1.8 2.6 3.5 0 2.6-2.1 4.1-5.1 4.1H54V35zm3 6.2h3.2c1.2 0 1.9-.7 1.9-1.6s-.7-1.6-1.9-1.6H57v3.2zm0 2.4v3.6h3.6c1.3 0 2-.7 2-1.8s-.7-1.8-2-1.8H57z"/>
@@ -74,7 +74,7 @@ export const ComcastBusinessLogo = React.forwardRef<
         <path d="M193.8 40.5c-2.8 0-5.1 1.2-6.8 3.2v-2.9h-3.2v16.4h3.2v-8.7c0-3.1 1.8-5.2 4.4-5.2 2.4 0 4 1.8 4 4.6v9.3h3.2v-9.8c0-4.1-2.4-6.9-6.8-6.9z"/>
       </g>
     </svg>
-  )
-})
+  );
+});
 
-ComcastBusinessLogo.displayName = "ComcastBusinessLogo"
+ComcastBusinessLogo.displayName = 'ComcastBusinessLogo';

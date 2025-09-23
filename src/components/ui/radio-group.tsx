@@ -1,32 +1,32 @@
-import * as React from "react"
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
+import * as React from 'react';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
-import { cn } from "../../utils/cn"
-import { cva } from "class-variance-authority"
+import { cn } from '../../utils/cn';
+import { cva } from 'class-variance-authority';
 
 // Radio Group component following Comcast Business Design System
-// Default colors: var(--ds-color-border-default) for border, var(--ds-color-intent-primary) when checked
+// Default colors: var(--ds-color-neutral-400) for border, var(--ds-color-intent-primary) when checked
 // Typography: Lato font family, consistent with Input patterns
 
 // Container variants for hover state background
 const radioContainerVariants = cva(
   // Base styles matching design specifications
-  "flex items-center gap-2 px-[5px] py-[3px] rounded-[4px] transition-colors",
+  'flex items-center gap-2 px-1 py-1 rounded transition-colors',
   {
     variants: {
       radioState: {
-        default: "",
-        hover: "bg-[rgba(180,181,187,0.2)]",
-        pressed: "bg-[rgba(180,181,187,0.4)]",
-        focused: "bg-[rgba(255,255,255,0.2)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
-        disabled: "",
+        default: '',
+        hover: 'bg-[rgba(180,181,187,0.2)]',
+        pressed: 'bg-[rgba(180,181,187,0.4)]',
+        focused: 'bg-[rgba(255,255,255,0.2)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
+        disabled: '',
       },
     },
     defaultVariants: {
-      radioState: "default",
+      radioState: 'default',
     },
-  }
-)
+  },
+);
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
@@ -34,13 +34,13 @@ const RadioGroup = React.forwardRef<
 >(({ className, ...props }, ref) => {
   return (
     <RadioGroupPrimitive.Root
-      className={cn("grid gap-2", className)}
+      className={cn('grid gap-2', className)}
       {...props}
       ref={ref}
     />
-  )
-})
-RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
+  );
+});
+RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
 export interface RadioGroupItemProps extends React.ComponentProps<typeof RadioGroupPrimitive.Item> {
   /**
@@ -58,7 +58,7 @@ export interface RadioGroupItemProps extends React.ComponentProps<typeof RadioGr
   /**
    * Visual state override for container styling
    */
-  radioState?: "default" | "hover" | "pressed" | "focused" | "disabled"
+  radioState?: 'default' | 'hover' | 'pressed' | 'focused' | 'disabled'
 }
 
 const RadioGroupItem = React.forwardRef<
@@ -66,7 +66,7 @@ const RadioGroupItem = React.forwardRef<
   RadioGroupItemProps
 >(({ className, error = false, label, required = false, radioState, id, ...props }, ref) => {
   // Generate unique ID if not provided
-  const radioId = id || `radio-${React.useId()}`
+  const radioId = id || `radio-${React.useId()}`;
 
   return (
     <div className={cn(
@@ -74,27 +74,27 @@ const RadioGroupItem = React.forwardRef<
         radioState,
       }),
       // Only apply interactive states when radioState is not explicitly set and not disabled
-      !radioState && !props.disabled && "hover:bg-[rgba(180,181,187,0.2)] active:bg-[rgba(180,181,187,0.4)] focus-within:bg-[rgba(255,255,255,0.2)] focus-within:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]"
+      !radioState && !props.disabled && 'hover:bg-[rgba(180,181,187,0.2)] active:bg-[rgba(180,181,187,0.4)] focus-within:bg-[rgba(255,255,255,0.2)] focus-within:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
     )}>
         <RadioGroupPrimitive.Item
           ref={ref}
           id={radioId}
           className={cn(
             // Base styles using design system colors
-            "peer size-4 shrink-0 rounded-full border-2 bg-white transition-colors",
+            'peer size-4 shrink-0 rounded-full border-2 bg-white transition-colors',
             // Default state: var(--ds-color-text-primary) border (from Figma specs)
-            "border-[var(--ds-color-text-primary)]",
+            'border-[var(--ds-color-text-primary)]',
             // Checked state: var(--ds-color-intent-primary) border
-            "data-[state=checked]:border-[var(--ds-color-intent-primary)]",
+            'data-[state=checked]:border-[var(--ds-color-intent-primary)]',
             // Focus state: var(--ds-color-intent-primary) box-shadow (consistent with Input pattern)
-            radioState !== "focused" && "focus-visible:outline-none focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]",
+            radioState !== 'focused' && 'focus-visible:outline-none focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
             // Hover state: slightly darker border
-            "hover:border-[var(--ds-color-text-muted)] data-[state=checked]:hover:border-[var(--ds-color-intent-primary)]",
+            'hover:border-[var(--ds-color-text-muted)] data-[state=checked]:hover:border-[var(--ds-color-intent-primary)]',
             // Error state: red border
-            error && "border-[var(--ds-color-intent-destructive)] data-[state=checked]:border-[var(--ds-color-intent-destructive)]",
+            error && 'border-[var(--ds-color-intent-destructive)] data-[state=checked]:border-[var(--ds-color-intent-destructive)]',
             // Disabled state
-            "disabled:cursor-not-allowed disabled:opacity-50",
-            className
+            'disabled:cursor-not-allowed disabled:opacity-50',
+            className,
           )}
           {...props}
         >
@@ -103,36 +103,36 @@ const RadioGroupItem = React.forwardRef<
           </RadioGroupPrimitive.Indicator>
         </RadioGroupPrimitive.Item>
         {label && (
-          <label 
+          <label
             htmlFor={radioId}
             className={cn(
-              "flex items-center gap-1 font-secondary cursor-pointer peer-disabled:cursor-not-allowed",
+              'flex items-center gap-1 font-secondary cursor-pointer peer-disabled:cursor-not-allowed',
               // Dynamic text color based on disabled state
-              props.disabled ? "text-[var(--ds-color-text-muted)]" : "text-[var(--ds-color-text-secondary)]"
+              props.disabled ? 'text-[var(--ds-color-text-muted)]' : 'text-[var(--ds-color-text-secondary)]',
             )}
             style={{
-              fontSize: '16px',
+              fontSize: 'var(--ds-font-size-base)',
               fontWeight: 700,
               lineHeight: '130%',
               letterSpacing: '0',
-              fontStyle: 'normal'
+              fontStyle: 'normal',
             }}
           >
             <span className="flex items-center gap-1">
               {label}
               {required && (
-                <span 
+                <span
                   className={cn(
-                    "font-secondary",
+                    'font-secondary',
                     // Dynamic color for asterisk based on disabled state
-                    props.disabled ? "text-[var(--ds-color-text-muted)]" : "text-[var(--ds-color-text-secondary)]"
+                    props.disabled ? 'text-[var(--ds-color-text-muted)]' : 'text-[var(--ds-color-text-secondary)]',
                   )}
                   style={{
-                    fontSize: '16px',
+                    fontSize: 'var(--ds-font-size-base)',
                     fontWeight: 700,
                     lineHeight: '130%',
                     letterSpacing: '0',
-                    fontStyle: 'normal'
+                    fontStyle: 'normal',
                   }}
                 >
                   *
@@ -142,8 +142,8 @@ const RadioGroupItem = React.forwardRef<
           </label>
         )}
     </div>
-  )
-})
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
+  );
+});
+RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 
-export { RadioGroup, RadioGroupItem }
+export { RadioGroup, RadioGroupItem };
