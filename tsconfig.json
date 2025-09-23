@@ -19,7 +19,7 @@
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": ".",
     "baseUrl": "./src",
     "paths": {
       "@/*": ["*"],
@@ -38,7 +38,6 @@
     "node_modules",
     "dist",
     "**/*.test.ts",
-    "**/*.test.tsx",
-    "**/*.stories.tsx"
+    "**/*.test.tsx"
   ]
 } 
