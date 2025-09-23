@@ -1,0 +1,671 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { useState } from 'react';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  Badge,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Alert,
+  AlertDescription,
+  Progress,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  Input,
+  Label,
+} from '../../src/components';
+import {
+  TrendingUp,
+  TrendingDown,
+  Users,
+  DollarSign,
+  Activity,
+  Download,
+  RefreshCw,
+  Filter,
+  Calendar,
+  BarChart3,
+  PieChart,
+  LineChart,
+  ArrowUp,
+  ArrowDown,
+  Minus,
+  AlertCircle,
+  CheckCircle,
+  Clock,
+  Search,
+} from 'lucide-react';
+
+const meta: Meta = {
+  title: 'Workflows/Data Dashboard',
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        component: 'A comprehensive data dashboard demonstrating analytics, metrics, and reporting capabilities.',
+      },
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+interface MetricCard {
+  title: string;
+  value: string | number;
+  change: number;
+  trend: 'up' | 'down' | 'neutral';
+  icon: React.ReactNode;
+  description: string;
+}
+
+interface ServiceData {
+  id: string;
+  service: string;
+  status: 'active' | 'warning' | 'error' | 'inactive';
+  users: number;
+  bandwidth: string;
+  uptime: number;
+  lastUpdated: string;
+}
+
+const DashboardFlow = () => {
+  const [dateRange, setDateRange] = useState('7d');
+  const [selectedService, setSelectedService] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleRefresh = () => {
+    setRefreshing(true);
+    setTimeout(() => setRefreshing(false), 2000);
+  };
+
+  const metrics: MetricCard[] = [
+    {
+      title: 'Total Revenue',
+      value: '$48,532',
+      change: 12.5,
+      trend: 'up',
+      icon: <DollarSign className="h-4 w-4" />,
+      description: 'Monthly recurring revenue',
+    },
+    {
+      title: 'Active Users',
+      value: '3,421',
+      change: -2.4,
+      trend: 'down',
+      icon: <Users className="h-4 w-4" />,
+      description: 'Currently active users',
+    },
+    {
+      title: 'Network Uptime',
+      value: '99.9%',
+      change: 0.1,
+      trend: 'up',
+      icon: <Activity className="h-4 w-4" />,
+      description: 'Last 30 days',
+    },
+    {
+      title: 'Support Tickets',
+      value: '42',
+      change: -15,
+      trend: 'down',
+      icon: <AlertCircle className="h-4 w-4" />,
+      description: 'Open tickets',
+    },
+  ];
+
+  const serviceData: ServiceData[] = [
+    {
+      id: '1',
+      service: 'Business Internet',
+      status: 'active',
+      users: 1523,
+      bandwidth: '850 GB',
+      uptime: 99.99,
+      lastUpdated: '2 mins ago',
+    },
+    {
+      id: '2',
+      service: 'Business Voice',
+      status: 'active',
+      users: 892,
+      bandwidth: '120 GB',
+      uptime: 99.95,
+      lastUpdated: '5 mins ago',
+    },
+    {
+      id: '3',
+      service: 'Security Edge',
+      status: 'warning',
+      users: 445,
+      bandwidth: '45 GB',
+      uptime: 98.5,
+      lastUpdated: '1 min ago',
+    },
+    {
+      id: '4',
+      service: 'Cloud Backup',
+      status: 'active',
+      users: 234,
+      bandwidth: '2.3 TB',
+      uptime: 100,
+      lastUpdated: '10 mins ago',
+    },
+    {
+      id: '5',
+      service: 'VPN Gateway',
+      status: 'error',
+      users: 67,
+      bandwidth: '15 GB',
+      uptime: 92.3,
+      lastUpdated: 'Just now',
+    },
+  ];
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'active':
+        return <CheckCircle className="h-4 w-4 text-[var(--ds-color-intent-success)]" />;
+      case 'warning':
+        return <AlertCircle className="h-4 w-4 text-[var(--ds-color-intent-warning)]" />;
+      case 'error':
+        return <AlertCircle className="h-4 w-4 text-[var(--ds-color-intent-destructive)]" />;
+      default:
+        return <Clock className="h-4 w-4 text-[var(--ds-color-text-muted)]" />;
+    }
+  };
+
+  const getStatusBadge = (status: string) => {
+    const variants: Record<string, any> = {
+      active: 'success',
+      warning: 'warning',
+      error: 'destructive',
+      inactive: 'secondary',
+    };
+    return variants[status] || 'secondary';
+  };
+
+  return (
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h1 className="text-2xl font-bold">Business Dashboard</h1>
+          <p className="text-[var(--ds-color-text-muted)]">
+            Monitor your services and performance metrics
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Select value={dateRange} onValueChange={setDateRange}>
+            <SelectTrigger className="w-[140px]">
+              <Calendar className="mr-2 h-4 w-4" />
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="24h">Last 24 hours</SelectItem>
+              <SelectItem value="7d">Last 7 days</SelectItem>
+              <SelectItem value="30d">Last 30 days</SelectItem>
+              <SelectItem value="90d">Last 90 days</SelectItem>
+              <SelectItem value="custom">Custom range</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={handleRefresh}
+            disabled={refreshing}
+          >
+            <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+          </Button>
+          <Button variant="secondary" size="sm">
+            <Download className="mr-2 h-4 w-4" />
+            Export
+          </Button>
+        </div>
+      </div>
+
+      {/* Alert */}
+      {serviceData.some(s => s.status === 'error') && (
+        <Alert>
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>
+            <strong>Service Alert:</strong> VPN Gateway is experiencing issues. Our team is investigating.
+          </AlertDescription>
+        </Alert>
+      )}
+
+      {/* Metrics Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {metrics.map((metric, index) => (
+          <Card key={index}>
+            <CardHeader className="pb-2">
+              <div className="flex items-center justify-between">
+                <CardDescription>{metric.title}</CardDescription>
+                {metric.icon}
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{metric.value}</div>
+              <div className="flex items-center gap-2 mt-2">
+                {metric.trend === 'up' ? (
+                  <ArrowUp className="h-4 w-4 text-[var(--ds-color-intent-success)]" />
+                ) : metric.trend === 'down' ? (
+                  <ArrowDown className="h-4 w-4 text-[var(--ds-color-intent-destructive)]" />
+                ) : (
+                  <Minus className="h-4 w-4 text-[var(--ds-color-text-muted)]" />
+                )}
+                <span className={`text-sm font-medium ${
+                  metric.trend === 'up' ? 'text-[var(--ds-color-intent-success)]' :
+                  metric.trend === 'down' && metric.title !== 'Support Tickets' ? 'text-[var(--ds-color-intent-destructive)]' :
+                  metric.trend === 'down' && metric.title === 'Support Tickets' ? 'text-[var(--ds-color-intent-success)]' :
+                  'text-[var(--ds-color-text-muted)]'
+                }`}>
+                  {Math.abs(metric.change)}%
+                </span>
+                <span className="text-sm text-[var(--ds-color-text-muted)]">
+                  {metric.description}
+                </span>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Main Content Tabs */}
+      <Tabs defaultValue="overview" className="w-full">
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="services">Services</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="reports">Reports</TabsTrigger>
+        </TabsList>
+
+        {/* Overview Tab */}
+        <TabsContent value="overview" className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Service Health</CardTitle>
+                  <BarChart3 className="h-4 w-4 text-[var(--ds-color-text-muted)]" />
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {serviceData.map(service => (
+                  <div key={service.id} className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      {getStatusIcon(service.status)}
+                      <span className="font-medium">{service.service}</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <span className="text-sm text-[var(--ds-color-text-muted)]">
+                        {service.uptime}% uptime
+                      </span>
+                      <Badge variant={getStatusBadge(service.status)}>
+                        {service.status}
+                      </Badge>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Bandwidth Usage</CardTitle>
+                  <PieChart className="h-4 w-4 text-[var(--ds-color-text-muted)]" />
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span>Used</span>
+                    <span className="font-medium">3.23 TB / 5 TB</span>
+                  </div>
+                  <Progress value={64.6} className="h-2" />
+                </div>
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="space-y-2">
+                    <p className="text-sm text-[var(--ds-color-text-muted)]">Peak Usage</p>
+                    <p className="text-xl font-bold">892 Mbps</p>
+                    <p className="text-xs text-[var(--ds-color-text-muted)]">Today at 2:30 PM</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-sm text-[var(--ds-color-text-muted)]">Average</p>
+                    <p className="text-xl font-bold">456 Mbps</p>
+                    <p className="text-xs text-[var(--ds-color-text-muted)]">Last 7 days</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle>Recent Activity</CardTitle>
+                <LineChart className="h-4 w-4 text-[var(--ds-color-text-muted)]" />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between py-2">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-4 w-4 text-[var(--ds-color-intent-success)]" />
+                    <div>
+                      <p className="font-medium">Backup completed</p>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">Cloud Backup - 2.3 TB transferred</p>
+                    </div>
+                  </div>
+                  <span className="text-sm text-[var(--ds-color-text-muted)]">10 mins ago</span>
+                </div>
+                <div className="flex items-center justify-between py-2">
+                  <div className="flex items-center gap-3">
+                    <AlertCircle className="h-4 w-4 text-[var(--ds-color-intent-warning)]" />
+                    <div>
+                      <p className="font-medium">High CPU usage detected</p>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">Security Edge - 85% CPU utilization</p>
+                    </div>
+                  </div>
+                  <span className="text-sm text-[var(--ds-color-text-muted)]">25 mins ago</span>
+                </div>
+                <div className="flex items-center justify-between py-2">
+                  <div className="flex items-center gap-3">
+                    <Users className="h-4 w-4 text-[var(--ds-color-intent-primary)]" />
+                    <div>
+                      <p className="font-medium">New user onboarded</p>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">john.smith@company.com added to Business Voice</p>
+                    </div>
+                  </div>
+                  <span className="text-sm text-[var(--ds-color-text-muted)]">1 hour ago</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* Services Tab */}
+        <TabsContent value="services" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <CardTitle>Service Management</CardTitle>
+                <div className="flex items-center gap-2">
+                  <div className="relative">
+                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-[var(--ds-color-text-muted)]" />
+                    <Input
+                      placeholder="Search services..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-8 w-[200px]"
+                    />
+                  </div>
+                  <Select value={selectedService} onValueChange={setSelectedService}>
+                    <SelectTrigger className="w-[140px]">
+                      <Filter className="mr-2 h-4 w-4" />
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Services</SelectItem>
+                      <SelectItem value="active">Active Only</SelectItem>
+                      <SelectItem value="issues">With Issues</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Service</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="text-center">Users</TableHead>
+                    <TableHead className="text-center">Bandwidth</TableHead>
+                    <TableHead className="text-center">Uptime</TableHead>
+                    <TableHead>Last Updated</TableHead>
+                    <TableHead className="text-right">Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {serviceData
+                    .filter(service =>
+                      service.service.toLowerCase().includes(searchQuery.toLowerCase()) &&
+                      (selectedService === 'all' ||
+                        (selectedService === 'active' && service.status === 'active') ||
+                        (selectedService === 'issues' && service.status !== 'active'))
+                    )
+                    .map(service => (
+                      <TableRow key={service.id}>
+                        <TableCell className="font-medium">{service.service}</TableCell>
+                        <TableCell>
+                          <Badge variant={getStatusBadge(service.status)}>
+                            {service.status}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="text-center">{service.users.toLocaleString()}</TableCell>
+                        <TableCell className="text-center">{service.bandwidth}</TableCell>
+                        <TableCell className="text-center">
+                          <div className="flex items-center justify-center gap-1">
+                            <span>{service.uptime}%</span>
+                            {service.uptime < 99 && (
+                              <AlertCircle className="h-3 w-3 text-[var(--ds-color-intent-warning)]" />
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-[var(--ds-color-text-muted)]">
+                          {service.lastUpdated}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <Button variant="ghost" size="sm">Manage</Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        {/* Analytics Tab */}
+        <TabsContent value="analytics" className="space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <Card className="lg:col-span-2">
+              <CardHeader>
+                <CardTitle>Traffic Analytics</CardTitle>
+                <CardDescription>Network traffic over the selected period</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-[300px] flex items-center justify-center bg-[var(--ds-color-neutral-100)] rounded">
+                  <LineChart className="h-16 w-16 text-[var(--ds-color-text-muted)]" />
+                  <span className="ml-4 text-[var(--ds-color-text-muted)]">Chart visualization would go here</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Top Services</CardTitle>
+                <CardDescription>By usage this period</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm font-medium">Business Internet</span>
+                      <span className="text-sm">45%</span>
+                    </div>
+                    <Progress value={45} className="h-2" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm font-medium">Cloud Backup</span>
+                      <span className="text-sm">30%</span>
+                    </div>
+                    <Progress value={30} className="h-2" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm font-medium">Business Voice</span>
+                      <span className="text-sm">15%</span>
+                    </div>
+                    <Progress value={15} className="h-2" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm font-medium">Security Edge</span>
+                      <span className="text-sm">7%</span>
+                    </div>
+                    <Progress value={7} className="h-2" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-sm font-medium">VPN Gateway</span>
+                      <span className="text-sm">3%</span>
+                    </div>
+                    <Progress value={3} className="h-2" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <Card>
+              <CardHeader>
+                <CardTitle>User Activity</CardTitle>
+                <CardDescription>Active users by service</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-[200px] flex items-center justify-center bg-[var(--ds-color-neutral-100)] rounded">
+                  <BarChart3 className="h-16 w-16 text-[var(--ds-color-text-muted)]" />
+                  <span className="ml-4 text-[var(--ds-color-text-muted)]">Bar chart visualization</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Cost Distribution</CardTitle>
+                <CardDescription>Monthly cost breakdown</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-[200px] flex items-center justify-center bg-[var(--ds-color-neutral-100)] rounded">
+                  <PieChart className="h-16 w-16 text-[var(--ds-color-text-muted)]" />
+                  <span className="ml-4 text-[var(--ds-color-text-muted)]">Pie chart visualization</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        {/* Reports Tab */}
+        <TabsContent value="reports" className="space-y-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Generate Reports</CardTitle>
+              <CardDescription>Create custom reports for your business needs</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="report-type">Report Type</Label>
+                  <Select>
+                    <SelectTrigger id="report-type">
+                      <SelectValue placeholder="Select report type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="usage">Usage Report</SelectItem>
+                      <SelectItem value="billing">Billing Summary</SelectItem>
+                      <SelectItem value="performance">Performance Metrics</SelectItem>
+                      <SelectItem value="security">Security Audit</SelectItem>
+                      <SelectItem value="custom">Custom Report</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="report-period">Period</Label>
+                  <Select>
+                    <SelectTrigger id="report-period">
+                      <SelectValue placeholder="Select period" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="daily">Daily</SelectItem>
+                      <SelectItem value="weekly">Weekly</SelectItem>
+                      <SelectItem value="monthly">Monthly</SelectItem>
+                      <SelectItem value="quarterly">Quarterly</SelectItem>
+                      <SelectItem value="yearly">Yearly</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              <Button variant="primary">
+                Generate Report
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Recent Reports</CardTitle>
+              <CardDescription>Previously generated reports</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between py-2">
+                  <div>
+                    <p className="font-medium">November Usage Report</p>
+                    <p className="text-sm text-[var(--ds-color-text-muted)]">Generated on Nov 1, 2024</p>
+                  </div>
+                  <Button variant="ghost" size="sm">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="flex items-center justify-between py-2">
+                  <div>
+                    <p className="font-medium">Q3 Performance Metrics</p>
+                    <p className="text-sm text-[var(--ds-color-text-muted)]">Generated on Oct 15, 2024</p>
+                  </div>
+                  <Button variant="ghost" size="sm">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="flex items-center justify-between py-2">
+                  <div>
+                    <p className="font-medium">Security Audit Report</p>
+                    <p className="text-sm text-[var(--ds-color-text-muted)]">Generated on Oct 1, 2024</p>
+                  </div>
+                  <Button variant="ghost" size="sm">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export const Default: Story = {
+  render: () => <DashboardFlow />,
+};
