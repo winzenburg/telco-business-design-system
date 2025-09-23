@@ -52,9 +52,9 @@ export const Dashboard: Story = {
   render: () => (
     <div className="min-h-screen bg-gray-50">
       {/* Global Navigation */}
-      <GlobalNavigation 
-        userName="David" 
-        sectionTitle="DASHBOARD" 
+      <GlobalNavigation
+        userName="David"
+        sectionTitle="DASHBOARD"
         showSearch={true}
         showUserProfile={true}
       />
@@ -194,7 +194,7 @@ export const Dashboard: Story = {
             <TabsTrigger value="services">Services</TabsTrigger>
             <TabsTrigger value="billing">Billing</TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="overview" className="space-y-6">
             {/* Quick Actions & Recent Activity */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -218,7 +218,7 @@ export const Dashboard: Story = {
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
-                  
+
                   <Dialog>
                     <DialogTrigger asChild>
                       <Button variant="outline" className="w-full justify-start">
@@ -260,7 +260,7 @@ export const Dashboard: Story = {
                       </DialogFooter>
                     </DialogContent>
                   </Dialog>
-                  
+
                   <Button variant="outline" className="w-full justify-start">
                     <Icon name="gethelp" size={16} className="mr-3" />
                     Contact Support
@@ -304,7 +304,7 @@ export const Dashboard: Story = {
                         </div>
                       </AccordionContent>
                     </AccordionItem>
-                    
+
                     <AccordionItem value="item-2">
                       <AccordionTrigger className="text-left">
                         <div className="flex items-center gap-3">
@@ -329,7 +329,7 @@ export const Dashboard: Story = {
                         </div>
                       </AccordionContent>
                     </AccordionItem>
-                    
+
                     <AccordionItem value="item-3">
                       <AccordionTrigger className="text-left">
                         <div className="flex items-center gap-3">
@@ -359,7 +359,7 @@ export const Dashboard: Story = {
               </Card>
             </div>
           </TabsContent>
-          
+
           <TabsContent value="services" className="space-y-6">
             <Card>
               <CardHeader>
@@ -378,7 +378,7 @@ export const Dashboard: Story = {
                     </div>
                     <Badge variant="secondary">Active</Badge>
                   </div>
-                  
+
                   <div className="flex items-center justify-between p-4 border rounded-lg">
                     <div className="flex items-center gap-3">
                       <Switch defaultChecked />
@@ -389,7 +389,7 @@ export const Dashboard: Story = {
                     </div>
                     <Badge variant="secondary">Active</Badge>
                   </div>
-                  
+
                   <div className="flex items-center justify-between p-4 border rounded-lg">
                     <div className="flex items-center gap-3">
                       <Switch />
@@ -404,7 +404,7 @@ export const Dashboard: Story = {
               </CardContent>
             </Card>
           </TabsContent>
-          
+
           <TabsContent value="billing" className="space-y-6">
             <Card>
               <CardHeader>
@@ -423,9 +423,9 @@ export const Dashboard: Story = {
                       <div className="text-sm text-blue-600">Next Payment Due</div>
                     </div>
                   </div>
-                  
+
                   <Separator />
-                  
+
                   <div className="space-y-3">
                     <h4 className="font-medium">Recent Payments</h4>
                     <div className="space-y-2">
@@ -475,27 +475,27 @@ export const ComplexForm: Story = {
     const handleServiceChange = (service: string, checked: boolean) => {
       setFormData(prev => ({
         ...prev,
-        services: checked 
+        services: checked
           ? [...prev.services, service]
-          : prev.services.filter(s => s !== service)
+          : prev.services.filter(s => s !== service),
       }));
     };
 
     const handleFeatureChange = (feature: string, checked: boolean) => {
       setFormData(prev => ({
         ...prev,
-        features: checked 
+        features: checked
           ? [...prev.features, feature]
-          : prev.features.filter(f => f !== feature)
+          : prev.features.filter(f => f !== feature),
       }));
     };
 
     return (
       <div className="min-h-screen bg-gray-50">
         {/* Global Navigation */}
-        <GlobalNavigation 
-          userName="David" 
-          sectionTitle="NEW SERVICE REQUEST" 
+        <GlobalNavigation
+          userName="David"
+          sectionTitle="NEW SERVICE REQUEST"
           showSearch={true}
           showUserProfile={true}
         />
@@ -551,7 +551,7 @@ export const ComplexForm: Story = {
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({...prev, email: e.target.value}))}
                     error={formData.email ? !formData.email.includes('@') : false}
-                    errorMessage={formData.email && !formData.email.includes('@') ? "Please enter a valid email" : undefined}
+                    errorMessage={formData.email && !formData.email.includes('@') ? 'Please enter a valid email' : undefined}
                   />
                   <Input
                     label="Phone Number"
@@ -672,20 +672,20 @@ export const ComplexForm: Story = {
 
                 <div>
                   <h4 className="font-medium text-foreground font-primary mb-4">Business Type</h4>
-                  <RadioGroup 
+                  <RadioGroup
                     value={formData.businessType}
                     onValueChange={(value) => setFormData(prev => ({...prev, businessType: value}))}
                   >
                     <div className="space-y-3">
-                      <RadioGroupItem 
+                      <RadioGroupItem
                         value="small"
                         label="Small Business (1-20 employees)"
                       />
-                      <RadioGroupItem 
+                      <RadioGroupItem
                         value="medium"
                         label="Medium Business (21-100 employees)"
                       />
-                      <RadioGroupItem 
+                      <RadioGroupItem
                         value="enterprise"
                         label="Enterprise (100+ employees)"
                       />
@@ -746,13 +746,13 @@ export const ComplexForm: Story = {
                     error={!formData.terms}
                   />
                 </div>
-                
+
                 <div className="flex gap-4 pt-4">
                   <Button variant="outline" size="lg">
                     Save Draft
                   </Button>
-                  <Button 
-                    variant="primary" 
+                  <Button
+                    variant="primary"
                     size="lg"
                     disabled={!formData.terms || !formData.companyName || !formData.email}
                   >
@@ -773,9 +773,9 @@ export const ServiceDetail: Story = {
   render: () => (
     <div className="min-h-screen bg-gray-50">
       {/* Global Navigation */}
-      <GlobalNavigation 
-        userName="David" 
-        sectionTitle="INTERNET PRO - MAIN OFFICE" 
+      <GlobalNavigation
+        userName="David"
+        sectionTitle="INTERNET PRO - MAIN OFFICE"
         showSearch={true}
         showUserProfile={true}
       />
@@ -848,7 +848,7 @@ export const ServiceDetail: Story = {
                   <TabsTrigger value="performance">Performance</TabsTrigger>
                   <TabsTrigger value="alerts">Alerts</TabsTrigger>
                 </TabsList>
-                
+
                 <TabsContent value="usage" className="space-y-4">
                   <Card>
                     <CardHeader>
@@ -864,7 +864,7 @@ export const ServiceDetail: Story = {
                           <span className="text-sm text-muted-foreground">847 GB / 1.2 TB</span>
                         </div>
                         <Progress value={73} className="h-3" />
-                        
+
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
                           <div className="text-center p-3 bg-blue-50 rounded-lg">
                             <div className="text-lg font-bold text-blue-700">234 GB</div>
@@ -887,7 +887,7 @@ export const ServiceDetail: Story = {
                     </CardContent>
                   </Card>
                 </TabsContent>
-                
+
                 <TabsContent value="performance" className="space-y-4">
                   <Card>
                     <CardHeader>
@@ -923,7 +923,7 @@ export const ServiceDetail: Story = {
                     </CardContent>
                   </Card>
                 </TabsContent>
-                
+
                 <TabsContent value="alerts" className="space-y-4">
                   <Card>
                     <CardHeader>
@@ -981,7 +981,7 @@ export const ServiceDetail: Story = {
                         <p className="text-xs text-muted-foreground mt-1">2 hours ago</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
                       <Icon name="configure" size={16} style={{ color: 'var(--colors-text-blue-600)' }} className="mt-1" />
                       <div className="flex-1">
@@ -995,7 +995,7 @@ export const ServiceDetail: Story = {
                         <p className="text-xs text-muted-foreground mt-1">1 day ago</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
                       <Icon name="analytics" size={16} style={{ color: 'var(--colors-text-gray-600)' }} className="mt-1" />
                       <div className="flex-1">
@@ -1036,16 +1036,16 @@ export const ServiceDetail: Story = {
                       <Badge variant="secondary">Active</Badge>
                     </div>
                   </div>
-                  
+
                   <Separator />
-                  
+
                   <div>
                     <label className="text-sm font-medium text-muted-foreground">Service Address</label>
                     <p className="text-foreground mt-1">123 Business Ave<br/>Philadelphia, PA 19103</p>
                   </div>
-                  
+
                   <Separator />
-                  
+
                   <div>
                     <label className="text-sm font-medium text-muted-foreground">Account Manager</label>
                     <div className="flex items-center gap-3 mt-2">
@@ -1059,9 +1059,9 @@ export const ServiceDetail: Story = {
                       </div>
                     </div>
                   </div>
-                  
+
                   <Separator />
-                  
+
                   <div>
                     <label className="text-sm font-medium text-muted-foreground">Contract End</label>
                     <div className="flex items-center gap-2 mt-1">
@@ -1114,7 +1114,7 @@ export const ServiceDetail: Story = {
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                  
+
                   <Button variant="outline" size="sm" className="w-full justify-start">
                     <Icon name="document" size={16} className="mr-2" />
                     Download Reports
@@ -1161,9 +1161,9 @@ export const EnhancedAdminDashboard: Story = {
     return (
       <div className="min-h-screen bg-gray-50">
         {/* Global Navigation */}
-        <GlobalNavigation 
-          userName="Admin" 
-          sectionTitle="ENTERPRISE DASHBOARD" 
+        <GlobalNavigation
+          userName="Admin"
+          sectionTitle="ENTERPRISE DASHBOARD"
           showSearch={true}
           showUserProfile={true}
         />
@@ -1181,7 +1181,7 @@ export const EnhancedAdminDashboard: Story = {
                   Comprehensive dashboard showcasing all design system components
                 </Typography>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <TooltipProvider>
                   <Tooltip>

@@ -7,11 +7,11 @@ import { Textarea } from '../../components/ui/textarea';
 import { Checkbox } from '../../components/ui/checkbox';
 import { Users } from 'lucide-react';
 import { Title, Body } from '../../components/ui/typography';
-import { 
-  patternCompliance, 
-  figmaPatterns, 
-  getOverallCompliance, 
-  getComponentsByCompliance 
+import {
+  patternCompliance,
+  figmaPatterns,
+  getOverallCompliance,
+  getComponentsByCompliance,
 } from '../../components/utils/pattern-tracker';
 
 const meta: Meta = {
@@ -50,14 +50,14 @@ export const TypographyPatterns: Story = {
                 className="flex items-center gap-1 text-sm font-medium text-black font-primary"
               </code>
             </div>
-            
+
             <div className="space-y-2">
               <Label className="flex items-center gap-1 text-sm font-medium text-black font-primary">
                 Required Label
                 <span className="text-red-500">*</span>
               </Label>
               <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
-                {`{required && <span className="text-red-500">*</span>}`}
+                {'{required && <span className="text-red-500">*</span>}'}
               </code>
             </div>
 
@@ -80,7 +80,7 @@ export const TypographyPatterns: Story = {
                 Body/S (14px) - Subcopy text
               </Body>
               <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
-                {`style={{ fontSize: '14px', lineHeight: '18.2px' }}`}
+                {'style={{ fontSize: \'14px\', lineHeight: \'18.2px\' }}'}
               </code>
             </div>
 
@@ -89,7 +89,7 @@ export const TypographyPatterns: Story = {
                 Body/XS (12px) - Hint text
               </Body>
               <code className="block text-xs bg-gray-100 p-2 rounded font-mono">
-                {`style={{ fontSize: '12px', lineHeight: '15.6px' }}`}
+                {'style={{ fontSize: \'12px\', lineHeight: \'15.6px\' }}'}
               </code>
             </div>
 
@@ -120,34 +120,34 @@ export const ColorSystemPatterns: Story = {
         {/* Neutral Colors */}
         <div className="space-y-3">
           <h3 className="text-base font-medium font-primary">Neutral Colors</h3>
-          
+
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-black rounded border"></div>
+              <div className="w-6 h-6 bg-black rounded border" />
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">neutral/black</div>
                 <code className="text-xs text-gray-600">text-black</code>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-gray-600 rounded border"></div>
+              <div className="w-6 h-6 bg-gray-600 rounded border" />
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">neutral/grey-600</div>
                 <code className="text-xs text-gray-600">text-gray-600</code>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-gray-800 rounded border"></div>
+              <div className="w-6 h-6 bg-gray-800 rounded border" />
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">neutral/grey-800</div>
                 <code className="text-xs text-gray-600">text-gray-800</code>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-gray-400 rounded border"></div>
+              <div className="w-6 h-6 bg-gray-400 rounded border" />
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">neutral/grey-400</div>
                 <code className="text-xs text-gray-600">border-gray-400</code>
@@ -159,34 +159,34 @@ export const ColorSystemPatterns: Story = {
         {/* State Colors */}
         <div className="space-y-3">
           <h3 className="text-base font-medium font-primary">State Colors</h3>
-          
+
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded border" style={{ backgroundColor: 'var(--ds-color-intent-primary)' }}></div>
+              <div className="w-6 h-6 rounded border" style={{ backgroundColor: 'var(--ds-color-intent-primary)' }} />
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">Focus Blue</div>
                 <code className="text-xs text-gray-600">var(--ds-color-intent-primary)</code>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-red-500 rounded border"></div>
+              <div className="w-6 h-6 bg-red-500 rounded border" />
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">Error Red</div>
                 <code className="text-xs text-gray-600">text-red-500</code>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-green-600 rounded border"></div>
+              <div className="w-6 h-6 bg-green-600 rounded border" />
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">Success Green</div>
                 <code className="text-xs text-gray-600">text-green-600</code>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded border" style={{ backgroundColor: 'var(--ds-color-text-primary)' }}></div>
+              <div className="w-6 h-6 rounded border" style={{ backgroundColor: 'var(--ds-color-text-primary)' }} />
               <div className="text-sm">
                 <div className="font-medium text-black font-primary">Hover Gray</div>
                 <code className="text-xs text-gray-600">var(--ds-color-text-primary)</code>
@@ -198,7 +198,7 @@ export const ColorSystemPatterns: Story = {
         {/* Usage Examples */}
         <div className="space-y-3 md:col-span-2">
           <h3 className="text-base font-medium font-primary">Usage Examples</h3>
-          
+
           <div className="space-y-2 text-sm">
             <div><span className="text-black font-primary font-medium">Labels:</span> <code>text-black font-primary</code></div>
             <div><span className="text-gray-600 font-secondary">Subcopy:</span> <code>text-gray-600 font-secondary</code></div>
@@ -225,7 +225,7 @@ export const InputPatterns: Story = {
         {/* Complete Structure */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">Complete Input Structure</h3>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-4">
               <Input
@@ -236,7 +236,7 @@ export const InputPatterns: Story = {
                 leftIcon="users"
                 hintText="Use your business email for better security"
               />
-              
+
               <div className="text-xs text-gray-600 font-secondary p-3 bg-blue-50 rounded">
                 <strong>Structure Hierarchy:</strong><br />
                 1. Label (with required indicator)<br />
@@ -267,7 +267,7 @@ export const InputPatterns: Story = {
         {/* Sizing and Spacing */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">Input Sizing & Spacing</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium font-primary mb-2">Dimensions</h4>
@@ -278,7 +278,7 @@ export const InputPatterns: Story = {
                 <li>Border: <code>1px solid</code></li>
               </ul>
             </div>
-            
+
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium font-primary mb-2">Icons</h4>
               <ul className="text-sm font-secondary space-y-1">
@@ -288,7 +288,7 @@ export const InputPatterns: Story = {
                 <li>Color: <code>neutral/grey-600</code></li>
               </ul>
             </div>
-            
+
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium font-primary mb-2">Typography</h4>
               <ul className="text-sm font-secondary space-y-1">
@@ -318,7 +318,7 @@ export const ComponentStructurePatterns: Story = {
         {/* Layout Patterns */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">Layout Patterns</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <h4 className="font-medium font-primary">Flex Layout Standard</h4>
@@ -355,7 +355,7 @@ export const ComponentStructurePatterns: Story = {
         {/* All Components Example */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">Pattern Applied Across Components</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <Input
@@ -380,12 +380,12 @@ export const ComponentStructurePatterns: Story = {
                   Checkbox Options
                 </Label>
                 <div className="space-y-2">
-                  <Checkbox 
-                    label="Option 1" 
+                  <Checkbox
+                    label="Option 1"
                     helperText="Helper text with consistent styling"
                   />
-                  <Checkbox 
-                    label="Option 2" 
+                  <Checkbox
+                    label="Option 2"
                   />
                 </div>
               </div>
@@ -420,23 +420,23 @@ export const StateManagementPatterns: Story = {
         {/* State Colors */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">Interactive State Colors</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="p-4 border border-gray-400 rounded bg-white">
               <div className="font-medium font-primary mb-1">Default</div>
               <div className="text-sm text-gray-600 font-secondary">border-gray-400</div>
             </div>
-            
+
             <div className="p-4 border rounded bg-white" style={{ borderColor: 'var(--ds-color-text-primary)' }}>
               <div className="font-medium font-primary mb-1">Hover</div>
               <div className="text-sm text-gray-600 font-secondary">var(--ds-color-text-primary)</div>
             </div>
-            
+
             <div className="p-4 border-2 rounded bg-white ring-2 ring-offset-2" style={{ borderColor: 'var(--ds-color-intent-primary)', ringColor: 'var(--ds-color-intent-primary)' }}>
               <div className="font-medium font-primary mb-1">Focus</div>
               <div className="text-sm text-gray-600 font-secondary">var(--ds-color-intent-primary) + ring</div>
             </div>
-            
+
             <div className="p-4 border border-red-500 rounded bg-white">
               <div className="font-medium font-primary mb-1">Error</div>
               <div className="text-sm text-gray-600 font-secondary">border-red-500</div>
@@ -447,7 +447,7 @@ export const StateManagementPatterns: Story = {
         {/* State Implementation */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">State Implementation Pattern</h3>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-4">
               <Input
@@ -456,7 +456,7 @@ export const StateManagementPatterns: Story = {
                 leftIcon="users"
                 hintText="Default gray border"
               />
-              
+
               <Input
                 label="Error State"
                 required
@@ -466,7 +466,7 @@ export const StateManagementPatterns: Story = {
                 error
                 errorMessage="This field has an error"
               />
-              
+
               <Input
                 label="Success State"
                 placeholder="Valid input"
@@ -537,7 +537,7 @@ export const PatternComplianceDashboard: Story = {
             <div className="space-y-2">
               {compliant.map(component => (
                 <div key={component} className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-green-500 rounded-full" />
                   <span className="font-secondary text-green-700">{component}</span>
                 </div>
               ))}
@@ -552,7 +552,7 @@ export const PatternComplianceDashboard: Story = {
             <div className="space-y-2">
               {needsWork.map(component => (
                 <div key={component} className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <div className="w-2 h-2 bg-orange-500 rounded-full" />
                   <span className="font-secondary text-orange-700">{component}</span>
                 </div>
               ))}
@@ -563,7 +563,7 @@ export const PatternComplianceDashboard: Story = {
         {/* Detailed Compliance */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">Component Details</h3>
-          
+
           <div className="grid gap-4">
             {patternCompliance.map(comp => {
               const total = Object.values(comp.typography).length +
@@ -587,10 +587,10 @@ export const PatternComplianceDashboard: Story = {
                         {percentage}%
                       </div>
                       <div className="w-16 h-2 bg-gray-200 rounded">
-                        <div 
+                        <div
                           className={`h-full rounded ${percentage >= 80 ? 'bg-green-500' : 'bg-orange-500'}`}
                           style={{ width: `${percentage}%` }}
-                        ></div>
+                         />
                       </div>
                     </div>
                   </div>
@@ -682,7 +682,7 @@ export const ImplementationGuide: Story = {
         {/* Checklist */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">Implementation Checklist</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium font-primary mb-3">Typography ✓</h4>
@@ -694,7 +694,7 @@ export const ImplementationGuide: Story = {
                 <li>✅ Letter spacing: 0</li>
               </ul>
             </div>
-            
+
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium font-primary mb-3">Layout ✓</h4>
               <ul className="space-y-2 text-sm font-secondary">
@@ -705,7 +705,7 @@ export const ImplementationGuide: Story = {
                 <li>✅ Proper alignment patterns</li>
               </ul>
             </div>
-            
+
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium font-primary mb-3">Colors ✓</h4>
               <ul className="space-y-2 text-sm font-secondary">
@@ -716,7 +716,7 @@ export const ImplementationGuide: Story = {
                 <li>✅ Proper contrast ratios</li>
               </ul>
             </div>
-            
+
             <div className="p-4 border border-gray-200 rounded-lg">
               <h4 className="font-medium font-primary mb-3">States ✓</h4>
               <ul className="space-y-2 text-sm font-secondary">
@@ -733,7 +733,7 @@ export const ImplementationGuide: Story = {
         {/* Migration Example */}
         <div className="space-y-4">
           <h3 className="text-lg font-medium font-primary">Migration Example</h3>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-3">
               <h4 className="font-medium font-primary text-red-600">Before (Inconsistent)</h4>
@@ -776,7 +776,7 @@ export const ImplementationGuide: Story = {
         {/* Quick Reference */}
         <div className="p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500">
           <h3 className="text-lg font-medium font-primary mb-4">Quick Reference</h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm font-secondary">
             <div>
               <strong className="font-primary">Labels:</strong><br />

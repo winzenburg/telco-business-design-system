@@ -1,12 +1,12 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { 
+import {
   elevationSystem,
   semanticElevation,
   elevationUsage,
   getElevation,
   getSemanticElevation,
-  createElevationStyle
+  createElevationStyle,
 } from '../../tokens/design-system-elevation';
 
 const meta: Meta = {
@@ -25,13 +25,13 @@ export default meta;
 type Story = StoryObj;
 
 // Component to display elevation levels
-const ElevationCard: React.FC<{ 
-  level: string; 
-  elevation: any; 
+const ElevationCard: React.FC<{
+  level: string;
+  elevation: any;
   className?: string;
 }> = ({ level, elevation, className = '' }) => (
   <div className={`bg-white rounded-lg p-6 border border-gray-200 ${className}`}>
-    <div 
+    <div
       className="w-full h-32 bg-white rounded-lg border border-gray-100 flex items-center justify-center mb-4"
       style={{ boxShadow: elevation.boxShadow }}
     >
@@ -56,7 +56,7 @@ export const AllElevationLevels: Story = {
         <p className="text-gray-600 mb-4">
           Consistent elevation levels extracted from Figma design patterns. Use these shadows to create visual hierarchy and indicate interactivity.
         </p>
-        
+
         <div className="p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
           <h3 className="font-medium text-blue-900">From Figma Analysis</h3>
           <p className="text-blue-800 text-sm mt-1">
@@ -67,14 +67,14 @@ export const AllElevationLevels: Story = {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.entries(elevationSystem).map(([level, elevation]) => (
-          <ElevationCard 
-            key={level} 
-            level={level} 
+          <ElevationCard
+            key={level}
+            level={level}
             elevation={elevation}
           />
         ))}
       </div>
-      
+
       <div className="mt-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Technical Details</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -125,14 +125,14 @@ export const SemanticElevation: Story = {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.entries(semanticElevation).map(([semantic, config]) => {
           const elevation = config.elevation !== 'none' ? elevationSystem[config.elevation as keyof typeof elevationSystem] : null;
-          
+
           return (
             <div key={semantic} className="bg-white rounded-lg p-6 border border-gray-200">
-              <div 
+              <div
                 className="w-full h-24 bg-white rounded-lg border border-gray-100 flex items-center justify-center mb-4 relative"
-                style={{ 
+                style={{
                   boxShadow: elevation?.boxShadow || 'none',
-                  zIndex: config.zIndex 
+                  zIndex: config.zIndex,
                 }}
               >
                 <span className="text-gray-600 font-medium capitalize">{semantic}</span>
@@ -167,7 +167,7 @@ export const InteractiveDemo: Story = {
   render: () => {
     const [selectedLevel, setSelectedLevel] = React.useState<string>('md');
     const elevation = elevationSystem[selectedLevel as keyof typeof elevationSystem];
-    
+
     return (
       <div className="space-y-8">
         <div className="mb-8">
@@ -197,7 +197,7 @@ export const InteractiveDemo: Story = {
           <div>
             <h3 className="text-lg font-semibold mb-4">Preview</h3>
             <div className="relative bg-gray-100 p-8 rounded-lg min-h-64 flex items-center justify-center">
-              <div 
+              <div
                 className="bg-white p-8 rounded-lg transition-shadow duration-300"
                 style={{ boxShadow: elevation.boxShadow }}
               >
@@ -206,7 +206,7 @@ export const InteractiveDemo: Story = {
               </div>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-4">Code</h3>
             <div className="space-y-4">
@@ -216,14 +216,14 @@ export const InteractiveDemo: Story = {
                   &lt;div className="shadow-elevation-{selectedLevel}"&gt;
                 </code>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">CSS Property</label>
                 <code className="block p-3 bg-gray-900 text-green-400 rounded text-sm font-mono whitespace-pre-wrap">
                   {elevation.css}
                 </code>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">React Style Object</label>
                 <code className="block p-3 bg-gray-900 text-green-400 rounded text-sm font-mono whitespace-pre-wrap">
@@ -292,7 +292,7 @@ export const UsageGuidelines: Story = {
 
       <div className="mt-8">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">Code Examples</h2>
-        
+
         <div className="space-y-6">
           <div>
             <h4 className="font-medium text-gray-800 mb-2">Using Helper Functions</h4>
@@ -311,7 +311,7 @@ const cardStyle = createElevationStyle('md');
 </div>`}
             </pre>
           </div>
-          
+
           <div>
             <h4 className="font-medium text-gray-800 mb-2">Tailwind CSS Classes</h4>
             <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
