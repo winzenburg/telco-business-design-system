@@ -28,6 +28,18 @@ const config: StorybookConfig = {
       config.css.preprocessorOptions = {};
     }
 
+    // Configure static file serving for icons
+    if (!config.server) {
+      config.server = {};
+    }
+    if (!config.server.fs) {
+      config.server.fs = {};
+    }
+    if (!config.server.fs.allow) {
+      config.server.fs.allow = [];
+    }
+    config.server.fs.allow.push('../src/assets/icons');
+
     return config;
   },
   docs: {

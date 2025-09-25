@@ -37,6 +37,14 @@ const ICON_CATEGORIES = [
   { value: 'general', label: 'General' }
 ];
 
+// Icon sources for filtering
+const ICON_SOURCES = [
+  { value: 'all', label: 'All Sources' },
+  { value: 'feather', label: 'Feather Icons' },
+  { value: 'figma', label: 'Figma' },
+  { value: 'custom', label: 'Custom' }
+];
+
 // Icon sizes for demonstration
 const ICON_SIZES = [
   { value: '16', label: '16px (XS)' },
@@ -50,10 +58,11 @@ export const FeatherIconsShowcase: Story = {
   render: () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
+    const [selectedSource, setSelectedSource] = useState('all');
     const [selectedSize, setSelectedSize] = useState('24');
     const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
 
-    // Get icons based on category and search
+    // Get icons based on category, source, and search
     const getFilteredIcons = () => {
       let icons = [];
       
@@ -69,11 +78,11 @@ export const FeatherIconsShowcase: Story = {
       // Filter by search term
       if (searchTerm) {
         icons = searchIcons(searchTerm);
-        // Filter to only show Feather icons
-        icons = icons.filter(icon => icon.name.startsWith('feather-'));
-      } else {
-        // Filter to only show Feather icons
-        icons = icons.filter(icon => icon.name.startsWith('feather-'));
+      }
+      
+      // Filter by source
+      if (selectedSource !== 'all') {
+        icons = icons.filter(icon => icon.source === selectedSource);
       }
       
       return icons.sort((a, b) => a.name.localeCompare(b.name));
@@ -111,7 +120,7 @@ export const FeatherIconsShowcase: Story = {
               <CardDescription>Search and filter Feather Icons by category and size</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
                   <label className="text-sm font-medium text-[var(--ds-color-text-primary)] mb-2 block">
                     Search Icons
@@ -134,6 +143,23 @@ export const FeatherIconsShowcase: Story = {
                       {ICON_CATEGORIES.map(category => (
                         <SelectItem key={category.value} value={category.value}>
                           {category.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <label className="text-sm font-medium text-[var(--ds-color-text-primary)] mb-2 block">
+                    Source
+                  </label>
+                  <Select value={selectedSource} onValueChange={setSelectedSource}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {ICON_SOURCES.map(source => (
+                        <SelectItem key={source.value} value={source.value}>
+                          {source.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -189,6 +215,14 @@ export const FeatherIconsShowcase: Story = {
                     <span className="text-xs text-[var(--ds-color-text-muted)] mt-2 text-center leading-tight">
                       {icon.name.replace('feather-', '')}
                     </span>
+                    {icon.source && (
+                      <Badge 
+                        variant="outline" 
+                        className="text-xs mt-1"
+                      >
+                        {icon.source}
+                      </Badge>
+                    )}
                   </div>
                 ))}
               </div>
@@ -243,6 +277,33 @@ export const FeatherIconsShowcase: Story = {
                         <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">Icon Name</label>
                         <p className="text-sm text-[var(--ds-color-text-muted)] font-mono">
                           {selectedIcon}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">Source</label>
+                        <div className="flex items-center gap-2">
+                          <Badge variant="outline">
+                            {filteredIcons.find(i => i.name === selectedIcon)?.source || 'unknown'}
+                          </Badge>
+                          {filteredIcons.find(i => i.name === selectedIcon)?.sourceUrl && (
+                            <a 
+                              href={filteredIcons.find(i => i.name === selectedIcon)?.sourceUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-xs text-[var(--ds-color-intent-primary)] hover:underline"
+                            >
+                              View Source
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                      <div>
+                        <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">License</label>
+                        <p className="text-sm text-[var(--ds-color-text-muted)]">
+                          {filteredIcons.find(i => i.name === selectedIcon)?.license || 'Unknown'}
                         </p>
                       </div>
                     </div>
