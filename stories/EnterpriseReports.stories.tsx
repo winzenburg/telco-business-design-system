@@ -493,24 +493,24 @@ export const EnterpriseReportsInterface: Story = {
                   <div className="h-[320px] w-full">
                     <ResponsiveContainer width="100%" height="100%">
                       <RechartsLineChart data={networkPerformanceData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                      <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                       <XAxis 
                         dataKey="name" 
                         tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                        axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                        axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                       />
                       <YAxis 
                         yAxisId="uptime"
                         domain={[98, 100]}
                         tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                        axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                        axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                       />
                       <YAxis 
                         yAxisId="throughput"
                         orientation="right"
                         domain={[0, 1200]}
                         tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                        axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                        axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                       />
                       <ChartTooltip />
                       <Line 
@@ -669,15 +669,15 @@ export const EnterpriseReportsInterface: Story = {
                     <div className="h-[280px] w-full">
                       <ResponsiveContainer width="100%" height="100%">
                         <RechartsAreaChart data={usageTrendData}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                         <XAxis 
                           dataKey="name" 
                           tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                          axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                          axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                         />
                         <YAxis 
                           tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                          axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                          axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                         />
                         <ChartTooltip />
                         <Area 
@@ -723,7 +723,7 @@ export const EnterpriseReportsInterface: Story = {
                     <div className="h-[280px] w-full">
                       <ResponsiveContainer width="100%" height="100%">
                         <RechartsBarChart data={locationCostsData}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                        <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                         <XAxis 
                           dataKey="name" 
                           tick={{ fontSize: 10, fill: 'var(--ds-color-text-muted)' }}
@@ -734,7 +734,7 @@ export const EnterpriseReportsInterface: Story = {
                         />
                         <YAxis 
                           tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                          axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                          axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                         />
                         <ChartTooltip 
                           formatter={(value) => [`$${value.toLocaleString()}`, 'Monthly Cost']}

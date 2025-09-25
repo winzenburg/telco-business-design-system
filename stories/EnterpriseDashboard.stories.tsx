@@ -207,16 +207,16 @@ export const ExecutiveDashboard: Story = {
                 <div className="h-[300px] w-full">
                   <ResponsiveContainer width="100%" height="100%">
                     <RechartsLineChart data={servicePerformanceTrend}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                     <XAxis 
                       dataKey="name" 
                       tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                      axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                     />
                     <YAxis 
                       domain={[95, 100]}
                       tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                      axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                     />
                     <ChartTooltip />
                     <Line 
@@ -333,15 +333,15 @@ export const ExecutiveDashboard: Story = {
               <div className="h-[250px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <RechartsBarChart data={ticketPriority}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                     <XAxis 
                       dataKey="name" 
                       tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                      axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                     />
                     <YAxis 
                       tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                      axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                     />
                     <ChartTooltip />
                     <Bar dataKey="value" radius={[4, 4, 0, 0]}>
@@ -365,15 +365,15 @@ export const ExecutiveDashboard: Story = {
               <div className="h-[250px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                   <RechartsAreaChart data={revenueData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                     <XAxis 
                       dataKey="name" 
                       tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                      axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                     />
                     <YAxis 
                       tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                      axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                      axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
                     />
                     <ChartTooltip />
                     <Area 

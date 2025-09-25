@@ -85,15 +85,15 @@ export const LineChart: Story = {
         <CardContent>
           <div className="h-[300px] w-full">
             <RechartsLineChart width={600} height={300} data={lineChartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
               <XAxis 
                 dataKey="name" 
                 tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
               />
               <YAxis 
                 tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
               />
               <ChartTooltip />
               <Line 
@@ -131,15 +131,15 @@ export const AreaChart: Story = {
         <CardContent>
           <div className="h-[300px] w-full">
             <RechartsAreaChart width={600} height={300} data={areaChartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
               <XAxis 
                 dataKey="name" 
                 tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
               />
               <YAxis 
                 tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
               />
               <ChartTooltip />
               <Area 
@@ -169,15 +169,15 @@ export const BarChart: Story = {
         <CardContent>
           <div className="h-[350px] w-full">
             <RechartsBarChart width={600} height={350} data={barChartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
               <XAxis 
                 dataKey="name" 
                 tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
               />
               <YAxis 
                 tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }}
-                axisLine={{ stroke: 'var(--ds-color-border-default)' }}
+                axisLine={{ stroke: 'var(--ds-color-neutral-300)' }}
               />
               <ChartTooltip />
               <Bar dataKey="value1" fill="var(--ds-color-intent-primary)" />
@@ -371,7 +371,7 @@ export const CategoricalColorTheme: Story = {
             <CardContent>
               <div className="h-[300px] w-full">
                 <RechartsBarChart width={400} height={300} data={categoricalBarData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                   <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <YAxis tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <ChartTooltip />
@@ -426,7 +426,7 @@ export const SequentialColorTheme: Story = {
             <CardContent>
               <div className="h-[300px] w-full">
                 <RechartsBarChart width={400} height={300} data={sequentialData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                   <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <YAxis tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <ChartTooltip />
@@ -448,7 +448,7 @@ export const SequentialColorTheme: Story = {
             <CardContent>
               <div className="h-[300px] w-full">
                 <RechartsAreaChart width={400} height={300} data={heatmapData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                   <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <YAxis tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <ChartTooltip />
@@ -524,7 +524,7 @@ export const SignalColorTheme: Story = {
             <CardContent>
               <div className="h-[300px] w-full">
                 <RechartsLineChart width={400} height={300} data={statusTrendData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-border-default)" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--ds-color-neutral-300)" />
                   <XAxis dataKey="name" tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <YAxis tick={{ fontSize: 12, fill: 'var(--ds-color-text-muted)' }} />
                   <ChartTooltip />

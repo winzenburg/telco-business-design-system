@@ -33,7 +33,8 @@ const meta: Meta = {
               <tr><td>--ds-color-text-muted</td><td>Secondary text, descriptions</td><td>#70717D</td></tr>
               <tr><td>--ds-color-bg-canvas</td><td>Page backgrounds</td><td>#FFFFFF</td></tr>
               <tr><td>--ds-color-bg-surface</td><td>Card, surface backgrounds</td><td>#F9FAFB</td></tr>
-              <tr><td>--ds-color-border-default</td><td>Borders, dividers</td><td>#E8EAEF</td></tr>
+              <tr><td>--ds-color-neutral-300</td><td>Structural borders, dividers</td><td>#DDDDE2</td></tr>
+              <tr><td>--ds-color-neutral-400</td><td>Form input borders</td><td>#B4B5BB</td></tr>
               <tr><td>--ds-color-intent-primary</td><td>Primary actions, focus</td><td>#0D62FF</td></tr>
               <tr><td>--ds-color-intent-success</td><td>Success states</td><td>#16A34A</td></tr>
               <tr><td>--ds-color-intent-warning</td><td>Warning states</td><td>#F59E0B</td></tr>
@@ -261,7 +262,7 @@ export const ColorSystemPatterns: Story = {
                 <div className="w-6 h-6 border-2 border-[var(--ds-color-neutral-300)] rounded"></div>
                 <div className="text-sm">
                   <div className="font-medium text-[var(--ds-color-text-primary)]">Border</div>
-                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-border-default</code>
+                  <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-neutral-300</code>
                 </div>
               </div>
             </div>
