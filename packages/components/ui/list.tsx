@@ -5,13 +5,13 @@ import { ChevronRight } from "lucide-react"
 import { cn } from "../utils/cn"
 
 const listVariants = cva(
-  "divide-y divide-[var(--ds-color-border-default)]",
+  "divide-y divide-[var(--ds-color-neutral-300)]",
   {
     variants: {
       variant: {
-        default: "bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-border-default)] rounded-lg",
+        default: "bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-neutral-300)] rounded-lg",
         plain: "bg-transparent",
-        card: "bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-border-default)] rounded-lg shadow-sm",
+        card: "bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-neutral-300)] rounded-lg shadow-sm",
       },
     },
     defaultVariants: {
@@ -166,7 +166,7 @@ const ListHeader = React.forwardRef<HTMLDivElement, ListHeaderProps>(
     <div
       ref={ref}
       className={cn(
-        "flex items-center justify-between px-4 py-3 border-b border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-surface)]",
+        "flex items-center justify-between px-4 py-3 border-b border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-bg-surface)]",
         className
       )}
       {...props}

@@ -64,7 +64,7 @@ export const EnterpriseSettingsInterface: Story = {
     return (
       <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-neutral-300)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Enterprise Settings</h1>
@@ -344,7 +344,7 @@ export const EnterpriseSettingsInterface: Story = {
                     </div>
 
                     {emailNotifications && (
-                      <div className="space-y-4 pl-4 border-l-2 border-[var(--ds-color-border-default)]">
+                      <div className="space-y-4 pl-4 border-l-2 border-[var(--ds-color-neutral-300)]">
                         <div className="space-y-3">
                           <div className="flex items-center space-x-2">
                             <Checkbox id="service-alerts" defaultChecked />
@@ -547,7 +547,7 @@ export const EnterpriseSettingsInterface: Story = {
 
                     <div className="space-y-3">
                       <Label>Payment Method</Label>
-                      <div className="space-y-3 p-4 border border-[var(--ds-color-border-default)] rounded-lg bg-[var(--ds-color-bg-surface)]">
+                      <div className="space-y-3 p-4 border border-[var(--ds-color-neutral-300)] rounded-lg bg-[var(--ds-color-bg-surface)]">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <div className="w-8 h-6 bg-blue-600 rounded text-white text-xs flex items-center justify-center font-bold">
@@ -675,14 +675,14 @@ export const EnterpriseSettingsInterface: Story = {
                     <div className="space-y-3">
                       <Label>API Configuration</Label>
                       <div className="space-y-2">
-                        <div className="flex items-center justify-between p-3 border border-[var(--ds-color-border-default)] rounded-lg">
+                        <div className="flex items-center justify-between p-3 border border-[var(--ds-color-neutral-300)] rounded-lg">
                           <div>
                             <p className="text-sm font-medium">API Rate Limiting</p>
                             <p className="text-xs text-[var(--ds-color-text-muted)]">1000 requests per hour</p>
                           </div>
                           <Button variant="outline" size="sm">Configure</Button>
                         </div>
-                        <div className="flex items-center justify-between p-3 border border-[var(--ds-color-border-default)] rounded-lg">
+                        <div className="flex items-center justify-between p-3 border border-[var(--ds-color-neutral-300)] rounded-lg">
                           <div>
                             <p className="text-sm font-medium">Webhook Endpoints</p>
                             <p className="text-xs text-[var(--ds-color-text-muted)]">3 endpoints configured</p>

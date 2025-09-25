@@ -181,7 +181,7 @@ export const EnterpriseServiceManagementInterface: Story = {
     return (
       <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-neutral-300)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Service Management</h1>
@@ -377,7 +377,7 @@ export const EnterpriseServiceManagementInterface: Story = {
             </CardHeader>
 
             <CardContent>
-              <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-canvas)]">
+              <div className="rounded-lg border border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-bg-canvas)]">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -477,7 +477,7 @@ export const EnterpriseServiceManagementInterface: Story = {
               <CardContent>
                 <div className="space-y-4">
                   {incidentData.map((incident) => (
-                    <div key={incident.id} className="border border-[var(--ds-color-border-default)] rounded-lg p-4">
+                    <div key={incident.id} className="border border-[var(--ds-color-neutral-300)] rounded-lg p-4">
                       <div className="flex items-start justify-between mb-2">
                         <div>
                           <p className="font-medium text-[var(--ds-color-text-primary)]">{incident.title}</p>
@@ -510,7 +510,7 @@ export const EnterpriseServiceManagementInterface: Story = {
               <CardContent>
                 <div className="space-y-4">
                   {maintenanceData.map((maintenance) => (
-                    <div key={maintenance.id} className="border border-[var(--ds-color-border-default)] rounded-lg p-4">
+                    <div key={maintenance.id} className="border border-[var(--ds-color-neutral-300)] rounded-lg p-4">
                       <div className="flex items-start justify-between mb-2">
                         <div>
                           <p className="font-medium text-[var(--ds-color-text-primary)]">{maintenance.title}</p>

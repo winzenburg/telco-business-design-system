@@ -12,7 +12,7 @@ import {
   DropdownMenuRadioItem,
   Button
 } from '../src/components';
-import { MoreHorizontal, Settings, User, CreditCard, LogOut } from 'lucide-react';
+import { MoreHorizontal, Settings, User, CreditCardIcon, LogOutIcon } from 'lucide-react';
 
 const meta: Meta<typeof DropdownMenu> = {
   title: 'DropdownMenu',
@@ -45,7 +45,7 @@ export const Default: Story = {
           <span>Profile</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <CreditCard className="mr-2 h-4 w-4" />
+          <CreditCardIcon className="mr-2 h-4 w-4" />
           <span>Billing</span>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -54,7 +54,7 @@ export const Default: Story = {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          <LogOut className="mr-2 h-4 w-4" />
+          <LogOutIcon className="mr-2 h-4 w-4" />
           <span>Log out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

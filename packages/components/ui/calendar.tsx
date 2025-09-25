@@ -118,7 +118,7 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
       <div
         ref={ref}
         className={cn(
-          "p-4 bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-border-default)] rounded-lg shadow-sm",
+          "p-4 bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-neutral-300)] rounded-lg shadow-sm",
           className
         )}
         {...props}

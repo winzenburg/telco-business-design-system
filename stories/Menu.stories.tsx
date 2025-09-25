@@ -35,13 +35,7 @@ const meta: Meta<typeof Menu> = {
     },
   },
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'elevated', 'filled'],
-      description: 'Menu content variant',
-    },
-  },
+  argTypes: {},
 };
 
 export default meta;

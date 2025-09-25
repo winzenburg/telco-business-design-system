@@ -20,7 +20,7 @@ const ChartContainer = React.forwardRef<
       data-chart={chartId}
       ref={ref}
       className={cn(
-        "flex justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-[var(--ds-color-text-muted)] [&_.recharts-cartesian-grid_line]:stroke-[var(--ds-color-border-default)] [&_.recharts-curve.recharts-tooltip-cursor]:stroke-[var(--ds-color-border-default)] [&_.recharts-dot]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_]:stroke-[var(--ds-color-border-default)] [&_.recharts-radial-bar-background-sector]:fill-[var(--ds-color-bg-surface)] [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-[var(--ds-color-bg-surface)] [&_.recharts-reference-line_]:stroke-[var(--ds-color-border-default)] [&_.recharts-sector]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
+        "flex justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-[var(--ds-color-text-muted)] [&_.recharts-cartesian-grid_line]:stroke-[var(--ds-color-neutral-300)] [&_.recharts-curve.recharts-tooltip-cursor]:stroke-[var(--ds-color-neutral-300)] [&_.recharts-dot]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_]:stroke-[var(--ds-color-neutral-300)] [&_.recharts-radial-bar-background-sector]:fill-[var(--ds-color-bg-surface)] [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-[var(--ds-color-bg-surface)] [&_.recharts-reference-line_]:stroke-[var(--ds-color-neutral-300)] [&_.recharts-sector]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
         className || "h-full w-full"
       )}
       {...props}
@@ -145,7 +145,7 @@ const ChartTooltipContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-[var(--ds-color-border-default)] px-2.5 py-1.5 text-xs shadow-xl",
+          "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-[var(--ds-color-neutral-300)] px-2.5 py-1.5 text-xs shadow-xl",
           className
         )}
         style={{

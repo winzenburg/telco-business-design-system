@@ -8,7 +8,7 @@ import { Checkbox } from '../src/components/ui/checkbox';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../src/components/ui/card';
 import { Badge } from '../src/components/ui/badge';
 import { Separator } from '../src/components/ui/separator';
-import { Users, CheckCircle, AlertTriangle, Info } from 'lucide-react';
+import { User, CheckCircle, AlertTriangle, Info } from 'lucide-react';
 
 const meta: Meta = {
   title: ' Foundations/Token Patterns',
@@ -73,7 +73,7 @@ export const TypographyPatterns: Story = {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[var(--ds-spacing-8)]">
         {/* Heading Typography */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">Heading Typography</CardTitle>
             <CardDescription className="text-[var(--ds-color-text-muted)]">
@@ -111,7 +111,7 @@ export const TypographyPatterns: Story = {
         </Card>
 
         {/* Body Typography */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">Body Typography</CardTitle>
             <CardDescription className="text-[var(--ds-color-text-muted)]">
@@ -167,7 +167,7 @@ export const ColorSystemPatterns: Story = {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--ds-spacing-6)]">
         {/* Text Colors */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">Text Colors</CardTitle>
           </CardHeader>
@@ -193,7 +193,7 @@ export const ColorSystemPatterns: Story = {
         </Card>
 
         {/* Intent Colors */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">Intent Colors</CardTitle>
           </CardHeader>
@@ -235,14 +235,14 @@ export const ColorSystemPatterns: Story = {
         </Card>
 
         {/* Background Colors */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">Background Colors</CardTitle>
           </CardHeader>
           <CardContent className="space-y-[var(--ds-spacing-4)]">
             <div className="space-y-[var(--ds-spacing-2)]">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-[var(--ds-color-bg-canvas)] rounded border border-[var(--ds-color-border-default)]"></div>
+                <div className="w-6 h-6 bg-[var(--ds-color-bg-canvas)] rounded border border-[var(--ds-color-neutral-300)]"></div>
                 <div className="text-sm">
                   <div className="font-medium text-[var(--ds-color-text-primary)]">Canvas</div>
                   <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-bg-canvas</code>
@@ -258,7 +258,7 @@ export const ColorSystemPatterns: Story = {
               </div>
               
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 border-2 border-[var(--ds-color-border-default)] rounded"></div>
+                <div className="w-6 h-6 border-2 border-[var(--ds-color-neutral-300)] rounded"></div>
                 <div className="text-sm">
                   <div className="font-medium text-[var(--ds-color-text-primary)]">Border</div>
                   <code className="text-xs text-[var(--ds-color-text-muted)]">--ds-color-border-default</code>
@@ -287,7 +287,7 @@ export const ComponentPatterns: Story = {
 
       <div className="space-y-[var(--ds-spacing-8)]">
         {/* Form Components */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">Form Component Pattern</CardTitle>
             <CardDescription className="text-[var(--ds-color-text-muted)]">
@@ -304,7 +304,7 @@ export const ComponentPatterns: Story = {
                   <Input
                     id="business-email"
                     placeholder="Enter your business email"
-                    className="border-[var(--ds-color-border-default)] focus:border-[var(--ds-color-intent-primary)]"
+                    className="border-[var(--ds-color-neutral-300)] focus:border-[var(--ds-color-intent-primary)]"
                   />
                   <p className="text-sm text-[var(--ds-color-text-muted)] font-[var(--ds-font-family-body)] mt-1">
                     We'll use this for important service updates
@@ -318,7 +318,7 @@ export const ComponentPatterns: Story = {
                   <Textarea
                     id="company-message"
                     placeholder="Tell us about your business needs..."
-                    className="border-[var(--ds-color-border-default)] focus:border-[var(--ds-color-intent-primary)] min-h-[100px]"
+                    className="border-[var(--ds-color-neutral-300)] focus:border-[var(--ds-color-intent-primary)] min-h-[100px]"
                   />
                 </div>
 
@@ -344,7 +344,7 @@ export const ComponentPatterns: Story = {
               </div>
 
               <div className="space-y-[var(--ds-spacing-4)]">
-                <div className="p-[var(--ds-spacing-4)] bg-[var(--ds-color-bg-surface)] rounded-[var(--ds-border-radius-md)] border border-[var(--ds-color-border-default)]">
+                <div className="p-[var(--ds-spacing-4)] bg-[var(--ds-color-bg-surface)] rounded-[var(--ds-border-radius-md)] border border-[var(--ds-color-neutral-300)]">
                   <h4 className="font-semibold text-[var(--ds-color-text-primary)] font-[var(--ds-font-family-heading)] mb-2">
                     Token Implementation
                   </h4>
@@ -354,7 +354,7 @@ text-[var(--ds-color-text-primary)]
 font-[var(--ds-font-family-body)]
 
 // Input borders
-border-[var(--ds-color-border-default)]
+border-[var(--ds-color-neutral-300)]
 focus:border-[var(--ds-color-intent-primary)]
 
 // Helper text
@@ -379,7 +379,7 @@ text-[var(--ds-color-intent-destructive)]`}
         </Card>
 
         {/* State Patterns */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">Interactive State Patterns</CardTitle>
             <CardDescription className="text-[var(--ds-color-text-muted)]">
@@ -388,7 +388,7 @@ text-[var(--ds-color-intent-destructive)]`}
           </CardHeader>
           <CardContent className="space-y-[var(--ds-spacing-6)]">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[var(--ds-spacing-4)]">
-              <div className="p-[var(--ds-spacing-4)] border border-[var(--ds-color-border-default)] rounded-[var(--ds-border-radius-md)] bg-[var(--ds-color-bg-canvas)]">
+              <div className="p-[var(--ds-spacing-4)] border border-[var(--ds-color-neutral-300)] rounded-[var(--ds-border-radius-md)] bg-[var(--ds-color-bg-canvas)]">
                 <div className="flex items-center gap-2 mb-2">
                   <Info className="size-4 text-[var(--ds-color-intent-primary)]" />
                   <span className="font-medium text-[var(--ds-color-text-primary)]">Default</span>
@@ -428,7 +428,7 @@ text-[var(--ds-color-intent-destructive)]`}
         </Card>
 
         {/* Layout Patterns */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">Spacing & Layout Tokens</CardTitle>
             <CardDescription className="text-[var(--ds-color-text-muted)]">
@@ -472,7 +472,7 @@ export const TokenImplementationGuide: Story = {
 
       <div className="space-y-[var(--ds-spacing-8)]">
         {/* Compliance Checklist */}
-        <Card className="border-[var(--ds-color-border-default)]">
+        <Card className="border-[var(--ds-color-neutral-300)]">
           <CardHeader>
             <CardTitle className="text-[var(--ds-color-text-primary)]">CLAUDE.md Compliance Checklist</CardTitle>
             <CardDescription className="text-[var(--ds-color-text-muted)]">
@@ -568,7 +568,7 @@ export const TokenImplementationGuide: Story = {
 </Label>
 <Input 
   id="email"
-  className="border-[var(--ds-color-border-default)]"
+  className="border-[var(--ds-color-neutral-300)]"
 />
 <p className="text-[var(--ds-color-text-muted)] 
              font-[var(--ds-font-family-body)]">
@@ -605,7 +605,7 @@ export const TokenImplementationGuide: Story = {
               </div>
               <div>
                 <strong className="text-[var(--ds-color-text-primary)]">Card Border:</strong><br />
-                <code className="text-[var(--ds-color-text-muted)]">border-[var(--ds-color-border-default)]</code>
+                <code className="text-[var(--ds-color-text-muted)]">border-[var(--ds-color-neutral-300)]</code>
               </div>
               <div>
                 <strong className="text-[var(--ds-color-text-primary)]">Layout Spacing:</strong><br />

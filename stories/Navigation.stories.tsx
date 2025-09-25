@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Button } from '../src/components/ui/button';
-import { Menu, HelpCircle, ChevronDown, ChevronUp, ChevronRight, Home, Users, Settings, BarChart, FileText, Phone, Shield, Wifi } from 'lucide-react';
+import { Menu, HelpCircle, ChevronDown, ChevronUp, ChevronRight, Home, User, Settings, BarChart, FileText, Phone, Shield, Wifi } from 'lucide-react';
 import { navigationSpecs, categorizedNavigation, navigationUsage } from '../src/tokens/figma-navigation-specs';
 
 // Icon mapping for navigation
 const iconMap = {
   'home': Home,
-  'users': Users,
+  'users': User,
   'settings': Settings,
   'analytics': BarChart,
   'report': FileText,

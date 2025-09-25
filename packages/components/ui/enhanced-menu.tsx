@@ -30,7 +30,7 @@ const EnhancedMenuSub = MenuPrimitive.Sub
 const EnhancedMenuRadioGroup = MenuPrimitive.RadioGroup
 
 const menuContentVariants = cva(
-  "z-50 min-w-[12rem] overflow-hidden rounded-lg border border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-canvas)] p-1 text-[var(--ds-color-text-primary)] shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+  "z-50 min-w-[12rem] overflow-hidden rounded-lg border border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-bg-canvas)] p-1 text-[var(--ds-color-text-primary)] shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
   {
     variants: {
       size: {
@@ -193,7 +193,7 @@ const EnhancedMenuSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <MenuPrimitive.Separator
     ref={ref}
-    className={cn("-mx-1 my-1 h-px bg-[var(--ds-color-border-default)]", className)}
+    className={cn("-mx-1 my-1 h-px bg-[var(--ds-color-neutral-300)]", className)}
     {...props}
   />
 ))
@@ -245,7 +245,7 @@ const EnhancedMenuDivider = React.forwardRef<HTMLDivElement, EnhancedMenuDivider
       className={cn("relative -mx-1 my-1", className)}
       {...props}
     >
-      <div className="h-px bg-[var(--ds-color-border-default)]" />
+      <div className="h-px bg-[var(--ds-color-neutral-300)]" />
       {label && (
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="px-2 text-xs text-[var(--ds-color-text-muted)] bg-[var(--ds-color-bg-canvas)]">

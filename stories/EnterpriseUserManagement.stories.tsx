@@ -154,7 +154,7 @@ export const UserManagementInterface: Story = {
     return (
       <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-neutral-300)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">User Management</h1>
@@ -277,7 +277,7 @@ export const UserManagementInterface: Story = {
             </CardHeader>
 
             <CardContent>
-              <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-canvas)]">
+              <div className="rounded-lg border border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-bg-canvas)]">
                 <Table>
                   <TableHeader>
                     <TableRow>

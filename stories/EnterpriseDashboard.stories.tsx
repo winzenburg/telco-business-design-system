@@ -109,7 +109,7 @@ export const ExecutiveDashboard: Story = {
   render: () => (
     <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
       {/* Header */}
-      <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
+      <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-neutral-300)] px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">

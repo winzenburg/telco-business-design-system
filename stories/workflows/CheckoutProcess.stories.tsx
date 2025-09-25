@@ -150,14 +150,14 @@ const CheckoutFlow = () => {
                           <div className="text-sm text-[var(--ds-color-text-muted)]">
                             {item.description}
                           </div>
-                          <Badge variant="ghost" className="mt-1">{item.category}</Badge>
+                          <Badge variant="secondary" className="mt-1">{item.category}</Badge>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center justify-center gap-2">
                           <Button
                             size="sm"
-                            variant="ghost"
+                            variant="secondary"
                             onClick={() => updateQuantity(item.id, -1)}
                           >
                             <Minus className="h-3 w-3" />
@@ -165,7 +165,7 @@ const CheckoutFlow = () => {
                           <span className="w-8 text-center">{item.quantity}</span>
                           <Button
                             size="sm"
-                            variant="ghost"
+                            variant="secondary"
                             onClick={() => updateQuantity(item.id, 1)}
                           >
                             <Plus className="h-3 w-3" />
@@ -178,7 +178,7 @@ const CheckoutFlow = () => {
                       <TableCell>
                         <Button
                           size="sm"
-                          variant="ghost"
+                          variant="secondary"
                           onClick={() => removeItem(item.id)}
                         >
                           <X className="h-4 w-4" />

@@ -198,7 +198,7 @@ const OnboardingFlow = () => {
                         <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">
                           For growing businesses (up to 50 users)
                         </p>
-                        <Badge variant="primary" className="mt-2">$149/month</Badge>
+                        <Badge variant="default" className="mt-2">$149/month</Badge>
                       </div>
                     </div>
                   </Card>

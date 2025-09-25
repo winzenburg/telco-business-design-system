@@ -12,7 +12,7 @@ import {
   CardDivider,
   Button
 } from '../src/components';
-import { Heart, Share, Bookmark, MoreHorizontal, Star, Play, Download } from 'lucide-react';
+import { Heart, Share, Bookmark, MoreHorizontal, Star, PlayCircle, Download } from 'lucide-react';
 
 const meta: Meta<typeof Card> = {
   title: 'Card',
@@ -147,7 +147,7 @@ export const WithMedia: Story = {
       <Card className="w-[350px]">
         <CardMedia className="bg-gradient-to-r from-blue-500 to-purple-600">
           <div className="absolute inset-0 flex items-center justify-center">
-            <Play className="h-12 w-12 text-white" />
+            <PlayCircle className="h-12 w-12 text-white" />
           </div>
         </CardMedia>
         <CardHeader>

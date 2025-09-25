@@ -118,7 +118,7 @@ export const EnterpriseBillingInterface: Story = {
     return (
       <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)] px-6 py-4">
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-neutral-300)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Enterprise Billing</h1>
@@ -284,7 +284,7 @@ export const EnterpriseBillingInterface: Story = {
             </CardHeader>
 
             <CardContent>
-              <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-[var(--ds-color-bg-canvas)]">
+              <div className="rounded-lg border border-[var(--ds-color-neutral-300)] bg-[var(--ds-color-bg-canvas)]">
                 <Table>
                   <TableHeader>
                     <TableRow>
@@ -393,7 +393,7 @@ export const EnterpriseBillingInterface: Story = {
                 <CardDescription>Manage your payment methods</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="space-y-3 p-4 border border-[var(--ds-color-border-default)] rounded-lg">
+                <div className="space-y-3 p-4 border border-[var(--ds-color-neutral-300)] rounded-lg">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-6 bg-blue-600 rounded text-white text-xs flex items-center justify-center font-bold">
@@ -408,7 +408,7 @@ export const EnterpriseBillingInterface: Story = {
                   </div>
                 </div>
 
-                <div className="space-y-3 p-4 border border-[var(--ds-color-border-default)] rounded-lg">
+                <div className="space-y-3 p-4 border border-[var(--ds-color-neutral-300)] rounded-lg">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-6 bg-red-600 rounded text-white text-xs flex items-center justify-center font-bold">

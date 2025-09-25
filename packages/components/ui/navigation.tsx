@@ -111,7 +111,7 @@ const GlobalNav = React.forwardRef<HTMLElement, GlobalNavProps>(
     return (
       <header
         className={cn(
-          "flex items-center justify-between px-6 py-4 bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-border-default)]",
+          "flex items-center justify-between px-6 py-4 bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-neutral-300)]",
           className
         )}
         ref={ref}

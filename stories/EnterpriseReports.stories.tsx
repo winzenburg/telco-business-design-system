@@ -223,7 +223,7 @@ export const EnterpriseReportsInterface: Story = {
     return (
       <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
         {/* Header */}
-        <header className="bg-white border-b border-[var(--ds-color-border-default)] px-6 py-4">
+        <header className="bg-white border-b border-[var(--ds-color-neutral-300)] px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Enterprise Reports</h1>
@@ -276,7 +276,7 @@ export const EnterpriseReportsInterface: Story = {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {performanceReports.slice(0, 4).map((report) => (
-                      <div key={report.id} className="flex items-center justify-between p-3 border border-[var(--ds-color-border-default)] rounded-lg">
+                      <div key={report.id} className="flex items-center justify-between p-3 border border-[var(--ds-color-neutral-300)] rounded-lg">
                         <div>
                           <p className="text-sm font-medium text-[var(--ds-color-text-primary)]">{report.name}</p>
                           <p className="text-xs text-[var(--ds-color-text-muted)]">{report.lastGenerated} • {report.size}</p>
@@ -394,7 +394,7 @@ export const EnterpriseReportsInterface: Story = {
                 </CardHeader>
 
                 <CardContent>
-                  <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-white">
+                  <div className="rounded-lg border border-[var(--ds-color-neutral-300)] bg-white">
                     <Table>
                       <TableHeader>
                         <TableRow>
@@ -537,7 +537,7 @@ export const EnterpriseReportsInterface: Story = {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Service Distribution Pie Chart */}
-                    <Card className="border-[var(--ds-color-border-default)]">
+                    <Card className="border-[var(--ds-color-neutral-300)]">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-base">Service Distribution</CardTitle>
                         <CardDescription className="text-xs">Usage by service type</CardDescription>
@@ -579,7 +579,7 @@ export const EnterpriseReportsInterface: Story = {
                     </Card>
 
                     {/* Regional Performance Bar Chart */}
-                    <Card className="border-[var(--ds-color-border-default)]">
+                    <Card className="border-[var(--ds-color-neutral-300)]">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-base">Regional Performance</CardTitle>
                         <CardDescription className="text-xs">Uptime by region</CardDescription>
@@ -612,7 +612,7 @@ export const EnterpriseReportsInterface: Story = {
                     </Card>
 
                     {/* Peak Usage Hours */}
-                    <Card className="border-[var(--ds-color-border-default)]">
+                    <Card className="border-[var(--ds-color-neutral-300)]">
                       <CardHeader className="pb-2">
                         <CardTitle className="text-base">Peak Usage Hours</CardTitle>
                         <CardDescription className="text-xs">Daily traffic patterns</CardDescription>
@@ -757,7 +757,7 @@ export const EnterpriseReportsInterface: Story = {
                   <CardDescription>Detailed service consumption across all business locations</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="rounded-lg border border-[var(--ds-color-border-default)] bg-white">
+                  <div className="rounded-lg border border-[var(--ds-color-neutral-300)] bg-white">
                     <Table>
                       <TableHeader>
                         <TableRow>

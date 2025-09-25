@@ -49,7 +49,7 @@ import {
 import {
   TrendingUp,
   TrendingDown,
-  Users,
+  User,
   DollarSign,
   Activity,
   Download,
@@ -153,7 +153,7 @@ const DashboardFlow = () => {
       value: '3,421',
       change: -2.4,
       trend: 'down',
-      icon: <Users className="h-4 w-4" />,
+      icon: <User className="h-4 w-4" />,
       description: 'Currently active users',
     },
     {
@@ -432,7 +432,7 @@ const DashboardFlow = () => {
                 </div>
                 <div className="flex items-center justify-between py-2">
                   <div className="flex items-center gap-3">
-                    <Users className="h-4 w-4 text-[var(--ds-color-intent-primary)]" />
+                    <User className="h-4 w-4 text-[var(--ds-color-intent-primary)]" />
                     <div>
                       <p className="font-medium">New user onboarded</p>
                       <p className="text-sm text-[var(--ds-color-text-muted)]">john.smith@company.com added to Business Voice</p>

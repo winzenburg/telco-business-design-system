@@ -43,7 +43,7 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         // Design system styling
-        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-6 bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-border-default)] p-6 shadow-lg duration-200 opacity-100",
+        "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-6 bg-[var(--ds-color-bg-canvas)] border border-[var(--ds-color-neutral-300)] p-6 shadow-lg duration-200 opacity-100",
         // Responsive sizing
         "sm:rounded-lg md:w-full",
         // Animations
