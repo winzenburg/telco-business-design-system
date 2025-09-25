@@ -1,5 +1,5 @@
 import React, { useMemo, CSSProperties } from 'react';
-import { CoreIconName, getIconPath, getIconMetadata } from '../../tokens/design-system-icons-types';
+import { CoreIconName, getIconPath, getIconMetadata } from '../../tokens/icon-registry';
 import { cn } from '../../components/utils/cn';
 
 export interface OptimizedIconProps {
