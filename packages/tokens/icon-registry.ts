@@ -603,14 +603,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'bell': { 
-    name: 'bell', 
-    category: 'communication' as const, 
-    description: 'Feather icon: bell',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'bell-off': { 
     name: 'bell-off', 
     category: 'communication' as const, 
@@ -747,14 +739,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'voicemail': { 
-    name: 'voicemail', 
-    category: 'communication' as const, 
-    description: 'Feather icon: voicemail',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'volume': { 
     name: 'volume', 
     category: 'communication' as const, 
@@ -845,14 +829,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'clipboard': { 
-    name: 'clipboard', 
-    category: 'data' as const, 
-    description: 'Feather icon: clipboard',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'code': { 
     name: 'code', 
     category: 'data' as const, 
@@ -929,14 +905,6 @@ export const CORE_ICONS = {
     name: 'file-text', 
     category: 'data' as const, 
     description: 'Feather icon: file text',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'folder': { 
-    name: 'folder', 
-    category: 'data' as const, 
-    description: 'Feather icon: folder',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
@@ -1147,14 +1115,6 @@ export const CORE_ICONS = {
     name: 'clock', 
     category: 'general' as const, 
     description: 'Feather icon: clock',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'cloud': { 
-    name: 'cloud', 
-    category: 'general' as const, 
-    description: 'Feather icon: cloud',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
@@ -1431,14 +1391,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'percent': { 
-    name: 'percent', 
-    category: 'general' as const, 
-    description: 'Feather icon: percent',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'pocket': { 
     name: 'pocket', 
     category: 'general' as const, 
@@ -1649,14 +1601,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'check': { 
-    name: 'check', 
-    category: 'interface' as const, 
-    description: 'Feather icon: check',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'check-circle': { 
     name: 'check-circle', 
     category: 'interface' as const, 
@@ -1685,14 +1629,6 @@ export const CORE_ICONS = {
     name: 'crop', 
     category: 'interface' as const, 
     description: 'Feather icon: crop',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'download': { 
-    name: 'download', 
-    category: 'interface' as const, 
-    description: 'Feather icon: download',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
@@ -1785,14 +1721,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'maximize': { 
-    name: 'maximize', 
-    category: 'interface' as const, 
-    description: 'Feather icon: maximize',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'maximize-2': { 
     name: 'maximize-2', 
     category: 'interface' as const, 
@@ -1809,34 +1737,10 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'menu': { 
-    name: 'menu', 
-    category: 'interface' as const, 
-    description: 'Feather icon: menu',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'minimize': { 
-    name: 'minimize', 
-    category: 'interface' as const, 
-    description: 'Feather icon: minimize',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'minimize-2': { 
     name: 'minimize-2', 
     category: 'interface' as const, 
     description: 'Feather icon: minimize 2',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'minus': { 
-    name: 'minus', 
-    category: 'interface' as const, 
-    description: 'Feather icon: minus',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
@@ -1893,14 +1797,6 @@ export const CORE_ICONS = {
     name: 'pen-tool', 
     category: 'interface' as const, 
     description: 'Feather icon: pen tool',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'plus': { 
-    name: 'plus', 
-    category: 'interface' as const, 
-    description: 'Feather icon: plus',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
@@ -1965,14 +1861,6 @@ export const CORE_ICONS = {
     name: 'scissors', 
     category: 'interface' as const, 
     description: 'Feather icon: scissors',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'search': { 
-    name: 'search', 
-    category: 'interface' as const, 
-    description: 'Feather icon: search',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
@@ -2049,14 +1937,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'upload': { 
-    name: 'upload', 
-    category: 'interface' as const, 
-    description: 'Feather icon: upload',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'upload-cloud': { 
     name: 'upload-cloud', 
     category: 'interface' as const, 
@@ -2119,14 +1999,6 @@ export const CORE_ICONS = {
     name: 'airplay', 
     category: 'media' as const, 
     description: 'Feather icon: airplay',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'camera': { 
-    name: 'camera', 
-    category: 'media' as const, 
-    description: 'Feather icon: camera',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
@@ -2303,14 +2175,6 @@ export const CORE_ICONS = {
     name: 'tv', 
     category: 'media' as const, 
     description: 'Feather icon: tv',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
-  'video': { 
-    name: 'video', 
-    category: 'media' as const, 
-    description: 'Feather icon: video',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
@@ -2703,14 +2567,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'users': { 
-    name: 'users', 
-    category: 'security' as const, 
-    description: 'Feather icon: users',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
 
   // Feather Icons - Status
   'activity': { 
@@ -2889,14 +2745,6 @@ export const CORE_ICONS = {
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
   },
-  'wifi': { 
-    name: 'wifi', 
-    category: 'status' as const, 
-    description: 'Feather icon: wifi',
-    source: 'feather' as const,
-    sourceUrl: 'https://feathericons.com/',
-    license: 'MIT'
-  },
   'wifi-off': { 
     name: 'wifi-off', 
     category: 'status' as const, 
@@ -2904,8 +2752,7 @@ export const CORE_ICONS = {
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
     license: 'MIT'
-  },
-} as const;
+  }} as const;
 
 // Type for icon names
 export type CoreIconName = keyof typeof CORE_ICONS;
