@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Icon, IconGroup, usePreloadIcons } from '../src/components/Icon';
 import { 
@@ -8,6 +8,11 @@ import {
   getIcon,
   getIconsByCategory
 } from '../src/tokens/design-system-icons';
+import { CORE_ICONS, getIconMetadata, getIconsByCategory as getCoreIconsByCategory } from '../packages/tokens/icon-registry';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../src/components/ui/card';
+import { Input } from '../src/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../src/components/ui/select';
+import { Badge } from '../src/components/ui/badge';
 
 const meta: Meta<typeof Icon> = {
 
@@ -247,62 +252,318 @@ export const IconPicker: Story = {
   },
 };
 
-// All Icons Browser
-export const AllIconsBrowser: Story = {
+// Comprehensive Icon Browser with Source Metadata
+export const ComprehensiveIconBrowser: Story = {
   render: () => {
-    const [expandedCategory, setExpandedCategory] = React.useState<string | null>('general');
-    
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [selectedSource, setSelectedSource] = useState('all');
+    const [selectedSize, setSelectedSize] = useState('24');
+    const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
+
+    // Icon categories for filtering
+    const ICON_CATEGORIES = [
+      { value: 'all', label: 'All Icons' },
+      { value: 'navigation', label: 'Navigation' },
+      { value: 'interface', label: 'Interface' },
+      { value: 'status', label: 'Status' },
+      { value: 'communication', label: 'Communication' },
+      { value: 'data', label: 'Data' },
+      { value: 'media', label: 'Media' },
+      { value: 'security', label: 'Security' },
+      { value: 'general', label: 'General' }
+    ];
+
+    // Icon sources for filtering
+    const ICON_SOURCES = [
+      { value: 'all', label: 'All Sources' },
+      { value: 'feather', label: 'Feather Icons' },
+      { value: 'figma', label: 'Figma' },
+      { value: 'custom', label: 'Custom' }
+    ];
+
+    // Icon sizes for demonstration
+    const ICON_SIZES = [
+      { value: '16', label: '16px (XS)' },
+      { value: '20', label: '20px (S)' },
+      { value: '24', label: '24px (M)' },
+      { value: '32', label: '32px (L)' },
+      { value: '48', label: '48px (XL)' }
+    ];
+
+    // Get icons based on category, source, and search
+    const getFilteredIcons = () => {
+      let icons = [];
+      
+      if (selectedCategory === 'all') {
+        // Get all icons from all categories
+        ICON_CATEGORIES.slice(1).forEach(category => {
+          icons.push(...getCoreIconsByCategory(category.value as any));
+        });
+      } else {
+        icons = getCoreIconsByCategory(selectedCategory as any);
+      }
+      
+      // Filter by search term
+      if (searchTerm) {
+        icons = icons.filter(icon => 
+          icon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          icon.description?.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
+      
+      // Filter by source
+      if (selectedSource !== 'all') {
+        icons = icons.filter(icon => icon.source === selectedSource);
+      }
+      
+      return icons.sort((a, b) => a.name.localeCompare(b.name));
+    };
+
+    const filteredIcons = getFilteredIcons();
+    const iconSize = parseInt(selectedSize);
+
     return (
       <div className="space-y-6">
         <div className="text-center">
-          <h3 className="text-lg font-semibold mb-2">Icons by Category</h3>
-          <p className="text-gray-600">Browse all {Object.keys(icons).length} icons organized by category. Click on a category to expand and view all icons.</p>
+          <h3 className="text-lg font-semibold mb-2">Complete Icon Library</h3>
+          <p className="text-gray-600">
+            Browse {Object.keys(CORE_ICONS).length} icons from Feather Icons, Figma, and custom sources. 
+            Each icon includes source metadata and usage examples.
+          </p>
         </div>
-        
-        {iconCategories.map(category => {
-          const categoryIcons = Object.keys(iconsByCategory[category] || {});
-          const isExpanded = expandedCategory === category;
-          
-          return (
-            <div key={category} className="border border-gray-200 rounded-lg overflow-hidden">
-              <button
-                onClick={() => setExpandedCategory(isExpanded ? null : category)}
-                className="w-full p-4 bg-gray-50 hover:bg-gray-100 flex items-center justify-between text-left"
-              >
-                <div>
-                  <h4 className="font-medium text-gray-900 capitalize">{category}</h4>
-                  <p className="text-sm text-gray-500">{categoryIcons.length} icons</p>
-                </div>
-                <div className="text-gray-400">
-                  {isExpanded ? '▼' : '▶'}
-                </div>
-              </button>
-              
-              {isExpanded && (
-                <div className="p-6 bg-white">
-                  <div className="grid grid-cols-8 sm:grid-cols-12 md:grid-cols-16 lg:grid-cols-20 gap-3">
-                    {categoryIcons.map((iconName) => (
-                      <div
-                        key={iconName}
-                        className="flex flex-col items-center p-2 rounded hover:bg-gray-50 group"
-                        title={iconName}
-                      >
-                        <Icon 
-                          name={iconName as keyof typeof icons} 
-                          size={20} 
-                          color="var(--ds-color-text-muted)"
-                        />
-                        <span className="text-xs text-gray-500 mt-1 text-center group-hover:text-gray-700 truncate w-full">
-                          {iconName.length > 8 ? `${iconName.substring(0, 8)}...` : iconName}
-                        </span>
-                      </div>
+
+        {/* Search and Filter Controls */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Icon Browser</CardTitle>
+            <CardDescription>Search and filter icons by category, source, and size</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div>
+                <label className="text-sm font-medium text-[var(--ds-color-text-primary)] mb-2 block">
+                  Search Icons
+                </label>
+                <Input
+                  placeholder="Search by name or description..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-[var(--ds-color-text-primary)] mb-2 block">
+                  Category
+                </label>
+                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {ICON_CATEGORIES.map(category => (
+                      <SelectItem key={category.value} value={category.value}>
+                        {category.label}
+                      </SelectItem>
                     ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-[var(--ds-color-text-primary)] mb-2 block">
+                  Source
+                </label>
+                <Select value={selectedSource} onValueChange={setSelectedSource}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {ICON_SOURCES.map(source => (
+                      <SelectItem key={source.value} value={source.value}>
+                        {source.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="text-sm font-medium text-[var(--ds-color-text-primary)] mb-2 block">
+                  Icon Size
+                </label>
+                <Select value={selectedSize} onValueChange={setSelectedSize}>
+                  <SelectTrigger>
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {ICON_SIZES.map(size => (
+                      <SelectItem key={size.value} value={size.value}>
+                        {size.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Icon Grid */}
+        <Card>
+          <CardHeader>
+            <CardTitle>
+              Icons ({filteredIcons.length})
+              {selectedSource !== 'all' && ` • ${selectedSource}`}
+              {selectedCategory !== 'all' && ` • ${selectedCategory}`}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-12 lg:grid-cols-16 xl:grid-cols-20 gap-3">
+              {filteredIcons.map((icon) => (
+                <div
+                  key={icon.name}
+                  className={`
+                    flex flex-col items-center p-3 rounded-lg border-2 transition-all duration-150 cursor-pointer group
+                    ${selectedIcon === icon.name ? 'border-[var(--ds-color-intent-primary)] bg-[var(--ds-color-bg-canvas)]' : ''}
+                  `}
+                  onClick={() => setSelectedIcon(selectedIcon === icon.name ? null : icon.name)}
+                >
+                  <Icon
+                    name={icon.name}
+                    size={iconSize}
+                    className="text-[var(--ds-color-text-primary)] group-hover:text-[var(--ds-color-intent-primary)] transition-colors"
+                  />
+                  <span className="text-xs text-[var(--ds-color-text-muted)] mt-2 text-center leading-tight">
+                    {icon.name.replace('feather-', '')}
+                  </span>
+                  {icon.source && (
+                    <Badge 
+                      variant="outline" 
+                      className="text-xs mt-1"
+                    >
+                      {icon.source}
+                    </Badge>
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            {filteredIcons.length === 0 && (
+              <div className="text-center py-12 text-[var(--ds-color-text-muted)]">
+                <p>No icons found matching your criteria.</p>
+                <p className="text-sm mt-1">Try adjusting your search or filters.</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Icon Details Panel */}
+        {selectedIcon && (
+          <Card>
+            <CardHeader>
+              <CardTitle>Icon Details</CardTitle>
+              <CardDescription>Information and usage examples for the selected icon</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Icon Preview */}
+                <div className="flex flex-col items-center justify-center p-8 bg-[var(--ds-color-bg-subtle)] rounded-lg">
+                  <Icon
+                    name={selectedIcon}
+                    size={64}
+                    className="text-[var(--ds-color-intent-primary)]"
+                  />
+                  <p className="text-lg font-medium mt-4 text-[var(--ds-color-text-primary)]">
+                    {selectedIcon.replace('feather-', '')}
+                  </p>
+                </div>
+
+                {/* Icon Information */}
+                <div className="space-y-4">
+                  <div>
+                    <label className="text-sm font-medium text-[var(--ds-color-text-primary)] mb-2 block">
+                      Description
+                    </label>
+                    <p className="text-sm text-[var(--ds-color-text-muted)]">
+                      {filteredIcons.find(i => i.name === selectedIcon)?.description}
+                    </p>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">Category</label>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">
+                        {filteredIcons.find(i => i.name === selectedIcon)?.category}
+                      </p>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">Icon Name</label>
+                      <p className="text-sm text-[var(--ds-color-text-muted)] font-mono">
+                        {selectedIcon}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">Source</label>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline">
+                          {filteredIcons.find(i => i.name === selectedIcon)?.source || 'unknown'}
+                        </Badge>
+                        {filteredIcons.find(i => i.name === selectedIcon)?.sourceUrl && (
+                          <a 
+                            href={filteredIcons.find(i => i.name === selectedIcon)?.sourceUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs text-[var(--ds-color-intent-primary)] hover:underline"
+                          >
+                            View Source
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">License</label>
+                      <p className="text-sm text-[var(--ds-color-text-muted)]">
+                        {filteredIcons.find(i => i.name === selectedIcon)?.license || 'Unknown'}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="text-sm font-medium text-[var(--ds-color-text-primary)] mb-2 block">
+                      Usage Example
+                    </label>
+                    <div className="bg-[var(--ds-color-bg-subtle)] p-3 rounded border font-mono text-sm">
+                      <code className="text-[var(--ds-color-text-muted)]">
+                        {`<Icon name="${selectedIcon}" size={${iconSize}} />`}
+                      </code>
+                    </div>
                   </div>
                 </div>
-              )}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Statistics */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Icon Statistics</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {ICON_SOURCES.slice(1).map(source => {
+                const count = Object.values(CORE_ICONS).filter(icon => icon.source === source.value).length;
+                return (
+                  <div key={source.value} className="text-center">
+                    <div className="text-2xl font-bold text-[var(--ds-color-intent-primary)]">{count}</div>
+                    <div className="text-sm text-[var(--ds-color-text-muted)] capitalize">{source.label}</div>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+          </CardContent>
+        </Card>
       </div>
     );
   },

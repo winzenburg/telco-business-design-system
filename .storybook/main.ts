@@ -28,7 +28,7 @@ const config: StorybookConfig = {
       config.css.preprocessorOptions = {};
     }
 
-    // Configure static file serving for icons
+    // Configure file serving permissions - allow access to entire project
     if (!config.server) {
       config.server = {};
     }
@@ -38,7 +38,20 @@ const config: StorybookConfig = {
     if (!config.server.fs.allow) {
       config.server.fs.allow = [];
     }
-    config.server.fs.allow.push('../src/assets/icons');
+    
+    // Allow access to entire project directory
+    config.server.fs.allow.push('..');
+
+    // Alternative approach: configure resolve alias
+    if (!config.resolve) {
+      config.resolve = {};
+    }
+    if (!config.resolve.alias) {
+      config.resolve.alias = {};
+    }
+    
+    config.resolve.alias['@tokens'] = '/packages/tokens';
+    config.resolve.alias['@styles'] = '/src/styles';
 
     return config;
   },
