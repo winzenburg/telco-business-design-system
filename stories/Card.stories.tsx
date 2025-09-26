@@ -12,7 +12,7 @@ import {
   CardDivider,
   Button
 } from '../src/components';
-import { Heart, Share, Bookmark, MoreHorizontal, Star, PlayCircle, Download } from 'lucide-react';
+import { Heart, Share, Bookmark, MoreHorizontal, Star, Play, Download } from 'lucide-react';
 
 const meta: Meta<typeof Card> = {
   title: 'Card',
