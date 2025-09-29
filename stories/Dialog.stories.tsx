@@ -14,7 +14,7 @@ import { Button } from '../src/components/ui/button';
 import { Input } from '../src/components/ui/input';
 import { Label } from '../src/components/ui/label';
 import { Textarea } from '../src/components/ui/textarea';
-import { Plus, Settings, Trash2, AlertTriangle } from 'lucide-react';
+import { Plus, Settings, Trash, AlertTriangle } from 'lucide-react';
 import {
   LineChart as RechartsLineChart,
   Line,
@@ -80,15 +80,15 @@ export const Confirmation: Story = {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="destructive">
-          <Trash2 className="mr-2 h-4 w-4" />
-          Delete Account
+          <Trash className="mr-2 h-4 w-4" />
+          Trash Account
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <AlertTriangle className="h-5 w-5 text-red-600" />
-            Delete Account
+            Trash Account
           </DialogTitle>
           <DialogDescription>
             This action cannot be undone. This will permanently delete your account and remove your data from our servers.
@@ -98,7 +98,7 @@ export const Confirmation: Story = {
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
-          <Button variant="destructive">Delete Account</Button>
+          <Button variant="destructive">Trash Account</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
@@ -392,7 +392,7 @@ export const AllVariants: Story = {
 
       <Dialog>
         <DialogTrigger asChild>
-          <Button variant="destructive">Delete</Button>
+          <Button variant="destructive">Trash</Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
@@ -405,7 +405,7 @@ export const AllVariants: Story = {
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <Button variant="destructive">Delete</Button>
+            <Button variant="destructive">Trash</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

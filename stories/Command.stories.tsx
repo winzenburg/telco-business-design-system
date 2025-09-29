@@ -11,7 +11,7 @@ import {
   CommandSeparator,
   CommandShortcut
 } from '../src/components';
-import { CalculatorIcon, Calendar, CreditCardIcon, Settings, SmileIcon, User } from 'lucide-react';
+import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
 
 const meta: Meta<typeof Command> = {
   title: 'Command',

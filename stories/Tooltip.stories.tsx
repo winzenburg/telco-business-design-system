@@ -10,7 +10,7 @@ import {
   TooltipArrow,
   Button
 } from '../src/components';
-import { Plus, Info, HelpCircle, Settings, Download, Share, Eye, Edit, Delete } from 'lucide-react';
+import { Plus, Info, CircleHelp, Settings, Download, Share, Eye, Edit, Trash } from 'lucide-react';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Tooltip',
@@ -77,7 +77,7 @@ export const WithIcon: Story = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button size="icon" variant="outline">
-            <HelpCircle className="h-4 w-4" />
+            <CircleHelp className="h-4 w-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent>
@@ -307,11 +307,11 @@ export const InteractiveElements: Story = {
       <Tooltip>
         <TooltipTrigger asChild>
           <Button size="icon" variant="ghost" className="text-red-600">
-            <Delete className="h-4 w-4" />
+            <Trash className="h-4 w-4" />
           </Button>
         </TooltipTrigger>
         <TooltipContent variant="rich">
-          <TooltipHeader>Delete Service</TooltipHeader>
+          <TooltipHeader>Trash Service</TooltipHeader>
           <TooltipBody>This action cannot be undone</TooltipBody>
         </TooltipContent>
       </Tooltip>

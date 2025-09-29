@@ -74,7 +74,7 @@ export const WithIcon: Story = {
         <DropdownMenuItem>Edit</DropdownMenuItem>
         <DropdownMenuItem>Duplicate</DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
+        <DropdownMenuItem className="text-red-600">Trash</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   ),

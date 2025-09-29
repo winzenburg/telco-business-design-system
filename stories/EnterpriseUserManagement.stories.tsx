@@ -270,7 +270,7 @@ export const UserManagementInterface: Story = {
                     <Button size="sm" variant="outline">Export Selected</Button>
                     <Button size="sm" variant="outline">Change Role</Button>
                     <Button size="sm" variant="outline">Deactivate</Button>
-                    <Button size="sm" variant="destructive">Delete</Button>
+                    <Button size="sm" variant="destructive">Trash</Button>
                   </div>
                 </div>
               )}

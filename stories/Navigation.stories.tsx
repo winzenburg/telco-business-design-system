@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Button } from '../src/components/ui/button';
-import { Menu, HelpCircle, ChevronDown, ChevronUp, ChevronRight, Home, User, Settings, BarChart, FileText, Phone, Shield, Wifi } from 'lucide-react';
+import { Menu, CircleHelp, ChevronDown, ChevronUp, ChevronRight, Home, User, Settings, BarChart, FileText, Phone, Shield, Wifi } from 'lucide-react';
 import { navigationSpecs, categorizedNavigation, navigationUsage } from '../src/tokens/figma-navigation-specs';
 
 // Icon mapping for navigation
@@ -18,7 +18,7 @@ const iconMap = {
   'directionup': ChevronUp,
   'directiondown': ChevronDown,
   'menu': Menu,
-  'gethelp': HelpCircle,
+  'gethelp': CircleHelp,
 } as const;
 
 const getIcon = (iconName: string, size = 16, className = '') => {
@@ -443,7 +443,7 @@ export const MobileNavigation: Story = {
               </button>
               <span className="text-lg font-semibold font-primary">Comcast Business</span>
               <button className="p-2 rounded-md hover:bg-gray-100">
-<HelpCircle className="h-5 w-5" />
+<CircleHelp className="h-5 w-5" />
               </button>
             </div>
           </header>

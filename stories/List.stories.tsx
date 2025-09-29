@@ -32,7 +32,7 @@ import {
   MoreHorizontal,
   Wifi,
   Bluetooth,
-  Volume2,
+  Volume,
   Bell,
   CheckCircle,
   AlertCircle,
@@ -355,7 +355,7 @@ export const SectionedList: Story = {
           <ListSectionHeader>Sound & Display</ListSectionHeader>
           <ListItem>
             <ListItemLeading>
-              <Volume2 className="w-5 h-5 text-[#0D62FF]" />
+              <Volume className="w-5 h-5 text-[#0D62FF]" />
             </ListItemLeading>
             <ListItemContent lines="one">
               <ListItemText>Sound</ListItemText>

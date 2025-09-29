@@ -53,10 +53,10 @@ import {
   DollarSign,
   Activity,
   Download,
-  RefreshCw,
+  RefreshCcw,
   Filter,
   Calendar,
-  BarChart3,
+  BarChart as BarChartIcon,
   ArrowUp,
   ArrowDown,
   Minus,
@@ -275,7 +275,7 @@ const DashboardFlow = () => {
             onClick={handleRefresh}
             disabled={refreshing}
           >
-            <RefreshCw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
+            <RefreshCcw className={`h-4 w-4 ${refreshing ? 'animate-spin' : ''}`} />
           </Button>
           <Button variant="secondary" size="sm">
             <Download className="mr-2 h-4 w-4" />
@@ -347,7 +347,7 @@ const DashboardFlow = () => {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle>Service Health</CardTitle>
-                  <BarChart3 className="h-4 w-4 text-[var(--ds-color-text-muted)]" />
+                  <BarChartIcon className="h-4 w-4 text-[var(--ds-color-text-muted)]" />
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">

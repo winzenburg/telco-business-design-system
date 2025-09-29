@@ -23,7 +23,7 @@ import {
   ChevronRight,
   MoreVertical,
   Edit,
-  Trash2,
+  Trash,
   Eye,
   Download,
   Search,
@@ -403,7 +403,7 @@ export const Selectable: Story = {
           <div className="flex items-center gap-3 p-3 bg-primary-50 border border-primary-200 rounded-lg">
             <span className="text-primary-700 font-medium">{selectedRows.length} row(s) selected</span>
             <Button variant="outline" size="sm">
-              Delete Selected
+              Trash Selected
             </Button>
             <Button variant="outline" size="sm">
               Export Selected
@@ -1102,7 +1102,7 @@ export const WithActions: Story = {
                   <Edit className="h-4 w-4" />
                 </Button>
                 <Button variant="ghost" size="sm">
-                  <Trash2 className="h-4 w-4 text-red-600" />
+                  <Trash className="h-4 w-4 text-red-600" />
                 </Button>
               </div>
             </TableCell>

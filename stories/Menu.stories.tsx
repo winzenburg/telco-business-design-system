@@ -65,7 +65,7 @@ export const Default: Story = {
         <MenuSeparator />
         <MenuItem variant="destructive">
           <Trash className="h-4 w-4" />
-          Delete
+          Trash
         </MenuItem>
       </MenuContent>
     </Menu>
@@ -248,7 +248,7 @@ export const WithSubmenus: Story = {
         <MenuSeparator />
         <MenuItem variant="destructive">
           <Trash className="h-4 w-4" />
-          Delete
+          Trash
         </MenuItem>
       </MenuContent>
     </Menu>
@@ -385,7 +385,7 @@ export const ContextMenuExample: Story = {
         </MenuItem>
         <MenuItem variant="destructive">
           <Trash className="h-4 w-4" />
-          Delete
+          Trash
         </MenuItem>
       </MenuContent>
     </Menu>
