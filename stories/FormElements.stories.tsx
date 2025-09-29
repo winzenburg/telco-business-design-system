@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import { Button } from '../src/components/ui/button';
 import { Input, InputSkeleton } from '../src/components/ui/input';
 import { Label } from '../src/components/ui/label';
-import { Checkbox, CheckboxSkeleton } from '../src/components/ui/checkbox';
+import { Checkbox } from '../src/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '../src/components/ui/radio-group';
 import { Textarea } from '../src/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../src/components/ui/card';
+import { Icon } from '../src/components/Icon';
 import { formElementSpecs, categorizedForms, formElementUsage } from '../src/tokens/figma-form-specs';
 
 const meta: Meta = {
@@ -43,7 +44,6 @@ export const AllInputStates: Story = {
             placeholder="Enter your email"
             leftIcon="analytics"
             hintText="Default state with no interaction"
-            inputState="default"
           />
         </div>
 
@@ -55,7 +55,6 @@ export const AllInputStates: Story = {
             placeholder="Enter your email"
             leftIcon="analytics"
             hintText="Active state (clicked/pressed)"
-            inputState="active"
           />
         </div>
 
@@ -67,7 +66,6 @@ export const AllInputStates: Story = {
             placeholder="Enter your email"
             leftIcon="analytics"
             hintText="Focused state (keyboard focus)"
-            inputState="focused"
             autoFocus
           />
         </div>
@@ -80,7 +78,6 @@ export const AllInputStates: Story = {
             placeholder="Enter your email"
             leftIcon="analytics"
             hintText="Hover state (mouse over)"
-            inputState="hover"
           />
         </div>
 
@@ -117,7 +114,6 @@ export const AllInputStates: Story = {
             leftIcon="analytics"
             error
             errorMessage="Please enter a valid email address"
-            inputState="errorFocused"
           />
         </div>
 
@@ -131,7 +127,6 @@ export const AllInputStates: Story = {
             defaultValue="invalid-email"
             error
             errorMessage="Please enter a valid email address"
-            inputState="errorFilled"
           />
         </div>
 
@@ -726,26 +721,22 @@ export const BasicElements: Story = {
             </Label>
             <RadioGroup defaultValue="business">
               <div className="space-y-3">
-                <RadioGroupItem 
-                  value="personal" 
-                  label="Personal Account"
-                  radioState="default"
-                />
-                <RadioGroupItem 
-                  value="business" 
-                  label="Business Account"
-                  radioState="hover"
-                />
-                <RadioGroupItem 
-                  value="enterprise" 
-                  label="Enterprise Account"
-                  radioState="focused"
-                />
-                <RadioGroupItem 
-                  value="disabled" 
-                  label="Disabled Account"
-                  disabled
-                />
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="personal" id="personal" />
+                  <Label htmlFor="personal">Personal Account</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="business" id="business" />
+                  <Label htmlFor="business">Business Account</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="enterprise" id="enterprise" autoFocus />
+                  <Label htmlFor="enterprise">Enterprise Account</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="disabled" id="disabled" disabled />
+                  <Label htmlFor="disabled" className="opacity-50">Disabled Account</Label>
+                </div>
               </div>
             </RadioGroup>
           </div>
@@ -787,7 +778,6 @@ export const FormStates: Story = {
               label="Focused Input"
               placeholder="Click to see focus state"
               leftIcon="analytics"
-              inputState="focused"
               hintText="Input with focus state applied"
             />
 
@@ -795,7 +785,6 @@ export const FormStates: Story = {
               label="Hover State"
               placeholder="Hover state demonstration"
               leftIcon="analytics"
-              inputState="hover"
               hintText="Input showing hover interaction"
             />
 
@@ -1026,18 +1015,18 @@ export const CompleteFormExample: Story = {
                   onValueChange={(value) => setFormData(prev => ({ ...prev, accountType: value }))}
                 >
                   <div className="space-y-3">
-                    <RadioGroupItem 
-                      value="personal" 
-                      label="Personal Account"
-                    />
-                    <RadioGroupItem 
-                      value="business" 
-                      label="Business Account"
-                    />
-                    <RadioGroupItem 
-                      value="enterprise" 
-                      label="Enterprise Account"
-                    />
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="personal" id="account-personal" />
+                      <Label htmlFor="account-personal">Personal Account</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="business" id="account-business" />
+                      <Label htmlFor="account-business">Business Account</Label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="enterprise" id="account-enterprise" />
+                      <Label htmlFor="account-enterprise">Enterprise Account</Label>
+                    </div>
                   </div>
                 </RadioGroup>
               </div>
@@ -1322,50 +1311,50 @@ export const CheckboxStates: Story = {
       <div className="space-y-6">
         <h3 className="text-lg font-medium font-primary border-b pb-2">Unchecked States</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          
+
           {/* Unchecked Default */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Default</h4>
-            <Checkbox
-              label="Default unchecked"
-              checkboxState="default"
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="unchecked-default" />
+              <Label htmlFor="unchecked-default">Default unchecked</Label>
+            </div>
           </div>
 
           {/* Unchecked Hover */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Hover</h4>
-            <Checkbox
-              label="Hover unchecked"
-              checkboxState="hover"
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="unchecked-hover" className="hover:border-neutral-500" />
+              <Label htmlFor="unchecked-hover">Hover unchecked</Label>
+            </div>
           </div>
 
           {/* Unchecked Pressed */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Pressed</h4>
-            <Checkbox
-              label="Pressed unchecked"
-              checkboxState="pressed"
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="unchecked-pressed" className="active:border-neutral-500" />
+              <Label htmlFor="unchecked-pressed">Pressed unchecked</Label>
+            </div>
           </div>
 
           {/* Unchecked Focused */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Focused</h4>
-            <Checkbox
-              label="Focused unchecked"
-              checkboxState="focused"
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="unchecked-focused" autoFocus />
+              <Label htmlFor="unchecked-focused">Focused unchecked</Label>
+            </div>
           </div>
 
           {/* Unchecked Skeleton */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Skeleton</h4>
-            <Checkbox
-              label="Loading..."
-              skeleton
-            />
+            <div className="flex items-center space-x-2">
+              <div className="h-4 w-4 animate-pulse bg-neutral-200 rounded-sm" />
+              <div className="h-4 w-24 animate-pulse bg-neutral-200 rounded" />
+            </div>
           </div>
         </div>
       </div>
@@ -1374,54 +1363,50 @@ export const CheckboxStates: Story = {
       <div className="space-y-6">
         <h3 className="text-lg font-medium font-primary border-b pb-2">Checked States</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          
+
           {/* Checked Default */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Default</h4>
-            <Checkbox
-              label="Default checked"
-              checkboxState="default"
-              defaultChecked
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="checked-default" defaultChecked />
+              <Label htmlFor="checked-default">Default checked</Label>
+            </div>
           </div>
 
           {/* Checked Hover */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Hover</h4>
-            <Checkbox
-              label="Hover checked"
-              checkboxState="hover"
-              defaultChecked
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="checked-hover" defaultChecked />
+              <Label htmlFor="checked-hover">Hover checked</Label>
+            </div>
           </div>
 
           {/* Checked Pressed */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Pressed</h4>
-            <Checkbox
-              label="Pressed checked"
-              checkboxState="pressed"
-              defaultChecked
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="checked-pressed" defaultChecked />
+              <Label htmlFor="checked-pressed">Pressed checked</Label>
+            </div>
           </div>
 
           {/* Checked Focused */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Focused</h4>
-            <Checkbox
-              label="Focused checked"
-              checkboxState="focused"
-              defaultChecked
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="checked-focused" defaultChecked autoFocus />
+              <Label htmlFor="checked-focused">Focused checked</Label>
+            </div>
           </div>
 
-          {/* Checked Skeleton - Same as unchecked since skeleton doesn't show checked state */}
+          {/* Checked Skeleton */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Skeleton</h4>
-            <Checkbox
-              label="Loading..."
-              skeleton
-            />
+            <div className="flex items-center space-x-2">
+              <div className="h-4 w-4 animate-pulse bg-neutral-200 rounded-sm" />
+              <div className="h-4 w-24 animate-pulse bg-neutral-200 rounded" />
+            </div>
           </div>
         </div>
       </div>
@@ -1430,56 +1415,56 @@ export const CheckboxStates: Story = {
       <div className="space-y-6">
         <h3 className="text-lg font-medium font-primary border-b pb-2">Error States</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          
+
           {/* Error Unchecked */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Error Unchecked</h4>
-            <Checkbox
-              label="Required field"
-              required
-              error
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="error-unchecked" className="border-destructive data-[state=checked]:bg-destructive" />
+              <Label htmlFor="error-unchecked" className="text-destructive">
+                Required field <span className="text-destructive">*</span>
+              </Label>
+            </div>
           </div>
 
           {/* Error Checked */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Error Checked</h4>
-            <Checkbox
-              label="Required field"
-              required
-              error
-              defaultChecked
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="error-checked" defaultChecked className="border-destructive data-[state=checked]:bg-destructive" />
+              <Label htmlFor="error-checked" className="text-destructive">
+                Required field <span className="text-destructive">*</span>
+              </Label>
+            </div>
           </div>
 
           {/* Error Focused */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Error Focused</h4>
-            <Checkbox
-              label="Required field"
-              required
-              error
-              checkboxState="focused"
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="error-focused" autoFocus className="border-destructive data-[state=checked]:bg-destructive" />
+              <Label htmlFor="error-focused" className="text-destructive">
+                Required field <span className="text-destructive">*</span>
+              </Label>
+            </div>
           </div>
 
           {/* Disabled */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Disabled</h4>
-            <Checkbox
-              label="Disabled checkbox"
-              disabled
-              defaultChecked
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="disabled-checked" disabled defaultChecked />
+              <Label htmlFor="disabled-checked" className="opacity-50">Disabled checkbox</Label>
+            </div>
           </div>
 
           {/* Disabled Unchecked */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Disabled Unchecked</h4>
-            <Checkbox
-              label="Disabled unchecked"
-              disabled
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="disabled-unchecked" disabled />
+              <Label htmlFor="disabled-unchecked" className="opacity-50">Disabled unchecked</Label>
+            </div>
           </div>
         </div>
       </div>
@@ -1488,40 +1473,49 @@ export const CheckboxStates: Story = {
       <div className="space-y-6">
         <h3 className="text-lg font-medium font-primary border-b pb-2">With Icons (16x16)</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          
+
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Analytics</h4>
-            <Checkbox
-              label="Enable analytics"
-              rightIcon="typeoutlinecoloroff"
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="icon-analytics" />
+              <Label htmlFor="icon-analytics" className="flex items-center gap-1">
+                Enable analytics
+                <Icon name="typeoutlinecoloroff" className="h-4 w-4 text-neutral-600" />
+              </Label>
+            </div>
           </div>
 
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Configure</h4>
-            <Checkbox
-              label="Configuration access"
-              rightIcon="typeoutlinecoloroff"
-              defaultChecked
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="icon-configure" defaultChecked />
+              <Label htmlFor="icon-configure" className="flex items-center gap-1">
+                Configuration access
+                <Icon name="typeoutlinecoloroff" className="h-4 w-4 text-neutral-600" />
+              </Label>
+            </div>
           </div>
 
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Internet</h4>
-            <Checkbox
-              label="Internet connectivity"
-              rightIcon="typeoutlinecoloroff"
-              required
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="icon-internet" />
+              <Label htmlFor="icon-internet" className="flex items-center gap-1">
+                Internet connectivity <span className="text-destructive">*</span>
+                <Icon name="typeoutlinecoloroff" className="h-4 w-4 text-neutral-600" />
+              </Label>
+            </div>
           </div>
 
           <div className="space-y-3">
             <h4 className="text-sm font-medium text-gray-700 font-primary">Conference</h4>
-            <Checkbox
-              label="Meeting notifications"
-              rightIcon="typeoutlinecoloroff"
-              checkboxState="focused"
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="icon-conference" autoFocus />
+              <Label htmlFor="icon-conference" className="flex items-center gap-1">
+                Meeting notifications
+                <Icon name="typeoutlinecoloroff" className="h-4 w-4 text-neutral-600" />
+              </Label>
+            </div>
           </div>
         </div>
       </div>
@@ -1530,41 +1524,44 @@ export const CheckboxStates: Story = {
       <div className="space-y-6">
         <h3 className="text-lg font-medium font-primary border-b pb-2">Real-world Examples</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
+
           <div className="space-y-4">
             <h4 className="font-medium font-primary">Terms and Conditions</h4>
-            <Checkbox
-              label="I agree to the Terms and Conditions"
-              required
-              error
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="terms-example" className="border-destructive data-[state=checked]:bg-destructive" />
+              <Label htmlFor="terms-example" className="text-destructive">
+                I agree to the Terms and Conditions <span className="text-destructive">*</span>
+              </Label>
+            </div>
           </div>
 
           <div className="space-y-4">
             <h4 className="font-medium font-primary">Newsletter Subscription</h4>
-            <Checkbox
-              label="Subscribe to our newsletter"
-              rightIcon="typeoutlinecoloroff"
-              defaultChecked
-            />
+            <div className="flex items-center space-x-2">
+              <Checkbox id="newsletter-example" defaultChecked />
+              <Label htmlFor="newsletter-example" className="flex items-center gap-1">
+                Subscribe to our newsletter
+                <Icon name="typeoutlinecoloroff" className="h-4 w-4 text-neutral-600" />
+              </Label>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Implementation Note */}
       <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-        <h4 className="font-medium mb-2 font-primary">Checkbox State Implementation</h4>
+        <h4 className="font-medium mb-2 font-primary">Checkbox Implementation (ShadCN Pattern)</h4>
         <ul className="text-sm text-blue-800 font-secondary space-y-1">
-          <li>• Use <code>checkboxState</code> prop to override visual states for demos</li>
-          <li>• <code>error</code> prop applies error styling and red color scheme</li>
-          <li>• <code>skeleton</code> prop shows loading placeholder</li>
-          <li>• <code>required</code> prop adds neutral black asterisk (*)</li>
-          <li>• <code>rightIcon</code> prop adds a 16x16 icon to the right of the label text</li>
-          <li>• <code>disabled</code> prop changes font color to neutral grey-600 (#70717D)</li>
-          <li>• <strong>Label text is clickable</strong> - clicking the label toggles the checkbox</li>
-          <li>• <strong>No helper text support</strong> - checkboxes only have labels and error states</li>
-          <li>• Focus ring is always blue (#0D62FF) regardless of error state</li>
-          <li>• All states follow the established Input component patterns</li>
+          <li>• Uses composition pattern with separate Checkbox and Label components</li>
+          <li>• Use <code>className</code> for custom styling (error state: <code>border-destructive data-[state=checked]:bg-destructive</code>)</li>
+          <li>• Use <code>autoFocus</code> prop to show focused state in demos</li>
+          <li>• Skeleton uses animated placeholder divs with <code>animate-pulse bg-neutral-200</code></li>
+          <li>• Add asterisk (*) manually in Label for required fields</li>
+          <li>• Icons added via Icon component in Label with <code>flex items-center gap-1</code></li>
+          <li>• <code>disabled</code> prop with <code>opacity-50</code> on Label for disabled state</li>
+          <li>• <strong>Label text is clickable</strong> - clicking the label toggles the checkbox via htmlFor/id</li>
+          <li>• Focus ring uses <code>ring-primary-500</code> (blue #0D62FF) regardless of error state</li>
+          <li>• Border uses <code>border-neutral-400</code> (form input border token)</li>
         </ul>
       </div>
     </div>

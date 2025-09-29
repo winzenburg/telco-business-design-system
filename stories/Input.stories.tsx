@@ -5,6 +5,7 @@ import { Label } from '../src/components/ui/label';
 import { Button } from '../src/components/ui/button';
 import { Search, Mail, Phone, Globe, ExternalLink, AlertTriangle, Check } from 'lucide-react';
 import { Title, Body } from '../src/components/ui/typography';
+import InputDocs from './Input.mdx';
 
 const meta: Meta<typeof Input> = {
   title: 'Input',
@@ -23,11 +24,6 @@ const meta: Meta<typeof Input> = {
       control: { type: 'select' },
       options: ['sm', 'default', 'lg'],
       description: 'Input size variant',
-    },
-    variant: {
-      control: { type: 'select' },
-      options: ['default', 'error'],
-      description: 'Input style variant',
     },
     disabled: {
       control: { type: 'boolean' },
@@ -153,8 +149,7 @@ export const States: Story = {
         
         <div className="space-y-2">
           <Label>Error State</Label>
-          <Input variant="error" placeholder="Invalid input" />
-          <Body size="s" className="text-[#D11314]">This field is required</Body>
+          <Input error errorMessage="This field is required" placeholder="Invalid input" />
         </div>
         
         <div className="space-y-2">
@@ -331,16 +326,11 @@ export const ValidationPatterns: Story = {
             <Input
               id="email-validation"
               type="email"
-              variant={emailError ? 'error' : 'default'}
+              error={!!emailError}
+              errorMessage={emailError}
               placeholder="user@company.com"
               onBlur={(e) => validateEmail(e.target.value)}
             />
-            {emailError && (
-              <Body size="s" className="text-[#D11314] flex items-center gap-1">
-<AlertTriangle className="h-3 w-3" />
-                {emailError}
-              </Body>
-            )}
           </div>
           
           <div className="space-y-2">
@@ -348,19 +338,12 @@ export const ValidationPatterns: Story = {
             <Input
               id="phone-validation"
               type="tel"
-              variant={phoneError ? 'error' : 'default'}
+              error={!!phoneError}
+              errorMessage={phoneError}
+              hintText="Format: (555) 123-4567"
               placeholder="(555) 123-4567"
               onBlur={(e) => validatePhone(e.target.value)}
             />
-            {phoneError && (
-              <Body size="s" className="text-[#D11314] flex items-center gap-1">
-<AlertTriangle className="h-3 w-3" />
-                {phoneError}
-              </Body>
-            )}
-            <Body size="s" className="text-[#70717D]">
-              Format: (555) 123-4567
-            </Body>
           </div>
           
           <div className="space-y-2">

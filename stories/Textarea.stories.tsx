@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Textarea, Label } from '../src/components';
+import TextareaDocs from './Textarea.mdx';
 
 const meta: Meta<typeof Textarea> = {
   title: 'Textarea',
@@ -8,6 +9,7 @@ const meta: Meta<typeof Textarea> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: TextareaDocs,
       description: {
         component: 'Textarea component for multi-line text input following Comcast Business Design System.'
       }

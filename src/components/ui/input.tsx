@@ -1,79 +1,19 @@
 import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '../../utils/cn';
 import { Icon } from '../Icon';
 import { InputSkeleton } from './skeleton';
 
-// Input component following Comcast Business Design System
-// Colors: Using design tokens for consistent theming
-// Border hover and focus states using design system tokens
+// Input component following ShadCN pattern with Comcast Business Design System tokens
+// Base input uses ShadCN styling, wrapper provides label, icons, and validation
 
-const inputVariants = cva(
-  // Base styles using exact Figma specifications
-  'flex w-full items-center gap-[7px] self-stretch rounded-[var(--ds-radius-sm)] border bg-[var(--ds-color-bg-canvas)] transition-colors file:border-0 file:bg-transparent focus-visible:outline-none disabled:cursor-not-allowed selection:bg-[var(--ds-color-intent-primary)]/20 overflow-hidden text-ellipsis text-[var(--ds-color-text-primary)] font-secondary placeholder:overflow-hidden placeholder:text-ellipsis placeholder:text-[var(--ds-color-text-muted)] placeholder:font-normal placeholder:leading-[130%] placeholder:tracking-normal',
-  {
-    variants: {
-      variant: {
-        // Default state - neutral-400 border for form inputs
-        default: 'border-[var(--ds-color-neutral-400)] hover:border-[var(--ds-color-text-muted)] hover:bg-[var(--ds-color-bg-surface)] hover:shadow-[var(--ds-shadow-sm)] focus-visible:border-[var(--ds-color-neutral-400)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] active:border-[var(--ds-color-neutral-400)]',
-
-        // Error states
-        error: 'border-[var(--ds-color-intent-destructive)] hover:border-[var(--ds-color-intent-destructive)]/80 focus-visible:border-[var(--ds-color-intent-destructive)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] active:border-[var(--ds-color-intent-destructive)]',
-
-
-        // Loading state
-        loading: 'border-[var(--ds-color-neutral-400)] hover:border-[var(--ds-color-text-primary)] focus-visible:border-[var(--ds-color-neutral-400)] focus-visible:shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)] cursor-wait',
-      },
-      size: {
-        default: 'h-[var(--ds-spacing-10)] px-[13px] py-[9px]',
-        sm: 'h-8 px-2 py-1 text-xs',
-        lg: 'h-12 px-4 py-3 text-base',
-      },
-      inputState: {
-        default: '',
-        active: 'border-[var(--ds-color-neutral-400)]',
-        focused: 'border-[var(--ds-color-neutral-400)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
-        hover: 'border-[var(--ds-color-text-muted)] bg-[var(--ds-color-bg-surface)] shadow-[var(--ds-shadow-sm)]',
-        disabled: 'border-[var(--ds-color-border-muted)] bg-[var(--ds-color-bg-muted)] cursor-not-allowed',
-        errorFocused: 'border-[var(--ds-color-intent-destructive)] shadow-[0_0_0_1.5px_var(--ds-color-intent-primary)]',
-        errorFilled: 'border-[var(--ds-color-intent-destructive)]',
-        loading: 'cursor-wait',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-      inputState: 'default',
-    },
-  },
-);
-
-const inputWrapperVariants = cva(
-  'relative flex items-center',
-  {
-    variants: {
-      size: {
-        default: '',
-        sm: '',
-        lg: '',
-      },
-    },
-    defaultVariants: {
-      size: 'default',
-    },
-  },
-);
-
-export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
-    VariantProps<typeof inputVariants> {
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * Show error state
    */
   error?: boolean
   /**
-   * Show loading state
+   * Show loading state with spinner
    */
   loading?: boolean
   /**
@@ -101,11 +41,6 @@ export interface InputProps
    */
   errorMessage?: string
   /**
-   * Helper text below input (deprecated - use hintText instead)
-   * @deprecated Use hintText instead
-   */
-  helperText?: string
-  /**
    * Icon to display on the left side of the input
    */
   leftIcon?: string
@@ -114,20 +49,14 @@ export interface InputProps
    */
   rightIcon?: string
   /**
-   * Size of the icons
+   * Size variant
    */
-  iconSize?: number
-  /**
-   * Explicit state override for demonstration purposes
-   */
-  inputState?: 'default' | 'active' | 'focused' | 'hover' | 'disabled' | 'errorFocused' | 'errorFilled' | 'loading'
+  size?: 'default' | 'sm' | 'lg'
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({
     className,
-    variant,
-    size,
     type = 'text',
     error = false,
     loading = false,
@@ -137,30 +66,26 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     subcopy,
     hintText,
     errorMessage,
-    helperText, // Keep for backward compatibility
     leftIcon,
     rightIcon,
-    iconSize = 16,
-    inputState,
+    size = 'default',
     disabled,
     ...props
   }, ref) => {
-    // Determine variant based on error/loading states
-    const finalVariant = loading ? 'loading' : error ? 'error' : variant;
-
-    // Determine state - explicit inputState overrides natural states
-    const finalInputState = inputState ||
-      (disabled ? 'disabled' :
-       loading ? 'loading' :
-       error && props.value ? 'errorFilled' :
-       'default');
-
     // Calculate padding based on icons
-    const paddingLeft = leftIcon ? (size === 'sm' ? 'pl-8' : size === 'lg' ? 'pl-12' : 'pl-10') : 'pl-3';
-    const paddingRight = rightIcon || loading ? (size === 'sm' ? 'pr-8' : size === 'lg' ? 'pr-12' : 'pr-10') : 'pr-3';
+    const sizeClasses = {
+      sm: 'h-8 text-xs',
+      default: 'h-10 text-sm',
+      lg: 'h-12 text-base'
+    };
 
-    // Use hintText if provided, fallback to helperText for backward compatibility
-    const displayHintText = hintText || helperText;
+    const paddingLeft = leftIcon
+      ? (size === 'sm' ? 'pl-8' : size === 'lg' ? 'pl-12' : 'pl-10')
+      : (size === 'sm' ? 'pl-2' : size === 'lg' ? 'pl-4' : 'pl-3');
+
+    const paddingRight = (rightIcon || loading)
+      ? (size === 'sm' ? 'pr-8' : size === 'lg' ? 'pr-12' : 'pr-10')
+      : (size === 'sm' ? 'pr-2' : size === 'lg' ? 'pr-4' : 'pr-3');
 
     // Show skeleton loading state
     if (skeleton) {
@@ -176,35 +101,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     }
 
     return (
-      <div className="space-y-0">
+      <div className="w-full">
         {/* Label with required indicator */}
         {label && (
           <div className="space-y-1 mb-2">
-            <label className="flex items-center gap-1 text-sm font-medium text-black font-primary">
+            <label className="flex items-center gap-1 text-sm font-medium text-neutral-900 font-primary">
               {label}
-              {required && (
-                <span
-                  className="text-[var(--ds-color-text-primary)] font-secondary"
-                  style={{
-                    fontSize: '14px',
-                    fontWeight: 400,
-                    lineHeight: '130%',
-                    letterSpacing: '0',
-                  }}
-                >
-                  *
-                </span>
-              )}
+              {required && <span className="text-neutral-900">*</span>}
             </label>
             {/* Subcopy */}
             {subcopy && (
-              <p className="text-[var(--ds-color-text-muted)] font-secondary font-normal leading-[130%] tracking-normal" style={{
-                fontSize: '14px',
-                lineHeight: '130%',
-                fontWeight: 400,
-                letterSpacing: '0',
-                fontStyle: 'normal',
-              }}>
+              <p className="text-sm text-neutral-600 font-secondary">
                 {subcopy}
               </p>
             )}
@@ -212,14 +119,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
 
         {/* Input field */}
-        <div className={cn(inputWrapperVariants({ size }))}>
+        <div className="relative">
           {leftIcon && (
-            <div className="absolute left-3 z-10 flex items-start gap-[10px] pointer-events-none">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
               <Icon
                 name={leftIcon as any}
-                size={16}
                 className={cn(
-                  'flex w-4 h-4 items-start text-gray-600',
+                  'w-4 h-4 text-neutral-600',
                   disabled && 'opacity-50',
                 )}
               />
@@ -229,39 +135,41 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             type={type}
             disabled={disabled || loading}
             className={cn(
-              inputVariants({ variant: finalVariant, size, inputState: finalInputState }),
+              // ShadCN base styles
+              'flex w-full rounded-md border bg-white px-3 py-2 font-secondary ring-offset-white transition-colors',
+              'file:border-0 file:bg-transparent file:text-sm file:font-medium',
+              'placeholder:text-neutral-500',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
+              'disabled:cursor-not-allowed disabled:opacity-50',
+              // Design system tokens - form input border
+              'border-neutral-400',
+              // Error state
+              error && 'border-destructive focus-visible:ring-destructive',
+              // Loading state
+              loading && 'cursor-wait',
+              // Size classes
+              sizeClasses[size],
               paddingLeft,
               paddingRight,
-              'font-secondary',
               className,
             )}
-            style={{
-              fontSize: '14px',
-              lineHeight: '130%',
-              fontWeight: 400,
-              letterSpacing: '0',
-              fontStyle: 'normal',
-              ...props.style,
-            }}
             ref={ref}
             {...props}
           />
           {(rightIcon || loading) && (
-            <div className="absolute right-3 z-10 flex items-start gap-[10px] pointer-events-none">
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
               {loading ? (
                 <div className="animate-spin">
                   <Icon
                     name="configure"
-                    size={16}
-                    className="flex w-4 h-4 items-start text-gray-600"
+                    className="w-4 h-4 text-neutral-600"
                   />
                 </div>
               ) : rightIcon ? (
                 <Icon
                   name={rightIcon as any}
-                  size={16}
                   className={cn(
-                    'flex w-4 h-4 items-start text-gray-600',
+                    'w-4 h-4 text-neutral-600',
                     disabled && 'opacity-50',
                   )}
                 />
@@ -271,19 +179,12 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         </div>
 
         {/* Hint text or error message */}
-        {(displayHintText || (error && errorMessage)) && (
+        {(hintText || (error && errorMessage)) && (
           <p className={cn(
-            'font-secondary font-normal leading-[130%] tracking-normal mt-1',
-            error ? 'text-[var(--ds-color-intent-destructive)]' : 'text-[var(--ds-color-text-muted)]',
-          )} style={{
-            fontSize: '14px',
-            lineHeight: '130%',
-            fontWeight: 400,
-            letterSpacing: '0',
-            fontStyle: 'normal',
-            marginTop: '4px',
-          }}>
-            {error && errorMessage ? errorMessage : displayHintText}
+            'text-sm font-secondary mt-1',
+            error ? 'text-destructive' : 'text-neutral-600',
+          )}>
+            {error && errorMessage ? errorMessage : hintText}
           </p>
         )}
       </div>
@@ -292,4 +193,4 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 Input.displayName = 'Input';
 
-export { Input, inputVariants, InputSkeleton };
+export { Input, InputSkeleton };

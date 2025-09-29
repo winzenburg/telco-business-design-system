@@ -13,6 +13,12 @@ export { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 export { Slider } from './ui/slider';
 export { Switch } from './ui/switch';
 export { Textarea } from './ui/textarea';
+export { Calendar, CalendarDayButton } from './ui/calendar';
+export type { CalendarProps } from './ui/calendar';
+export { Combobox } from './ui/combobox';
+export type { ComboboxProps, ComboboxOption } from './ui/combobox';
+export { DatePicker, DateRangePicker, DateOfBirthPicker } from './ui/date-picker';
+export type { DatePickerProps, DateRangePickerProps, DateOfBirthPickerProps } from './ui/date-picker';
 
 // Layout Components
 export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, CardMedia, CardActions, CardDivider } from './ui/card';
@@ -146,7 +152,6 @@ export { cn } from '../utils/cn';
 export type { ButtonProps } from './ui/button';
 export type { InputProps } from './ui/input';
 export type { BadgeProps } from './ui/badge';
-export type { CheckboxProps } from './ui/checkbox';
 export type { CardProps } from './ui/card';
 export type { TabsListProps, TabsTriggerProps } from './ui/tabs';
 export type { ToastProps, ToastActionElement } from './ui/toast';

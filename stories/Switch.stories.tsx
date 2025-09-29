@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Switch, Label } from '../src/components';
+import SwitchDocs from './Switch.mdx';
 
 const meta: Meta<typeof Switch> = {
   title: 'Switch',
@@ -8,6 +9,7 @@ const meta: Meta<typeof Switch> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: SwitchDocs,
       description: {
         component: 'Switch component for toggle controls following Comcast Business Design System.'
       }

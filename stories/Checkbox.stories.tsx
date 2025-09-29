@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Checkbox, Label } from '../src/components';
+import CheckboxDocs from './Checkbox.mdx';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Checkbox',
@@ -8,6 +9,7 @@ const meta: Meta<typeof Checkbox> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: CheckboxDocs,
       description: {
         component: 'Checkbox component for form inputs following Comcast Business Design System.'
       }
@@ -55,8 +57,8 @@ export const Disabled: Story = {
 export const WithError: Story = {
   render: () => (
     <div className="flex items-center space-x-2">
-      <Checkbox id="error" variant="error" />
-      <Label htmlFor="error">Checkbox with error state</Label>
+      <Checkbox id="error" className="border-destructive data-[state=checked]:bg-destructive data-[state=checked]:border-destructive" />
+      <Label htmlFor="error" className="text-destructive">Checkbox with error state</Label>
     </div>
   ),
 };

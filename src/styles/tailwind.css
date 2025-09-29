@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
 
+/* React Day Picker Styles */
+@import 'react-day-picker/dist/style.css';
+
 /* Design System CSS Variables - Essential tokens */
 :root {
   /* Core brand colors */

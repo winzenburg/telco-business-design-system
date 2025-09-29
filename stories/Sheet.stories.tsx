@@ -1,28 +1,31 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { 
+import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  Button,
-  Input,
-  Label
-} from '../src/components';
+} from '../src/components/ui/sheet';
+import { Button } from '../src/components/ui/button';
+import { Input } from '../src/components/ui/input';
+import { Label } from '../src/components/ui/label';
+import { Textarea } from '../src/components/ui/textarea';
 
 const meta: Meta<typeof Sheet> = {
   title: 'Sheet',
   component: Sheet,
   parameters: {
-    layout: 'padded',
+    layout: 'centered',
     docs: {
       description: {
-        component: 'Sheet component for slide-out panels following Comcast Business Design System.'
-      }
-    }
+        component:
+          'A sheet component (side panel/drawer) built on Radix UI following ShadCN/UI patterns with design system tokens. Features structural borders (neutral-300), smooth slide animations, and support for all four sides (top, right, bottom, left).',
+      },
+    },
   },
   tags: ['autodocs'],
 };
@@ -30,6 +33,7 @@ const meta: Meta<typeof Sheet> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Default Right Side Sheet
 export const Default: Story = {
   render: () => (
     <Sheet>
@@ -38,26 +42,25 @@ export const Default: Story = {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Edit profile</SheetTitle>
+          <SheetTitle>Edit Profile</SheetTitle>
           <SheetDescription>
             Make changes to your profile here. Click save when you're done.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" defaultValue="Pedro Duarte" className="col-span-3" />
+          <div className="grid gap-2">
+            <Label htmlFor="name">Name</Label>
+            <Input id="name" defaultValue="Pedro Duarte" />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" defaultValue="@peduarte" className="col-span-3" />
+          <div className="grid gap-2">
+            <Label htmlFor="username">Username</Label>
+            <Input id="username" defaultValue="@peduarte" />
           </div>
         </div>
         <SheetFooter>
+          <SheetClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </SheetClose>
           <Button type="submit">Save changes</Button>
         </SheetFooter>
       </SheetContent>
@@ -65,26 +68,339 @@ export const Default: Story = {
   ),
 };
 
-export const FromLeft: Story = {
+// Left Side Sheet
+export const LeftSide: Story = {
   render: () => (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Open from Left</Button>
+        <Button variant="outline">Open Left</Button>
       </SheetTrigger>
       <SheetContent side="left">
         <SheetHeader>
-          <SheetTitle>Navigation Menu</SheetTitle>
+          <SheetTitle>Navigation</SheetTitle>
           <SheetDescription>
-            Quick access to all sections of the application.
+            Navigate through different sections of the application.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">
-          <Button variant="ghost" className="justify-start">Dashboard</Button>
-          <Button variant="ghost" className="justify-start">Services</Button>
-          <Button variant="ghost" className="justify-start">Billing</Button>
-          <Button variant="ghost" className="justify-start">Support</Button>
+          <Button variant="ghost" className="justify-start">
+            Dashboard
+          </Button>
+          <Button variant="ghost" className="justify-start">
+            Services
+          </Button>
+          <Button variant="ghost" className="justify-start">
+            Billing
+          </Button>
+          <Button variant="ghost" className="justify-start">
+            Support
+          </Button>
+          <Button variant="ghost" className="justify-start">
+            Settings
+          </Button>
         </div>
       </SheetContent>
     </Sheet>
+  ),
+};
+
+// Top Side Sheet
+export const TopSide: Story = {
+  render: () => (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">Open Top</Button>
+      </SheetTrigger>
+      <SheetContent side="top" className="h-[300px]">
+        <SheetHeader>
+          <SheetTitle>Notification Center</SheetTitle>
+          <SheetDescription>
+            You have 3 unread notifications.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="space-y-3 py-4">
+          <div className="rounded-md bg-neutral-50 p-3">
+            <p className="text-sm font-medium font-secondary">New message</p>
+            <p className="text-xs text-neutral-600 font-secondary">
+              You received a new message from support
+            </p>
+          </div>
+          <div className="rounded-md bg-neutral-50 p-3">
+            <p className="text-sm font-medium font-secondary">Service Update</p>
+            <p className="text-xs text-neutral-600 font-secondary">
+              Your internet service has been upgraded
+            </p>
+          </div>
+          <div className="rounded-md bg-neutral-50 p-3">
+            <p className="text-sm font-medium font-secondary">Bill Ready</p>
+            <p className="text-xs text-neutral-600 font-secondary">
+              Your monthly bill is now available
+            </p>
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
+// Bottom Side Sheet
+export const BottomSide: Story = {
+  render: () => (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">Open Bottom</Button>
+      </SheetTrigger>
+      <SheetContent side="bottom" className="h-[400px]">
+        <SheetHeader>
+          <SheetTitle>Quick Actions</SheetTitle>
+          <SheetDescription>
+            Perform common tasks quickly from here.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="grid grid-cols-2 gap-4 py-4">
+          <Button variant="outline" className="h-20">
+            Pay Bill
+          </Button>
+          <Button variant="outline" className="h-20">
+            View Usage
+          </Button>
+          <Button variant="outline" className="h-20">
+            Contact Support
+          </Button>
+          <Button variant="outline" className="h-20">
+            Manage Services
+          </Button>
+        </div>
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
+// Contact Form Sheet
+export const ContactForm: Story = {
+  render: () => (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button>Contact Support</Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Contact Support</SheetTitle>
+          <SheetDescription>
+            Fill out the form below and we'll get back to you as soon as possible.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid gap-2">
+            <Label htmlFor="subject">Subject</Label>
+            <Input id="subject" placeholder="What can we help you with?" />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" type="email" placeholder="your.email@example.com" />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="message">Message</Label>
+            <Textarea
+              id="message"
+              placeholder="Describe your issue or question..."
+              rows={6}
+            />
+          </div>
+        </div>
+        <SheetFooter>
+          <SheetClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </SheetClose>
+          <Button type="submit">Send Message</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
+// Service Configuration Sheet
+export const ServiceConfiguration: Story = {
+  render: () => (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">Configure Service</Button>
+      </SheetTrigger>
+      <SheetContent className="sm:max-w-md">
+        <SheetHeader>
+          <SheetTitle>Business Internet Configuration</SheetTitle>
+          <SheetDescription>
+            Customize your internet service settings and preferences.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="grid gap-6 py-4">
+          <div className="grid gap-2">
+            <Label htmlFor="speed">Bandwidth Speed</Label>
+            <Input id="speed" defaultValue="1 Gbps" disabled />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="ip">Static IP Address</Label>
+            <Input id="ip" placeholder="192.168.1.1" />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="dns">Custom DNS</Label>
+            <Input id="dns" placeholder="8.8.8.8, 8.8.4.4" />
+          </div>
+          <div className="space-y-2">
+            <Label>Additional Options</Label>
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="checkbox" className="rounded" />
+                Enable IPv6
+              </label>
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="checkbox" className="rounded" />
+                DDoS Protection
+              </label>
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="checkbox" className="rounded" defaultChecked />
+                24/7 Monitoring
+              </label>
+            </div>
+          </div>
+        </div>
+        <SheetFooter>
+          <SheetClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </SheetClose>
+          <Button>Apply Settings</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
+// Filter Panel Sheet
+export const FilterPanel: Story = {
+  render: () => (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">Filters</Button>
+      </SheetTrigger>
+      <SheetContent side="left">
+        <SheetHeader>
+          <SheetTitle>Filter Results</SheetTitle>
+          <SheetDescription>
+            Apply filters to refine your search results.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="grid gap-6 py-4">
+          <div className="grid gap-2">
+            <Label className="text-sm font-semibold">Service Type</Label>
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="checkbox" className="rounded" />
+                Internet
+              </label>
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="checkbox" className="rounded" />
+                Phone
+              </label>
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="checkbox" className="rounded" />
+                TV
+              </label>
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="checkbox" className="rounded" />
+                Security
+              </label>
+            </div>
+          </div>
+          <div className="grid gap-2">
+            <Label className="text-sm font-semibold">Speed Range</Label>
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="radio" name="speed" className="rounded-full" />
+                Up to 100 Mbps
+              </label>
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="radio" name="speed" className="rounded-full" />
+                100-500 Mbps
+              </label>
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="radio" name="speed" className="rounded-full" />
+                500+ Mbps
+              </label>
+              <label className="flex items-center gap-2 text-sm font-secondary cursor-pointer">
+                <input type="radio" name="speed" className="rounded-full" />
+                1 Gbps+
+              </label>
+            </div>
+          </div>
+        </div>
+        <SheetFooter>
+          <Button variant="ghost">Clear All</Button>
+          <Button>Apply Filters</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
+// All Sides Showcase
+export const AllSides: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-4">
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline">Right (Default)</Button>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Right Side</SheetTitle>
+            <SheetDescription>
+              This sheet slides in from the right side.
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline">Left</Button>
+        </SheetTrigger>
+        <SheetContent side="left">
+          <SheetHeader>
+            <SheetTitle>Left Side</SheetTitle>
+            <SheetDescription>
+              This sheet slides in from the left side.
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline">Top</Button>
+        </SheetTrigger>
+        <SheetContent side="top" className="h-[200px]">
+          <SheetHeader>
+            <SheetTitle>Top Side</SheetTitle>
+            <SheetDescription>
+              This sheet slides in from the top.
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline">Bottom</Button>
+        </SheetTrigger>
+        <SheetContent side="bottom" className="h-[200px]">
+          <SheetHeader>
+            <SheetTitle>Bottom Side</SheetTitle>
+            <SheetDescription>
+              This sheet slides in from the bottom.
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+    </div>
   ),
 };

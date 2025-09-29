@@ -26,10 +26,12 @@ npm run build:storybook  # Test for circular reference errors
 ```
 This catches circular reference issues that only appear during Storybook builds (like the Netlify failures).
 
-**🔴 IMMEDIATE FIXES NEEDED (as of Sep 23):**
-- 10 components still using `--ds-color-border-default` (run `grep -r "border-default" src/components/ui`)
-- TypeScript errors in index files blocking builds
-- See `./packages/docs/context/automated-compliance-checks.md` for full list
+**✅ RECENT ACCOMPLISHMENTS (Jan 2025):**
+- ✅ All form controls standardized with consistent `error` prop API (Input, Select, Textarea, Checkbox, RadioGroup, Switch, Combobox, Slider)
+- ✅ Comprehensive 14-section MDX documentation created for 8 form components (located at `stories/Documentation/Forms/`)
+- ✅ Form input state standards defined: Default, Focused, Filled, Error, Disabled
+- ✅ Switch component migrated from CSS variables to Tailwind tokens for consistency
+- ✅ All components rebuilt using ShadCN-First approach with proper border hierarchy
 
 ---
 
@@ -68,6 +70,13 @@ This catches circular reference issues that only appear during Storybook builds 
 
 ## Non-Negotiable Guardrails (binding)
 
+- **🚨 MANDATORY: ShadCN/UI-First Approach**: ALWAYS start with the official ShadCN/UI component implementation as the base. NEVER build components from scratch. Copy the exact component code from https://ui.shadcn.com/docs/components/[component-name] or https://raw.githubusercontent.com/shadcn-ui/ui/main/apps/www/registry/default/ui/[component].tsx, then enhance with design system tokens. This prevents hallucinations and ensures battle-tested implementations.
+- **Component Implementation Process (ENFORCED)**:
+  1. **Fetch official ShadCN/UI implementation** - Use WebFetch to get the exact component code
+  2. **Copy implementation verbatim** - Start with their exact structure, props, and patterns
+  3. **Enhance with design tokens** - Replace hardcoded values with CSS custom properties
+  4. **Apply border hierarchy** - Follow our specific border color rules
+  5. **Test alignment and functionality** - Use Playwright to verify visual correctness
 - **Tokens only** for color, typography, spacing, radius, shadow, motion. **No literal hex/rgb/px** in component code.
 - **Border Hierarchy (ENFORCED)**: Form inputs use `--ds-color-neutral-400` (#B4B5BB), structural elements use `--ds-color-neutral-300` (#DDDDE2). Never use `--ds-color-border-default` directly.
 - **Theming** via CSS variables from `@company/tokens`; support light/dark, density, and RTL. No inline color overrides.
@@ -76,7 +85,7 @@ This catches circular reference issues that only appear during Storybook builds 
 - **API shape**: typed props, `forwardRef`, controlled **and** uncontrolled where relevant; stable event contracts; no breaking prop renames without migration.
 - **Performance**: SSR-safe, tree-shakeable, zero layout thrash on theme switch; avoid runtime CSS-in-JS (prefer CSS vars with precompiled styles or zero-runtime solutions). Components >20KB must use lazy loading. Bundle must stay under 200KB total, 50KB initial load.
 - **Icons policy (resolved)**: Icon components use `currentColor` by default; support `colorToken="<token-name>"` (component resolves token → value). Authors never paste hex.
-- **Never do**: invent tokens/variants ad-hoc; nth-child hacks that break composition; `dangerouslySetInnerHTML` in primitives; console errors in normal flows.
+- **Never do**: invent tokens/variants ad-hoc; nth-child hacks that break composition; `dangerouslySetInnerHTML` in primitives; console errors in normal flows; build components from scratch without ShadCN/UI base.
 - **Component Organization**: Each component should be displayed as a standalone page in Storybook. **Never organize components in folder/category structures** within the Storybook navigation. Each component gets its own top-level page for discoverability and ease of use.
 
 ### ⚠️ CRITICAL: Circular Reference Prevention
@@ -127,14 +136,19 @@ npm run dev:fresh          # Complete Storybook restart
 
 ## Tasks / Playbooks (copy & run)
 
-### 1) Build from spec → implementation + tests + docs
-Using `./components/{Component}/spec.md` plus the Guardrails:
-- Generate `src/{Component}.tsx` (wrap Radix/Headless when applicable), Storybook stories (all variants/sizes + hover/focus/disabled + RTL + long text), tests (Vitest + Testing Library), **axe** checks (0 violations), and Playwright VRT snapshots (diff ≤ 1%).
-- Create MDX docs per docs style with a **"Tokens Used"** table listing the exact token keys.
-- Add a Changeset with correct semver and migration notes (if props/tokens changed).
+### 1) Build from ShadCN/UI base → enhance + tests + docs
+**MANDATORY ShadCN/UI-First Process**:
+1. **Fetch official ShadCN/UI implementation** using WebFetch from https://ui.shadcn.com/docs/components/[component-name] or GitHub raw URL
+2. **Copy implementation verbatim** - Use their exact structure, props, classNames, and patterns
+3. **Enhance with design tokens** - Replace hardcoded Tailwind classes with our design system tokens
+4. **Apply border hierarchy** - Use `neutral-400` for form inputs, `neutral-300` for structural elements
+5. **Add comprehensive Storybook stories** (all variants/sizes + hover/focus/disabled + RTL + long text)
+6. **Write tests** (Vitest + Testing Library), **axe** checks (0 violations), and Playwright VRT snapshots (diff ≤ 1%)
+7. **Create MDX docs** with **"Tokens Used"** table listing exact token keys (see Task 10 for structure)
+8. **Visual verification** - Use Playwright screenshots to ensure proper alignment and functionality
 
 **Prompt**
-"Build `{Component}` from `./components/{Component}/spec.md` following the Guardrails. Implement, add stories (states/RTL/long text), write tests + axe + VRT, write MDX with Tokens Used, and add a Changeset."
+"Build `{Component}` using ShadCN/UI-First approach: 1) Fetch official ShadCN/UI implementation, 2) Copy verbatim, 3) Enhance with design tokens, 4) Add comprehensive stories/tests/docs, 5) Verify with Playwright screenshots."
 
 ---
 
@@ -156,11 +170,11 @@ Using `./components/{Component}/spec.md` plus the Guardrails:
 ---
 
 ### 4) Apply border hierarchy rules (CRITICAL)
-- **Form inputs** (input, textarea, select, checkbox, radio, command, form): Use `--ds-color-neutral-400` (#B4B5BB)
-- **Structural elements** (table, card, accordion, dialog, sheet, separator, tabs, tooltip, toast, popover, breadcrumb): Use `--ds-color-neutral-300` (#DDDDE2)
+- **Form inputs** (input, textarea, select, checkbox, radio, command, form): Use `border-neutral-400` (#B4B5BB)
+- **Structural elements** (table, card, accordion, dialog, sheet, separator, tabs, tooltip, toast, popover, breadcrumb): Use `border-neutral-300` (#DDDDE2)
 - **NEVER use** `--ds-color-border-default` directly - it's deprecated
 - Run `npm run fix:tokens` for automatic application; verify with `npm run validate:tokens`
-- **Current violations (Sep 23):** checkbox, radio-group, command, card, dialog, sheet, tabs, popover, breadcrumb, chart
+- **✅ RESOLVED:** All form controls (Input, Select, Textarea, Checkbox, RadioGroup, Switch, Combobox, Slider) now use correct border hierarchy
 
 **Prompt**
 "Fix ALL border-default usage in ui components. Apply border hierarchy: form inputs use neutral-400, structural use neutral-300. Verify with grep and force Storybook reload."
@@ -219,6 +233,66 @@ When preparing NPM packages, these are the most common issues:
 
 ---
 
+### 10) Create comprehensive MDX component documentation
+**14-Section Documentation Structure** (place in `stories/Documentation/Forms/[Component].mdx`):
+
+1. **Component Name** - Clear title with h1
+2. **Description** - Overview with primary use cases and business context
+3. **Anatomy** - Visual breakdown with ASCII diagram showing all parts
+4. **Usage Guidelines** - When to use, when NOT to use, best practices
+5. **Behavior / Interaction States** - All states documented (Default, Hover, Focused, Filled, Disabled, Error, Loading, etc.)
+6. **Variants** - By size, type, content organization, functionality
+7. **Accessibility (a11y) Considerations** - Keyboard interaction, ARIA attributes, screen reader behavior, color contrast, focus indicators
+8. **Content Guidelines** - Labels, placeholders, error messages, hint text (with Do's and Don'ts)
+9. **Responsive Behavior** - Mobile, tablet, desktop breakpoints
+10. **Code Example** - TSX code examples with proper syntax (```tsx without escaping backticks)
+11. **Do's and Don'ts** - Tables with specific examples
+12. **Related Components** - Cross-references to similar components
+13. **Conversion Considerations** - Impact on conversion rates, optimization tips, testing recommendations
+14. **Version History** - Changelog table
+15. **Design Tokens Used** - Complete table with token names, values, and usage
+
+**MDX File Structure:**
+```mdx
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Forms/ComponentName" />
+
+# ComponentName
+
+## Description
+[Content with **bold** for primary use cases and business context]
+
+## Anatomy
+[ASCII diagram + numbered list of parts]
+
+## Usage Guidelines
+### When to Use
+- ✅ Use case 1
+### When NOT to Use
+- ❌ Anti-pattern 1
+### Best Practices
+- Guidance 1
+
+[... continue with all 14 sections]
+
+## Design Tokens Used
+| Token | Value | Usage |
+|-------|-------|-------|
+| `border-neutral-400` | #B4B5BB | Default border |
+```
+
+**CRITICAL MDX Rules:**
+- Use plain backticks for code blocks: ` ```tsx ` NOT `\`\`\`tsx`
+- Import only `Meta` from '@storybook/blocks'
+- Title format: `Documentation/Forms/ComponentName` for proper navigation
+- No component imports needed (docs are informational, not interactive)
+
+**Prompt**
+"Create comprehensive 14-section MDX documentation for {Component} at stories/Documentation/Forms/{Component}.mdx following the structure above. Use plain backticks (no escaping) for code blocks."
+
+---
+
 ### Run a design review on a PR
 Use the **design-review** agent.
 
@@ -243,3 +317,23 @@ ALWAYS prefer editing an existing file to creating a new one.
 NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
 When fixing TypeScript errors, ALWAYS run `npm run build` to verify fixes.
 When modifying components, ALWAYS run `npm run lint` and `npm run type-check`.
+
+## Form Component Standards (Established Jan 2025)
+**Consistent Error Prop Pattern:**
+- All form controls expose an explicit `error?: boolean` prop
+- Components: Input, Select, Textarea, Checkbox, RadioGroup, Switch, Combobox, Slider
+- Error styling: `border-destructive` and `focus:ring-destructive`
+
+**Form Input States Standard (5 core states):**
+1. **Default** - Neutral appearance, ready for input
+2. **Focused** - Primary-500 border and focus ring
+3. **Filled** - Content present, normal styling
+4. **Error** - Destructive border and messaging
+5. **Disabled** - Reduced opacity, not-allowed cursor
+
+**Token Usage:**
+- Form input borders: `border-neutral-400` (#B4B5BB)
+- Structural borders: `border-neutral-300` (#DDDDE2)
+- Focus rings: `ring-primary-500` (#0D62FF)
+- Error states: `border-destructive`, `ring-destructive` (#D11314)
+- Use Tailwind tokens, NOT CSS variables (e.g., `bg-primary-500` not `var(--ds-color-intent-primary)`)

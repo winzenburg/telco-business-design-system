@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { RadioGroup, RadioGroupItem, Label } from '../src/components';
+import RadioGroupDocs from './RadioGroup.mdx';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'RadioGroup',
@@ -8,6 +9,7 @@ const meta: Meta<typeof RadioGroup> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: RadioGroupDocs,
       description: {
         component: 'Radio Group component for single-choice selections following Comcast Business Design System.'
       }
