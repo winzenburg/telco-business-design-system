@@ -44,7 +44,7 @@ export const GlobalNavigation = React.forwardRef<
         // Base layout
         'flex items-center justify-between px-6 py-3 h-16',
         // Comcast brand blue background
-        'bg-primary-600',
+        'bg-[var(--ds-color-blue-600)]',
         className,
       )}
       {...props}
