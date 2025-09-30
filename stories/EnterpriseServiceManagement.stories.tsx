@@ -17,6 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../src/components/ui/select';
+import { Combobox } from '../src/components/ui/combobox';
+import { DatePicker } from '../src/components/ui/date-picker';
 import {
   Table,
   TableBody,

@@ -17,6 +17,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../src/components/ui/select';
+import { Combobox } from '../src/components/ui/combobox';
+import { DatePicker } from '../src/components/ui/date-picker';
+import { Textarea } from '../src/components/ui/textarea';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '../src/components/ui/dialog';
 import {
   Table,
   TableBody,
@@ -47,6 +58,7 @@ import {
   ChartTooltipContent,
 } from '../src/components/ui/chart';
 import { Icon } from '../packages/icons/src/Icon';
+import { AlertCircle } from 'lucide-react';
 
 // Import Recharts components
 import {
@@ -167,17 +179,42 @@ const analyticsData = [
   { metric: "Customer Satisfaction", current: "4.8/5", previous: "4.7/5", change: "+2.1%" },
 ];
 
+const reportTypeOptions = [
+  { value: 'all', label: 'All Types' },
+  { value: 'Performance', label: 'Performance' },
+  { value: 'Availability', label: 'Availability' },
+  { value: 'Usage', label: 'Usage' },
+  { value: 'Security', label: 'Security' },
+  { value: 'Financial', label: 'Financial' },
+];
+
+const reportPeriodOptions = [
+  { value: 'all', label: 'All Periods' },
+  { value: 'Daily', label: 'Daily' },
+  { value: 'Weekly', label: 'Weekly' },
+  { value: 'Monthly', label: 'Monthly' },
+  { value: 'Quarterly', label: 'Quarterly' },
+];
+
 export const EnterpriseReportsInterface: Story = {
   render: () => {
     const [selectedReports, setSelectedReports] = useState<string[]>([]);
     const [reportFilter, setReportFilter] = useState('all');
+    const [periodFilter, setPeriodFilter] = useState('all');
     const [searchTerm, setSearchTerm] = useState('');
+    const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+    const [endDate, setEndDate] = useState<Date | undefined>(undefined);
+    const [customReportDialogOpen, setCustomReportDialogOpen] = useState(false);
+    const [reportName, setReportName] = useState('');
+    const [reportType, setReportType] = useState('');
+    const [reportDescription, setReportDescription] = useState('');
 
     const filteredReports = performanceReports.filter(report => {
       const matchesSearch = report.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           report.type.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesFilter = reportFilter === 'all' || report.type === reportFilter;
-      return matchesSearch && matchesFilter;
+      const matchesPeriod = periodFilter === 'all' || report.period === periodFilter;
+      return matchesSearch && matchesFilter && matchesPeriod;
     });
 
     const toggleReportSelection = (reportId: string) => {
@@ -353,7 +390,7 @@ export const EnterpriseReportsInterface: Story = {
                   </div>
 
                   {/* Filters */}
-                  <div className="flex flex-col sm:flex-row gap-4 mt-4">
+                  <div className="flex flex-col gap-4 mt-4">
                     <div className="flex-1">
                       <Input
                         placeholder="Search reports by name or type..."
@@ -361,20 +398,58 @@ export const EnterpriseReportsInterface: Story = {
                         onChange={(e) => setSearchTerm(e.target.value)}
                       />
                     </div>
-                    <div className="flex gap-2">
-                      <Select value={reportFilter} onValueChange={setReportFilter}>
-                        <SelectTrigger className="w-40">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">All Types</SelectItem>
-                          <SelectItem value="Performance">Performance</SelectItem>
-                          <SelectItem value="Availability">Availability</SelectItem>
-                          <SelectItem value="Usage">Usage</SelectItem>
-                          <SelectItem value="Security">Security</SelectItem>
-                          <SelectItem value="Financial">Financial</SelectItem>
-                        </SelectContent>
-                      </Select>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Combobox
+                        options={reportTypeOptions}
+                        value={reportFilter}
+                        onValueChange={setReportFilter}
+                        placeholder="Select type..."
+                        searchPlaceholder="Search types..."
+                        width="w-[160px]"
+                      />
+                      <Combobox
+                        options={reportPeriodOptions}
+                        value={periodFilter}
+                        onValueChange={setPeriodFilter}
+                        placeholder="Select period..."
+                        searchPlaceholder="Search periods..."
+                        width="w-[160px]"
+                      />
+                      <div className="flex items-center gap-2">
+                        <DatePicker
+                          date={startDate}
+                          onDateChange={setStartDate}
+                          placeholder="Start date"
+                        />
+                        <span className="text-sm text-[var(--ds-color-text-muted)]">to</span>
+                        <DatePicker
+                          date={endDate}
+                          onDateChange={setEndDate}
+                          placeholder="End date"
+                        />
+                      </div>
+                      {(reportFilter !== 'all' || periodFilter !== 'all' || startDate || endDate) && (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            setReportFilter('all');
+                            setPeriodFilter('all');
+                            setStartDate(undefined);
+                            setEndDate(undefined);
+                          }}
+                        >
+                          Clear filters
+                        </Button>
+                      )}
+                      <div className="ml-auto">
+                        <Button
+                          variant="outline"
+                          onClick={() => setCustomReportDialogOpen(true)}
+                        >
+                          Create Custom Report
+                        </Button>
+                      </div>
                     </div>
                   </div>
 
@@ -820,6 +895,97 @@ export const EnterpriseReportsInterface: Story = {
           </Tabs>
         </div>
       </div>
+
+      {/* Custom Report Dialog */}
+      <Dialog open={customReportDialogOpen} onOpenChange={setCustomReportDialogOpen}>
+        <DialogContent className="sm:max-w-[600px]">
+          <DialogHeader>
+            <DialogTitle>Create Custom Report</DialogTitle>
+            <DialogDescription>
+              Configure a custom report with specific metrics, date ranges, and filters.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-6 py-4">
+            {/* Report Name */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">
+                Report Name <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+              </label>
+              <Input
+                placeholder="Enter report name..."
+                value={reportName}
+                onChange={(e) => setReportName(e.target.value)}
+              />
+            </div>
+
+            {/* Report Type */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">
+                Report Type <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+              </label>
+              <Select value={reportType} onValueChange={setReportType}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select report type..." />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="performance">Performance Analysis</SelectItem>
+                  <SelectItem value="availability">Availability Metrics</SelectItem>
+                  <SelectItem value="usage">Usage Statistics</SelectItem>
+                  <SelectItem value="security">Security Assessment</SelectItem>
+                  <SelectItem value="financial">Financial Summary</SelectItem>
+                  <SelectItem value="custom">Custom Metrics</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Report Description */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">
+                Description <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+              </label>
+              <Textarea
+                placeholder="Describe the metrics and insights you want in this report..."
+                value={reportDescription}
+                onChange={(e) => setReportDescription(e.target.value)}
+                minLength={20}
+                maxLength={500}
+                rows={5}
+                showCount
+              />
+              <p className="text-xs text-[var(--ds-color-text-muted)]">
+                Minimum 20 characters. Describe the purpose, metrics, and timeframe for your custom report.
+              </p>
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setCustomReportDialogOpen(false);
+                setReportName('');
+                setReportType('');
+                setReportDescription('');
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              disabled={!reportName || !reportType || reportDescription.length < 20}
+              onClick={() => {
+                // Handle custom report creation
+                setCustomReportDialogOpen(false);
+                setReportName('');
+                setReportType('');
+                setReportDescription('');
+              }}
+            >
+              Generate Report
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     );
   },
 };
