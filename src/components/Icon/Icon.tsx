@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getIcon, loadSVG, type IconName } from '../../tokens/design-system-icons';
+import { CORE_ICONS } from '../../../packages/tokens/icon-registry';
+import type { IconName } from '../../tokens/design-system-icons';
 
 export interface IconProps {
   /** Icon name from the design system */
@@ -99,7 +100,7 @@ export const Icon: React.FC<IconProps> = ({
         setLoading(true);
         setError(null);
 
-        const iconData = getIcon(name);
+        const iconData = CORE_ICONS[name];
         if (!iconData) {
           throw new Error(`Icon "${name}" not found in design system`);
         }
@@ -108,7 +109,7 @@ export const Icon: React.FC<IconProps> = ({
         let svg: string;
         try {
           // Use fetch to load SVG files directly from public directory
-          const fileName = (iconData as any).fileName || `${name}.svg`;
+          const fileName = iconData.fileName || `${name}.svg`;
           const response = await fetch(`/icons/${fileName}`);
           if (response.ok) {
             svg = await response.text();
