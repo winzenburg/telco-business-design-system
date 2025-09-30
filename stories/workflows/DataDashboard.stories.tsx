@@ -310,16 +310,16 @@ const DashboardFlow = () => {
               <div className="space-y-2">
                 <Label htmlFor="startDate">Start Date</Label>
                 <DatePicker
-                  value={customStartDate}
-                  onChange={(date) => setCustomStartDate(date)}
+                  date={customStartDate}
+                  onDateChange={(date) => setCustomStartDate(date)}
                   placeholder="Select start date"
                 />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="endDate">End Date</Label>
                 <DatePicker
-                  value={customEndDate}
-                  onChange={(date) => setCustomEndDate(date)}
+                  date={customEndDate}
+                  onDateChange={(date) => setCustomEndDate(date)}
                   placeholder="Select end date"
                 />
               </div>

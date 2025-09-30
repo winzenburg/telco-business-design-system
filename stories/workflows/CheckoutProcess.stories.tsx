@@ -682,8 +682,8 @@ const CheckoutFlow = () => {
                   <Calendar className="h-4 w-4 mt-3 text-[var(--ds-color-text-muted)]" />
                   <div className="flex-1">
                     <DatePicker
-                      value={installationDate}
-                      onChange={(date) => {
+                      date={installationDate}
+                      onDateChange={(date) => {
                         setInstallationDate(date);
                         if (errors.installationDate) setErrors({ ...errors, installationDate: undefined });
                       }}

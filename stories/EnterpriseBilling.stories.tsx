@@ -791,13 +791,13 @@ export const WithValidationErrors: Story = {
                             setErrors(prev => ({ ...prev, startDate: 'Start date must be before end date' }));
                           } else {
                             setErrors(prev => {
-                              const { startDate, ...rest } = prev;
-                              return rest;
+                              const newErrors = { ...prev };
+                              delete newErrors.startDate;
+                              return newErrors as typeof prev;
                             });
                           }
                         }}
                         placeholder="Start date"
-                        error={!!errors.startDate}
                       />
                       <span className="text-sm text-[var(--ds-color-text-muted)]">to</span>
                       <DatePicker
@@ -808,13 +808,13 @@ export const WithValidationErrors: Story = {
                             setErrors(prev => ({ ...prev, startDate: 'Start date must be before end date' }));
                           } else {
                             setErrors(prev => {
-                              const { startDate, ...rest } = prev;
-                              return rest;
+                              const newErrors = { ...prev };
+                              delete newErrors.startDate;
+                              return newErrors as typeof prev;
                             });
                           }
                         }}
                         placeholder="End date"
-                        error={!!errors.startDate}
                       />
                     </div>
                     {errors.startDate && (
@@ -958,8 +958,9 @@ export const WithValidationErrors: Story = {
                   onValueChange={(value) => {
                     setDisputeReason(value);
                     setErrors(prev => {
-                      const { disputeReason, ...rest } = prev;
-                      return rest;
+                      const newErrors = { ...prev };
+                      delete newErrors.disputeReason;
+                      return newErrors as typeof prev;
                     });
                   }}
                 >
@@ -995,8 +996,9 @@ export const WithValidationErrors: Story = {
                     setDisputeDescription(e.target.value);
                     if (e.target.value.length >= 20) {
                       setErrors(prev => {
-                        const { disputeDescription, ...rest } = prev;
-                        return rest;
+                        const newErrors = { ...prev };
+                        delete newErrors.disputeDescription;
+                        return newErrors as typeof prev;
                       });
                     } else {
                       setErrors(prev => ({ ...prev, disputeDescription: 'Description must be at least 20 characters' }));

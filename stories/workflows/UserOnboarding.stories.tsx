@@ -519,8 +519,8 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
               <div className="space-y-2">
                 <Label htmlFor="startDate">Preferred Start Date *</Label>
                 <DatePicker
-                  value={formData.startDate}
-                  onChange={(date) => {
+                  date={formData.startDate}
+                  onDateChange={(date) => {
                     setFormData({ ...formData, startDate: date });
                     if (errors.startDate) setErrors({ ...errors, startDate: undefined });
                   }}
