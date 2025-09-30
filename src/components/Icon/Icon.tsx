@@ -207,9 +207,9 @@ function processSVGContent(
     );
   }
 
-  // Apply color to fill and stroke
-  processed = processed.replace(/fill="[^"]*"/g, `fill="${options.color}"`);
-  processed = processed.replace(/stroke="[^"]*"/g, `stroke="${options.color}"`);
+  // Apply color to fill and stroke, but preserve "none" values
+  processed = processed.replace(/fill="(?!none")[^"]*"/g, `fill="${options.color}"`);
+  processed = processed.replace(/stroke="(?!none")[^"]*"/g, `stroke="${options.color}"`);
 
   // Add CSS classes
   if (options.className) {
