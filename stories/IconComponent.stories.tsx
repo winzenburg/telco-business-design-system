@@ -467,7 +467,7 @@ export const ComprehensiveIconBrowser: Story = {
                 {/* Icon Preview */}
                 <div className="flex flex-col items-center justify-center p-8 bg-[var(--ds-color-bg-subtle)] rounded-lg">
                   <Icon
-                    name={selectedIcon}
+                    name={selectedIcon as any}
                     size={64}
                     className="text-[var(--ds-color-intent-primary)]"
                   />
