@@ -1,0 +1,1309 @@
+{
+  "timestamp": "2025-09-30T21:51:47.090Z",
+  "summary": {
+    "totalConsoleMessages": 4,
+    "errorMessages": 2,
+    "networkFailures": 0,
+    "redXIcons": 0,
+    "workingIcons": 93,
+    "failingIcons": 3
+  },
+  "consoleMessages": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "error",
+      "text": "Error: <path> attribute d: Expected number, \"…8 11.9239 25.78Lnan nanL11.9239 …\"."
+    }
+  ],
+  "errorMessages": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Error: <path> attribute d: Expected number, \"…8 11.9239 25.78Lnan nanL11.9239 …\"."
+  ],
+  "networkFailures": [],
+  "redXIcons": [],
+  "workingIcons": [
+    {
+      "index": 4,
+      "text": "\n  Analytics\n  data icon from Comcast Business Design System\n\n\n\n",
+      "innerHTML": "\n  <title>Analytics</title>\n  <desc>data icon from Comcast Business Design System</desc>\n<g id=\"Anal"
+    },
+    {
+      "index": 5,
+      "text": "\n  Blockers\n  security icon from Comcast Business Design System\n\n\n\n\n\n\n",
+      "innerHTML": "<span class=\"inline-flex items-center justify-center  \"><svg aria-label=\"blockers\" width=\"32px\" heig"
+    },
+    {
+      "index": 6,
+      "text": "\n  Blockers\n  security icon from Comcast Business Design System\n\n\n\n\n\n",
+      "innerHTML": "\n  <title>Blockers</title>\n  <desc>security icon from Comcast Business Design System</desc>\n<g id=\"B"
+    },
+    {
+      "index": 7,
+      "text": "",
+      "innerHTML": "<span class=\"inline-flex items-center justify-center  \"><svg role=\"img\" aria-label=\"grid\" width=\"32p"
+    },
+    {
+      "index": 9,
+      "text": "\n  Configure\n  general icon from Comcast Business Design System\n\n\n\n\n\n\n\n\n\n\n\n",
+      "innerHTML": "<span class=\"inline-flex items-center justify-center  \"><svg aria-label=\"configure\" width=\"32px\" hei"
+    },
+    {
+      "index": 10,
+      "text": "\n  Configure\n  general icon from Comcast Business Design System\n\n\n\n\n\n\n\n\n\n\n",
+      "innerHTML": "\n  <title>Configure</title>\n  <desc>general icon from Comcast Business Design System</desc>\n<g id=\"C"
+    },
+    {
+      "index": 11,
+      "text": "\n  Device\n  general icon from Comcast Business Design System\n\n\n\n\n",
+      "innerHTML": "<span class=\"inline-flex items-center justify-center  \"><svg aria-label=\"device\" width=\"32px\" height"
+    },
+    {
+      "index": 12,
+      "text": "\n  Device\n  general icon from Comcast Business Design System\n\n\n\n",
+      "innerHTML": "\n  <title>Device</title>\n  <desc>general icon from Comcast Business Design System</desc>\n<g id=\"Devi"
+    },
+    {
+      "index": 13,
+      "text": "\n  Document\n  file icon from Comcast Business Design System\n\n\n\n\n",
+      "innerHTML": "<span class=\"inline-flex items-center justify-center  \"><svg aria-label=\"document\" width=\"32px\" heig"
+    },
+    {
+      "index": 14,
+      "text": "\n  Document\n  file icon from Comcast Business Design System\n\n\n\n",
+      "innerHTML": "\n  <title>Document</title>\n  <desc>file icon from Comcast Business Design System</desc>\n<g id=\"Docum"
+    }
+  ],
+  "iconDetails": [
+    {
+      "index": 0,
+      "name": "Set string",
+      "hasRedX": false,
+      "text": "Set string"
+    },
+    {
+      "index": 1,
+      "name": "Set string",
+      "hasRedX": false,
+      "text": "Set string"
+    },
+    {
+      "index": 2,
+      "name": "Set string",
+      "hasRedX": false,
+      "text": "Set string"
+    },
+    {
+      "index": 3,
+      "name": "Copy React Code",
+      "hasRedX": false,
+      "text": "Copy React Code"
+    },
+    {
+      "index": 4,
+      "name": "Copy Name",
+      "hasRedX": false,
+      "text": "Copy Name"
+    },
+    {
+      "index": 5,
+      "name": "Grid",
+      "hasRedX": false,
+      "text": "Grid"
+    },
+    {
+      "index": 6,
+      "name": "List",
+      "hasRedX": false,
+      "text": "List"
+    },
+    {
+      "index": 7,
+      "name": "blockers (security)",
+      "hasRedX": false,
+      "text": "Blockers\n  security icon from Comcast Business Des"
+    },
+    {
+      "index": 8,
+      "name": "grid (interface)",
+      "hasRedX": true,
+      "text": ""
+    },
+    {
+      "index": 9,
+      "name": "numbers (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 10,
+      "name": "configure (general)",
+      "hasRedX": false,
+      "text": "Configure\n  general icon from Comcast Business Des"
+    },
+    {
+      "index": 11,
+      "name": "device (general)",
+      "hasRedX": false,
+      "text": "Device\n  general icon from Comcast Business Design"
+    },
+    {
+      "index": 12,
+      "name": "document (file)",
+      "hasRedX": false,
+      "text": "Document\n  file icon from Comcast Business Design "
+    },
+    {
+      "index": 13,
+      "name": "folder (file)",
+      "hasRedX": false,
+      "text": "Folder\n  file icon from Comcast Business Design Sy"
+    },
+    {
+      "index": 14,
+      "name": "performancethreshold (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 15,
+      "name": "feedback (navigation)",
+      "hasRedX": false,
+      "text": "Feedback\n  navigation icon from Comcast Business D"
+    },
+    {
+      "index": 16,
+      "name": "variantthumbdowntypeoutline (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 17,
+      "name": "variantthumbdowntypefilled (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 18,
+      "name": "variantthumbuptypeoutline (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 19,
+      "name": "variantthumbuptypefilled (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 20,
+      "name": "typeoutline (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 21,
+      "name": "typefilled (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 22,
+      "name": "conference (general)",
+      "hasRedX": false,
+      "text": "Conference\n  general icon from Comcast Business De"
+    },
+    {
+      "index": 23,
+      "name": "wallet (general)",
+      "hasRedX": false,
+      "text": "Wallet\n  general icon from Comcast Business Design"
+    },
+    {
+      "index": 24,
+      "name": "internet (general)",
+      "hasRedX": false,
+      "text": "Internet\n  general icon from Comcast Business Desi"
+    },
+    {
+      "index": 25,
+      "name": "wifi (general)",
+      "hasRedX": false,
+      "text": "WiFi\n  general icon from Comcast Business Design S"
+    },
+    {
+      "index": 26,
+      "name": "analytics (data)",
+      "hasRedX": false,
+      "text": "Analytics\n  data icon from Comcast Business Design"
+    },
+    {
+      "index": 27,
+      "name": "clipboard (general)",
+      "hasRedX": false,
+      "text": "Clipboard\n  general icon from Comcast Business Des"
+    },
+    {
+      "index": 28,
+      "name": "byod (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 29,
+      "name": "shareddata (social)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 30,
+      "name": "shoppingbag (commerce)",
+      "hasRedX": false,
+      "text": "Shopping Bag\n  commerce icon from Comcast Business"
+    },
+    {
+      "index": 31,
+      "name": "fees (general)",
+      "hasRedX": false,
+      "text": "Fees\n  general icon from Comcast Business Design S"
+    },
+    {
+      "index": 32,
+      "name": "bell (communication)",
+      "hasRedX": false,
+      "text": "Bell\n  communication icon from Comcast Business De"
+    },
+    {
+      "index": 33,
+      "name": "variantmicon (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 34,
+      "name": "variantmicoff (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 35,
+      "name": "cartempty (commerce)",
+      "hasRedX": false,
+      "text": "Cart empty\n  commerce icon from Comcast Business D"
+    },
+    {
+      "index": 36,
+      "name": "message (communication)",
+      "hasRedX": false,
+      "text": "Message\n  communication icon from Comcast Business"
+    },
+    {
+      "index": 37,
+      "name": "tool (general)",
+      "hasRedX": false,
+      "text": ""
+    },
+    {
+      "index": 38,
+      "name": "autopay (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 39,
+      "name": "ethernet (general)",
+      "hasRedX": false,
+      "text": "Ethernet\n  general icon from Comcast Business Desi"
+    },
+    {
+      "index": 40,
+      "name": "flow (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 41,
+      "name": "truck (general)",
+      "hasRedX": true,
+      "text": ""
+    },
+    {
+      "index": 42,
+      "name": "videomonitoring (media)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 43,
+      "name": "securityquestion (security)",
+      "hasRedX": false,
+      "text": "Security Question\n  security icon from Comcast Bus"
+    },
+    {
+      "index": 44,
+      "name": "2factor (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 45,
+      "name": "password (security)",
+      "hasRedX": false,
+      "text": "Password\n  security icon from Comcast Business Des"
+    },
+    {
+      "index": 46,
+      "name": "speed (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 47,
+      "name": "voicemail (communication)",
+      "hasRedX": false,
+      "text": "Voicemail\n  communication icon from Comcast Busine"
+    },
+    {
+      "index": 48,
+      "name": "gethelp (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 49,
+      "name": "money (commerce)",
+      "hasRedX": false,
+      "text": "Money\n  commerce icon from Comcast Business Design"
+    },
+    {
+      "index": 50,
+      "name": "pricetag (commerce)",
+      "hasRedX": false,
+      "text": "Price Tag\n  commerce icon from Comcast Business De"
+    },
+    {
+      "index": 51,
+      "name": "video (media)",
+      "hasRedX": false,
+      "text": "Video\n  media icon from Comcast Business Design Sy"
+    },
+    {
+      "index": 52,
+      "name": "piechart (data)",
+      "hasRedX": false,
+      "text": "Pie Chart\n  data icon from Comcast Business Design"
+    },
+    {
+      "index": 53,
+      "name": "portal (general)",
+      "hasRedX": false,
+      "text": "Portal\n  general icon from Comcast Business Design"
+    },
+    {
+      "index": 54,
+      "name": "stream (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 55,
+      "name": "layout (general)",
+      "hasRedX": true,
+      "text": ""
+    },
+    {
+      "index": 56,
+      "name": "headphones (communication)",
+      "hasRedX": false,
+      "text": ""
+    },
+    {
+      "index": 57,
+      "name": "users (interface)",
+      "hasRedX": false,
+      "text": "Users\n  interface icon from Comcast Business Desig"
+    },
+    {
+      "index": 58,
+      "name": "hotspot (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 59,
+      "name": "paymentcard (commerce)",
+      "hasRedX": false,
+      "text": "Payment Card\n  commerce icon from Comcast Business"
+    },
+    {
+      "index": 60,
+      "name": "pin (location)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 61,
+      "name": "increase (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 62,
+      "name": "ecobill (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 63,
+      "name": "camera (media)",
+      "hasRedX": false,
+      "text": "Camera\n  media icon from Comcast Business Design S"
+    },
+    {
+      "index": 64,
+      "name": "printer (general)",
+      "hasRedX": false,
+      "text": ""
+    },
+    {
+      "index": 65,
+      "name": "activecore (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 66,
+      "name": "mobility (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 67,
+      "name": "staticip (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 68,
+      "name": "attachment (file)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 69,
+      "name": "chat (communication)",
+      "hasRedX": false,
+      "text": "Chat\n  communication icon from Comcast Business De"
+    },
+    {
+      "index": 70,
+      "name": "addnewservices (action)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 71,
+      "name": "article (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 72,
+      "name": "addchannels (action)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 73,
+      "name": "guide (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 74,
+      "name": "kit (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 75,
+      "name": "browser (general)",
+      "hasRedX": false,
+      "text": "Browser\n  general icon from Comcast Business Desig"
+    },
+    {
+      "index": 76,
+      "name": "report (data)",
+      "hasRedX": false,
+      "text": "Report\n  data icon from Comcast Business Design Sy"
+    },
+    {
+      "index": 77,
+      "name": "variantenabled (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 78,
+      "name": "variantdisabled (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 79,
+      "name": "deployment (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 80,
+      "name": "cloud (weather)",
+      "hasRedX": false,
+      "text": "Cloud\n  weather icon from Comcast Business Design "
+    },
+    {
+      "index": 81,
+      "name": "cloudstorm (weather)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 82,
+      "name": "cloudupload (navigation)",
+      "hasRedX": false,
+      "text": "Cloud Upload\n  navigation icon from Comcast Busine"
+    },
+    {
+      "index": 83,
+      "name": "toggle (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 84,
+      "name": "networkhealth (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 85,
+      "name": "vrheadset (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 86,
+      "name": "gift (general)",
+      "hasRedX": false,
+      "text": ""
+    },
+    {
+      "index": 87,
+      "name": "remote (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 88,
+      "name": "ar (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 89,
+      "name": "tradein (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 90,
+      "name": "simcard (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 91,
+      "name": "variantshown (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 92,
+      "name": "varianthidden (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 93,
+      "name": "typeoutlinecolorfalse (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 94,
+      "name": "typefilledcolorfalse (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 95,
+      "name": "typefilledcolortrue (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 96,
+      "name": "typetoasttimercolortrue (time)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 97,
+      "name": "icon (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 98,
+      "name": "typeoutlinecoloroff (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 99,
+      "name": "typefilledcoloroff (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 100,
+      "name": "typeoutlinecoloron (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 101,
+      "name": "typefilledcoloron (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 102,
+      "name": "typetoasttimercoloron (time)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 103,
+      "name": "ellipse32 (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 104,
+      "name": "typetype4coloron (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 105,
+      "name": "typetype3coloron (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 106,
+      "name": "bullet (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 107,
+      "name": "link (general)",
+      "hasRedX": false,
+      "text": ""
+    },
+    {
+      "index": 108,
+      "name": "unlink (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 109,
+      "name": "history (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 110,
+      "name": "filteralt (general)",
+      "hasRedX": false,
+      "text": "Filter Alt\n  general icon from Comcast Business De"
+    },
+    {
+      "index": 111,
+      "name": "notifications (communication)",
+      "hasRedX": false,
+      "text": "Notifications\n  communication icon from Comcast Bu"
+    },
+    {
+      "index": 112,
+      "name": "keypad (security)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 113,
+      "name": "avplay (media)",
+      "hasRedX": false,
+      "text": "AV - Play\n  media icon from Comcast Business Desig"
+    },
+    {
+      "index": 114,
+      "name": "avpause (media)",
+      "hasRedX": false,
+      "text": "AV - Pause\n  media icon from Comcast Business Desi"
+    },
+    {
+      "index": 115,
+      "name": "avstop (media)",
+      "hasRedX": false,
+      "text": "AV - Stop\n  media icon from Comcast Business Desig"
+    },
+    {
+      "index": 116,
+      "name": "avrecord (general)",
+      "hasRedX": false,
+      "text": "AV - Record\n  general icon from Comcast Business D"
+    },
+    {
+      "index": 117,
+      "name": "playcircle (media)",
+      "hasRedX": false,
+      "text": "Play Circle\n  media icon from Comcast Business Des"
+    },
+    {
+      "index": 118,
+      "name": "5g (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 119,
+      "name": "complete (general)",
+      "hasRedX": false,
+      "text": "Complete\n  general icon from Comcast Business Desi"
+    },
+    {
+      "index": 120,
+      "name": "upload (navigation)",
+      "hasRedX": false,
+      "text": "Upload\n  navigation icon from Comcast Business Des"
+    },
+    {
+      "index": 121,
+      "name": "switchaccounts (interface)",
+      "hasRedX": false,
+      "text": "Switch Accounts\n  interface icon from Comcast Busi"
+    },
+    {
+      "index": 122,
+      "name": "qrcode (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 123,
+      "name": "login (general)",
+      "hasRedX": false,
+      "text": "Log In\n  general icon from Comcast Business Design"
+    },
+    {
+      "index": 124,
+      "name": "logout (general)",
+      "hasRedX": false,
+      "text": "Log Out\n  general icon from Comcast Business Desig"
+    },
+    {
+      "index": 125,
+      "name": "search (general)",
+      "hasRedX": false,
+      "text": "Search\n  general icon from Comcast Business Design"
+    },
+    {
+      "index": 126,
+      "name": "globalnav (general)",
+      "hasRedX": false,
+      "text": "Global Nav\n  general icon from Comcast Business De"
+    },
+    {
+      "index": 127,
+      "name": "grabber (general)",
+      "hasRedX": false,
+      "text": "Grabber\n  general icon from Comcast Business Desig"
+    },
+    {
+      "index": 128,
+      "name": "virtualassistant (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 129,
+      "name": "variantnovolume (media)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 130,
+      "name": "variantlowvolume (media)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 131,
+      "name": "varianthighvolume (media)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 132,
+      "name": "variantmute (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 133,
+      "name": "variantbluetooth (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 134,
+      "name": "variantunlockedtypeoutline (security)",
+      "hasRedX": false,
+      "text": "Variant=Unlocked, Type=Outline\n  security icon fro"
+    },
+    {
+      "index": 135,
+      "name": "variantlockedtypeoutline (security)",
+      "hasRedX": false,
+      "text": "Variant=Locked, Type=Outline\n  security icon from "
+    },
+    {
+      "index": 136,
+      "name": "variantunlockedtypefilled (security)",
+      "hasRedX": false,
+      "text": "Variant=Unlocked, Type=Filled\n  security icon from"
+    },
+    {
+      "index": 137,
+      "name": "variantlockedtypefilled (security)",
+      "hasRedX": false,
+      "text": "Variant=Locked, Type=Filled\n  security icon from C"
+    },
+    {
+      "index": 138,
+      "name": "variantoperatingtypeoutline (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 139,
+      "name": "variantoperatingtypefilled (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 140,
+      "name": "variantphonetypeoutline (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 141,
+      "name": "variantphonetypefilled (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 142,
+      "name": "variantmissedcalltypeoutline (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 143,
+      "name": "variantmissedcalltypefilled (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 144,
+      "name": "variantcallcompletetypeoutline (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 145,
+      "name": "variantcallcompletetypefilled (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 146,
+      "name": "variantcallholdtypeoutline (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 147,
+      "name": "variantcallholdtypefilled (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 148,
+      "name": "variantcallforwardingalttypeoutline (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 149,
+      "name": "variantcallforwardingalttypefilled (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 150,
+      "name": "variantcallforwardingtypeoutline (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 151,
+      "name": "variantcallforwardingtypefilled (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 152,
+      "name": "variantincomingcalltypeoutline (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 153,
+      "name": "variantoutgoingcalltypeoutline (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 154,
+      "name": "variantincomingcalltypefilled (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 155,
+      "name": "variantoutgoingcalltypefilled (communication)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 156,
+      "name": "typeoutlinetoasttimerfalse (time)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 157,
+      "name": "typefilledtoasttimerfalse (time)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 158,
+      "name": "typetoasttimertoasttimertrue (time)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 159,
+      "name": "infotimer (status)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 160,
+      "name": "shape (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 161,
+      "name": "variantfacebook (social)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 162,
+      "name": "variantlinkedin (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 163,
+      "name": "varianttwitter (social)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 164,
+      "name": "variantformerlytwitter (social)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 165,
+      "name": "logo1 (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 166,
+      "name": "percent (general)",
+      "hasRedX": false,
+      "text": "Percent\n  general icon from Comcast Business Desig"
+    },
+    {
+      "index": 167,
+      "name": "powerfulnetwork (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 168,
+      "name": "noextracharge (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 169,
+      "name": "noannualcontract (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 170,
+      "name": "download (navigation)",
+      "hasRedX": false,
+      "text": "Download\n  navigation icon from Comcast Business D"
+    },
+    {
+      "index": 171,
+      "name": "styleoutline (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 172,
+      "name": "stylefilled (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 173,
+      "name": "layer1 (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 174,
+      "name": "billsummarydefault (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 175,
+      "name": "ticketicon (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 176,
+      "name": "expandedtextbox (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 177,
+      "name": "styleoutlined (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 178,
+      "name": "buildingwip (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 179,
+      "name": "property1outline (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 180,
+      "name": "property1filled (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 181,
+      "name": "plus (general)",
+      "hasRedX": false,
+      "text": "Plus\n  general icon from Comcast Business Design S"
+    },
+    {
+      "index": 182,
+      "name": "minus (general)",
+      "hasRedX": false,
+      "text": "Minus\n  general icon from Comcast Business Design "
+    },
+    {
+      "index": 183,
+      "name": "check (status)",
+      "hasRedX": false,
+      "text": "Check\n  status icon from Comcast Business Design S"
+    },
+    {
+      "index": 184,
+      "name": "close (action)",
+      "hasRedX": false,
+      "text": "Close\n  action icon from Comcast Business Design S"
+    },
+    {
+      "index": 185,
+      "name": "backarrow (navigation)",
+      "hasRedX": false,
+      "text": "Back Arrow\n  navigation icon from Comcast Business"
+    },
+    {
+      "index": 186,
+      "name": "menu (navigation)",
+      "hasRedX": false,
+      "text": "Menu\n  navigation icon from Comcast Business Desig"
+    },
+    {
+      "index": 187,
+      "name": "contextmenu (navigation)",
+      "hasRedX": false,
+      "text": "Context Menu\n  navigation icon from Comcast Busine"
+    },
+    {
+      "index": 188,
+      "name": "refresh (general)",
+      "hasRedX": false,
+      "text": "Refresh\n  general icon from Comcast Business Desig"
+    },
+    {
+      "index": 189,
+      "name": "externallink2 (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 190,
+      "name": "externallink1 (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 191,
+      "name": "maximize (general)",
+      "hasRedX": false,
+      "text": "Maximize\n  general icon from Comcast Business Desi"
+    },
+    {
+      "index": 192,
+      "name": "minimize (general)",
+      "hasRedX": false,
+      "text": "Minimize\n  general icon from Comcast Business Desi"
+    },
+    {
+      "index": 193,
+      "name": "directionright (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 194,
+      "name": "directiondown (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 195,
+      "name": "directionleft (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 196,
+      "name": "directionup (navigation)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 197,
+      "name": "stateunsorted (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 198,
+      "name": "stateascending (general)",
+      "hasRedX": false,
+      "text": "❌"
+    },
+    {
+      "index": 199,
+      "name": "statedescending (general)",
+      "hasRedX": false,
+      "text": "❌"
+    }
+  ],
+  "failingIcons": [
+    {
+      "index": 8,
+      "name": "grid (interface)",
+      "hasRedX": true,
+      "text": ""
+    },
+    {
+      "index": 41,
+      "name": "truck (general)",
+      "hasRedX": true,
+      "text": ""
+    },
+    {
+      "index": 55,
+      "name": "layout (general)",
+      "hasRedX": true,
+      "text": ""
+    }
+  ]
+}
