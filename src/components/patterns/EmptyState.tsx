@@ -64,7 +64,7 @@ const variantConfig = {
     iconColor: 'var(--ds-color-neutral-400)',
   },
   'first-use': {
-    icon: 'help' as IconName,
+    icon: 'info' as IconName,
     iconColor: 'var(--ds-color-blue-500)',
   },
   'error': {

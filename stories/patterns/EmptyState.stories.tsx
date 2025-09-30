@@ -176,7 +176,7 @@ export const EmptyInbox: Story = {
     <Card className="w-full max-w-4xl">
       <EmptyState
         variant="first-use"
-        icon="mail"
+        icon="message"
         headline="Your inbox is empty"
         description="You're all caught up! New messages will appear here when they arrive."
       />
@@ -210,7 +210,7 @@ export const FirstTimeUser: Story = {
     <Card className="w-full max-w-4xl min-h-[400px] flex items-center justify-center">
       <EmptyState
         variant="first-use"
-        icon="dashboard"
+        icon="analytics"
         headline="Welcome to your dashboard"
         description="Get started by connecting your first data source. We'll help you visualize your metrics in real-time."
         primaryAction={{
@@ -232,7 +232,7 @@ export const EmptyCart: Story = {
     <Card className="w-full max-w-4xl">
       <EmptyState
         variant="no-data"
-        icon="shoppingcart"
+        icon="document"
         headline="Your cart is empty"
         description="Browse our services and add them to your cart to get started."
         primaryAction={{
