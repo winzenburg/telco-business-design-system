@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Icon, IconGroup, usePreloadIcons } from '../src/components/Icon';
+import { Icon, IconGroup } from '../src/components/Icon';
 import { 
   icons,
   iconsByCategory,
