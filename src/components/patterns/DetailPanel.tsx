@@ -147,11 +147,11 @@ export const DetailPanel = React.forwardRef<HTMLDivElement, DetailPanelProps>(
           tabIndex={expandable ? 0 : undefined}
           aria-expanded={expandable ? isExpanded : undefined}
         >
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex items-start gap-3 flex-1 min-w-0">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 flex-1 min-w-0">
               {/* Expand/Collapse Icon */}
               {expandable && (
-                <div className="flex-shrink-0 mt-0.5">
+                <div className="flex-shrink-0">
                   <Icon
                     name={isExpanded ? 'chevron' : 'chevron' as any}
                     size={densityStyles.iconSize}
