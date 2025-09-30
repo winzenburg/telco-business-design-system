@@ -30,6 +30,8 @@ import {
   RadioGroupItem,
   Slider,
   Toast,
+  Combobox,
+  Textarea,
 } from '../../src/components';
 import {
   User,
@@ -67,7 +69,83 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const SettingsFlow = () => {
+// US States for location Combobox
+const US_STATES = [
+  { value: 'AL', label: 'Alabama' },
+  { value: 'AK', label: 'Alaska' },
+  { value: 'AZ', label: 'Arizona' },
+  { value: 'AR', label: 'Arkansas' },
+  { value: 'CA', label: 'California' },
+  { value: 'CO', label: 'Colorado' },
+  { value: 'CT', label: 'Connecticut' },
+  { value: 'DE', label: 'Delaware' },
+  { value: 'FL', label: 'Florida' },
+  { value: 'GA', label: 'Georgia' },
+  { value: 'HI', label: 'Hawaii' },
+  { value: 'ID', label: 'Idaho' },
+  { value: 'IL', label: 'Illinois' },
+  { value: 'IN', label: 'Indiana' },
+  { value: 'IA', label: 'Iowa' },
+  { value: 'KS', label: 'Kansas' },
+  { value: 'KY', label: 'Kentucky' },
+  { value: 'LA', label: 'Louisiana' },
+  { value: 'ME', label: 'Maine' },
+  { value: 'MD', label: 'Maryland' },
+  { value: 'MA', label: 'Massachusetts' },
+  { value: 'MI', label: 'Michigan' },
+  { value: 'MN', label: 'Minnesota' },
+  { value: 'MS', label: 'Mississippi' },
+  { value: 'MO', label: 'Missouri' },
+  { value: 'MT', label: 'Montana' },
+  { value: 'NE', label: 'Nebraska' },
+  { value: 'NV', label: 'Nevada' },
+  { value: 'NH', label: 'New Hampshire' },
+  { value: 'NJ', label: 'New Jersey' },
+  { value: 'NM', label: 'New Mexico' },
+  { value: 'NY', label: 'New York' },
+  { value: 'NC', label: 'North Carolina' },
+  { value: 'ND', label: 'North Dakota' },
+  { value: 'OH', label: 'Ohio' },
+  { value: 'OK', label: 'Oklahoma' },
+  { value: 'OR', label: 'Oregon' },
+  { value: 'PA', label: 'Pennsylvania' },
+  { value: 'RI', label: 'Rhode Island' },
+  { value: 'SC', label: 'South Carolina' },
+  { value: 'SD', label: 'South Dakota' },
+  { value: 'TN', label: 'Tennessee' },
+  { value: 'TX', label: 'Texas' },
+  { value: 'UT', label: 'Utah' },
+  { value: 'VT', label: 'Vermont' },
+  { value: 'VA', label: 'Virginia' },
+  { value: 'WA', label: 'Washington' },
+  { value: 'WV', label: 'West Virginia' },
+  { value: 'WI', label: 'Wisconsin' },
+  { value: 'WY', label: 'Wyoming' },
+];
+
+// Timezone options
+const TIMEZONES = [
+  { value: 'EST', label: 'Eastern Time (ET)' },
+  { value: 'CST', label: 'Central Time (CT)' },
+  { value: 'MST', label: 'Mountain Time (MT)' },
+  { value: 'PST', label: 'Pacific Time (PT)' },
+  { value: 'AKST', label: 'Alaska Time (AKT)' },
+  { value: 'HST', label: 'Hawaii Time (HT)' },
+];
+
+interface FormErrors {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  phone?: string;
+  bio?: string;
+}
+
+interface SettingsFlowProps {
+  showErrors?: boolean;
+}
+
+const SettingsFlow: React.FC<SettingsFlowProps> = ({ showErrors = false }) => {
   const [profile, setProfile] = useState({
     firstName: 'John',
     lastName: 'Doe',
@@ -75,8 +153,11 @@ const SettingsFlow = () => {
     phone: '(555) 123-4567',
     company: 'Acme Corporation',
     role: 'IT Manager',
-    location: 'Philadelphia, PA',
+    state: 'PA',
+    timezone: 'EST',
+    bio: '',
   });
+  const [errors, setErrors] = useState<FormErrors>({});
 
   const [notifications, setNotifications] = useState({
     email: {
@@ -242,16 +323,43 @@ const SettingsFlow = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="col-span-2 space-y-2">
-                  <Label htmlFor="location">
+                <div className="space-y-2">
+                  <Label htmlFor="state">
                     <MapPin className="inline h-3 w-3 mr-1" />
-                    Location
+                    State
                   </Label>
-                  <Input
-                    id="location"
-                    value={profile.location}
-                    onChange={(e) => setProfile({ ...profile, location: e.target.value })}
+                  <Combobox
+                    options={US_STATES}
+                    value={profile.state}
+                    onValueChange={(value) => setProfile({ ...profile, state: value })}
+                    placeholder="Select state"
+                    searchPlaceholder="Search states..."
+                    width="w-full"
                   />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="timezone">Timezone</Label>
+                  <Combobox
+                    options={TIMEZONES}
+                    value={profile.timezone}
+                    onValueChange={(value) => setProfile({ ...profile, timezone: value })}
+                    placeholder="Select timezone"
+                    searchPlaceholder="Search timezones..."
+                    width="w-full"
+                  />
+                </div>
+                <div className="col-span-2 space-y-2">
+                  <Label htmlFor="bio">Bio (Optional)</Label>
+                  <Textarea
+                    id="bio"
+                    placeholder="Tell us a bit about yourself..."
+                    value={profile.bio}
+                    onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
+                    rows={4}
+                  />
+                  <p className="text-xs text-[var(--ds-color-text-muted)]">
+                    {profile.bio.length}/500 characters
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -760,5 +868,9 @@ const SettingsFlow = () => {
 };
 
 export const Default: Story = {
-  render: () => <SettingsFlow />,
+  render: () => <SettingsFlow showErrors={false} />,
+};
+
+export const WithValidationErrors: Story = {
+  render: () => <SettingsFlow showErrors={true} />,
 };
