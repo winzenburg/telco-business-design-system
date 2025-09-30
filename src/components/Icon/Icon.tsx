@@ -238,25 +238,6 @@ function processSVGContent(
   return processed;
 }
 
-/**
- * Hook for preloading icons
- */
-export const usePreloadIcons = (iconNames: IconName[]) => {
-  useEffect(() => {
-    const preloadPromises = iconNames.map(name => {
-      return loadSVG(name).catch(_err => {
-        // console.warn(`Failed to preload icon "${name}":`, err);
-      });
-    });
-
-    Promise.all(preloadPromises);
-  }, [iconNames]);
-};
-
-/**
- * Export the loadSVG utility for external use
- */
-export { loadSVG };
 
 /**
  * Utility component for rendering multiple icons with consistent styling
