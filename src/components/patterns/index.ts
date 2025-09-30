@@ -38,3 +38,10 @@ export type { HelpDrawerProps, HelpArticle } from './HelpDrawer';
 
 export { InlineHelp, GlossaryTerm } from './InlineHelp';
 export type { InlineHelpProps, GlossaryTermProps } from './InlineHelp';
+
+// Notifications & Audit Trails
+export { ActivityLog, useActivityLog } from './ActivityLog';
+export type { ActivityLogProps, ActivityLogEntry, UseActivityLogOptions } from './ActivityLog';
+
+export { NotificationCenter, useNotificationCenter } from './NotificationCenter';
+export type { NotificationCenterProps, Notification, UseNotificationCenterOptions } from './NotificationCenter';
