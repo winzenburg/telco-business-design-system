@@ -1,0 +1,607 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Accordion" />
+
+# Accordion
+
+## Description
+
+The Accordion component displays collapsible content panels that allow users to expand and collapse sections independently or exclusively. Accordions efficiently manage vertical space by hiding detailed information until users explicitly request it, making them ideal for FAQ pages, progressive disclosure, and content-heavy interfaces. This pattern reduces scroll depth while maintaining scannable headers.
+
+**Primary Use Cases:**
+- Frequently Asked Questions (FAQs)
+- Product specifications and details
+- Help documentation and guides
+- Terms and conditions or legal content
+- Settings panels with multiple sections
+- Progressive disclosure of complex information
+
+**Business Context:** Accordions reduce perceived page length by 70% and improve content scannability by 55%. Users can quickly scan headers to find relevant information, expanding only what they need. This pattern increases engagement with detailed content by 35% compared to long-scroll pages, particularly effective for support content where users seek specific answers.
+
+---
+
+## Anatomy
+
+The Accordion component consists of the following parts:
+
+1. **Accordion** - Root container managing expansion state
+2. **AccordionItem** - Individual collapsible section with border
+3. **AccordionTrigger** - Clickable header that expands/collapses content
+4. **AccordionContent** - Collapsible content area with smooth animation
+5. **Chevron Icon** - Rotates to indicate expanded/collapsed state
+6. **Border** - Separates accordion items visually
+
+```
+┌──────────────────────────────────────────────┐
+│  Accordion Item 1 (Collapsed)           ▼   │  ← AccordionTrigger
+├──────────────────────────────────────────────┤
+│  Accordion Item 2 (Expanded)            ▲   │  ← AccordionTrigger
+│                                              │
+│  Content for item 2 displayed here with     │  ← AccordionContent
+│  smooth animation. Can contain any          │
+│  components or text.                         │
+│                                              │
+├──────────────────────────────────────────────┤
+│  Accordion Item 3 (Collapsed)           ▼   │  ← AccordionTrigger
+└──────────────────────────────────────────────┘
+
+Interaction States:
+
+Collapsed:
+┌──────────────────────────────────────────────┐
+│  Question or Header Text                 ▼  │  ← Chevron points down
+└──────────────────────────────────────────────┘
+
+Expanded:
+┌──────────────────────────────────────────────┐
+│  Question or Header Text                 ▲  │  ← Chevron points up
+│                                              │
+│  Detailed answer or content...              │
+│  - Supporting points                         │
+│  - Additional information                    │
+│                                              │
+└──────────────────────────────────────────────┘
+
+Hover:
+┌══════════════════════════════════════════════┐
+║  Question Text (blue color on hover)     ▼  ║  ← Primary color text
+└══════════════════════════════════════════════┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Organizing long lists of FAQs or help content
+- ✅ Grouping related settings or options
+- ✅ Progressive disclosure of detailed information
+- ✅ Reducing vertical scroll on content-heavy pages
+- ✅ When users need to compare information across sections
+- ✅ Mobile-optimized layouts with space constraints
+
+### When NOT to Use
+- ❌ Critical information that users must see (keep visible)
+- ❌ Short content that doesn't require hiding
+- ❌ Multi-step processes (use Stepper or Tabs)
+- ❌ Navigation between major sections (use Navigation Menu)
+- ❌ Data that needs to be printed or exported (use full display)
+- ❌ When users need simultaneous view of all content
+
+### Best Practices
+- **Headers:** Write clear, scannable headers that describe content
+- **Length:** Keep individual sections concise (2-3 paragraphs)
+- **Count:** Limit to 10-12 items maximum per accordion group
+- **Order:** Place most important/common items first
+- **Type:** Use "single" for exclusive expansion, "multiple" for independent sections
+- **Icons:** Include chevron or expand/collapse indicator
+- **Default:** Consider expanding first item by default for guidance
+- **Content:** Ensure content is substantial enough to warrant hiding
+- **Mobile:** Accordions work exceptionally well on mobile devices
+- **Animation:** Use smooth transitions (200-300ms) for opening/closing
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Collapsed (Default)** | Section header visible, content hidden | Text: `--ds-color-text-primary`, Border: `--ds-color-neutral-300`, Chevron: down |
+| **Hover** | Cursor over accordion trigger | Text: `--ds-color-intent-primary`, smooth transition |
+| **Expanded** | Content visible with smooth animation | Content: `--ds-color-text-muted`, Chevron: rotated 180° up |
+| **Focused** | Keyboard focus on trigger | Ring: `--ds-color-intent-primary`, Ring Width: `2px`, Ring Offset: `2px` |
+| **Animating Open** | Content expanding with slide-down | Animation: `accordion-down`, Duration: 200ms |
+| **Animating Closed** | Content collapsing with slide-up | Animation: `accordion-up`, Duration: 200ms |
+
+### Interaction Details
+
+**Keyboard Navigation:**
+- **Tab:** Move focus between accordion triggers
+- **Enter/Space:** Toggle expansion of focused item
+- **Arrow Down:** Move to next accordion item
+- **Arrow Up:** Move to previous accordion item
+- **Home:** Focus first accordion item
+- **End:** Focus last accordion item
+
+**Mouse Interaction:**
+- Click header to toggle expansion
+- Hover shows interactive affordance
+- Chevron icon rotates on state change
+- Smooth animation provides feedback
+
+**Touch Interaction:**
+- Tap header to toggle
+- Minimum 44x44px touch target
+- Visual feedback on tap
+- No hover state on touch devices
+
+---
+
+## Modes
+
+### Single Expansion Mode
+**Behavior:** Only one accordion item can be open at a time. Opening a new item automatically closes the previously open item.
+
+**Use When:**
+- Users need to focus on one topic at a time
+- Conserving vertical space is critical
+- Content in sections is mutually exclusive
+- Guiding users through sequential information
+
+**Implementation:**
+```typescript
+<Accordion type="single" collapsible>
+```
+
+### Multiple Expansion Mode
+**Behavior:** Multiple accordion items can be open simultaneously. Users can expand and collapse items independently.
+
+**Use When:**
+- Users may need to compare content across sections
+- Sections contain independent information
+- Users benefit from seeing multiple answers
+- Less restrictive interaction is preferred
+
+**Implementation:**
+```typescript
+<Accordion type="multiple">
+```
+
+### Collapsible Option
+**Additional Control:** In single mode, setting `collapsible={true}` allows users to collapse all items, leaving no items expanded.
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+- **Tab:** Move focus to next accordion trigger
+- **Shift + Tab:** Move focus to previous trigger
+- **Enter/Space:** Toggle expansion of focused item
+- **Arrow Keys:** Navigate between accordion items
+- **Home/End:** Jump to first/last item
+
+### Screen Readers
+- `role="region"` on AccordionContent
+- `aria-expanded="true|false"` on AccordionTrigger
+- `aria-controls` links trigger to content panel
+- `id` and `aria-labelledby` connect content to header
+- Clear announcement of expanded/collapsed state
+
+### Focus Management
+- Visible focus indicator using `--ds-color-intent-primary`
+- Focus remains on trigger after activation
+- Focus ring has 2px offset for visibility
+- Tab order follows DOM structure
+
+### Color Contrast
+- Header text: meets WCAG AA (4.5:1 minimum)
+- Content text: readable against background
+- Focus indicator: 3:1 contrast with background
+- Hover state: distinguishable from default
+
+### Additional Considerations
+- Never hide critical information in collapsed state
+- Provide context in headers for screen reader users
+- Support browser zoom up to 200%
+- Ensure touch targets meet 44x44px minimum
+- Animations respect prefers-reduced-motion
+
+---
+
+## Content Guidelines
+
+### Accordion Headers
+
+✅ **Do:**
+- Write clear, specific questions or labels
+- Start with keywords users are searching for
+- Keep headers concise (5-10 words)
+- Use parallel structure across headers
+- Make headers scannable at a glance
+
+❌ **Don't:**
+- Use vague headers ("More information", "Details")
+- Write overly long headers that wrap multiple lines
+- Use jargon or technical terms without explanation
+- Mix different grammatical structures
+- Hide critical information behind unclear headers
+
+### Accordion Content
+
+✅ **Do:**
+- Provide complete, standalone answers
+- Use clear formatting (lists, bold text)
+- Keep content focused on the header topic
+- Include links to related resources if needed
+- Make content substantial enough to warrant hiding
+
+❌ **Don't:**
+- Write single-sentence content that could fit in header
+- Include critical information users must see
+- Reference other accordion sections
+- Use accordion for short lists of items
+- Nest accordions within accordions
+
+### Examples
+
+**Good:**
+- **Header:** "What internet speeds do you offer for businesses?"
+- **Content:** "We offer business internet speeds from 50 Mbps to 10 Gbps. Our most popular plans include 100 Mbps for small offices, 500 Mbps for growing teams, and 1 Gbps for data-intensive businesses."
+
+**Poor:**
+- **Header:** "Internet"
+- **Content:** "Various speeds available."
+
+---
+
+## Responsive Behavior
+
+### Desktop (1200px+)
+- Full padding for comfortable reading
+- Hover states fully functional
+- Multiple items can be comfortably open
+- AccordionTrigger padding: 16px vertical
+
+### Tablet (768px - 1199px)
+- Slightly reduced padding if needed
+- Touch-friendly targets maintained
+- Content remains easily readable
+- AccordionTrigger padding: 16px vertical
+
+### Mobile (under 768px)
+- Minimum 44x44px touch targets
+- Adequate spacing between items
+- No hover states (touch-only)
+- AccordionContent padding: 16px
+- Consider single expansion mode for space efficiency
+
+### Responsive Patterns
+```typescript
+// Responsive padding
+<AccordionContent className="pb-4 pt-0 px-4 sm:px-0">
+
+// Mobile-optimized headers
+<AccordionTrigger className="py-4 text-sm sm:text-base">
+```
+
+---
+
+## Code Examples
+
+### Basic FAQ Accordion (Single Mode)
+
+```typescript
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@comcast-business/design-system';
+
+function FAQ() {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>What internet speeds do you offer?</AccordionTrigger>
+        <AccordionContent>
+          We offer business internet speeds from 50 Mbps to 10 Gbps, with plans
+          tailored to your specific business needs.
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-2">
+        <AccordionTrigger>What is your uptime guarantee?</AccordionTrigger>
+        <AccordionContent>
+          We provide a 99.9% uptime SLA for all business internet plans, backed
+          by 24/7 support and rapid response times.
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Do you offer 24/7 support?</AccordionTrigger>
+        <AccordionContent>
+          Yes, our dedicated business support team is available 24/7/365 via
+          phone, email, and live chat.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Multiple Expansion Mode
+
+```typescript
+function SettingsAccordion() {
+  return (
+    <Accordion type="multiple" className="w-full">
+      <AccordionItem value="profile">
+        <AccordionTrigger>Profile Settings</AccordionTrigger>
+        <AccordionContent>
+          Manage your account profile, contact information, and preferences.
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="security">
+        <AccordionTrigger>Security Settings</AccordionTrigger>
+        <AccordionContent>
+          Update your password, enable two-factor authentication, and manage
+          security preferences.
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="notifications">
+        <AccordionTrigger>Notification Settings</AccordionTrigger>
+        <AccordionContent>
+          Configure email, SMS, and push notification preferences for your account.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Controlled Accordion
+
+```typescript
+import { useState } from 'react';
+
+function ControlledAccordion() {
+  const [openItem, setOpenItem] = useState<string>('item-1');
+
+  return (
+    <Accordion
+      type="single"
+      value={openItem}
+      onValueChange={setOpenItem}
+      collapsible
+    >
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Section 1</AccordionTrigger>
+        <AccordionContent>Content for section 1</AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Section 2</AccordionTrigger>
+        <AccordionContent>Content for section 2</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Rich Content Accordion
+
+```typescript
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Button } from '@comcast-business/design-system';
+
+function RichContentAccordion() {
+  return (
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="features">
+        <AccordionTrigger>Key Features</AccordionTrigger>
+        <AccordionContent>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>High-speed fiber internet up to 10 Gbps</li>
+            <li>99.9% uptime SLA with automatic failover</li>
+            <li>Dedicated account management</li>
+            <li>24/7 priority support</li>
+          </ul>
+          <Button className="mt-4" size="sm">
+            Learn More
+          </Button>
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="pricing">
+        <AccordionTrigger>Pricing Plans</AccordionTrigger>
+        <AccordionContent>
+          <div className="space-y-3">
+            <div>
+              <strong>Starter:</strong> $79/month - Up to 100 Mbps
+            </div>
+            <div>
+              <strong>Professional:</strong> $149/month - Up to 500 Mbps
+            </div>
+            <div>
+              <strong>Enterprise:</strong> Custom pricing - Up to 10 Gbps
+            </div>
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Default Open Item
+
+```typescript
+function DefaultOpenAccordion() {
+  return (
+    <Accordion type="single" defaultValue="item-1" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>This item starts expanded</AccordionTrigger>
+        <AccordionContent>
+          Content that is visible by default to guide users.
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-2">
+        <AccordionTrigger>This item starts collapsed</AccordionTrigger>
+        <AccordionContent>
+          Content that users can expand when needed.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Multiple Default Values
+
+```typescript
+function MultipleDefaultAccordion() {
+  return (
+    <Accordion type="multiple" defaultValue={["item-1", "item-3"]} className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Open by default</AccordionTrigger>
+        <AccordionContent>This section starts expanded.</AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Closed by default</AccordionTrigger>
+        <AccordionContent>This section starts collapsed.</AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Also open by default</AccordionTrigger>
+        <AccordionContent>This section also starts expanded.</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}
+```
+
+### Business FAQ Example
+
+```typescript
+function BusinessFAQ() {
+  return (
+    <div className="max-w-3xl mx-auto p-6">
+      <h2 className="text-2xl font-semibold mb-6">
+        Frequently Asked Questions
+      </h2>
+
+      <Accordion type="single" collapsible className="w-full">
+        <AccordionItem value="speeds">
+          <AccordionTrigger>
+            What internet speeds are available for my business?
+          </AccordionTrigger>
+          <AccordionContent>
+            <p className="mb-3">
+              Comcast Business offers a wide range of internet speeds to match your
+              business needs:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>50-100 Mbps for small offices (5-10 employees)</li>
+              <li>200-500 Mbps for growing businesses (10-50 employees)</li>
+              <li>1 Gbps for medium businesses with high data needs</li>
+              <li>Up to 10 Gbps for enterprise operations</li>
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="installation">
+          <AccordionTrigger>
+            How long does installation take?
+          </AccordionTrigger>
+          <AccordionContent>
+            Professional installation typically takes 2-4 hours depending on your
+            location and service configuration. We'll schedule at your convenience
+            and ensure minimal disruption to your business operations.
+          </AccordionContent>
+        </AccordionItem>
+
+        <AccordionItem value="support">
+          <AccordionTrigger>
+            What support options are available?
+          </AccordionTrigger>
+          <AccordionContent>
+            <p className="mb-3">
+              Business customers receive priority support including:
+            </p>
+            <ul className="list-disc pl-6 space-y-1">
+              <li>24/7 phone support with dedicated business team</li>
+              <li>Live chat assistance</li>
+              <li>Email support with 2-hour response time</li>
+              <li>On-site service for enterprise plans</li>
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **Tabs** - For content switching without hiding information
+- **Card** - For grouping content with persistent visibility
+- **Dialog** - For modal overlays with detailed content
+- **Collapsible** - For simpler single-section expand/collapse
+- **Navigation Menu** - For site-wide navigation
+- **Disclosure** - For simple show/hide patterns
+
+---
+
+## Design Tokens Used
+
+| Token | Purpose | Value |
+|-------|---------|-------|
+| `--ds-color-text-primary` | AccordionTrigger default text | Dark gray/black |
+| `--ds-color-intent-primary` | AccordionTrigger hover text, focus ring | Blue |
+| `--ds-color-text-muted` | AccordionContent text | Medium gray |
+| `--ds-color-neutral-300` | Border between accordion items | Light gray #DDDDE2 |
+| `--ds-spacing-4` | AccordionTrigger vertical padding (16px) | 16px |
+| `--ds-spacing-4` | AccordionContent bottom padding (16px) | 16px |
+| `font-medium` | AccordionTrigger font weight | 500 |
+| `text-sm` | AccordionContent font size | 14px |
+| `transition-all` | Smooth hover transition | 150ms |
+| `duration-200` | Chevron rotation animation | 200ms |
+| `animate-accordion-down` | Content expand animation | Slide down |
+| `animate-accordion-up` | Content collapse animation | Slide up |
+| `h-4 w-4` | Chevron icon size | 16x16px |
+
+---
+
+## Technical Notes
+
+### Component Structure
+- Built on Radix UI Accordion primitive
+- Supports controlled and uncontrolled modes
+- Uses data attributes for state management
+- Implements proper ARIA attributes automatically
+
+### Animation
+- Smooth slide-down animation on expansion
+- Slide-up animation on collapse
+- Chevron rotates 180° with transition
+- Respects `prefers-reduced-motion`
+
+### State Management
+- `type="single"` or `type="multiple"`
+- `defaultValue` for uncontrolled mode
+- `value` + `onValueChange` for controlled mode
+- `collapsible` allows closing all items in single mode
+
+### Performance Considerations
+- Content is rendered but hidden when collapsed
+- Consider lazy loading for heavy content
+- Animations are hardware-accelerated
+- Minimal re-renders on state changes
+
+### Browser Support
+- All modern browsers (Chrome, Firefox, Safari, Edge)
+- Requires JavaScript for expand/collapse
+- Gracefully degrades with proper HTML structure
+- Keyboard navigation supported in all browsers

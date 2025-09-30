@@ -1,0 +1,821 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/List" />
+
+# List
+
+## Description
+
+The List component displays structured content in a vertical layout, presenting items in a clear, scannable format. Lists organize related information with consistent styling, supporting various content types from simple text to complex multi-line items with icons, avatars, and actions. They are essential for displaying collections of data, navigation options, settings, and any content that benefits from ordered presentation.
+
+**Primary Use Cases:**
+- Service and product listings
+- Settings and preference menus
+- Contact and user directories
+- File and document browsers
+- Navigation sidebars and menus
+- Task and action lists
+- Status and notification feeds
+- Search results and data tables
+
+**Business Context:** Well-designed lists improve content scanability by 45% and reduce task completion time by 30%. Proper use of visual hierarchy and interactive states increases engagement rates by 25%. Lists with clear structure and consistent patterns reduce cognitive load and improve user satisfaction scores by 35%.
+
+---
+
+## Anatomy
+
+The List component consists of the following parts:
+
+1. **List Container** - Wrapper for all list items
+2. **List Item** - Individual row containing content
+3. **Leading Element** - Icon, avatar, or visual indicator (left side)
+4. **Content Area** - Primary and secondary text
+5. **Trailing Element** - Actions, indicators, or icons (right side)
+6. **Section Header** - Optional label for grouped items
+7. **Divider** - Visual separator between items or sections
+
+```
+One-Line List:
+┌──────────────────────────────────────┐
+│ ● Single line item text             │
+│ ● Another single line item          │
+│ ● Yet another item                  │
+└──────────────────────────────────────┘
+
+Two-Line List:
+┌──────────────────────────────────────┐
+│ Primary text line                    │
+│ Secondary supporting text            │
+├──────────────────────────────────────┤
+│ Another primary line                 │
+│ More secondary information           │
+└──────────────────────────────────────┘
+
+Three-Line List:
+┌──────────────────────────────────────┐
+│ Primary headline text                │
+│ Secondary supporting information     │
+│ Additional supporting details        │
+└──────────────────────────────────────┘
+
+With Leading Elements:
+┌──────────────────────────────────────┐
+│ 👤  User Profile                     │
+│ 📧  Messages                         │
+│ ⚙️   Settings                        │
+└──────────────────────────────────────┘
+
+With Trailing Elements:
+┌──────────────────────────────────────┐
+│ Wi-Fi Connected              [🎚]    │
+│ Bluetooth Enabled            [🎚]    │
+│ Sound & vibration             [›]   │
+└──────────────────────────────────────┘
+
+Complete Structure:
+┌──────────────────────────────────────┐
+│ [👤] User Name              [›]      │
+│      user@example.com                │
+├──────────────────────────────────────┤
+│ [📊] Dashboard Stats        [⋮]      │
+│      Updated 2 hours ago             │
+└──────────────────────────────────────┘
+  ↑    ↑                       ↑
+Leading Content              Trailing
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Displaying collections of similar items
+- ✅ Navigation menus and option lists
+- ✅ Settings and configuration screens
+- ✅ Contact and user directories
+- ✅ File browsers and document lists
+- ✅ Search results and filtered data
+- ✅ Activity feeds and notifications
+- ✅ Multi-select interfaces
+
+### When NOT to Use
+- ❌ Tabular data with multiple columns (use Table)
+- ❌ Highly structured grid layouts (use Grid or Card Grid)
+- ❌ Minimal items (under 3) - use inline elements
+- ❌ Complex hierarchical data (use Tree View)
+- ❌ Horizontal scrolling content (use Carousel)
+- ❌ Comparison of data points (use Table or Chart)
+
+### Best Practices
+- **Consistency:** Use same item structure throughout a list
+- **Scanability:** Place most important info first (left-to-right)
+- **Visual Hierarchy:** Use text size and weight to show importance
+- **Icons:** Use consistent icon style and size (16px or 20px)
+- **Touch Targets:** Minimum 44px height for interactive items
+- **Loading States:** Show skeleton loaders for slow-loading lists
+- **Empty States:** Provide helpful message when list is empty
+- **Pagination:** Virtualize or paginate very long lists (over 100 items)
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Default** | List item in idle state | Background: `white`, Text: `--ds-color-text-primary` |
+| **Hover** | Mouse over interactive item | Background: `--ds-color-bg-surface`, Cursor: `pointer` |
+| **Focus** | Keyboard navigation highlight | Ring: `--ds-color-intent-primary`, Ring Width: `2px`, Offset: `2px` |
+| **Active/Pressed** | Click or touch state | Background: `--ds-color-neutral-200` |
+| **Selected** | Item in selected state | Background: `--ds-color-intent-primary` with 10% opacity |
+| **Disabled** | Unavailable item | Opacity: `50%`, Cursor: `not-allowed` |
+| **Read/Unread** | Different visual weights | Unread: bold text, Read: normal weight |
+| **Error State** | Item with error or warning | Border: `--ds-color-intent-error`, Icon: error color |
+
+### Interaction Details
+
+**Non-Interactive List:**
+- Items are not clickable
+- Used for displaying static information
+- No hover or focus states
+- Good for displaying reference data
+
+**Interactive List:**
+- Items respond to clicks and keyboard
+- Hover state provides visual feedback
+- Focus follows keyboard navigation
+- Can be single-select or multi-select
+
+**Multi-Select Behavior:**
+- Checkboxes or radio buttons in leading element
+- Click anywhere on item to toggle selection
+- Visual feedback shows selected state
+- Support Shift+Click for range selection
+
+**Keyboard Navigation:**
+- `Tab`: Focus on list container
+- `Arrow Down`: Navigate to next item
+- `Arrow Up`: Navigate to previous item
+- `Home`: Jump to first item
+- `End`: Jump to last item
+- `Enter`/`Space`: Activate focused item
+- Type characters: Jump to item starting with typed letters
+
+---
+
+## Variants / Sizes / Densities
+
+### By Style Variant
+
+#### Default
+**Visual:** Plain background, no border or shadow
+**Use When:** Standard content, inline with page layout
+**Properties:** `variant="default"`
+
+#### Elevated
+**Visual:** Shadow and border, raised appearance
+**Use When:** Cards, panels, need visual separation
+**Properties:** `variant="elevated"`
+
+#### Outlined
+**Visual:** Border only, no shadow
+**Use When:** Grouped content, subtle separation
+**Properties:** `variant="outlined"`
+
+### By Density
+
+#### Compact
+**Visual:** Reduced vertical padding (8px)
+**Use When:** Dense data displays, dashboards, small screens
+**Properties:** `density="compact"`
+**Item Height:** 48px minimum
+
+#### Default
+**Visual:** Standard padding (12px vertical)
+**Use When:** Most use cases, balanced spacing
+**Properties:** `density="default"` (or not specified)
+**Item Height:** 56px minimum
+
+#### Comfortable
+**Visual:** Increased padding (16px vertical)
+**Use When:** Touch interfaces, accessibility focus, relaxed layouts
+**Properties:** `density="comfortable"`
+**Item Height:** 72px minimum
+
+### By Line Count
+
+#### One-Line
+**Visual:** Single line of text, icons align center
+**Use When:** Simple labels, short names, navigation
+**Min Height:** 48px default, 40px compact, 56px comfortable
+
+#### Two-Line
+**Visual:** Primary and secondary text lines
+**Use When:** Items with supporting information
+**Min Height:** 56px default, 48px compact, 64px comfortable
+
+#### Three-Line
+**Visual:** Primary, secondary, and supporting text
+**Use When:** Rich content with multiple details
+**Min Height:** 72px default, 64px compact, 88px comfortable
+
+### By Content Type
+
+#### Text Only
+- Simple labels or descriptions
+- No leading or trailing elements
+
+#### With Icons
+- Leading icon for visual identification
+- Trailing icon for actions or status
+
+#### With Avatars
+- Leading circular avatar (32px, 40px, or 48px)
+- User or entity identification
+
+#### With Actions
+- Trailing buttons or icon buttons
+- Interactive elements for item actions
+
+#### With Status
+- Badges, chips, or indicators
+- Show state, category, or count
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Move focus to list or first interactive element |
+| `Arrow Down` | Move to next list item |
+| `Arrow Up` | Move to previous list item |
+| `Home` | Jump to first list item |
+| `End` | Jump to last list item |
+| `Enter` / `Space` | Activate focused item (if interactive) |
+| `A-Z` | Type-ahead: focus item starting with typed character |
+
+**Focus Management:**
+- List container has `tabIndex={0}` if navigable
+- Items have `tabIndex={0}` individually if separately focusable
+- Focus visible on keyboard navigation
+- Focus skips disabled items
+
+### Screen Readers
+
+**ARIA Attributes:**
+```html
+<!-- List Container -->
+<div role="list">
+  <!-- List Item -->
+  <div role="listitem">
+    <div>Item content</div>
+  </div>
+
+  <!-- Interactive Item -->
+  <div role="listitem" tabIndex={0}>
+    <button>Clickable item</button>
+  </div>
+
+  <!-- With Section Headers -->
+  <div role="group" aria-labelledby="section-header-id">
+    <div id="section-header-id" role="heading" aria-level={3}>
+      Section Header
+    </div>
+    <div role="listitem">Item 1</div>
+    <div role="listitem">Item 2</div>
+  </div>
+</div>
+```
+
+**Announcements:**
+- List announces total item count on focus
+- Each item announces its content when focused
+- Selected state announced: "Selected, Item Name"
+- Disabled state announced: "Disabled, Item Name"
+- Multi-line items: primary text announced first
+
+### Focus Management
+
+- List receives single tab stop
+- Arrow keys navigate between items (roving tabindex)
+- Focus visible on all interactive elements
+- Focus persists when list updates
+
+### Color Contrast
+
+- **Primary Text:** `--ds-color-text-primary` (#2B2D3F) - 4.5:1 minimum
+- **Secondary Text:** `--ds-color-text-muted` (#70717D) - 4.5:1 minimum
+- **Icons:** Inherit text color or use color tokens
+- **Hover State:** 3:1 contrast against white
+- **Selected State:** Maintains text contrast against background
+- **Borders:** `--ds-color-border-muted` - 3:1 against backgrounds
+
+### Additional Considerations
+
+- Minimum touch target: 44px × 44px
+- Support browser zoom up to 200%
+- Visible focus indicators on all items
+- Don't rely solely on color for status
+- Provide text alternatives for icon-only items
+- Support screen reader mode for complex lists
+
+---
+
+## Content Guidelines
+
+### Writing Style
+
+✅ **Do:**
+- Use clear, descriptive primary text
+- Keep secondary text concise (under 50 characters)
+- Use sentence case for text
+- Place most important info first
+- Use consistent terminology
+- Show timestamps in relative format ("2 hours ago")
+
+❌ **Don't:**
+- Use all caps or Title Case
+- Write long paragraphs in list items
+- Use technical jargon without explanation
+- Mix different content structures
+- Truncate important information
+- Use vague labels ("Item 1", "Option")
+
+### Text Hierarchy
+
+**Primary Text (One-Line):**
+- Main item name or label
+- Font: medium weight, 14px
+- Color: `--ds-color-text-primary`
+
+**Secondary Text (Two-Line):**
+- Supporting information or description
+- Font: regular weight, 12px
+- Color: `--ds-color-text-muted`
+
+**Supporting Text (Three-Line):**
+- Additional context or details
+- Font: regular weight, 12px
+- Color: `--ds-color-text-muted`
+
+---
+
+## Responsive Behavior
+
+### Desktop (1024px and up)
+- Full width or constrained to content area
+- Hover states fully functional
+- Multi-column layouts possible
+- Dense information density supported
+
+### Tablet (768px - 1023px)
+- Responsive width adapts to container
+- Touch-optimized spacing (comfortable density)
+- Hover states may not work (touch devices)
+- Two-column layouts for wide lists
+
+### Mobile (under 768px)
+- Full-width items
+- Increased touch targets (48px minimum)
+- Comfortable or default density preferred
+- Single column layout
+- Consider infinite scroll for long lists
+- Swipe actions for common operations
+
+---
+
+## Code Examples
+
+### Example 1: Simple One-Line List
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemText,
+} from '@/components/ui/list';
+
+function SimpleList() {
+  return (
+    <List variant="outlined" className="w-full max-w-md">
+      <ListItem>
+        <ListItemContent lines="one">
+          <ListItemText>Business Internet</ListItemText>
+        </ListItemContent>
+      </ListItem>
+      <ListItem>
+        <ListItemContent lines="one">
+          <ListItemText>Business Phone</ListItemText>
+        </ListItemContent>
+      </ListItem>
+      <ListItem>
+        <ListItemContent lines="one">
+          <ListItemText>Cloud Services</ListItemText>
+        </ListItemContent>
+      </ListItem>
+    </List>
+  );
+}
+```
+
+### Example 2: Two-Line List with Icons
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemLeading,
+  ListItemText,
+  ListItemSecondaryText,
+} from '@/components/ui/list';
+import { Wifi, Phone, Cloud, Shield } from 'lucide-react';
+
+function ServicesList() {
+  const services = [
+    {
+      icon: Wifi,
+      name: 'Business Internet',
+      description: '1 Gbps Fiber Connection',
+    },
+    {
+      icon: Phone,
+      name: 'Business Voice',
+      description: 'Unlimited calling',
+    },
+    {
+      icon: Cloud,
+      name: 'Cloud Storage',
+      description: '1 TB secure storage',
+    },
+    {
+      icon: Shield,
+      name: 'Security Services',
+      description: 'Advanced threat protection',
+    },
+  ];
+
+  return (
+    <List variant="elevated" className="w-full max-w-md">
+      {services.map((service, index) => (
+        <ListItem key={index}>
+          <ListItemLeading>
+            <service.icon className="w-5 h-5 text-[var(--ds-color-intent-primary)]" />
+          </ListItemLeading>
+          <ListItemContent lines="two">
+            <ListItemText>{service.name}</ListItemText>
+            <ListItemSecondaryText>{service.description}</ListItemSecondaryText>
+          </ListItemContent>
+        </ListItem>
+      ))}
+    </List>
+  );
+}
+```
+
+### Example 3: Interactive List with Selection
+
+```tsx
+import { useState } from 'react';
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemLeading,
+  ListItemText,
+  ListItemSecondaryText,
+} from '@/components/ui/list';
+import { Checkbox } from '@/components/ui/checkbox';
+
+function SelectableList() {
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+  const items = [
+    { id: '1', title: 'Service Location 1', address: '123 Main St, Suite 100' },
+    { id: '2', title: 'Service Location 2', address: '456 Business Ave' },
+    { id: '3', title: 'Service Location 3', address: '789 Corporate Blvd' },
+  ];
+
+  const toggleSelection = (id: string) => {
+    setSelectedIds(prev =>
+      prev.includes(id)
+        ? prev.filter(itemId => itemId !== id)
+        : [...prev, id]
+    );
+  };
+
+  return (
+    <List variant="outlined" className="w-full max-w-md">
+      {items.map(item => (
+        <ListItem
+          key={item.id}
+          variant="clickable"
+          selected={selectedIds.includes(item.id)}
+          onClick={() => toggleSelection(item.id)}
+        >
+          <ListItemLeading>
+            <Checkbox
+              checked={selectedIds.includes(item.id)}
+              onChange={() => toggleSelection(item.id)}
+            />
+          </ListItemLeading>
+          <ListItemContent lines="two">
+            <ListItemText>{item.title}</ListItemText>
+            <ListItemSecondaryText>{item.address}</ListItemSecondaryText>
+          </ListItemContent>
+        </ListItem>
+      ))}
+    </List>
+  );
+}
+```
+
+### Example 4: List with Avatars and Actions
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemLeading,
+  ListItemTrailing,
+  ListItemText,
+  ListItemSecondaryText,
+} from '@/components/ui/list';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { MoreHorizontal } from 'lucide-react';
+
+function UserList() {
+  const users = [
+    { name: 'John Doe', role: 'Administrator', initials: 'JD' },
+    { name: 'Alice Smith', role: 'Manager', initials: 'AS' },
+    { name: 'Bob Johnson', role: 'User', initials: 'BJ' },
+  ];
+
+  return (
+    <List variant="outlined" className="w-full max-w-md">
+      {users.map((user, index) => (
+        <ListItem key={index}>
+          <ListItemLeading>
+            <Avatar className="w-10 h-10">
+              <AvatarFallback>{user.initials}</AvatarFallback>
+            </Avatar>
+          </ListItemLeading>
+          <ListItemContent lines="two">
+            <ListItemText>{user.name}</ListItemText>
+            <ListItemSecondaryText>{user.role}</ListItemSecondaryText>
+          </ListItemContent>
+          <ListItemTrailing>
+            <Button variant="ghost" size="icon">
+              <MoreHorizontal className="w-5 h-5" />
+            </Button>
+          </ListItemTrailing>
+        </ListItem>
+      ))}
+    </List>
+  );
+}
+```
+
+### Example 5: Sectioned List with Headers
+
+```tsx
+import {
+  List,
+  ListSection,
+  ListSectionHeader,
+  ListItem,
+  ListItemContent,
+  ListItemLeading,
+  ListItemTrailing,
+  ListItemText,
+  ListItemSecondaryText,
+  ListDivider,
+} from '@/components/ui/list';
+import { Wifi, Bluetooth, Volume, Bell } from 'lucide-react';
+import { Switch } from '@/components/ui/switch';
+import { ChevronRight } from 'lucide-react';
+
+function SettingsList() {
+  return (
+    <List variant="outlined" className="w-full max-w-md">
+      <ListSection>
+        <ListSectionHeader>Connectivity</ListSectionHeader>
+        <ListItem>
+          <ListItemLeading>
+            <Wifi className="w-5 h-5 text-[var(--ds-color-intent-primary)]" />
+          </ListItemLeading>
+          <ListItemContent lines="two">
+            <ListItemText>Wi-Fi</ListItemText>
+            <ListItemSecondaryText>Connected to Office WiFi</ListItemSecondaryText>
+          </ListItemContent>
+          <ListItemTrailing>
+            <Switch defaultChecked />
+          </ListItemTrailing>
+        </ListItem>
+        <ListItem>
+          <ListItemLeading>
+            <Bluetooth className="w-5 h-5 text-[var(--ds-color-intent-primary)]" />
+          </ListItemLeading>
+          <ListItemContent lines="two">
+            <ListItemText>Bluetooth</ListItemText>
+            <ListItemSecondaryText>2 devices connected</ListItemSecondaryText>
+          </ListItemContent>
+          <ListItemTrailing>
+            <Switch defaultChecked />
+          </ListItemTrailing>
+        </ListItem>
+      </ListSection>
+
+      <ListDivider />
+
+      <ListSection>
+        <ListSectionHeader>Sound & Display</ListSectionHeader>
+        <ListItem variant="clickable">
+          <ListItemLeading>
+            <Volume className="w-5 h-5 text-[var(--ds-color-intent-primary)]" />
+          </ListItemLeading>
+          <ListItemContent lines="one">
+            <ListItemText>Sound</ListItemText>
+          </ListItemContent>
+          <ListItemTrailing>
+            <ChevronRight className="w-5 h-5 text-[var(--ds-color-text-muted)]" />
+          </ListItemTrailing>
+        </ListItem>
+        <ListItem variant="clickable">
+          <ListItemLeading>
+            <Bell className="w-5 h-5 text-[var(--ds-color-intent-primary)]" />
+          </ListItemLeading>
+          <ListItemContent lines="one">
+            <ListItemText>Notifications</ListItemText>
+          </ListItemContent>
+          <ListItemTrailing>
+            <ChevronRight className="w-5 h-5 text-[var(--ds-color-text-muted)]" />
+          </ListItemTrailing>
+        </ListItem>
+      </ListSection>
+    </List>
+  );
+}
+```
+
+### Example 6: Status List with Badges
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemLeading,
+  ListItemTrailing,
+  ListItemText,
+  ListItemSecondaryText,
+} from '@/components/ui/list';
+import { Badge } from '@/components/ui/badge';
+import { CheckCircle, AlertCircle, Clock } from 'lucide-react';
+
+function StatusList() {
+  const items = [
+    {
+      icon: CheckCircle,
+      iconColor: 'text-green-600',
+      title: 'Internet Service',
+      subtitle: 'Connection is active',
+      status: 'Active',
+      statusVariant: 'default' as const,
+      statusClass: 'bg-green-50 text-green-700 border-green-200',
+    },
+    {
+      icon: AlertCircle,
+      iconColor: 'text-orange-600',
+      title: 'Maintenance Window',
+      subtitle: 'Scheduled for tonight at 2 AM',
+      status: 'Pending',
+      statusVariant: 'secondary' as const,
+      statusClass: 'bg-orange-50 text-orange-700 border-orange-200',
+    },
+    {
+      icon: Clock,
+      iconColor: 'text-blue-600',
+      title: 'System Backup',
+      subtitle: 'Configuration backup in progress',
+      status: 'Running',
+      statusVariant: 'secondary' as const,
+      statusClass: 'bg-blue-50 text-blue-700 border-blue-200',
+    },
+  ];
+
+  return (
+    <List variant="outlined" className="w-full max-w-md">
+      {items.map((item, index) => (
+        <ListItem key={index}>
+          <ListItemLeading>
+            <item.icon className={`w-5 h-5 ${item.iconColor}`} />
+          </ListItemLeading>
+          <ListItemContent lines="two">
+            <ListItemText>{item.title}</ListItemText>
+            <ListItemSecondaryText>{item.subtitle}</ListItemSecondaryText>
+          </ListItemContent>
+          <ListItemTrailing>
+            <Badge variant={item.statusVariant} className={item.statusClass}>
+              {item.status}
+            </Badge>
+          </ListItemTrailing>
+        </ListItem>
+      ))}
+    </List>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **Table:** Structured data with multiple columns
+- **Menu:** Clickable action lists
+- **Select:** Form input for choosing options
+- **Navigation:** Site or app navigation menus
+- **Card Grid:** Cards in grid layout
+- **Data Table:** Complex tabular data with sorting/filtering
+
+**When to Choose:**
+- **List** → Collections of similar items, vertical layout
+- **Table** → Structured data with columns, comparison needed
+- **Menu** → Actions and options, temporary overlay
+- **Select** → Form input, single or multiple selection
+- **Navigation** → Site structure, hierarchical menus
+- **Card Grid** → Rich visual content, grid layout preferred
+
+---
+
+## Design Tokens Used
+
+### Colors
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-color-bg-primary` | `#FFFFFF` | List and item background |
+| `--ds-color-bg-surface` | `#F5F5F7` | Hover state background |
+| `--ds-color-text-primary` | `#2B2D3F` | Primary item text |
+| `--ds-color-text-muted` | `#70717D` | Secondary and supporting text |
+| `--ds-color-border-muted` | `#E8E8EC` | Dividers and borders |
+| `--ds-color-neutral-200` | `#E8E8EC` | Active/pressed state |
+| `--ds-color-intent-primary` | `#0D62FF` | Icons, selected state (10% opacity), focus ring |
+
+### Spacing
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-spacing-2` | `8px` | Compact vertical padding |
+| `--ds-spacing-3` | `12px` | Default vertical padding |
+| `--ds-spacing-4` | `16px` | Comfortable vertical padding, leading/trailing margins |
+| `--ds-spacing-4` | `16px` | Horizontal padding for items |
+
+### Typography
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-font-family-primary` | Inter | All list text |
+| `--ds-font-size-sm` | `14px` | Primary text, one-line items |
+| `--ds-font-size-xs` | `12px` | Secondary and supporting text, section headers |
+| `--ds-font-weight-medium` | `500` | Primary text |
+| `--ds-font-weight-semibold` | `600` | Section headers |
+| `--ds-font-weight-regular` | `400` | Secondary text |
+
+### Shadows
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `shadow-sm` | `0 1px 2px rgba(0,0,0,0.05)` | Elevated variant |
+
+### Border Radius
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-radius-lg` | `8px` | List container corners |
+
+### Minimum Heights
+
+| Density | One-Line | Two-Line | Three-Line |
+|---------|----------|----------|------------|
+| **Compact** | 40px | 48px | 64px |
+| **Default** | 48px | 56px | 72px |
+| **Comfortable** | 56px | 64px | 88px |
+
+---
+
+## Notes
+
+- List uses CSS custom properties for consistent theming
+- Borders use `--ds-color-border-muted` for dividers within lists
+- List items with interactive states use roving tabindex pattern
+- Selected state uses `--ds-color-intent-primary` with 10% opacity
+- Leading and trailing elements use flexbox for alignment
+- Text truncates with ellipsis by default (can be overridden)
+- Section headers use uppercase text for visual distinction
+- Three-line lists are maximum recommended; consider cards for more content

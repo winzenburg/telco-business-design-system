@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '../src/components/ui/button';
 import { Menu, CircleHelp, ChevronDown, ChevronUp, ChevronRight, Home, User, Settings, BarChart, FileText, Phone, Shield, Wifi } from 'lucide-react';
 import { navigationSpecs, categorizedNavigation, navigationUsage } from '../src/tokens/figma-navigation-specs';
+import NavigationDocs from './Navigation.mdx';
 
 // Icon mapping for navigation
 const iconMap = {
@@ -31,6 +32,7 @@ const meta: Meta = {
   parameters: {
     layout: 'fullscreen',
     docs: {
+      page: NavigationDocs,
       description: {
         component: 'Navigation components built to Figma specifications from the Comcast Business Design System. Includes headers, sidebars, menus, and navigation patterns.',
       },

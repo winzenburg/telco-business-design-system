@@ -19,11 +19,11 @@ import {
   AvatarFallback,
   Button,
 } from '../src/components';
-import { 
-  User, 
-  Mail, 
-  Phone, 
-  Settings, 
+import {
+  User,
+  Mail,
+  Phone,
+  Settings,
   ChevronRight,
   Star,
   Heart,
@@ -38,6 +38,7 @@ import {
   AlertCircle,
   Clock
 } from 'lucide-react';
+import ListDocs from './List.mdx';
 
 const meta: Meta<typeof List> = {
   title: 'List',
@@ -45,9 +46,7 @@ const meta: Meta<typeof List> = {
   parameters: {
     layout: 'padded',
     docs: {
-      description: {
-        component: 'Material Design 3 inspired Lists component for displaying structured content. Supports one-line, two-line, and three-line list items with leading and trailing elements, interactive states, and accessibility features.',
-      },
+      page: ListDocs,
     },
   },
   tags: ['autodocs'],
@@ -58,7 +57,7 @@ const meta: Meta<typeof List> = {
       description: 'Visual style variant of the list',
     },
     density: {
-      control: 'select', 
+      control: 'select',
       options: ['default', 'compact', 'comfortable'],
       description: 'Spacing density of list items',
     },

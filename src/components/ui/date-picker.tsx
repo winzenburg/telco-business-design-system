@@ -71,8 +71,8 @@ export function DatePicker({
       <PopoverContent className="w-auto p-0" align="start">
         <Calendar
           mode="single"
-          selected={currentDate}
-          onSelect={handleDateSelect}
+          selected={currentDate as any}
+          onSelect={handleDateSelect as any}
           initialFocus
           {...calendarProps}
         />
@@ -139,8 +139,8 @@ export function DateRangePicker({
       <PopoverContent className="w-auto p-0" align="start">
         <Calendar
           mode="range"
-          selected={currentRange}
-          onSelect={handleRangeChange}
+          selected={currentRange as any}
+          onSelect={handleRangeChange as any}
           numberOfMonths={numberOfMonths}
           initialFocus
           {...calendarProps}

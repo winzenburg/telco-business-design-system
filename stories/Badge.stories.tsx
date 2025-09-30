@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Badge, Avatar } from '../src/components';
 import { Star, Heart, User, Plus, Filter, Tag, Check, X, Settings, ChevronDown } from 'lucide-react';
+import BadgeDocs from './Badge.mdx';
 
 const meta: Meta<typeof Badge> = {
   title: 'Badge',
@@ -9,6 +10,7 @@ const meta: Meta<typeof Badge> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: BadgeDocs,
       description: {
         component: 'Badge component for displaying status indicators, labels, and interactive chips with support for different types, icons, and user interactions.'
       }
@@ -48,6 +50,73 @@ const meta: Meta<typeof Badge> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const AllVariants: Story = {
+  render: () => (
+    <div className="space-y-8 max-w-2xl">
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Variants</h3>
+        <div className="flex gap-2 flex-wrap">
+          <Badge variant="default">Default</Badge>
+          <Badge variant="secondary">Secondary</Badge>
+          <Badge variant="destructive">Destructive</Badge>
+          <Badge variant="outline">Outline</Badge>
+          <Badge variant="info">Info</Badge>
+          <Badge variant="success">Success</Badge>
+          <Badge variant="warning">Warning</Badge>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Sizes</h3>
+        <div className="flex items-center gap-4">
+          <Badge size="sm">Small</Badge>
+          <Badge size="default">Default</Badge>
+          <Badge size="lg">Large</Badge>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Icons</h3>
+        <div className="flex gap-2 flex-wrap">
+          <Badge leadingIcon={<Star className="h-3 w-3" />}>Featured</Badge>
+          <Badge leadingIcon={<Heart className="h-3 w-3" />} variant="destructive">Favorite</Badge>
+          <Badge trailingIcon={<ChevronDown className="h-3 w-3" />} variant="outline">Dropdown</Badge>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Assist Chips</h3>
+        <div className="flex gap-2 flex-wrap">
+          <Badge chipType="assist" leadingIcon={<Plus className="h-3 w-3" />}>
+            Add to cart
+          </Badge>
+          <Badge chipType="assist" leadingIcon={<Settings className="h-3 w-3" />} variant="outline">
+            Settings
+          </Badge>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Status Badges</h3>
+        <div className="flex gap-2 flex-wrap">
+          <Badge variant="success" size="sm">Online</Badge>
+          <Badge variant="warning" size="sm">Pending</Badge>
+          <Badge variant="destructive" size="sm">Failed</Badge>
+          <Badge variant="info" size="sm">New</Badge>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Disabled State</h3>
+        <div className="flex gap-2 flex-wrap">
+          <Badge disabled>Disabled</Badge>
+          <Badge disabled chipType="assist">Disabled Action</Badge>
+        </div>
+      </div>
+    </div>
+  ),
+};
 
 export const Default: Story = {
   args: {

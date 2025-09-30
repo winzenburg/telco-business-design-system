@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Separator } from '../src/components';
+import SeparatorDocs from './Separator.mdx';
 
 const meta: Meta<typeof Separator> = {
   title: 'Separator',
@@ -8,10 +9,8 @@ const meta: Meta<typeof Separator> = {
   parameters: {
     layout: 'padded',
     docs: {
-      description: {
-        component: 'Separator component for visual content separation following Comcast Business Design System.'
-      }
-    }
+      page: SeparatorDocs,
+    },
   },
   tags: ['autodocs'],
 };

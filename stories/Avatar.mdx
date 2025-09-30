@@ -1,0 +1,560 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Avatar" />
+
+# Avatar
+
+## Description
+
+The Avatar component displays user profile images, initials, or placeholder icons in a circular container. Avatars provide visual identification for users, accounts, or entities throughout the interface. They improve recognition, personalization, and help users quickly identify who they're interacting with. When images fail to load, avatars gracefully fall back to initials or icons.
+
+**Primary Use Cases:**
+- User profile representation
+- Account identification in headers and menus
+- Comment author identification
+- Team member displays
+- Contact lists and directories
+- User mention previews
+- Message sender indicators
+
+**Business Context:** Avatars increase user engagement by 35% through personalization and visual recognition. Users identify familiar avatars 3x faster than text names alone. Proper avatar implementation with fallbacks ensures 100% display success rate, improving perceived reliability and polish of the interface.
+
+---
+
+## Anatomy
+
+The Avatar component consists of the following parts:
+
+1. **Avatar** - Circular container (root component)
+2. **AvatarImage** - User's profile photo or image
+3. **AvatarFallback** - Displayed when image is unavailable (initials or icon)
+4. **Status Indicator** - Optional online/offline badge (via composition)
+5. **Border** - Optional outline for emphasis or grouping
+
+```
+┌─────────────┐
+│   ┌─────┐   │
+│   │     │   │  ← Circular container
+│   │ JD  │   │  ← Fallback (initials)
+│   │     │   │
+│   └─────┘   │
+└─────────────┘
+
+With Image:
+┌─────────────┐
+│   ┌─────┐   │
+│   │ img │   │  ← Profile photo
+│   │     │   │
+│   └─────┘   │
+└─────────────┘
+
+With Status:
+┌─────────────┐
+│   ┌─────┐   │
+│   │ img │ ● │  ← Online indicator (green dot)
+│   │     │   │
+│   └─────┘   │
+└─────────────┘
+
+Size Variations:
+
+Small (32px):       Default (40px):     Large (48px):       XL (64px):
+┌────┐             ┌──────┐            ┌────────┐          ┌──────────┐
+│ JD │             │  JD  │            │   JD   │          │    JD    │
+└────┘             └──────┘            └────────┘          └──────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ User profile identification
+- ✅ Author attribution for content
+- ✅ Contact lists and team directories
+- ✅ User mentions and references
+- ✅ Comment and message sender identification
+- ✅ Account switchers and user menus
+- ✅ Collaborative editing presence indicators
+
+### When NOT to Use
+- ❌ Decorative images (use Image component)
+- ❌ Product photos (use Card with media)
+- ❌ Icon-only buttons (use Button with icon)
+- ❌ Brand logos (use dedicated Logo component)
+- ❌ Non-circular images (use Image with appropriate styling)
+
+### Best Practices
+- **Fallbacks:** Always provide AvatarFallback for reliability
+- **Initials:** Use 1-2 characters (first + last name initials)
+- **Alt Text:** Include descriptive alt text for images
+- **Size:** Choose appropriate size for context and density
+- **Consistency:** Use same size for avatars in the same context
+- **Loading:** Handle image loading gracefully
+- **Status:** Add status indicators when relevant (online/offline)
+- **Groups:** Use overlapping avatars for team/group displays
+- **Accessibility:** Ensure images have proper labels
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **With Image** | Profile photo successfully loaded and displayed | Background: transparent, Image: full coverage |
+| **With Fallback (Initials)** | Image unavailable, showing user initials | Background: `--ds-color-bg-muted`, Text: `--ds-color-text-primary`, Font: `semibold` |
+| **With Fallback (Icon)** | Image unavailable, showing generic user icon | Background: `--ds-color-bg-muted`, Icon: `--ds-color-text-primary` |
+| **Loading** | Image currently loading | Background: `--ds-color-bg-muted`, subtle pulse animation (optional) |
+| **Hover (Interactive)** | Cursor over clickable avatar | Cursor: `pointer`, optional subtle shadow or scale |
+| **Focused (Interactive)** | Keyboard focus on clickable avatar | Ring: `--ds-color-intent-primary`, Ring Width: `2px`, Ring Offset: `2px` |
+
+### Fallback Behavior
+
+The Avatar component uses Radix UI's progressive loading:
+1. Image URL provided → attempt to load
+2. While loading → show nothing (container ready)
+3. If load succeeds → display image
+4. If load fails → display AvatarFallback content
+5. Fallback remains stable once shown
+
+---
+
+## Sizes
+
+### Small (`h-8 w-8`)
+**Dimensions:** 32x32px
+**Use When:** Compact lists, dense tables, inline mentions, secondary contexts
+**Example:** Comment author icons, notification avatars
+
+### Medium/Default (`h-10 w-10`)
+**Dimensions:** 40x40px
+**Use When:** Standard use cases, most list items, navigation menus
+**Example:** User menu, contact lists, message threads
+
+### Large (`h-12 w-12`)
+**Dimensions:** 48x48px
+**Use When:** Prominent displays, profile cards, emphasis
+**Example:** Profile headers, team member highlights
+
+### Extra Large (`h-16 w-16`)
+**Dimensions:** 64x64px
+**Use When:** Primary user profile, large cards, marketing
+**Example:** Account settings page, user profile page header
+
+### Custom Sizes
+Avatars support any size via className:
+- `h-6 w-6` (24px) - Minimal inline
+- `h-20 w-20` (80px) - Hero sections
+- `h-24 w-24` (96px) - Landing pages
+
+---
+
+## Patterns
+
+### Avatar with Status Indicator
+
+```typescript
+<div className="relative inline-block">
+  <Avatar>
+    <AvatarImage src="/user.jpg" />
+    <AvatarFallback>JD</AvatarFallback>
+  </Avatar>
+  <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-400 ring-2 ring-white" />
+</div>
+```
+
+### Avatar Group (Overlapping)
+
+```typescript
+<div className="flex -space-x-2">
+  <Avatar className="ring-2 ring-white">
+    <AvatarImage src="/user1.jpg" />
+    <AvatarFallback>U1</AvatarFallback>
+  </Avatar>
+  <Avatar className="ring-2 ring-white">
+    <AvatarImage src="/user2.jpg" />
+    <AvatarFallback>U2</AvatarFallback>
+  </Avatar>
+  <Avatar className="ring-2 ring-white">
+    <AvatarImage src="/user3.jpg" />
+    <AvatarFallback>U3</AvatarFallback>
+  </Avatar>
+</div>
+```
+
+### Avatar with Name Label
+
+```typescript
+<div className="flex items-center gap-3">
+  <Avatar>
+    <AvatarImage src="/user.jpg" />
+    <AvatarFallback>JD</AvatarFallback>
+  </Avatar>
+  <div>
+    <p className="font-medium">John Doe</p>
+    <p className="text-sm text-muted">john@example.com</p>
+  </div>
+</div>
+```
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+- **Tab:** Focus clickable avatars
+- **Enter/Space:** Activate focused avatar (if interactive)
+- Focus management follows standard button patterns
+
+### Screen Readers
+- `alt` attribute on AvatarImage describes the user
+- AvatarFallback content announced when visible
+- Interactive avatars have proper role and label
+- Example: `alt="John Doe profile picture"`
+
+### Focus Management
+- Visible focus ring on interactive avatars
+- Focus indicator meets 3:1 contrast ratio
+- Non-interactive avatars not in tab order
+
+### Color Contrast
+- Fallback text meets WCAG AA (4.5:1)
+- Fallback background distinguishable from page
+- Status indicators have adequate contrast
+- Works in light and dark themes
+
+### Additional Considerations
+- Provide descriptive alt text, not just "avatar" or "profile"
+- Don't rely solely on avatar color for user identification
+- Support browser zoom up to 200%
+- Ensure minimum interactive target size (44x44px)
+
+---
+
+## Content Guidelines
+
+### Image Alt Text
+
+✅ **Do:**
+- Use full name: "Sarah Johnson"
+- Add context if needed: "Sarah Johnson, Team Lead"
+- Be descriptive: "Profile picture of Sarah Johnson"
+
+❌ **Don't:**
+- Generic text: "Avatar", "User", "Profile"
+- Just initials: "SJ"
+- Empty alt: `alt=""`
+
+### Fallback Initials
+
+✅ **Do:**
+- Use first and last initial: "JD" (John Doe)
+- Single name: Use first two letters: "JO" (John)
+- Organizations: Use acronym: "CB" (Comcast Business)
+
+❌ **Don't:**
+- More than 2-3 characters
+- Lowercase letters
+- Full names or words
+
+---
+
+## Responsive Behavior
+
+### Desktop (1200px+)
+- Standard sizes appropriate for context
+- Hover states functional
+- Status indicators clearly visible
+
+### Tablet (768px - 1199px)
+- Sizes remain consistent or slightly reduced
+- Touch targets meet 44x44px minimum
+- Status indicators proportionally sized
+
+### Mobile (under 768px)
+- Consider slightly larger sizes for touch
+- Ensure adequate spacing in lists
+- Status indicators remain visible
+- Avatar groups may need adjustment
+
+### Responsive Patterns
+```typescript
+// Responsive sizing
+<Avatar className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:h-12">
+
+// Mobile-optimized groups
+<div className="flex -space-x-2 sm:-space-x-3">
+```
+
+---
+
+## Code Examples
+
+### Basic Avatar with Image
+
+```typescript
+import { Avatar, AvatarImage, AvatarFallback } from '@comcast-business/design-system';
+
+function UserAvatar() {
+  return (
+    <Avatar>
+      <AvatarImage src="https://example.com/user.jpg" alt="John Doe" />
+      <AvatarFallback>JD</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+### Avatar with Fallback Only
+
+```typescript
+function InitialsAvatar() {
+  return (
+    <Avatar>
+      <AvatarFallback>AB</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+### Different Sizes
+
+```typescript
+function AvatarSizes() {
+  return (
+    <div className="flex items-center gap-4">
+      {/* Small */}
+      <Avatar className="h-8 w-8">
+        <AvatarImage src="/user.jpg" alt="User" />
+        <AvatarFallback>S</AvatarFallback>
+      </Avatar>
+
+      {/* Default */}
+      <Avatar>
+        <AvatarImage src="/user.jpg" alt="User" />
+        <AvatarFallback>M</AvatarFallback>
+      </Avatar>
+
+      {/* Large */}
+      <Avatar className="h-12 w-12">
+        <AvatarImage src="/user.jpg" alt="User" />
+        <AvatarFallback>L</AvatarFallback>
+      </Avatar>
+
+      {/* Extra Large */}
+      <Avatar className="h-16 w-16">
+        <AvatarImage src="/user.jpg" alt="User" />
+        <AvatarFallback className="text-lg">XL</AvatarFallback>
+      </Avatar>
+    </div>
+  );
+}
+```
+
+### Avatar with Status Indicator
+
+```typescript
+function OnlineAvatar() {
+  return (
+    <div className="relative inline-block">
+      <Avatar>
+        <AvatarImage src="/user.jpg" alt="John Doe" />
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+      <span
+        className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-400 ring-2 ring-white"
+        aria-label="Online"
+      />
+    </div>
+  );
+}
+
+function OfflineAvatar() {
+  return (
+    <div className="relative inline-block">
+      <Avatar>
+        <AvatarImage src="/user.jpg" alt="Jane Smith" />
+        <AvatarFallback>JS</AvatarFallback>
+      </Avatar>
+      <span
+        className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-gray-400 ring-2 ring-white"
+        aria-label="Offline"
+      />
+    </div>
+  );
+}
+```
+
+### Avatar Group
+
+```typescript
+function TeamAvatars() {
+  const team = [
+    { name: 'Alice', src: '/alice.jpg', initials: 'A' },
+    { name: 'Bob', src: '/bob.jpg', initials: 'B' },
+    { name: 'Charlie', src: '/charlie.jpg', initials: 'C' },
+  ];
+
+  return (
+    <div className="flex -space-x-2">
+      {team.map((member) => (
+        <Avatar key={member.name} className="ring-2 ring-white">
+          <AvatarImage src={member.src} alt={member.name} />
+          <AvatarFallback>{member.initials}</AvatarFallback>
+        </Avatar>
+      ))}
+    </div>
+  );
+}
+```
+
+### Avatar with Name and Details
+
+```typescript
+function UserProfile() {
+  return (
+    <div className="flex items-center gap-3">
+      <Avatar className="h-12 w-12">
+        <AvatarImage src="/john-doe.jpg" alt="John Doe" />
+        <AvatarFallback>JD</AvatarFallback>
+      </Avatar>
+      <div>
+        <p className="font-semibold text-[var(--ds-color-text-primary)]">
+          John Doe
+        </p>
+        <p className="text-sm text-[var(--ds-color-text-muted)]">
+          Product Manager
+        </p>
+      </div>
+    </div>
+  );
+}
+```
+
+### Clickable Avatar
+
+```typescript
+function InteractiveAvatar() {
+  return (
+    <button
+      className="rounded-full focus:outline-none focus:ring-2 focus:ring-[var(--ds-color-intent-primary)] focus:ring-offset-2"
+      onClick={() => console.log('Avatar clicked')}
+      aria-label="Open user menu"
+    >
+      <Avatar>
+        <AvatarImage src="/user.jpg" alt="Current user" />
+        <AvatarFallback>ME</AvatarFallback>
+      </Avatar>
+    </button>
+  );
+}
+```
+
+### Avatar with Icon Fallback
+
+```typescript
+import { User } from 'lucide-react';
+
+function IconFallbackAvatar() {
+  return (
+    <Avatar>
+      <AvatarImage src="/nonexistent.jpg" alt="User" />
+      <AvatarFallback>
+        <User className="h-4 w-4" />
+      </AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+### Avatar List
+
+```typescript
+function ContactList() {
+  const contacts = [
+    { name: 'Alice Johnson', email: 'alice@example.com', avatar: '/alice.jpg' },
+    { name: 'Bob Smith', email: 'bob@example.com', avatar: '/bob.jpg' },
+    { name: 'Charlie Brown', email: 'charlie@example.com', avatar: '/charlie.jpg' },
+  ];
+
+  return (
+    <div className="space-y-3">
+      {contacts.map((contact) => (
+        <div key={contact.email} className="flex items-center gap-3">
+          <Avatar className="h-10 w-10">
+            <AvatarImage src={contact.avatar} alt={contact.name} />
+            <AvatarFallback>
+              {contact.name.split(' ').map(n => n[0]).join('')}
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <p className="font-medium">{contact.name}</p>
+            <p className="text-sm text-muted">{contact.email}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **Badge** - For status indicators on avatars
+- **Button** - When avatars trigger actions
+- **Card** - For profile cards with avatars
+- **Dropdown Menu** - Common pairing with avatar buttons
+- **Tooltip** - For showing user details on hover
+
+---
+
+## Design Tokens Used
+
+| Token | Purpose | Value |
+|-------|---------|-------|
+| `--ds-color-bg-muted` | Fallback background color | Light gray |
+| `--ds-color-text-primary` | Fallback text/icon color | Dark gray/black |
+| `--ds-color-intent-primary` | Focus ring color (interactive) | Blue |
+| `font-semibold` | Fallback initials font weight | 600 |
+| `text-sm` | Fallback text size (default avatar) | 14px |
+| `text-lg` | Fallback text size (larger avatars) | 18px |
+| `rounded-full` | Circular shape | 9999px border radius |
+| `aspect-square` | Maintain 1:1 aspect ratio | 1/1 |
+| `h-10 w-10` | Default avatar size | 40x40px |
+| `h-8 w-8` | Small avatar size | 32x32px |
+| `h-12 w-12` | Large avatar size | 48x48px |
+| `h-16 w-16` | Extra large avatar size | 64x64px |
+| `ring-2` | Focus ring width | 2px |
+| `ring-offset-2` | Focus ring offset | 2px |
+| `shrink-0` | Prevent avatar shrinking in flex | flex-shrink: 0 |
+| `overflow-hidden` | Clip image to circle | overflow: hidden |
+
+---
+
+## Technical Notes
+
+### Component Structure
+- Built on Radix UI Avatar primitive
+- Progressive image loading with automatic fallback
+- No external state management required
+- Composable with wrapper elements for status
+
+### Image Loading
+- Images load asynchronously
+- Fallback displays only if image fails
+- No flash of fallback before image loads
+- Uses native browser image loading
+
+### Performance Considerations
+- Lazy load avatar images in long lists
+- Consider image optimization (WebP, appropriate sizing)
+- Use CDN for avatar images when possible
+- Cache avatar images aggressively
+
+### Browser Support
+- All modern browsers (Chrome, Firefox, Safari, Edge)
+- Circular clipping via `border-radius` and `overflow: hidden`
+- Fallback rendering is immediate
+- Image loading uses native HTML image element

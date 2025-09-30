@@ -10,7 +10,7 @@ interface TextareaProps extends React.ComponentProps<'textarea'> {
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, error, showCount, value, maxLength, minLength, ...props }, ref) => {
     const [charCount, setCharCount] = React.useState(
-      typeof value === 'string' ? value.length : 0
+      typeof value === 'string' ? value.length : 0,
     );
 
     React.useEffect(() => {
@@ -56,7 +56,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
       </div>
     );
-  }
+  },
 );
 Textarea.displayName = 'Textarea';
 

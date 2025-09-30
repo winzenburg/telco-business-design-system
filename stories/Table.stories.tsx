@@ -30,6 +30,7 @@ import {
   Filter,
   GripVertical
 } from 'lucide-react';
+import TableDocs from './Table.mdx';
 
 const meta: Meta<typeof Table> = {
   title: 'Table',
@@ -37,6 +38,7 @@ const meta: Meta<typeof Table> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: TableDocs,
       description: {
         component:
           'A comprehensive table component built on ShadCN/UI patterns with design system tokens. Features structural borders (neutral-300), sortable columns, selectable rows, pagination, filtering, and responsive layouts.',
@@ -68,6 +70,161 @@ const employees = [
   { id: 7, name: 'Grace Lee', email: 'grace@company.com', department: 'Marketing', role: 'Content Creator', salary: 58000, status: 'Active', joinDate: '2023-05-18', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Grace' },
   { id: 8, name: 'Henry Wilson', email: 'henry@company.com', department: 'Sales', role: 'Account Executive', salary: 72000, status: 'Active', joinDate: '2022-06-30', avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Henry' },
 ];
+
+// ========================================
+// ALL VARIANTS - FIRST EXPORT
+// ========================================
+
+export const AllVariants: Story = {
+  render: () => (
+    <div className="space-y-12 max-w-4xl">
+      {/* Standard Table */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Standard Table</h3>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Service</TableHead>
+              <TableHead>Speed</TableHead>
+              <TableHead className="text-right">Price</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell className="font-medium">Business Internet Essential</TableCell>
+              <TableCell>25/5 Mbps</TableCell>
+              <TableCell className="text-right">$69.95/mo</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="font-medium">Business Internet Performance</TableCell>
+              <TableCell>75/20 Mbps</TableCell>
+              <TableCell className="text-right">$89.95/mo</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* Zebra Striped */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Zebra Striped</h3>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Invoice</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead className="text-right">Amount</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {invoices.slice(0, 3).map((invoice, index) => (
+              <TableRow key={invoice.id} className={index % 2 === 1 ? 'bg-neutral-50' : ''}>
+                <TableCell className="font-medium">{invoice.id}</TableCell>
+                <TableCell>
+                  <Badge variant={invoice.status === 'Paid' ? 'success' : invoice.status === 'Pending' ? 'warning' : 'destructive'}>
+                    {invoice.status}
+                  </Badge>
+                </TableCell>
+                <TableCell className="text-right">${invoice.amount.toFixed(2)}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* With Avatars */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Avatars</h3>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Employee</TableHead>
+              <TableHead>Department</TableHead>
+              <TableHead>Status</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {employees.slice(0, 3).map((person) => (
+              <TableRow key={person.id}>
+                <TableCell>
+                  <div className="flex items-center gap-3">
+                    <Avatar className="h-8 w-8">
+                      <img src={person.avatar} alt={person.name} />
+                    </Avatar>
+                    <div className="font-medium">{person.name}</div>
+                  </div>
+                </TableCell>
+                <TableCell>{person.department}</TableCell>
+                <TableCell>
+                  <Badge variant={person.status === 'Active' ? 'success' : 'secondary'}>
+                    {person.status}
+                  </Badge>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* With Actions */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Actions</h3>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Name</TableHead>
+              <TableHead>Role</TableHead>
+              <TableHead className="text-right">Actions</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {employees.slice(0, 2).map((person) => (
+              <TableRow key={person.id}>
+                <TableCell className="font-medium">{person.name}</TableCell>
+                <TableCell>{person.role}</TableCell>
+                <TableCell>
+                  <div className="flex justify-end gap-2">
+                    <Button variant="ghost" size="sm">
+                      <Eye className="h-4 w-4" />
+                    </Button>
+                    <Button variant="ghost" size="sm">
+                      <Edit className="h-4 w-4" />
+                    </Button>
+                    <Button variant="ghost" size="sm">
+                      <Trash className="h-4 w-4 text-red-600" />
+                    </Button>
+                  </div>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* Loading State */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Loading State</h3>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Name</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>Department</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {Array.from({ length: 3 }).map((_, index) => (
+              <TableRow key={index}>
+                <TableCell><Skeleton className="h-4 w-32" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-48" /></TableCell>
+                <TableCell><Skeleton className="h-4 w-24" /></TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    </div>
+  ),
+};
 
 // ========================================
 // STRUCTURAL VARIANTS

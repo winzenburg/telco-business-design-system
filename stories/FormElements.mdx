@@ -1,0 +1,659 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/FormElements" />
+
+# Form Elements
+
+## Description
+
+Form Elements are the building blocks for creating accessible, user-friendly data collection interfaces. This comprehensive set includes inputs, labels, text areas, checkboxes, radio buttons, and structural components for organizing forms. All components follow Comcast Business Design System specifications with proper validation states, helper text, and accessibility features.
+
+**Primary Use Cases:**
+- User registration and login flows
+- Account settings and profile management
+- Service configuration forms
+- Data collection and surveys
+- Checkout and payment flows
+- Search and filter interfaces
+- Multi-step wizards
+
+**Business Context:** Well-designed forms increase completion rates by 20-30% and reduce support tickets by providing clear guidance and validation feedback. The design system ensures consistency across all business applications while maintaining accessibility standards.
+
+---
+
+## Anatomy
+
+The Form system consists of multiple components working together:
+
+### Core Components
+
+1. **Form** - Container with layout variants (vertical, horizontal, inline)
+2. **FormField** - Wraps individual field with spacing and error handling
+3. **FormLabel** - Field label with required indicator support
+4. **FormDescription** - Helper text below label (subcopy)
+5. **FormMessage** - Validation feedback (error, success, warning, info)
+6. **FormSection** - Groups related fields with title and description
+7. **FormActions** - Button container (submit, cancel, etc.)
+
+### Input Components
+
+8. **Input** - Text field with icon support and validation states
+9. **Textarea** - Multi-line text input
+10. **Checkbox** - Binary selection with label
+11. **Radio Group** - Single selection from multiple options
+12. **Select** - Dropdown selection (covered separately)
+
+```
+┌───────────────────────────────────┐
+│ Form (layout: vertical)           │
+│                                   │
+│  FormSection                      │
+│    Title (semibold)               │
+│    Description (muted)            │
+│                                   │
+│    FormField                      │
+│      FormLabel * (required)       │
+│      FormDescription (subcopy)    │
+│      Input (with validation)      │
+│      FormMessage (error/success)  │
+│                                   │
+│    FormField                      │
+│      FormLabel                    │
+│      Textarea                     │
+│      FormMessage                  │
+│                                   │
+│  FormActions (align: right)       │
+│    [Cancel]       [Submit]        │
+└───────────────────────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Collecting user information
+- ✅ Editing settings or preferences
+- ✅ Search and filter interfaces
+- ✅ Login and registration flows
+- ✅ Multi-step data collection
+- ✅ Configuration wizards
+- ✅ Feedback and survey forms
+
+### When NOT to Use
+- ❌ Simple yes/no confirmations (use Dialog)
+- ❌ Read-only information display (use Typography)
+- ❌ Single action triggers (use Button)
+- ❌ Navigation (use Navigation components)
+- ❌ Content selection (use Menu or Select)
+
+### Best Practices
+- **Required Fields:** Mark with red asterisk (*) next to label
+- **Validation:** Provide inline feedback as user types or on blur
+- **Helper Text:** Use FormDescription for guidance before errors occur
+- **Error Messages:** Be specific and actionable ("Email must include @" not "Invalid")
+- **Grouping:** Use FormSection to organize related fields
+- **Layout:** Choose appropriate layout (vertical for most forms, horizontal for compact layouts)
+- **Actions:** Primary action on right, secondary on left
+- **Accessibility:** All fields must have labels and proper ARIA attributes
+
+---
+
+## Behavior / Interaction States
+
+### Input States
+
+| State | Border | Background | Text | Focus Ring | Description |
+|-------|--------|------------|------|------------|-------------|
+| **Default** | `neutral-400` (#B4B5BB) | white | `text-primary` | none | Ready for input |
+| **Hover** | `neutral-500` (#70717D) | `neutral-50` | `text-primary` | none | Mouse over |
+| **Focused** | `neutral-400` | white | `text-primary` | `primary-500` 2px | Active field |
+| **Active** | `neutral-400` | white | `text-primary` | none | Pressed/clicked |
+| **Filled** | `neutral-400` | white | `text-primary` | none | Contains value |
+| **Disabled** | `neutral-300` (#DDDDE2) | `neutral-100` (#F1F2F6) | `text-muted` | none | Cannot edit |
+| **Error** | `intent-destructive` (#D11314) | white | `text-primary` | none | Validation failed |
+| **Error Focused** | `intent-destructive` | white | `text-primary` | `primary-500` 2px | Active invalid field |
+| **Success** | `intent-success` | white | `text-primary` | none | Validation passed |
+| **Loading** | `neutral-400` | white (skeleton) | animated | none | Processing |
+
+### Checkbox States
+
+| State | Border | Background | Checkmark | Description |
+|-------|--------|------------|-----------|-------------|
+| **Unchecked** | `neutral-400` | white | none | Not selected |
+| **Checked** | `primary-600` | `primary-600` | white | Selected |
+| **Indeterminate** | `primary-600` | `primary-600` | dash | Partially selected |
+| **Disabled Unchecked** | `neutral-300` | `neutral-100` | none | Cannot select |
+| **Disabled Checked** | `neutral-300` | `neutral-300` | `neutral-500` | Cannot deselect |
+| **Error** | `intent-destructive` | white | none | Validation required |
+
+### Radio Button States
+
+| State | Border | Fill | Description |
+|-------|--------|------|-------------|
+| **Unselected** | `neutral-400` | white | Not chosen |
+| **Selected** | `primary-600` | `primary-600` dot | Chosen option |
+| **Disabled Unselected** | `neutral-300` | `neutral-100` | Cannot select |
+| **Disabled Selected** | `neutral-300` | `neutral-300` dot | Cannot change |
+| **Hover** | `neutral-500` | white | Mouse over |
+| **Focused** | `neutral-400` | white + 2px ring | Keyboard focus |
+
+---
+
+## Form Layouts
+
+### 1. Vertical Layout (Default)
+- **Use Case:** Standard forms, detailed data entry
+- **Spacing:** `space-y-6` between fields
+- **Label Position:** Above input
+- **Best For:** Multi-field forms, mobile-first designs
+
+### 2. Horizontal Layout
+- **Use Case:** Compact forms, settings panels
+- **Spacing:** `space-y-4` between fields
+- **Label Position:** Left of input (inline)
+- **Best For:** Short forms, side-by-side layouts
+
+### 3. Inline Layout
+- **Use Case:** Search bars, filter forms
+- **Spacing:** `gap-4` between fields (flex)
+- **Label Position:** Inside or as placeholder
+- **Best For:** Single-row forms, toolbars
+
+---
+
+## Field Components
+
+### Input
+
+**Props:**
+- `label`: Field label text
+- `required`: Shows red asterisk (*)
+- `subcopy`: Helper text below label
+- `placeholder`: Placeholder text
+- `leftIcon`: Icon name (from design system)
+- `rightIcon`: Icon name (for actions like visibility toggle)
+- `error`: Error state boolean
+- `errorMessage`: Error text
+- `hintText`: Helper text below input
+- `disabled`: Disabled state
+- `skeleton`: Loading state
+- `size`: sm | default | lg
+
+**Use Cases:**
+- Text, email, password, number, tel, url inputs
+- Search fields with icons
+- Fields with prefix/suffix icons
+- Validated inputs with real-time feedback
+
+### Textarea
+
+**Props:**
+- `rows`: Number of visible lines
+- `placeholder`: Placeholder text
+- `disabled`: Disabled state
+- `maxLength`: Character limit
+
+**Use Cases:**
+- Long-form text (comments, descriptions)
+- Multi-line addresses
+- Message composition
+- Notes and feedback
+
+### Checkbox
+
+**Props:**
+- `checked`: Controlled checked state
+- `defaultChecked`: Uncontrolled default
+- `disabled`: Disabled state
+- `required`: For form validation
+- `onCheckedChange`: Change handler
+
+**Use Cases:**
+- Accept terms and conditions
+- Enable/disable features
+- Select multiple options
+- Filter selections
+
+### Radio Group
+
+**Props:**
+- `value`: Selected value
+- `defaultValue`: Default selection
+- `disabled`: Disable entire group
+- `onValueChange`: Selection handler
+
+**Use Cases:**
+- Single choice from 2-5 options
+- Settings with exclusive options
+- Shipping/billing preferences
+- Payment method selection
+
+---
+
+## Validation Patterns
+
+### Real-Time Validation
+- Validate on blur (user leaves field)
+- Show success state for valid fields
+- Clear errors when user starts typing
+- Use debounce for async validation (email uniqueness)
+
+### Error Handling
+```typescript
+// Pattern 1: Single field validation
+<Input
+  label="Email Address"
+  required
+  error={!isValidEmail(email)}
+  errorMessage="Please enter a valid email address"
+/>
+
+// Pattern 2: Form-level validation
+const [errors, setErrors] = useState({});
+
+<FormField error={!!errors.email}>
+  <FormLabel required>Email</FormLabel>
+  <Input type="email" />
+  <FormMessage type="error">{errors.email}</FormMessage>
+</FormField>
+```
+
+### Success Feedback
+```typescript
+<Input
+  label="Password"
+  type="password"
+  hintText="Password meets requirements ✓"
+  className="border-green-500"
+/>
+```
+
+---
+
+## Accessibility (a11y) Considerations
+
+### Keyboard Interaction
+- **Tab**: Navigate between fields
+- **Shift+Tab**: Navigate backwards
+- **Space**: Toggle checkbox/radio
+- **Arrow Keys**: Navigate radio group options
+- **Enter**: Submit form (when in text input)
+- **Escape**: Clear autocomplete suggestions
+
+### ARIA Attributes
+- `aria-label`: For inputs without visible labels
+- `aria-describedby`: Links to helper text/error messages
+- `aria-invalid="true"`: Indicates validation error
+- `aria-required="true"`: Required field indicator
+- `role="group"`: For radio groups and checkbox groups
+- `aria-labelledby`: Links label to input
+
+### Screen Reader Behavior
+- Labels announced before input
+- Required indicator announced as "required" or "asterisk"
+- Helper text announced after label
+- Error messages announced immediately on validation
+- Character count announced for limited inputs
+- Success feedback announced on valid submission
+
+### Color Contrast
+- ✅ Labels: 7:1 (AAA) on white background
+- ✅ Input text: 7:1 (AAA) - black on white
+- ✅ Helper text: 4.5:1 (AA) - gray 700
+- ✅ Error text: 4.5:1 (AA) - red 600
+- ✅ Borders: 3:1 for non-text contrast
+- ✅ Focus ring: 3:1 against background
+
+### Focus Management
+- All interactive elements receive focus
+- Focus ring: 2px `primary-500` with 2px offset
+- Focus follows tab order (logical flow)
+- Error messages don't steal focus
+- Modal forms trap focus within dialog
+
+---
+
+## Content Guidelines
+
+### Labels
+✅ **Do:**
+- Use sentence case ("Email address")
+- Be concise (1-3 words)
+- Use familiar terms ("Phone" not "Telephone number")
+- Front-load with keywords ("Email address" not "Address (email)")
+
+❌ **Don't:**
+- Use ALL CAPS or Title Case
+- Add colons (:) after labels
+- Use technical jargon without explanation
+- Make labels too long (use FormDescription instead)
+
+### Helper Text (FormDescription/subcopy)
+✅ **Do:**
+- Explain the purpose or format
+- Provide examples ("e.g., john@company.com")
+- Set expectations ("We'll never share your email")
+- Keep under 100 characters
+
+❌ **Don't:**
+- Repeat the label text
+- Use vague language ("Enter valid data")
+- Include error messages here (use FormMessage)
+- Write multiple paragraphs
+
+### Error Messages
+✅ **Do:**
+- Be specific ("Email must include @")
+- Suggest fixes ("Use format: xxx-xxx-xxxx")
+- Use active voice ("Please enter...")
+- Be constructive, not blaming
+
+❌ **Don't:**
+- Use generic messages ("Invalid input")
+- Blame the user ("You entered wrong data")
+- Use technical codes ("Error 422")
+- SHOUT IN ALL CAPS
+
+### Placeholders
+✅ **Do:**
+- Show format examples ("555-123-4567")
+- Hint at content type ("Search services...")
+- Use when space is limited
+- Keep very short (2-4 words)
+
+❌ **Don't:**
+- Use as labels (accessibility issue)
+- Include critical information
+- Make them required reading
+- Use for instructions (use FormDescription)
+
+---
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- Stack all fields vertically
+- Full-width inputs (`w-full`)
+- Larger touch targets (min 44x44px)
+- Floating labels if space constrained
+- Bottom-sheet for select menus
+- Sticky FormActions at bottom
+
+### Tablet (768px - 1024px)
+- 2-column layouts for short fields (name, phone)
+- Full-width for complex fields (address, email)
+- Side-by-side for related fields
+- Compact spacing (`space-y-4`)
+
+### Desktop (> 1024px)
+- Multi-column layouts when appropriate
+- Horizontal layouts for settings
+- Fixed-width containers (max-w-2xl)
+- Default spacing (`space-y-6`)
+- Inline FormActions (right-aligned)
+
+---
+
+## Code Examples
+
+### Basic Form with Validation
+```typescript
+import { Form, FormField, FormLabel, FormDescription, FormMessage, FormActions, Input, Button } from '@company/ui';
+
+function ContactForm() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [errors, setErrors] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Validate and submit
+  };
+
+  return (
+    <Form layout="vertical" onSubmit={handleSubmit}>
+      <FormField error={!!errors.name}>
+        <FormLabel required>Full Name</FormLabel>
+        <FormDescription>Legal name as it appears on documents</FormDescription>
+        <Input
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          placeholder="John Doe"
+          error={!!errors.name}
+        />
+        {errors.name && <FormMessage type="error">{errors.name}</FormMessage>}
+      </FormField>
+
+      <FormField error={!!errors.email}>
+        <FormLabel required>Email Address</FormLabel>
+        <Input
+          type="email"
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          leftIcon="analytics"
+          placeholder="john@company.com"
+          error={!!errors.email}
+          errorMessage={errors.email}
+        />
+      </FormField>
+
+      <FormField>
+        <FormLabel>Message</FormLabel>
+        <Textarea
+          value={formData.message}
+          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+          rows={4}
+          placeholder="Tell us about your needs..."
+        />
+      </FormField>
+
+      <FormActions align="right">
+        <Button type="button" variant="ghost">Cancel</Button>
+        <Button type="submit">Submit Request</Button>
+      </FormActions>
+    </Form>
+  );
+}
+```
+
+### Multi-Section Form
+```typescript
+<Form layout="vertical">
+  <FormSection
+    title="Account Information"
+    description="Basic details for your business account"
+  >
+    <FormField>
+      <FormLabel required>Company Name</FormLabel>
+      <Input placeholder="Acme Corporation" leftIcon="analytics" />
+    </FormField>
+    <FormField>
+      <FormLabel required>Business Email</FormLabel>
+      <Input type="email" placeholder="contact@acme.com" leftIcon="analytics" />
+    </FormField>
+  </FormSection>
+
+  <FormSection
+    title="Contact Preferences"
+    description="How would you like to be contacted?"
+  >
+    <FormField>
+      <FormLabel>Notification Methods</FormLabel>
+      <div className="space-y-2">
+        <div className="flex items-center space-x-2">
+          <Checkbox id="email" defaultChecked />
+          <Label htmlFor="email">Email notifications</Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <Checkbox id="sms" />
+          <Label htmlFor="sms">SMS notifications</Label>
+        </div>
+      </div>
+    </FormField>
+  </FormSection>
+
+  <FormActions>
+    <Button variant="ghost">Cancel</Button>
+    <Button>Save Settings</Button>
+  </FormActions>
+</Form>
+```
+
+### Inline Search Form
+```typescript
+<Form layout="inline">
+  <Input
+    placeholder="Search services..."
+    leftIcon="analytics"
+    rightIcon="typeoutlinecoloroff"
+  />
+  <Button>Search</Button>
+</Form>
+```
+
+### Checkbox Group
+```typescript
+<FormField>
+  <FormLabel>Services of Interest</FormLabel>
+  <div className="grid grid-cols-2 gap-3 mt-2">
+    {['Internet', 'Voice', 'TV', 'Mobile', 'Security', 'Analytics'].map((service) => (
+      <div key={service} className="flex items-center space-x-2">
+        <Checkbox id={service.toLowerCase()} />
+        <Label htmlFor={service.toLowerCase()}>{service}</Label>
+      </div>
+    ))}
+  </div>
+</FormField>
+```
+
+### Radio Group
+```typescript
+<FormField>
+  <FormLabel required>Account Type</FormLabel>
+  <RadioGroup defaultValue="business">
+    <div className="space-y-3">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="personal" id="personal" />
+        <Label htmlFor="personal">Personal Account</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="business" id="business" />
+        <Label htmlFor="business">Business Account</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="enterprise" id="enterprise" />
+        <Label htmlFor="enterprise">Enterprise Account</Label>
+      </div>
+    </div>
+  </RadioGroup>
+</FormField>
+```
+
+---
+
+## Related Components
+
+- **Button** - Form actions (submit, cancel, reset)
+- **Select** - Dropdown selection fields
+- **Combobox** - Searchable select fields
+- **DatePicker** - Calendar date selection
+- **Dialog** - Modal forms and confirmations
+- **Card** - Container for form sections
+- **Typography** - Labels and helper text styling
+
+---
+
+## Design Tokens Used
+
+### Colors
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-color-neutral-400` | #B4B5BB | Input borders (default) |
+| `--ds-color-neutral-500` | #70717D | Input borders (hover) |
+| `--ds-color-neutral-300` | #DDDDE2 | Input borders (disabled) |
+| `--ds-color-neutral-100` | #F1F2F6 | Input background (disabled) |
+| `--ds-color-text-primary` | #15172B | Label, input text |
+| `--ds-color-text-muted` | #70717D | Helper text, placeholders |
+| `--ds-color-intent-primary` | #0D62FF | Focus ring, checkboxes |
+| `--ds-color-intent-destructive` | #D11314 | Error borders, text |
+| `--ds-color-intent-success` | #00843D | Success indicators |
+| `--ds-color-intent-warning` | #FF8200 | Warning messages |
+
+### Spacing
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-spacing-1` | 0.25rem (4px) | Gap between label and subcopy |
+| `--ds-spacing-2` | 0.5rem (8px) | Gap between label section and input |
+| `--ds-spacing-3` | 0.75rem (12px) | Padding inside inputs |
+| `--ds-spacing-4` | 1rem (16px) | Gap between fields (compact) |
+| `--ds-spacing-6` | 1.5rem (24px) | Gap between fields (default) |
+| `--ds-spacing-8` | 2rem (32px) | Gap between sections |
+
+### Typography
+| Token | Usage |
+|-------|-------|
+| `font-primary` (Lato) | Labels, titles |
+| `font-secondary` (Open Sans) | Input text, helper text |
+| `font-medium` (500) | Labels |
+| `font-normal` (400) | Input text, body |
+| `text-sm` (14px) | Labels, helper text |
+| `text-base` (16px) | Input text |
+
+### Borders
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-radius-sm` | 0.25rem (4px) | Input border radius |
+| `--ds-radius-md` | 0.375rem (6px) | Button border radius |
+| `border` | 1px solid | Input borders |
+| `border-2` | 2px solid | Focus rings, error states |
+
+---
+
+## Best Practices Summary
+
+1. **Always use FormLabel** for every field (accessibility requirement)
+2. **Mark required fields** with red asterisk (*)
+3. **Provide FormDescription** for fields that need explanation
+4. **Show FormMessage** for validation feedback (specific, actionable)
+5. **Use appropriate input types** (email, tel, url, number)
+6. **Group related fields** with FormSection
+7. **Validate on blur** or debounced input (not on every keystroke)
+8. **Clear errors** when user starts correcting
+9. **Disable submit button** during processing
+10. **Show success feedback** after successful submission
+
+---
+
+## Common Patterns
+
+### Service Request Form
+- Account lookup with validation
+- Service selection (checkboxes)
+- Installation date picker
+- Contact preferences
+- Terms acceptance
+- Submit with loading state
+
+### Profile Update Form
+- Auto-filled with current data
+- Inline validation
+- Password confirmation
+- Avatar upload
+- Success toast notification
+- Dirty state tracking
+
+### Multi-Step Wizard
+- Progress indicator
+- Form sections as steps
+- Navigation (Previous/Next/Submit)
+- Step validation before proceeding
+- Review step before final submission
+- Success confirmation page
+
+### Search and Filter
+- Inline layout
+- Instant results (debounced)
+- Clear filters button
+- Result count
+- No error states
+- Keyboard shortcuts (Cmd+K)

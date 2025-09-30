@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Calendar } from '../src/components/ui/calendar';
 import { useState } from 'react';
+import CalendarDocs from './Calendar.mdx';
 
 const meta: Meta<typeof Calendar> = {
   title: 'Calendar',
@@ -8,6 +9,7 @@ const meta: Meta<typeof Calendar> = {
   parameters: {
     layout: 'centered',
     docs: {
+      page: CalendarDocs,
       description: {
         component: 'A date picker component built on top of react-day-picker with design system tokens.',
       },
@@ -18,6 +20,131 @@ const meta: Meta<typeof Calendar> = {
 
 export default meta;
 type Story = StoryObj<typeof Calendar>;
+
+export const AllVariants: Story = {
+  render: () => {
+    const [singleDate, setSingleDate] = useState<Date | undefined>(new Date());
+    const [rangeDate, setRangeDate] = useState<{ from: Date | undefined; to?: Date | undefined }>({
+      from: undefined,
+      to: undefined,
+    });
+    const [multipleDates, setMultipleDates] = useState<Date[] | undefined>([]);
+
+    return (
+      <div className="space-y-8 max-w-4xl">
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Single Selection</h3>
+          <Calendar
+            mode="single"
+            selected={singleDate}
+            onSelect={setSingleDate}
+            className="rounded-md border border-[var(--ds-color-neutral-300)]"
+          />
+          {singleDate && (
+            <p className="text-sm text-[var(--ds-color-text-secondary)]">
+              Selected: {singleDate.toLocaleDateString()}
+            </p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Range Selection</h3>
+          <Calendar
+            mode="range"
+            selected={rangeDate}
+            onSelect={setRangeDate}
+            numberOfMonths={2}
+            className="rounded-md border border-[var(--ds-color-neutral-300)]"
+          />
+          {rangeDate?.from && (
+            <div className="text-sm text-[var(--ds-color-text-secondary)]">
+              <p>From: {rangeDate.from.toLocaleDateString()}</p>
+              {rangeDate.to && <p>To: {rangeDate.to.toLocaleDateString()}</p>}
+            </div>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Multiple Selection</h3>
+          <Calendar
+            mode="multiple"
+            selected={multipleDates}
+            onSelect={setMultipleDates}
+            className="rounded-md border border-[var(--ds-color-neutral-300)]"
+          />
+          {multipleDates && multipleDates.length > 0 && (
+            <p className="text-sm text-[var(--ds-color-text-secondary)]">
+              {multipleDates.length} date(s) selected
+            </p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Disabled Dates</h3>
+          <Calendar
+            mode="single"
+            selected={singleDate}
+            onSelect={setSingleDate}
+            disabled={[
+              { dayOfWeek: [0, 6] }, // Disable weekends
+              new Date(2025, 0, 1),   // New Year
+            ]}
+            className="rounded-md border border-[var(--ds-color-neutral-300)]"
+          />
+          <p className="text-xs text-[var(--ds-color-text-secondary)]">
+            Weekends and holidays are disabled
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Year Dropdown</h3>
+          <Calendar
+            mode="single"
+            selected={singleDate}
+            onSelect={setSingleDate}
+            captionLayout="dropdown"
+            fromYear={2020}
+            toYear={2030}
+            className="rounded-md border border-[var(--ds-color-neutral-300)]"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Size Variants</h3>
+          <div className="flex gap-4 items-start flex-wrap">
+            <div>
+              <p className="text-xs text-[var(--ds-color-text-secondary)] mb-2">Small</p>
+              <Calendar
+                mode="single"
+                selected={singleDate}
+                onSelect={setSingleDate}
+                className="rounded-md border border-[var(--ds-color-neutral-300)] [--cell-size:1.75rem] text-sm"
+              />
+            </div>
+            <div>
+              <p className="text-xs text-[var(--ds-color-text-secondary)] mb-2">Default</p>
+              <Calendar
+                mode="single"
+                selected={singleDate}
+                onSelect={setSingleDate}
+                className="rounded-md border border-[var(--ds-color-neutral-300)]"
+              />
+            </div>
+            <div>
+              <p className="text-xs text-[var(--ds-color-text-secondary)] mb-2">Large</p>
+              <Calendar
+                mode="single"
+                selected={singleDate}
+                onSelect={setSingleDate}
+                className="rounded-md border border-[var(--ds-color-neutral-300)] [--cell-size:3rem] text-lg p-6"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
 
 // Default single selection
 export const Default: Story = {

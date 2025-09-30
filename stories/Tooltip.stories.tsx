@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { 
+import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -11,6 +11,7 @@ import {
   Button
 } from '../src/components';
 import { Plus, Info, CircleHelp, Settings, Download, Share, Eye, Edit, Trash } from 'lucide-react';
+import TooltipDocs from './Tooltip.mdx';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Tooltip',
@@ -18,6 +19,7 @@ const meta: Meta<typeof Tooltip> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: TooltipDocs,
       description: {
         component: 'Tooltip component for displaying contextual information. Supports plain, rich, and inverted variants with multiple sizes and positioning options.'
       }
@@ -35,6 +37,149 @@ const meta: Meta<typeof Tooltip> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const AllVariants: Story = {
+  render: () => (
+    <div className="space-y-12 max-w-2xl">
+      {/* Default Tooltip */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Default Tooltip</h3>
+        <div className="flex items-center gap-4">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline">Hover me</Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Add to library</p>
+            </TooltipContent>
+          </Tooltip>
+        </div>
+      </div>
+
+      {/* Icon Button Tooltips */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Icon Button Labels</h3>
+        <div className="flex items-center gap-4">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button size="icon" variant="ghost"><Settings className="h-4 w-4" /></Button>
+            </TooltipTrigger>
+            <TooltipContent>Settings</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button size="icon" variant="ghost"><Download className="h-4 w-4" /></Button>
+            </TooltipTrigger>
+            <TooltipContent>Download</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button size="icon" variant="ghost"><Share className="h-4 w-4" /></Button>
+            </TooltipTrigger>
+            <TooltipContent>Share</TooltipContent>
+          </Tooltip>
+        </div>
+      </div>
+
+      {/* Rich Tooltip */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Rich Tooltip</h3>
+        <div className="flex items-center gap-4">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline">Feature Info</Button>
+            </TooltipTrigger>
+            <TooltipContent variant="rich">
+              <TooltipHeader>Advanced Analytics</TooltipHeader>
+              <TooltipBody>
+                Track network performance and identify potential issues before they impact your business.
+              </TooltipBody>
+            </TooltipContent>
+          </Tooltip>
+        </div>
+      </div>
+
+      {/* With Arrow */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Arrow Pointer</h3>
+        <div className="flex items-center gap-4">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline">Hover for arrow</Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <TooltipArrow />
+              Tooltip with arrow pointer
+            </TooltipContent>
+          </Tooltip>
+        </div>
+      </div>
+
+      {/* Positioning */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Positioning (Top, Right, Bottom, Left)</h3>
+        <div className="grid grid-cols-4 gap-4">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="sm">Top</Button>
+            </TooltipTrigger>
+            <TooltipContent side="top">Top</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="sm">Right</Button>
+            </TooltipTrigger>
+            <TooltipContent side="right">Right</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="sm">Bottom</Button>
+            </TooltipTrigger>
+            <TooltipContent side="bottom">Bottom</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="sm">Left</Button>
+            </TooltipTrigger>
+            <TooltipContent side="left">Left</TooltipContent>
+          </Tooltip>
+        </div>
+      </div>
+
+      {/* Sizes */}
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Sizes</h3>
+        <div className="flex items-center gap-4">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button size="sm" variant="outline">Small</Button>
+            </TooltipTrigger>
+            <TooltipContent size="sm">Small tooltip</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline">Default</Button>
+            </TooltipTrigger>
+            <TooltipContent size="default">Default size</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button size="lg" variant="outline">Large</Button>
+            </TooltipTrigger>
+            <TooltipContent size="lg">Large tooltip</TooltipContent>
+          </Tooltip>
+        </div>
+      </div>
+    </div>
+  ),
+};
 
 export const Default: Story = {
   render: () => (

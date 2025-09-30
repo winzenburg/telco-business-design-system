@@ -3,16 +3,14 @@ import React from 'react';
 import { Toaster } from '../src/components/ui/sonner';
 import { Button } from '../src/components/ui/button';
 import { toast } from 'sonner';
+import ToastDocs from './Toast.mdx';
 
 const meta: Meta = {
   title: 'Toast',
   parameters: {
     layout: 'centered',
     docs: {
-      description: {
-        component:
-          'A toast notification system built on Sonner following ShadCN/UI patterns with design system tokens. Features promise toasts, action buttons, and various notification types.',
-      },
+      page: ToastDocs,
     },
   },
   tags: ['autodocs'],

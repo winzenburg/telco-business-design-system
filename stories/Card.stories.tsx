@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { 
+import {
   Card,
   CardContent,
   CardDescription,
@@ -12,7 +12,8 @@ import {
   CardDivider,
   Button
 } from '../src/components';
-import { Heart, Share, Bookmark, MoreHorizontal, Star, Play, Download } from 'lucide-react';
+import { Heart, Share, Bookmark, MoreHorizontal, Star, Play, Download, PlayCircle } from 'lucide-react';
+import CardDocs from './Card.mdx';
 
 const meta: Meta<typeof Card> = {
   title: 'Card',
@@ -20,6 +21,7 @@ const meta: Meta<typeof Card> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: CardDocs,
       description: {
         component: 'Card component with enhanced features including media support, action areas, and different card types following design patterns.'
       }
@@ -51,6 +53,171 @@ const meta: Meta<typeof Card> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+// AllVariants story showcasing all card variations
+export const AllVariants: Story = {
+  render: () => (
+    <div className="space-y-8 max-w-6xl">
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Card Variants</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card variant="default" className="w-[300px]">
+            <CardHeader>
+              <CardTitle>Default Card</CardTitle>
+              <CardDescription>Standard card with border and light shadow.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Basic card styling for general content.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="elevated" className="w-[300px]">
+            <CardHeader>
+              <CardTitle>Elevated Card</CardTitle>
+              <CardDescription>Card with enhanced shadow depth.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Elevated cards draw more attention.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="filled" className="w-[300px]">
+            <CardHeader>
+              <CardTitle>Filled Card</CardTitle>
+              <CardDescription>Card with filled background.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Filled cards provide subtle differentiation.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="outlined" className="w-[300px]">
+            <CardHeader>
+              <CardTitle>Outlined Card</CardTitle>
+              <CardDescription>Card with prominent border.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Outlined cards provide clear boundaries.</p>
+            </CardContent>
+          </Card>
+
+          <Card variant="interactive" className="w-[300px]" onCardClick={() => {}}>
+            <CardHeader>
+              <CardTitle>Interactive Card</CardTitle>
+              <CardDescription>Click to interact.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Interactive cards respond to hover/click.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Card Sizes</h3>
+        <div className="space-y-4">
+          <Card size="sm">
+            <CardHeader>
+              <CardTitle>Small Card</CardTitle>
+              <CardDescription>max-w-sm (384px)</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card size="default">
+            <CardHeader>
+              <CardTitle>Default Card</CardTitle>
+              <CardDescription>max-w-md (448px)</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card size="lg">
+            <CardHeader>
+              <CardTitle>Large Card</CardTitle>
+              <CardDescription>max-w-lg (512px)</CardDescription>
+            </CardHeader>
+          </Card>
+          <Card size="xl">
+            <CardHeader>
+              <CardTitle>Extra Large Card</CardTitle>
+              <CardDescription>max-w-xl (576px)</CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Media</h3>
+        <Card className="w-[350px]">
+          <CardMedia className="bg-gradient-to-r from-blue-500 to-purple-600">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <PlayCircle className="h-12 w-12 text-white" />
+            </div>
+          </CardMedia>
+          <CardHeader>
+            <CardTitle>Product Demo</CardTitle>
+            <CardDescription>Watch our latest demonstration.</CardDescription>
+          </CardHeader>
+          <CardActions layout="end">
+            <Button>Watch Now</Button>
+          </CardActions>
+        </Card>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Actions</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="w-[300px]">
+            <CardHeader>
+              <CardTitle>Actions at End</CardTitle>
+              <CardDescription>Standard placement.</CardDescription>
+            </CardHeader>
+            <CardActions layout="end">
+              <Button variant="outline">Cancel</Button>
+              <Button>Confirm</Button>
+            </CardActions>
+          </Card>
+
+          <Card className="w-[300px]">
+            <CardHeader>
+              <CardTitle>Actions Between</CardTitle>
+              <CardDescription>Spaced apart.</CardDescription>
+            </CardHeader>
+            <CardActions layout="between">
+              <Button variant="outline">Secondary</Button>
+              <Button>Primary</Button>
+            </CardActions>
+          </Card>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Dividers</h3>
+        <Card className="w-[350px]">
+          <CardHeader>
+            <CardTitle>Service Package</CardTitle>
+            <CardDescription>Pricing breakdown.</CardDescription>
+          </CardHeader>
+          <CardDivider />
+          <CardContent>
+            <div className="space-y-2">
+              <div className="flex justify-between">
+                <span>Internet</span>
+                <span className="font-semibold">$99/month</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Phone</span>
+                <span className="font-semibold">$49/month</span>
+              </div>
+            </div>
+          </CardContent>
+          <CardDivider />
+          <CardFooter className="justify-between">
+            <span className="font-bold">$148/month</span>
+            <Button>Subscribe</Button>
+          </CardFooter>
+        </Card>
+      </div>
+    </div>
+  ),
+};
 
 export const Default: Story = {
   render: () => (

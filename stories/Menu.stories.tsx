@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
-import { 
+import {
   Menu,
   MenuContent,
   MenuItem,
@@ -16,12 +16,13 @@ import {
   MenuSubTrigger,
   Button
 } from '../src/components';
-import { 
-  MoreHorizontal, Settings, User, CreditCard, LogOut, 
+import {
+  MoreHorizontal, Settings, User, CreditCard, LogOut,
   Download, Share, Edit, Eye, Trash, Copy, Star,
-  ChevronRight, Plus, Minus, Filter, Bell, Heart, 
+  ChevronRight, Plus, Minus, Filter, Bell, Heart,
   Bookmark, Archive, Flag, Cloud, Moon, Sun
 } from 'lucide-react';
+import MenuDocs from './Menu.mdx';
 
 const meta: Meta<typeof Menu> = {
   title: 'Menu',
@@ -29,9 +30,7 @@ const meta: Meta<typeof Menu> = {
   parameters: {
     layout: 'padded',
     docs: {
-      description: {
-        component: 'Menu components for displaying contextual actions and options with support for different variants, sizes, and interaction patterns.',
-      },
+      page: MenuDocs,
     },
   },
   tags: ['autodocs'],

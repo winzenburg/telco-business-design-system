@@ -76,7 +76,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const sizeClasses = {
       sm: 'h-8 text-xs',
       default: 'h-10 text-sm',
-      lg: 'h-12 text-base'
+      lg: 'h-12 text-base',
     };
 
     const paddingLeft = leftIcon

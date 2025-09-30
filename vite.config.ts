@@ -50,6 +50,28 @@ export default defineConfig({
           'react-dom': 'ReactDOM',
           'react/jsx-runtime': 'ReactJSXRuntime',
         },
+        manualChunks(id) {
+          // Split typography into separate chunk (136.27KB)
+          if (id.includes('typography-consolidated') || id.includes('/typography/')) {
+            return 'typography-consolidated';
+          }
+          // Split heavy form components
+          if (id.includes('/calendar.tsx') || id.includes('/date-picker.tsx')) {
+            return 'date-components';
+          }
+          // Split chart component (7.52KB)
+          if (id.includes('/chart.tsx')) {
+            return 'chart';
+          }
+          // Split dialog and overlay components together
+          if (id.includes('/dialog.tsx') || id.includes('/sheet.tsx') || id.includes('/popover.tsx')) {
+            return 'overlay-components';
+          }
+          // Split table and command (data-heavy components)
+          if (id.includes('/table.tsx') || id.includes('/command.tsx')) {
+            return 'data-components';
+          }
+        },
       },
     },
     sourcemap: true,

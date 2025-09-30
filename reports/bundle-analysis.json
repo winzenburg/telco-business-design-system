@@ -1,54 +1,48 @@
 {
-  "timestamp": "2025-09-23T17:38:48.714Z",
+  "timestamp": "2025-09-30T19:39:59.883Z",
   "summary": {
-    "totalSize": 297311,
-    "totalGzipped": 56240,
-    "bundleCount": 15,
+    "totalSize": 393922,
+    "totalGzipped": 80165,
+    "bundleCount": 12,
     "violationCount": 1,
     "recommendationCount": 0
   },
   "bundles": {
-    "Icon-BuJ3e6J_.js": {
-      "size": 4253,
-      "sizeKB": "4.15",
-      "gzipped": 1663,
-      "gzippedKB": "1.62"
+    "badge-DZAyWZcb.js": {
+      "size": 24171,
+      "sizeKB": "23.60",
+      "gzipped": 6638,
+      "gzippedKB": "6.48"
     },
-    "badge-BPsNqeWP.js": {
-      "size": 34144,
-      "sizeKB": "33.34",
-      "gzipped": 7672,
-      "gzippedKB": "7.49"
-    },
-    "chart-HVYy0DED.js": {
-      "size": 7705,
-      "sizeKB": "7.52",
-      "gzipped": 2265,
-      "gzippedKB": "2.21"
-    },
-    "cn-B6yFEsav.js": {
-      "size": 181,
-      "sizeKB": "0.18",
-      "gzipped": 163,
-      "gzippedKB": "0.16"
-    },
-    "command-Dvo_I5Tp.js": {
-      "size": 3847,
-      "sizeKB": "3.76",
-      "gzipped": 1151,
-      "gzippedKB": "1.12"
+    "chart-BHnnYsJM.js": {
+      "size": 7986,
+      "sizeKB": "7.80",
+      "gzipped": 2393,
+      "gzippedKB": "2.34"
     },
     "components.js": {
-      "size": 50084,
-      "sizeKB": "48.91",
-      "gzipped": 9786,
-      "gzippedKB": "9.56"
+      "size": 44569,
+      "sizeKB": "43.52",
+      "gzipped": 9086,
+      "gzippedKB": "8.87"
     },
     "core.js": {
-      "size": 832,
-      "sizeKB": "0.81",
-      "gzipped": 490,
-      "gzippedKB": "0.48"
+      "size": 888,
+      "sizeKB": "0.87",
+      "gzipped": 514,
+      "gzippedKB": "0.50"
+    },
+    "data-components-B0jB1jQX.js": {
+      "size": 6605,
+      "sizeKB": "6.45",
+      "gzipped": 1867,
+      "gzippedKB": "1.82"
+    },
+    "date-components-Bysu6erP.js": {
+      "size": 113569,
+      "sizeKB": "110.91",
+      "gzipped": 27399,
+      "gzippedKB": "26.76"
     },
     "design-system-icons-C_D46n5_.js": {
       "size": 119292,
@@ -56,35 +50,23 @@
       "gzipped": 13227,
       "gzippedKB": "12.92"
     },
-    "dialog-OQElUEg5.js": {
-      "size": 3376,
-      "sizeKB": "3.30",
-      "gzipped": 1188,
-      "gzippedKB": "1.16"
-    },
     "index.js": {
-      "size": 970,
-      "sizeKB": "0.95",
-      "gzipped": 498,
-      "gzippedKB": "0.49"
+      "size": 978,
+      "sizeKB": "0.96",
+      "gzipped": 513,
+      "gzippedKB": "0.50"
     },
     "lazy.js": {
-      "size": 821,
-      "sizeKB": "0.80",
-      "gzipped": 409,
+      "size": 947,
+      "sizeKB": "0.92",
+      "gzipped": 407,
       "gzippedKB": "0.40"
     },
-    "popover-CBs9gQ8x.js": {
-      "size": 1098,
-      "sizeKB": "1.07",
-      "gzipped": 567,
-      "gzippedKB": "0.55"
-    },
-    "table-CS3pduW3.js": {
-      "size": 3933,
-      "sizeKB": "3.84",
-      "gzipped": 1066,
-      "gzippedKB": "1.04"
+    "overlay-components-NnY-9VOu.js": {
+      "size": 8142,
+      "sizeKB": "7.95",
+      "gzipped": 2026,
+      "gzippedKB": "1.98"
     },
     "tokens.js": {
       "size": 46447,
@@ -112,8 +94,8 @@
     {
       "type": "total",
       "budget": 200,
-      "actual": "290.34",
-      "exceeded": "90.34"
+      "actual": "384.69",
+      "exceeded": "184.69"
     }
   ],
   "recommendations": []

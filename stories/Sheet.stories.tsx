@@ -14,6 +14,7 @@ import { Button } from '../src/components/ui/button';
 import { Input } from '../src/components/ui/input';
 import { Label } from '../src/components/ui/label';
 import { Textarea } from '../src/components/ui/textarea';
+import SheetDocs from './Sheet.mdx';
 
 const meta: Meta<typeof Sheet> = {
   title: 'Sheet',
@@ -21,6 +22,7 @@ const meta: Meta<typeof Sheet> = {
   parameters: {
     layout: 'centered',
     docs: {
+      page: SheetDocs,
       description: {
         component:
           'A sheet component (side panel/drawer) built on Radix UI following ShadCN/UI patterns with design system tokens. Features structural borders (neutral-300), smooth slide animations, and support for all four sides (top, right, bottom, left).',
@@ -32,6 +34,161 @@ const meta: Meta<typeof Sheet> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const AllVariants: Story = {
+  render: () => (
+    <div className="space-y-8 max-w-4xl">
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">All Four Positions</h3>
+        <div className="flex gap-4 flex-wrap">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Right (Default)</Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Right Side Sheet</SheetTitle>
+                <SheetDescription>
+                  This sheet slides in from the right side. Best for forms and details.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Left</Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+              <SheetHeader>
+                <SheetTitle>Left Side Sheet</SheetTitle>
+                <SheetDescription>
+                  This sheet slides in from the left side. Best for navigation.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Top</Button>
+            </SheetTrigger>
+            <SheetContent side="top" className="h-[300px]">
+              <SheetHeader>
+                <SheetTitle>Top Sheet</SheetTitle>
+                <SheetDescription>
+                  This sheet slides in from the top. Best for notifications.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Bottom</Button>
+            </SheetTrigger>
+            <SheetContent side="bottom" className="h-[300px]">
+              <SheetHeader>
+                <SheetTitle>Bottom Sheet</SheetTitle>
+                <SheetDescription>
+                  This sheet slides in from the bottom. Best for mobile actions.
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Form Content</h3>
+        <div className="flex gap-4">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button>Edit Profile</Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Edit Profile</SheetTitle>
+                <SheetDescription>
+                  Make changes to your profile here. Click save when you're done.
+                </SheetDescription>
+              </SheetHeader>
+              <div className="grid gap-4 py-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="name">Name</Label>
+                  <Input id="name" defaultValue="Pedro Duarte" />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="username">Username</Label>
+                  <Input id="username" defaultValue="@peduarte" />
+                </div>
+              </div>
+              <SheetFooter>
+                <SheetClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </SheetClose>
+                <Button type="submit">Save changes</Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Size Variants</h3>
+        <div className="flex gap-4 flex-wrap">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Small (sm)</Button>
+            </SheetTrigger>
+            <SheetContent className="sm:max-w-[320px]">
+              <SheetHeader>
+                <SheetTitle>Small Sheet</SheetTitle>
+                <SheetDescription>320px width for compact content</SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Default</Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Default Sheet</SheetTitle>
+                <SheetDescription>400px width for standard content</SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Large (lg)</Button>
+            </SheetTrigger>
+            <SheetContent className="sm:max-w-[640px]">
+              <SheetHeader>
+                <SheetTitle>Large Sheet</SheetTitle>
+                <SheetDescription>640px width for rich content</SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline">Extra Large (xl)</Button>
+            </SheetTrigger>
+            <SheetContent className="sm:max-w-[768px]">
+              <SheetHeader>
+                <SheetTitle>Extra Large Sheet</SheetTitle>
+                <SheetDescription>768px width for complex layouts</SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
+    </div>
+  ),
+};
 
 // Default Right Side Sheet
 export const Default: Story = {

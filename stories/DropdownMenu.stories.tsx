@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { 
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -13,6 +13,7 @@ import {
   Button
 } from '../src/components';
 import { MoreHorizontal, Settings, User, CreditCard, LogOut } from 'lucide-react';
+import DropdownMenuDocs from './DropdownMenu.mdx';
 
 const meta: Meta<typeof DropdownMenu> = {
   title: 'DropdownMenu',
@@ -20,10 +21,8 @@ const meta: Meta<typeof DropdownMenu> = {
   parameters: {
     layout: 'padded',
     docs: {
-      description: {
-        component: 'Dropdown Menu component for contextual actions following Comcast Business Design System.'
-      }
-    }
+      page: DropdownMenuDocs,
+    },
   },
   tags: ['autodocs'],
 };

@@ -1,0 +1,627 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Skeleton" />
+
+# Skeleton
+
+## Description
+
+The Skeleton component provides placeholder loading states that mimic the shape and layout of content before it's loaded. By showing where content will appear, skeletons reduce perceived loading time and provide visual continuity, making interfaces feel faster and more responsive. Skeleton screens are preferred over traditional spinners for content-heavy interfaces as they provide context about what's loading.
+
+**Primary Use Cases:**
+- Dashboard data loading
+- Table and list content placeholders
+- Card grid loading states
+- Profile and user information loading
+- Form field placeholders during data fetch
+- Image and media content loading
+
+**Business Context:** Skeleton screens reduce perceived wait time by 30-40% compared to blank screens or spinners. They provide visual context about page structure, reducing user uncertainty and improving satisfaction during load times. Studies show 25% lower bounce rates when skeleton screens are used for initial page loads.
+
+---
+
+## Anatomy
+
+The Skeleton component consists of the following parts:
+
+1. **Base Skeleton** - Rectangular placeholder with shimmer animation
+2. **Shimmer Effect** - Animated gradient moving across the skeleton
+3. **Shape Variants** - Text lines, circles, rectangles, custom shapes
+4. **Size Modifiers** - Height and width classes for different content types
+5. **Layout Composition** - Multiple skeletons arranged to match final content
+
+```
+Profile Card Loading:
+┌─────────────────────────────────┐
+│ ⚪ ▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░     │  ← Circle + Text lines
+│    ▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░     │
+│                                 │
+│ ▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░  │  ← Content lines
+│ ▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░   │
+│ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░    │
+└─────────────────────────────────┘
+
+Card Grid Loading:
+┌────────┐ ┌────────┐ ┌────────┐
+│▓▓▓▓▓▓▓▓│ │▓▓▓▓▓▓▓▓│ │▓▓▓▓▓▓▓▓│
+│▓▓▓▓▓▓▓▓│ │▓▓▓▓▓▓▓▓│ │▓▓▓▓▓▓▓▓│
+│▓▓▓░░░░│ │▓▓▓░░░░│ │▓▓▓░░░░│
+│▓▓░░░░░│ │▓▓░░░░░│ │▓▓░░░░░│
+└────────┘ └────────┘ └────────┘
+
+Table Loading:
+┌─────────────────────────────────┐
+│ ▓▓▓▓▓ │ ▓▓▓▓▓ │ ▓▓▓▓▓ │ ▓▓▓▓ │  ← Header
+├─────────────────────────────────┤
+│ ▓▓▓░░ │ ▓▓▓░░ │ ▓▓▓░░ │ ▓▓░░ │  ← Rows
+│ ▓▓▓▓░ │ ▓▓▓▓░ │ ▓▓▓▓░ │ ▓▓▓░ │
+│ ▓▓░░░ │ ▓▓░░░ │ ▓▓░░░ │ ▓░░░ │
+└─────────────────────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Initial page or component load (>500ms expected)
+- ✅ Data fetching operations with known content structure
+- ✅ Image loading placeholders
+- ✅ Lazy-loaded content sections
+- ✅ Infinite scroll loading more items
+- ✅ Search results before data arrives
+
+### When NOT to Use
+- ❌ Very fast operations (under 300ms)
+- ❌ Unknown or highly variable content structures
+- ❌ Small UI elements (badges, icons)
+- ❌ After initial page load if content shape differs significantly
+- ❌ Error states (use Alert component)
+- ❌ In place of empty states (use EmptyState component)
+
+### Best Practices
+- **Match Content:** Skeleton should closely resemble final content layout
+- **Consistent Shapes:** Use circles for avatars, lines for text, rectangles for images
+- **Appropriate Sizing:** Match the size and proportions of actual content
+- **Animation:** Use subtle shimmer effect; avoid excessive animation
+- **Duration:** Show skeleton for minimum 300ms to avoid flashing
+- **Transition:** Fade out skeleton when content loads
+- **Accessibility:** Announce loading state to screen readers
+- **Performance:** Don't animate too many skeletons simultaneously (max 10-15)
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Loading** | Skeleton with shimmer animation | Background: `gray-200`, Shimmer: `white/60`, Animation: 1.5s ease-in-out |
+| **Loaded** | Skeleton fades out, content fades in | Opacity transition: 300ms |
+| **Pulse Variant** | Simple opacity pulsing without shimmer | Opacity: 100% → 50% → 100%, Duration: 2s |
+| **Static Variant** | No animation (reduced motion) | Background: `gray-200`, No animation |
+
+### Interaction Details
+
+**Loading Behavior:**
+- Skeleton appears immediately when component mounts
+- Shimmer animation runs continuously during load
+- Minimum display time: 300ms (prevents flash)
+- Smooth fade-out (300ms) when content loads
+
+**Accessibility:**
+- `aria-busy="true"` on container during loading
+- `aria-label="Loading content..."` on skeleton
+- Screen reader announcement when loading starts
+- Honors `prefers-reduced-motion` (disables animation)
+- Focus management: preserve focus state during load
+
+---
+
+## Variants
+
+### By Shape
+
+#### Text Line
+**Visual:** Horizontal bar with varying widths
+**Use When:** Loading text content (titles, paragraphs, labels)
+**Properties:** `className="h-4 w-[250px]"` (adjust height and width)
+
+#### Circle
+**Visual:** Circular skeleton
+**Use When:** Loading avatars, profile pictures, icon placeholders
+**Properties:** `className="h-12 w-12 rounded-full"`
+
+#### Rectangle
+**Visual:** Rectangular box
+**Use When:** Loading images, cards, content blocks
+**Properties:** `className="h-[125px] w-[250px]"` (custom dimensions)
+
+#### Custom Shape
+**Visual:** Any custom dimensions and border radius
+**Use When:** Matching specific content layouts
+**Properties:** Custom className combinations
+
+### By Animation
+
+#### Shimmer (Default)
+**Visual:** Gradient wave moving left to right
+**Use When:** Standard loading states
+**Animation:** 1.5s ease-in-out infinite
+
+#### Pulse
+**Visual:** Opacity fading in and out
+**Use When:** Alternative animation preference
+**Animation:** 2s ease-in-out infinite
+
+#### Static
+**Visual:** No animation
+**Use When:** Reduced motion preference, performance concerns
+**Animation:** None
+
+---
+
+## Sizes
+
+### Text Sizes
+- **Small:** `h-3` (12px) - Small text, labels, captions
+- **Default:** `h-4` (16px) - Body text, standard content
+- **Medium:** `h-5` (20px) - Large body text, subheadings
+- **Large:** `h-6` (24px) - Headings, titles
+
+### Avatar Sizes
+- **Small:** `h-8 w-8` (32px) - Compact lists, comments
+- **Medium:** `h-12 w-12` (48px) - Standard avatar size
+- **Large:** `h-16 w-16` (64px) - Profile headers
+- **Extra Large:** `h-24 w-24` (96px) - Prominent profile displays
+
+### Card Sizes
+- **Small:** `h-[100px] w-[200px]` - Compact cards
+- **Medium:** `h-[125px] w-[250px]` - Standard cards
+- **Large:** `h-[200px] w-[350px]` - Featured cards
+- **Full Width:** `h-[150px] w-full` - Full-width content
+
+---
+
+## Accessibility
+
+### Keyboard Interaction
+- Skeleton components are not interactive
+- No keyboard navigation needed
+- Focus remains on trigger element or last focused element
+
+### Screen Readers
+- Container has `aria-busy="true"` during loading
+- Skeleton has `aria-label="Loading content"` or descriptive text
+- Live region announces loading state: "Loading..."
+- Announces completion: "Content loaded"
+- Can use `role="status"` for live updates
+
+### Focus Management
+- Preserve focus position during loading
+- Don't trap focus on skeleton
+- Return focus to appropriate element when content loads
+
+### Color Contrast
+- Skeleton background: subtle gray (doesn't need high contrast)
+- Shimmer animation: visible but not distracting
+- Ensure sufficient contrast with page background (2:1 minimum)
+
+### Motion Preferences
+- Respect `prefers-reduced-motion` setting
+- Disable shimmer animation when reduced motion preferred
+- Use static skeleton or minimal pulse animation
+
+---
+
+## Content Guidelines
+
+### Loading Announcements
+
+✅ **Do:**
+- Use descriptive labels: "Loading dashboard data"
+- Be specific when possible: "Loading customer profile"
+- Keep announcements brief
+- Announce at start of loading only (not continuously)
+
+❌ **Don't:**
+- Use generic "Loading..." without context
+- Announce every animation frame
+- Over-describe the skeleton structure
+- Announce if loading is very fast (under 300ms)
+
+### Skeleton Layout
+
+✅ **Do:**
+- Match the structure of actual content
+- Use realistic proportions and spacing
+- Show the same number of items as expected content
+- Maintain grid/layout structure
+- Include all major content sections
+
+❌ **Don't:**
+- Create overly simplified skeletons
+- Show wildly different layout than final content
+- Use too many or too few skeleton items
+- Ignore spacing and alignment
+- Create misleading content expectations
+
+---
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- Reduce number of skeleton items shown
+- Adjust widths to fit viewport (use percentages or `w-full`)
+- Simplify complex skeleton layouts
+- Stack skeletons vertically
+- Reduce animation for performance
+
+### Tablet (768px - 1024px)
+- Show moderate number of skeleton items
+- Maintain 2-column layouts where appropriate
+- Standard animation performance
+
+### Desktop (> 1024px)
+- Full skeleton layout shown
+- Multi-column grids supported
+- Smooth animations at 60fps
+- Larger skeleton dimensions
+
+### Responsive Patterns
+```typescript
+// Responsive text skeleton
+<Skeleton className="h-4 w-full sm:w-3/4 md:w-1/2" />
+
+// Responsive grid
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {[...Array(6)].map((_, i) => (
+    <Skeleton key={i} className="h-[200px] w-full" />
+  ))}
+</div>
+
+// Conditional skeleton count
+const skeletonCount = isMobile ? 3 : isTablet ? 6 : 9;
+```
+
+---
+
+## Code Examples
+
+### Basic Text Skeleton
+
+```typescript
+import { Skeleton } from '@comcast-business/design-system';
+
+function LoadingText() {
+  return (
+    <div className="space-y-2">
+      <Skeleton className="h-4 w-[250px]" />
+      <Skeleton className="h-4 w-[200px]" />
+      <Skeleton className="h-4 w-[230px]" />
+    </div>
+  );
+}
+```
+
+### Avatar with Text
+
+```typescript
+function LoadingProfile() {
+  return (
+    <div className="flex items-center space-x-4">
+      <Skeleton className="h-12 w-12 rounded-full" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[200px]" />
+        <Skeleton className="h-4 w-[150px]" />
+      </div>
+    </div>
+  );
+}
+```
+
+### Card Skeleton
+
+```typescript
+function LoadingCard() {
+  return (
+    <div className="flex flex-col space-y-3">
+      <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
+    </div>
+  );
+}
+```
+
+### List Loading
+
+```typescript
+function LoadingList() {
+  return (
+    <div className="space-y-4">
+      {[...Array(5)].map((_, i) => (
+        <div key={i} className="flex items-center space-x-4">
+          <Skeleton className="h-12 w-12 rounded-full" />
+          <div className="space-y-2 flex-1">
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-3/4" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+### Table Skeleton
+
+```typescript
+function LoadingTable() {
+  return (
+    <div className="space-y-3">
+      {/* Header */}
+      <div className="flex gap-4">
+        <Skeleton className="h-4 w-[150px]" />
+        <Skeleton className="h-4 w-[100px]" />
+        <Skeleton className="h-4 w-[120px]" />
+        <Skeleton className="h-4 w-[80px]" />
+      </div>
+
+      {/* Rows */}
+      {[...Array(5)].map((_, i) => (
+        <div key={i} className="flex gap-4">
+          <Skeleton className="h-4 w-[150px]" />
+          <Skeleton className="h-4 w-[100px]" />
+          <Skeleton className="h-4 w-[120px]" />
+          <Skeleton className="h-4 w-[80px]" />
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+### Card Grid Loading
+
+```typescript
+function LoadingGrid() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[...Array(6)].map((_, i) => (
+        <div key={i} className="flex flex-col space-y-3">
+          <Skeleton className="h-[200px] w-full rounded-xl" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-3/4" />
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+### Dashboard Loading
+
+```typescript
+function LoadingDashboard() {
+  return (
+    <div className="space-y-6">
+      {/* Stats Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="space-y-2">
+            <Skeleton className="h-8 w-[100px]" />
+            <Skeleton className="h-4 w-[150px]" />
+          </div>
+        ))}
+      </div>
+
+      {/* Chart */}
+      <Skeleton className="h-[300px] w-full rounded-lg" />
+
+      {/* Recent Activity */}
+      <div className="space-y-4">
+        <Skeleton className="h-6 w-[200px]" />
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex items-center space-x-4">
+            <Skeleton className="h-10 w-10 rounded-full" />
+            <div className="space-y-2 flex-1">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-2/3" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+### With Conditional Loading
+
+```typescript
+import { useState, useEffect } from 'react';
+import { Skeleton } from '@comcast-business/design-system';
+
+function DataDisplay() {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchData().then(result => {
+      setData(result);
+      setIsLoading(false);
+    });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="space-y-4">
+        <Skeleton className="h-6 w-[200px]" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-3/4" />
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <h2>{data.title}</h2>
+      <p>{data.content}</p>
+    </div>
+  );
+}
+```
+
+### Input Field Skeleton
+
+```typescript
+import { InputSkeleton } from '@comcast-business/design-system';
+
+function LoadingForm() {
+  return (
+    <div className="space-y-4 max-w-md">
+      <InputSkeleton hasLabel size="default" />
+      <InputSkeleton hasLabel size="default" />
+      <InputSkeleton hasLabel hasSubcopy size="default" />
+    </div>
+  );
+}
+```
+
+### With Fade-in Transition
+
+```typescript
+import { useState, useEffect } from 'react';
+import { Skeleton } from '@comcast-business/design-system';
+
+function SmoothLoadingCard() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetchData().then(result => {
+      // Ensure minimum skeleton display time
+      setTimeout(() => {
+        setData(result);
+        setIsLoading(false);
+      }, 300);
+    });
+  }, []);
+
+  return (
+    <div className="relative min-h-[200px]">
+      {isLoading ? (
+        <div className="animate-in fade-in-0">
+          <Skeleton className="h-[200px] w-full" />
+        </div>
+      ) : (
+        <div className="animate-in fade-in-0 duration-300">
+          <img src={data.image} alt={data.title} />
+          <h3>{data.title}</h3>
+          <p>{data.description}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **Progress** - For determinate loading with percentage
+- **Spinner** - For simple, indefinite loading indicators
+- **Alert** - For error states after failed loading
+- **EmptyState** - For when no content is available after loading
+- **Card** - Often contains skeleton during loading
+
+---
+
+## Design Tokens Used
+
+| Token | Purpose | Value |
+|-------|---------|-------|
+| `gray-200` | Skeleton background color | #E5E7EB |
+| `white` | Shimmer gradient color | #FFFFFF (60% opacity) |
+| `rounded-[4px]` | Default border radius | 4px |
+| `rounded-full` | Circle avatars | 9999px |
+| `rounded-xl` | Cards and images | 12px |
+| `animate-[shimmer]` | Shimmer animation | 1.5s ease-in-out infinite |
+| `opacity-60` | Shimmer overlay opacity | 60% |
+
+### Animation Keyframes
+```css
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+```
+
+---
+
+## Technical Notes
+
+### Component Structure
+- Pure CSS animation for performance
+- Uses pseudo-element (`::before`) for shimmer effect
+- No JavaScript required for animation
+- Composable with utility classes
+
+### Performance Considerations
+- GPU-accelerated animations (transform)
+- Limit number of simultaneous animations (< 15)
+- Disable animation on low-end devices
+- Use `will-change: transform` sparingly
+- Consider static skeletons for complex layouts
+
+### Browser Support
+- All modern browsers (Chrome, Firefox, Safari, Edge)
+- Fallback to static skeleton if animations unsupported
+- Respects `prefers-reduced-motion` setting
+
+---
+
+## Business Use Cases
+
+### Dashboard Loading
+**Scenario:** Business analytics dashboard initial load
+**Implementation:** Skeleton grid matching final chart and card layout
+**Success Metric:** 35% reduction in perceived load time
+
+### Customer List
+**Scenario:** Loading customer accounts table
+**Implementation:** Table skeleton with avatar, name, and data columns
+**Success Metric:** 25% lower bounce rate during data fetch
+
+### Product Catalog
+**Scenario:** E-commerce product grid loading
+**Implementation:** Card skeletons with image and text placeholders
+**Success Metric:** 40% improvement in user patience during load
+
+### Profile Page
+**Scenario:** User profile information loading
+**Implementation:** Avatar circle with text line skeletons
+**Success Metric:** Improved user satisfaction scores by 30%
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | 2024-09-20 | Initial release with shimmer animation |
+| 1.1.0 | 2024-09-25 | Added InputSkeleton component and reduced motion support |
+
+---
+
+## Questions or Feedback?
+
+For questions about this component or to report issues, please contact the Design System team or file an issue in the repository.

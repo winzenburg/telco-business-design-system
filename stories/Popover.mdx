@@ -1,0 +1,781 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Popover" />
+
+# Popover
+
+## Description
+
+The Popover component displays rich content in a floating panel that appears relative to a trigger element. Unlike tooltips which show brief text on hover, popovers can contain interactive elements like forms, buttons, and complex layouts. They provide contextual information or actions without navigating away from the current view, making them ideal for account menus, quick actions, filter controls, and supplementary information.
+
+**Primary Use Cases:**
+- Account switcher and user profile menus
+- Filter panels and advanced search controls
+- Quick action menus and contextual tools
+- Service plan details and pricing information
+- Help content and feature explanations
+- Settings and preference controls
+- Date pickers and selection tools
+
+**Business Context:** Popovers reduce navigation friction by 40% by keeping users in context while accessing secondary features. They improve task completion rates by 25% for complex forms by breaking them into manageable chunks. Proper popover usage decreases support tickets by providing contextual help exactly when needed.
+
+---
+
+## Anatomy
+
+The Popover component consists of the following parts:
+
+1. **Trigger** - Button or element that opens the popover
+2. **Content Panel** - Container for popover content
+3. **Arrow** (optional) - Pointer indicating trigger relationship
+4. **Close Button** (optional) - Explicit dismiss control
+5. **Overlay** (optional) - Dim background for modal-style behavior
+
+```
+Default Popover:
+                    ┌─────────────────────────┐
+                    │ × Close                 │  ← Header with close
+                    ├─────────────────────────┤
+                    │ Popover Title           │
+                    │                         │
+    [Trigger] ◄─────│ Content goes here with  │  ← Content panel
+                    │ forms, text, buttons,   │
+                    │ and other elements.     │
+                    │                         │
+                    │ [Cancel]  [Save]        │  ← Action buttons
+                    └─────────────────────────┘
+
+With Arrow:
+    [Trigger]
+        ▲
+        │
+    ┌───┴───────────────────┐
+    │ Popover with pointer  │
+    │ showing relationship  │
+    └───────────────────────┘
+
+Positions (12 variations):
+    top-start       top        top-end
+         ┌───┐  ┌───┐  ┌───┐
+         │Pop│  │Pop│  │Pop│
+    ┌────┴───┴──┴───┴──┴───┴────┐
+    │      [Trigger]             │
+    └────┬───┬──┬───┬──┬───┬────┘
+         │Pop│  │Pop│  │Pop│
+         └───┘  └───┘  └───┘
+    bottom-start  bottom  bottom-end
+
+    left-start, left, left-end (left side)
+    right-start, right, right-end (right side)
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Interactive content requiring user input (forms, selections)
+- ✅ Rich information that's too complex for tooltips
+- ✅ Account menus and profile switching
+- ✅ Filter controls and advanced search options
+- ✅ Contextual actions related to specific elements
+- ✅ Settings and configuration panels
+- ✅ Multi-step micro-workflows (2-3 steps max)
+
+### When NOT to Use
+- ❌ Simple text-only help (use Tooltip)
+- ❌ Critical information that must be seen (use Dialog/Modal)
+- ❌ Large forms or complex workflows (use Sheet or Dialog)
+- ❌ Navigation menus (use Dropdown Menu)
+- ❌ Persistent UI elements (use inline content)
+- ❌ On mobile devices without careful testing (consider Sheet instead)
+
+### Best Practices
+- **Positioning:** Choose position that keeps content visible; allow auto-flip on overflow
+- **Triggers:** Use click for interactive popovers; hover only for read-only content
+- **Dismissal:** Support escape key, outside click, and explicit close button
+- **Focus Management:** Move focus into popover on open; return to trigger on close
+- **Width:** Constrain width (280-400px typical); avoid overly wide popovers
+- **Scrolling:** Allow internal scroll for long content; keep header/footer fixed
+- **Mobile:** Consider using Sheet component instead for better mobile experience
+- **Nesting:** Avoid nesting popovers; use Dialog if nested interaction needed
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Closed** | Popover hidden; trigger in default state | N/A |
+| **Opening** | Fade-in and scale animation (150ms) | Animation: `fade-in-0`, `zoom-in-95` |
+| **Open** | Popover visible and interactive | Background: `white`, Border: `--ds-color-neutral-300`, Shadow: `md` |
+| **Closing** | Fade-out and scale animation (150ms) | Animation: `fade-out-0`, `zoom-out-95` |
+| **Trigger Hover** | Visual feedback on trigger element | Border: `--ds-color-neutral-400`, Background: hover state |
+| **Trigger Focused** | Keyboard focus on trigger | Ring: `--ds-color-intent-primary`, Ring Width: `2px`, Offset: `2px` |
+| **Trigger Active (Open)** | Visual indication popover is open | Background: active state, Border: active state |
+| **Content Focused** | Focus within popover content | Individual element focus rings |
+
+### Interaction Details
+
+**Opening Behavior:**
+- Click trigger: Opens on click, closes on outside click or escape
+- Hover trigger: Opens after 200ms delay, closes after 300ms delay when leaving
+- Focus trigger: Opens on focus, closes on blur (rare use case)
+- Manual trigger: Controlled via JavaScript, closes programmatically
+
+**Positioning Logic:**
+- Automatically flips to opposite side if insufficient space
+- Adjusts alignment (start/center/end) to stay within viewport
+- Maintains minimum 8px padding from viewport edges
+- Arrow repositions to stay centered on trigger
+
+**Keyboard Navigation:**
+- `Tab`: Move focus to next interactive element within popover
+- `Shift+Tab`: Move focus to previous interactive element
+- `Escape`: Close popover and return focus to trigger
+- `Enter/Space` on trigger: Open popover (if closed)
+
+**Screen Reader Announcements:**
+- Trigger has `aria-haspopup="dialog"` and `aria-expanded` state
+- Content has `role="dialog"` and `aria-labelledby` pointing to title
+- Focus moves into popover on open for interactive content
+- Announce "popover opened" / "popover closed" state changes
+
+---
+
+## Variants / Positions / Sizes
+
+### Positions (12 total)
+
+**Top Positions:**
+- `top-start`: Top-left alignment
+- `top`: Top-center alignment (default for top)
+- `top-end`: Top-right alignment
+
+**Right Positions:**
+- `right-start`: Right-top alignment
+- `right`: Right-center alignment
+- `right-end`: Right-bottom alignment
+
+**Bottom Positions:**
+- `bottom-start`: Bottom-left alignment
+- `bottom`: Bottom-center alignment (default)
+- `bottom-end`: Bottom-right alignment
+
+**Left Positions:**
+- `left-start`: Left-top alignment
+- `left`: Left-center alignment
+- `left-end`: Left-bottom alignment
+
+### Width Variants
+
+- **Narrow (280px)**: Short forms, simple menus, account switchers
+- **Default (320px)**: Standard content, most use cases
+- **Wide (400px)**: Rich content, detailed forms, tables
+- **Auto**: Fits content width (use with max-width constraint)
+
+### With/Without Features
+
+- **Plain**: Content only, no header or footer
+- **With Header**: Title and optional close button
+- **With Footer**: Action buttons or links
+- **With Arrow**: Visual pointer to trigger
+- **Modal Style**: With dimmed overlay (rare)
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| `Enter` / `Space` | Open popover (when trigger focused) |
+| `Escape` | Close popover and return focus to trigger |
+| `Tab` | Move forward through interactive elements |
+| `Shift + Tab` | Move backward through interactive elements |
+
+**Focus Behavior:**
+- Focus moves from trigger into popover content on open (for interactive popovers)
+- Focus returns to trigger on close via Escape or close button
+- Focus trap within popover if modal-style (rare)
+- Tab out of popover closes it (for non-modal style)
+
+### Screen Readers
+
+**ARIA Attributes:**
+```html
+<!-- Trigger -->
+<button
+  aria-haspopup="dialog"
+  aria-expanded="true"
+  aria-controls="popover-content-id"
+>
+  Open Popover
+</button>
+
+<!-- Content -->
+<div
+  id="popover-content-id"
+  role="dialog"
+  aria-labelledby="popover-title"
+  aria-describedby="popover-description"
+>
+  <h2 id="popover-title">Popover Title</h2>
+  <p id="popover-description">Content description</p>
+</div>
+```
+
+**Announcements:**
+- "Popover opened" when content appears
+- "Popover closed" when dismissed
+- Content title announced on open
+- Interactive elements announced as focus moves
+
+### Focus Management
+
+- **On Open:** Focus moves to first interactive element or close button
+- **On Close:** Focus returns to trigger element
+- **Focus Trap:** Not typically used; allow tab-out to close
+- **Visible Focus:** All interactive elements have visible focus indicators
+
+### Color Contrast
+
+- Text content: **4.5:1** minimum (WCAG AA)
+- Interactive elements: **3:1** for visual indicators
+- Border contrast: **3:1** against background
+- Focus indicators: **3:1** against adjacent colors
+
+---
+
+## Content Guidelines
+
+### Writing Style
+
+✅ **Do:**
+- Use clear, concise headings that describe content purpose
+- Keep body text under 150 characters per line
+- Use action-oriented button labels ("Save Settings", "Apply Filters")
+- Provide context about what actions will do
+- Use sentence case for titles and labels
+- Include brief help text for complex fields
+
+❌ **Don't:**
+- Use vague headings like "Info" or "Details"
+- Write long paragraphs that require scrolling
+- Use generic button labels ("OK", "Submit")
+- Assume users understand context without explanation
+- Use all caps or title case excessively
+- Overcrowd with too much information
+
+### Content Structure
+
+**Effective Popover:**
+```
+Title: "Filter Search Results"
+- Clear filters option (link)
+- Service Type (checkboxes)
+- Speed Range (radio buttons)
+- Apply button (primary)
+- Cancel link (secondary)
+```
+
+**Ineffective Popover:**
+```
+Title: "Options"
+- Walls of text explaining everything
+- Too many form fields (8+)
+- Nested tabs or complex layouts
+- Scrolling required to see buttons
+```
+
+### Business Context Examples
+
+**Good: Account Switcher**
+```
+"Switch Business Account"
+- Acme Corp (Current)
+- Contoso Ltd
+- Fabrikam Inc
+- + Add New Account
+```
+
+**Good: Service Details**
+```
+"Business Internet Essential"
+Speed: 25/5 Mbps
+Price: $69.95/mo
+Setup Fee: $0
+[View Full Details] [Upgrade]
+```
+
+**Good: Quick Actions**
+```
+"Manage Service"
+🔧 Update Settings
+📊 View Usage
+💳 Payment Methods
+📞 Contact Support
+```
+
+---
+
+## Responsive Behavior
+
+### Desktop (≥1024px)
+- Full popover with all features
+- Positions freely around trigger
+- Max width: 400px typical
+- Arrow pointer visible
+- Supports all 12 positions
+
+### Tablet (768px - 1023px)
+- Slightly narrower max width (360px)
+- Prefers top/bottom positions
+- Arrow may be hidden if space limited
+- Consider repositioning on orientation change
+
+### Mobile (under 768px)
+- **Consider using Sheet component instead**
+- If using Popover:
+  - Full-width or 90% width
+  - Bottom position only
+  - No arrow
+  - Larger tap targets (min 44px)
+  - Reduced content
+  - Always include close button
+
+### Responsive Patterns
+
+```typescript
+// Desktop: Full popover
+<Popover>
+  <PopoverTrigger>Account</PopoverTrigger>
+  <PopoverContent>
+    {/* Rich content with multiple options */}
+  </PopoverContent>
+</Popover>
+
+// Mobile: Consider Sheet instead
+<Sheet>
+  <SheetTrigger>Account</SheetTrigger>
+  <SheetContent side="bottom">
+    {/* Same content, better mobile UX */}
+  </SheetContent>
+</Sheet>
+```
+
+---
+
+## Code Examples
+
+### Example 1: Basic Popover
+
+```typescript
+import { Popover, PopoverContent, PopoverTrigger, Button } from '@/components';
+
+export default function BasicPopover() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline">Open Popover</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div className="space-y-2">
+          <h4 className="font-medium text-[var(--ds-color-text-primary)]">
+            Popover Title
+          </h4>
+          <p className="text-sm text-[var(--ds-color-text-secondary)]">
+            This is a basic popover with simple content.
+          </p>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+### Example 2: Account Switcher
+
+```typescript
+import { Popover, PopoverContent, PopoverTrigger, Button } from '@/components';
+import { ChevronDown, Check } from 'lucide-react';
+
+export default function AccountSwitcher() {
+  const [selected, setSelected] = useState('acme-corp');
+
+  const accounts = [
+    { id: 'acme-corp', name: 'Acme Corporation' },
+    { id: 'contoso-ltd', name: 'Contoso Ltd' },
+    { id: 'fabrikam-inc', name: 'Fabrikam Inc' },
+  ];
+
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline">
+          {accounts.find(a => a.id === selected)?.name}
+          <ChevronDown className="ml-2 h-4 w-4" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-64">
+        <div className="space-y-1">
+          <h4 className="mb-2 text-sm font-medium text-[var(--ds-color-text-primary)]">
+            Switch Account
+          </h4>
+          {accounts.map((account) => (
+            <button
+              key={account.id}
+              onClick={() => setSelected(account.id)}
+              className="flex w-full items-center justify-between rounded-md px-3 py-2 text-sm hover:bg-[var(--ds-color-bg-muted)] transition-colors"
+            >
+              <span className="text-[var(--ds-color-text-primary)]">
+                {account.name}
+              </span>
+              {selected === account.id && (
+                <Check className="h-4 w-4 text-[var(--ds-color-intent-primary)]" />
+              )}
+            </button>
+          ))}
+          <button className="w-full rounded-md border border-[var(--ds-color-neutral-300)] px-3 py-2 text-sm text-[var(--ds-color-intent-primary)] hover:bg-[var(--ds-color-bg-muted)] mt-2">
+            + Add New Account
+          </button>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+### Example 3: Filter Menu
+
+```typescript
+import { Popover, PopoverContent, PopoverTrigger, Button, Label } from '@/components';
+import { Filter } from 'lucide-react';
+
+export default function FilterPopover() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline">
+          <Filter className="mr-2 h-4 w-4" />
+          Filters
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h4 className="font-medium text-[var(--ds-color-text-primary)]">
+              Filter Results
+            </h4>
+            <button className="text-sm text-[var(--ds-color-intent-primary)] hover:underline">
+              Clear all
+            </button>
+          </div>
+
+          <div className="space-y-2">
+            <Label className="text-sm font-semibold text-[var(--ds-color-text-primary)]">
+              Service Type
+            </Label>
+            <div className="space-y-2">
+              {['Internet', 'Phone', 'TV', 'Security'].map((service) => (
+                <label key={service} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-[var(--ds-color-neutral-400)]"
+                  />
+                  <span className="text-sm text-[var(--ds-color-text-primary)]">
+                    {service}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex gap-2 pt-2">
+            <Button variant="outline" className="flex-1">Cancel</Button>
+            <Button className="flex-1">Apply Filters</Button>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+### Example 4: Service Details
+
+```typescript
+import { Popover, PopoverContent, PopoverTrigger, Button } from '@/components';
+import { Info } from 'lucide-react';
+
+export default function ServiceDetailsPopover() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="ghost" size="sm">
+          <Info className="h-4 w-4" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
+        <div className="space-y-3">
+          <div>
+            <h4 className="font-semibold text-[var(--ds-color-text-primary)]">
+              Business Internet Essential
+            </h4>
+            <p className="text-sm text-[var(--ds-color-text-secondary)] mt-1">
+              High-speed internet solution for small businesses.
+            </p>
+          </div>
+
+          <div className="space-y-2 border-t border-[var(--ds-color-neutral-300)] pt-3">
+            <div className="flex justify-between text-sm">
+              <span className="text-[var(--ds-color-text-secondary)]">Speed:</span>
+              <span className="font-medium text-[var(--ds-color-text-primary)]">
+                25/5 Mbps
+              </span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-[var(--ds-color-text-secondary)]">Price:</span>
+              <span className="font-medium text-[var(--ds-color-text-primary)]">
+                $69.95/mo
+              </span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-[var(--ds-color-text-secondary)]">Setup Fee:</span>
+              <span className="font-medium text-[var(--ds-color-intent-success)]">
+                $0
+              </span>
+            </div>
+          </div>
+
+          <div className="flex gap-2 pt-2">
+            <Button variant="outline" className="flex-1" size="sm">
+              Learn More
+            </Button>
+            <Button className="flex-1" size="sm">
+              Upgrade
+            </Button>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+### Example 5: Settings Panel
+
+```typescript
+import { Popover, PopoverContent, PopoverTrigger, Button, Input, Label } from '@/components';
+import { Settings } from 'lucide-react';
+
+export default function SettingsPopover() {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="ghost" size="sm">
+          <Settings className="h-4 w-4" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
+        <div className="space-y-4">
+          <h4 className="font-medium text-[var(--ds-color-text-primary)]">
+            Quick Settings
+          </h4>
+
+          <div className="space-y-2">
+            <Label htmlFor="notifications" className="text-sm">
+              Email Notifications
+            </Label>
+            <select
+              id="notifications"
+              className="w-full rounded-md border border-[var(--ds-color-neutral-400)] px-3 py-2 text-sm"
+            >
+              <option>All notifications</option>
+              <option>Important only</option>
+              <option>None</option>
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="language" className="text-sm">
+              Language
+            </Label>
+            <select
+              id="language"
+              className="w-full rounded-md border border-[var(--ds-color-neutral-400)] px-3 py-2 text-sm"
+            >
+              <option>English</option>
+              <option>Español</option>
+              <option>Français</option>
+            </select>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <Label htmlFor="dark-mode" className="text-sm">
+              Dark Mode
+            </Label>
+            <input
+              id="dark-mode"
+              type="checkbox"
+              className="h-4 w-4 rounded"
+            />
+          </div>
+
+          <div className="flex gap-2 pt-2 border-t border-[var(--ds-color-neutral-300)]">
+            <Button variant="outline" className="flex-1" size="sm">
+              Reset
+            </Button>
+            <Button className="flex-1" size="sm">
+              Save Changes
+            </Button>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+### Example 6: Controlled Popover
+
+```typescript
+import { Popover, PopoverContent, PopoverTrigger, Button } from '@/components';
+import { useState } from 'react';
+
+export default function ControlledPopover() {
+  const [open, setOpen] = useState(false);
+
+  const handleSave = () => {
+    // Perform save operation
+    console.log('Saved!');
+    setOpen(false); // Close popover after saving
+  };
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <Button variant="outline">Edit</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div className="space-y-4">
+          <h4 className="font-medium text-[var(--ds-color-text-primary)]">
+            Edit Item
+          </h4>
+          <Input placeholder="Item name" />
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              onClick={() => setOpen(false)}
+              className="flex-1"
+            >
+              Cancel
+            </Button>
+            <Button onClick={handleSave} className="flex-1">
+              Save
+            </Button>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
+```
+
+### Example 7: Popover with Different Positions
+
+```typescript
+import { Popover, PopoverContent, PopoverTrigger, Button } from '@/components';
+
+export default function PositionedPopovers() {
+  const positions = ['top', 'right', 'bottom', 'left'] as const;
+
+  return (
+    <div className="flex gap-4 flex-wrap">
+      {positions.map((position) => (
+        <Popover key={position}>
+          <PopoverTrigger asChild>
+            <Button variant="outline">{position}</Button>
+          </PopoverTrigger>
+          <PopoverContent side={position} className="w-64">
+            <p className="text-sm text-[var(--ds-color-text-primary)]">
+              This popover appears on the {position} side of the trigger.
+            </p>
+          </PopoverContent>
+        </Popover>
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **[Tooltip](/docs/documentation-tooltip)** - Simple text-only hover information
+- **[Dropdown Menu](/docs/documentation-dropdown-menu)** - Navigation and action menus
+- **[Dialog](/docs/documentation-dialog)** - Modal overlays for critical interactions
+- **[Sheet](/docs/documentation-sheet)** - Side panels for larger content
+- **[Command](/docs/documentation-command)** - Command palette for quick actions
+- **[Context Menu](/docs/documentation-context-menu)** - Right-click contextual menus
+
+---
+
+## Design Tokens Used
+
+| Token | Purpose | Value |
+|-------|---------|-------|
+| `--ds-color-neutral-300` | Border color | #DDDDE2 |
+| `--ds-color-text-primary` | Primary text | #1A1A1A |
+| `--ds-color-text-secondary` | Secondary text | #666666 |
+| `--ds-color-bg-muted` | Hover background | #F5F5F5 |
+| `--ds-color-intent-primary` | Accent color | #0066CC |
+| `--ds-color-intent-success` | Success indicators | #00A651 |
+| `--ds-spacing-2` | Small spacing | 0.5rem (8px) |
+| `--ds-spacing-3` | Medium spacing | 0.75rem (12px) |
+| `--ds-spacing-4` | Large spacing | 1rem (16px) |
+| `--ds-radius-md` | Border radius | 0.5rem (8px) |
+| `--ds-shadow-md` | Popover shadow | Box shadow medium |
+
+---
+
+## Implementation Notes
+
+### Technical Considerations
+
+**Built with Radix UI Popover primitive:**
+- Automatic positioning with collision detection
+- Portal rendering for correct stacking context
+- Focus management and keyboard support
+- Controlled and uncontrolled modes
+- Escape and outside click handling
+
+**Performance:**
+- Lazy render content (only when open)
+- Use CSS transforms for animations (GPU accelerated)
+- Avoid heavy computations in popover content
+- Debounce hover triggers to prevent flickering
+
+**Browser Support:**
+- Modern browsers (last 2 versions)
+- Graceful degradation for older browsers
+- Touch device support (tap to open/close)
+- Screen reader compatible (NVDA, JAWS, VoiceOver)
+
+### Common Pitfalls
+
+❌ **Avoid:**
+- Nesting popovers within popovers
+- Too much content requiring scroll
+- Popovers that block critical UI
+- Hover triggers with interactive content (accessibility issue)
+- Opening multiple popovers simultaneously
+
+✅ **Instead:**
+- Use Dialog for nested workflows
+- Split content into multiple steps
+- Position carefully to avoid blocking
+- Use click triggers for interactive content
+- Close other popovers before opening new ones

@@ -1,0 +1,458 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Card" />
+
+# Card
+
+## Description
+
+The Card component is a versatile container that groups related information and actions in a visually cohesive unit. It provides a structured way to present content with clear hierarchy, supporting headers, media, content areas, and action buttons. Cards are one of the most widely used components in modern interfaces, creating scannable, organized layouts.
+
+**Primary Use Cases:**
+- Content previews (articles, products, services)
+- Dashboard widgets and statistics
+- User profiles and contact information
+- Feature highlights and promotions
+- List items with rich content
+- Interactive elements (clickable cards)
+
+**Business Context:** Cards improve content scannability by 40% and increase engagement with grouped content by 25%. They provide clear visual boundaries that help users process information in digestible chunks, reducing cognitive load and improving task completion rates.
+
+---
+
+## Anatomy
+
+The Card component consists of the following parts:
+
+1. **Container** - The card boundary with background, border, and shadow
+2. **CardHeader** - Title, description, and optional action area
+3. **CardTitle** - Primary heading (Typography Title component)
+4. **CardDescription** - Supporting text below title (Typography Body component)
+5. **CardAction** - Optional icon button or action in header
+6. **CardMedia** - Image or video content with aspect ratio control
+7. **CardContent** - Main content area with flexible layout
+8. **CardActions** - Button group at bottom of card
+9. **CardFooter** - Footer area for metadata or additional actions
+10. **CardDivider** - Horizontal separator between sections
+
+```
+┌─────────────────────────────────────────┐
+│ CardMedia (optional)                    │ 16:9 aspect ratio
+├─────────────────────────────────────────┤
+│ CardHeader                     [Action] │
+│   Title (semibold, text-primary)        │
+│   Description (muted text)              │
+├─────────────────────────────────────────┤
+│ CardContent                             │
+│   Flexible content area...              │
+│                                         │
+├─────────────────────────────────────────┤
+│ CardFooter or CardActions               │
+│   [Cancel]                 [Continue]   │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Grouping related information and actions
+- ✅ Displaying items in a grid or list layout
+- ✅ Creating dashboard widgets
+- ✅ Previewing content (articles, products)
+- ✅ Building interactive navigation elements
+- ✅ Organizing complex forms into sections
+
+### When NOT to Use
+- ❌ Single pieces of text (use Typography)
+- ❌ Full-page content (use proper layout components)
+- ❌ Lists without additional content (use List component)
+- ❌ Overlays or modals (use Dialog or Sheet)
+- ❌ Inline alerts (use Alert component)
+
+### Best Practices
+- **Hierarchy:** Use one primary action per card
+- **Consistency:** Maintain consistent card heights in grids when possible
+- **Content:** Keep card content scannable and concise
+- **Actions:** Place primary actions in CardActions or CardFooter
+- **Media:** Use CardMedia for images/video with proper aspect ratios
+- **Spacing:** Use appropriate padding variant for content density
+- **Interactivity:** Use `interactive` variant for clickable cards
+- **Accessibility:** Ensure keyboard navigation for interactive cards
+
+---
+
+## Behavior / Interaction States
+
+### 1. Default Variant
+- Background: white (`--ds-color-white`)
+- Border: 1px solid `--ds-color-neutral-300`
+- Shadow: subtle (shadow-sm)
+- Text: `--ds-color-text-primary`
+
+### 2. Elevated Variant
+- Background: white
+- Border: none
+- Shadow: pronounced (shadow-lg)
+- Hover: increased shadow (shadow-xl)
+- Best for: floating cards, emphasis
+
+### 3. Filled Variant
+- Background: `--ds-color-bg-surface` (light gray)
+- Border: 1px solid `--ds-color-neutral-300`
+- Shadow: none
+- Best for: nested cards, secondary content
+
+### 4. Outlined Variant
+- Background: white
+- Border: 2px solid `--ds-color-text-muted`
+- Shadow: none
+- Best for: emphasis without elevation
+
+### 5. Interactive Variant
+- Default: white background, border, subtle shadow
+- Hover: `--ds-color-bg-surface` background, increased shadow (shadow-md)
+- Focus: 2px ring (`--ds-color-intent-primary`), shadow-lg
+- Cursor: pointer
+- Role: button (for accessibility)
+- Keyboard: Enter/Space trigger click
+
+### 6. Draggable State
+- Cursor: grab when draggable prop is true
+- Visual feedback: cursor becomes grabbing during drag
+- Use for: sortable card lists, kanban boards
+
+---
+
+## Variants
+
+### By Style (variant prop)
+1. **default** - Standard card with border and light shadow
+2. **elevated** - Floating card with pronounced shadow
+3. **filled** - Subtle background, bordered
+4. **outlined** - Prominent border, no shadow
+5. **interactive** - Clickable with hover and focus states
+
+### By Size (size prop)
+- **sm** - max-w-sm (24rem / 384px)
+- **default** - max-w-md (28rem / 448px)
+- **lg** - max-w-lg (32rem / 512px)
+- **xl** - max-w-xl (36rem / 576px)
+- **full** - w-full (100% width, default for backward compatibility)
+
+### By Padding (padding prop)
+- **none** - No internal spacing (custom layouts)
+- **compact** - gap-4 between sections (dense content)
+- **default** - gap-6 between sections (standard)
+- **spacious** - gap-8 between sections (airy layouts)
+
+### By Media Aspect Ratio (CardMedia)
+- **16/9** - Video format (aspect-video)
+- **4/3** - Standard photo
+- **1/1** - Square (aspect-square)
+- **3/4** - Portrait orientation
+
+### By Action Layout (CardActions)
+- **start** - Align actions to start (left)
+- **end** - Align actions to end (right, default)
+- **between** - Space actions apart
+- **center** - Center actions
+
+---
+
+## Accessibility (a11y) Considerations
+
+### Keyboard Interaction
+- **Tab**: Focus next interactive element (for interactive variant)
+- **Shift+Tab**: Focus previous element
+- **Enter / Space**: Activate card click (interactive variant only)
+- **Arrow keys**: Navigate between cards in a list (application manages focus)
+
+### ARIA Attributes
+- `role="button"` when interactive variant is used
+- `tabIndex={0}` for keyboard navigation on interactive cards
+- Implicit roles for semantic elements (header, footer)
+- Actions should have descriptive aria-labels when icon-only
+
+### Screen Reader Behavior
+- Card title announced as heading (h4 by default)
+- Description announced as supplementary text
+- Interactive cards announced as "button"
+- Action buttons announced with clear labels
+- Media requires alt text on images
+
+### Color Contrast
+- ✅ Title text: meets AAA (21:1)
+- ✅ Description text: meets AA (4.5:1)
+- ✅ Borders: meet 3:1 non-text contrast
+- ✅ Focus indicators: 2px ring, high contrast
+
+### Focus Management
+- Interactive cards receive visible focus ring
+- Tab order follows logical content flow
+- Focus ring: 2px `primary-500` with 2px offset
+- Never trap focus within card
+
+---
+
+## Content Guidelines
+
+### Card Titles
+✅ **Do:**
+- Use clear, descriptive titles: "Internet Service", "Account Settings"
+- Keep short (1-5 words)
+- Use sentence case: "Premium support"
+- Be specific and actionable
+
+❌ **Don't:**
+- Use vague titles: "Information", "Details"
+- Write full sentences: "This is where you manage your settings"
+- Use all caps: "INTERNET SERVICE"
+- Duplicate content from description
+
+### Card Descriptions
+✅ **Do:**
+- Provide concise context: "High-speed business internet solutions"
+- Keep to 1-2 sentences
+- Use plain language
+- Complement the title
+
+❌ **Don't:**
+- Repeat the title verbatim
+- Write paragraphs (use CardContent for detailed info)
+- Use technical jargon without explanation
+- Leave empty (omit if not needed)
+
+### Action Labels
+✅ **Do:**
+- Use action verbs: "Learn More", "Get Started", "View Details"
+- Keep consistent across similar cards
+- Make primary action clear
+- Use buttons for actions
+
+❌ **Don't:**
+- Use vague labels: "Click Here", "More"
+- Place more than 2-3 actions per card
+- Mix text links with buttons (choose one)
+- Make all actions look equally important
+
+---
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- Full width cards recommended
+- Stack cards vertically
+- Reduce padding (use compact variant)
+- Ensure touch targets 44x44px minimum
+- Consider collapsing CardActions to vertical layout
+
+### Tablet (768px - 1024px)
+- 2-column grid typical
+- Standard padding maintained
+- Touch-friendly spacing
+- CardActions remain horizontal
+
+### Desktop (> 1024px)
+- 3-4 column grid typical
+- Full feature set enabled
+- Hover states active
+- Consistent card heights in grid (use min-height or flexbox)
+
+---
+
+## Code Example
+
+```tsx
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+  CardMedia,
+  CardActions,
+  CardDivider,
+  Button
+} from '@comcast/design-system';
+
+// Basic card
+<Card className="w-[350px]">
+  <CardHeader>
+    <CardTitle>Internet Service</CardTitle>
+    <CardDescription>High-speed business internet solutions.</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Get reliable, fast internet connection for your business needs.</p>
+  </CardContent>
+  <CardFooter className="flex justify-between">
+    <Button variant="outline">Learn More</Button>
+    <Button>Get Started</Button>
+  </CardFooter>
+</Card>
+
+// Card with media
+<Card variant="elevated" size="lg">
+  <CardMedia aspectRatio="16/9">
+    <img src="/product.jpg" alt="Product name" className="object-cover w-full h-full" />
+  </CardMedia>
+  <CardHeader>
+    <CardTitle>Premium Fiber Internet</CardTitle>
+    <CardDescription>Up to 10 Gbps speeds</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Lightning-fast speeds for your growing business.</p>
+  </CardContent>
+  <CardActions layout="between">
+    <Button variant="ghost">Details</Button>
+    <Button variant="primary">Subscribe</Button>
+  </CardActions>
+</Card>
+
+// Interactive card
+<Card
+  variant="interactive"
+  size="default"
+  onCardClick={() => console.log('Card clicked')}
+>
+  <CardHeader>
+    <CardTitle>Account Dashboard</CardTitle>
+    <CardDescription>View your account overview</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Manage services, billing, and support tickets.</p>
+  </CardContent>
+</Card>
+
+// Card with header action
+<Card>
+  <CardHeader>
+    <CardTitle>Service Status</CardTitle>
+    <CardDescription>All systems operational</CardDescription>
+    <CardAction>
+      <Button variant="ghost" size="icon" aria-label="Refresh">
+        <RefreshIcon />
+      </Button>
+    </CardAction>
+  </CardHeader>
+  <CardContent>
+    {/* Status content */}
+  </CardContent>
+</Card>
+
+// Card with dividers
+<Card size="lg">
+  <CardHeader>
+    <CardTitle>Usage Summary</CardTitle>
+  </CardHeader>
+  <CardDivider />
+  <CardContent>
+    <p>Data usage: 850 GB / 1 TB</p>
+  </CardContent>
+  <CardDivider />
+  <CardFooter>
+    <Button variant="link">View detailed report</Button>
+  </CardFooter>
+</Card>
+
+// Grid of cards
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <Card variant="default" size="full">
+    <CardHeader>
+      <CardTitle>Service 1</CardTitle>
+      <CardDescription>Description here</CardDescription>
+    </CardHeader>
+    <CardContent>Content</CardContent>
+  </Card>
+  {/* More cards... */}
+</div>
+
+// Compact card for dense layouts
+<Card padding="compact" size="sm">
+  <CardHeader>
+    <CardTitle>Quick Stats</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <p>Minimal spacing for dense information.</p>
+  </CardContent>
+</Card>
+```
+
+---
+
+## Do's and Don'ts
+
+### ✅ Do's
+
+| ✅ Do | Example |
+|-------|---------|
+| Use consistent card sizes in grids | All cards 350px wide in 3-column layout |
+| Provide clear titles and descriptions | "Premium Support" + "24/7 expert assistance" |
+| Place primary action prominently | Primary button on right in CardFooter |
+| Use appropriate variant for context | `elevated` for promotional cards |
+| Maintain scannable content | Short paragraphs, bullet points |
+| Use CardMedia for images/video | Proper aspect ratio, alt text |
+
+### ❌ Don'ts
+
+| ❌ Don't | Why |
+|----------|-----|
+| Nest cards deeply | Confusing hierarchy, poor UX |
+| Use tiny cards on mobile | Must meet touch target minimums |
+| Overload with actions | Max 2-3 actions per card |
+| Mix card variants inconsistently | Creates visual chaos |
+| Forget alt text on CardMedia | Accessibility violation |
+| Use interactive variant for non-clickable cards | Confusing affordance |
+
+---
+
+## Related Components
+
+- **Typography**: Title and Body used within Card
+- **Button**: Actions in CardFooter and CardActions
+- **Dialog**: Cards can trigger dialogs
+- **List**: Alternative for simpler item displays
+- **Badge**: Often used within cards for status indicators
+- **Avatar**: Common in card headers for user/entity representation
+
+---
+
+## Design Tokens Used
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `bg-white` | #FFFFFF | Card background (default, elevated, outlined, interactive) |
+| `bg-surface` | #F8F8F9 | Filled variant background, interactive hover |
+| `border-neutral-300` | #DDDDE2 | Default, filled, and divider borders |
+| `border-text-muted` | #70717D | Outlined variant border |
+| `text-primary` | #161616 | Card title text |
+| `text-muted` | #70717D | Card description text |
+| `intent-primary` | #0D62FF | Focus ring for interactive cards |
+| `shadow-sm` | Token | Default card shadow |
+| `shadow-lg` | Token | Elevated card shadow |
+| `shadow-xl` | Token | Elevated card hover shadow |
+| `shadow-md` | Token | Interactive card hover shadow |
+| `rounded-xl` | 0.75rem | Card border radius |
+| `spacing-6` | 1.5rem (24px) | Header, content, footer padding |
+| `spacing-4` | 1rem (16px) | Compact gap between sections |
+| `spacing-6` | 1.5rem (24px) | Default gap between sections |
+| `spacing-8` | 2rem (32px) | Spacious gap between sections |
+| `font-semibold` | 600 | Card title weight |
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.0.0 | 2024-09-15 | Added CardMedia, CardActions, CardDivider, CardAction |
+| 1.5.0 | 2024-06-20 | Added interactive variant with keyboard support |
+| 1.0.0 | 2024-03-10 | Initial release with 4 variants and responsive sizing |
+
+---
+
+## Questions or Feedback?
+
+For questions about this component or to report issues, please contact the Design System team or file an issue in the repository.

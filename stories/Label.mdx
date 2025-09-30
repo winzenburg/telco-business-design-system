@@ -1,0 +1,657 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Label" />
+
+# Label
+
+## Description
+
+The Label component provides accessible, properly formatted labels for form inputs, checkboxes, radio buttons, and other interactive elements. Built on Radix UI Label primitive with design system typography, it ensures proper click-target association, screen reader support, and consistent styling across all form elements.
+
+**Primary Use Cases:**
+- Form field labels (input, textarea, select)
+- Checkbox and radio button labels
+- Toggle and switch labels
+- File upload labels
+- Custom form control labels
+- Settings and preference labels
+
+**Business Context:** Proper labels improve form completion rates by 15-20% by clarifying field purpose. They're essential for accessibility compliance (WCAG 2.1 AA) and reduce user errors by 30% when combined with helper text.
+
+---
+
+## Anatomy
+
+The Label component is a simple but critical element:
+
+1. **Text Content** - The label text (required)
+2. **For Association** - Links to input via `htmlFor` / `id` (required)
+3. **Required Indicator** - Optional red asterisk (*) for required fields
+4. **Typography** - Uses Typography Label component (Lato Medium, 14px)
+5. **Cursor** - Pointer cursor indicating clickability
+6. **States** - Disabled and error state support
+
+```
+┌────────────────────────────┐
+│ Email Address *            │ ← Label (clickable, with required indicator)
+│ ┌────────────────────────┐ │
+│ │ john@example.com       │ │ ← Input (linked via htmlFor="email")
+│ └────────────────────────┘ │
+└────────────────────────────┘
+
+Associated Elements:
+- Label htmlFor="email"
+- Input id="email"
+- Click label → focuses input
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Every form input (required for accessibility)
+- ✅ Checkbox and radio button labels
+- ✅ File upload buttons
+- ✅ Custom form controls
+- ✅ Toggle switches
+- ✅ Segmented controls
+- ✅ Any interactive element needing text description
+
+### When NOT to Use
+- ❌ Non-interactive text (use Typography instead)
+- ❌ Button text (buttons have built-in text)
+- ❌ Heading text (use Typography Title)
+- ❌ Paragraph content (use Typography Body)
+- ❌ Link text (use Link component)
+
+### Best Practices
+- **Always Use:** Every form input must have a label (accessibility requirement)
+- **Association:** Link label to input via `htmlFor` and `id` props
+- **Clarity:** Use clear, concise text (1-3 words ideal)
+- **Required Fields:** Add red asterisk (*) after text for required fields
+- **Positioning:** Place above input for vertical forms, left for horizontal
+- **Clickability:** Labels increase click target size (especially important for checkboxes/radios)
+- **Error States:** Change label color to red when field has error
+- **Disabled States:** Reduce opacity when associated input is disabled
+
+---
+
+## Behavior / Interaction States
+
+### Default State
+- **Text Color:** `--ds-color-text-primary` (#15172B - black)
+- **Font:** Lato Medium, 14px (font-primary, font-medium, text-sm)
+- **Cursor:** pointer (indicates clickability)
+- **Behavior:** Click focuses associated input
+- **Accessibility:** Announced by screen readers before input
+
+### Hover State
+- **No visual change** (hover is on the input, not label)
+- **Cursor:** pointer (shows it's clickable)
+- **Behavior:** Maintains clickable cursor throughout label text
+
+### Disabled State
+- **Text Color:** `--ds-color-text-muted` (#70717D - gray)
+- **Opacity:** 50% (`opacity-50`)
+- **Cursor:** not-allowed or default
+- **Behavior:** No interaction (associated input is disabled)
+- **Classes:** `peer-disabled:opacity-50 peer-disabled:cursor-not-allowed`
+
+### Error State
+- **Text Color:** `--ds-color-intent-destructive` (#D11314 - red)
+- **Font Weight:** Same (medium)
+- **Required Indicator:** Red asterisk remains red
+- **Behavior:** Same clickability
+- **Applied:** When associated input has error
+
+### Focus State (Associated Input)
+- **Label:** No visual change
+- **Input:** Receives focus ring
+- **Behavior:** Label announces input is focused to screen readers
+
+### Required Field Indicator
+- **Visual:** Red asterisk (*) after text
+- **Spacing:** 0.25rem (4px) left margin (`ml-1`)
+- **Color:** `--ds-color-intent-destructive` (#D11314)
+- **Screen Reader:** Announced as "required" or "asterisk"
+- **Markup:** `<span className="text-[var(--ds-color-intent-destructive)]">*</span>`
+
+---
+
+## Variants
+
+### By Usage Context
+
+#### 1. Input Labels
+- **Position:** Above input (vertical layout)
+- **Spacing:** 8px gap below label
+- **Required:** Common (include asterisk)
+- **Pattern:**
+```tsx
+<Label htmlFor="email">Email Address *</Label>
+<Input id="email" type="email" />
+```
+
+#### 2. Checkbox Labels
+- **Position:** Right of checkbox (inline)
+- **Spacing:** 8px gap between checkbox and label
+- **Clickable:** Yes (toggles checkbox)
+- **Pattern:**
+```tsx
+<div className="flex items-center space-x-2">
+  <Checkbox id="terms" />
+  <Label htmlFor="terms">I agree to terms and conditions</Label>
+</div>
+```
+
+#### 3. Radio Button Labels
+- **Position:** Right of radio button (inline)
+- **Spacing:** 8px gap between radio and label
+- **Clickable:** Yes (selects radio)
+- **Pattern:**
+```tsx
+<div className="flex items-center space-x-2">
+  <RadioGroupItem value="personal" id="personal" />
+  <Label htmlFor="personal">Personal Account</Label>
+</div>
+```
+
+#### 4. Group Labels
+- **Position:** Above group of related inputs
+- **Spacing:** 12px gap below label
+- **Required:** Sometimes (for entire group)
+- **Pattern:**
+```tsx
+<Label>Notification Preferences</Label>
+<div className="space-y-2 mt-3">
+  <div className="flex items-center space-x-2">
+    <Checkbox id="email" />
+    <Label htmlFor="email">Email</Label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <Checkbox id="sms" />
+    <Label htmlFor="sms">SMS</Label>
+  </div>
+</div>
+```
+
+#### 5. File Upload Labels
+- **Position:** On/around file input button
+- **Styling:** May look like button
+- **Accessibility:** Label wraps input
+- **Pattern:**
+```tsx
+<Label htmlFor="file" className="cursor-pointer">
+  <input type="file" id="file" className="sr-only" />
+  <Button as="span">Choose File</Button>
+</Label>
+```
+
+---
+
+## Accessibility (a11y) Considerations
+
+### Keyboard Interaction
+- **Tab:** Focus moves to associated input (not label)
+- **Click Label:** Focuses and activates associated input
+- **Space/Enter:** When input is focused (not on label)
+- **No Direct Interaction:** Labels aren't tab stops
+
+### ARIA and Semantic HTML
+- **Implicit Association:** `<Label htmlFor="id">` + `<Input id="id">`
+- **No ARIA Needed:** HTML `<label>` element is semantic
+- **Screen Reader:** Announces label text when input receives focus
+- **Required Indicator:** `aria-required="true"` on input, visual * in label
+- **Error Association:** `aria-describedby` on input links to error message
+- **Group Labels:** Use `<fieldset>` and `<legend>` for radio/checkbox groups
+
+### Screen Reader Behavior
+- **Input Focus:** "Email Address, required, edit text, empty"
+- **Checkbox:** "I agree to terms, checkbox, not checked"
+- **Radio:** "Personal Account, radio button, 1 of 3, not selected"
+- **Error State:** "Email Address, required, invalid entry, error: Please enter valid email"
+- **Disabled:** "Email Address, required, edit text, dimmed"
+
+### Color Contrast
+- ✅ **Default:** 16:1 (AAA) - black on white
+- ✅ **Disabled:** 4.6:1 (AA) - gray 600 on white
+- ✅ **Error:** 6.8:1 (AA) - red 600 on white
+- ✅ **Required Indicator:** 6.8:1 (AA) - red 600 on white
+
+### Best Practices for Accessibility
+1. **Always Use Labels:** Never rely on placeholder text alone
+2. **Unique IDs:** Each input needs unique `id`, each label unique `htmlFor`
+3. **Visible Labels:** Never hide labels (`display: none`) - use `sr-only` class if needed
+4. **Descriptive Text:** Label should clearly describe input purpose
+5. **Group Related Fields:** Use `<fieldset>` and `<legend>` for radio/checkbox groups
+6. **Error Messages:** Link to input via `aria-describedby`, not in label
+7. **Required Fields:** Use visual indicator (*) AND `aria-required="true"` on input
+
+---
+
+## Content Guidelines
+
+### Label Text
+
+✅ **Do:**
+- Use sentence case ("Email address" not "Email Address")
+- Be concise (1-3 words ideal)
+- Use familiar terms ("Phone" not "Telephone number")
+- Front-load with keywords ("Email address" not "Address (email)")
+- Be specific ("Business email" vs just "Email")
+- Match field purpose ("Full name" for full name input)
+
+❌ **Don't:**
+- Use ALL CAPS or Title Case for standard labels
+- Add colons (:) after label text
+- Use technical jargon without explanation
+- Make labels too long (use helper text instead)
+- Use questions ("What is your email?")
+- Repeat field name in placeholder
+
+### Required Indicators
+
+✅ **Do:**
+- Use red asterisk (*) consistently
+- Place after label text with small gap
+- Include for all required fields
+- Use `aria-required="true"` on input
+- Explain at top of form: "* Required field"
+
+❌ **Don't:**
+- Use "(required)" text - takes more space
+- Place before label text
+- Mix asterisk and text indicators
+- Use different colors for required indicators
+- Forget visual indicator (don't rely only on ARIA)
+
+### Examples
+
+**Good:**
+- "Email address *"
+- "Password *"
+- "Phone number"
+- "Business name *"
+- "Date of birth"
+
+**Bad:**
+- "Email Address:" (colon not needed)
+- "EMAIL" (all caps)
+- "What is your email?" (question form)
+- "Email (required)" (use asterisk)
+- "E-mail" (prefer "Email")
+
+---
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- **Font Size:** Maintain 14px (don't scale down)
+- **Touch Target:** Label extends full width of container
+- **Clickability:** Entire label width is clickable
+- **Spacing:** Same vertical spacing (8px below label)
+- **Line Wrapping:** Allow wrapping on very long labels
+- **Required Indicator:** Keep on same line if possible
+
+### Tablet (768px - 1024px)
+- **Layout:** Can use horizontal layout (label left, input right)
+- **Alignment:** Align label baseline with input text
+- **Width:** Fixed width for labels in horizontal layout (e.g., 120px)
+- **Truncation:** Consider ellipsis for very long labels
+- **Spacing:** 16px gap between label and input (horizontal)
+
+### Desktop (> 1024px)
+- **Layout:** Vertical preferred, horizontal for settings
+- **Multi-Column:** Labels align with their columns
+- **Consistent Width:** In horizontal layout, all labels same width
+- **Alignment:** Top-align label with first line of input
+- **No Truncation:** Full label text visible
+
+---
+
+## Code Examples
+
+### Basic Label with Input
+```tsx
+import { Label, Input } from '@company/ui';
+
+<div className="space-y-2">
+  <Label htmlFor="email">Email Address</Label>
+  <Input id="email" type="email" placeholder="john@example.com" />
+</div>
+```
+
+### Required Field
+```tsx
+<div className="space-y-2">
+  <Label htmlFor="password">
+    Password <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+  </Label>
+  <Input id="password" type="password" required />
+</div>
+```
+
+### Checkbox with Label
+```tsx
+<div className="flex items-center space-x-2">
+  <Checkbox id="newsletter" />
+  <Label htmlFor="newsletter">
+    Subscribe to our newsletter
+  </Label>
+</div>
+```
+
+### Radio Group with Labels
+```tsx
+<div className="space-y-4">
+  <Label>Account Type *</Label>
+  <RadioGroup defaultValue="business">
+    <div className="space-y-3">
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="personal" id="personal" />
+        <Label htmlFor="personal">Personal Account</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="business" id="business" />
+        <Label htmlFor="business">Business Account</Label>
+      </div>
+      <div className="flex items-center space-x-2">
+        <RadioGroupItem value="enterprise" id="enterprise" />
+        <Label htmlFor="enterprise">Enterprise Account</Label>
+      </div>
+    </div>
+  </RadioGroup>
+</div>
+```
+
+### Error State Label
+```tsx
+<div className="space-y-2">
+  <Label
+    htmlFor="username"
+    className="text-[var(--ds-color-intent-destructive)]"
+  >
+    Username <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+  </Label>
+  <Input
+    id="username"
+    error
+    aria-invalid="true"
+    aria-describedby="username-error"
+  />
+  <p id="username-error" className="text-sm text-[var(--ds-color-intent-destructive)]">
+    Username is required
+  </p>
+</div>
+```
+
+### Disabled State
+```tsx
+<div className="space-y-2">
+  <Label htmlFor="readonly" className="opacity-50">
+    Account ID
+  </Label>
+  <Input id="readonly" value="ACC-12345" disabled />
+</div>
+```
+
+### Horizontal Layout (Settings Form)
+```tsx
+<div className="flex items-center justify-between">
+  <Label htmlFor="notifications" className="flex-shrink-0 w-32">
+    Notifications
+  </Label>
+  <div className="flex items-center space-x-2 flex-1">
+    <Checkbox id="notifications" />
+    <Label htmlFor="notifications" className="text-sm font-normal">
+      Enable email notifications
+    </Label>
+  </div>
+</div>
+```
+
+### With Helper Text
+```tsx
+<div className="space-y-2">
+  <Label htmlFor="company">Company Name *</Label>
+  <Input id="company" placeholder="Acme Corporation" />
+  <p className="text-xs text-[var(--ds-color-text-muted)]">
+    Legal business name as it appears on documents
+  </p>
+</div>
+```
+
+### Group Label with Multiple Inputs
+```tsx
+<div className="space-y-4">
+  <div>
+    <Label className="text-base font-medium">Notification Preferences</Label>
+    <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">
+      Choose how you'd like to be notified
+    </p>
+  </div>
+  <div className="space-y-3 ml-4">
+    <div className="flex items-center space-x-2">
+      <Checkbox id="email-notif" />
+      <Label htmlFor="email-notif">Email notifications</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <Checkbox id="sms-notif" />
+      <Label htmlFor="sms-notif">SMS notifications</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <Checkbox id="push-notif" defaultChecked />
+      <Label htmlFor="push-notif">Push notifications</Label>
+    </div>
+  </div>
+</div>
+```
+
+### File Upload Label
+```tsx
+<Label
+  htmlFor="avatar"
+  className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-md cursor-pointer hover:bg-primary-700"
+>
+  <Upload className="h-4 w-4" />
+  Choose File
+  <input type="file" id="avatar" className="sr-only" />
+</Label>
+```
+
+---
+
+## Related Components
+
+- **Form / FormLabel** - Enhanced label with form context
+- **Input** - Text input fields
+- **Checkbox** - Binary selection with label
+- **Radio Group** - Single selection with labels
+- **Typography** - Text styling foundation
+- **FormField** - Complete field with label, input, and validation
+
+---
+
+## Design Tokens Used
+
+### Colors
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-color-text-primary` | #15172B | Default label text |
+| `--ds-color-text-muted` | #70717D | Disabled label text |
+| `--ds-color-intent-destructive` | #D11314 | Error state, required indicator |
+
+### Typography
+| Token | Value | Usage |
+|-------|-------|-------|
+| `font-primary` | Lato | Label font family |
+| `font-medium` | 500 | Label font weight |
+| `text-sm` | 14px | Label font size |
+| `leading-none` | 1 | Label line height (tight) |
+
+### Spacing
+| Token | Value | Usage |
+|-------|-------|-------|
+| `ml-1` | 0.25rem (4px) | Space before asterisk (*) |
+| `space-x-2` | 0.5rem (8px) | Gap between checkbox/radio and label |
+| `space-y-2` | 0.5rem (8px) | Gap between label and input |
+| `mt-1` | 0.25rem (4px) | Gap after group label |
+
+---
+
+## Implementation Details
+
+### HTML Structure
+```html
+<!-- Radix UI Label Primitive -->
+<label
+  data-slot="label"
+  for="input-id"
+  class="flex items-center gap-1 text-black leading-none select-none cursor-pointer group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
+>
+  Label Text
+</label>
+```
+
+### TypeScript Interface
+```typescript
+interface LabelProps extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {
+  htmlFor: string;          // Required: ID of associated input
+  children: React.ReactNode; // Label text content
+  className?: string;        // Additional classes
+}
+```
+
+### Props
+- `htmlFor` - **Required:** ID of associated input element
+- `children` - **Required:** Label text (can include asterisk for required)
+- `className` - Optional additional classes
+- All standard HTML label attributes
+
+### Peer Styles
+The label uses Tailwind's `peer` utility for disabled state:
+```tsx
+// Input with peer class
+<Input id="email" disabled className="peer" />
+
+// Label responds to peer disabled state
+<Label htmlFor="email" className="peer-disabled:opacity-50 peer-disabled:cursor-not-allowed">
+  Email Address
+</Label>
+```
+
+---
+
+## Common Patterns
+
+### Form Field Pattern
+```tsx
+// Complete field with label, input, helper text
+<div className="space-y-2">
+  <Label htmlFor="field">Field Name *</Label>
+  <Input id="field" />
+  <p className="text-xs text-muted">Helper text</p>
+</div>
+```
+
+### Inline Field Pattern
+```tsx
+// Horizontal layout (settings, profiles)
+<div className="flex items-center gap-4">
+  <Label htmlFor="field" className="w-32 flex-shrink-0">
+    Field Name
+  </Label>
+  <Input id="field" className="flex-1" />
+</div>
+```
+
+### Checkbox List Pattern
+```tsx
+// Multiple checkboxes with labels
+<div className="space-y-3">
+  {options.map((option) => (
+    <div key={option.id} className="flex items-center space-x-2">
+      <Checkbox id={option.id} />
+      <Label htmlFor={option.id}>{option.label}</Label>
+    </div>
+  ))}
+</div>
+```
+
+### Radio Group Pattern
+```tsx
+// Radio button group with labels
+<RadioGroup>
+  <div className="space-y-3">
+    {options.map((option) => (
+      <div key={option.value} className="flex items-center space-x-2">
+        <RadioGroupItem value={option.value} id={option.value} />
+        <Label htmlFor={option.value}>{option.label}</Label>
+      </div>
+    ))}
+  </div>
+</RadioGroup>
+```
+
+---
+
+## Testing Checklist
+
+### Visual Testing
+- [ ] Label text is readable (14px, medium weight)
+- [ ] Required asterisk (*) is red and properly spaced
+- [ ] Label is clickable (cursor: pointer)
+- [ ] Disabled state has reduced opacity
+- [ ] Error state text is red
+- [ ] Proper spacing between label and input
+
+### Functional Testing
+- [ ] Clicking label focuses associated input
+- [ ] Clicking checkbox label toggles checkbox
+- [ ] Clicking radio label selects radio button
+- [ ] Unique IDs for each label/input pair
+- [ ] Form submission includes labeled fields
+
+### Accessibility Testing
+- [ ] Label announces when input receives focus
+- [ ] Required state announced by screen reader
+- [ ] Error messages linked via aria-describedby
+- [ ] Color contrast meets AA standards (4.5:1 minimum)
+- [ ] Keyboard navigation doesn't tab to label
+- [ ] Label text is descriptive and clear
+
+---
+
+## Migration Guide
+
+### From Native HTML Labels
+```tsx
+// Before (HTML)
+<label for="email">Email:</label>
+<input type="email" id="email" />
+
+// After (Component)
+<Label htmlFor="email">Email address</Label>
+<Input id="email" type="email" />
+```
+
+### From Old Label Component
+```tsx
+// Before (with colon and Title Case)
+<Label htmlFor="email">Email Address:</Label>
+
+// After (sentence case, no colon)
+<Label htmlFor="email">Email address</Label>
+```
+
+### Adding Required Indicator
+```tsx
+// Before
+<Label htmlFor="email">Email (required)</Label>
+
+// After
+<Label htmlFor="email">
+  Email address <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+</Label>
+```

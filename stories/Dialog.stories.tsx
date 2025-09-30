@@ -24,6 +24,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { ChartTooltip } from '../src/components/ui/chart';
+import DialogDocs from './Dialog.mdx';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Dialog',
@@ -31,9 +32,7 @@ const meta: Meta<typeof Dialog> = {
   parameters: {
     layout: 'centered',
     docs: {
-      description: {
-        component: 'A modal dialog component built on Radix UI with design system tokens for overlays and forms.',
-      },
+      page: DialogDocs,
     },
   },
   tags: ['autodocs'],

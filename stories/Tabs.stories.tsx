@@ -13,6 +13,7 @@ import {
   Input,
   Button
 } from '../src/components';
+import TabsDocs from './Tabs.mdx';
 
 const meta: Meta<typeof Tabs> = {
   title: 'Tabs',
@@ -20,6 +21,7 @@ const meta: Meta<typeof Tabs> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: TabsDocs,
       description: {
         component: 'Tabs component for organizing content in sections following Comcast Business Design System.'
       }
@@ -30,6 +32,88 @@ const meta: Meta<typeof Tabs> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const AllVariants: Story = {
+  render: () => (
+    <div className="space-y-8 max-w-2xl">
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Default Variant</h3>
+        <Tabs defaultValue="tab1" className="w-full">
+          <TabsList>
+            <TabsTrigger value="tab1">Active Tab</TabsTrigger>
+            <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+            <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+          </TabsList>
+          <TabsContent value="tab1">
+            Content for active tab with default variant styling.
+          </TabsContent>
+          <TabsContent value="tab2">Content for tab 2</TabsContent>
+          <TabsContent value="tab3">Content for tab 3</TabsContent>
+        </Tabs>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Enclosed Variant</h3>
+        <Tabs defaultValue="tab1" className="w-full">
+          <TabsList variant="enclosed">
+            <TabsTrigger variant="enclosed" value="tab1">Active Tab</TabsTrigger>
+            <TabsTrigger variant="enclosed" value="tab2">Tab 2</TabsTrigger>
+            <TabsTrigger variant="enclosed" value="tab3">Tab 3</TabsTrigger>
+          </TabsList>
+          <TabsContent value="tab1">
+            Content for active tab with enclosed variant styling.
+          </TabsContent>
+          <TabsContent value="tab2">Content for tab 2</TabsContent>
+          <TabsContent value="tab3">Content for tab 3</TabsContent>
+        </Tabs>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Pills Variant</h3>
+        <Tabs defaultValue="tab1" className="w-full">
+          <TabsList variant="pills">
+            <TabsTrigger variant="pills" value="tab1">Active Tab</TabsTrigger>
+            <TabsTrigger variant="pills" value="tab2">Tab 2</TabsTrigger>
+            <TabsTrigger variant="pills" value="tab3">Tab 3</TabsTrigger>
+          </TabsList>
+          <TabsContent value="tab1">
+            Content for active tab with pills variant styling.
+          </TabsContent>
+          <TabsContent value="tab2">Content for tab 2</TabsContent>
+          <TabsContent value="tab3">Content for tab 3</TabsContent>
+        </Tabs>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Small Size</h3>
+        <Tabs defaultValue="tab1" className="w-full">
+          <TabsList size="sm">
+            <TabsTrigger value="tab1">Small Tab</TabsTrigger>
+            <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+            <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+          </TabsList>
+          <TabsContent value="tab1">Content with small sized tabs.</TabsContent>
+          <TabsContent value="tab2">Content for tab 2</TabsContent>
+          <TabsContent value="tab3">Content for tab 3</TabsContent>
+        </Tabs>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Large Size</h3>
+        <Tabs defaultValue="tab1" className="w-full">
+          <TabsList size="lg">
+            <TabsTrigger value="tab1">Large Tab</TabsTrigger>
+            <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+            <TabsTrigger value="tab3">Tab 3</TabsTrigger>
+          </TabsList>
+          <TabsContent value="tab1">Content with large sized tabs.</TabsContent>
+          <TabsContent value="tab2">Content for tab 2</TabsContent>
+          <TabsContent value="tab3">Content for tab 3</TabsContent>
+        </Tabs>
+      </div>
+    </div>
+  ),
+};
 
 export const Default: Story = {
   render: () => (

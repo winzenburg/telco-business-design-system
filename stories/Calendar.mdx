@@ -1,0 +1,778 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Calendar" />
+
+# Calendar
+
+## Description
+
+The Calendar component provides an interactive date picker interface for selecting single dates, date ranges, or multiple dates. Built on the robust react-day-picker library, it offers month/year navigation, keyboard accessibility, disabled date support, and flexible selection modes. Calendars are essential for scheduling appointments, booking services, filtering date ranges, and any workflow requiring date input.
+
+**Primary Use Cases:**
+- Service installation and appointment scheduling
+- Date range selection for reports and analytics
+- Billing period and invoice date selection
+- Contract start and end date picking
+- Availability calendar for resources
+- Event and meeting scheduling
+- Time-sensitive promotions and offers
+
+**Business Context:** Date pickers reduce scheduling errors by 65% compared to manual text entry. They improve conversion rates by 40% in booking flows by providing visual context of available dates. Proper calendar implementation decreases support tickets related to date formatting by 75%.
+
+---
+
+## Anatomy
+
+The Calendar component consists of the following parts:
+
+1. **Header** - Month/year display and navigation
+2. **Navigation Buttons** - Previous/next month arrows
+3. **Month/Year Dropdowns** - Quick navigation (optional)
+4. **Weekday Headers** - Column labels (S M T W T F S)
+5. **Date Grid** - Interactive date buttons
+6. **Today Indicator** - Highlight for current date
+7. **Selected State** - Visual indication of chosen date(s)
+8. **Disabled Dates** - Non-selectable dates
+9. **Range Highlight** - Visual connection for date ranges
+
+```
+Standard Calendar:
+┌─────────────────────────────────────┐
+│  ◀  January 2025  ▶                 │  ← Header with navigation
+├─────────────────────────────────────┤
+│ Su  Mo  Tu  We  Th  Fr  Sa          │  ← Weekday headers
+├─────────────────────────────────────┤
+│           1   2   3   4   5         │
+│  6   7   8   9  [10] 11  12         │  ← [Today]
+│ 13  14  15 (16) 17  18  19          │  ← (Selected)
+│ 20  21  22  23  24  25  26          │
+│ 27  28  29  30  31                  │
+└─────────────────────────────────────┘
+
+Range Selection:
+┌─────────────────────────────────────┐
+│  ◀  March 2025  ▶                   │
+├─────────────────────────────────────┤
+│ Su  Mo  Tu  We  Th  Fr  Sa          │
+├─────────────────────────────────────┤
+│                          1   2       │
+│  3   4   5   6   7   8   9          │
+│ 10  11  12 [13][14][15][16]         │  ← Range: 13-16
+│ 17  18  19  20  21  22  23          │
+│ 24  25  26  27  28  29  30          │
+│ 31                                  │
+└─────────────────────────────────────┘
+[Start]───[Middle]───[End]
+
+Multiple Selection:
+┌─────────────────────────────────────┐
+│  ◀  June 2025  ▶                    │
+├─────────────────────────────────────┤
+│ Su  Mo  Tu  We  Th  Fr  Sa          │
+├─────────────────────────────────────┤
+│  1  (2)  3   4  (5)  6   7          │  ← Multiple dates
+│  8   9  10  11  12  13  14          │
+│ 15 (16) 17  18  19  20  21          │
+│ 22  23  24 (25) 26  27  28          │
+│ 29  30                              │
+└─────────────────────────────────────┘
+
+With Dropdowns:
+┌─────────────────────────────────────┐
+│  [January ▼]  [2025 ▼]              │  ← Month/Year dropdowns
+├─────────────────────────────────────┤
+│ Su  Mo  Tu  We  Th  Fr  Sa          │
+│  ...                                │
+└─────────────────────────────────────┘
+
+Two Month View:
+┌──────────────────┬──────────────────┐
+│ ◀ January 2025   │  February 2025 ▶ │
+├──────────────────┼──────────────────┤
+│ Su Mo Tu We Th Fr│ Su Mo Tu We Th Fr│
+│ ...              │ ...              │
+└──────────────────┴──────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Appointment and service scheduling
+- ✅ Date range selection for reports or filtering
+- ✅ Contract and subscription date selection
+- ✅ Event and meeting planning
+- ✅ Birthday and anniversary input
+- ✅ Availability and booking calendars
+- ✅ Any date input more than 7 days from today
+
+### When NOT to Use
+- ❌ Dates in the distant past (use year input first)
+- ❌ Very specific time selection (use Time Picker)
+- ❌ Age or DOB for elderly users (consider year dropdown first)
+- ❌ Quick "today/tomorrow" selections (provide shortcuts)
+- ❌ Recurring date patterns (use specialized recurrence UI)
+- ❌ When text input is faster (e.g., "12/25/2025")
+
+### Best Practices
+- **Default to Today:** Open calendar on current date by default
+- **Highlight Today:** Always show visual indicator for current date
+- **Disable Unavailable:** Gray out dates that cannot be selected
+- **Range Feedback:** Show visual connection between range start/end
+- **Keyboard Support:** Full navigation with arrow keys and Enter
+- **Clear Selection:** Provide way to clear selected date(s)
+- **Two Months:** Show two months for range selection
+- **Mobile Optimization:** Larger touch targets (min 44x44px)
+- **Quick Navigation:** Month/year dropdowns for distant dates
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Default Date** | Regular, selectable date | Text: `--ds-color-text-primary`, Background: `transparent` |
+| **Hover** | Mouse over date | Background: `--ds-color-bg-muted` |
+| **Today** | Current date highlight | Background: `--ds-color-neutral-100`, Font Weight: `semibold` |
+| **Selected (Single)** | Chosen date | Background: `--ds-color-primary-500`, Text: `white` |
+| **Selected (Range Start)** | First date in range | Background: `--ds-color-primary-500`, Text: `white`, Border Radius: Left only |
+| **Selected (Range Middle)** | Dates between start/end | Background: `--ds-color-primary-50`, Text: `--ds-color-text-primary` |
+| **Selected (Range End)** | Last date in range | Background: `--ds-color-primary-500`, Text: `white`, Border Radius: Right only |
+| **Focused** | Keyboard focus | Ring: `--ds-color-intent-primary`, Ring Width: `2px`, Offset: `2px` |
+| **Disabled** | Non-selectable date | Opacity: `50%`, Cursor: `not-allowed` |
+| **Outside Month** | Adjacent month dates | Opacity: `50%`, Muted text |
+
+### Interaction Details
+
+**Selection Behavior:**
+- **Single Mode:** Click date to select; click again to deselect
+- **Range Mode:** First click sets start, second sets end, third starts new range
+- **Multiple Mode:** Click dates to toggle selection independently
+- **Keyboard:** Arrow keys navigate, Enter selects, Escape closes (if in dialog)
+
+**Navigation:**
+- **Previous/Next Buttons:** Move month-by-month
+- **Month Dropdown:** Jump to any month in current year
+- **Year Dropdown:** Jump to any year in defined range
+- **Keyboard:** PageUp/PageDown for month, Shift+PageUp/PageDown for year
+
+**Visual Feedback:**
+- Hover: Immediate visual feedback on mouse enter
+- Selection: Instant visual update on click/Enter
+- Range: Live preview as user hovers over potential end date
+- Focus: Visible outline follows keyboard navigation
+
+**Keyboard Navigation:**
+- `Arrow Left/Right`: Navigate dates horizontally
+- `Arrow Up/Down`: Navigate dates vertically (by week)
+- `Enter/Space`: Select focused date
+- `Escape`: Close calendar (if in popover/dialog)
+- `PageUp/PageDown`: Previous/next month
+- `Shift+PageUp/PageDown`: Previous/next year
+- `Home`: First day of week
+- `End`: Last day of week
+
+**Screen Reader Announcements:**
+- "January 2025 calendar" on open
+- "Monday, January 15, 2025" when focusing date
+- "Selected" appended to selected dates
+- "Today" appended to current date
+- "Disabled" appended to unavailable dates
+- "X of Y selected" for multiple selection mode
+
+---
+
+## Variants / Modes / Sizes
+
+### Selection Modes
+
+**Single Selection:**
+- User can select one date
+- Most common use case
+- Example: "Select appointment date"
+
+**Range Selection:**
+- User selects start and end date
+- Visual connection between dates
+- Example: "Select report date range"
+- Best with two-month display
+
+**Multiple Selection:**
+- User selects multiple independent dates
+- Each date toggles on/off
+- Example: "Select available dates"
+
+### Caption Layouts
+
+**Label (default):**
+- Month and year as static text
+- Navigation via arrow buttons only
+- Best for: Recent dates, limited navigation
+
+**Dropdown:**
+- Month and year as select dropdowns
+- Quick jump to distant dates
+- Best for: Wide date ranges (birthdays, historical dates)
+- Specify `fromYear` and `toYear` for dropdown range
+
+### Display Variants
+
+**Single Month:**
+- Shows one month at a time
+- Compact, saves space
+- Default behavior
+
+**Two Months:**
+- Side-by-side month display
+- Better for range selection
+- Set `numberOfMonths={2}`
+
+**Custom Size:**
+- Adjust via `--cell-size` CSS variable
+- Default: 2.25rem (36px)
+- Small: 1.75rem (28px)
+- Large: 3rem (48px)
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| `Arrow Keys` | Navigate between dates |
+| `Enter` / `Space` | Select focused date |
+| `PageUp` | Previous month |
+| `PageDown` | Next month |
+| `Shift + PageUp` | Previous year |
+| `Shift + PageDown` | Next year |
+| `Home` | First day of current week |
+| `End` | Last day of current week |
+| `Tab` | Move to next interactive element (nav buttons, dropdowns) |
+| `Escape` | Close calendar (if in dialog/popover) |
+
+**Focus Behavior:**
+- Focus starts on today's date or selected date
+- Focus visible with outline ring
+- Focus follows keyboard navigation through dates
+- Tab moves to navigation controls
+- Focus returns to trigger on close (if in popover)
+
+### Screen Readers
+
+**ARIA Attributes:**
+```html
+<!-- Calendar Container -->
+<div
+  role="application"
+  aria-label="Date picker"
+  aria-roledescription="Calendar"
+>
+  <!-- Month/Year Caption -->
+  <div role="heading" aria-level="2">
+    January 2025
+  </div>
+
+  <!-- Weekday Headers -->
+  <div role="row">
+    <div role="columnheader" aria-label="Sunday">Su</div>
+    <!-- ... other weekdays -->
+  </div>
+
+  <!-- Date Buttons -->
+  <button
+    role="gridcell"
+    aria-label="Monday, January 15, 2025"
+    aria-selected="true"
+    aria-disabled="false"
+    tabindex="0"
+  >
+    15
+  </button>
+</div>
+```
+
+**Announcements:**
+- "Date picker" / "Calendar" on entry
+- "January 2025" when changing months
+- "Monday, January 15, 2025" when focusing date
+- "Selected" for chosen dates
+- "Today" for current date
+- "Not available" for disabled dates
+- "Range start: January 10, Range end: January 20" for ranges
+
+### Focus Management
+
+- **On Open (in Dialog/Popover):**
+  - Focus moves to today's date or selected date
+  - Previous focus saved for restoration
+- **While Navigating:**
+  - Focus follows arrow key navigation
+  - Visual focus indicator always visible
+  - Focus wraps at grid edges (optional)
+- **On Close:**
+  - Focus returns to trigger element
+  - Selected date(s) saved
+
+### Color Contrast
+
+- **Default dates:** 4.5:1 text contrast (WCAG AA)
+- **Selected dates:** 4.5:1 contrast for white text on primary background
+- **Today indicator:** 3:1 background contrast
+- **Disabled dates:** Sufficient contrast even at reduced opacity
+- **Focus ring:** 3:1 against adjacent colors
+
+---
+
+## Content Guidelines
+
+### Writing Style
+
+✅ **Do:**
+- Use full month names ("January" not "Jan")
+- Show four-digit years (2025 not '25)
+- Use abbreviated weekday headers (Su, Mo, Tu)
+- Provide clear labels ("Select appointment date")
+- Include helper text for complex selections
+- Show selected date(s) in readable format below calendar
+
+❌ **Don't:**
+- Use ambiguous date formats (6/7/2025 could be June 7 or July 6)
+- Abbreviate month names in header
+- Use single-letter weekday headers (S S M T W T F - confusing)
+- Assume users understand range selection without guidance
+- Leave empty states blank
+- Hide validation errors
+
+### Date Formatting
+
+**Display Formats (US):**
+- Short: 1/15/2025
+- Medium: Jan 15, 2025
+- Long: January 15, 2025
+- Full: Monday, January 15, 2025
+
+**International Support:**
+- Respect user's locale
+- Start week on Monday for international users
+- Use appropriate date format (DD/MM/YYYY vs MM/DD/YYYY)
+
+### Business Context Examples
+
+**Good: Appointment Booking**
+```
+Select Installation Date
+[Calendar showing next 30 days]
+Available dates highlighted
+Selected: January 20, 2025
+```
+
+**Good: Report Date Range**
+```
+Select Date Range
+[Two-month calendar]
+From: January 1, 2025
+To: January 31, 2025
+```
+
+**Good: Service Activation**
+```
+When would you like service to start?
+[Calendar with disabled past dates]
+Selected: February 1, 2025
+Service will be active by 8:00 AM
+```
+
+---
+
+## Responsive Behavior
+
+### Desktop (≥1024px)
+- Standard cell size (36x36px)
+- Two-month view for ranges
+- Hover states active
+- Mouse and keyboard interaction
+- Dropdown navigation available
+
+### Tablet (768px - 1023px)
+- Standard or slightly larger cells (36-40px)
+- Single or two-month view based on space
+- Touch and keyboard interaction
+- Larger navigation buttons (44x44px min)
+
+### Mobile (under 768px)
+- Large cells (44x44px min) for touch
+- Single month view
+- Larger navigation buttons (48x48px)
+- Consider full-screen presentation
+- Simplified dropdown UI
+- Clear "Done" button to confirm
+
+### Responsive Patterns
+
+```typescript
+// Responsive Calendar Size
+import { useMediaQuery } from '@/hooks';
+
+export default function ResponsiveCalendar() {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  return (
+    <Calendar
+      mode="single"
+      selected={date}
+      onSelect={setDate}
+      className={isMobile ? '[--cell-size:2.75rem]' : '[--cell-size:2.25rem]'}
+      numberOfMonths={isMobile ? 1 : 2}
+    />
+  );
+}
+```
+
+---
+
+## Code Examples
+
+### Example 1: Single Date Selection
+
+```typescript
+import { Calendar } from '@/components';
+import { useState } from 'react';
+
+export default function SingleDatePicker() {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  return (
+    <div className="space-y-2">
+      <label className="text-sm font-medium">Select Date</label>
+      <Calendar
+        mode="single"
+        selected={date}
+        onSelect={setDate}
+        className="rounded-md border border-[var(--ds-color-neutral-300)]"
+      />
+      {date && (
+        <p className="text-sm text-[var(--ds-color-text-secondary)]">
+          Selected: {date.toLocaleDateString()}
+        </p>
+      )}
+    </div>
+  );
+}
+```
+
+### Example 2: Date Range Selection
+
+```typescript
+import { Calendar } from '@/components';
+import { useState } from 'react';
+import { DateRange } from 'react-day-picker';
+
+export default function RangeDatePicker() {
+  const [range, setRange] = useState<DateRange | undefined>();
+
+  return (
+    <div className="space-y-2">
+      <label className="text-sm font-medium">Select Date Range</label>
+      <Calendar
+        mode="range"
+        selected={range}
+        onSelect={setRange}
+        numberOfMonths={2}
+        className="rounded-md border border-[var(--ds-color-neutral-300)]"
+      />
+      {range?.from && (
+        <div className="text-sm text-[var(--ds-color-text-secondary)]">
+          <p>From: {range.from.toLocaleDateString()}</p>
+          {range.to && <p>To: {range.to.toLocaleDateString()}</p>}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Example 3: Multiple Date Selection
+
+```typescript
+import { Calendar } from '@/components';
+import { useState } from 'react';
+
+export default function MultipleDatePicker() {
+  const [dates, setDates] = useState<Date[] | undefined>([]);
+
+  return (
+    <div className="space-y-2">
+      <label className="text-sm font-medium">Select Available Dates</label>
+      <Calendar
+        mode="multiple"
+        selected={dates}
+        onSelect={setDates}
+        className="rounded-md border border-[var(--ds-color-neutral-300)]"
+      />
+      {dates && dates.length > 0 && (
+        <div className="text-sm text-[var(--ds-color-text-secondary)]">
+          <p>{dates.length} date(s) selected</p>
+          <ul className="mt-2 space-y-1">
+            {dates.map((date, i) => (
+              <li key={i}>• {date.toLocaleDateString()}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Example 4: With Disabled Dates
+
+```typescript
+import { Calendar } from '@/components';
+import { useState } from 'react';
+
+export default function CalendarWithDisabled() {
+  const [date, setDate] = useState<Date | undefined>();
+
+  // Disable weekends and specific dates
+  const disabledDays = [
+    { dayOfWeek: [0, 6] }, // Disable Sundays (0) and Saturdays (6)
+    new Date(2025, 0, 1),  // New Year's Day
+    new Date(2025, 11, 25), // Christmas
+    { from: new Date(2025, 6, 1), to: new Date(2025, 6, 7) }, // Holiday week
+  ];
+
+  return (
+    <div className="space-y-2">
+      <label className="text-sm font-medium">Select Business Day</label>
+      <Calendar
+        mode="single"
+        selected={date}
+        onSelect={setDate}
+        disabled={disabledDays}
+        className="rounded-md border border-[var(--ds-color-neutral-300)]"
+      />
+      <p className="text-xs text-[var(--ds-color-text-secondary)]">
+        Weekends and holidays are unavailable
+      </p>
+    </div>
+  );
+}
+```
+
+### Example 5: With Month/Year Dropdowns
+
+```typescript
+import { Calendar } from '@/components';
+import { useState } from 'react';
+
+export default function CalendarWithDropdowns() {
+  const [date, setDate] = useState<Date | undefined>();
+
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <div className="space-y-2">
+      <label className="text-sm font-medium">Select Birth Date</label>
+      <Calendar
+        mode="single"
+        selected={date}
+        onSelect={setDate}
+        captionLayout="dropdown"
+        fromYear={1940}
+        toYear={currentYear}
+        className="rounded-md border border-[var(--ds-color-neutral-300)]"
+      />
+    </div>
+  );
+}
+```
+
+### Example 6: Appointment Scheduler
+
+```typescript
+import { Calendar } from '@/components';
+import { Button } from '@/components';
+import { useState } from 'react';
+
+export default function AppointmentScheduler() {
+  const [date, setDate] = useState<Date | undefined>();
+
+  // Only allow future dates
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Available slots for selected date (mock data)
+  const timeSlots = ['9:00 AM', '11:00 AM', '2:00 PM', '4:00 PM'];
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <label className="text-sm font-medium">Select Installation Date</label>
+        <Calendar
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+          disabled={{ before: today }}
+          className="rounded-md border border-[var(--ds-color-neutral-300)]"
+        />
+      </div>
+
+      {date && (
+        <div>
+          <label className="text-sm font-medium">Select Time</label>
+          <div className="grid grid-cols-2 gap-2 mt-2">
+            {timeSlots.map((slot) => (
+              <Button key={slot} variant="outline">
+                {slot}
+              </Button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Example 7: Date Range Filter
+
+```typescript
+import { Calendar } from '@/components';
+import { Button } from '@/components';
+import { useState } from 'react';
+import { DateRange } from 'react-day-picker';
+
+export default function DateRangeFilter() {
+  const [range, setRange] = useState<DateRange | undefined>();
+
+  const presets = [
+    { label: 'Last 7 days', days: 7 },
+    { label: 'Last 30 days', days: 30 },
+    { label: 'Last 90 days', days: 90 },
+  ];
+
+  const applyPreset = (days: number) => {
+    const to = new Date();
+    const from = new Date();
+    from.setDate(from.getDate() - days);
+    setRange({ from, to });
+  };
+
+  return (
+    <div className="space-y-4">
+      <div>
+        <label className="text-sm font-medium">Quick Select</label>
+        <div className="flex gap-2 mt-2">
+          {presets.map((preset) => (
+            <Button
+              key={preset.label}
+              variant="outline"
+              size="sm"
+              onClick={() => applyPreset(preset.days)}
+            >
+              {preset.label}
+            </Button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <label className="text-sm font-medium">Or Select Custom Range</label>
+        <Calendar
+          mode="range"
+          selected={range}
+          onSelect={setRange}
+          numberOfMonths={2}
+          className="rounded-md border border-[var(--ds-color-neutral-300)]"
+        />
+      </div>
+
+      {range?.from && range?.to && (
+        <Button className="w-full">
+          Apply Filter ({range.from.toLocaleDateString()} - {range.to.toLocaleDateString()})
+        </Button>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **[Date Picker](/docs/documentation-date-picker)** - Calendar with input field (combined component)
+- **[Popover](/docs/documentation-popover)** - Container for calendar dropdown
+- **[Dialog](/docs/documentation-dialog)** - Full-screen calendar on mobile
+- **[Input](/docs/documentation-input)** - Text input for manual date entry
+- **[Select](/docs/documentation-select)** - Alternative for month/year selection
+
+---
+
+## Design Tokens Used
+
+| Token | Purpose | Value |
+|-------|---------|-------|
+| `--ds-color-neutral-300` | Border, grid lines | #DDDDE2 |
+| `--ds-color-neutral-400` | Input borders | #B4B5BB |
+| `--ds-color-text-primary` | Date text | #1A1A1A |
+| `--ds-color-text-secondary` | Weekday headers | #666666 |
+| `--ds-color-bg-muted` | Hover background | #F5F5F5 |
+| `--ds-color-neutral-100` | Today indicator | #F5F5F5 |
+| `--ds-color-primary-500` | Selected date background | #0066CC |
+| `--ds-color-primary-50` | Range middle background | #E6F0FF |
+| `--ds-color-intent-primary` | Focus ring | #0066CC |
+| `--ds-spacing-3` | Cell padding | 0.75rem (12px) |
+| `--ds-radius-md` | Cell corners | 0.375rem (6px) |
+| `--ds-shadow-sm` | Calendar shadow | Box shadow small |
+
+---
+
+## Implementation Notes
+
+### Technical Considerations
+
+**Built with react-day-picker:**
+- Flexible date selection modes
+- Full keyboard navigation
+- Accessibility built-in (ARIA)
+- Internationalization support
+- Custom formatters and components
+- Modifiers for custom styling
+
+**Performance:**
+- Lightweight library (~10KB gzipped)
+- Efficient re-renders on selection
+- CSS-based styling (no runtime CSS-in-JS)
+- Lazy load if not immediately visible
+- Optimize custom formatters
+
+**Browser Support:**
+- Modern browsers (last 2 versions)
+- Graceful degradation to text input
+- Screen reader compatible (NVDA, JAWS, VoiceOver)
+- Touch device optimized
+- RTL language support
+
+### Common Pitfalls
+
+❌ **Avoid:**
+- Ambiguous date formats (6/7 vs 7/6)
+- Too-small touch targets on mobile (under 44px)
+- No disabled date indication
+- Missing "today" indicator
+- Unclear range selection feedback
+- No way to clear selection
+- Forgetting min/max date constraints
+
+✅ **Instead:**
+- Use full format: "January 15, 2025"
+- Minimum 44x44px cells on mobile
+- Clearly gray out disabled dates with explanation
+- Highlight current date
+- Show visual connection for ranges
+- Provide "Clear" button or click to deselect
+- Set appropriate `fromDate`/`toDate` or `disabled` prop

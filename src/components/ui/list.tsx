@@ -253,7 +253,6 @@ const ListDivider = React.forwardRef<
   <hr
     ref={ref}
     className={cn('border-0 border-t border-[var(--ds-color-border-muted)] mx-4', className)}
-    role="separator"
     {...props}
   />
 ));

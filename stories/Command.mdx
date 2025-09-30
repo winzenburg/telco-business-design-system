@@ -1,0 +1,860 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Command" />
+
+# Command
+
+## Description
+
+The Command component (also known as a command palette or command menu) provides a keyboard-first interface for quickly finding and executing actions. Inspired by tools like Spotlight (macOS) and Command Palette (VS Code), it offers fuzzy search, grouped commands, keyboard shortcuts, and instant navigation. Command palettes dramatically improve power user efficiency by providing a single, consistent interface for all application actions.
+
+**Primary Use Cases:**
+- Global search across accounts, services, and documentation
+- Quick navigation to pages and features
+- Executing common actions without mouse clicks
+- Finding settings and configuration options
+- Accessing help and support resources
+- Switching between accounts or services
+- Power user workflows and shortcuts
+
+**Business Context:** Command palettes increase power user productivity by 45% by reducing navigation time. They improve feature discoverability by 60% as all actions are searchable. Customer satisfaction scores rise 30% among users who adopt command palette workflows due to perceived speed and efficiency.
+
+---
+
+## Anatomy
+
+The Command component consists of the following parts:
+
+1. **Dialog/Modal** - Full-screen overlay container (optional)
+2. **Input** - Search field with icon
+3. **List** - Scrollable results container
+4. **Empty State** - Shown when no results match
+5. **Group** - Labeled section of related commands
+6. **Item** - Individual command option
+7. **Separator** - Visual divider between groups
+8. **Shortcut** - Keyboard shortcut hint (optional)
+
+```
+Command Palette (Dialog):
+┌─────────────────────────────────────────────┐
+│ 🔍 Type a command or search...              │  ← Input
+├─────────────────────────────────────────────┤
+│ Suggestions                                 │  ← Group heading
+│   📅 Calendar                               │
+│   😊 Search Emoji                           │
+│   🧮 Calculator                             │
+├─────────────────────────────────────────────┤  ← Separator
+│ Settings                                    │  ← Group heading
+│   👤 Profile                          ⌘P    │  ← Item with shortcut
+│   💳 Billing                          ⌘B    │
+│   ⚙️  Settings                         ⌘S    │
+└─────────────────────────────────────────────┘
+
+Selected State:
+┌─────────────────────────────────────────────┐
+│ 🔍 billing                                  │
+├─────────────────────────────────────────────┤
+│ Results for "billing"                       │
+│ ▶ Billing Overview                    ⌘B    │  ← Selected (highlighted)
+│   Payment Methods                           │
+│   Invoice History                           │
+│   Update Billing Info                       │
+└─────────────────────────────────────────────┘
+
+Empty State:
+┌─────────────────────────────────────────────┐
+│ 🔍 xyz123                                   │
+├─────────────────────────────────────────────┤
+│                                             │
+│          No results found.                  │  ← Empty message
+│                                             │
+└─────────────────────────────────────────────┘
+
+Inline Command (without Dialog):
+┌─────────────────────────────────────────────┐
+│ 🔍 Search...                                │
+├─────────────────────────────────────────────┤
+│ Recent                                      │
+│   Dashboard                                 │
+│   Services                                  │
+│   Support                                   │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Applications with many features and pages (10+)
+- ✅ Power user workflows requiring efficiency
+- ✅ Global search across multiple content types
+- ✅ Quick navigation without memorizing menu structure
+- ✅ Keyboard-first interfaces and workflows
+- ✅ Frequently accessed actions across the app
+- ✅ Feature discovery and onboarding
+
+### When NOT to Use
+- ❌ Simple applications with few features (under 5 pages)
+- ❌ Primary navigation (use standard navigation)
+- ❌ Mobile-first experiences (touch interaction priority)
+- ❌ Non-technical audiences unfamiliar with command palettes
+- ❌ As replacement for clear visual navigation
+- ❌ When discoverability is more important than speed
+
+### Best Practices
+- **Keyboard Trigger:** Use Cmd+K (Mac) or Ctrl+K (Windows/Linux) as primary trigger
+- **Instant Search:** Show results as user types; no submit button needed
+- **Fuzzy Matching:** Support approximate matches (e.g., "bil" matches "Billing")
+- **Grouping:** Organize commands into logical categories
+- **Recent Items:** Show recently used commands at top
+- **Shortcuts:** Display keyboard shortcuts for common actions
+- **Icons:** Use consistent icons to improve scannability
+- **Empty States:** Provide helpful message when no results found
+- **Escape to Close:** Always support Escape key to dismiss
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Closed** | Command hidden; trigger available | N/A |
+| **Opening** | Fade-in animation with scale (150ms) | Animation: `fade-in`, `zoom-in-95` |
+| **Open - Empty Input** | Shows default suggestions or recent items | Background: `white`, Border: `--ds-color-neutral-300` |
+| **Open - Searching** | Filters results as user types | Input focus: `--ds-color-intent-primary` |
+| **Item Default** | Command item in list | Text: `--ds-color-text-primary` |
+| **Item Hover** | Mouse over command item | Background: `--ds-color-bg-muted` |
+| **Item Selected** | Keyboard selection (active) | Background: `--ds-color-primary-50`, Text: `--ds-color-text-primary` |
+| **Item Disabled** | Command unavailable in current context | Opacity: `50%`, Cursor: `not-allowed` |
+| **Empty State** | No results match search query | Text: `--ds-color-text-secondary` |
+| **Loading** | Fetching async results | Spinner or skeleton animation |
+
+### Interaction Details
+
+**Opening Behavior:**
+- Keyboard shortcut (Cmd/Ctrl+K): Global trigger from anywhere
+- Button click: Alternative trigger for mouse users
+- Opens with fade-in and scale animation (150ms)
+- Focus moves to search input immediately
+- Shows default suggestions or recent items if configured
+
+**Search Behavior:**
+- Instant filtering as user types (no debounce on local data)
+- Fuzzy matching: Supports typos and partial matches
+- Highlights matching characters in results
+- Updates results list in real-time
+- Shows empty state if no matches found
+
+**Selection Behavior:**
+- Arrow Up/Down: Navigate through results
+- Enter: Execute selected command
+- Mouse click: Execute command
+- Hover: Highlights item (doesn't execute)
+- Selection wraps (down from last item goes to first)
+
+**Keyboard Navigation:**
+- `Cmd/Ctrl+K`: Open/close command palette
+- `Arrow Down`: Move selection down
+- `Arrow Up`: Move selection up
+- `Enter`: Execute selected command
+- `Escape`: Close palette, return focus to trigger
+- `Tab`: (Optional) Move through groups
+- Type to search: Immediate filtering
+
+**Screen Reader Announcements:**
+- "Command palette opened" on open
+- "X results found" after search
+- Selected command announced as focus moves
+- "No results found" for empty state
+- Command executed: "Navigating to [page]" or "Executing [action]"
+
+---
+
+## Variants / Patterns / Features
+
+### Dialog vs. Inline
+
+**Dialog Mode (default):**
+- Opens in centered modal over page content
+- Dimmed backdrop focuses attention
+- Global keyboard shortcut (Cmd/Ctrl+K)
+- Best for: Application-wide command palette
+
+**Inline Mode:**
+- Embedded in page layout
+- No backdrop or modal behavior
+- Used like a searchable select
+- Best for: Contextual search and filtering
+
+### Grouping Patterns
+
+**By Category:**
+```
+Navigation
+- Dashboard
+- Services
+- Billing
+
+Actions
+- Create New Account
+- Schedule Service
+- Pay Bill
+```
+
+**By Frequency:**
+```
+Recent
+- Billing Overview
+- Service Dashboard
+
+Suggestions
+- Update Payment Method
+- View Usage
+```
+
+**By Context:**
+```
+Current Page
+- Edit Profile
+- Change Password
+
+Global
+- Search All Accounts
+- Contact Support
+```
+
+### Features
+
+**Keyboard Shortcuts:**
+- Display shortcuts (⌘P, ⌘B, etc.) on items
+- Execute commands via their shortcuts
+- Visual indication in command list
+
+**Icons:**
+- Consistent icon system improves scannability
+- 16x16px or 20x20px size typical
+- Match icon to action or page
+
+**Empty State:**
+- Helpful message ("No results found")
+- Optional suggestions ("Try searching for...")
+- Can include popular commands
+
+**Loading State:**
+- For async search results
+- Spinner or skeleton items
+- "Loading..." message
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| `Cmd/Ctrl + K` | Open command palette (global) |
+| `Arrow Down` | Move selection to next item |
+| `Arrow Up` | Move selection to previous item |
+| `Enter` | Execute selected command |
+| `Escape` | Close command palette |
+| `Home` | Jump to first item |
+| `End` | Jump to last item |
+| `Tab` | (Optional) Move to next group |
+| Type | Filter commands instantly |
+
+**Focus Behavior:**
+- Focus moves to search input on open
+- Arrow keys navigate list without losing input focus
+- Selection visually distinct (highlighted background)
+- Focus returns to trigger on close via Escape
+
+### Screen Readers
+
+**ARIA Attributes:**
+```html
+<!-- Command Container -->
+<div
+  role="dialog"
+  aria-label="Command palette"
+  aria-modal="true"
+>
+  <!-- Input -->
+  <input
+    role="combobox"
+    aria-expanded="true"
+    aria-controls="command-list"
+    aria-activedescendant="command-item-1"
+    aria-autocomplete="list"
+  />
+
+  <!-- List -->
+  <div
+    id="command-list"
+    role="listbox"
+  >
+    <!-- Group -->
+    <div role="group" aria-labelledby="group-heading">
+      <div id="group-heading" role="presentation">Suggestions</div>
+
+      <!-- Items -->
+      <div id="command-item-1" role="option" aria-selected="true">
+        Calendar
+      </div>
+      <div id="command-item-2" role="option" aria-selected="false">
+        Settings
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+**Announcements:**
+- "Command palette opened" on open
+- "12 results found" after search
+- "Calendar, option 1 of 12" when navigating
+- "No results found" for empty state
+- "Navigating to Dashboard" on command execution
+
+### Focus Management
+
+- **On Open:**
+  - Focus moves to search input
+  - Previous focus saved for restoration
+  - Background page becomes inert
+- **While Open:**
+  - Focus stays on input while arrow keys navigate
+  - Selection follows keyboard navigation
+  - List scrolls to keep selection visible
+- **On Close:**
+  - Focus returns to trigger element
+  - Executed command may change focus context
+
+### Color Contrast
+
+- **Text:** 4.5:1 minimum on background (WCAG AA)
+- **Selected item:** 3:1 minimum for background difference
+- **Icons:** 3:1 against background
+- **Shortcuts:** Readable contrast even in muted color
+- **Group headings:** 4.5:1 for text
+
+---
+
+## Content Guidelines
+
+### Writing Style
+
+✅ **Do:**
+- Use clear, action-oriented command names
+- Keep command names under 30 characters
+- Use consistent verb forms ("View", "Edit", "Create")
+- Provide shortcuts for frequently used commands
+- Group related commands logically
+- Include helpful empty state messages
+
+❌ **Don't:**
+- Use vague names ("Options", "Stuff", "More")
+- Write overly long command descriptions
+- Mix verb forms inconsistently
+- Assign shortcuts to rarely used commands
+- Create too many top-level groups (max 5-7)
+- Leave empty states blank
+
+### Command Naming Patterns
+
+**Navigation Commands:**
+- "Go to Dashboard"
+- "View Services"
+- "Open Billing"
+
+**Action Commands:**
+- "Create New Account"
+- "Pay Bill"
+- "Download Invoice"
+- "Contact Support"
+
+**Settings Commands:**
+- "Edit Profile"
+- "Change Password"
+- "Update Preferences"
+
+**Search Commands:**
+- "Search All Accounts"
+- "Find Services"
+- "Search Documentation"
+
+### Business Context Examples
+
+**Good: Comcast Business Portal**
+```
+Navigation
+  → Dashboard
+  → My Services
+  → Billing & Payments
+  → Support Center
+
+Quick Actions
+  → Pay Bill                    ⌘P
+  → View Usage                  ⌘U
+  → Schedule Service            ⌘S
+  → Contact Support             ⌘H
+
+Account Management
+  → Switch Account
+  → Add New Location
+  → Manage Users
+```
+
+---
+
+## Responsive Behavior
+
+### Desktop (≥1024px)
+- Full command palette width: 600-640px
+- Centered in viewport
+- Max height: 400-500px with scroll
+- Keyboard shortcuts visible and functional
+- Hover states active
+
+### Tablet (768px - 1023px)
+- Width: 90% of viewport (max 600px)
+- Centered positioning
+- Touch-friendly item heights (44px min)
+- Shortcuts may be hidden to save space
+
+### Mobile (under 768px)
+- **Consider alternative UI patterns**
+- If using Command:
+  - Full-width (95% viewport)
+  - Full-height or bottom sheet style
+  - Large touch targets (48px min)
+  - Hide keyboard shortcuts
+  - Simplified grouping
+  - Clear close button
+
+### Responsive Patterns
+
+```typescript
+// Show/hide shortcuts based on viewport
+import { useMediaQuery } from '@/hooks';
+
+export default function ResponsiveCommand() {
+  const showShortcuts = useMediaQuery('(min-width: 768px)');
+
+  return (
+    <CommandItem>
+      <span>Dashboard</span>
+      {showShortcuts && <CommandShortcut>⌘D</CommandShortcut>}
+    </CommandItem>
+  );
+}
+```
+
+---
+
+## Code Examples
+
+### Example 1: Basic Command Palette
+
+```typescript
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from '@/components';
+import { useState } from 'react';
+
+export default function BasicCommandPalette() {
+  const [open, setOpen] = useState(false);
+
+  // Listen for Cmd+K
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setOpen((open) => !open);
+      }
+    };
+    document.addEventListener('keydown', down);
+    return () => document.removeEventListener('keydown', down);
+  }, []);
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Suggestions">
+          <CommandItem>Calendar</CommandItem>
+          <CommandItem>Search Emoji</CommandItem>
+          <CommandItem>Calculator</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  );
+}
+```
+
+### Example 2: With Icons and Shortcuts
+
+```typescript
+import {
+  Command,
+  CommandDialog,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandShortcut,
+} from '@/components';
+import { Calendar, User, CreditCard, Settings } from 'lucide-react';
+
+export default function CommandWithIcons() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList>
+        <CommandGroup heading="Quick Actions">
+          <CommandItem>
+            <Calendar className="mr-2 h-4 w-4" />
+            <span>Schedule Service</span>
+            <CommandShortcut>⌘S</CommandShortcut>
+          </CommandItem>
+          <CommandItem>
+            <User className="mr-2 h-4 w-4" />
+            <span>Profile</span>
+            <CommandShortcut>⌘P</CommandShortcut>
+          </CommandItem>
+          <CommandItem>
+            <CreditCard className="mr-2 h-4 w-4" />
+            <span>Billing</span>
+            <CommandShortcut>⌘B</CommandShortcut>
+          </CommandItem>
+          <CommandItem>
+            <Settings className="mr-2 h-4 w-4" />
+            <span>Settings</span>
+            <CommandShortcut>⌘,</CommandShortcut>
+          </CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  );
+}
+```
+
+### Example 3: Navigation Command Palette
+
+```typescript
+import { CommandDialog, CommandGroup, CommandItem, CommandList } from '@/components';
+import { useRouter } from 'next/navigation';
+
+export default function NavigationCommand() {
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+
+  const pages = [
+    { name: 'Dashboard', path: '/dashboard', icon: '📊' },
+    { name: 'Services', path: '/services', icon: '🔧' },
+    { name: 'Billing', path: '/billing', icon: '💳' },
+    { name: 'Support', path: '/support', icon: '📞' },
+    { name: 'Settings', path: '/settings', icon: '⚙️' },
+  ];
+
+  const handleSelect = (path: string) => {
+    router.push(path);
+    setOpen(false);
+  };
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Go to page..." />
+      <CommandList>
+        <CommandGroup heading="Navigation">
+          {pages.map((page) => (
+            <CommandItem
+              key={page.path}
+              onSelect={() => handleSelect(page.path)}
+            >
+              <span className="mr-2">{page.icon}</span>
+              <span>{page.name}</span>
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  );
+}
+```
+
+### Example 4: Account Switcher Command
+
+```typescript
+import { CommandDialog, CommandGroup, CommandItem, CommandList } from '@/components';
+import { Check } from 'lucide-react';
+
+export default function AccountSwitcherCommand() {
+  const [open, setOpen] = useState(false);
+  const [selectedAccount, setSelectedAccount] = useState('acme-corp');
+
+  const accounts = [
+    { id: 'acme-corp', name: 'Acme Corporation', location: 'New York, NY' },
+    { id: 'contoso-ltd', name: 'Contoso Ltd', location: 'Seattle, WA' },
+    { id: 'fabrikam-inc', name: 'Fabrikam Inc', location: 'Chicago, IL' },
+  ];
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Switch account..." />
+      <CommandList>
+        <CommandGroup heading="Your Accounts">
+          {accounts.map((account) => (
+            <CommandItem
+              key={account.id}
+              onSelect={() => {
+                setSelectedAccount(account.id);
+                setOpen(false);
+              }}
+            >
+              <div className="flex-1">
+                <div className="font-medium">{account.name}</div>
+                <div className="text-sm text-[var(--ds-color-text-secondary)]">
+                  {account.location}
+                </div>
+              </div>
+              {selectedAccount === account.id && (
+                <Check className="h-4 w-4 text-[var(--ds-color-intent-primary)]" />
+              )}
+            </CommandItem>
+          ))}
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  );
+}
+```
+
+### Example 5: Inline Command (No Dialog)
+
+```typescript
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components';
+
+export default function InlineCommand() {
+  return (
+    <Command className="rounded-lg border border-[var(--ds-color-neutral-300)] shadow-md">
+      <CommandInput placeholder="Search services..." />
+      <CommandList>
+        <CommandEmpty>No services found.</CommandEmpty>
+        <CommandGroup heading="Internet Services">
+          <CommandItem>Business Internet Essential</CommandItem>
+          <CommandItem>Business Internet Performance</CommandItem>
+          <CommandItem>Business Internet Ultra</CommandItem>
+        </CommandGroup>
+        <CommandGroup heading="Phone Services">
+          <CommandItem>Business Voice Mobility</CommandItem>
+          <CommandItem>PRI Trunks</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </Command>
+  );
+}
+```
+
+### Example 6: With Async Search
+
+```typescript
+import { CommandDialog, CommandEmpty, CommandGroup, CommandItem, CommandList } from '@/components';
+import { useState, useEffect } from 'react';
+
+export default function AsyncCommand() {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState('');
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (search.length < 2) {
+      setResults([]);
+      return;
+    }
+
+    setLoading(true);
+    // Simulated API call
+    const timer = setTimeout(() => {
+      fetch(`/api/search?q=${search}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setResults(data);
+          setLoading(false);
+        });
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput
+        placeholder="Search accounts, services, docs..."
+        value={search}
+        onValueChange={setSearch}
+      />
+      <CommandList>
+        <CommandEmpty>
+          {loading ? 'Searching...' : 'No results found.'}
+        </CommandEmpty>
+        {results.length > 0 && (
+          <CommandGroup heading={`${results.length} results`}>
+            {results.map((result) => (
+              <CommandItem key={result.id}>{result.title}</CommandItem>
+            ))}
+          </CommandGroup>
+        )}
+      </CommandList>
+    </CommandDialog>
+  );
+}
+```
+
+### Example 7: Multi-Group Organization
+
+```typescript
+import {
+  CommandDialog,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from '@/components';
+
+export default function OrganizedCommand() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList>
+        <CommandGroup heading="Navigation">
+          <CommandItem>Dashboard</CommandItem>
+          <CommandItem>Services</CommandItem>
+          <CommandItem>Billing</CommandItem>
+        </CommandGroup>
+
+        <CommandSeparator />
+
+        <CommandGroup heading="Quick Actions">
+          <CommandItem>
+            Pay Bill
+            <CommandShortcut>⌘P</CommandShortcut>
+          </CommandItem>
+          <CommandItem>
+            View Usage
+            <CommandShortcut>⌘U</CommandShortcut>
+          </CommandItem>
+          <CommandItem>
+            Contact Support
+            <CommandShortcut>⌘H</CommandShortcut>
+          </CommandItem>
+        </CommandGroup>
+
+        <CommandSeparator />
+
+        <CommandGroup heading="Account">
+          <CommandItem>Switch Account</CommandItem>
+          <CommandItem>Add Location</CommandItem>
+          <CommandItem>Manage Users</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **[Dialog](/docs/documentation-dialog)** - Modal overlays (Command uses Dialog)
+- **[Popover](/docs/documentation-popover)** - Floating content panels
+- **[Dropdown Menu](/docs/documentation-dropdown-menu)** - Action menus
+- **[Select](/docs/documentation-select)** - Single selection from list
+- **[Combobox](/docs/documentation-combobox)** - Searchable select (similar UX)
+
+---
+
+## Design Tokens Used
+
+| Token | Purpose | Value |
+|-------|---------|-------|
+| `--ds-color-neutral-300` | Border, separator | #DDDDE2 |
+| `--ds-color-text-primary` | Item text | #1A1A1A |
+| `--ds-color-text-secondary` | Muted text, shortcuts | #666666 |
+| `--ds-color-bg-muted` | Hover background | #F5F5F5 |
+| `--ds-color-primary-50` | Selected item background | #E6F0FF |
+| `--ds-color-intent-primary` | Focus ring, selected state | #0066CC |
+| `--ds-spacing-2` | Item padding (vertical) | 0.5rem (8px) |
+| `--ds-spacing-3` | Group spacing | 0.75rem (12px) |
+| `--ds-spacing-4` | Container padding | 1rem (16px) |
+| `--ds-radius-lg` | Container corners | 0.5rem (8px) |
+| `--ds-shadow-lg` | Command palette shadow | Box shadow large |
+
+---
+
+## Implementation Notes
+
+### Technical Considerations
+
+**Built with cmdk library:**
+- Automatic fuzzy search and filtering
+- Keyboard navigation built-in
+- Accessibility features included
+- Supports async search
+- Group and separator components
+- Customizable styling
+
+**Performance:**
+- Virtualize long lists (>100 items) for performance
+- Debounce async search requests (300ms typical)
+- Cache recent search results
+- Lazy load command groups if needed
+- Optimize fuzzy matching algorithm
+
+**Browser Support:**
+- Modern browsers (last 2 versions)
+- Keyboard shortcuts work cross-platform
+- Screen reader compatible
+- Touch device support (may need UI adaptations)
+
+### Common Pitfalls
+
+❌ **Avoid:**
+- Too many top-level groups (max 5-7)
+- Unclear or vague command names
+- Missing keyboard shortcuts for common actions
+- No empty state message
+- Forgetting to trap Cmd/Ctrl+K
+- Slow async search (>500ms)
+
+✅ **Instead:**
+- Organize into clear, logical groups
+- Use action-oriented, specific names
+- Assign shortcuts to frequently used commands
+- Provide helpful "No results" message
+- Always implement global keyboard trigger
+- Optimize search to feel instant (under 200ms)

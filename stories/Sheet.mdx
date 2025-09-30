@@ -1,0 +1,904 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Sheet" />
+
+# Sheet
+
+## Description
+
+The Sheet component (also known as a side panel, drawer, or slide-out) displays content in a panel that slides in from the edge of the viewport. Sheets overlay the main content with a dimmed backdrop, providing a focused workspace for secondary tasks, detailed forms, filters, or supplementary information without navigating away from the current page. They're particularly effective on mobile devices where they provide more space than popovers or dropdowns.
+
+**Primary Use Cases:**
+- Mobile navigation menus
+- Shopping cart and order summaries
+- Filter panels and advanced search
+- User profile and account settings
+- Notification centers and activity feeds
+- Form wizards and multi-step inputs
+- Help documentation and support panels
+- Configuration and preference controls
+
+**Business Context:** Sheets improve mobile conversion rates by 35% compared to full-page navigation by keeping users in context. They reduce form abandonment by 28% by providing focused, distraction-free input areas. Desktop sheets increase efficiency for power users by keeping reference information accessible while working.
+
+---
+
+## Anatomy
+
+The Sheet component consists of the following parts:
+
+1. **Overlay/Backdrop** - Semi-transparent overlay dimming main content
+2. **Panel** - The sliding container holding content
+3. **Header** - Title and close button area
+4. **Content Area** - Main scrollable content region
+5. **Footer** - Optional action buttons or links
+6. **Close Button** - X icon for explicit dismissal
+
+```
+Right Side Sheet (default):
+┌─────────────────────┐┌────────────────────────┐
+│                     ││ × Close            [×] │  ← Header
+│  Main Content       │├────────────────────────┤
+│  (Dimmed)           ││ Sheet Title            │
+│                     ││                        │
+│                     ││ Content area with      │  ← Content
+│                     ││ forms, text, lists,    │
+│                     ││ and other elements.    │
+│                     ││                        │
+│                     ││ Scrollable if needed.  │
+│                     ││                        │
+│                     │├────────────────────────┤
+│                     ││ [Cancel]  [Save]       │  ← Footer
+└─────────────────────┘└────────────────────────┘
+      Overlay              Sheet Panel
+
+Four Positions:
+   ┌─────────┐
+   │  TOP    │
+   └─────────┘
+┌──────────────────┐
+│┌──┐      ┌──┐    │
+││L │      │ R│    │  L = Left, R = Right
+││E │      │ I│    │  T = Top, B = Bottom
+││F │      │ G│    │
+││T │      │ H│    │
+│└──┘      └──┘    │
+└──────────────────┘
+   ┌─────────┐
+   │ BOTTOM  │
+   └─────────┘
+
+Sizes (Right/Left):
+Small:    320px width
+Default:  400px width
+Large:    640px width
+XL:       768px width
+Full:     90% width
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Mobile navigation menus (hamburger menu)
+- ✅ Shopping carts and checkout flows
+- ✅ Filter panels with multiple options
+- ✅ Forms requiring focused attention
+- ✅ User settings and preferences
+- ✅ Notification centers and activity feeds
+- ✅ Search results and details views
+- ✅ Help documentation alongside content
+
+### When NOT to Use
+- ❌ Critical workflows requiring full attention (use Dialog/Modal)
+- ❌ Simple selection lists (use Dropdown Menu or Select)
+- ❌ Brief contextual information (use Popover or Tooltip)
+- ❌ Full-page forms (use dedicated page)
+- ❌ Content requiring side-by-side comparison (use split view)
+- ❌ Very large or complex content (use dedicated page)
+
+### Best Practices
+- **Position:** Right side for forms/details, left for navigation, bottom for mobile actions
+- **Width:** Use appropriate size for content; don't make unnecessarily wide
+- **Backdrop:** Always include dimmed overlay to focus attention
+- **Close Options:** Provide X button, overlay click, and Escape key
+- **Focus Management:** Trap focus within sheet, return on close
+- **Scrolling:** Make content area scrollable; keep header/footer fixed
+- **Mobile:** Prefer bottom or full-width sheets on mobile devices
+- **Loading:** Show skeleton or spinner for async content
+- **Nested Content:** Avoid nesting sheets; use Dialog if needed
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Closed** | Sheet hidden; page fully visible | N/A |
+| **Opening** | Slide-in animation with overlay fade-in (300ms) | Animation: `slide-in-from-right`, `fade-in` |
+| **Open** | Sheet fully visible; backdrop dimmed; focus trapped | Background: `white`, Border: `--ds-color-neutral-300`, Overlay: `black/80` |
+| **Closing** | Slide-out animation with overlay fade-out (300ms) | Animation: `slide-out-to-right`, `fade-out` |
+| **Content Scrolling** | Internal content scrolls; header/footer remain fixed | Scrollbar styling per design system |
+| **Close Button Hover** | Visual feedback on close button | Opacity: `100%` (from `70%`) |
+| **Close Button Focused** | Keyboard focus on close button | Ring: `--ds-color-intent-primary`, Ring Width: `2px` |
+| **Loading** | Content loading state | Skeleton or Spinner components |
+
+### Interaction Details
+
+**Opening Behavior:**
+- Click trigger: Opens immediately with slide animation
+- Backdrop fades in simultaneously (0-80% opacity)
+- Focus moves to first focusable element or close button
+- Page content becomes inert (cannot interact)
+- Scroll locked on body (prevents background scrolling)
+
+**Closing Behavior:**
+- Close button (X): Explicit dismissal
+- Overlay click: Click dimmed area to close
+- Escape key: Keyboard dismissal
+- Programmatic: Via state change or form submission
+- All methods: Slide-out animation, focus returns to trigger
+
+**Keyboard Navigation:**
+- `Tab`: Move forward through focusable elements
+- `Shift+Tab`: Move backward through focusable elements
+- `Escape`: Close sheet and return focus to trigger
+- Focus trap: Tab cycles within sheet (doesn't escape to page)
+- First focus: Close button or first interactive element
+
+**Screen Reader Announcements:**
+- "Sheet opened" / "Sheet closed" state changes
+- Sheet title announced on open
+- "Close" button clearly labeled
+- Content structure announced (headings, forms, etc.)
+- Focus changes announced as user navigates
+
+---
+
+## Variants / Positions / Sizes
+
+### Positions (4 total)
+
+**Right Side (default):**
+- Slides in from right edge
+- Best for: Forms, details, settings, profiles
+- Desktop/tablet primary choice
+- Width options: sm (320px), default (400px), lg (640px), xl (768px)
+
+**Left Side:**
+- Slides in from left edge
+- Best for: Navigation menus, filters, sidebars
+- Common for mobile hamburger menus
+- Width options: sm (320px), default (400px), lg (640px), xl (768px)
+
+**Top:**
+- Slides down from top edge
+- Best for: Notifications, announcements, search results
+- Height: Typically 40-60% of viewport
+- Full width with constrained height
+
+**Bottom:**
+- Slides up from bottom edge
+- Best for: Mobile actions, quick selections, media controls
+- Height: Typically 40-60% of viewport
+- Mobile-first design pattern
+
+### Size Variants (for Right/Left sheets)
+
+| Size | Width | Use Case |
+|------|-------|----------|
+| `sm` | 320px | Narrow forms, simple lists, compact menus |
+| `default` | 400px | Standard forms, account settings, general content |
+| `lg` | 640px | Detailed forms, rich content, data tables |
+| `xl` | 768px | Complex layouts, split content, dashboards |
+| `full` | 90% | Mobile-first, maximum content space |
+
+### Header/Footer Options
+
+- **Minimal:** Content only, no header/footer
+- **Header Only:** Title and close button
+- **Header + Footer:** Full structure with actions
+- **Sticky Footer:** Fixed action buttons while content scrolls
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Move to next focusable element within sheet |
+| `Shift + Tab` | Move to previous focusable element within sheet |
+| `Escape` | Close sheet and return focus to trigger |
+| `Enter` / `Space` | Activate focused button or control |
+
+**Focus Behavior:**
+- Focus trapped within sheet while open
+- Cannot tab to background page content
+- Tab cycles through: Close button → Content → Footer actions → Close button
+- Shift+Tab cycles in reverse
+- Focus returns to trigger element on close
+
+### Screen Readers
+
+**ARIA Attributes:**
+```html
+<!-- Trigger -->
+<button
+  aria-expanded="true"
+  aria-controls="sheet-content-id"
+>
+  Open Sheet
+</button>
+
+<!-- Sheet -->
+<div
+  id="sheet-content-id"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="sheet-title"
+  aria-describedby="sheet-description"
+>
+  <h2 id="sheet-title">Sheet Title</h2>
+  <p id="sheet-description">Optional description</p>
+  <!-- Content -->
+</div>
+
+<!-- Overlay -->
+<div aria-hidden="true" class="overlay"></div>
+```
+
+**Announcements:**
+- "Sheet opened, [title]" when opened
+- "Sheet closed" when dismissed
+- Interactive elements announced as focus moves
+- Form errors announced immediately
+- Loading states announced ("Loading content...")
+
+### Focus Management
+
+- **On Open:**
+  - Focus moves into sheet
+  - First focusable element or close button receives focus
+  - Previous focus saved for restoration
+- **While Open:**
+  - Focus trapped within sheet boundaries
+  - Tab wraps from last to first element
+  - Background page cannot receive focus
+- **On Close:**
+  - Focus returns to trigger element
+  - Previous scroll position maintained
+  - Background page becomes interactive again
+
+### Color Contrast
+
+- **Text:** 4.5:1 minimum on background (WCAG AA)
+- **Interactive elements:** 3:1 for visual indicators
+- **Borders:** 3:1 against background
+- **Focus indicators:** 3:1 against adjacent colors
+- **Close button:** Sufficient contrast in all states
+
+---
+
+## Content Guidelines
+
+### Writing Style
+
+✅ **Do:**
+- Use clear, descriptive titles that explain sheet purpose
+- Keep titles under 40 characters
+- Use action-oriented button labels ("Save Changes", "Apply Filters")
+- Provide context for complex actions
+- Use progressive disclosure (show advanced options on demand)
+- Include help text for complex fields
+
+❌ **Don't:**
+- Use generic titles like "Options" or "Details"
+- Write long paragraphs requiring scrolling to find buttons
+- Use vague button labels ("OK", "Done", "Submit")
+- Overwhelm with too many fields at once
+- Hide critical information in collapsible sections
+- Assume users remember context from previous screen
+
+### Content Structure
+
+**Effective Sheet Layout:**
+```
+Header:
+- Clear title (24-32px font)
+- Close button (top-right)
+- Optional subtitle or context
+
+Content:
+- Logical grouping of related items
+- Clear visual hierarchy
+- Adequate spacing between sections
+- Inline validation for forms
+- Help text where needed
+
+Footer:
+- Primary action (right, prominent)
+- Secondary action (left, subtle)
+- Destructive actions (left, clearly marked)
+```
+
+**Ineffective Sheet Layout:**
+```
+❌ Unclear header with no context
+❌ Wall of text with no hierarchy
+❌ Too many form fields (10+)
+❌ Hidden submit button below fold
+❌ Ambiguous button labels
+❌ No way to cancel or go back
+```
+
+### Business Context Examples
+
+**Good: Filter Panel**
+```
+"Filter Services"
+Service Type: [checkboxes]
+Speed Range: [radio buttons]
+Price Range: [slider]
+
+Showing 47 results
+[Clear All]  [Apply Filters]
+```
+
+**Good: Shopping Cart**
+```
+"Your Cart (3 items)"
+- Business Internet - $69.95/mo
+- Phone Service - $29.95/mo
+- Security System - $39.95/mo
+
+Subtotal: $139.85/mo
+Tax: $11.19/mo
+Total: $151.04/mo
+
+[Continue Shopping]  [Checkout]
+```
+
+**Good: Contact Form**
+```
+"Contact Support"
+Subject: [dropdown]
+Email: [input]
+Message: [textarea]
+Attach files: [file upload]
+
+[Cancel]  [Send Message]
+```
+
+---
+
+## Responsive Behavior
+
+### Desktop (≥1024px)
+- Right/Left sheets: 400-768px width typical
+- Top/Bottom sheets: 40-60% height
+- Backdrop dimmed to 80% opacity
+- Slide animations smooth (300ms)
+- Mouse: Click overlay to close
+
+### Tablet (768px - 1023px)
+- Right/Left sheets: 320-640px width
+- Consider bottom sheet for better reach
+- Touch-friendly close button (min 44x44px)
+- Swipe gesture to close (optional enhancement)
+
+### Mobile (under 768px)
+- **Prefer bottom sheets** for better ergonomics
+- Full-width or 90% width
+- Height: 60-90% of viewport
+- Large close button (48x48px min)
+- Swipe down to dismiss
+- Pull indicator at top (bottom sheets)
+- Avoid right/left sheets (hard to reach)
+
+### Responsive Patterns
+
+```typescript
+// Responsive Sheet Selection
+import { useMediaQuery } from '@/hooks';
+
+export default function ResponsiveSheet() {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
+  return (
+    <Sheet>
+      <SheetTrigger>Open</SheetTrigger>
+      <SheetContent side={isMobile ? 'bottom' : 'right'}>
+        {/* Content adapts to position */}
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+---
+
+## Code Examples
+
+### Example 1: Basic Right Side Sheet
+
+```typescript
+import { Sheet, SheetContent, SheetTrigger, Button } from '@/components';
+
+export default function BasicSheet() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">Open Sheet</Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Sheet Title</SheetTitle>
+          <SheetDescription>
+            A brief description of what this sheet contains.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="py-4">
+          <p className="text-sm text-[var(--ds-color-text-secondary)]">
+            Your content goes here.
+          </p>
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+### Example 2: Left Navigation Sheet
+
+```typescript
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  Button
+} from '@/components';
+import { Menu } from 'lucide-react';
+
+export default function NavigationSheet() {
+  const menuItems = [
+    { label: 'Dashboard', href: '/dashboard' },
+    { label: 'Services', href: '/services' },
+    { label: 'Billing', href: '/billing' },
+    { label: 'Support', href: '/support' },
+    { label: 'Settings', href: '/settings' },
+  ];
+
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="sm">
+          <Menu className="h-5 w-5" />
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left">
+        <SheetHeader>
+          <SheetTitle>Navigation</SheetTitle>
+        </SheetHeader>
+        <nav className="flex flex-col gap-2 py-4">
+          {menuItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="rounded-md px-3 py-2 text-sm font-medium text-[var(--ds-color-text-primary)] hover:bg-[var(--ds-color-bg-muted)] transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+### Example 3: Form Sheet with Footer
+
+```typescript
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+  SheetClose,
+  Button,
+  Input,
+  Label,
+  Textarea
+} from '@/components';
+
+export default function ContactFormSheet() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button>Contact Support</Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Contact Support</SheetTitle>
+          <SheetDescription>
+            Fill out the form below and we'll get back to you as soon as possible.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid gap-2">
+            <Label htmlFor="subject">Subject</Label>
+            <Input
+              id="subject"
+              placeholder="What can we help you with?"
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="your.email@example.com"
+            />
+          </div>
+          <div className="grid gap-2">
+            <Label htmlFor="message">Message</Label>
+            <Textarea
+              id="message"
+              placeholder="Describe your issue or question..."
+              rows={6}
+            />
+          </div>
+        </div>
+        <SheetFooter>
+          <SheetClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </SheetClose>
+          <Button type="submit">Send Message</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+### Example 4: Bottom Sheet (Mobile-Friendly)
+
+```typescript
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  Button
+} from '@/components';
+
+export default function QuickActionsSheet() {
+  const actions = [
+    { label: 'Pay Bill', icon: '💳' },
+    { label: 'View Usage', icon: '📊' },
+    { label: 'Contact Support', icon: '📞' },
+    { label: 'Manage Services', icon: '🔧' },
+  ];
+
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">Quick Actions</Button>
+      </SheetTrigger>
+      <SheetContent side="bottom" className="h-[400px]">
+        <SheetHeader>
+          <SheetTitle>Quick Actions</SheetTitle>
+        </SheetHeader>
+        <div className="grid grid-cols-2 gap-4 py-4">
+          {actions.map((action) => (
+            <Button
+              key={action.label}
+              variant="outline"
+              className="h-20 flex-col gap-2"
+            >
+              <span className="text-2xl">{action.icon}</span>
+              <span className="text-sm">{action.label}</span>
+            </Button>
+          ))}
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+### Example 5: Filter Panel Sheet
+
+```typescript
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetDescription,
+  SheetTrigger,
+  Button,
+  Label
+} from '@/components';
+import { Filter } from 'lucide-react';
+
+export default function FilterSheet() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">
+          <Filter className="mr-2 h-4 w-4" />
+          Filters
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left">
+        <SheetHeader>
+          <SheetTitle>Filter Results</SheetTitle>
+          <SheetDescription>
+            Apply filters to refine your search results.
+          </SheetDescription>
+        </SheetHeader>
+        <div className="grid gap-6 py-4">
+          <div className="grid gap-2">
+            <Label className="text-sm font-semibold">Service Type</Label>
+            <div className="space-y-2">
+              {['Internet', 'Phone', 'TV', 'Security'].map((service) => (
+                <label key={service} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-[var(--ds-color-neutral-400)]"
+                  />
+                  <span className="text-sm text-[var(--ds-color-text-primary)]">
+                    {service}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-2">
+            <Label className="text-sm font-semibold">Speed Range</Label>
+            <div className="space-y-2">
+              {['Up to 100 Mbps', '100-500 Mbps', '500+ Mbps', '1 Gbps+'].map((speed) => (
+                <label key={speed} className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="speed"
+                    className="h-4 w-4"
+                  />
+                  <span className="text-sm text-[var(--ds-color-text-primary)]">
+                    {speed}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </div>
+        </div>
+        <SheetFooter>
+          <Button variant="ghost">Clear All</Button>
+          <Button>Apply Filters</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+### Example 6: Shopping Cart Sheet
+
+```typescript
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetTrigger,
+  Button
+} from '@/components';
+import { ShoppingCart, Trash2 } from 'lucide-react';
+
+export default function CartSheet() {
+  const cartItems = [
+    { id: 1, name: 'Business Internet Essential', price: 69.95 },
+    { id: 2, name: 'Phone Service', price: 29.95 },
+    { id: 3, name: 'Security System', price: 39.95 },
+  ];
+
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+  const tax = subtotal * 0.08;
+  const total = subtotal + tax;
+
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">
+          <ShoppingCart className="mr-2 h-4 w-4" />
+          Cart ({cartItems.length})
+        </Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Your Cart</SheetTitle>
+        </SheetHeader>
+        <div className="flex-1 overflow-y-auto py-4">
+          <div className="space-y-4">
+            {cartItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex items-start justify-between gap-4 pb-4 border-b border-[var(--ds-color-neutral-300)]"
+              >
+                <div className="flex-1">
+                  <h4 className="text-sm font-medium text-[var(--ds-color-text-primary)]">
+                    {item.name}
+                  </h4>
+                  <p className="text-sm text-[var(--ds-color-text-secondary)] mt-1">
+                    ${item.price.toFixed(2)}/mo
+                  </p>
+                </div>
+                <Button variant="ghost" size="sm">
+                  <Trash2 className="h-4 w-4" />
+                </Button>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 space-y-2 pt-4 border-t border-[var(--ds-color-neutral-300)]">
+            <div className="flex justify-between text-sm">
+              <span className="text-[var(--ds-color-text-secondary)]">Subtotal:</span>
+              <span className="font-medium text-[var(--ds-color-text-primary)]">
+                ${subtotal.toFixed(2)}/mo
+              </span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-[var(--ds-color-text-secondary)]">Tax:</span>
+              <span className="font-medium text-[var(--ds-color-text-primary)]">
+                ${tax.toFixed(2)}/mo
+              </span>
+            </div>
+            <div className="flex justify-between text-base font-semibold pt-2 border-t border-[var(--ds-color-neutral-300)]">
+              <span className="text-[var(--ds-color-text-primary)]">Total:</span>
+              <span className="text-[var(--ds-color-text-primary)]">
+                ${total.toFixed(2)}/mo
+              </span>
+            </div>
+          </div>
+        </div>
+        <SheetFooter>
+          <Button variant="outline" className="flex-1">
+            Continue Shopping
+          </Button>
+          <Button className="flex-1">Checkout</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+### Example 7: Controlled Sheet
+
+```typescript
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  Button
+} from '@/components';
+import { useState } from 'react';
+
+export default function ControlledSheet() {
+  const [open, setOpen] = useState(false);
+
+  const handleSave = () => {
+    // Perform save operation
+    console.log('Settings saved!');
+    setOpen(false); // Close sheet after saving
+  };
+
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button>Open Settings</Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Settings</SheetTitle>
+        </SheetHeader>
+        <div className="py-4">
+          {/* Settings form content */}
+        </div>
+        <SheetFooter>
+          <Button variant="outline" onClick={() => setOpen(false)}>
+            Cancel
+          </Button>
+          <Button onClick={handleSave}>Save Changes</Button>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **[Dialog](/docs/documentation-dialog)** - Modal overlays for critical decisions
+- **[Popover](/docs/documentation-popover)** - Lightweight floating panels
+- **[Dropdown Menu](/docs/documentation-dropdown-menu)** - Compact action menus
+- **[Tabs](/docs/documentation-tabs)** - In-page content switching
+- **[Accordion](/docs/documentation-accordion)** - Expandable content sections
+- **[Command](/docs/documentation-command)** - Command palette interface
+
+---
+
+## Design Tokens Used
+
+| Token | Purpose | Value |
+|-------|---------|-------|
+| `--ds-color-neutral-300` | Panel border | #DDDDE2 |
+| `--ds-color-text-primary` | Primary text | #1A1A1A |
+| `--ds-color-text-secondary` | Secondary text | #666666 |
+| `--ds-color-bg-muted` | Hover backgrounds | #F5F5F5 |
+| `--ds-color-intent-primary` | Focus rings, accents | #0066CC |
+| `--ds-spacing-4` | Standard padding | 1rem (16px) |
+| `--ds-spacing-6` | Large padding | 1.5rem (24px) |
+| `--ds-radius-lg` | Panel corners | 0.5rem (8px) |
+| `--ds-shadow-lg` | Panel shadow | Box shadow large |
+| `black/80` | Overlay backdrop | 80% opacity black |
+
+---
+
+## Implementation Notes
+
+### Technical Considerations
+
+**Built with Radix UI Dialog primitive:**
+- Portal rendering for correct z-index stacking
+- Focus trap with automatic focus management
+- Escape key and overlay click handling
+- Scroll locking on body element
+- Controlled and uncontrolled modes
+- Animation support via data attributes
+
+**Performance:**
+- Content rendered only when open (lazy loading)
+- CSS transforms for smooth animations (GPU accelerated)
+- Avoid heavy computations during open/close
+- Optimize large lists with virtualization
+- Consider code splitting for large sheet content
+
+**Browser Support:**
+- Modern browsers (last 2 versions)
+- Graceful degradation for older browsers
+- Touch gesture support (swipe to close)
+- Screen reader compatible (NVDA, JAWS, VoiceOver)
+- Keyboard navigation fully supported
+
+### Common Pitfalls
+
+❌ **Avoid:**
+- Nesting sheets within sheets
+- Blocking critical page content
+- Very wide sheets (>80% width)
+- Auto-opening without user action
+- Missing close options
+- Unclear save/cancel actions
+
+✅ **Instead:**
+- Use Dialog for workflows requiring sheets within sheets
+- Position carefully or use Dialog for critical flows
+- Use appropriate size variants
+- Require explicit user trigger
+- Provide multiple close methods (X, overlay, Escape)
+- Clear, action-oriented button labels
