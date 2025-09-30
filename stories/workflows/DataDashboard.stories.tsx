@@ -28,6 +28,8 @@ import {
   TableRow,
   Input,
   Label,
+  Combobox,
+  DatePicker,
 } from '../../src/components';
 import {
   LineChart,
@@ -100,8 +102,20 @@ interface ServiceData {
   lastUpdated: string;
 }
 
+// Service filter options
+const SERVICE_OPTIONS = [
+  { value: 'all', label: 'All Services' },
+  { value: 'internet', label: 'Business Internet' },
+  { value: 'voice', label: 'Business Voice' },
+  { value: 'security', label: 'Security Edge' },
+  { value: 'backup', label: 'Cloud Backup' },
+  { value: 'vpn', label: 'Business VPN' },
+];
+
 const DashboardFlow = () => {
   const [dateRange, setDateRange] = useState('7d');
+  const [customStartDate, setCustomStartDate] = useState<Date | undefined>(undefined);
+  const [customEndDate, setCustomEndDate] = useState<Date | undefined>(undefined);
   const [selectedService, setSelectedService] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [refreshing, setRefreshing] = useState(false);
@@ -284,6 +298,41 @@ const DashboardFlow = () => {
         </div>
       </div>
 
+      {/* Custom Date Range */}
+      {dateRange === 'custom' && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Custom Date Range</CardTitle>
+            <CardDescription>Select a custom date range for your data</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="startDate">Start Date</Label>
+                <DatePicker
+                  value={customStartDate}
+                  onChange={(date) => setCustomStartDate(date)}
+                  placeholder="Select start date"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="endDate">End Date</Label>
+                <DatePicker
+                  value={customEndDate}
+                  onChange={(date) => setCustomEndDate(date)}
+                  placeholder="Select end date"
+                />
+              </div>
+            </div>
+            <div className="mt-4">
+              <Button variant="primary" size="sm">
+                Apply Date Range
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
       {/* Alert */}
       {serviceData.some(s => s.status === 'error') && (
         <Alert>
@@ -461,17 +510,14 @@ const DashboardFlow = () => {
                       className="pl-8 w-[200px]"
                     />
                   </div>
-                  <Select value={selectedService} onValueChange={setSelectedService}>
-                    <SelectTrigger className="w-[140px]">
-                      <Filter className="mr-2 h-4 w-4" />
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Services</SelectItem>
-                      <SelectItem value="active">Active Only</SelectItem>
-                      <SelectItem value="issues">With Issues</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Combobox
+                    options={SERVICE_OPTIONS}
+                    value={selectedService}
+                    onValueChange={setSelectedService}
+                    placeholder="Filter by service"
+                    searchPlaceholder="Search services..."
+                    width="w-[180px]"
+                  />
                 </div>
               </div>
             </CardHeader>
@@ -490,12 +536,11 @@ const DashboardFlow = () => {
                 </TableHeader>
                 <TableBody>
                   {serviceData
-                    .filter(service =>
-                      service.service.toLowerCase().includes(searchQuery.toLowerCase()) &&
-                      (selectedService === 'all' ||
-                        (selectedService === 'active' && service.status === 'active') ||
-                        (selectedService === 'issues' && service.status !== 'active'))
-                    )
+                    .filter(service => {
+                      const matchesSearch = service.service.toLowerCase().includes(searchQuery.toLowerCase());
+                      const matchesFilter = selectedService === 'all' || service.service.toLowerCase().includes(selectedService);
+                      return matchesSearch && matchesFilter;
+                    })
                     .map(service => (
                       <TableRow key={service.id}>
                         <TableCell className="font-medium">{service.service}</TableCell>
