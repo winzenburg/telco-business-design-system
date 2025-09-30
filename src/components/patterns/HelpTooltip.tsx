@@ -106,7 +106,7 @@ export const HelpTooltip = React.forwardRef<HTMLButtonElement, HelpTooltipProps>
             href={learnMoreUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm text-[var(--ds-color-blue-600)] hover:text-[var(--ds-color-blue-700)] hover:underline"
+            className="inline-flex items-center gap-1 text-sm text-[var(--ds-color-blue-300)] hover:text-[var(--ds-color-blue-200)] hover:underline"
             onClick={(e) => e.stopPropagation()}
           >
             {learnMoreLabel}
