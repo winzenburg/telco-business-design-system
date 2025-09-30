@@ -29,6 +29,32 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
+// All variants showcase
+export const AllVariants: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-4">
+      <Button onClick={() => toast('Default notification')}>
+        Default
+      </Button>
+      <Button onClick={() => toast.success('Success notification')}>
+        Success
+      </Button>
+      <Button onClick={() => toast.error('Error notification')}>
+        Error
+      </Button>
+      <Button onClick={() => toast.warning('Warning notification')}>
+        Warning
+      </Button>
+      <Button onClick={() => toast.info('Info notification')}>
+        Info
+      </Button>
+      <Button onClick={() => toast.loading('Loading...')}>
+        Loading
+      </Button>
+    </div>
+  ),
+};
+
 // Default Toast
 export const Default: Story = {
   render: () => (
@@ -339,30 +365,4 @@ export const UpgradeService: Story = {
       </Button>
     );
   },
-};
-
-// All Variants Showcase
-export const AllVariants: Story = {
-  render: () => (
-    <div className="flex flex-wrap gap-4">
-      <Button onClick={() => toast('Default notification')}>
-        Default
-      </Button>
-      <Button onClick={() => toast.success('Success notification')}>
-        Success
-      </Button>
-      <Button onClick={() => toast.error('Error notification')}>
-        Error
-      </Button>
-      <Button onClick={() => toast.warning('Warning notification')}>
-        Warning
-      </Button>
-      <Button onClick={() => toast.info('Info notification')}>
-        Info
-      </Button>
-      <Button onClick={() => toast.loading('Loading...')}>
-        Loading
-      </Button>
-    </div>
-  ),
 };

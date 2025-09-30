@@ -39,6 +39,159 @@ const meta: Meta<typeof Input> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// All variants overview
+export const AllVariants: Story = {
+  render: () => {
+    const [value1, setValue1] = useState('');
+    const [value2, setValue2] = useState('Sample text content');
+    const [value3, setValue3] = useState('');
+
+    return (
+      <div className="space-y-8 max-w-2xl">
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Default - Empty</h3>
+          <Input
+            placeholder="Enter your business name"
+            value={value1}
+            onChange={(e) => setValue1(e.target.value)}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Default - Filled</h3>
+          <Input
+            value={value2}
+            onChange={(e) => setValue2(e.target.value)}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Small Size</h3>
+          <Input
+            size="sm"
+            placeholder="Small input"
+            value={value3}
+            onChange={(e) => setValue3(e.target.value)}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Large Size</h3>
+          <Input
+            size="lg"
+            placeholder="Large input"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Label and Required</h3>
+          <Input
+            label="Business Email"
+            required
+            placeholder="business@company.com"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Hint Text</h3>
+          <Input
+            label="Phone Number"
+            placeholder="(555) 123-4567"
+            hintText="We'll use this for account verification"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Error State</h3>
+          <Input
+            placeholder="invalid@email"
+            error
+            errorMessage="Please enter a valid email address"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Disabled</h3>
+          <Input
+            placeholder="Disabled input"
+            disabled
+            defaultValue="Cannot edit this field"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Loading State</h3>
+          <Input
+            placeholder="Processing..."
+            loading
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Left Icon</h3>
+          <div className="relative">
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--ds-color-text-secondary)] h-4 w-4 z-10" />
+            <Input
+              type="email"
+              placeholder="your@email.com"
+              className="pl-10"
+            />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Icons (Left and Right)</h3>
+          <div className="relative">
+            <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--ds-color-text-secondary)] h-4 w-4 z-10" />
+            <Input
+              type="url"
+              placeholder="https://company.com"
+              className="pl-10 pr-10"
+            />
+            <ExternalLink className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--ds-color-text-secondary)] h-4 w-4 z-10" />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Email Type</h3>
+          <Input
+            type="email"
+            placeholder="user@company.com"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Password Type</h3>
+          <Input
+            type="password"
+            placeholder="Enter password"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Number Type</h3>
+          <Input
+            type="number"
+            placeholder="0"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Search Type</h3>
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--ds-color-text-secondary)] h-4 w-4 z-10" />
+            <Input
+              type="search"
+              placeholder="Search services..."
+              className="pl-10"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  },
+};
+
 // Basic input
 export const Default: Story = {
   args: {
@@ -293,7 +446,7 @@ export const ValidationPatterns: Story = {
   render: () => {
     const [emailError, setEmailError] = useState('');
     const [phoneError, setPhoneError] = useState('');
-    
+
     const validateEmail = (email: string) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!email) {
@@ -304,7 +457,7 @@ export const ValidationPatterns: Story = {
         setEmailError('');
       }
     };
-    
+
     const validatePhone = (phone: string) => {
       const phoneRegex = /^\(\d{3}\)\s\d{3}-\d{4}$/;
       if (phone && !phoneRegex.test(phone)) {
@@ -319,7 +472,7 @@ export const ValidationPatterns: Story = {
         <div className="text-center">
           <Title level={3} className="mb-6">Validation Patterns</Title>
         </div>
-        
+
         <div className="max-w-md mx-auto space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email-validation">Email Address *</Label>
@@ -332,7 +485,7 @@ export const ValidationPatterns: Story = {
               onBlur={(e) => validateEmail(e.target.value)}
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="phone-validation">Phone Number</Label>
             <Input
@@ -345,7 +498,7 @@ export const ValidationPatterns: Story = {
               onBlur={(e) => validatePhone(e.target.value)}
             />
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="success-input">Validated Input</Label>
             <Input

@@ -23,6 +23,33 @@ const meta: Meta<typeof Slider> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// All Variants Showcase
+export const AllVariants: Story = {
+  render: () => (
+    <div className="grid gap-8 p-6 w-[600px]">
+      <div>
+        <h3 className="text-sm font-semibold mb-3 font-primary">Single Value</h3>
+        <Slider defaultValue={[50]} max={100} step={1} />
+      </div>
+
+      <div>
+        <h3 className="text-sm font-semibold mb-3 font-primary">Range</h3>
+        <Slider defaultValue={[25, 75]} max={100} step={1} />
+      </div>
+
+      <div>
+        <h3 className="text-sm font-semibold mb-3 font-primary">Custom Steps</h3>
+        <Slider defaultValue={[100]} max={1000} step={100} />
+      </div>
+
+      <div>
+        <h3 className="text-sm font-semibold mb-3 font-primary">Disabled</h3>
+        <Slider defaultValue={[50]} max={100} step={1} disabled />
+      </div>
+    </div>
+  ),
+};
+
 // Default Single Value Slider
 export const Default: Story = {
   render: () => (
@@ -303,33 +330,6 @@ export const DifferentSizes: Story = {
       <div className="space-y-2">
         <Label>Full Width</Label>
         <Slider defaultValue={[50]} max={100} className="w-full" />
-      </div>
-    </div>
-  ),
-};
-
-// All Variants Showcase
-export const AllVariants: Story = {
-  render: () => (
-    <div className="grid gap-8 p-6 w-[600px]">
-      <div>
-        <h3 className="text-sm font-semibold mb-3 font-primary">Single Value</h3>
-        <Slider defaultValue={[50]} max={100} step={1} />
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold mb-3 font-primary">Range</h3>
-        <Slider defaultValue={[25, 75]} max={100} step={1} />
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold mb-3 font-primary">Custom Steps</h3>
-        <Slider defaultValue={[100]} max={1000} step={100} />
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold mb-3 font-primary">Disabled</h3>
-        <Slider defaultValue={[50]} max={100} step={1} disabled />
       </div>
     </div>
   ),

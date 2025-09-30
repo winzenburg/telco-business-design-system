@@ -21,6 +21,104 @@ const meta: Meta<typeof DatePicker> = {
 export default meta;
 type Story = StoryObj<typeof DatePicker>;
 
+// All variants showcase
+export const AllVariants: Story = {
+  render: () => {
+    const [date1, setDate1] = useState<Date | undefined>();
+    const [date2, setDate2] = useState<Date | undefined>(new Date());
+    const [date3, setDate3] = useState<Date | undefined>(new Date());
+    const [date4, setDate4] = useState<Date | undefined>();
+    const [date5, setDate5] = useState<Date | undefined>();
+    const [date6, setDate6] = useState<Date | undefined>();
+    const [dateRange, setDateRange] = useState<{ from: Date | undefined; to?: Date | undefined }>();
+    const [birthDate, setBirthDate] = useState<Date | undefined>();
+
+    return (
+      <div className="space-y-8 max-w-2xl">
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Default</h3>
+          <DatePicker
+            date={date1}
+            onDateChange={setDate1}
+            placeholder="Pick a date"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Preselected Date</h3>
+          <DatePicker
+            date={date2}
+            onDateChange={setDate2}
+            placeholder="Pick a date"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Disabled</h3>
+          <DatePicker
+            date={date3}
+            onDateChange={setDate3}
+            placeholder="Pick a date"
+            disabled={true}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Error Message</h3>
+          <DatePicker
+            date={date4}
+            onDateChange={setDate4}
+            placeholder="Pick a date"
+          />
+          <p className="text-sm text-[var(--ds-color-intent-destructive)]">
+            Please select a date
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Without Icon</h3>
+          <DatePicker
+            date={date5}
+            onDateChange={setDate5}
+            placeholder="Pick a date"
+            showIcon={false}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Custom Width (400px)</h3>
+          <DatePicker
+            date={date6}
+            onDateChange={setDate6}
+            placeholder="Pick a date"
+            className="w-[400px]"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Date Range Picker</h3>
+          <DateRangePicker
+            dateRange={dateRange}
+            onDateRangeChange={setDateRange}
+            placeholder="Pick a date range"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Date of Birth Picker</h3>
+          <DateOfBirthPicker
+            date={birthDate}
+            onDateChange={setBirthDate}
+            placeholder="Pick your date of birth"
+            fromYear={1950}
+            toYear={2010}
+          />
+        </div>
+      </div>
+    );
+  },
+};
+
 // Basic Date Picker
 export const Default: Story = {
   render: () => {
@@ -294,104 +392,6 @@ export const WithError: Story = {
         <p className="text-sm text-[var(--ds-color-intent-destructive)]">
           Please select a date
         </p>
-      </div>
-    );
-  },
-};
-
-// All variants showcase
-export const AllVariants: Story = {
-  render: () => {
-    const [date1, setDate1] = useState<Date | undefined>();
-    const [date2, setDate2] = useState<Date | undefined>(new Date());
-    const [date3, setDate3] = useState<Date | undefined>(new Date());
-    const [date4, setDate4] = useState<Date | undefined>();
-    const [date5, setDate5] = useState<Date | undefined>();
-    const [date6, setDate6] = useState<Date | undefined>();
-    const [dateRange, setDateRange] = useState<{ from: Date | undefined; to?: Date | undefined }>();
-    const [birthDate, setBirthDate] = useState<Date | undefined>();
-
-    return (
-      <div className="space-y-8 max-w-2xl">
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Default</h3>
-          <DatePicker
-            date={date1}
-            onDateChange={setDate1}
-            placeholder="Pick a date"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Preselected Date</h3>
-          <DatePicker
-            date={date2}
-            onDateChange={setDate2}
-            placeholder="Pick a date"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Disabled</h3>
-          <DatePicker
-            date={date3}
-            onDateChange={setDate3}
-            placeholder="Pick a date"
-            disabled={true}
-          />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">With Error Message</h3>
-          <DatePicker
-            date={date4}
-            onDateChange={setDate4}
-            placeholder="Pick a date"
-          />
-          <p className="text-sm text-[var(--ds-color-intent-destructive)]">
-            Please select a date
-          </p>
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Without Icon</h3>
-          <DatePicker
-            date={date5}
-            onDateChange={setDate5}
-            placeholder="Pick a date"
-            showIcon={false}
-          />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Custom Width (400px)</h3>
-          <DatePicker
-            date={date6}
-            onDateChange={setDate6}
-            placeholder="Pick a date"
-            className="w-[400px]"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Date Range Picker</h3>
-          <DateRangePicker
-            dateRange={dateRange}
-            onDateRangeChange={setDateRange}
-            placeholder="Pick a date range"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-sm font-medium text-[var(--ds-color-text-primary)]">Date of Birth Picker</h3>
-          <DateOfBirthPicker
-            date={birthDate}
-            onDateChange={setBirthDate}
-            placeholder="Pick your date of birth"
-            fromYear={1950}
-            toYear={2010}
-          />
-        </div>
       </div>
     );
   },

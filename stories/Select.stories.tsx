@@ -31,6 +31,61 @@ const meta: Meta<typeof Select> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// All Variants Showcase
+export const AllVariants: Story = {
+  render: () => (
+    <div className="grid gap-8 p-6">
+      <div>
+        <h3 className="text-sm font-semibold mb-3 font-primary">Basic Select</h3>
+        <Select>
+          <SelectTrigger className="w-[200px]">
+            <SelectValue placeholder="Select option" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="1">Option 1</SelectItem>
+            <SelectItem value="2">Option 2</SelectItem>
+            <SelectItem value="3">Option 3</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div>
+        <h3 className="text-sm font-semibold mb-3 font-primary">With Groups</h3>
+        <Select>
+          <SelectTrigger className="w-[200px]">
+            <SelectValue placeholder="Select service" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Popular</SelectLabel>
+              <SelectItem value="fiber">Business Fiber</SelectItem>
+              <SelectItem value="phone">Business Phone</SelectItem>
+            </SelectGroup>
+            <SelectSeparator />
+            <SelectGroup>
+              <SelectLabel>Other</SelectLabel>
+              <SelectItem value="tv">Business TV</SelectItem>
+              <SelectItem value="security">Security</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div>
+        <h3 className="text-sm font-semibold mb-3 font-primary">Disabled</h3>
+        <Select disabled>
+          <SelectTrigger className="w-[200px]">
+            <SelectValue placeholder="Disabled select" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="1">Option 1</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
+  ),
+};
+
 // Basic Select
 export const Default: Story = {
   render: () => (
@@ -308,59 +363,4 @@ export const FormExample: Story = {
       </div>
     );
   },
-};
-
-// All Variants Showcase
-export const AllVariants: Story = {
-  render: () => (
-    <div className="grid gap-8 p-6">
-      <div>
-        <h3 className="text-sm font-semibold mb-3 font-primary">Basic Select</h3>
-        <Select>
-          <SelectTrigger className="w-[200px]">
-            <SelectValue placeholder="Select option" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="1">Option 1</SelectItem>
-            <SelectItem value="2">Option 2</SelectItem>
-            <SelectItem value="3">Option 3</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold mb-3 font-primary">With Groups</h3>
-        <Select>
-          <SelectTrigger className="w-[200px]">
-            <SelectValue placeholder="Select service" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>Popular</SelectLabel>
-              <SelectItem value="fiber">Business Fiber</SelectItem>
-              <SelectItem value="phone">Business Phone</SelectItem>
-            </SelectGroup>
-            <SelectSeparator />
-            <SelectGroup>
-              <SelectLabel>Other</SelectLabel>
-              <SelectItem value="tv">Business TV</SelectItem>
-              <SelectItem value="security">Security</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div>
-        <h3 className="text-sm font-semibold mb-3 font-primary">Disabled</h3>
-        <Select disabled>
-          <SelectTrigger className="w-[200px]">
-            <SelectValue placeholder="Disabled select" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="1">Option 1</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-    </div>
-  ),
 };

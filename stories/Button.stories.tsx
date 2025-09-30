@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button } from '../src/components';
 import { Plus, Download, Settings, User, ArrowRight } from 'lucide-react';
+import ButtonDocs from './Button.mdx';
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
@@ -9,6 +10,7 @@ const meta: Meta<typeof Button> = {
   parameters: {
     layout: 'padded',
     docs: {
+      page: ButtonDocs,
       description: {
         component: 'Button component for triggering actions throughout the application. Supports different variants, sizes, and states.'
       }
@@ -39,6 +41,28 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+// All variants showcase
+export const AllVariants: Story = {
+  render: () => (
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-4">
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="destructive">Destructive</Button>
+        <Button variant="link">Link</Button>
+      </div>
+      <div className="flex flex-wrap gap-4">
+        <Button variant="primary" disabled>Primary Disabled</Button>
+        <Button variant="secondary" disabled>Secondary Disabled</Button>
+        <Button variant="ghost" disabled>Ghost Disabled</Button>
+        <Button variant="destructive" disabled>Destructive Disabled</Button>
+        <Button variant="link" disabled>Link Disabled</Button>
+      </div>
+    </div>
+  )
+};
 
 // Basic variants
 export const Primary: Story = {
@@ -127,28 +151,6 @@ export const States: Story = {
       <Button variant="primary" disabled>
         Disabled
       </Button>
-    </div>
-  )
-};
-
-// All variants showcase
-export const AllVariants: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <div className="flex flex-wrap gap-4">
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="destructive">Destructive</Button>
-        <Button variant="link">Link</Button>
-      </div>
-      <div className="flex flex-wrap gap-4">
-        <Button variant="primary" disabled>Primary Disabled</Button>
-        <Button variant="secondary" disabled>Secondary Disabled</Button>
-        <Button variant="ghost" disabled>Ghost Disabled</Button>
-        <Button variant="destructive" disabled>Destructive Disabled</Button>
-        <Button variant="link" disabled>Link Disabled</Button>
-      </div>
     </div>
   )
 };

@@ -21,104 +21,6 @@ const meta: Meta<typeof Textarea> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    placeholder: 'Type your message here.',
-  },
-};
-
-export const WithLabel: Story = {
-  render: () => (
-    <div className="grid w-full gap-1.5">
-      <Label htmlFor="message">Your message</Label>
-      <Textarea placeholder="Type your message here." id="message" />
-    </div>
-  ),
-};
-
-export const Disabled: Story = {
-  args: {
-    placeholder: 'Type your message here.',
-    disabled: true,
-  },
-};
-
-export const SupportRequest: Story = {
-  render: () => (
-    <div className="grid w-full gap-1.5">
-      <Label htmlFor="support-message">Describe your issue</Label>
-      <Textarea
-        placeholder="Please provide details about the issue you're experiencing..."
-        id="support-message"
-        className="min-h-[100px]"
-      />
-      <p className="text-sm text-muted-foreground">
-        Include as much detail as possible to help us assist you better.
-      </p>
-    </div>
-  ),
-};
-
-export const WithError: Story = {
-  render: () => (
-    <div className="grid w-full gap-1.5">
-      <Label htmlFor="error-message">Your message</Label>
-      <Textarea
-        placeholder="Type your message here."
-        id="error-message"
-        error={true}
-      />
-      <p className="text-sm text-[var(--ds-color-intent-destructive)]">
-        This field is required
-      </p>
-    </div>
-  ),
-};
-
-export const WithValue: Story = {
-  render: () => (
-    <div className="grid w-full gap-1.5">
-      <Label htmlFor="filled-message">Your message</Label>
-      <Textarea
-        placeholder="Type your message here."
-        id="filled-message"
-        defaultValue="This textarea has some pre-filled content that demonstrates the filled state with text."
-      />
-    </div>
-  ),
-};
-
-export const DifferentSizes: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <div className="grid w-full gap-1.5">
-        <Label htmlFor="small-message">Small (3 rows)</Label>
-        <Textarea
-          placeholder="Type your message here."
-          id="small-message"
-          rows={3}
-        />
-      </div>
-      <div className="grid w-full gap-1.5">
-        <Label htmlFor="medium-message">Medium (6 rows)</Label>
-        <Textarea
-          placeholder="Type your message here."
-          id="medium-message"
-          rows={6}
-        />
-      </div>
-      <div className="grid w-full gap-1.5">
-        <Label htmlFor="large-message">Large (10 rows)</Label>
-        <Textarea
-          placeholder="Type your message here."
-          id="large-message"
-          rows={10}
-        />
-      </div>
-    </div>
-  ),
-};
-
 // All variants showcase
 export const AllVariants: Story = {
   render: () => (
@@ -213,6 +115,104 @@ export const AllVariants: Story = {
             Include as much detail as possible to help us assist you better.
           </p>
         </div>
+      </div>
+    </div>
+  ),
+};
+
+export const Default: Story = {
+  args: {
+    placeholder: 'Type your message here.',
+  },
+};
+
+export const WithLabel: Story = {
+  render: () => (
+    <div className="grid w-full gap-1.5">
+      <Label htmlFor="message">Your message</Label>
+      <Textarea placeholder="Type your message here." id="message" />
+    </div>
+  ),
+};
+
+export const Disabled: Story = {
+  args: {
+    placeholder: 'Type your message here.',
+    disabled: true,
+  },
+};
+
+export const SupportRequest: Story = {
+  render: () => (
+    <div className="grid w-full gap-1.5">
+      <Label htmlFor="support-message">Describe your issue</Label>
+      <Textarea
+        placeholder="Please provide details about the issue you're experiencing..."
+        id="support-message"
+        className="min-h-[100px]"
+      />
+      <p className="text-sm text-muted-foreground">
+        Include as much detail as possible to help us assist you better.
+      </p>
+    </div>
+  ),
+};
+
+export const WithError: Story = {
+  render: () => (
+    <div className="grid w-full gap-1.5">
+      <Label htmlFor="error-message">Your message</Label>
+      <Textarea
+        placeholder="Type your message here."
+        id="error-message"
+        error={true}
+      />
+      <p className="text-sm text-[var(--ds-color-intent-destructive)]">
+        This field is required
+      </p>
+    </div>
+  ),
+};
+
+export const WithValue: Story = {
+  render: () => (
+    <div className="grid w-full gap-1.5">
+      <Label htmlFor="filled-message">Your message</Label>
+      <Textarea
+        placeholder="Type your message here."
+        id="filled-message"
+        defaultValue="This textarea has some pre-filled content that demonstrates the filled state with text."
+      />
+    </div>
+  ),
+};
+
+export const DifferentSizes: Story = {
+  render: () => (
+    <div className="space-y-6">
+      <div className="grid w-full gap-1.5">
+        <Label htmlFor="small-message">Small (3 rows)</Label>
+        <Textarea
+          placeholder="Type your message here."
+          id="small-message"
+          rows={3}
+        />
+      </div>
+      <div className="grid w-full gap-1.5">
+        <Label htmlFor="medium-message">Medium (6 rows)</Label>
+        <Textarea
+          placeholder="Type your message here."
+          id="medium-message"
+          rows={6}
+        />
+      </div>
+      <div className="grid w-full gap-1.5">
+        <Label htmlFor="large-message">Large (10 rows)</Label>
+        <Textarea
+          placeholder="Type your message here."
+          id="large-message"
+          rows={10}
+        />
       </div>
     </div>
   ),
