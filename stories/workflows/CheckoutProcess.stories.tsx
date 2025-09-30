@@ -797,7 +797,7 @@ const CheckoutFlow = () => {
             </CardFooter>
           </Card>
 
-          <Card>
+          <Card className="sticky top-[calc(100vh-200px)]">
             <CardContent className="pt-6 space-y-3">
               <div className="flex items-center gap-2 text-sm text-[var(--ds-color-text-muted)]">
                 <Lock className="h-4 w-4 flex-shrink-0" />
