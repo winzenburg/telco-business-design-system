@@ -70,7 +70,7 @@ export function Combobox({
             'border-neutral-400', // Form input border per design system
             'hover:border-neutral-600 focus:border-primary-500',
             'focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
-            error && 'border-destructive focus:border-destructive focus-visible:ring-destructive',
+            error && 'border-[var(--ds-color-intent-destructive)] focus:border-[var(--ds-color-intent-destructive)] focus-visible:ring-[var(--ds-color-intent-destructive)]',
             disabled && 'cursor-not-allowed opacity-60',
             className,
           )}

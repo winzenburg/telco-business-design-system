@@ -144,7 +144,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               // Design system tokens - form input border
               'border-neutral-400',
               // Error state
-              error && 'border-destructive focus-visible:ring-destructive',
+              error && 'border-[var(--ds-color-intent-destructive)] focus-visible:ring-[var(--ds-color-intent-destructive)]',
               // Loading state
               loading && 'cursor-wait',
               // Size classes
@@ -182,7 +182,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {(hintText || (error && errorMessage)) && (
           <p className={cn(
             'text-sm font-secondary mt-1',
-            error ? 'text-destructive' : 'text-neutral-600',
+            error ? 'text-[var(--ds-color-intent-destructive)]' : 'text-neutral-600',
           )}>
             {error && errorMessage ? errorMessage : hintText}
           </p>

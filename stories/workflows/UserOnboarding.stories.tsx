@@ -271,7 +271,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                     error={!!errors.firstName}
                   />
                   {errors.firstName && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.firstName}
                     </p>
@@ -290,7 +290,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                     error={!!errors.lastName}
                   />
                   {errors.lastName && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.lastName}
                     </p>
@@ -311,7 +311,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   error={!!errors.email}
                 />
                 {errors.email && (
-                  <p className="text-sm text-destructive flex items-center gap-1">
+                  <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                     <AlertCircle className="h-3 w-3" />
                     {errors.email}
                   </p>
@@ -331,7 +331,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   error={!!errors.phone}
                 />
                 {errors.phone && (
-                  <p className="text-sm text-destructive flex items-center gap-1">
+                  <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                     <AlertCircle className="h-3 w-3" />
                     {errors.phone}
                   </p>
@@ -359,7 +359,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   error={!!errors.company}
                 />
                 {errors.company && (
-                  <p className="text-sm text-destructive flex items-center gap-1">
+                  <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                     <AlertCircle className="h-3 w-3" />
                     {errors.company}
                   </p>
@@ -381,7 +381,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                     width="w-full"
                   />
                   {errors.industry && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.industry}
                     </p>
@@ -402,7 +402,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                     width="w-full"
                   />
                   {errors.companySize && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.companySize}
                     </p>
@@ -424,7 +424,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   width="w-full"
                 />
                 {errors.state && (
-                  <p className="text-sm text-destructive flex items-center gap-1">
+                  <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                     <AlertCircle className="h-3 w-3" />
                     {errors.state}
                   </p>
@@ -451,7 +451,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   </SelectContent>
                 </Select>
                 {errors.role && (
-                  <p className="text-sm text-destructive flex items-center gap-1">
+                  <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                     <AlertCircle className="h-3 w-3" />
                     {errors.role}
                   </p>
@@ -527,7 +527,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   placeholder="Select a start date"
                 />
                 {errors.startDate && (
-                  <p className="text-sm text-destructive flex items-center gap-1">
+                  <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                     <AlertCircle className="h-3 w-3" />
                     {errors.startDate}
                   </p>
@@ -547,7 +547,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                 />
                 <div className="flex justify-between items-center">
                   {errors.goals ? (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.goals}
                     </p>

@@ -38,7 +38,7 @@ const SelectTrigger = React.forwardRef<
       // Disabled state
       'disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-neutral-50',
       // Error state
-      error && 'border-destructive focus:ring-destructive',
+      error && 'border-[var(--ds-color-intent-destructive)] focus:ring-[var(--ds-color-intent-destructive)]',
       // Icon truncation
       '[&>span]:line-clamp-1',
       className,

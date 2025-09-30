@@ -357,7 +357,7 @@ const CheckoutFlow = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="email">
-                    Email Address <span className="text-destructive">*</span>
+                    Email Address <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                   </Label>
                   <Input
                     id="email"
@@ -371,7 +371,7 @@ const CheckoutFlow = () => {
                     error={!!errors.email}
                   />
                   {errors.email && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.email}
                     </p>
@@ -379,7 +379,7 @@ const CheckoutFlow = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">
-                    Phone Number <span className="text-destructive">*</span>
+                    Phone Number <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                   </Label>
                   <Input
                     id="phone"
@@ -393,7 +393,7 @@ const CheckoutFlow = () => {
                     error={!!errors.phone}
                   />
                   {errors.phone && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.phone}
                     </p>
@@ -421,7 +421,7 @@ const CheckoutFlow = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2 space-y-2">
                   <Label htmlFor="cardNumber">
-                    Card Number <span className="text-destructive">*</span>
+                    Card Number <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                   </Label>
                   <Input
                     id="cardNumber"
@@ -434,7 +434,7 @@ const CheckoutFlow = () => {
                     error={!!errors.cardNumber}
                   />
                   {errors.cardNumber && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.cardNumber}
                     </p>
@@ -442,7 +442,7 @@ const CheckoutFlow = () => {
                 </div>
                 <div className="col-span-2 space-y-2">
                   <Label htmlFor="cardHolder">
-                    Cardholder Name <span className="text-destructive">*</span>
+                    Cardholder Name <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                   </Label>
                   <Input
                     id="cardHolder"
@@ -455,7 +455,7 @@ const CheckoutFlow = () => {
                     error={!!errors.cardHolder}
                   />
                   {errors.cardHolder && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.cardHolder}
                     </p>
@@ -463,7 +463,7 @@ const CheckoutFlow = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="expiryDate">
-                    Expiry Date <span className="text-destructive">*</span>
+                    Expiry Date <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                   </Label>
                   <Input
                     id="expiryDate"
@@ -476,7 +476,7 @@ const CheckoutFlow = () => {
                     error={!!errors.expiryDate}
                   />
                   {errors.expiryDate && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.expiryDate}
                     </p>
@@ -484,7 +484,7 @@ const CheckoutFlow = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="cvv">
-                    CVV <span className="text-destructive">*</span>
+                    CVV <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                   </Label>
                   <Input
                     id="cvv"
@@ -497,7 +497,7 @@ const CheckoutFlow = () => {
                     error={!!errors.cvv}
                   />
                   {errors.cvv && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.cvv}
                     </p>
@@ -511,7 +511,7 @@ const CheckoutFlow = () => {
                 <h4 className="font-medium">Billing Address</h4>
                 <div className="space-y-2">
                   <Label htmlFor="address">
-                    Street Address <span className="text-destructive">*</span>
+                    Street Address <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                   </Label>
                   <Input
                     id="address"
@@ -524,7 +524,7 @@ const CheckoutFlow = () => {
                     error={!!errors.billingAddress}
                   />
                   {errors.billingAddress && (
-                    <p className="text-sm text-destructive flex items-center gap-1">
+                    <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                       <AlertCircle className="h-3 w-3" />
                       {errors.billingAddress}
                     </p>
@@ -533,7 +533,7 @@ const CheckoutFlow = () => {
                 <div className="grid grid-cols-3 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="city">
-                      City <span className="text-destructive">*</span>
+                      City <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                     </Label>
                     <Input
                       id="city"
@@ -546,7 +546,7 @@ const CheckoutFlow = () => {
                       error={!!errors.city}
                     />
                     {errors.city && (
-                      <p className="text-sm text-destructive flex items-center gap-1">
+                      <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                         <AlertCircle className="h-3 w-3" />
                         {errors.city}
                       </p>
@@ -554,7 +554,7 @@ const CheckoutFlow = () => {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="state">
-                      State <span className="text-destructive">*</span>
+                      State <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                     </Label>
                     <Combobox
                       options={US_STATES}
@@ -569,7 +569,7 @@ const CheckoutFlow = () => {
                       width="w-full"
                     />
                     {errors.state && (
-                      <p className="text-sm text-destructive flex items-center gap-1">
+                      <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                         <AlertCircle className="h-3 w-3" />
                         {errors.state}
                       </p>
@@ -577,7 +577,7 @@ const CheckoutFlow = () => {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="zip">
-                      ZIP Code <span className="text-destructive">*</span>
+                      ZIP Code <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                     </Label>
                     <Input
                       id="zip"
@@ -590,7 +590,7 @@ const CheckoutFlow = () => {
                       error={!!errors.zipCode}
                     />
                     {errors.zipCode && (
-                      <p className="text-sm text-destructive flex items-center gap-1">
+                      <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
                         <AlertCircle className="h-3 w-3" />
                         {errors.zipCode}
                       </p>
@@ -625,7 +625,7 @@ const CheckoutFlow = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label>Installation Speed <span className="text-destructive">*</span></Label>
+                <Label>Installation Speed <span className="text-[var(--ds-color-intent-destructive)]">*</span></Label>
                 <RadioGroup value={shippingMethod} onValueChange={setShippingMethod}>
                   <div className="space-y-3">
                     <Card className="p-4">
@@ -676,7 +676,7 @@ const CheckoutFlow = () => {
 
               <div className="space-y-2">
                 <Label htmlFor="installation-date">
-                  Preferred Installation Date <span className="text-destructive">*</span>
+                  Preferred Installation Date <span className="text-[var(--ds-color-intent-destructive)]">*</span>
                 </Label>
                 <div className="flex items-start gap-2">
                   <Calendar className="h-4 w-4 mt-3 text-[var(--ds-color-text-muted)]" />
@@ -690,7 +690,7 @@ const CheckoutFlow = () => {
                       placeholder="Select a date"
                     />
                     {errors.installationDate && (
-                      <p className="text-sm text-destructive flex items-center gap-1 mt-1">
+                      <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1 mt-1">
                         <AlertCircle className="h-3 w-3" />
                         {errors.installationDate}
                       </p>
