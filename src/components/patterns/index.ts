@@ -18,3 +18,13 @@ export type { BulkActionBarProps, BulkAction, UseSelectionOptions } from './Bulk
 
 export { ConfirmationModal, useConfirmation } from './ConfirmationModal';
 export type { ConfirmationModalProps, UseConfirmationOptions } from './ConfirmationModal';
+
+// Role-Based Permissions
+export { PermissionGate, usePermissions } from './PermissionGate';
+export type { PermissionGateProps, Permission, UsePermissionsOptions } from './PermissionGate';
+
+export { RestrictedAction, useRestrictedAction } from './RestrictedAction';
+export type { RestrictedActionProps, UseRestrictedActionOptions } from './RestrictedAction';
+
+export { PermissionBanner, PermissionBanners } from './PermissionBanner';
+export type { PermissionBannerProps } from './PermissionBanner';
