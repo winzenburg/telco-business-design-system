@@ -1,2 +1,2 @@
-export { Icon, IconGroup, usePreloadIcons, loadSVG } from './Icon';
+export { Icon, IconGroup } from './Icon';
 export type { IconProps, IconGroupProps } from './Icon';
