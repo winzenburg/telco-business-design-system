@@ -28,3 +28,13 @@ export type { RestrictedActionProps, UseRestrictedActionOptions } from './Restri
 
 export { PermissionBanner, PermissionBanners } from './PermissionBanner';
 export type { PermissionBannerProps } from './PermissionBanner';
+
+// Help & Documentation
+export { HelpTooltip, LabelWithHelp } from './HelpTooltip';
+export type { HelpTooltipProps, LabelWithHelpProps } from './HelpTooltip';
+
+export { HelpDrawer, useHelpDrawer } from './HelpDrawer';
+export type { HelpDrawerProps, HelpArticle } from './HelpDrawer';
+
+export { InlineHelp, GlossaryTerm } from './InlineHelp';
+export type { InlineHelpProps, GlossaryTermProps } from './InlineHelp';
