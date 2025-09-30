@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card,
   CardContent,
@@ -21,6 +21,19 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '../src/components/ui/chart';
+import { Combobox } from '../src/components/ui/combobox';
+import { DatePicker } from '../src/components/ui/date-picker';
+import { Textarea } from '../src/components/ui/textarea';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '../src/components/ui/dialog';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../src/components/ui/select';
+import { AlertCircle } from 'lucide-react';
 
 // Import Recharts components
 import {
@@ -89,6 +102,23 @@ const revenueData = [
   { name: 'Q4', revenue: 2.4, growth: 12.5 },
 ];
 
+const regionOptions = [
+  { value: 'all', label: 'All Regions' },
+  { value: 'northeast', label: 'Northeast' },
+  { value: 'southeast', label: 'Southeast' },
+  { value: 'midwest', label: 'Midwest' },
+  { value: 'southwest', label: 'Southwest' },
+  { value: 'west', label: 'West' },
+];
+
+const serviceCategoryOptions = [
+  { value: 'all', label: 'All Services' },
+  { value: 'internet', label: 'Internet Services' },
+  { value: 'voice', label: 'Voice Services' },
+  { value: 'tv', label: 'TV Services' },
+  { value: 'security', label: 'Security Services' },
+];
+
 const meta: Meta = {
   title: 'Enterprise/Dashboard',
   parameters: {
@@ -106,29 +136,93 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const ExecutiveDashboard: Story = {
-  render: () => (
-    <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
-      {/* Header */}
-      <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-neutral-300)] px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[var(--ds-color-intent-primary)] rounded flex items-center justify-center text-white font-bold text-sm">CB</div>
-              <div>
-                <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Executive Dashboard</h1>
-                <p className="text-sm text-[var(--ds-color-text-muted)]">Real-time business insights</p>
+  render: () => {
+    const [region, setRegion] = useState('all');
+    const [serviceCategory, setServiceCategory] = useState('all');
+    const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+    const [endDate, setEndDate] = useState<Date | undefined>(undefined);
+    const [incidentDialogOpen, setIncidentDialogOpen] = useState(false);
+    const [incidentType, setIncidentType] = useState('');
+    const [incidentDescription, setIncidentDescription] = useState('');
+
+    return (
+      <div className="min-h-screen bg-[var(--ds-color-bg-surface)]">
+        {/* Header */}
+        <header className="bg-[var(--ds-color-bg-canvas)] border-b border-[var(--ds-color-neutral-300)] px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 bg-[var(--ds-color-intent-primary)] rounded flex items-center justify-center text-white font-bold text-sm">CB</div>
+                <div>
+                  <h1 className="font-primary font-semibold text-xl text-[var(--ds-color-text-primary)]">Executive Dashboard</h1>
+                  <p className="text-sm text-[var(--ds-color-text-muted)]">Real-time business insights</p>
+                </div>
               </div>
             </div>
+            <div className="flex items-center gap-4">
+              <Badge variant="secondary">Live</Badge>
+              <Avatar className="w-8 h-8">
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">John Doe</span>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <Badge variant="secondary">Live</Badge>
-            <Avatar className="w-8 h-8">
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-            <span className="text-sm font-medium text-[var(--ds-color-text-primary)]">John Doe</span>
+
+          {/* Filters */}
+          <div className="flex flex-wrap items-center gap-3 mt-4">
+            <Combobox
+              options={regionOptions}
+              value={region}
+              onValueChange={setRegion}
+              placeholder="Select region..."
+              searchPlaceholder="Search regions..."
+              width="w-[180px]"
+            />
+            <Combobox
+              options={serviceCategoryOptions}
+              value={serviceCategory}
+              onValueChange={setServiceCategory}
+              placeholder="Select service..."
+              searchPlaceholder="Search services..."
+              width="w-[200px]"
+            />
+            <div className="flex items-center gap-2">
+              <DatePicker
+                date={startDate}
+                onDateChange={setStartDate}
+                placeholder="Start date"
+              />
+              <span className="text-sm text-[var(--ds-color-text-muted)]">to</span>
+              <DatePicker
+                date={endDate}
+                onDateChange={setEndDate}
+                placeholder="End date"
+              />
+            </div>
+            {(region !== 'all' || serviceCategory !== 'all' || startDate || endDate) && (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setRegion('all');
+                  setServiceCategory('all');
+                  setStartDate(undefined);
+                  setEndDate(undefined);
+                }}
+              >
+                Clear filters
+              </Button>
+            )}
+            <div className="ml-auto">
+              <Button
+                variant="outline"
+                onClick={() => setIncidentDialogOpen(true)}
+              >
+                Report Incident
+              </Button>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
       <div className="p-6 space-y-6">
         {/* Key Metrics Row */}
@@ -470,6 +564,84 @@ export const ExecutiveDashboard: Story = {
           </Card>
         </div>
       </div>
+
+      {/* Incident Report Dialog */}
+      <Dialog open={incidentDialogOpen} onOpenChange={setIncidentDialogOpen}>
+        <DialogContent className="sm:max-w-[600px]">
+          <DialogHeader>
+            <DialogTitle>Report Incident</DialogTitle>
+            <DialogDescription>
+              Submit an incident report for immediate review by the operations team.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-6 py-4">
+            {/* Incident Type */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">
+                Incident Type <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+              </label>
+              <Select value={incidentType} onValueChange={setIncidentType}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select incident type..." />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="outage">Service Outage</SelectItem>
+                  <SelectItem value="degraded">Degraded Performance</SelectItem>
+                  <SelectItem value="security">Security Breach</SelectItem>
+                  <SelectItem value="billing">Billing Issue</SelectItem>
+                  <SelectItem value="hardware">Hardware Failure</SelectItem>
+                  <SelectItem value="other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Incident Description */}
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-[var(--ds-color-text-primary)]">
+                Description <span className="text-[var(--ds-color-intent-destructive)]">*</span>
+              </label>
+              <Textarea
+                placeholder="Provide detailed information about the incident..."
+                value={incidentDescription}
+                onChange={(e) => setIncidentDescription(e.target.value)}
+                minLength={30}
+                maxLength={1000}
+                rows={8}
+                showCount
+              />
+              <p className="text-xs text-[var(--ds-color-text-muted)]">
+                Minimum 30 characters. Include details such as affected services, regions, time of occurrence, and impact.
+              </p>
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setIncidentDialogOpen(false);
+                setIncidentType('');
+                setIncidentDescription('');
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              disabled={!incidentType || incidentDescription.length < 30}
+              onClick={() => {
+                // Handle incident submission
+                setIncidentDialogOpen(false);
+                setIncidentType('');
+                setIncidentDescription('');
+              }}
+            >
+              Submit Report
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
-  ),
+    );
+  },
 };
