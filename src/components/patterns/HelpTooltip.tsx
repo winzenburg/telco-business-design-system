@@ -4,7 +4,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/
 import { Icon } from '../Icon';
 import type { IconName } from '../../../packages/tokens/design-system-icons-types';
 
-export interface HelpTooltipProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface HelpTooltipProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'content'> {
   /**
    * Help text content
    */

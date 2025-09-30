@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { cn } from '../../utils/cn';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '../ui/sheet';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';

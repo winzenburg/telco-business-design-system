@@ -4,7 +4,7 @@ import { Alert, AlertDescription } from '../ui/alert';
 import { Icon } from '../Icon';
 import type { IconName } from '../../../packages/tokens/design-system-icons-types';
 
-export interface InlineHelpProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface InlineHelpProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
   /**
    * Help content
    */
@@ -125,12 +125,16 @@ export const InlineHelp = React.forwardRef<HTMLDivElement, InlineHelpProps>(
 
           <div className="flex-1 min-w-0">
             {(title || collapsible) && (
-              <div
+              <button
+                type="button"
                 className={cn(
-                  'flex items-center gap-2 mb-2',
+                  'flex items-center gap-2 mb-2 w-full text-left',
                   collapsible && 'cursor-pointer',
+                  !collapsible && 'cursor-default',
                 )}
                 onClick={toggleCollapse}
+                disabled={!collapsible}
+                aria-expanded={collapsible ? !isCollapsed : undefined}
               >
                 {title && (
                   <h4 className="font-semibold text-sm">{title}</h4>
@@ -146,7 +150,7 @@ export const InlineHelp = React.forwardRef<HTMLDivElement, InlineHelpProps>(
                     color={config.iconColor}
                   />
                 )}
-              </div>
+              </button>
             )}
 
             {(!collapsible || !isCollapsed) && (
@@ -205,7 +209,6 @@ export interface GlossaryTermProps {
 export const GlossaryTerm: React.FC<GlossaryTermProps> = ({
   term,
   definition,
-  learnMoreUrl,
   className,
 }) => {
   return (
