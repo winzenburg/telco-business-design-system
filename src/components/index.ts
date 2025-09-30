@@ -145,6 +145,10 @@ export {
   TableRow,
 } from './ui/table';
 
+// Patterns
+export { EmptyState } from './patterns';
+export type { EmptyStateProps } from './patterns';
+
 // Utilities
 export { cn } from '../utils/cn';
 

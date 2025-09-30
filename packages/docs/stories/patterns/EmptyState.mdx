@@ -1,0 +1,268 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import * as EmptyStateStories from '../../../../stories/patterns/EmptyState.stories';
+
+<Meta of={EmptyStateStories} />
+
+# Empty States
+
+Empty states are critical UI patterns that handle scenarios when data is unavailable, not yet configured, or filtered out. They prevent user confusion and support orientation in unfamiliar systems.
+
+## Overview
+
+Empty states appear when:
+- A user encounters a feature for the first time
+- Search or filter returns no results
+- Data hasn't been added yet
+- An error prevents data from loading
+- Permissions restrict access
+
+## Anatomy
+
+Every empty state consists of:
+
+1. **Icon** (required): Visual representation of the state
+2. **Headline** (required): Clear, concise description (1-7 words)
+3. **Description** (optional): Supporting context (1-2 sentences)
+4. **Primary CTA** (optional): Main action to resolve the state
+5. **Secondary CTA** (optional): Alternative action
+
+## Usage Guidelines
+
+### Do's
+- Use icons that clearly represent the context
+- Keep headlines short and actionable
+- Provide clear next steps when possible
+- Match the tone to the severity (friendly for no-data, serious for errors)
+- Test with real users to ensure clarity
+
+### Don'ts
+- Don't use technical jargon in headlines
+- Don't leave users without guidance
+- Don't use generic "No data" messages
+- Don't overload with too many actions
+- Don't use humor in error states
+
+## Variants
+
+### No Data
+Use when data hasn't been added or configured yet.
+
+<Canvas of={EmptyStateStories.NoData} />
+
+### No Results
+Use when a search or filter returns no matches.
+
+<Canvas of={EmptyStateStories.NoResults} />
+
+### First Use
+Use to welcome new users and guide them to get started.
+
+<Canvas of={EmptyStateStories.FirstUse} />
+
+### Error State
+Use when an error prevents data from loading.
+
+<Canvas of={EmptyStateStories.ErrorState} />
+
+### Permissions
+Use when access is restricted due to permissions or plan limits.
+
+<Canvas of={EmptyStateStories.PermissionsRestricted} />
+
+## Sizes
+
+Empty states come in three sizes to fit different contexts:
+
+### Small
+For compact spaces like sidebars or cards.
+
+<Canvas of={EmptyStateStories.SmallSize} />
+
+### Medium (Default)
+For standard content areas and dashboards.
+
+<Canvas of={EmptyStateStories.MediumSize} />
+
+### Large
+For full-page states or prominent features.
+
+<Canvas of={EmptyStateStories.LargeSize} />
+
+## Real-World Scenarios
+
+### Empty Inbox
+<Canvas of={EmptyStateStories.EmptyInbox} />
+
+### Search with No Results
+<Canvas of={EmptyStateStories.NoSearchResults} />
+
+### First-Time User Dashboard
+<Canvas of={EmptyStateStories.FirstTimeUser} />
+
+### Empty Shopping Cart
+<Canvas of={EmptyStateStories.EmptyCart} />
+
+### Filtered View (No Matches)
+<Canvas of={EmptyStateStories.FilteredOutData} />
+
+### Data Connection Failed
+<Canvas of={EmptyStateStories.ConnectionError} />
+
+### Feature Requires Upgrade
+<Canvas of={EmptyStateStories.RestrictedFeature} />
+
+## Behavior & States
+
+### Loading → Empty
+When transitioning from a loading state to empty:
+1. Show skeleton/spinner while loading
+2. Fade to empty state when load completes
+3. Ensure smooth transition (avoid jarring jumps)
+
+### Empty → Data
+When data becomes available:
+1. Replace empty state with actual content
+2. Use fade transition for smooth UX
+3. Maintain scroll position when appropriate
+
+## Content Guidelines
+
+### Headlines
+- Keep to 1-7 words
+- Use sentence case
+- Be specific to the context
+- Focus on the "what" (state) not the "why"
+
+**Good**: "No customers found"
+**Bad**: "The system could not locate any customer records"
+
+### Descriptions
+- Keep to 1-2 sentences
+- Explain why the state exists
+- Suggest next steps
+- Use plain language
+
+**Good**: "Try adjusting your search or filters to find what you're looking for."
+**Bad**: "The query parameters did not match any records in the database."
+
+### Call-to-Action Labels
+- Start with a verb
+- Be specific and actionable
+- Keep to 1-3 words
+
+**Good**: "Connect Data Source"
+**Bad**: "Click here to begin the process of connecting"
+
+## Accessibility
+
+### ARIA Attributes
+```tsx
+<EmptyState
+  role="status"
+  aria-live="polite"
+  headline="No results found"
+/>
+```
+
+### Keyboard Navigation
+- All CTAs must be keyboard accessible
+- Tab order should be: Primary → Secondary → Additional content
+- Focus indicators must be visible
+
+### Screen Reader Support
+- Headlines are announced as headings (h3)
+- Descriptions provide context
+- Buttons have clear, descriptive labels
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- Icons scale down proportionally
+- Text remains readable (min 14px)
+- Buttons stack vertically
+- Padding reduces to fit smaller screens
+
+### Tablet (768px - 1024px)
+- Medium size works best
+- Buttons can remain horizontal
+- Full padding and spacing
+
+### Desktop (> 1024px)
+- All sizes work well
+- Large size recommended for prominent features
+- Maximum width constrains text readability
+
+## Integration Examples
+
+### With Card
+```tsx
+<Card>
+  <EmptyState
+    variant="no-data"
+    headline="No transactions"
+    description="Your transaction history will appear here."
+    primaryAction={{
+      label: "View Help",
+      onClick: handleHelp
+    }}
+  />
+</Card>
+```
+
+### With Search
+```tsx
+<div>
+  <SearchInput value={query} onChange={setQuery} />
+  {results.length === 0 && (
+    <EmptyState
+      variant="no-results"
+      headline="No results found"
+      primaryAction={{
+        label: "Clear Search",
+        onClick: () => setQuery("")
+      }}
+    />
+  )}
+</div>
+```
+
+### With Permissions Check
+```tsx
+{!hasAccess && (
+  <EmptyState
+    variant="permissions"
+    headline="Access restricted"
+    description="Contact your administrator to request access."
+    primaryAction={{
+      label: "Request Access",
+      onClick: handleRequestAccess
+    }}
+  />
+)}
+```
+
+## Design Tokens Used
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-color-text-primary` | #15172B | Headline text |
+| `--ds-color-text-secondary` | #626477 | Description text |
+| `--ds-color-neutral-400` | #B4B5BB | No-data, no-results icons |
+| `--ds-color-blue-500` | #0071CE | First-use icon |
+| `--ds-color-error-500` | #DE1426 | Error icon |
+| `--ds-color-warning-500` | #FF7900 | Permission icon |
+| `--ds-font-family-primary` | Open Sans | Headline font |
+| `--ds-font-family-secondary` | Open Sans | Description font |
+
+## Related Patterns
+
+- **Loading States**: Show before empty states
+- **Error Messages**: Alternative to error variant for inline errors
+- **Onboarding Flows**: Complement first-use empty states
+- **Tooltips**: Provide additional context for CTAs
+
+## Version History
+
+| Version | Changes |
+|---------|---------|
+| 1.0.0 | Initial release with 5 variants and 3 sizes |
