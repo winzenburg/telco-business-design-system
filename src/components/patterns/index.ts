@@ -11,3 +11,10 @@ export type { KeyValuePairProps, KeyValueListProps } from './KeyValuePair';
 
 export { DetailPanel, DetailPanelGroup } from './DetailPanel';
 export type { DetailPanelProps, DetailPanelGroupProps } from './DetailPanel';
+
+// Bulk Actions & Multi-Select
+export { BulkActionBar, useSelection } from './BulkActionBar';
+export type { BulkActionBarProps, BulkAction, UseSelectionOptions } from './BulkActionBar';
+
+export { ConfirmationModal, useConfirmation } from './ConfirmationModal';
+export type { ConfirmationModalProps, UseConfirmationOptions } from './ConfirmationModal';
