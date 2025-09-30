@@ -56,7 +56,7 @@ export interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const variantConfig = {
   'no-data': {
-    icon: 'database' as IconName,
+    icon: 'inbox' as IconName,
     iconColor: 'var(--ds-color-neutral-400)',
   },
   'no-results': {
@@ -64,15 +64,15 @@ const variantConfig = {
     iconColor: 'var(--ds-color-neutral-400)',
   },
   'first-use': {
-    icon: 'info' as IconName,
+    icon: 'compass' as IconName,
     iconColor: 'var(--ds-color-blue-500)',
   },
   'error': {
-    icon: 'alert' as IconName,
+    icon: 'alert-circle' as IconName,
     iconColor: 'var(--ds-color-error-500)',
   },
   'permissions': {
-    icon: 'lock' as IconName,
+    icon: 'shield' as IconName,
     iconColor: 'var(--ds-color-warning-500)',
   },
 } as const;
