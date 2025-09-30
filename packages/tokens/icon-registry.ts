@@ -617,6 +617,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: headphones',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-headphones.svg',
     license: 'MIT'
   },
   'mail': { 
@@ -625,6 +626,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: mail',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-mail.svg',
     license: 'MIT'
   },
   'message-circle': { 
@@ -649,6 +651,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: mic',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-mic.svg',
     license: 'MIT'
   },
   'mic-off': { 
@@ -665,6 +668,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: phone',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-phone.svg',
     license: 'MIT'
   },
   'phone-call': { 
@@ -721,6 +725,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: rss',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-rss.svg',
     license: 'MIT'
   },
   'send': { 
@@ -729,6 +734,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: send',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-send.svg',
     license: 'MIT'
   },
   'speaker': { 
@@ -737,6 +743,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: speaker',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-speaker.svg',
     license: 'MIT'
   },
   'volume': { 
@@ -745,6 +752,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: volume',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-volume.svg',
     license: 'MIT'
   },
   'volume-1': { 
@@ -827,6 +835,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: bold',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-bold.svg',
     license: 'MIT'
   },
   'code': { 
@@ -835,6 +844,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: code',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-code.svg',
     license: 'MIT'
   },
   'columns': { 
@@ -843,6 +853,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: columns',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-columns.svg',
     license: 'MIT'
   },
   'database': { 
@@ -851,6 +862,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: database',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-database.svg',
     license: 'MIT'
   },
   'divide': { 
@@ -859,6 +871,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: divide',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-divide.svg',
     license: 'MIT'
   },
   'divide-circle': { 
@@ -883,6 +896,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: file',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-file.svg',
     license: 'MIT'
   },
   'file-minus': { 
@@ -931,6 +945,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: grid',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-grid.svg',
     license: 'MIT'
   },
   'hard-drive': { 
@@ -947,6 +962,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: hash',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-hash.svg',
     license: 'MIT'
   },
   'italic': { 
@@ -955,6 +971,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: italic',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-italic.svg',
     license: 'MIT'
   },
   'layers': { 
@@ -963,6 +980,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: layers',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-layers.svg',
     license: 'MIT'
   },
   'list': { 
@@ -971,6 +989,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: list',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-list.svg',
     license: 'MIT'
   },
   'pie-chart': { 
@@ -987,6 +1006,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: server',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-server.svg',
     license: 'MIT'
   },
   'slash': { 
@@ -995,6 +1015,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: slash',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-slash.svg',
     license: 'MIT'
   },
   'table': { 
@@ -1003,6 +1024,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: table',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-table.svg',
     license: 'MIT'
   },
   'terminal': { 
@@ -1011,6 +1033,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: terminal',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-terminal.svg',
     license: 'MIT'
   },
   'type': { 
@@ -1019,6 +1042,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: type',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-type.svg',
     license: 'MIT'
   },
   'underline': { 
@@ -1027,6 +1051,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: underline',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-underline.svg',
     license: 'MIT'
   },
 
@@ -1037,6 +1062,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: anchor',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-anchor.svg',
     license: 'MIT'
   },
   'aperture': { 
@@ -1045,6 +1071,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: aperture',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-aperture.svg',
     license: 'MIT'
   },
   'archive': { 
@@ -1053,6 +1080,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: archive',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-archive.svg',
     license: 'MIT'
   },
   'bluetooth': { 
@@ -1061,6 +1089,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: bluetooth',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-bluetooth.svg',
     license: 'MIT'
   },
   'book': { 
@@ -1069,6 +1098,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: book',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-book.svg',
     license: 'MIT'
   },
   'book-open': { 
@@ -1085,6 +1115,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: box',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-box.svg',
     license: 'MIT'
   },
   'briefcase': { 
@@ -1093,6 +1124,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: briefcase',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-briefcase.svg',
     license: 'MIT'
   },
   'calendar': { 
@@ -1101,6 +1133,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: calendar',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-calendar.svg',
     license: 'MIT'
   },
   'chrome': { 
@@ -1109,6 +1142,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: chrome',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-chrome.svg',
     license: 'MIT'
   },
   'clock': { 
@@ -1117,6 +1151,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: clock',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-clock.svg',
     license: 'MIT'
   },
   'cloud-drizzle': { 
@@ -1165,6 +1200,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: codepen',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-codepen.svg',
     license: 'MIT'
   },
   'codesandbox': { 
@@ -1173,6 +1209,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: codesandbox',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-codesandbox.svg',
     license: 'MIT'
   },
   'coffee': { 
@@ -1181,6 +1218,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: coffee',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-coffee.svg',
     license: 'MIT'
   },
   'command': { 
@@ -1189,6 +1227,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: command',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-command.svg',
     license: 'MIT'
   },
   'cpu': { 
@@ -1197,6 +1236,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: cpu',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-cpu.svg',
     license: 'MIT'
   },
   'credit-card': { 
@@ -1213,6 +1253,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: delete',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-delete.svg',
     license: 'MIT'
   },
   'dollar-sign': { 
@@ -1229,6 +1270,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: dribbble',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-dribbble.svg',
     license: 'MIT'
   },
   'droplet': { 
@@ -1237,6 +1279,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: droplet',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-droplet.svg',
     license: 'MIT'
   },
   'facebook': { 
@@ -1245,6 +1288,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: facebook',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-facebook.svg',
     license: 'MIT'
   },
   'feather': { 
@@ -1253,6 +1297,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: feather',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-feather.svg',
     license: 'MIT'
   },
   'figma': { 
@@ -1261,6 +1306,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: figma',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-figma.svg',
     license: 'MIT'
   },
   'framer': { 
@@ -1269,6 +1315,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: framer',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-framer.svg',
     license: 'MIT'
   },
   'gift': { 
@@ -1277,6 +1324,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: gift',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-gift.svg',
     license: 'MIT'
   },
   'git-branch': { 
@@ -1317,6 +1365,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: github',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-github.svg',
     license: 'MIT'
   },
   'gitlab': { 
@@ -1325,6 +1374,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: gitlab',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-gitlab.svg',
     license: 'MIT'
   },
   'globe': { 
@@ -1333,6 +1383,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: globe',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-globe.svg',
     license: 'MIT'
   },
   'inbox': { 
@@ -1341,6 +1392,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: inbox',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-inbox.svg',
     license: 'MIT'
   },
   'instagram': { 
@@ -1349,6 +1401,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: instagram',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-instagram.svg',
     license: 'MIT'
   },
   'layout': { 
@@ -1357,6 +1410,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: layout',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-layout.svg',
     license: 'MIT'
   },
   'linkedin': { 
@@ -1365,6 +1419,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: linkedin',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-linkedin.svg',
     license: 'MIT'
   },
   'moon': { 
@@ -1373,6 +1428,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: moon',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-moon.svg',
     license: 'MIT'
   },
   'package': { 
@@ -1381,6 +1437,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: package',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-package.svg',
     license: 'MIT'
   },
   'paperclip': { 
@@ -1389,6 +1446,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: paperclip',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-paperclip.svg',
     license: 'MIT'
   },
   'pocket': { 
@@ -1397,6 +1455,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: pocket',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-pocket.svg',
     license: 'MIT'
   },
   'power': { 
@@ -1405,6 +1464,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: power',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-power.svg',
     license: 'MIT'
   },
   'printer': { 
@@ -1413,6 +1473,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: printer',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-printer.svg',
     license: 'MIT'
   },
   'shopping-bag': { 
@@ -1437,6 +1498,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: sidebar',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-sidebar.svg',
     license: 'MIT'
   },
   'slack': { 
@@ -1445,6 +1507,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: slack',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-slack.svg',
     license: 'MIT'
   },
   'sun': { 
@@ -1453,6 +1516,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: sun',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-sun.svg',
     license: 'MIT'
   },
   'sunrise': { 
@@ -1461,6 +1525,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: sunrise',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-sunrise.svg',
     license: 'MIT'
   },
   'sunset': { 
@@ -1469,6 +1534,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: sunset',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-sunset.svg',
     license: 'MIT'
   },
   'thermometer': { 
@@ -1477,6 +1543,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: thermometer',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-thermometer.svg',
     license: 'MIT'
   },
   'toggle-left': { 
@@ -1501,6 +1568,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: tool',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-tool.svg',
     license: 'MIT'
   },
   'trash': { 
@@ -1509,6 +1577,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: trash',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-trash.svg',
     license: 'MIT'
   },
   'trash-2': { 
@@ -1525,6 +1594,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: trello',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-trello.svg',
     license: 'MIT'
   },
   'truck': { 
@@ -1533,6 +1603,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: truck',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-truck.svg',
     license: 'MIT'
   },
   'twitch': { 
@@ -1541,6 +1612,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: twitch',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-twitch.svg',
     license: 'MIT'
   },
   'twitter': { 
@@ -1549,6 +1621,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: twitter',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-twitter.svg',
     license: 'MIT'
   },
   'umbrella': { 
@@ -1557,6 +1630,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: umbrella',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-umbrella.svg',
     license: 'MIT'
   },
   'wind': { 
@@ -1565,6 +1639,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: wind',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-wind.svg',
     license: 'MIT'
   },
   'youtube': { 
@@ -1573,6 +1648,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: youtube',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-youtube.svg',
     license: 'MIT'
   },
   'zoom-in': { 
@@ -1599,6 +1675,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: bookmark',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-bookmark.svg',
     license: 'MIT'
   },
   'check-circle': { 
@@ -1623,6 +1700,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: copy',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-copy.svg',
     license: 'MIT'
   },
   'crop': { 
@@ -1631,6 +1709,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: crop',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-crop.svg',
     license: 'MIT'
   },
   'download-cloud': { 
@@ -1647,6 +1726,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: edit',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-edit.svg',
     license: 'MIT'
   },
   'edit-2': { 
@@ -1679,6 +1759,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: filter',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-filter.svg',
     license: 'MIT'
   },
   'flag': { 
@@ -1687,6 +1768,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: flag',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-flag.svg',
     license: 'MIT'
   },
   'frown': { 
@@ -1695,6 +1777,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: frown',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-frown.svg',
     license: 'MIT'
   },
   'heart': { 
@@ -1703,6 +1786,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: heart',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-heart.svg',
     license: 'MIT'
   },
   'link': { 
@@ -1711,6 +1795,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: link',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-link.svg',
     license: 'MIT'
   },
   'link-2': { 
@@ -1735,6 +1820,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: meh',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-meh.svg',
     license: 'MIT'
   },
   'minimize-2': { 
@@ -1791,6 +1877,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: move',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-move.svg',
     license: 'MIT'
   },
   'pen-tool': { 
@@ -1855,6 +1942,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: save',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-save.svg',
     license: 'MIT'
   },
   'scissors': { 
@@ -1863,6 +1951,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: scissors',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-scissors.svg',
     license: 'MIT'
   },
   'settings': { 
@@ -1871,6 +1960,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: settings',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-settings.svg',
     license: 'MIT'
   },
   'share': { 
@@ -1879,6 +1969,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: share',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-share.svg',
     license: 'MIT'
   },
   'share-2': { 
@@ -1895,6 +1986,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: sliders',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-sliders.svg',
     license: 'MIT'
   },
   'smile': { 
@@ -1903,6 +1995,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: smile',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-smile.svg',
     license: 'MIT'
   },
   'star': { 
@@ -1911,6 +2004,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: star',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-star.svg',
     license: 'MIT'
   },
   'tag': { 
@@ -1919,6 +2013,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: tag',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-tag.svg',
     license: 'MIT'
   },
   'thumbs-down': { 
@@ -1951,6 +2046,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: x',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-x.svg',
     license: 'MIT'
   },
   'x-circle': { 
@@ -1983,6 +2079,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: zap',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-zap.svg',
     license: 'MIT'
   },
   'zap-off': { 
@@ -2001,6 +2098,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: airplay',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-airplay.svg',
     license: 'MIT'
   },
   'camera-off': { 
@@ -2017,6 +2115,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: cast',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-cast.svg',
     license: 'MIT'
   },
   'disc': { 
@@ -2025,6 +2124,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: disc',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-disc.svg',
     license: 'MIT'
   },
   'fast-forward': { 
@@ -2041,6 +2141,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: film',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-film.svg',
     license: 'MIT'
   },
   'image': { 
@@ -2049,6 +2150,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: image',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-image.svg',
     license: 'MIT'
   },
   'monitor': { 
@@ -2057,6 +2159,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: monitor',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-monitor.svg',
     license: 'MIT'
   },
   'music': { 
@@ -2065,6 +2168,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: music',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-music.svg',
     license: 'MIT'
   },
   'pause': { 
@@ -2073,6 +2177,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: pause',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-pause.svg',
     license: 'MIT'
   },
   'pause-circle': { 
@@ -2089,6 +2194,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: play',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-play.svg',
     license: 'MIT'
   },
   'play-circle': { 
@@ -2105,6 +2211,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: radio',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-radio.svg',
     license: 'MIT'
   },
   'repeat': { 
@@ -2113,6 +2220,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: repeat',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-repeat.svg',
     license: 'MIT'
   },
   'rewind': { 
@@ -2121,6 +2229,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: rewind',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-rewind.svg',
     license: 'MIT'
   },
   'shuffle': { 
@@ -2129,6 +2238,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: shuffle',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-shuffle.svg',
     license: 'MIT'
   },
   'skip-back': { 
@@ -2153,6 +2263,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: smartphone',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-smartphone.svg',
     license: 'MIT'
   },
   'stop-circle': { 
@@ -2169,6 +2280,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: tablet',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-tablet.svg',
     license: 'MIT'
   },
   'tv': { 
@@ -2177,6 +2289,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: tv',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-tv.svg',
     license: 'MIT'
   },
   'video-off': { 
@@ -2193,6 +2306,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: watch',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-watch.svg',
     license: 'MIT'
   },
 
@@ -2363,6 +2477,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: compass',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-compass.svg',
     license: 'MIT'
   },
   'corner-down-left': { 
@@ -2435,6 +2550,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: crosshair',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-crosshair.svg',
     license: 'MIT'
   },
   'home': { 
@@ -2443,6 +2559,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: home',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-home.svg',
     license: 'MIT'
   },
   'map': { 
@@ -2451,6 +2568,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: map',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-map.svg',
     license: 'MIT'
   },
   'map-pin': { 
@@ -2467,6 +2585,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: navigation',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-navigation.svg',
     license: 'MIT'
   },
   'navigation-2': { 
@@ -2483,6 +2602,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: target',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-target.svg',
     license: 'MIT'
   },
 
@@ -2493,6 +2613,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: award',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-award.svg',
     license: 'MIT'
   },
   'eye': { 
@@ -2501,6 +2622,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: eye',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-eye.svg',
     license: 'MIT'
   },
   'eye-off': { 
@@ -2533,6 +2655,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: user',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-user.svg',
     license: 'MIT'
   },
   'user-check': { 
@@ -2575,6 +2698,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: activity',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-activity.svg',
     license: 'MIT'
   },
   'alert-circle': { 
@@ -2607,6 +2731,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: battery',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-battery.svg',
     license: 'MIT'
   },
   'battery-charging': { 
@@ -2623,6 +2748,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: circle',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-circle.svg',
     license: 'MIT'
   },
   'help-circle': { 
@@ -2639,6 +2765,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: hexagon',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-hexagon.svg',
     license: 'MIT'
   },
   'info': { 
@@ -2647,6 +2774,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: info',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-info.svg',
     license: 'MIT'
   },
   'key': { 
@@ -2655,6 +2783,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: key',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-key.svg',
     license: 'MIT'
   },
   'life-buoy': { 
@@ -2671,6 +2800,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: loader',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-loader.svg',
     license: 'MIT'
   },
   'lock': { 
@@ -2679,6 +2809,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: lock',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-lock.svg',
     license: 'MIT'
   },
   'octagon': { 
@@ -2687,6 +2818,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: octagon',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-octagon.svg',
     license: 'MIT'
   },
   'shield': { 
@@ -2695,6 +2827,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: shield',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-shield.svg',
     license: 'MIT'
   },
   'shield-off': { 
@@ -2711,6 +2844,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: square',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-square.svg',
     license: 'MIT'
   },
   'trending-down': { 
@@ -2735,6 +2869,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: triangle',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-triangle.svg',
     license: 'MIT'
   },
   'unlock': { 
@@ -2743,6 +2878,7 @@ export const CORE_ICONS = {
     description: 'Feather icon: unlock',
     source: 'feather' as const,
     sourceUrl: 'https://feathericons.com/',
+    fileName: 'feather-unlock.svg',
     license: 'MIT'
   },
   'wifi-off': { 
