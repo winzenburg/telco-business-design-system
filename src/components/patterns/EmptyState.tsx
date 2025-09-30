@@ -139,7 +139,7 @@ export const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
           className={cn('flex items-center justify-center', sizeStyles.iconSize)}
           style={{ color: config.iconColor }}
         >
-          <Icon name={displayIcon} className="size-full" />
+          <Icon name={displayIcon as any} className="size-full" />
         </div>
 
         {/* Headline */}

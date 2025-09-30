@@ -192,7 +192,7 @@ export const ConfirmationModal = React.forwardRef<HTMLDivElement, ConfirmationMo
               disabled={isLoading}
               className="flex-1 sm:flex-1"
             >
-              {isLoading && <Icon name="refresh" size={16} className="animate-spin" as any />}
+              {isLoading && <Icon name={'refresh' as any} size={16} className="animate-spin" />}
               {confirmLabel}
             </Button>
           </DialogFooter>

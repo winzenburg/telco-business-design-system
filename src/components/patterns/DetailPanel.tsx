@@ -129,7 +129,7 @@ export const DetailPanel = React.forwardRef<HTMLDivElement, DetailPanelProps>(
     };
 
     return (
-      <Card ref={ref} className={cn('overflow-hidden', className)} {...props}>
+      <Card ref={ref} className={cn('overflow-hidden', className)} {...props} draggable={undefined}>
         <CardHeader
           className={cn(
             densityStyles.header,
@@ -151,7 +151,7 @@ export const DetailPanel = React.forwardRef<HTMLDivElement, DetailPanelProps>(
             <div className="flex items-center gap-3 flex-1 min-w-0">
               {/* Expand/Collapse Icon */}
               {expandable && (
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 flex items-center">
                   <Icon
                     name={isExpanded ? 'chevron' : 'chevron' as any}
                     size={densityStyles.iconSize}
@@ -163,9 +163,9 @@ export const DetailPanel = React.forwardRef<HTMLDivElement, DetailPanelProps>(
 
               {/* Optional Icon */}
               {icon && (
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 flex items-center">
                   <Icon
-                    name={icon}
+                    name={icon as any}
                     size={densityStyles.iconSize}
                     color="var(--ds-color-neutral-600)"
                   />
@@ -201,12 +201,13 @@ export const DetailPanel = React.forwardRef<HTMLDivElement, DetailPanelProps>(
             {headerActions && (
               <div
                 className="flex-shrink-0"
-                onClick={(e) => {
+                onClickCapture={(e) => {
                   // Prevent toggle when clicking actions
                   if (expandable) {
                     e.stopPropagation();
                   }
                 }}
+                role="presentation"
               >
                 {headerActions}
               </div>

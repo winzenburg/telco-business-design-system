@@ -163,14 +163,14 @@ export const SummaryCard = React.forwardRef<HTMLDivElement, SummaryCardProps>(
     const trendStyles = trend ? trendConfig[trend.direction] : null;
 
     return (
-      <Card ref={ref} className={cn('relative', className)} {...props}>
+      <Card ref={ref} className={cn('relative', className)} {...props} draggable={undefined}>
         <CardHeader className={densityStyles.header}>
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex items-start gap-3 flex-1 min-w-0">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3 flex-1 min-w-0">
               {icon && (
-                <div className="flex-shrink-0 mt-1">
+                <div className="flex-shrink-0 flex items-center">
                   <Icon
-                    name={icon}
+                    name={icon as any}
                     size={densityStyles.iconSize}
                     color={iconColor || statusStyles?.iconColor || 'var(--ds-color-neutral-500)'}
                   />
@@ -217,7 +217,7 @@ export const SummaryCard = React.forwardRef<HTMLDivElement, SummaryCardProps>(
                 className="flex items-center gap-1 text-sm font-medium"
                 style={{ color: trendStyles.color }}
               >
-                <Icon name={trendStyles.icon} size={16} />
+                <Icon name={trendStyles.icon as any} size={16} />
                 <span>{trend.value}</span>
               </div>
             )}

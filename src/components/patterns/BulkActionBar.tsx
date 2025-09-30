@@ -168,7 +168,7 @@ export const BulkActionBar = React.forwardRef<HTMLDivElement, BulkActionBarProps
               aria-label="Clear selection"
               title="Clear selection"
             >
-              <Icon name="close" size={20} as any />
+              <Icon name={'close' as any} size={20} />
             </button>
 
             <div className="flex items-center gap-2">
@@ -211,7 +211,7 @@ export const BulkActionBar = React.forwardRef<HTMLDivElement, BulkActionBarProps
                   action.variant === 'destructive' && 'bg-[var(--ds-color-error-600)] hover:bg-[var(--ds-color-error-700)]',
                 )}
               >
-                {action.icon && <Icon name={action.icon} size={16} />}
+                {action.icon && <Icon name={action.icon as any} size={16} />}
                 {action.label}
               </Button>
             ))}

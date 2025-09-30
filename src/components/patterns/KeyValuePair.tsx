@@ -120,7 +120,7 @@ export const KeyValuePair = React.forwardRef<HTMLDivElement, KeyValuePairProps>(
     };
 
     const layoutClasses = {
-      horizontal: 'flex items-start',
+      horizontal: 'flex items-center',
       vertical: 'flex flex-col',
       inline: 'inline-flex items-baseline gap-2',
     };
@@ -147,7 +147,7 @@ export const KeyValuePair = React.forwardRef<HTMLDivElement, KeyValuePairProps>(
         >
           {icon && (
             <Icon
-              name={icon}
+              name={icon as any}
               size={densityStyles.iconSize}
               color="var(--ds-color-neutral-500)"
             />
