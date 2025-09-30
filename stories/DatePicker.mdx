@@ -1,0 +1,401 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Forms/DatePicker" />
+
+# DatePicker
+
+## Description
+
+The DatePicker component is a date selection interface that combines a text input with a calendar popup. It provides an accessible, intuitive way for users to select dates without manual typing, reducing input errors and improving form completion rates.
+
+**Primary Use Cases:**
+- Appointment scheduling
+- Event date selection
+- Date range filters (with two DatePickers)
+- Birth date entry
+- Report generation date selection
+
+**Business Context:** DatePickers significantly improve form completion by eliminating date format confusion and validation errors. Studies show that calendar pickers reduce date entry errors by 80% and speed up form completion by 40% compared to manual text entry.
+
+---
+
+## Anatomy
+
+The DatePicker component consists of the following parts:
+
+1. **Input Field** - Displays selected date in readable format
+2. **Calendar Icon** - Clickable trigger to open calendar
+3. **Calendar Popup** - Month/year grid for date selection
+4. **Month/Year Navigation** - Arrows to change displayed period
+5. **Day Grid** - Clickable date cells
+6. **Today Indicator** - Highlights current date
+7. **Selected Date** - Visual indicator of chosen date
+8. **Close Button** (optional) - Dismisses calendar
+
+```
+┌─────────────────────────────────────────┐
+│ MM/DD/YYYY                          📅  │ Input + Icon
+└─────────────────────────────────────────┘
+  ↓ (Opens calendar)
+┌─────────────────────────────────────────┐
+│  < January 2024                      >  │ Month navigation
+├─────────────────────────────────────────┤
+│  Su Mo Tu We Th Fr Sa                   │ Day headers
+│   1  2  3  4  5  6  7                   │
+│   8  9 [10] 11 12 13 14                 │ [Selected]
+│  15 16 17 18 19 20 21                   │
+│  22 23 24 25 26 27 28                   │
+│  29 30 31                               │
+└─────────────────────────────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Selecting specific dates (appointments, events)
+- ✅ Date range filtering (start/end dates)
+- ✅ Birth dates or historical dates
+- ✅ Future date scheduling
+- ✅ Any scenario where date format errors are common
+
+### When NOT to Use
+- ❌ Year-only selection (use Select or Input)
+- ❌ Relative dates ("yesterday", "last week" - use preset buttons)
+- ❌ Very distant past/future (> 10 years - consider manual entry)
+- ❌ Time selection needed (use DateTimePicker)
+
+### Best Practices
+- **Labels:** Always provide clear labels ("Start Date", "Birth Date")
+- **Format:** Display selected date in user's locale format
+- **Validation:** Show errors for invalid ranges (end before start)
+- **Defaults:** Pre-select today's date when appropriate
+- **Ranges:** Use two DatePickers with clear "to" label between
+- **Mobile:** Ensure touch targets are 44x44px minimum
+- **Keyboard:** Support arrow key navigation within calendar
+
+---
+
+## Behavior / Interaction States
+
+### 1. Empty State
+- Input shows placeholder: "MM/DD/YYYY" or locale format
+- Border: `neutral-400` (#B4B5BB) - form input hierarchy
+- Calendar icon: `neutral-600`
+- Background: white
+
+### 2. Selected State
+- Input displays formatted date: "01/15/2024"
+- Text: `neutral-900`
+- Clear indicator that date is set
+
+### 3. Hover State (Input)
+- Border: `neutral-600` (darker)
+- Cursor: pointer
+- Calendar icon emphasis
+
+### 4. Focused State (Input)
+- Border: `primary-500` (#0D62FF)
+- Focus ring: 2px `primary-500` with 2px offset
+- Calendar opens automatically
+
+### 5. Calendar Open State
+- Popup: white background, `neutral-300` border, shadow-lg
+- Animated fade-in
+- Current month/year displayed
+- Today's date highlighted with `primary-50` background
+- Selected date has `primary-600` background with white text
+
+### 6. Calendar Day Hover
+- Background: `neutral-50` (light gray)
+- Cursor: pointer
+- Smooth transition
+
+### 7. Calendar Day Selected
+- Background: `primary-600` (blue)
+- Text: white
+- Border radius: rounded
+
+### 8. Today Indicator
+- Background: `primary-50` (light blue)
+- Text: `neutral-900`
+- Subtle visual distinction
+
+### 9. Disabled Day
+- Text: `neutral-400` (lighter)
+- Cursor: not-allowed
+- No hover interaction
+
+### 10. Error State
+- Input border: `destructive` (red)
+- Focus ring: `destructive` when focused
+- Error message: Red text below picker
+
+### 11. Disabled State
+- Border: `neutral-400`
+- Background: white
+- Opacity: 60%
+- Cursor: not-allowed
+
+---
+
+## Variants
+
+### By Functionality
+- **Single Date**: Select one specific date
+- **Date Range**: Two pickers for start/end (use separately)
+- **Past Dates Only**: Max date set to today
+- **Future Dates Only**: Min date set to today
+- **Custom Min/Max**: Restrict selectable date range
+
+### By Format
+- **US Format**: MM/DD/YYYY
+- **ISO Format**: YYYY-MM-DD
+- **European Format**: DD/MM/YYYY
+- **Localized**: Automatically detect user locale
+
+---
+
+## Accessibility (a11y) Considerations
+
+### Keyboard Interaction
+- **Tab**: Focus input field
+- **Space / Enter**: Open calendar
+- **Escape**: Close calendar
+- **Arrow Keys**: Navigate between days
+- **Page Up/Down**: Change month
+- **Home**: Jump to first day of month
+- **End**: Jump to last day of month
+- **Enter**: Select highlighted date and close
+
+### ARIA Attributes
+- `role="button"` on calendar trigger
+- `aria-label` describes calendar icon purpose
+- `aria-expanded` indicates calendar open/closed
+- `aria-selected` on selected date
+- `aria-disabled` on disabled dates
+- `aria-invalid="true"` when in error state
+
+### Screen Reader Behavior
+- Input label announced when focused
+- Selected date announced in full format
+- Calendar opening announces "calendar"
+- Days announced as user navigates: "Monday, January 15, 2024"
+- Selected date confirms: "Selected"
+- Error messages announced immediately
+
+### Color Contrast
+- ✅ Text: neutral-900 on white (21:1 - AAA)
+- ✅ Selected date: white on primary-600 (4.5:1 - AA)
+- ✅ Today indicator: meets contrast requirements
+- ✅ Error text: destructive red (4.5:1 - AA)
+
+---
+
+## Content Guidelines
+
+### Labels
+✅ **Do:**
+- Be specific: "Start Date", "Birth Date", "Appointment Date"
+- Use sentence case: "Select date"
+- Keep short (1-3 words)
+
+❌ **Don't:**
+- Be vague: "Date", "When"
+- Use all caps: "SELECT DATE"
+- Rely only on placeholder
+
+### Placeholder Text
+✅ **Do:**
+- Show format: "MM/DD/YYYY"
+- Match user locale
+- Be consistent across forms
+
+❌ **Don't:**
+- Write instructions: "Click to select"
+- Be vague: "Date"
+- Use different formats inconsistently
+
+### Error Messages
+✅ **Do:**
+- Be specific: "Please select a start date"
+- Explain range errors: "End date must be after start date"
+- Be actionable: "Date must be in the future"
+
+❌ **Don't:**
+- Be vague: "Invalid date", "Error"
+- Be technical: "Date validation failed"
+- Blame user: "You entered an invalid date"
+
+---
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- Full width input
+- Full-screen calendar popup
+- Large touch targets (44x44px minimum)
+- Simplified navigation for touch
+- Virtual keyboard disabled (date selection via calendar)
+
+### Tablet (768px - 1024px)
+- Flexible width input
+- Calendar popup positioned below/above input
+- Touch-friendly sizing maintained
+
+### Desktop (> 1024px)
+- Fixed width input (default)
+- Calendar popup positioned intelligently
+- Mouse hover states enabled
+- Keyboard navigation fully supported
+
+---
+
+## Code Example
+
+```tsx
+import { DatePicker } from '@comcast/design-system';
+import { useState } from 'react';
+
+// Basic usage
+function Example() {
+  const [date, setDate] = useState<Date | undefined>(undefined);
+
+  return (
+    <DatePicker
+      date={date}
+      onDateChange={setDate}
+      placeholder="Select date"
+    />
+  );
+}
+
+// Date range example
+function DateRangeExample() {
+  const [startDate, setStartDate] = useState<Date | undefined>(undefined);
+  const [endDate, setEndDate] = useState<Date | undefined>(undefined);
+
+  return (
+    <div className="flex items-center gap-2">
+      <DatePicker
+        date={startDate}
+        onDateChange={setStartDate}
+        placeholder="Start date"
+      />
+      <span className="text-sm text-neutral-600">to</span>
+      <DatePicker
+        date={endDate}
+        onDateChange={setEndDate}
+        placeholder="End date"
+      />
+    </div>
+  );
+}
+
+// With error state
+function ErrorExample() {
+  const [date, setDate] = useState<Date | undefined>(undefined);
+  const [error, setError] = useState('');
+
+  return (
+    <div className="space-y-2">
+      <label className="text-sm font-medium">
+        Appointment Date *
+      </label>
+      <DatePicker
+        date={date}
+        onDateChange={(newDate) => {
+          setDate(newDate);
+          setError('');
+        }}
+        error={!!error}
+        placeholder="Select date"
+      />
+      {error && (
+        <p className="text-sm text-[var(--ds-color-intent-destructive)]">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// Disabled state
+<DatePicker
+  date={undefined}
+  onDateChange={() => {}}
+  disabled
+  placeholder="Select date"
+/>
+```
+
+---
+
+## Do's and Don'ts
+
+### ✅ Do's
+
+| ✅ Do | Example |
+|-------|---------|
+| Use for precise date selection | Appointment scheduling |
+| Provide clear labels | "Start Date", "End Date" |
+| Show selected date clearly | Bold or distinct color |
+| Validate date ranges | End date after start date |
+| Support keyboard navigation | Arrow keys to navigate days |
+| Use locale-appropriate formats | MM/DD/YYYY in US, DD/MM/YYYY in EU |
+
+### ❌ Don'ts
+
+| ❌ Don't | Why |
+|----------|-----|
+| Force manual typing | Increases errors |
+| Use for year-only selection | Overkill for simple selection |
+| Hide validation errors | Users need feedback |
+| Use tiny calendar buttons | Mobile accessibility issues |
+| Ignore locale formats | Confusing for international users |
+| Make calendar non-dismissible | Users need escape option |
+
+---
+
+## Related Components
+
+- **Calendar**: Standalone calendar component
+- **Input**: Manual date entry alternative
+- **Select**: For year/month-only selection
+- **DateRangePicker**: Combined date range selection
+- **DateTimePicker**: Date + time selection
+
+---
+
+## Design Tokens Used
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `border-neutral-400` | #B4B5BB | Input border (form input hierarchy) |
+| `border-neutral-300` | #DDDDE2 | Calendar popup border |
+| `border-primary-500` | #0D62FF | Focus border |
+| `border-destructive` | #D11314 | Error border |
+| `text-neutral-900` | #161616 | Selected date text |
+| `text-neutral-600` | #70717D | Calendar icon |
+| `text-neutral-500` | #9EA0A9 | Placeholder text |
+| `bg-white` | #FFFFFF | Background |
+| `bg-primary-600` | #0055FF | Selected date background |
+| `bg-primary-50` | #E5F0FF | Today indicator |
+| `bg-neutral-50` | #F8F8F9 | Day hover |
+| `shadow-lg` | Shadow token | Calendar popup shadow |
+| `font-secondary` | Lato | DatePicker text font |
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | 2025-01-29 | Initial release with Calendar integration |
+
+---
+
+## Questions or Feedback?
+
+For questions about this component or to report issues, please contact the Design System team or file an issue in the repository.

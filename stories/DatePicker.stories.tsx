@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { DatePicker, DateRangePicker, DateOfBirthPicker } from '../src/components/ui/date-picker';
+import DatePickerDocs from './DatePicker.mdx';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'DatePicker',
@@ -8,6 +9,7 @@ const meta: Meta<typeof DatePicker> = {
   parameters: {
     layout: 'centered',
     docs: {
+      page: DatePickerDocs,
       description: {
         component: 'A date picker component built on top of Calendar and Popover with various configurations for different use cases.',
       },

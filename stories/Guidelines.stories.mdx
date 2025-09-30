@@ -1,0 +1,482 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Guidelines/Component Usage" />
+
+# Component Usage Guidelines
+
+This guide provides comprehensive documentation for using the enhanced components in the Comcast Business Design System, specifically focusing on the new form components (Combobox, DatePicker, Textarea) and their integration patterns demonstrated in Workflow and Enterprise stories.
+
+---
+
+## Enhanced Components Overview
+
+The design system has been enhanced with three powerful form components that improve user experience and reduce form completion errors:
+
+### 1. Combobox
+**Purpose:** Searchable dropdown for selecting from large lists
+
+- **When to Use:** Lists with 8+ options, country/state selection, product catalogs
+- **Key Features:** Built-in search, keyboard navigation, disabled options support
+- **Documentation:** See [Combobox Documentation](/?path=/docs/documentation-forms-combobox--docs)
+
+### 2. DatePicker
+**Purpose:** Calendar-based date selection interface
+
+- **When to Use:** Appointment scheduling, date range filters, birth dates
+- **Key Features:** Calendar popup, keyboard navigation, locale support
+- **Documentation:** See [DatePicker Documentation](/?path=/docs/documentation-forms-datepicker--docs)
+
+### 3. Textarea
+**Purpose:** Multi-line text input with character counting
+
+- **When to Use:** Comments, descriptions, notes, feedback forms
+- **Key Features:** Character counter, min/max length, auto-resize
+- **Documentation:** See [Textarea Documentation](/?path=/docs/documentation-forms-textarea--docs)
+
+---
+
+## Common Usage Patterns
+
+### Date Range Filtering
+
+A common pattern across enterprise applications is filtering data by date range. Use two DatePickers with clear labeling:
+
+```tsx
+<div className="flex items-center gap-2">
+  <DatePicker
+    date={startDate}
+    onDateChange={setStartDate}
+    placeholder="Start date"
+    error={!!errors.startDate}
+  />
+  <span className="text-sm text-[var(--ds-color-text-muted)]">to</span>
+  <DatePicker
+    date={endDate}
+    onDateChange={setEndDate}
+    placeholder="End date"
+    error={!!errors.startDate}
+  />
+</div>
+{errors.startDate && (
+  <p className="text-sm text-[var(--ds-color-intent-destructive)]">
+    {errors.startDate}
+  </p>
+)}
+```
+
+**Real-world Examples:**
+- Enterprise Billing: Invoice date range filtering
+- Enterprise Dashboard: Performance metrics date range
+- Enterprise Reports: Custom report date selection
+
+### Searchable Dropdowns with Combobox
+
+Replace standard Select components with Combobox when users need to search through options:
+
+```tsx
+<Combobox
+  options={[
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3', disabled: true },
+  ]}
+  value={selectedValue}
+  onValueChange={setSelectedValue}
+  placeholder="Select option..."
+  searchPlaceholder="Search options..."
+  emptyMessage="No results found."
+  width="w-[200px]"
+  error={!!errors.field}
+/>
+```
+
+**Real-world Examples:**
+- Enterprise Billing: Service and status filtering
+- Enterprise Dashboard: Region and service category selection
+- Enterprise Reports: Report type and period filtering
+
+### Long-form Text Input with Textarea
+
+Use Textarea with character counting for user-generated content:
+
+```tsx
+<Textarea
+  placeholder="Enter description..."
+  value={description}
+  onChange={(e) => setDescription(e.target.value)}
+  minLength={20}
+  maxLength={500}
+  rows={6}
+  showCount
+  error={!!errors.description}
+/>
+{errors.description && (
+  <p className="text-sm text-[var(--ds-color-intent-destructive)]">
+    {errors.description}
+  </p>
+)}
+```
+
+**Real-world Examples:**
+- Enterprise Billing: Dispute invoice descriptions
+- Enterprise Dashboard: Incident report details
+- Enterprise Reports: Custom report specifications
+
+---
+
+## Validation Patterns
+
+### Real-time Validation with Error Clearing
+
+Implement real-time validation that clears errors as users correct their input:
+
+```tsx
+function FormWithValidation() {
+  const [value, setValue] = useState('');
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleChange = (newValue: string) => {
+    setValue(newValue);
+    
+    // Clear error when user starts typing
+    if (errors.fieldName) {
+      setErrors(prev => {
+        const { fieldName, ...rest } = prev;
+        return rest;
+      });
+    }
+  };
+
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!value) {
+      newErrors.fieldName = 'This field is required';
+    } else if (value.length < 20) {
+      newErrors.fieldName = 'Must be at least 20 characters';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  return (
+    <div className="space-y-2">
+      <Textarea
+        value={value}
+        onChange={(e) => handleChange(e.target.value)}
+        error={!!errors.fieldName}
+        minLength={20}
+        showCount
+      />
+      {errors.fieldName && (
+        <p className="text-sm text-[var(--ds-color-intent-destructive)]">
+          {errors.fieldName}
+        </p>
+      )}
+    </div>
+  );
+}
+```
+
+### Date Range Validation
+
+Validate that end dates come after start dates:
+
+```tsx
+const validateDateRange = (start: Date | undefined, end: Date | undefined) => {
+  if (start && end && start > end) {
+    return 'Start date must be before end date';
+  }
+  return '';
+};
+
+// In your component
+const handleStartDateChange = (date: Date | undefined) => {
+  setStartDate(date);
+  const error = validateDateRange(date, endDate);
+  if (error) {
+    setErrors(prev => ({ ...prev, dateRange: error }));
+  } else {
+    setErrors(prev => {
+      const { dateRange, ...rest } = prev;
+      return rest;
+    });
+  }
+};
+```
+
+---
+
+## Workflow Integration Examples
+
+The design system includes comprehensive workflow examples demonstrating these patterns in real-world scenarios:
+
+### Checkout Process
+**Components Used:** Combobox (state selection), DatePicker (delivery date), Textarea (special instructions)
+
+**Key Patterns:**
+- Multi-step form with validation
+- Credit card number validation (16 digits)
+- ZIP code validation (5 digits)
+- Real-time error clearing
+- Sticky security badge
+
+**Story:** `Workflows/Checkout Process`
+
+### User Onboarding
+**Components Used:** Combobox (timezone selection), DatePicker (start date), Textarea (bio/notes)
+
+**Key Patterns:**
+- Progressive disclosure
+- Email and phone validation
+- Password strength indicators
+- Form completion tracking
+
+**Story:** `Workflows/User Onboarding`
+
+### Settings Management
+**Components Used:** Combobox (preference selection), Textarea (profile updates)
+
+**Key Patterns:**
+- Grouped settings sections
+- Save/cancel actions
+- Confirmation dialogs
+- State persistence
+
+**Story:** `Workflows/Settings Management`
+
+### Data Dashboard
+**Components Used:** Combobox (filters), DatePicker (date ranges), Textarea (export notes)
+
+**Key Patterns:**
+- Dynamic data filtering
+- Export functionality
+- Real-time updates
+- Chart interactions
+
+**Story:** `Workflows/Data Dashboard`
+
+---
+
+## Enterprise Story Examples
+
+Enterprise-level interfaces demonstrate advanced component integration:
+
+### Enterprise Billing
+**Enhanced Features:**
+- Combobox for status and service filtering
+- DatePicker for invoice date range filtering
+- Textarea in dispute invoice dialog
+- WithValidationErrors variant
+
+**Story:** `Enterprise/Billing`
+
+### Enterprise Dashboard
+**Enhanced Features:**
+- Combobox for region and service category filtering
+- DatePicker for performance metrics date range
+- Textarea in incident report dialog
+- Filter clearing functionality
+
+**Story:** `Enterprise/Dashboard`
+
+### Enterprise Reports
+**Enhanced Features:**
+- Combobox for report type and period filtering
+- DatePicker for report generation date range
+- Textarea in custom report creation dialog
+- Comprehensive validation
+
+**Story:** `Enterprise/Reports`
+
+---
+
+## Design System Tokens
+
+All enhanced components use consistent design system tokens for styling:
+
+### Form Input Hierarchy (Border Colors)
+- **Form Inputs:** `--ds-color-neutral-400` (#B4B5BB) - Combobox trigger, Input, Textarea, DatePicker
+- **Structural Elements:** `--ds-color-neutral-300` (#DDDDE2) - Dropdown content, Popover, Dialog borders
+
+### Interactive States
+- **Hover:** `--ds-color-neutral-600` (#70717D)
+- **Focus Border:** `--ds-color-primary-500` (#0D62FF)
+- **Focus Ring:** 2px `--ds-color-primary-500` with 2px offset
+- **Error Border/Ring:** `--ds-color-intent-destructive` (#EF4444)
+
+### Background Colors
+- **Default:** `--ds-color-bg-canvas` (white)
+- **Hover:** `--ds-color-neutral-50` (#FAFAFA)
+- **Focus:** `--ds-color-neutral-100` (#F5F5F7)
+- **Selected:** `--ds-color-primary-50` (rgba(13, 98, 255, 0.1))
+
+### Text Colors
+- **Primary:** `--ds-color-text-primary` (`--ds-color-neutral-900`, #161616)
+- **Muted:** `--ds-color-text-muted` (`--ds-color-neutral-600`, #70717D)
+- **Placeholder:** `--ds-color-neutral-500` (#9EA0A9)
+- **Error:** `--ds-color-intent-destructive` (#EF4444)
+
+---
+
+## Accessibility Standards
+
+All components meet WCAG 2.1 AA standards:
+
+### Keyboard Navigation
+- **Tab:** Move between form fields
+- **Enter/Space:** Activate buttons and open dropdowns
+- **Escape:** Close dialogs and dropdowns
+- **Arrow Keys:** Navigate within dropdowns and calendars
+
+### Screen Reader Support
+- Proper ARIA labels and roles
+- Announced state changes
+- Error message association with `aria-describedby`
+- `aria-invalid` for error states
+
+### Focus Management
+- Visible focus indicators (2px ring with 2px offset)
+- Logical tab order
+- Focus trapping in dialogs
+- Return focus after modal close
+
+### Color Contrast
+- Text: 21:1 ratio (AAA) on white backgrounds
+- Error text: 4.5:1 minimum (AA)
+- All interactive states maintain sufficient contrast
+
+---
+
+## Best Practices
+
+### Do's ✅
+
+- **Always provide labels** for form fields
+- **Show validation errors** immediately when users submit
+- **Clear errors** as users correct input
+- **Use proper error color tokens** (`--ds-color-intent-destructive`)
+- **Include character counters** for Textarea with limits
+- **Provide search functionality** for long lists (use Combobox)
+- **Support date range filtering** with clear "to" label
+- **Test with keyboard navigation** for accessibility
+- **Use consistent placeholder text** across forms
+- **Implement real-time validation** where appropriate
+
+### Don'ts ❌
+
+- **Don't use hard-coded colors** - always use design tokens
+- **Don't skip labels** - relying on placeholders alone fails accessibility
+- **Don't make errors vague** - be specific and actionable
+- **Don't use Select for long lists** - use Combobox with search
+- **Don't force manual date typing** - provide DatePicker
+- **Don't forget disabled states** - handle all interaction states
+- **Don't ignore mobile** - ensure 44x44px touch targets
+- **Don't break keyboard navigation** - test thoroughly
+- **Don't batch error clearing** - clear as user types
+- **Don't forget loading states** - show when data is fetching
+
+---
+
+## Testing Checklist
+
+Before shipping forms with these components:
+
+### Functional Testing
+- [ ] All form fields validate correctly
+- [ ] Error messages are specific and actionable
+- [ ] Errors clear as users correct input
+- [ ] Required fields are marked and validated
+- [ ] Date ranges validate (end after start)
+- [ ] Character limits are enforced
+- [ ] Disabled states prevent interaction
+
+### Accessibility Testing
+- [ ] All fields have labels
+- [ ] Keyboard navigation works completely
+- [ ] Screen reader announces all states
+- [ ] Focus indicators are visible
+- [ ] Color contrast meets AA standards
+- [ ] ARIA attributes are correct
+- [ ] Error messages are associated with fields
+
+### Visual Testing
+- [ ] Design tokens used correctly
+- [ ] Hover states work
+- [ ] Focus rings display properly
+- [ ] Error states show red borders/text
+- [ ] Spacing and alignment correct
+- [ ] Mobile responsive (44x44px targets)
+- [ ] Loading states display
+
+---
+
+## Migration Guide
+
+### From Select to Combobox
+
+**Before:**
+```tsx
+<Select value={value} onValueChange={setValue}>
+  <SelectTrigger>
+    <SelectValue />
+  </SelectTrigger>
+  <SelectContent>
+    {options.map(opt => (
+      <SelectItem key={opt.value} value={opt.value}>
+        {opt.label}
+      </SelectItem>
+    ))}
+  </SelectContent>
+</Select>
+```
+
+**After:**
+```tsx
+<Combobox
+  options={options}
+  value={value}
+  onValueChange={setValue}
+  placeholder="Select option..."
+  searchPlaceholder="Search..."
+  width="w-[200px]"
+/>
+```
+
+### From Input to DatePicker
+
+**Before:**
+```tsx
+<Input
+  type="date"
+  value={date}
+  onChange={(e) => setDate(e.target.value)}
+/>
+```
+
+**After:**
+```tsx
+<DatePicker
+  date={date}
+  onDateChange={setDate}
+  placeholder="Select date"
+/>
+```
+
+---
+
+## Additional Resources
+
+- **Component Documentation:** See individual component pages for detailed APIs
+- **Workflow Examples:** Review complete form implementations in Workflows section
+- **Enterprise Examples:** See enterprise-scale usage in Enterprise section
+- **Design Tokens:** Reference the Style Guide for complete token list
+- **Accessibility:** Review WCAG 2.1 AA guidelines
+- **Support:** Contact the Design System team for assistance
+
+---
+
+## Questions or Feedback?
+
+For questions about these guidelines or to report issues, please contact the Design System team or file an issue in the repository.
