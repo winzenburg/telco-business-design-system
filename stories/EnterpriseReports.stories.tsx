@@ -894,10 +894,9 @@ export const EnterpriseReportsInterface: Story = {
             </TabsContent>
           </Tabs>
         </div>
-      </div>
 
-      {/* Custom Report Dialog */}
-      <Dialog open={customReportDialogOpen} onOpenChange={setCustomReportDialogOpen}>
+        {/* Custom Report Dialog */}
+        <Dialog open={customReportDialogOpen} onOpenChange={setCustomReportDialogOpen}>
         <DialogContent className="sm:max-w-[600px]">
           <DialogHeader>
             <DialogTitle>Create Custom Report</DialogTitle>
@@ -985,7 +984,8 @@ export const EnterpriseReportsInterface: Story = {
             </Button>
           </DialogFooter>
         </DialogContent>
-      </Dialog>
+        </Dialog>
+      </div>
     );
   },
 };
