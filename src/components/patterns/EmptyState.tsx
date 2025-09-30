@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cn } from '../../utils/cn';
 import { Button } from '../ui/button';
 import { Icon } from '../Icon';
-import type { IconName } from '../../../types/design-system-icons-types';
+import type { IconName } from '../../../packages/tokens/design-system-icons-types';
 
 export interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
