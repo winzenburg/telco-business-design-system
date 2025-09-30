@@ -1,133 +1,361 @@
-// Comcast Business Design System - Icon Type Definitions
-// Build-safe version without SVG imports
+// Auto-generated from icon-registry.ts
+// Do not edit manually - run regenerate-icon-types.js to update
 
-// Icon data structure
-export interface IconData {
-  name: string;
-  id: string;
-  type: string;
-  size: {
-    width: number;
-    height: number;
-  } | null;
-  category: string;
-  description: string;
-  key: string;
-  exportable: boolean;
-  fileName?: string;
-  filePath?: string;
-  relativePath?: string;
-}
+import { CORE_ICONS } from './icon-registry';
 
-// Core icon names (build-safe list without imports)
-export const coreIconNames = [
-  // Original icons
-  "blockers", "numbers", "configure", "device", "document", "folder",
-  "performancethreshold", "feedback", "conference", "wallet", "internet",
-  "wifi", "analytics", "clipboard", "byod", "shareddata", "shoppingbag",
-  "fees", "bell", "close", "backarrow", "menu", "contextmenu", "refresh",
-  "externallink2", "externallink1", "maximize", "minimize", "directionright",
-  "directiondown", "directionleft", "directionup", "stateunsorted",
-  "stateascending", "statedescending", "alert", "check", "chevron", "arrow",
-  "doublechevron", "globalnav", "plus", "minus", "search", "download", "upload",
-  // All icons from icon-registry
-  "avpause", "avplay", "avrecord", "avstop", "browser", "camera", "cartempty",
-  "chat", "cloud", "cloudupload", "complete", "ethernet", "filteralt", "grabber",
-  "login", "logout", "message", "money", "notifications", "password", "paymentcard",
-  "percent", "piechart", "playcircle", "portal", "pricetag", "report",
-  "securityquestion", "sort", "switchaccounts", "users", "variantlockedtypefilled",
-  "variantlockedtypeoutline", "variantunlockedtypefilled", "variantunlockedtypeoutline",
-  "video", "voicemail",
-  // Additional UI icons
-  "filter", "edit", "delete", "copy", "paste", "undo", "redo",
-  "save", "share", "print", "export", "import", "link", "unlink", "eye",
-  "eyeOff", "lock", "unlock", "user", "settings", "help", "info",
-  "warning", "error", "success", "star", "heart", "thumbsUp", "thumbsDown",
-  "comment", "calendar", "clock", "location", "map", "phone", "email",
-  "notification", "attachment", "image", "audio",
-  "file", "code", "terminal", "database", "server", "sync",
-  "backup", "restore", "trash", "archive", "flag", "bookmark", "tag",
-  "label", "category", "home", "dashboard", "chart", "graph"
+/**
+ * Valid icon names from the design system
+ * This type is derived from the CORE_ICONS registry
+ */
+export type IconName = keyof typeof CORE_ICONS;
+
+/**
+ * List of all available icon names
+ */
+export const ICON_NAMES = [
+  'chevron',
+  'arrow',
+  'backarrow',
+  'doublechevron',
+  'menu',
+  'globalnav',
+  'close',
+  'check',
+  'plus',
+  'minus',
+  'search',
+  'configure',
+  'refresh',
+  'download',
+  'upload',
+  'maximize',
+  'minimize',
+  'sort',
+  'filteralt',
+  'contextmenu',
+  'grabber',
+  'alert',
+  'complete',
+  'bell',
+  'notifications',
+  'feedback',
+  'chat',
+  'message',
+  'conference',
+  'video',
+  'voicemail',
+  'document',
+  'folder',
+  'clipboard',
+  'analytics',
+  'report',
+  'piechart',
+  'blockers',
+  'password',
+  'securityquestion',
+  'variantlockedtypefilled',
+  'variantlockedtypeoutline',
+  'variantunlockedtypefilled',
+  'variantunlockedtypeoutline',
+  'avplay',
+  'avpause',
+  'avstop',
+  'avrecord',
+  'playcircle',
+  'camera',
+  'wallet',
+  'paymentcard',
+  'money',
+  'fees',
+  'shoppingbag',
+  'cartempty',
+  'pricetag',
+  'percent',
+  'internet',
+  'wifi',
+  'ethernet',
+  'cloud',
+  'cloudupload',
+  'device',
+  'browser',
+  'portal',
+  'users',
+  'login',
+  'logout',
+  'switchaccounts',
+  'at-sign',
+  'bell-off',
+  'headphones',
+  'mail',
+  'message-circle',
+  'message-square',
+  'mic',
+  'mic-off',
+  'phone',
+  'phone-call',
+  'phone-forwarded',
+  'phone-incoming',
+  'phone-missed',
+  'phone-off',
+  'phone-outgoing',
+  'rss',
+  'send',
+  'speaker',
+  'volume',
+  'volume-1',
+  'volume-2',
+  'volume-x',
+  'align-center',
+  'align-justify',
+  'align-left',
+  'align-right',
+  'bar-chart',
+  'bar-chart-2',
+  'bold',
+  'code',
+  'columns',
+  'database',
+  'divide',
+  'divide-circle',
+  'divide-square',
+  'file',
+  'file-minus',
+  'file-plus',
+  'file-text',
+  'folder-minus',
+  'folder-plus',
+  'grid',
+  'hard-drive',
+  'hash',
+  'italic',
+  'layers',
+  'list',
+  'pie-chart',
+  'server',
+  'slash',
+  'table',
+  'terminal',
+  'type',
+  'underline',
+  'anchor',
+  'aperture',
+  'archive',
+  'bluetooth',
+  'book',
+  'book-open',
+  'box',
+  'briefcase',
+  'calendar',
+  'chrome',
+  'clock',
+  'cloud-drizzle',
+  'cloud-lightning',
+  'cloud-off',
+  'cloud-rain',
+  'cloud-snow',
+  'codepen',
+  'codesandbox',
+  'coffee',
+  'command',
+  'cpu',
+  'credit-card',
+  'delete',
+  'dollar-sign',
+  'dribbble',
+  'droplet',
+  'facebook',
+  'feather',
+  'figma',
+  'framer',
+  'gift',
+  'git-branch',
+  'git-commit',
+  'git-merge',
+  'git-pull-request',
+  'github',
+  'gitlab',
+  'globe',
+  'inbox',
+  'instagram',
+  'layout',
+  'linkedin',
+  'moon',
+  'package',
+  'paperclip',
+  'pocket',
+  'power',
+  'printer',
+  'shopping-bag',
+  'shopping-cart',
+  'sidebar',
+  'slack',
+  'sun',
+  'sunrise',
+  'sunset',
+  'thermometer',
+  'toggle-left',
+  'toggle-right',
+  'tool',
+  'trash',
+  'trash-2',
+  'trello',
+  'truck',
+  'twitch',
+  'twitter',
+  'umbrella',
+  'wind',
+  'youtube',
+  'zoom-in',
+  'zoom-out',
+  'bookmark',
+  'check-circle',
+  'check-square',
+  'copy',
+  'crop',
+  'download-cloud',
+  'edit',
+  'edit-2',
+  'edit-3',
+  'external-link',
+  'filter',
+  'flag',
+  'frown',
+  'heart',
+  'link',
+  'link-2',
+  'maximize-2',
+  'meh',
+  'minimize-2',
+  'minus-circle',
+  'minus-square',
+  'more-horizontal',
+  'more-vertical',
+  'mouse-pointer',
+  'move',
+  'pen-tool',
+  'plus-circle',
+  'plus-square',
+  'refresh-ccw',
+  'refresh-cw',
+  'rotate-ccw',
+  'rotate-cw',
+  'save',
+  'scissors',
+  'settings',
+  'share',
+  'share-2',
+  'sliders',
+  'smile',
+  'star',
+  'tag',
+  'thumbs-down',
+  'thumbs-up',
+  'upload-cloud',
+  'x',
+  'x-circle',
+  'x-octagon',
+  'x-square',
+  'zap',
+  'zap-off',
+  'airplay',
+  'camera-off',
+  'cast',
+  'disc',
+  'fast-forward',
+  'film',
+  'image',
+  'monitor',
+  'music',
+  'pause',
+  'pause-circle',
+  'play',
+  'play-circle',
+  'radio',
+  'repeat',
+  'rewind',
+  'shuffle',
+  'skip-back',
+  'skip-forward',
+  'smartphone',
+  'stop-circle',
+  'tablet',
+  'tv',
+  'video-off',
+  'watch',
+  'arrow-down',
+  'arrow-down-circle',
+  'arrow-down-left',
+  'arrow-down-right',
+  'arrow-left',
+  'arrow-left-circle',
+  'arrow-right',
+  'arrow-right-circle',
+  'arrow-up',
+  'arrow-up-circle',
+  'arrow-up-left',
+  'arrow-up-right',
+  'chevron-down',
+  'chevron-left',
+  'chevron-right',
+  'chevron-up',
+  'chevrons-down',
+  'chevrons-left',
+  'chevrons-right',
+  'chevrons-up',
+  'compass',
+  'corner-down-left',
+  'corner-down-right',
+  'corner-left-down',
+  'corner-left-up',
+  'corner-right-down',
+  'corner-right-up',
+  'corner-up-left',
+  'corner-up-right',
+  'crosshair',
+  'home',
+  'map',
+  'map-pin',
+  'navigation',
+  'navigation-2',
+  'target',
+  'award',
+  'eye',
+  'eye-off',
+  'log-in',
+  'log-out',
+  'user',
+  'user-check',
+  'user-minus',
+  'user-plus',
+  'user-x',
+  'activity',
+  'alert-circle',
+  'alert-octagon',
+  'alert-triangle',
+  'battery',
+  'battery-charging',
+  'circle',
+  'help-circle',
+  'hexagon',
+  'info',
+  'key',
+  'life-buoy',
+  'loader',
+  'lock',
+  'octagon',
+  'shield',
+  'shield-off',
+  'square',
+  'trending-down',
+  'trending-up',
+  'triangle',
+  'unlock',
+  'wifi-off'
 ] as const;
 
-// Type definitions
-export type CoreIconName = typeof coreIconNames[number];
-export type IconName = CoreIconName;
-export type IconCategory = 'navigation' | 'actions' | 'content' | 'communication' | 'system';
-export type IconSize = '12x12' | '16x16' | '20x20' | '24x24' | '32x32' | '48x48' | '64x64' | '80x80';
-export type CommonIconSize = '16x16' | '20x20' | '24x24';
-
-// Icons object for registry
-export const icons = coreIconNames.reduce((acc, name) => {
-  acc[name] = {
-    name,
-    id: name,
-    type: 'icon',
-    size: { width: 24, height: 24 },
-    category: 'system',
-    description: `${name} icon`,
-    key: name,
-    exportable: true
-  };
-  return acc;
-}, {} as Record<CoreIconName, IconData>);
-
-// Icons organized by category
-export const iconsByCategory = {
-  navigation: coreIconNames.filter(name => ['backarrow', 'directionright', 'directiondown', 'directionleft', 'directionup'].includes(name)),
-  actions: coreIconNames.filter(name => ['close', 'menu', 'contextmenu', 'refresh', 'maximize', 'minimize'].includes(name)),
-  content: coreIconNames.filter(name => ['document', 'folder', 'clipboard'].includes(name)),
-  communication: coreIconNames.filter(name => ['bell', 'feedback', 'conference'].includes(name)),
-  system: coreIconNames.filter(name => !['backarrow', 'directionright', 'directiondown', 'directionleft', 'directionup', 'close', 'menu', 'contextmenu', 'refresh', 'maximize', 'minimize', 'document', 'folder', 'clipboard', 'bell', 'feedback', 'conference'].includes(name))
-};
-
-// Icon categories
-export const iconCategories = Object.keys(iconsByCategory) as IconCategory[];
-
-// Common icon sizes
-export const commonIconSizes = {
-  '16x16': { width: 16, height: 16 },
-  '20x20': { width: 20, height: 20 },
-  '24x24': { width: 24, height: 24 }
-} as const;
-
-// Icon registry functions (without SVG loading)
-export const getIconMetadata = (name: CoreIconName): IconData | undefined => {
-  return icons[name];
-};
-
-export const getIconPath = (name: CoreIconName): string => {
-  return `/icons/${name}.svg`;
-};
-
-export const getIcon = (name: CoreIconName): IconData | undefined => {
-  return icons[name];
-};
-
-export const getIconsByCategory = (category: IconCategory): IconData[] => {
-  return iconsByCategory[category]?.map(name => icons[name]).filter(Boolean) || [];
-};
-
-// Icon usage guidelines
-export const iconUsage = {
-  sizing: {
-    description: "Use consistent icon sizes for visual hierarchy",
-    recommended: ["16x16", "20x20", "24x24"],
-    guidelines: [
-      "Use 16px icons for inline text and small UI elements",
-      "Use 20px icons for standard interface elements", 
-      "Use 24px icons for prominent actions and navigation",
-      "Maintain consistent sizing within component groups"
-    ]
-  },
-  
-  accessibility: {
-    description: "Icons should be accessible and meaningful to all users",
-    guidelines: [
-      "Always provide alt text or aria-labels for icons",
-      "Use icons that are universally understood",
-      "Provide text labels alongside icons when possible",
-      "Ensure sufficient color contrast for icon visibility"
-    ]
-  }
-} as const;
+/**
+ * Check if a string is a valid icon name
+ */
+export function isValidIconName(name: string): name is IconName {
+  return name in CORE_ICONS;
+}
