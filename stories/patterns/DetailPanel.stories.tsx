@@ -80,7 +80,7 @@ export const Expandable: Story = {
 export const WithIcon: Story = {
   args: {
     title: 'Billing Information',
-    icon: 'credit-card',
+    icon: 'paymentcard',
     children: (
       <KeyValueList
         items={[
@@ -103,7 +103,7 @@ export const WithBadge: Story = {
       label: 'Healthy',
       variant: 'success',
     },
-    icon: 'activity',
+    icon: 'networkhealth',
     children: (
       <div className="space-y-4">
         <p className="text-sm text-[var(--ds-color-text-secondary)]">
@@ -126,7 +126,7 @@ export const WithBadge: Story = {
 export const WithHeaderActions: Story = {
   args: {
     title: 'Project Settings',
-    icon: 'settings',
+    icon: 'configure',
     headerActions: (
       <Button variant="ghost" size="sm">
         Edit
@@ -150,7 +150,7 @@ export const WithHeaderActions: Story = {
 export const WithDivider: Story = {
   args: {
     title: 'Order Summary',
-    icon: 'shopping-bag',
+    icon: 'shoppingbag',
     divider: true,
     children: (
       <div className="space-y-4">
@@ -215,7 +215,7 @@ export const DetailPanelGroupComponent: Story = {
       panels={[
         {
           title: 'Personal Information',
-          icon: 'user',
+          icon: 'users',
           expandable: true,
           defaultExpanded: true,
           children: (
@@ -233,7 +233,7 @@ export const DetailPanelGroupComponent: Story = {
         },
         {
           title: 'Account Settings',
-          icon: 'settings',
+          icon: 'configure',
           expandable: true,
           defaultExpanded: false,
           children: (
@@ -286,7 +286,7 @@ export const AccordionMode: Story = {
       panels={[
         {
           title: 'Section 1',
-          icon: 'file-text',
+          icon: 'document',
           expandable: true,
           children: <p>Only one section can be open at a time in accordion mode.</p>,
         },
@@ -315,7 +315,7 @@ export const OrderDetailsExample: Story = {
       panels={[
         {
           title: 'Order Information',
-          icon: 'shopping-cart',
+          icon: 'shoppingbag',
           badge: { label: 'Shipped', variant: 'default' },
           expandable: true,
           defaultExpanded: true,
@@ -352,7 +352,7 @@ export const OrderDetailsExample: Story = {
         },
         {
           title: 'Payment Method',
-          icon: 'credit-card',
+          icon: 'paymentcard',
           expandable: true,
           defaultExpanded: false,
           children: (
@@ -369,7 +369,7 @@ export const OrderDetailsExample: Story = {
         },
         {
           title: 'Order Total',
-          icon: 'dollar-sign',
+          icon: 'money',
           expandable: true,
           defaultExpanded: true,
           divider: true,
@@ -400,13 +400,13 @@ export const CompactGroup: Story = {
       panels={[
         {
           title: 'CPU Usage',
-          icon: 'cpu',
+          icon: 'device',
           badge: { label: '45%', variant: 'success' },
           children: <p className="text-sm">System CPU utilization is within normal parameters.</p>,
         },
         {
           title: 'Memory',
-          icon: 'hard-drive',
+          icon: 'device',
           badge: { label: '2.4 GB', variant: 'default' },
           children: <p className="text-sm">Memory usage: 2.4 GB of 8 GB available.</p>,
         },

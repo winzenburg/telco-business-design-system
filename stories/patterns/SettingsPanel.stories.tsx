@@ -71,7 +71,7 @@ const profileSections: SettingSection[] = [
     id: 'preferences',
     title: 'Preferences',
     description: 'Customize your experience',
-    icon: 'settings',
+    icon: 'configure',
     fields: [
       {
         id: 'language',
@@ -248,13 +248,13 @@ const accountTabs: SettingTab[] = [
   {
     id: 'billing',
     label: 'Billing',
-    icon: 'credit-card',
+    icon: 'paymentcard',
     sections: [
       {
         id: 'payment',
         title: 'Payment Method',
         description: 'Manage your payment information',
-        icon: 'credit-card',
+        icon: 'paymentcard',
         fields: [
           {
             id: 'cardNumber',
@@ -495,7 +495,7 @@ export const EnterpriseAdminPanel: Story = {
       {
         id: 'general',
         label: 'General',
-        icon: 'settings',
+        icon: 'configure',
         sections: [
           {
             id: 'company',

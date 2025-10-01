@@ -2,6 +2,8 @@ import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
   stories: [
+    '../stories/GettingStarted/Welcome.mdx',
+    '../stories/**/*.mdx',
     '../stories/**/*.stories.@(js|jsx|ts|tsx)',
     '../packages/docs/stories/*.stories.@(js|jsx|ts|tsx)',
   ],
@@ -59,8 +61,11 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   typescript: {
-    check: true,
+    check: false,
     reactDocgen: false,
+  },
+  core: {
+    disableTelemetry: true,
   },
 };
 

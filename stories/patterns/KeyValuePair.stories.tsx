@@ -74,7 +74,7 @@ export const WithIcon: Story = {
   args: {
     label: 'Phone Number',
     value: '+1 (555) 123-4567',
-    icon: 'phone',
+    icon: 'variantphonetypefilled',
     layout: 'horizontal',
     density: 'comfortable',
   },
@@ -280,8 +280,8 @@ export const CompactList: Story = {
   render: () => (
     <KeyValueList
       items={[
-        { label: 'CPU Usage', value: '45%', icon: 'cpu' },
-        { label: 'Memory', value: '2.4 GB / 8 GB', icon: 'hard-drive' },
+        { label: 'CPU Usage', value: '45%', icon: 'device' },
+        { label: 'Memory', value: '2.4 GB / 8 GB', icon: 'device' },
         { label: 'Network', value: '125 Mbps', icon: 'wifi' },
         { label: 'Uptime', value: '99.9%', badge: { label: 'Healthy', variant: 'success' } },
       ]}

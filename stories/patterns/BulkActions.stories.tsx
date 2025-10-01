@@ -216,14 +216,14 @@ export const StickyToolbar: Story = {
               {
                 id: 'activate',
                 label: 'Activate',
-                icon: 'check-circle',
+                icon: 'complete',
                 variant: 'primary',
                 onClick: () => alert('Activated'),
               },
               {
                 id: 'deactivate',
                 label: 'Deactivate',
-                icon: 'x-circle',
+                icon: 'alert',
                 variant: 'default',
                 onClick: () => alert('Deactivated'),
               },
@@ -302,7 +302,7 @@ export const StaticToolbar: Story = {
               {
                 id: 'assign',
                 label: 'Assign Role',
-                icon: 'user',
+                icon: 'users',
                 variant: 'default',
                 onClick: () => alert('Assign role'),
               },

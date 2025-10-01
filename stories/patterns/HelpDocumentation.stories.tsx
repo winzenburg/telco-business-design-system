@@ -30,7 +30,7 @@ const helpArticles: HelpArticle[] = [
     id: '1',
     title: 'Getting Started',
     category: 'Basics',
-    icon: 'play' as any,
+    icon: 'avplay' as any,
     keywords: ['intro', 'setup', 'begin'],
     content: (
       <div className="space-y-3">
@@ -67,7 +67,7 @@ const helpArticles: HelpArticle[] = [
     id: '3',
     title: 'Setting Up Integrations',
     category: 'Integrations',
-    icon: 'settings' as any,
+    icon: 'configure' as any,
     keywords: ['api', 'webhooks', 'connect', 'integrate'],
     content: (
       <div className="space-y-3">

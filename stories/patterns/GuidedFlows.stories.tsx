@@ -209,7 +209,7 @@ export const ProgressiveFormExample: Story = {
         id: 'account',
         title: 'Account Credentials',
         description: 'Create your login credentials',
-        icon: 'user' as any,
+        icon: 'users' as any,
         status: formData.email && formData.password ? 'completed' : 'in-progress',
         validation: {
           isValid: formData.email.includes('@') && formData.password.length >= 8,
@@ -250,7 +250,7 @@ export const ProgressiveFormExample: Story = {
         id: 'company',
         title: 'Company Information',
         description: 'Tell us about your organization',
-        icon: 'building' as any,
+        icon: 'buildingwip' as any,
         status: formData.company ? 'completed' : 'not-started',
         validation: {
           isValid: formData.company.length > 0,
@@ -331,7 +331,7 @@ export const ProgressiveFormInteractive: Story = {
         {
           id: 'basic',
           title: 'Basic Information',
-          icon: 'user' as any,
+          icon: 'users' as any,
           content: (
             <div className="space-y-3">
               <Input placeholder="Full Name" />
@@ -353,7 +353,7 @@ export const ProgressiveFormInteractive: Story = {
         {
           id: 'payment',
           title: 'Payment Method',
-          icon: 'credit-card' as any,
+          icon: 'paymentcard' as any,
           optional: true,
           content: (
             <div className="space-y-3">

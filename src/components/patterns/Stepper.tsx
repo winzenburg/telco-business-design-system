@@ -193,7 +193,7 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
     // Horizontal orientation
     return (
       <div ref={ref} className={cn('w-full', className)} {...props}>
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between">
           {steps.map((step, index) => {
             const status = step.status || (index < currentStep ? 'completed' : index === currentStep ? 'in-progress' : 'not-started');
             const config = statusConfig[status];
@@ -202,7 +202,19 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             return (
               <React.Fragment key={step.id}>
                 <div className="flex flex-col items-center flex-1">
-                  {renderStepIndicator(step, index)}
+                  <div className="flex items-center w-full">
+                    {renderStepIndicator(step, index)}
+
+                    {!isLast && (
+                      <div
+                        className={cn(
+                          'h-0.5 flex-1',
+                          variant === 'compact' ? 'max-w-12' : 'max-w-24',
+                          status === 'completed' ? config.borderClass : 'bg-[var(--ds-color-neutral-300)]',
+                        )}
+                      />
+                    )}
+                  </div>
 
                   <div className="mt-2 text-center">
                     <div className="flex items-center gap-1 justify-center">
@@ -226,16 +238,6 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                     )}
                   </div>
                 </div>
-
-                {!isLast && (
-                  <div
-                    className={cn(
-                      'h-0.5 flex-1',
-                      variant === 'compact' ? 'max-w-12' : 'max-w-24',
-                      status === 'completed' ? config.borderClass : 'bg-[var(--ds-color-neutral-300)]',
-                    )}
-                  />
-                )}
               </React.Fragment>
             );
           })}

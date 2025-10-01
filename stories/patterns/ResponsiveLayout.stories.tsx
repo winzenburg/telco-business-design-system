@@ -203,7 +203,7 @@ export const NavigationTabs: Story = {
 
     const navItems = [
       { id: 'services', label: 'Services', icon: 'grid' as const, active: activeTab === 'services', onClick: () => setActiveTab('services') },
-      { id: 'billing', label: 'Billing', icon: 'credit-card' as const, active: activeTab === 'billing', onClick: () => setActiveTab('billing') },
+      { id: 'billing', label: 'Billing', icon: 'paymentcard' as const, active: activeTab === 'billing', onClick: () => setActiveTab('billing') },
       { id: 'reports', label: 'Reports', icon: 'bar-chart' as const, active: activeTab === 'reports', onClick: () => setActiveTab('reports') },
       { id: 'settings', label: 'Settings', icon: 'configure' as const, active: activeTab === 'settings', onClick: () => setActiveTab('settings') },
       { id: 'support', label: 'Support', icon: 'help-circle' as const, active: activeTab === 'support', onClick: () => setActiveTab('support') },
@@ -313,7 +313,7 @@ export const CompleteDashboard: Story = {
       { id: 'overview', label: 'Overview', icon: 'grid' as const, active: activeTab === 'overview', onClick: () => setActiveTab('overview') },
       { id: 'services', label: 'Services', icon: 'cloud' as const, active: activeTab === 'services', onClick: () => setActiveTab('services') },
       { id: 'analytics', label: 'Analytics', icon: 'bar-chart' as const, active: activeTab === 'analytics', onClick: () => setActiveTab('analytics') },
-      { id: 'billing', label: 'Billing', icon: 'credit-card' as const, active: activeTab === 'billing', onClick: () => setActiveTab('billing') },
+      { id: 'billing', label: 'Billing', icon: 'paymentcard' as const, active: activeTab === 'billing', onClick: () => setActiveTab('billing') },
     ];
 
     const tableColumns = [

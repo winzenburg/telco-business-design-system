@@ -51,7 +51,7 @@ export const Default: Story = {
     title: 'Total Revenue',
     value: '$48,574',
     description: 'Total revenue from all sources this month',
-    icon: 'dollar-sign',
+    icon: 'money',
     density: 'comfortable',
   },
 };
@@ -75,7 +75,7 @@ export const WithStatus: Story = {
     title: 'System Health',
     value: '99.9%',
     description: 'Uptime over the last 30 days',
-    icon: 'activity',
+    icon: 'networkhealth',
     status: 'success',
     statusLabel: 'Healthy',
     density: 'comfortable',
@@ -87,7 +87,7 @@ export const ErrorState: Story = {
     title: 'Failed Requests',
     value: '127',
     description: 'API requests that returned errors',
-    icon: 'alert-circle',
+    icon: 'alert',
     status: 'error',
     statusLabel: 'Critical',
     trend: {
@@ -103,7 +103,7 @@ export const WithAction: Story = {
     title: 'Storage Used',
     value: '84.2 GB',
     description: 'Out of 100 GB available',
-    icon: 'hard-drive',
+    icon: 'device',
     status: 'warning',
     statusLabel: 'Almost Full',
     action: {
@@ -119,7 +119,7 @@ export const WithFooter: Story = {
     title: 'Monthly Sales',
     value: '$156,284',
     description: 'Total sales for current month',
-    icon: 'shopping-bag',
+    icon: 'shoppingbag',
     trend: {
       value: '+8.2%',
       direction: 'up',
@@ -138,7 +138,7 @@ export const CompactDensity: Story = {
     title: 'Pending Orders',
     value: '42',
     description: 'Orders awaiting fulfillment',
-    icon: 'package',
+    icon: 'feather-package',
     status: 'info',
     statusLabel: 'In Queue',
     density: 'compact',
@@ -150,7 +150,7 @@ export const SpaciousDensity: Story = {
     title: 'Customer Satisfaction',
     value: '4.8',
     description: 'Average rating from customer surveys',
-    icon: 'star',
+    icon: 'feather-star',
     status: 'success',
     statusLabel: 'Excellent',
     trend: {
@@ -168,21 +168,21 @@ export const AllDensities: Story = {
         title="Compact"
         value="1,234"
         description="Compact density for information-dense dashboards"
-        icon="bar-chart"
+        icon="analytics"
         density="compact"
       />
       <SummaryCard
         title="Comfortable"
         value="5,678"
         description="Comfortable density (default) balances space and information"
-        icon="bar-chart"
+        icon="analytics"
         density="comfortable"
       />
       <SummaryCard
         title="Spacious"
         value="9,012"
         description="Spacious density for prominent metrics and executive dashboards"
-        icon="bar-chart"
+        icon="analytics"
         density="spacious"
       />
     </div>
@@ -196,7 +196,7 @@ export const AllStatuses: Story = {
         title="Success Metric"
         value="98.5%"
         description="System performing optimally"
-        icon="check-circle"
+        icon="complete"
         status="success"
         statusLabel="Healthy"
       />
@@ -204,7 +204,7 @@ export const AllStatuses: Story = {
         title="Warning Metric"
         value="75.2%"
         description="Approaching threshold limit"
-        icon="alert-triangle"
+        icon="alert"
         status="warning"
         statusLabel="Warning"
       />
@@ -212,7 +212,7 @@ export const AllStatuses: Story = {
         title="Error Metric"
         value="12"
         description="Critical issues detected"
-        icon="x-circle"
+        icon="alert"
         status="error"
         statusLabel="Critical"
       />
@@ -220,7 +220,7 @@ export const AllStatuses: Story = {
         title="Info Metric"
         value="456"
         description="General information display"
-        icon="info"
+        icon="feather-info"
         status="info"
         statusLabel="Information"
       />
@@ -228,7 +228,7 @@ export const AllStatuses: Story = {
         title="Neutral Metric"
         value="234"
         description="No specific status indicated"
-        icon="circle"
+        icon="feather-circle"
         status="neutral"
         statusLabel="Neutral"
       />
@@ -236,7 +236,7 @@ export const AllStatuses: Story = {
         title="No Status"
         value="789"
         description="Card without status indicator"
-        icon="bar-chart-2"
+        icon="analytics"
       />
     </div>
   ),
@@ -248,7 +248,7 @@ export const DashboardExample: Story = {
       <SummaryCard
         title="Total Revenue"
         value="$248.5K"
-        icon="dollar-sign"
+        icon="money"
         trend={{ value: '+18.2%', direction: 'up' }}
         description="vs. last month"
         density="compact"
@@ -264,7 +264,7 @@ export const DashboardExample: Story = {
       <SummaryCard
         title="Avg. Order Value"
         value="$174"
-        icon="shopping-cart"
+        icon="shoppingbag"
         trend={{ value: '-2.1%', direction: 'down' }}
         description="vs. last month"
         density="compact"
@@ -272,7 +272,7 @@ export const DashboardExample: Story = {
       <SummaryCard
         title="Conversion Rate"
         value="3.24%"
-        icon="trending-up"
+        icon="directionup"
         trend={{ value: '+0.5%', direction: 'up' }}
         description="vs. last month"
         status="success"
@@ -301,7 +301,7 @@ export const NegativeTrend: Story = {
     title: 'Support Tickets',
     value: '89',
     description: 'Open support tickets',
-    icon: 'message-circle',
+    icon: 'chat',
     trend: {
       value: '-15.8%',
       direction: 'down',
@@ -317,7 +317,7 @@ export const LongText: Story = {
     title: 'Average Customer Lifetime Value Across All Segments',
     value: '$12,456.78',
     description: 'This is a very long description that demonstrates how the card handles longer text content. It should wrap appropriately and maintain readability across different screen sizes.',
-    icon: 'dollar-sign',
+    icon: 'money',
     trend: {
       value: '+8.5%',
       direction: 'up',

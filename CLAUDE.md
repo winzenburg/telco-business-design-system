@@ -26,7 +26,7 @@ npm run build:storybook  # Test for circular reference errors
 ```
 This catches circular reference issues that only appear during Storybook builds (like the Netlify failures).
 
-**✅ RECENT ACCOMPLISHMENTS (Sep 2025):**
+**✅ RECENT ACCOMPLISHMENTS (Oct 2025):**
 - ✅ **5 Immediate Priorities Completed** (border hierarchy, axe assertions, TypeScript errors, token tables, bundle analysis)
 - ✅ Border hierarchy debt eliminated: 0 components using deprecated `--ds-color-border-default`
 - ✅ TypeScript build errors fixed: NPM distribution build succeeds in ~6s
@@ -36,6 +36,7 @@ This catches circular reference issues that only appear during Storybook builds 
 - ✅ All form controls standardized with consistent `error` prop API (Input, Select, Textarea, Checkbox, RadioGroup, Switch, Combobox, Slider)
 - ✅ Comprehensive 14-section MDX documentation created for 35+ components
 - ✅ All components rebuilt using ShadCN-First approach with proper border hierarchy
+- ✅ **8 Enterprise Pattern Components** created for complex enterprise workflows (EmptyState, SummaryCard, KeyValuePair, DetailPanel, BulkActionBar, ConfirmationModal, PermissionGate, RestrictedAction, PermissionBanner, HelpTooltip, HelpDrawer, InlineHelp, ActivityLog, NotificationCenter, Stepper, ProgressiveForm, WorkflowMap, SettingsPanel, ResponsiveLayout)
 
 ---
 
@@ -341,3 +342,297 @@ When modifying components, ALWAYS run `npm run lint` and `npm run type-check`.
 - Focus rings: `ring-primary-500` (#0D62FF)
 - Error states: `border-destructive`, `ring-destructive` (#D11314)
 - Use Tailwind tokens, NOT CSS variables (e.g., `bg-primary-500` not `var(--ds-color-intent-primary)`)
+
+---
+
+## Pattern Component Standards (Established Oct 2025)
+
+Pattern components are complex, composed components that combine multiple primitives into enterprise workflows (ResponsiveLayout, EmptyState, SummaryCard, etc.).
+
+### Icon Alignment in Composed Components
+
+**Rule**: Always use `flex items-center` on container elements, never on wrapper divs around icons.
+
+**✅ CORRECT - Button with icon:**
+```tsx
+<button className="flex items-center px-4 py-2">
+  {item.icon && <Icon name={item.icon} size={16} className="mr-2" />}
+  {item.label}
+</button>
+```
+
+**❌ WRONG - Redundant wrapper:**
+```tsx
+<MenuItem>
+  <div className="flex items-center">  {/* MenuItem already has flex! */}
+    <Icon name={item.icon} size={16} />
+  </div>
+</MenuItem>
+```
+
+**Key Learnings**:
+- Radix UI MenuItem already has `flex items-center gap-3` in its variants - don't add wrapper divs
+- Remove `inline` className when using flexbox layout (they conflict)
+- Use `mr-2` or rely on parent's `gap` for spacing between icon and text
+- Check component internals before adding layout wrappers
+
+### Dropdown Menu Width Matching
+
+**Pattern**: Use Radix UI's CSS variable to match dropdown width to trigger button.
+
+**Implementation**:
+```tsx
+<MenuContent
+  align="start"                    // Align left edge with trigger
+  sideOffset={8}                   // Comfortable spacing from trigger
+  style={{ width: 'var(--radix-dropdown-menu-trigger-width)' }}
+  className="max-w-[calc(100vw-2rem)]"  // Responsive constraint
+>
+```
+
+**Why Each Property**:
+- `align="start"` - Ensures left edge alignment (not centered)
+- `sideOffset={8}` - Prevents dropdown from touching trigger button
+- `width: var(--radix-dropdown-menu-trigger-width)` - Matches trigger width exactly
+- `max-w-[calc(100vw-2rem)]` - Prevents overflow on narrow viewports (leaves 1rem padding each side)
+
+### Icon Registry Usage
+
+**Always verify icon names** exist in `icon-registry.ts` before use.
+
+**Common Valid Icons**:
+- `bar-chart` (not `chart`)
+- `help-circle` (not `help`)
+- `grid`, `credit-card`, `configure`, `cloud`, `chevron`
+
+**Anti-Patterns**:
+```tsx
+// ❌ WRONG - These don't exist
+<Icon name="chart" />
+<Icon name="help" />
+<Icon name="settings" />
+
+// ✅ CORRECT - Fully qualified names
+<Icon name="bar-chart" />
+<Icon name="help-circle" />
+<Icon name="configure" />
+```
+
+**Verification Command**:
+```bash
+# Search icon registry for valid names
+grep -E "name: '[a-z-]+'" src/components/Icon/icon-registry.ts | head -20
+```
+
+### TypeScript Icon Type Handling
+
+**Pattern**: Use `as any` casting when IconName types don't align between interfaces.
+
+**Scenario**: ResponsiveNavItem uses `icon?: IconName` but Icon component expects exact literal types.
+
+**Solution**:
+```tsx
+export interface ResponsiveNavItem {
+  icon?: IconName;  // Generic union type
+}
+
+// In render:
+<Icon name={item.icon as any} size={16} />  // Cast to satisfy Icon's literal type
+```
+
+**Why This Works**:
+- Runtime: Icon registry validates names at runtime anyway
+- Type Safety: IconName is still enforced at item creation
+- Flexibility: Allows composition without tight coupling
+
+### Responsive Breakpoint Patterns
+
+**Pattern Components** should use consistent breakpoint prop naming:
+
+```tsx
+interface ResponsiveProps {
+  mobileBreakpoint?: 'sm' | 'md' | 'lg';  // When to switch layouts
+}
+
+// Implementation
+const hideClass = mobileBreakpoint === 'sm'
+  ? 'hidden sm:flex'
+  : mobileBreakpoint === 'md'
+  ? 'hidden md:flex'
+  : 'hidden lg:flex';
+
+const showClass = mobileBreakpoint === 'sm'
+  ? 'flex sm:hidden'
+  : mobileBreakpoint === 'md'
+  ? 'flex md:hidden'
+  : 'flex lg:hidden';
+```
+
+**Default**: Use `md` (768px) as default breakpoint for most pattern components
+
+---
+
+## Icon System Standards (Established Oct 2025)
+
+### Icon Registry Architecture
+
+The design system uses a centralized icon registry (`packages/tokens/icon-registry.ts`) that maps icon names to SVG files in `/public/icons/`. All icons must be registered before use.
+
+**Total Icons**: 823 (562 Figma exports + 261 Feather icons)
+
+### Icon Categories
+
+Icons are organized into 7 categories:
+- **navigation** - Arrows, chevrons, menus, directional
+- **interface** - Close, check, plus, minus, search, configure, refresh
+- **status** - Alert, complete, bell, notifications, feedback, locks
+- **communication** - Chat, message, conference, video, voicemail, phone
+- **data** - Document, folder, clipboard, analytics, reports
+- **media** - Play, pause, stop, record, camera
+- **security** - Shield, lock, 2FA, secure
+- **general** - Catch-all for uncategorized
+
+### Adding New Icons
+
+1. **Add SVG to `/public/icons/`** - Use kebab-case naming (e.g., `payment-card.svg`)
+2. **Run sync script**: `node scripts/sync-icon-registry.cjs`
+3. **Verify registration**: `grep "'icon-name'" packages/tokens/icon-registry.ts`
+4. **Restart Storybook**: Icons auto-register via TypeScript `keyof typeof CORE_ICONS`
+
+### Icon Usage Best Practices
+
+**✅ CORRECT - Use Comcast Business-specific icons:**
+```tsx
+// Commerce/Finance
+<Icon name="paymentcard" />      // Not 'credit-card'
+<Icon name="money" />             // Not 'dollar-sign'
+<Icon name="shoppingbag" />       // Not 'shopping-bag'
+<Icon name="billsummarydefault" />
+
+// Technical/Network
+<Icon name="device" />            // Not 'cpu' or 'hard-drive'
+<Icon name="networkhealth" />     // Not 'activity'
+<Icon name="wifi" />
+<Icon name="cloud" />
+
+// People/Places
+<Icon name="users" />             // Not 'user'
+<Icon name="buildingwip" />       // Not 'building'
+<Icon name="variantphonetypefilled" /> // Not 'phone'
+
+// Actions/Status
+<Icon name="configure" />         // Not 'settings'
+<Icon name="complete" />          // Not 'check-circle'
+<Icon name="alert" />             // Not 'x-circle'
+<Icon name="avplay" />            // Not 'play'
+
+// Files/Documents
+<Icon name="document" />          // Not 'file-text'
+<Icon name="folder" />
+<Icon name="report" />
+```
+
+**❌ WRONG - Avoid generic feather icons:**
+```tsx
+<Icon name="credit-card" />      // Use 'paymentcard'
+<Icon name="shopping-cart" />    // Use 'shoppingbag'
+<Icon name="user" />             // Use 'users'
+<Icon name="settings" />         // Use 'configure'
+<Icon name="activity" />         // Use 'networkhealth'
+```
+
+### Icon Naming Conventions
+
+**Comcast Business Icons** (Figma exports):
+- Descriptive, specific names: `paymentcard`, `billsummarydefault`, `networkhealth`
+- Often include variant/type suffixes: `variantphonetypefilled`, `typefilledcoloron`
+- Business context: `autopay`, `ecobill`, `noannualcontract`
+
+**Feather Icons** (fallbacks):
+- Prefixed with `feather-`: `feather-user`, `feather-settings`
+- Generic UI patterns: `feather-chevron-right`, `feather-check`
+- Use only when no Comcast-specific alternative exists
+
+### Verifying Icon Availability
+
+```bash
+# Check if icon exists in registry
+grep "'icon-name'" packages/tokens/icon-registry.ts
+
+# List all available icons
+ls public/icons/*.svg | sed 's|.*/||' | sed 's|\.svg$||' | sort
+
+# Find icons by category
+grep "category: 'status'" packages/tokens/icon-registry.ts
+```
+
+### Troubleshooting Red X Icons
+
+**Problem**: Icons showing as red X (❌) in Storybook
+
+**Common Causes**:
+1. **Icon not registered** - Run `node scripts/sync-icon-registry.cjs`
+2. **Typo in icon name** - Check exact name in registry
+3. **SVG file missing** - Verify file exists in `/public/icons/`
+4. **Storybook cache** - Clear cache and restart
+
+**Solution**:
+```bash
+# 1. Sync registry with SVG files
+node scripts/sync-icon-registry.cjs
+
+# 2. Clear Storybook cache
+rm -rf node_modules/.cache .storybook-cache storybook-static
+
+# 3. Restart Storybook
+npm run dev
+```
+
+### Icon Component API
+
+```tsx
+interface IconProps {
+  name: IconName;              // Type-safe icon names
+  size?: number | string;      // Default: 20
+  color?: string;              // Default: 'currentColor'
+  className?: string;
+  'aria-label'?: string;       // For accessibility
+  decorative?: boolean;        // Sets aria-hidden="true"
+  onClick?: () => void;
+}
+
+// Usage
+<Icon name="paymentcard" size={24} />
+<Icon name="networkhealth" color="var(--ds-color-success-500)" />
+<Icon name="users" decorative />
+```
+
+### Pattern Component Icon Standards
+
+When building pattern components, prefer **Comcast Business-specific icons** over generic alternatives:
+
+| Use Case | Comcast Icon | Generic Alternative |
+|----------|--------------|---------------------|
+| Billing/Payment | `paymentcard`, `money`, `billsummarydefault` | `credit-card`, `dollar-sign` |
+| Orders/Shopping | `shoppingbag` | `shopping-bag`, `shopping-cart` |
+| System/Network | `device`, `networkhealth`, `cloud` | `cpu`, `activity`, `server` |
+| People/Users | `users`, `buildingwip` | `user`, `building` |
+| Settings/Config | `configure` | `settings`, `gear` |
+| Success/Error | `complete`, `alert` | `check-circle`, `x-circle` |
+| Communication | `variantphonetypefilled`, `message` | `phone`, `mail` |
+| Media/Video | `avplay`, `avstop`, `avpause` | `play`, `stop`, `pause` |
+
+### Automated Icon Sync (scripts/sync-icon-registry.cjs)
+
+The sync script automatically:
+- Scans `/public/icons/` for SVG files
+- Compares with existing registry entries
+- Auto-categorizes based on name patterns
+- Generates properly formatted registry entries
+- Updates `icon-registry.ts` with missing icons
+
+**Run after adding new SVG files**:
+```bash
+node scripts/sync-icon-registry.cjs
+# Output: Successfully added N icons to registry
+```

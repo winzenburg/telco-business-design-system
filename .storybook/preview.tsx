@@ -5,10 +5,16 @@ import './tailwind.css';
 
 const preview: Preview = {
   parameters: {
+    viewMode: 'docs',
+    previewTabs: {
+      'storybook/docs/panel': { index: -1 },
+    },
     options: {
       storySort: {
         method: 'alphabetical',
         order: [
+          'Getting Started',
+          ['Welcome'],
           'Foundations',
           ['Colors', 'Typography', 'Spacing', 'Grid & Layout', 'Elevation & Shadows', 'Icons', 'Token Patterns'],
           'Components',
