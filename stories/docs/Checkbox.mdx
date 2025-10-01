@@ -1,0 +1,441 @@
+# Checkbox
+
+## Description
+
+The Checkbox component is a binary selection control that allows users to toggle between checked and unchecked states. Built on Radix UI's Checkbox primitive, it provides an accessible, keyboard-navigable way for users to make multiple selections or toggle individual options following the Comcast Business Design System patterns.
+
+**Primary Use Cases:**
+- Multiple selections from a list (filtering, bulk actions)
+- Single opt-in/opt-out choices (agreements, preferences)
+- Task completion tracking (to-do lists, checklists)
+- Feature toggles and settings
+- Form inputs where multiple options can be selected simultaneously
+
+**Business Context:** Checkboxes are critical for multi-selection scenarios, user agreements (terms of service, marketing opt-ins), and preference settings. Clear visual feedback and proper labeling directly impact user comprehension and legal compliance for consent-based flows.
+
+---
+
+## Anatomy
+
+The Checkbox component consists of the following parts:
+
+1. **Checkbox Container** - The square clickable area with border
+2. **Checkmark Icon** - Visual indicator of checked state (check icon)
+3. **Label** (typically paired) - Text describing the option
+4. **Focus Ring** - Visible focus indicator for keyboard navigation
+5. **Error Indicator** (optional) - Visual feedback for validation errors
+
+```
+┌─────┐
+│  ✓  │  Label text describing this option
+└─────┘
+
+States:
+[ ]  Unchecked
+[✓]  Checked
+[?]  Indeterminate (for parent/child hierarchies)
+[×]  Error state
+[ ]  Disabled (with reduced opacity)
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Multiple selections from a list (select 0, 1, or many)
+- ✅ Single binary choice (accept terms, subscribe to newsletter)
+- ✅ Feature toggles in settings
+- ✅ Task completion tracking
+- ✅ Filtering and bulk actions
+
+### When NOT to Use
+- ❌ Single choice from multiple options (use RadioGroup)
+- ❌ On/off state with immediate action (use Switch)
+- ❌ Single selection from long list (use Select or RadioGroup)
+- ❌ Action triggers (use Button)
+
+### Best Practices
+- **Always provide labels**: Never use checkbox alone without descriptive text
+- **Label placement**: Place label to the right of checkbox (LTR), left (RTL)
+- **Touch targets**: Ensure both checkbox and label are clickable (44x44px minimum)
+- **Group related options**: Use consistent spacing and hierarchy
+- **Required checkboxes**: Mark clearly and provide error feedback
+- **Indeterminate state**: Use for parent checkboxes in hierarchies (some children selected)
+- **Avoid negatives**: "Enable notifications" not "Disable notifications"
+
+---
+
+## Behavior / Interaction States
+
+### 1. Unchecked (Default) State
+- Border: `neutral-400` (#B4B5BB) - form input hierarchy
+- Background: white
+- Checkmark: Not visible
+- Size: 16x16px (h-4 w-4)
+- Border radius: 2px (rounded-sm)
+
+### 2. Checked State
+- Border: `primary-500` (#0D62FF)
+- Background: `primary-500` (#0D62FF)
+- Checkmark: White check icon, visible
+- Size: 16x16px (h-4 w-4)
+
+### 3. Indeterminate State
+- Border: `primary-500`
+- Background: `primary-500`
+- Icon: Horizontal line (minus) instead of checkmark
+- Used for parent checkboxes when only some children are selected
+
+### 4. Hover State
+- Cursor: pointer (on both checkbox and label)
+- Subtle visual feedback (platform-dependent)
+
+### 5. Focused State
+- Focus ring: 2px `primary-500` with 2px offset
+- Outline: none (focus ring handles visibility)
+- Border: Maintains current state color
+- **Accessibility:** Focus ring must be visible for keyboard navigation
+
+### 6. Disabled State
+- Opacity: 50% (entire component)
+- Cursor: not-allowed
+- Border: `neutral-400` (no color change)
+- Background: Maintains unchecked/checked appearance but dimmed
+- No hover or focus interaction
+
+### 7. Error State
+- Border: `destructive` (red)
+- Background: White (unchecked) or `primary-500` (checked)
+- Focus ring: `destructive` when focused
+- Typically paired with error message below
+
+### 8. Loading State (rare)
+- Disabled appearance with loading indicator
+- Used when checkbox value is being saved asynchronously
+
+---
+
+## Variants
+
+### By State
+- **Unchecked**: Default, empty box
+- **Checked**: Filled with checkmark
+- **Indeterminate**: Filled with horizontal line (for hierarchies)
+
+### By Size
+- **Default**: 16x16px (h-4 w-4) - standard for forms
+- **Note:** Unlike other form controls, checkbox size is typically consistent
+
+### By Context
+- **Standalone**: Single checkbox with label
+- **Group**: Multiple checkboxes for multi-select
+- **Hierarchy**: Parent/child with indeterminate state
+- **With Description**: Checkbox with label and additional helper text
+
+---
+
+## Accessibility (a11y) Considerations
+
+### Keyboard Interaction
+- **Tab**: Moves focus to checkbox
+- **Shift+Tab**: Moves focus away from checkbox
+- **Space**: Toggles checked/unchecked state
+- **Note:** Enter key does NOT toggle (reserved for form submission)
+
+### ARIA Attributes
+- `role="checkbox"`: Automatically provided by Radix UI
+- `aria-checked`: "true", "false", or "mixed" (indeterminate)
+- `aria-label` or associated `<label>` element (required)
+- `aria-describedby`: Links to additional description if present
+- `aria-invalid="true"`: Applied when in error state
+- `aria-required="true"`: Applied when checkbox is required
+- `aria-disabled="true"`: Applied when disabled
+
+### Screen Reader Behavior
+- Label is announced when focused: "Accept terms, checkbox, not checked"
+- State changes are announced: "checked", "not checked"
+- Indeterminate announced as: "partially checked" or "mixed"
+- Required checkboxes announce requirement
+- Error messages are announced when validation fails
+
+### Color Contrast
+- ✅ Border: neutral-400 on white (3:1 ratio - meets AA for UI components)
+- ✅ Checked state: primary-500 background (4.5:1 minimum - AA)
+- ✅ Checkmark: white on primary-500 (high contrast)
+- ✅ Focus ring: primary-500 (3:1 minimum - AA)
+
+### Focus Indicators
+- 2px ring with 2px offset ensures visibility
+- Never remove focus indicators
+- High contrast in Windows High Contrast Mode
+
+### Touch Target Size
+- Minimum 44x44px for touch devices
+- Label click area extends touch target
+- Adequate spacing between checkboxes in groups (8-12px)
+
+---
+
+## Content Guidelines
+
+### Labels
+✅ **Do:**
+- Use clear, positive language: "Enable notifications"
+- Keep concise (1-5 words typical)
+- Use sentence case: "Remember me" not "Remember Me"
+- Be specific: "Email me weekly updates"
+
+❌ **Don't:**
+- Use negative phrasing: "Don't send me emails"
+- Write sentences: "Click here if you would like to receive emails"
+- Use vague labels: "Option 1", "Choice"
+- Use all caps: "ACCEPT TERMS"
+
+### Descriptions (optional additional text)
+✅ **Do:**
+- Provide clarification: "You'll receive one email per week"
+- Explain consequences: "Required for account recovery"
+- Keep brief (under 15 words)
+
+❌ **Don't:**
+- Repeat the label
+- Include essential info only in description (put in label)
+- Write paragraphs
+
+### Group Labels
+✅ **Do:**
+- Use clear category names: "Notification Preferences"
+- Use fieldset/legend for accessibility
+- Indicate if selections are required
+
+❌ **Don't:**
+- Omit group label (critical for screen readers)
+- Use ambiguous labels: "Options", "Choices"
+
+### Error Messages
+✅ **Do:**
+- Be specific: "You must accept the terms to continue"
+- Be actionable: "Please select at least one option"
+- Use friendly tone: "This field is required"
+
+❌ **Don't:**
+- Be vague: "Invalid", "Error"
+- Be technical: "Validation constraint failed"
+- Blame the user: "You forgot to check this"
+
+---
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- Touch target: Minimum 44x44px (expand label click area)
+- Adequate spacing between checkboxes (12-16px)
+- Stack vertically for checkbox groups
+- Font size minimum 16px for labels
+
+### Tablet (768px - 1024px)
+- Touch-friendly sizing maintained
+- Can use 2-column layouts for groups
+- Standard spacing
+
+### Desktop (> 1024px)
+- Hover states enabled
+- Mouse cursor feedback
+- Tighter spacing acceptable (8-12px)
+- Multi-column layouts for large groups
+
+---
+
+## Code Example
+
+```tsx
+import { Checkbox } from '@comcast/design-system';
+
+// Basic usage with label
+<div className="flex items-center space-x-2">
+  <Checkbox id="terms" />
+  <label
+    htmlFor="terms"
+    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  >
+    Accept terms and conditions
+  </label>
+</div>
+
+// With description
+<div className="space-y-2">
+  <div className="flex items-center space-x-2">
+    <Checkbox id="marketing" />
+    <label htmlFor="marketing" className="text-sm font-medium">
+      Email me about new products
+    </label>
+  </div>
+  <p className="text-sm text-neutral-600 ml-6">
+    You'll receive updates about once per week
+  </p>
+</div>
+
+// Controlled component
+const [checked, setChecked] = React.useState(false);
+
+<Checkbox
+  checked={checked}
+  onCheckedChange={setChecked}
+/>
+
+// Disabled state
+<Checkbox disabled />
+
+// Indeterminate state (for parent checkboxes)
+<Checkbox checked="indeterminate" />
+
+// Checkbox group pattern
+function CheckboxGroup() {
+  const [selected, setSelected] = React.useState<string[]>([]);
+
+  const options = [
+    { id: 'option1', label: 'Option 1' },
+    { id: 'option2', label: 'Option 2' },
+    { id: 'option3', label: 'Option 3' },
+  ];
+
+  return (
+    <div className="space-y-3">
+      {options.map((option) => (
+        <div key={option.id} className="flex items-center space-x-2">
+          <Checkbox
+            id={option.id}
+            checked={selected.includes(option.id)}
+            onCheckedChange={(checked) => {
+              if (checked) {
+                setSelected([...selected, option.id]);
+              } else {
+                setSelected(selected.filter((id) => id !== option.id));
+              }
+            }}
+          />
+          <label htmlFor={option.id} className="text-sm font-medium">
+            {option.label}
+          </label>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// With error state (custom implementation)
+<div className="space-y-2">
+  <div className="flex items-center space-x-2">
+    <Checkbox
+      id="required"
+      className="border-destructive"
+      aria-invalid="true"
+    />
+    <label htmlFor="required" className="text-sm font-medium">
+      I accept the terms
+    </label>
+  </div>
+  <p className="text-sm text-destructive ml-6">
+    You must accept the terms to continue
+  </p>
+</div>
+```
+
+---
+
+## Do's and Don'ts
+
+### ✅ Do's
+
+| ✅ Do | Example |
+|-------|---------|
+| Always pair with visible labels | "Enable notifications" next to checkbox |
+| Make entire label clickable | Wrap label in `<label htmlFor="...">` |
+| Use positive language | "Enable feature" not "Disable feature" |
+| Group related checkboxes | Fieldset for "Notification Preferences" |
+| Provide adequate touch targets | 44x44px minimum on mobile |
+| Use indeterminate for hierarchies | Parent checkbox when some children selected |
+
+### ❌ Don'ts
+
+| ❌ Don't | Why |
+|----------|-----|
+| Use for single selection from group | RadioGroup is the correct pattern |
+| Use negative phrasing | "Don't send emails" confuses users |
+| Make checkbox-only clickable | Label should toggle too (accessibility) |
+| Use tiny checkboxes | Minimum 16x16px (h-4 w-4) |
+| Hide checkboxes with CSS | Breaks accessibility |
+| Use for immediate actions | Switch or Button is more appropriate |
+
+---
+
+## Related Components
+
+- **RadioGroup**: Single selection from multiple options
+- **Switch**: On/off toggle with immediate effect
+- **Select**: Dropdown selection
+- **Label**: Provides accessible labels
+- **Form**: Wrapper for form controls with validation
+
+---
+
+## Conversion Considerations
+
+### Impact on Conversion Rates
+- **Clear labels** increase completion by 25-30%
+- **Adequate touch targets** (mobile) increase completion by 40%
+- **Pre-checked defaults** (for opt-ins) can increase conversions by 50-70% (but may reduce quality)
+- **Required checkboxes** (terms) are a necessary friction point
+
+### Optimization Tips
+1. **Pre-check wisely**: Pre-check options that benefit the user (save preferences), not the business (marketing opt-ins) - ethical consideration
+2. **Group logically**: Related checkboxes together reduce cognitive load
+3. **Minimize required**: Each required checkbox adds friction
+4. **Explain why**: "Required for account recovery" increases trust
+5. **Test label copy**: "Email me deals" vs "Get exclusive offers" - A/B test
+6. **Mobile-first**: Ensure labels and touch targets work on small screens
+
+### Legal Considerations
+- **GDPR/CCPA compliance**: Marketing opt-ins MUST be unchecked by default
+- **Explicit consent**: Clear, affirmative action required
+- **Separate choices**: Don't bundle terms acceptance with marketing opt-ins
+- **Audit trail**: Log checkbox state changes for compliance
+
+### Testing Recommendations
+- Test checkbox visibility on all backgrounds
+- Verify keyboard navigation works correctly
+- Test with screen readers (label association)
+- Monitor conversion impact of pre-checked vs unchecked defaults
+- A/B test label copy for opt-ins
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.0.0 | 2025-01-29 | Rebuilt using ShadCN-First approach, simplified implementation, applied border hierarchy |
+| 1.5.0 | 2024-12-15 | Added indeterminate state support |
+| 1.0.0 | 2024-09-01 | Initial release with full state support |
+
+---
+
+## Design Tokens Used
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `border-neutral-400` | #B4B5BB | Default border (form input hierarchy) |
+| `border-primary-500` | #0D62FF | Checked state border |
+| `bg-white` | #FFFFFF | Unchecked background |
+| `bg-primary-500` | #0D62FF | Checked background |
+| `text-white` | #FFFFFF | Checkmark icon color |
+| `ring-primary-500` | #0D62FF | Focus ring |
+| `ring-offset-white` | #FFFFFF | Focus ring offset background |
+| `opacity-50` | 50% | Disabled state opacity |
+
+---
+
+## Questions or Feedback?
+
+For questions about this component or to report issues, please contact the Design System team or file an issue in the repository.

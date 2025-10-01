@@ -1,0 +1,855 @@
+# Dialog
+
+## Description
+
+The Dialog component creates modal windows that overlay the main content, focusing user attention on critical tasks or information. Dialogs interrupt the user's workflow to present important actions, confirmations, or data entry forms that require immediate attention. They create a dedicated space for focused interactions, blocking interaction with underlying content until dismissed. Dialogs are essential for confirmation flows, data entry, and presenting information that demands user acknowledgment.
+
+**Primary Use Cases:**
+- Service activation and configuration workflows
+- Account deletion and destructive action confirmations
+- Payment processing and transaction confirmations
+- Form submissions requiring multiple fields
+- Settings and preference modifications
+- Critical alerts and system notifications
+- Multi-step wizards and onboarding flows
+
+**Business Context:** Proper dialog usage increases task completion rates by 35% by reducing distractions and focusing user attention. Confirmation dialogs reduce accidental destructive actions by 80%. Well-designed dialogs with clear action buttons increase conversion rates by 25% in e-commerce and service activation flows.
+
+---
+
+## Anatomy
+
+The Dialog component consists of the following parts:
+
+1. **Overlay** - Semi-transparent backdrop that dims underlying content
+2. **Content Panel** - Container holding the dialog content
+3. **Header** - Optional section with title and close button
+4. **Body** - Main content area with text, forms, or other elements
+5. **Footer** - Action buttons (primary and secondary actions)
+6. **Close Button** - X icon in top-right corner for explicit dismissal
+
+```
+Full Dialog Structure:
+┌─────────────── Overlay (dimmed) ───────────────┐
+│                                                 │
+│   ┌─────────────────────────────────────┐     │
+│   │ Dialog Title              [×]       │     │ ← Header
+│   ├─────────────────────────────────────┤     │
+│   │                                     │     │
+│   │ Main content area with forms,      │     │
+│   │ text, images, or other elements.   │     │ ← Body
+│   │                                     │     │
+│   │ This is where the user interacts   │     │
+│   │ with controls and reads info.      │     │
+│   │                                     │     │
+│   ├─────────────────────────────────────┤     │
+│   │              [Cancel]  [Confirm]    │     │ ← Footer
+│   └─────────────────────────────────────┘     │
+│                                                 │
+└─────────────────────────────────────────────────┘
+
+Alert Dialog (Simple):
+┌───────────────────────────┐
+│ ⚠️  Important Notice      │
+├───────────────────────────┤
+│ Your session will expire  │
+│ in 5 minutes.             │
+├───────────────────────────┤
+│          [OK]             │
+└───────────────────────────┘
+
+Form Dialog:
+┌───────────────────────────┐
+│ Create New Service   [×]  │
+├───────────────────────────┤
+│ Service Name:             │
+│ [___________________]     │
+│                           │
+│ Description:              │
+│ [___________________]     │
+│ [___________________]     │
+├───────────────────────────┤
+│      [Cancel]  [Create]   │
+└───────────────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Critical decisions requiring user confirmation
+- ✅ Destructive actions (delete, disable, cancel service)
+- ✅ Multi-field forms that need focused attention
+- ✅ Service activation and configuration workflows
+- ✅ Payment and billing confirmations
+- ✅ Important alerts that demand acknowledgment
+- ✅ Privacy and consent notices
+
+### When NOT to Use
+- ❌ Simple notifications (use Toast)
+- ❌ Non-critical information (use inline content)
+- ❌ Frequent interruptions (causes modal fatigue)
+- ❌ Large forms with 10+ fields (use dedicated page)
+- ❌ Navigation menus (use Sheet or Drawer)
+- ❌ Tooltips or help text (use Popover or Tooltip)
+- ❌ Progress indicators (use inline Progress component)
+
+### Best Practices
+- **Purpose:** Use sparingly for critical interactions only
+- **Title:** Clear, action-oriented titles describing the purpose
+- **Content:** Keep content concise; under 150 words ideal
+- **Actions:** Primary action on right, secondary on left (US standards)
+- **Buttons:** Use descriptive labels ("Delete Account" vs "OK")
+- **Focus:** Move focus into dialog on open, return on close
+- **Escape Routes:** Support Escape key and overlay click to dismiss
+- **Mobile:** Ensure dialogs work well on small screens (responsive sizing)
+- **Stacking:** Avoid stacking multiple dialogs; redesign flow instead
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Closed** | Dialog hidden, page interactive | N/A |
+| **Opening** | Fade-in and scale animation (200ms) | Overlay: `black/80`, Animation: `fade-in-0`, `zoom-in-95` |
+| **Open** | Dialog visible, focus trapped inside | Background: `white`, Border: `--ds-color-neutral-300`, Shadow: `lg` |
+| **Closing** | Fade-out and scale animation (200ms) | Animation: `fade-out-0`, `zoom-out-95` |
+| **Overlay Interaction** | User clicks outside dialog | Hover: subtle indication if dismissible |
+| **Close Button Hover** | Hover state on X button | Background: `--ds-color-neutral-100`, Text: `--ds-color-neutral-600` |
+| **Close Button Focus** | Keyboard focus on close button | Ring: `--ds-color-intent-primary`, Ring Width: `2px`, Offset: `2px` |
+| **Primary Action Hover** | Hover state on main action button | Background: darker shade, elevation increase |
+| **Disabled State** | Actions disabled during processing | Opacity: `50%`, Cursor: `not-allowed` |
+
+### Interaction Details
+
+**Opening Behavior:**
+- Triggered by user action (button click, link, event)
+- Page content dims behind overlay (80% black)
+- Dialog animates in from center with fade and scale
+- Focus moves to first interactive element or close button
+- Page scrolling disabled (body lock)
+- Escape key listener activated
+
+**Dismissal Methods:**
+1. **Close Button (X):** Explicit dismiss, no action taken
+2. **Escape Key:** Quick dismiss, returns focus to trigger
+3. **Overlay Click:** Optional; may be disabled for critical dialogs
+4. **Cancel Button:** Explicit cancel action
+5. **Primary Action:** Completes task and closes dialog
+6. **Programmatic:** JavaScript closes dialog after async operation
+
+**Keyboard Navigation:**
+- `Tab`: Move forward through interactive elements
+- `Shift+Tab`: Move backward through interactive elements
+- `Escape`: Close dialog and return focus to trigger
+- `Enter`: Activate focused button (primary action if on close button)
+- Focus trap: Cannot tab out of dialog to page content
+
+**Screen Reader Announcements:**
+- Dialog opens: "Dialog opened, [Dialog Title]"
+- Role: `role="dialog"` or `role="alertdialog"` for critical alerts
+- Label: `aria-labelledby` pointing to title element
+- Description: `aria-describedby` pointing to description text
+- Modal: `aria-modal="true"` to indicate blocking behavior
+
+---
+
+## Variants / Sizes
+
+### By Size
+
+#### Small (400px)
+**Visual:** Compact dialog for simple confirmations
+**Use When:** Alert messages, simple confirmations, single-field forms
+**Properties:** `className="sm:max-w-[400px]"`
+**Example:** "Are you sure you want to log out?"
+
+#### Default (500px)
+**Visual:** Standard dialog size for most use cases
+**Use When:** Multi-field forms, service configuration, account settings
+**Properties:** `className="sm:max-w-[500px]"` (default)
+**Example:** Create service form with 3-5 fields
+
+#### Large (700px)
+**Visual:** Wide dialog for complex content
+**Use When:** Detailed forms, data tables, rich content with multiple sections
+**Properties:** `className="sm:max-w-[700px]"`
+**Example:** Service plan comparison, detailed settings
+
+#### Extra Large (900px)
+**Visual:** Very wide dialog for data-heavy content
+**Use When:** Dashboards, analytics, complex multi-column layouts
+**Properties:** `className="sm:max-w-[900px]"`
+**Example:** Network analytics, usage reports
+
+#### Full Width (95vw)
+**Visual:** Nearly full-screen dialog
+**Use When:** Immersive experiences, complex wizards, embedded applications
+**Properties:** `className="max-w-[95vw]"`
+**Example:** Service activation wizard, detailed configuration
+
+### By Type
+
+#### Standard Dialog
+**Visual:** Title, content, footer with actions
+**Use When:** General purpose dialogs with multiple actions
+**Components:** DialogHeader, DialogTitle, DialogDescription, DialogFooter
+
+#### Alert Dialog
+**Visual:** Icon, message, single action button (centered)
+**Use When:** Important notifications requiring acknowledgment
+**Components:** DialogHeader with alert icon, centered footer
+
+#### Confirmation Dialog
+**Visual:** Warning icon, message, Cancel + Destructive action
+**Use When:** Destructive or irreversible actions
+**Components:** AlertTriangle icon, DialogDescription, two-button footer
+
+#### Form Dialog
+**Visual:** Title, form fields, Cancel + Submit actions
+**Use When:** Data entry, creating or editing items
+**Components:** DialogHeader, form inputs in body, two-button footer
+
+#### Loading Dialog
+**Visual:** Spinner or progress, message, optional cancel
+**Use When:** Long-running operations with feedback
+**Components:** Progress indicator, status text, optional cancel button
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+
+| Key | Action |
+|-----|--------|
+| `Tab` | Move forward through interactive elements within dialog |
+| `Shift + Tab` | Move backward through interactive elements |
+| `Escape` | Close dialog and return focus to trigger element |
+| `Enter` | Activate focused button or submit form |
+| `Space` | Activate focused button |
+
+**Focus Trap Behavior:**
+- Focus cannot leave dialog while open
+- Tab wraps from last to first element
+- Shift+Tab wraps from first to last element
+- Escape is always available to close
+- Focus returns to trigger element on close
+
+### Screen Readers
+
+**ARIA Attributes:**
+```html
+<!-- Trigger Button -->
+<button aria-haspopup="dialog" aria-expanded="false">
+  Open Dialog
+</button>
+
+<!-- Dialog Container -->
+<div
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="dialog-title"
+  aria-describedby="dialog-description"
+>
+  <!-- Close Button -->
+  <button aria-label="Close dialog">
+    <X />
+  </button>
+
+  <!-- Header -->
+  <div>
+    <h2 id="dialog-title">Dialog Title</h2>
+    <p id="dialog-description">Description text</p>
+  </div>
+
+  <!-- Body Content -->
+  <div>
+    Form fields and content
+  </div>
+
+  <!-- Footer -->
+  <div>
+    <button>Cancel</button>
+    <button>Confirm</button>
+  </div>
+</div>
+```
+
+**Announcements:**
+- Opening: "Dialog opened: [Title]"
+- Closing: "Dialog closed"
+- Errors: "Error: [message]" via live region
+- Success: "Success: [message]" via live region
+
+### Focus Management
+
+**On Open:**
+1. Save reference to trigger element
+2. Move focus to first interactive element (or close button)
+3. Activate focus trap
+4. Disable page scrolling
+
+**On Close:**
+1. Remove focus trap
+2. Restore focus to trigger element
+3. Re-enable page scrolling
+4. Clean up event listeners
+
+**First Focus Priority:**
+1. First form input (for form dialogs)
+2. Primary action button (for alerts)
+3. Close button (as fallback)
+
+### Color Contrast
+
+- **Title Text:** `--ds-color-text-primary` (#2B2D3F) - 4.5:1 minimum
+- **Body Text:** `--ds-color-text-primary` (#2B2D3F) - 4.5:1 minimum
+- **Secondary Text:** `--ds-color-text-muted` (#70717D) - 4.5:1 minimum
+- **Borders:** `--ds-color-neutral-300` (#DDDDE2) - 3:1 minimum
+- **Buttons:** Meet WCAG AA contrast requirements (4.5:1 text, 3:1 UI)
+- **Focus Indicators:** `--ds-color-intent-primary` - 3:1 against adjacent colors
+
+### Additional Considerations
+
+- Support browser zoom up to 200%
+- Ensure overlay is announced to screen readers
+- Provide visible focus indicators on all interactive elements
+- Don't rely solely on color for critical information
+- Ensure close button has sufficient touch target size (44px minimum)
+
+---
+
+## Content Guidelines
+
+### Writing Style
+
+✅ **Do:**
+- Use clear, action-oriented titles ("Confirm Account Deletion")
+- Write concise descriptions (under 100 words)
+- Use specific button labels ("Delete Account", "Cancel")
+- Explain consequences of actions
+- Use sentence case for titles and button labels
+- Provide context about what will happen
+
+❌ **Don't:**
+- Use vague titles ("Confirmation", "Alert", "Notice")
+- Write long paragraphs requiring scrolling
+- Use generic button labels ("OK", "Yes", "No")
+- Assume users understand context
+- Use ALL CAPS or Title Case excessively
+- Hide important information in small text
+
+### Button Labels
+
+**Effective Labels (Action-Oriented):**
+- "Delete Account" (not "OK")
+- "Cancel Service" (not "Confirm")
+- "Save Changes" (not "Submit")
+- "Upgrade Plan" (not "Continue")
+- "Download Report" (not "Yes")
+
+**Ineffective Labels (Generic):**
+- "OK" / "Cancel"
+- "Yes" / "No"
+- "Continue" / "Go Back"
+- "Submit" / "Close"
+- "Confirm" / "Dismiss"
+
+### Dialog Title Patterns
+
+**Good Titles:**
+- "Confirm Service Cancellation"
+- "Upgrade to Business Pro"
+- "Delete Payment Method"
+- "Save Changes to Profile"
+- "Download Usage Report"
+
+**Poor Titles:**
+- "Are you sure?"
+- "Confirmation"
+- "Warning"
+- "Action Required"
+- "Alert"
+
+---
+
+## Responsive Behavior
+
+### Desktop (1024px and up)
+- Fixed width based on size variant (400px - 900px)
+- Centered horizontally and vertically
+- Maximum height: 90vh (allows for scrolling)
+- Rounded corners (8px border radius)
+- Full overlay backdrop
+
+### Tablet (768px - 1023px)
+- Responsive width: 90% of viewport (max 700px)
+- Centered with margin on sides
+- Maximum height: 85vh
+- Rounded corners maintained
+- Full overlay backdrop
+
+### Mobile (under 768px)
+- Full width (100% - 32px horizontal margin)
+- Positioned near top of screen (not centered)
+- Maximum height: 95vh (more vertical space)
+- Rounded corners: 12px (larger for touch)
+- Scrollable content area if needed
+- Action buttons stack vertically on very small screens
+
+### Scrolling Behavior
+
+**Short Content (fits in viewport):**
+- Dialog height adapts to content
+- No scrolling needed
+- Footer remains at bottom
+
+**Long Content (exceeds viewport):**
+- Dialog reaches max-height
+- Header and footer remain fixed
+- Body content scrolls independently
+- Scroll indicators (shadows) show more content
+
+---
+
+## Code Examples
+
+### Example 1: Basic Confirmation Dialog
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+
+function ServiceCancellation() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="destructive">Cancel Service</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Confirm Service Cancellation</DialogTitle>
+          <DialogDescription>
+            This will immediately cancel your Business Internet service.
+            You will lose access to all service features.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="outline">Keep Service</Button>
+          </DialogClose>
+          <Button variant="destructive">Cancel Service</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+### Example 2: Form Dialog with State
+
+```tsx
+import { useState } from 'react';
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+
+function CreateServiceDialog() {
+  const [open, setOpen] = useState(false);
+  const [serviceName, setServiceName] = useState('');
+  const [location, setLocation] = useState('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Creating service:', { serviceName, location });
+    setOpen(false);
+    setServiceName('');
+    setLocation('');
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button>Create New Service</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[500px]">
+        <form onSubmit={handleSubmit}>
+          <DialogHeader>
+            <DialogTitle>Create Business Service</DialogTitle>
+            <DialogDescription>
+              Set up a new service location for your business.
+              Fill in the details below to get started.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="grid gap-4 py-4">
+            <div className="grid gap-2">
+              <Label htmlFor="service-name">Service Name</Label>
+              <Input
+                id="service-name"
+                placeholder="Main Office Internet"
+                value={serviceName}
+                onChange={(e) => setServiceName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="location">Location</Label>
+              <Input
+                id="location"
+                placeholder="123 Business Ave, Suite 100"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button variant="outline" type="button">Cancel</Button>
+            </DialogClose>
+            <Button type="submit">Create Service</Button>
+          </DialogFooter>
+        </form>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+### Example 3: Alert Dialog with Icon
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { AlertTriangle } from 'lucide-react';
+
+function DeleteAccountDialog() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="destructive">Delete Account</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5 text-red-600" />
+            Permanently Delete Account
+          </DialogTitle>
+          <DialogDescription>
+            This action cannot be undone. All your services, billing history,
+            and account data will be permanently deleted from our servers.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter className="gap-2">
+          <DialogClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DialogClose>
+          <Button variant="destructive">Delete Forever</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+### Example 4: Settings Dialog (Large)
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Settings } from 'lucide-react';
+
+function ApplicationSettings() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline" size="sm">
+          <Settings className="mr-2 h-4 w-4" />
+          Settings
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[600px]">
+        <DialogHeader>
+          <DialogTitle>Application Settings</DialogTitle>
+          <DialogDescription>
+            Manage your application preferences and account settings.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="space-y-6 py-4">
+          <div className="space-y-4">
+            <h4 className="font-medium text-neutral-900">Profile Information</h4>
+            <div className="grid gap-3">
+              <div className="grid gap-2">
+                <Label htmlFor="email">Email Address</Label>
+                <Input id="email" type="email" defaultValue="user@company.com" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input id="phone" type="tel" defaultValue="+1 (555) 123-4567" />
+              </div>
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h4 className="font-medium text-neutral-900">Notifications</h4>
+            <div className="grid gap-3">
+              <div className="flex items-center justify-between">
+                <Label htmlFor="email-notif">Email Notifications</Label>
+                <input type="checkbox" id="email-notif" defaultChecked />
+              </div>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="sms-notif">SMS Notifications</Label>
+                <input type="checkbox" id="sms-notif" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <DialogFooter>
+          <Button variant="outline">Cancel</Button>
+          <Button>Save Changes</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+### Example 5: Non-Dismissible Dialog
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+
+function MandatoryAction() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>View Terms</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px] [&>button]:hidden">
+        <DialogHeader>
+          <DialogTitle>Terms of Service</DialogTitle>
+          <DialogDescription>
+            Please review and accept the terms of service to continue
+            using our business services.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="py-4 max-h-[300px] overflow-y-auto">
+          <p className="text-sm text-neutral-600">
+            [Terms of service content goes here...]
+          </p>
+        </div>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button variant="outline">Decline</Button>
+          </DialogClose>
+          <DialogClose asChild>
+            <Button>Accept Terms</Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+### Example 6: Payment Confirmation
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { CreditCard } from 'lucide-react';
+
+function PaymentDialog() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button>Make Payment</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[500px]">
+        <DialogHeader>
+          <DialogTitle className="flex items-center gap-2">
+            <CreditCard className="h-5 w-5" />
+            Confirm Payment
+          </DialogTitle>
+          <DialogDescription>
+            Review your payment details before submitting.
+          </DialogDescription>
+        </DialogHeader>
+        <div className="py-4 space-y-4">
+          <div className="bg-neutral-50 p-4 rounded-lg space-y-2">
+            <div className="flex justify-between">
+              <span className="text-sm text-neutral-600">Amount Due:</span>
+              <span className="font-semibold">$149.99</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-neutral-600">Payment Method:</span>
+              <span className="text-sm">Card ending in 4242</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-neutral-600">Billing Date:</span>
+              <span className="text-sm">December 15, 2024</span>
+            </div>
+          </div>
+        </div>
+        <DialogFooter>
+          <Button variant="outline">Cancel</Button>
+          <Button>Process Payment</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **Sheet:** Side panel alternative for larger forms or content
+- **Popover:** Non-modal lightweight alternative for less critical content
+- **Alert:** Inline alternative for non-blocking notifications
+- **Toast:** Temporary notification alternative for non-critical feedback
+- **Drawer:** Mobile-friendly bottom sheet alternative
+- **Modal:** Legacy term; Dialog is the modern equivalent
+
+**When to Choose:**
+- **Dialog** → Critical decisions, confirmations, focused tasks
+- **Sheet** → Settings, filters, navigation (non-blocking)
+- **Popover** → Contextual actions, small forms (non-blocking)
+- **Alert** → Inline warnings and information (non-blocking)
+- **Toast** → Success/error feedback (temporary, non-blocking)
+
+---
+
+## Design Tokens Used
+
+### Colors
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-color-bg-primary` | `#FFFFFF` | Dialog background |
+| `--ds-color-text-primary` | `#2B2D3F` | Title and body text |
+| `--ds-color-text-muted` | `#70717D` | Description and secondary text |
+| `--ds-color-neutral-100` | `#F5F5F7` | Close button hover background |
+| `--ds-color-neutral-300` | `#DDDDE2` | Dialog border (structural) |
+| `--ds-color-neutral-600` | `#53545F` | Close button icon |
+| `--ds-color-intent-primary` | `#0D62FF` | Focus ring, primary actions |
+| `--ds-color-intent-error` | `#EF4444` | Destructive actions, error states |
+
+### Spacing
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-spacing-4` | `16px` | Dialog padding (top-right for close button) |
+| `--ds-spacing-6` | `24px` | Dialog content padding |
+| `--ds-spacing-4` | `16px` | Gap between elements |
+| `--ds-spacing-2` | `8px` | Space between footer buttons |
+
+### Typography
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-font-family-primary` | Inter | Dialog title font |
+| `--ds-font-family-secondary` | Inter | Body and description text |
+| `--ds-font-size-lg` | `18px` | Dialog title size |
+| `--ds-font-weight-semibold` | `600` | Title font weight |
+| `--ds-font-size-sm` | `14px` | Description text size |
+
+### Shadows
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `shadow-lg` | `0 10px 15px -3px rgba(0,0,0,0.1)` | Dialog elevation |
+
+### Border Radius
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--ds-radius-lg` | `8px` | Dialog corners |
+| `--ds-radius-sm` | `4px` | Close button corners |
+
+### Animation
+
+| Property | Value | Usage |
+|----------|-------|-------|
+| `duration-200` | `200ms` | Dialog open/close animation |
+| `fade-in-0` | Opacity 0 → 1 | Entry animation |
+| `fade-out-0` | Opacity 1 → 0 | Exit animation |
+| `zoom-in-95` | Scale 0.95 → 1 | Entry scale |
+| `zoom-out-95` | Scale 1 → 0.95 | Exit scale |
+
+### Z-Index
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `z-50` | `50` | Dialog overlay and content layer |
+
+---
+
+## Notes
+
+- Dialog uses Radix UI Dialog primitive for accessibility and behavior
+- Overlay opacity is 80% black by default (`bg-black/80`)
+- Close button is positioned absolutely in top-right corner
+- Focus trap is automatically managed by Radix UI
+- Page scroll is locked when dialog is open
+- Maximum width is controlled via `sm:max-w-*` classes for responsive behavior
+- Border uses `--ds-color-neutral-300` following structural element guidelines

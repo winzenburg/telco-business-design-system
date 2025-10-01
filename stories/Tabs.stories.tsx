@@ -13,10 +13,10 @@ import {
   Input,
   Button
 } from '../src/components';
-import TabsDocs from './Tabs.mdx';
+import TabsDocs from './docs/Tabs.mdx';
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Tabs',
+  title: 'Components/Tabs',
   component: Tabs,
   parameters: {
     layout: 'padded',

@@ -24,7 +24,6 @@ const meta = {
       },
     },
   },
-  tags: ['autodocs'],
 } satisfies Meta<typeof BulkActionBar>;
 
 export default meta;

@@ -13,10 +13,10 @@ import {
 } from '../src/components';
 // @ts-expect-error - Some lucide-react icons may not be exported in current version
 import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
-import CommandDocs from './Command.mdx';
+import CommandDocs from './docs/Command.mdx';
 
 const meta: Meta<typeof Command> = {
-  title: 'Command',
+  title: 'Components/Command',
   component: Command,
   parameters: {
     layout: 'padded',

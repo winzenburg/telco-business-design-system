@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Badge, Avatar } from '../src/components';
 import { Star, Heart, User, Plus, Filter, Tag, Check, X, Settings, ChevronDown } from 'lucide-react';
-import BadgeDocs from './Badge.mdx';
+import BadgeDocs from './docs/Badge.mdx';
 
 const meta: Meta<typeof Badge> = {
-  title: 'Badge',
+  title: 'Components/Badge',
   component: Badge,
   parameters: {
     layout: 'padded',

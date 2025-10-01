@@ -11,10 +11,10 @@ import {
   SelectValue
 } from '../src/components/ui/select';
 import { Label } from '../src/components/ui/label';
-import SelectDocs from './Select.mdx';
+import SelectDocs from './docs/Select.mdx';
 
 const meta: Meta<typeof Select> = {
-  title: 'Select',
+  title: 'Components/Select',
   component: Select,
   parameters: {
     layout: 'centered',

@@ -9,10 +9,10 @@ import {
   BreadcrumbSeparator
 } from '../src/components';
 import { Home, ChevronLeft } from 'lucide-react';
-import BreadcrumbDocs from './Breadcrumb.mdx';
+import BreadcrumbDocs from './docs/Breadcrumb.mdx';
 
 const meta: Meta<typeof Breadcrumb> = {
-  title: 'Breadcrumb',
+  title: 'Components/Breadcrumb',
   component: Breadcrumb,
   parameters: {
     layout: 'padded',

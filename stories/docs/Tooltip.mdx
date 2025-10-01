@@ -1,0 +1,441 @@
+# Tooltip
+
+## Description
+
+The Tooltip component displays contextual information when users hover over, focus on, or tap an element. Built on Radix UI primitives with Material Design 3 patterns, it provides brief help text, labels for icon buttons, or explanations for complex features without cluttering the interface.
+
+**Primary Use Cases:**
+- Icon button labels ("Settings", "Download", "Delete")
+- Field help text (without making info always visible)
+- Abbreviation definitions (hover over "SLA" shows "Service Level Agreement")
+- Feature explanations (complex settings, new features)
+- Truncated text preview (full text on hover)
+- Status details (hover badge shows timestamp)
+
+**Business Context:** Tooltips reduce support calls by 20% by providing contextual help at the point of need. However, they must not contain critical information—users must be able to complete tasks without relying on tooltips. For Comcast Business, tooltips clarify technical terms, explain service options, and label icon-only actions.
+
+---
+
+## Anatomy
+
+The Tooltip component consists of the following parts:
+
+1. **TooltipProvider** - Context provider (wrap app or component tree)
+2. **Tooltip** - Root container managing open/close state
+3. **TooltipTrigger** - Element that triggers the tooltip (button, icon, text)
+4. **TooltipContent** - Popup content with text and optional arrow
+5. **TooltipArrow** - Optional pointer indicating trigger element
+6. **TooltipHeader** - Bold heading for rich tooltips
+7. **TooltipBody** - Body text for rich tooltips with details
+
+```
+                    ┌──────────────────────┐
+                    │ TooltipContent       │
+                    │                      │
+ Trigger Element    │ Brief explanatory    │
+ [Icon Button] ───▶ │ text about the       │
+                    │ icon's action        │
+                    └──────────┬───────────┘
+                               ▼ (arrow/pointer)
+
+Rich Tooltip:
+┌────────────────────────────────────┐
+│ TooltipHeader (bold)               │
+│ Feature Name                       │
+│                                    │
+│ TooltipBody                        │
+│ Detailed explanation text that     │
+│ provides more context...           │
+└────────────────────────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Labeling icon-only buttons
+- ✅ Providing brief help for form fields
+- ✅ Explaining unfamiliar terms or concepts
+- ✅ Showing full text for truncated content
+- ✅ Displaying keyboard shortcuts
+- ✅ Clarifying status or state information
+
+### When NOT to Use
+- ❌ Critical information required for task completion
+- ❌ Long-form content (use popover or dialog)
+- ❌ Interactive content with links/buttons (use popover)
+- ❌ Mobile-first designs (unreliable hover on touch)
+- ❌ Permanent labels (use visible text instead)
+- ❌ Form validation errors (use inline error messages)
+
+### Best Practices
+- **Brevity:** Keep text under 2-3 lines (max 250px width)
+- **Timing:** Show after 700ms delay (avoid accidental triggers)
+- **Positioning:** Auto-position to avoid viewport edges
+- **Accessibility:** Must be accessible via keyboard focus
+- **Content:** Supplemental, not essential information
+- **Consistency:** Use same trigger pattern throughout app
+- **Mobile:** Provide alternative access method (info icon to popover)
+
+---
+
+## Behavior / Interaction States
+
+### Trigger Methods
+
+| Method | Behavior | Use Case |
+|--------|----------|----------|
+| **Hover** | Show on mouse enter, hide on mouse leave | Desktop primary interaction |
+| **Focus** | Show on keyboard focus | Keyboard navigation |
+| **Touch** | Show on tap, hide on tap outside | Touch devices (fallback) |
+| **Delay** | 700ms show delay, 300ms hide delay | Avoid accidental triggers |
+
+### Visual States
+
+| State | Visual | Design Tokens |
+|-------|--------|---------------|
+| **Default** | Dark background, white text | `bg-neutral-800 text-white` |
+| **Rich** | White background, bordered | `bg-white text-neutral-900 border-neutral-200` |
+| **Inverted** | Light background for dark UI | `bg-white text-neutral-900` |
+| **With Arrow** | Pointer to trigger | `fill-current text-neutral-800` |
+
+---
+
+## Variants
+
+### By Visual Style
+
+#### 1. Default (Plain Tooltip)
+Material Design 3 standard tooltip with dark background.
+- **Background:** neutral-800 (dark gray)
+- **Text:** White
+- **Shadow:** lg
+- **Use for:** Most icon labels and brief help text
+- **Max width:** 250px
+
+#### 2. Rich Tooltip
+White background with header and body sections.
+- **Background:** White
+- **Border:** neutral-200
+- **Shadow:** xl
+- **Header:** Semibold, neutral-900
+- **Body:** Regular, neutral-700
+- **Use for:** Detailed explanations, feature highlights
+- **Max width:** 300px
+
+#### 3. Inverted
+Light tooltip for dark backgrounds.
+- **Background:** White
+- **Text:** neutral-900
+- **Border:** neutral-200
+- **Use for:** Dark UI themes
+- **Contrast:** WCAG AA compliant
+
+### By Size
+
+#### 4. Small
+Compact tooltip for tight spaces.
+- **Padding:** `px-2 py-1`
+- **Text:** `text-xs` (12px)
+- **Use for:** Dense UIs, icon grids
+
+#### 5. Default Size
+Standard tooltip size.
+- **Padding:** `px-3 py-2`
+- **Text:** `text-sm` (14px)
+- **Use for:** Most use cases
+
+#### 6. Large
+Spacious tooltip for detailed content.
+- **Padding:** `px-4 py-3`
+- **Text:** `text-base` (16px)
+- **Use for:** Rich tooltips, accessibility
+
+### By Position
+
+#### 7. Top (Default)
+Tooltip appears above trigger.
+- **Best for:** Bottom-aligned triggers
+- **Arrow:** Points down
+
+#### 8. Right
+Tooltip appears to the right.
+- **Best for:** Left-aligned content
+- **Arrow:** Points left
+
+#### 9. Bottom
+Tooltip appears below trigger.
+- **Best for:** Top navigation items
+- **Arrow:** Points up
+
+#### 10. Left
+Tooltip appears to the left.
+- **Best for:** Right-aligned content
+- **Arrow:** Points right
+
+#### 11. Auto
+Automatically positions to fit viewport.
+- **Logic:** Flips to opposite side if clipped
+- **Use for:** Dynamic layouts
+
+---
+
+## Responsive Behavior
+
+### Desktop (>= 1024px)
+- **Trigger:** Hover + focus
+- **Positioning:** All positions available
+- **Max width:** 250-300px
+- **Arrow:** Visible
+
+### Tablet (768px - 1023px)
+- **Trigger:** Tap + focus
+- **Positioning:** Prefer top/bottom (avoid left/right)
+- **Max width:** 200-250px
+- **Alternative:** Consider popover for complex info
+
+### Mobile (< 768px)
+- **Trigger:** Tap only (no reliable hover)
+- **Positioning:** Top or bottom only
+- **Max width:** 90vw (viewport-relative)
+- **Alternative:** Use info icon that opens sheet/dialog
+- **Accessibility:** Tap-hold or info button for accessible alternative
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+- **Tab:** Focus trigger element (tooltip shows)
+- **Escape:** Close tooltip
+- **Blur:** Close tooltip when focus leaves trigger
+- **No focus trap:** Tooltip content not focusable
+
+### Screen Readers
+- **ARIA:** `aria-describedby` associates tooltip with trigger
+- **Role:** Tooltip has `role="tooltip"`
+- **Announcements:** Screen reader reads trigger text + tooltip content
+- **Live region:** Dynamic tooltips use `aria-live="polite"`
+
+### Focus Management
+- **Visible Focus:** Focus ring on trigger element
+- **Focus Order:** Tooltip does not interrupt focus flow
+- **No focus trap:** Users can tab past trigger
+
+### Color Contrast
+- **Default:** White text on neutral-800 (AA compliant)
+- **Rich:** neutral-900 text on white (AA compliant)
+- **Border:** Sufficient contrast for visibility
+
+### Critical Requirement
+- **Non-Essential:** Tooltips must contain ONLY supplemental information
+- **Alternative Access:** Provide visible labels or help icons where possible
+- **Touch Fallback:** Ensure touch users can access tooltip content
+
+---
+
+## Content Guidelines
+
+### Tooltip Text
+✅ **Do:**
+- Keep text brief (1-2 sentences max)
+- Use sentence case
+- Start with verb for actions ("Download report")
+- Provide specific value ("SLA: Service Level Agreement")
+- End with period if complete sentence
+
+❌ **Don't:**
+- Repeat visible text exactly
+- Use vague descriptions ("More info")
+- Include critical instructions
+- Add interactive elements (links, buttons)
+- Exceed 2-3 lines of text
+
+### Rich Tooltips
+✅ **Do:**
+- Use header for feature name (5-7 words)
+- Body explains benefit (15-20 words)
+- Keep total under 50 words
+- Use for new feature highlights
+
+❌ **Don't:**
+- Write long paragraphs
+- Include lists or complex formatting
+- Add multiple sections
+- Duplicate visible UI text
+
+---
+
+## Code Examples
+
+### Basic Tooltip on Icon Button
+```typescript
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Button variant="ghost" size="icon">
+        <Download className="h-4 w-4" />
+      </Button>
+    </TooltipTrigger>
+    <TooltipContent>
+      <p>Download report</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+
+### Rich Tooltip with Header and Body
+```typescript
+<Tooltip>
+  <TooltipTrigger asChild>
+    <Button variant="outline">
+      <Info className="h-4 w-4 mr-2" />
+      Learn More
+    </Button>
+  </TooltipTrigger>
+  <TooltipContent variant="rich">
+    <TooltipHeader>Advanced Analytics</TooltipHeader>
+    <TooltipBody>
+      Track network performance, usage patterns, and identify potential issues before they impact your business.
+    </TooltipBody>
+  </TooltipContent>
+</Tooltip>
+```
+
+### With Arrow Pointer
+```typescript
+<Tooltip>
+  <TooltipTrigger asChild>
+    <Button size="icon" variant="outline">
+      <Settings className="h-4 w-4" />
+    </Button>
+  </TooltipTrigger>
+  <TooltipContent side="right" sideOffset={10}>
+    <TooltipArrow />
+    Configure service settings
+  </TooltipContent>
+</Tooltip>
+```
+
+### Positioning Options
+```typescript
+// Top (default)
+<TooltipContent side="top">Tooltip above</TooltipContent>
+
+// Right
+<TooltipContent side="right">Tooltip to the right</TooltipContent>
+
+// Bottom
+<TooltipContent side="bottom">Tooltip below</TooltipContent>
+
+// Left
+<TooltipContent side="left">Tooltip to the left</TooltipContent>
+
+// With alignment
+<TooltipContent side="top" align="start">Aligned to start</TooltipContent>
+<TooltipContent side="top" align="center">Centered</TooltipContent>
+<TooltipContent side="top" align="end">Aligned to end</TooltipContent>
+```
+
+### Custom Delays
+```typescript
+<TooltipProvider delayDuration={500} skipDelayDuration={300}>
+  <Tooltip>
+    {/* Faster tooltip appearance */}
+  </Tooltip>
+</TooltipProvider>
+```
+
+### Inverted for Dark Backgrounds
+```typescript
+<div className="bg-neutral-900 p-6">
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Button variant="secondary">Hover me</Button>
+    </TooltipTrigger>
+    <TooltipContent variant="inverted">
+      Light tooltip for dark backgrounds
+    </TooltipContent>
+  </Tooltip>
+</div>
+```
+
+### Multiple Tooltips with Provider
+```typescript
+<TooltipProvider>
+  <div className="flex gap-2">
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button size="icon" variant="ghost"><Edit /></Button>
+      </TooltipTrigger>
+      <TooltipContent>Edit</TooltipContent>
+    </Tooltip>
+
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button size="icon" variant="ghost"><Trash /></Button>
+      </TooltipTrigger>
+      <TooltipContent>Delete</TooltipContent>
+    </Tooltip>
+
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button size="icon" variant="ghost"><Share /></Button>
+      </TooltipTrigger>
+      <TooltipContent>Share</TooltipContent>
+    </Tooltip>
+  </div>
+</TooltipProvider>
+```
+
+---
+
+## Related Components
+
+- **Popover:** For interactive content with links/buttons
+- **Dialog:** For critical information requiring acknowledgment
+- **Sheet:** For complex help content on mobile
+- **Badge:** For persistent status indicators (no hover required)
+- **Button:** Common tooltip trigger element
+
+---
+
+## Design Tokens Used
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| **Colors - Default Variant** | | |
+| `bg-neutral-800` | #2A2C35 | Default tooltip background |
+| `text-white` | #FFFFFF | Default tooltip text |
+| `shadow-lg` | Box shadow | Default tooltip shadow |
+| **Colors - Rich Variant** | | |
+| `bg-white` | #FFFFFF | Rich tooltip background |
+| `text-neutral-900` | #1D1E26 | Rich tooltip header |
+| `text-neutral-700` | #50525E | Rich tooltip body |
+| `border-neutral-200` | #E8E8EC | Rich tooltip border |
+| `shadow-xl` | Large box shadow | Rich tooltip shadow |
+| **Colors - Arrow** | | |
+| `fill-current` | Inherits text color | Arrow fill |
+| `text-neutral-800` | #2A2C35 | Arrow color (default) |
+| **Typography** | | |
+| `font-medium` | 500 | Text weight |
+| `font-semibold` | 600 | Rich tooltip header |
+| `text-xs` | 12px | Small size |
+| `text-sm` | 14px | Default size |
+| `text-base` | 16px | Large size |
+| **Spacing** | | |
+| `px-2 py-1` | 8px 4px | Small padding |
+| `px-3 py-2` | 12px 8px | Default padding |
+| `px-4 py-3` | 16px 12px | Large padding |
+| `max-w-xs` | 320px | Max width |
+| `sideOffset` | 6px (default) | Distance from trigger |
+| **Border Radius** | | |
+| `rounded-lg` | 8px | Tooltip corners |
+| **Animations** | | |
+| `animate-in fade-in-0 zoom-in-95` | Entry | Appear animation |
+| `data-[state=closed]:animate-out` | Exit | Disappear animation |
+| `slide-in-from-top-2` | Directional | Position-based slide |
+| **Focus Ring** | | |
+| `ring-2` | 2px | Focus ring on trigger |
+| `ring-[var(--ds-color-intent-primary)]` | Blue | Focus ring color |

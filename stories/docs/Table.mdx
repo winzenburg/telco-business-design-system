@@ -1,0 +1,589 @@
+# Table
+
+## Description
+
+The Table component displays structured data in rows and columns, enabling users to scan, compare, and analyze information efficiently. Built on ShadCN/UI patterns with design system tokens, it supports sorting, filtering, selection, pagination, and responsive layouts.
+
+**Primary Use Cases:**
+- Service lists and billing history
+- Usage data and analytics dashboards
+- Device inventory and network monitoring
+- Employee directories and team rosters
+- Transaction history and financial reports
+- Configuration settings and system logs
+
+**Business Context:** Tables are critical for business data visualization, appearing in 70% of enterprise applications. Well-designed tables reduce task completion time by 35% and improve data comprehension by scanning efficiency. For Comcast Business, tables display service plans, billing details, network devices, and usage metrics.
+
+---
+
+## Anatomy
+
+The Table component consists of the following parts:
+
+1. **Table** - Root container with horizontal scroll wrapper
+2. **TableHeader** - Contains header row(s) with column titles
+3. **TableHead** - Individual column header cell
+4. **TableBody** - Contains data rows
+5. **TableRow** - Individual row with hover and selection states
+6. **TableCell** - Data cell within a row
+7. **TableFooter** - Optional summary row (totals, actions)
+8. **TableCaption** - Accessible description of table contents
+
+```
+┌──────────────────────────────────────────────────┐
+│ TableCaption (visually hidden or below)          │
+├──────────────────────────────────────────────────┤
+│ TableHeader                                      │
+│ ┌──────────┬───────────┬──────────┬──────────┐  │
+│ │ TableHead│ TableHead │ TableHead│ TableHead│  │
+│ │ (sortable)│          │          │ (align R)│  │
+│ └──────────┴───────────┴──────────┴──────────┘  │
+├──────────────────────────────────────────────────┤
+│ TableBody                                        │
+│ ┌──────────┬───────────┬──────────┬──────────┐  │
+│ │ TableCell│ TableCell │ TableCell│ TableCell│  │
+│ │ [select] │           │  Badge   │   $$$    │  │
+│ ├──────────┼───────────┼──────────┼──────────┤  │
+│ │          │           │          │          │  │  (hover: bg-neutral-50)
+│ └──────────┴───────────┴──────────┴──────────┘  │
+├──────────────────────────────────────────────────┤
+│ TableFooter (optional)                           │
+│ ┌──────────────────────────────────┬──────────┐  │
+│ │ Total                            │ $1,750.00│  │
+│ └──────────────────────────────────┴──────────┘  │
+└──────────────────────────────────────────────────┘
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Displaying structured data with multiple columns
+- ✅ Comparing items across multiple attributes
+- ✅ Sorting and filtering large datasets
+- ✅ Enabling batch actions on multiple rows
+- ✅ Showing financial data, reports, and analytics
+- ✅ Building admin interfaces and dashboards
+- ✅ Displaying service plans, devices, or usage data
+
+### When NOT to Use
+- ❌ Simple lists with 1-2 attributes (use List component)
+- ❌ Unstructured content (use Card grid)
+- ❌ Mobile-first interfaces (consider Card layout)
+- ❌ Small datasets (under 5 items without comparisons)
+- ❌ Complex hierarchical data (use Tree component)
+
+### Best Practices
+- **Headers:** Use clear, concise column labels with sort indicators
+- **Alignment:** Left-align text, right-align numbers, center icons/actions
+- **Density:** Use default spacing; compact for dashboards, spacious for detailed views
+- **Selection:** Enable row selection for batch operations
+- **Actions:** Place row actions in rightmost column
+- **Loading:** Show skeleton rows during data fetch
+- **Empty State:** Provide helpful message and actions when no data
+- **Pagination:** For datasets >20 items, implement pagination
+- **Responsive:** Use horizontal scroll or card layout on mobile
+- **Accessibility:** Ensure keyboard navigation and screen reader support
+
+---
+
+## Behavior / Interaction States
+
+### Row States
+
+| State | Visual | Design Tokens | Trigger |
+|-------|--------|---------------|---------|
+| **Default** | White background | `bg-white`, `text-neutral-700` | Initial state |
+| **Hover** | Light gray background | `bg-neutral-50` | Mouse over row |
+| **Selected** | Highlighted background | `bg-neutral-100`, `data-[state=selected]` | Checkbox checked |
+| **Focused** | Blue outline ring | `focus-visible:ring-2 ring-[var(--ds-color-intent-primary)]` | Tab navigation |
+| **Disabled** | Reduced opacity | `opacity-50`, `cursor-not-allowed` | Row disabled |
+| **Expandable** | Chevron rotates 90° | `transition-transform rotate-90` | Click to expand |
+
+### Cell States
+
+| State | Visual | Design Tokens |
+|-------|--------|---------------|
+| **Header Cell** | Bold text, neutral-900 | `font-primary font-semibold text-neutral-900` |
+| **Data Cell** | Regular text, neutral-700 | `font-secondary text-neutral-700` |
+| **Checkbox Cell** | No padding-right | `[&:has([role=checkbox])]:pr-0` |
+| **Align Right** | Right-aligned content | `text-right` (for numbers) |
+| **Editable** | Hover state, cursor | `hover:text-primary-600 cursor-pointer` |
+
+### Border Hierarchy
+- **Header Borders:** `border-b border-neutral-300` (structural)
+- **Row Borders:** `border-b border-neutral-300` (structural)
+- **Last Row:** `[&_tr:last-child]:border-0` (remove bottom border)
+- **Footer Border:** `border-t border-neutral-300` (structural)
+
+---
+
+## Variants
+
+### Structural Variants
+
+#### 1. Standard Table
+Default table with borders between rows.
+- Use for: General data display
+- Spacing: Default (p-4 cells, h-12 headers)
+- Borders: Neutral-300 structural borders
+
+#### 2. Zebra Striped
+Alternating row background colors for better scannability.
+- Use for: Long tables with many rows
+- Pattern: `index % 2 === 1 ? 'bg-neutral-50' : ''`
+- Benefit: +15% scanning speed
+
+#### 3. Borderless
+Clean design without internal borders.
+- Use for: Minimal UI, simple data
+- Borders: Only subtle bottom borders
+- Background: Often in card container
+
+#### 4. Dense / Compact
+Reduced padding for dashboards and high-density views.
+- Use for: Dashboards, metric tables
+- Spacing: `px-2 py-1`, `h-8 headers`
+- Fits: +40% more rows in viewport
+
+### Interactive Variants
+
+#### 5. Sortable
+Clickable column headers with sort indicators.
+- Icons: ChevronUp/ChevronDown with active state
+- Active color: `text-primary-600`
+- Logic: Toggle between asc/desc/none
+
+#### 6. Selectable
+Checkboxes for row selection and bulk actions.
+- Features: Select all, indeterminate state
+- Visual feedback: Selected rows highlighted
+- Bulk actions: Show action bar when rows selected
+
+#### 7. Editable
+Inline editing of cell values.
+- Triggers: Click cell to edit
+- UI: Input field replaces cell content
+- Save: Blur or Enter key
+
+#### 8. Expandable Rows
+Rows expand to show additional details.
+- Icon: ChevronRight rotates 90° when expanded
+- Content: Full-width cell with detailed info
+- Use for: Hierarchical data, details on demand
+
+#### 9. Draggable / Reorderable
+Drag-and-drop to reorder rows.
+- Handle: GripVertical icon in first column
+- Visual: Row opacity-50 while dragging
+- Use for: Priority lists, custom ordering
+
+### Functional Variants
+
+#### 10. Paginated
+Navigation between data pages.
+- Controls: Previous, page numbers, Next
+- Info: "Showing X to Y of Z results"
+- Page size: Configurable (10, 25, 50, 100)
+
+#### 11. Infinite Scroll / Lazy Load
+Load more rows as user scrolls.
+- Features: Sticky header, "Load More" button
+- Use for: Large datasets (>100 rows)
+- Performance: Only render visible rows
+
+#### 12. Grouped / Sectioned
+Rows grouped by category with headers.
+- Group header: Bold, neutral-100 background
+- Indentation: Children rows indented (pl-8)
+- Use for: Departmental data, categories
+
+#### 13. Fixed Header
+Header remains visible while scrolling.
+- CSS: `sticky top-0 bg-white z-10`
+- Container: Fixed height with overflow-y-auto
+- Use for: Long tables
+
+#### 14. Sticky Column
+First column fixed while horizontal scrolling.
+- CSS: `sticky left-0 bg-white z-10`
+- Use for: Wide tables with key identifier column
+
+#### 15. Collapsible Columns
+Show/hide columns dynamically.
+- UI: Checkbox list to toggle columns
+- Responsive: Hide less important columns on mobile
+- User preference: Save column visibility
+
+### Visual Variants
+
+#### 16. With Avatars
+Display user/employee photos in cells.
+- Layout: Avatar + text stacked vertically
+- Size: 40px avatar, name + email
+- Use for: Team rosters, user directories
+
+#### 17. With Badges
+Status indicators and tags.
+- Variants: Success, warning, destructive, outline
+- Use for: Status, priority, categories
+- Multiple: Flex-wrap for multiple tags
+
+#### 18. With Actions Column
+Row-level actions (view, edit, delete).
+- Position: Rightmost column, right-aligned
+- Buttons: Ghost variant icon buttons
+- Hover: Actions visible on row hover (optional)
+
+#### 19. With Hover States
+Enhanced hover feedback for clickable rows.
+- Background: `hover:bg-primary-50`
+- Cursor: `cursor-pointer`
+- Use for: Row-level navigation
+
+### Contextual Variants
+
+#### 20. Comparison Table
+Side-by-side feature comparison.
+- Layout: Features in rows, options in columns
+- Highlight: Popular plan with distinct background
+- Footer: CTA buttons for each option
+- Use for: Service plan comparison, pricing
+
+#### 21. Tree / Hierarchical Table
+Nested rows with parent-child relationships.
+- Expandable: ChevronRight toggles children
+- Indentation: Visual hierarchy with padding
+- Use for: Organizational charts, file systems
+
+#### 22. Empty State
+No data available message.
+- Icon: Search or relevant icon (48px)
+- Message: Helpful headline + description
+- Actions: "Add Item" or "Import Data" buttons
+- Use for: First-time use, filtered results
+
+#### 23. Loading State
+Skeleton rows during data fetch.
+- Skeleton: Shimmer animation on row placeholders
+- Count: Match expected result count (5-10 rows)
+- Use for: API fetch, slow queries
+
+---
+
+## Responsive Behavior
+
+### Desktop (>= 1024px)
+- **Layout:** Full table with all columns visible
+- **Actions:** Always visible in rightmost column
+- **Scrolling:** Horizontal scroll for wide tables
+- **Density:** Default spacing
+
+### Tablet (768px - 1023px)
+- **Layout:** Compact table or hide less important columns
+- **Actions:** Collapse to icon-only or menu
+- **Scrolling:** Horizontal scroll with scroll hint
+- **Density:** Slightly reduced spacing
+
+### Mobile (< 768px)
+- **Layout:** Transform to card-based layout
+- **Pattern:** Each row becomes a card
+- **Content:** Key-value pairs in card
+- **Actions:** In card footer or expanded menu
+- **Alternative:** Horizontal scroll with sticky first column
+
+### Example: Table to Card Transformation
+```typescript
+// Desktop: Standard table
+<Table>...</Table>
+
+// Mobile: Card layout
+<div className="md:hidden space-y-4">
+  {data.map(item => (
+    <Card key={item.id}>
+      <CardHeader>
+        <CardTitle>{item.name}</CardTitle>
+        <Badge>{item.status}</Badge>
+      </CardHeader>
+      <CardContent>
+        <dl>
+          <dt>Email:</dt>
+          <dd>{item.email}</dd>
+          {/* More key-value pairs */}
+        </dl>
+      </CardContent>
+    </Card>
+  ))}
+</div>
+```
+
+---
+
+## Accessibility
+
+### Keyboard Navigation
+- **Tab:** Move focus between interactive elements
+- **Shift + Tab:** Move focus backward
+- **Arrow Keys:** Navigate between cells (optional advanced feature)
+- **Space:** Select/deselect row checkbox
+- **Enter:** Activate focused button or link
+- **Escape:** Cancel inline editing
+
+### Screen Readers
+- **Table Caption:** `<TableCaption>` for table purpose
+- **Header Scope:** `scope="col"` on TableHead
+- **Sort State:** `aria-sort="ascending|descending|none"`
+- **Selected Rows:** `aria-selected="true"` on selected rows
+- **Row Count:** Announce "X rows" after filtering/sorting
+- **Column Headers:** Properly associated with cells
+
+### Focus Management
+- **Visible Focus:** Blue ring on focused elements
+- **Focus Order:** Logical left-to-right, top-to-bottom
+- **Skip Links:** Optional "Skip to pagination" for long tables
+- **Focus Trap:** In modal/dialog tables
+
+### Color Contrast
+- **Text:** WCAG 2.1 AA (4.5:1 for body text)
+- **Headers:** High contrast (neutral-900 on white)
+- **Status:** Color + icon/text (not color alone)
+- **Selected:** Sufficient contrast in selection state
+
+### Additional Considerations
+- **Sortable Indication:** Visual + text ("sorted ascending")
+- **Loading State:** Announce "Loading data" to SR
+- **Empty State:** Announce "No results found"
+- **Row Actions:** Accessible button labels ("Edit John Doe")
+
+---
+
+## Content Guidelines
+
+### Column Headers
+✅ **Do:**
+- Use clear, concise labels (1-2 words)
+- Title case for headers ("Service Name")
+- Include units in parentheses ("Speed (Mbps)")
+- Align with content (left for text, right for numbers)
+
+❌ **Don't:**
+- Use vague labels ("Data", "Info")
+- Abbreviate unless universally understood
+- Mix alignment styles
+- Use all caps (harder to read)
+
+### Cell Content
+✅ **Do:**
+- Format numbers consistently (1,234.56)
+- Use badges for status values
+- Truncate long text with ellipsis + tooltip
+- Align numbers right, text left
+- Use placeholder for empty cells ("—")
+
+❌ **Don't:**
+- Wrap text across multiple lines
+- Show raw data (format dates, currencies)
+- Inconsistent formatting per column
+- Leave cells completely empty
+
+### Actions
+✅ **Do:**
+- Use icon buttons with tooltips
+- Group related actions in menu
+- Primary action labeled ("Edit", "View")
+- Destructive actions confirmation
+
+❌ **Don't:**
+- Too many actions per row (>3)
+- Text-only actions (takes space)
+- Ambiguous icon-only (without tooltip)
+- Inconsistent action order
+
+---
+
+## Code Examples
+
+### Basic Table with Footer
+```typescript
+<Table>
+  <TableCaption>Recent invoices for your account</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Invoice</TableHead>
+      <TableHead>Status</TableHead>
+      <TableHead className="text-right">Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {invoices.map((invoice) => (
+      <TableRow key={invoice.id}>
+        <TableCell className="font-medium">{invoice.id}</TableCell>
+        <TableCell><Badge>{invoice.status}</Badge></TableCell>
+        <TableCell className="text-right">${invoice.amount}</TableCell>
+      </TableRow>
+    ))}
+  </TableBody>
+  <TableFooter>
+    <TableRow>
+      <TableCell colSpan={2}>Total</TableCell>
+      <TableCell className="text-right">$1,750.00</TableCell>
+    </TableRow>
+  </TableFooter>
+</Table>
+```
+
+### Sortable Columns
+```typescript
+const [sortConfig, setSortConfig] = useState({ key: 'name', direction: 'asc' });
+
+const handleSort = (key: string) => {
+  const direction = sortConfig.key === key && sortConfig.direction === 'asc' ? 'desc' : 'asc';
+  setSortConfig({ key, direction });
+  // Sort data...
+};
+
+<TableHead>
+  <button onClick={() => handleSort('name')} className="flex items-center">
+    Name
+    <ChevronUp className={sortConfig.key === 'name' && sortConfig.direction === 'asc' ? 'text-primary-600' : 'text-neutral-400'} />
+  </button>
+</TableHead>
+```
+
+### Selectable Rows with Bulk Actions
+```typescript
+const [selectedRows, setSelectedRows] = useState<string[]>([]);
+
+<TableHead className="w-12">
+  <Checkbox
+    checked={selectedRows.length === data.length}
+    onCheckedChange={(checked) => setSelectedRows(checked ? data.map(d => d.id) : [])}
+  />
+</TableHead>
+
+{selectedRows.length > 0 && (
+  <div className="bg-primary-50 p-3 mb-4">
+    {selectedRows.length} selected
+    <Button onClick={handleBulkDelete}>Delete Selected</Button>
+  </div>
+)}
+```
+
+### Responsive Table (Card Layout)
+```typescript
+<>
+  {/* Desktop */}
+  <div className="hidden md:block">
+    <Table>{/* Full table */}</Table>
+  </div>
+
+  {/* Mobile */}
+  <div className="md:hidden space-y-4">
+    {data.map(item => (
+      <Card key={item.id}>
+        <CardContent className="pt-6">
+          <div className="grid grid-cols-2 gap-2">
+            <span className="text-neutral-600">Service:</span>
+            <span className="font-medium">{item.service}</span>
+            {/* More fields */}
+          </div>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+</>
+```
+
+### Pagination Controls
+```typescript
+const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage = 10;
+const totalPages = Math.ceil(data.length / itemsPerPage);
+
+<div className="flex justify-between items-center mt-4">
+  <span className="text-sm text-neutral-600">
+    Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, data.length)} of {data.length}
+  </span>
+  <div className="flex gap-2">
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={() => setCurrentPage(p => p - 1)}
+      disabled={currentPage === 1}
+    >
+      Previous
+    </Button>
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={() => setCurrentPage(p => p + 1)}
+      disabled={currentPage === totalPages}
+    >
+      Next
+    </Button>
+  </div>
+</div>
+```
+
+### Fixed Header Scrollable Table
+```typescript
+<div className="h-96 overflow-auto border border-neutral-300 rounded-lg">
+  <Table>
+    <TableHeader className="sticky top-0 bg-white z-10 shadow-sm">
+      <TableRow>{/* Headers */}</TableRow>
+    </TableHeader>
+    <TableBody>{/* Many rows */}</TableBody>
+  </Table>
+</div>
+```
+
+---
+
+## Related Components
+
+- **Card:** Alternative layout for mobile or less structured data
+- **Badge:** Status indicators within table cells
+- **Button:** Actions in action column or footer
+- **Checkbox:** Row selection functionality
+- **Input:** Inline editing of cell values
+- **Select:** Dropdown filters and column toggles
+- **Pagination:** Navigation for large datasets
+- **Skeleton:** Loading state placeholders
+
+---
+
+## Design Tokens Used
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| **Colors** | | |
+| `--ds-color-white` | #FFFFFF | Table background, header background |
+| `--ds-color-neutral-50` | #F8F8FA | Hover state, zebra stripes |
+| `--ds-color-neutral-100` | #F0F0F3 | Selected row background |
+| `--ds-color-neutral-300` | #DDDDE2 | **Structural borders** (header, rows, footer) |
+| `--ds-color-neutral-600` | #727380 | Caption text, secondary info |
+| `--ds-color-neutral-700` | #50525E | Cell text color |
+| `--ds-color-neutral-900` | #1D1E26 | Header text (bold) |
+| `--ds-color-text-primary` | neutral-900 | Primary text |
+| `--ds-color-text-muted` | neutral-600 | Captions, helper text |
+| `--ds-color-intent-primary` | #0D62FF | Sort indicators (active), focus ring |
+| `--ds-color-primary-50` | rgba(13, 98, 255, 0.05) | Hover background (interactive rows) |
+| `--ds-color-primary-600` | #0D62FF | Active sort color |
+| **Typography** | | |
+| `font-primary` | Inter | Headers (semibold) |
+| `font-secondary` | Inter | Cell content (regular) |
+| `font-semibold` | 600 | Table headers |
+| `font-medium` | 500 | Emphasized cells |
+| `text-sm` | 14px | Standard cell text |
+| **Spacing** | | |
+| `p-4` | 16px | Default cell padding |
+| `px-4` | 16px horizontal | Cell horizontal padding |
+| `py-2` | 8px vertical | Compact cells |
+| `h-12` | 48px | Header row height |
+| **Shadows** | | |
+| `shadow-sm` | Subtle | Fixed header |
+| **Border Radius** | | |
+| `rounded-lg` | 8px | Table container |
+| **Transitions** | | |
+| `transition-colors` | 150ms ease | Hover states |

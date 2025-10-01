@@ -4,7 +4,7 @@ import { Button } from '../src/components/ui/button';
 // @ts-expect-error - Some lucide-react icons may not be exported in current version
 import { Menu, CircleHelp, ChevronDown, ChevronUp, ChevronRight, Home, User, Settings, BarChart, FileText, Phone, Shield, Wifi } from 'lucide-react';
 import { navigationSpecs, categorizedNavigation, navigationUsage } from '../src/tokens/figma-navigation-specs';
-import NavigationDocs from './Navigation.mdx';
+import NavigationDocs from './docs/Navigation.mdx';
 
 // Icon mapping for navigation
 const iconMap = {
@@ -29,7 +29,7 @@ const getIcon = (iconName: string, size = 16, className = '') => {
 };
 
 const meta: Meta = {
-  title: 'Navigation',
+  title: 'Components/Navigation',
   parameters: {
     layout: 'fullscreen',
     docs: {

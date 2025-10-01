@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Calendar } from '../src/components/ui/calendar';
 import { useState } from 'react';
-import CalendarDocs from './Calendar.mdx';
+import CalendarDocs from './docs/Calendar.mdx';
 
 const meta: Meta<typeof Calendar> = {
-  title: 'Calendar',
+  title: 'Components/Calendar',
   component: Calendar,
   parameters: {
     layout: 'centered',

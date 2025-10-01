@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Separator } from '../src/components';
-import SeparatorDocs from './Separator.mdx';
+import SeparatorDocs from './docs/Separator.mdx';
 
 const meta: Meta<typeof Separator> = {
-  title: 'Separator',
+  title: 'Components/Separator',
   component: Separator,
   parameters: {
     layout: 'padded',

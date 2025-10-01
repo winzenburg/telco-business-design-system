@@ -22,10 +22,10 @@ import {
   ChevronRight, Plus, Minus, Filter, Bell, Heart,
   Bookmark, Archive, Flag, Cloud, Moon, Sun
 } from 'lucide-react';
-import MenuDocs from './Menu.mdx';
+import MenuDocs from './docs/Menu.mdx';
 
 const meta: Meta<typeof Menu> = {
-  title: 'Menu',
+  title: 'Components/Menu',
   component: Menu,
   parameters: {
     layout: 'padded',

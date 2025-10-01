@@ -6,10 +6,10 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '../src/components';
-import AccordionDocs from './Accordion.mdx';
+import AccordionDocs from './docs/Accordion.mdx';
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Accordion',
+  title: 'Components/Accordion',
   component: Accordion,
   parameters: {
     layout: 'padded',

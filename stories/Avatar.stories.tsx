@@ -6,10 +6,10 @@ import {
   AvatarImage
 } from '../src/components';
 import { User } from 'lucide-react';
-import AvatarDocs from './Avatar.mdx';
+import AvatarDocs from './docs/Avatar.mdx';
 
 const meta: Meta<typeof Avatar> = {
-  title: 'Avatar',
+  title: 'Components/Avatar',
   component: Avatar,
   parameters: {
     layout: 'padded',

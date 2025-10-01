@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
 import { DatePicker, DateRangePicker, DateOfBirthPicker } from '../src/components/ui/date-picker';
-import DatePickerDocs from './DatePicker.mdx';
+import DatePickerDocs from './docs/DatePicker.mdx';
 
 const meta: Meta<typeof DatePicker> = {
-  title: 'DatePicker',
+  title: 'Components/DatePicker',
   component: DatePicker,
   parameters: {
     layout: 'centered',

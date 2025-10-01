@@ -24,10 +24,10 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import { ChartTooltip } from '../src/components/ui/chart';
-import DialogDocs from './Dialog.mdx';
+import DialogDocs from './docs/Dialog.mdx';
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Dialog',
+  title: 'Components/Dialog',
   component: Dialog,
   parameters: {
     layout: 'centered',

@@ -6,10 +6,10 @@ import { Button } from '../src/components/ui/button';
 import { Title, Body } from '../src/components/ui/typography';
 // @ts-expect-error - Some lucide-react icons may not be exported in current version
 import { Search, Mail, Phone, Globe, ExternalLink, AlertTriangle, Check } from 'lucide-react';
-import InputDocs from './Input.mdx';
+import InputDocs from './docs/Input.mdx';
 
 const meta: Meta<typeof Input> = {
-  title: 'Input',
+  title: 'Components/Input',
   component: Input,
   parameters: {
     layout: 'centered',

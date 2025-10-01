@@ -8,10 +8,10 @@ import {
   Button
 } from '../src/components';
 import { AlertTriangle, CheckCircle, Info, XCircle } from 'lucide-react';
-import AlertDocs from './Alert.mdx';
+import AlertDocs from './docs/Alert.mdx';
 
 const meta: Meta<typeof Alert> = {
-  title: 'Alert',
+  title: 'Components/Alert',
   component: Alert,
   parameters: {
     layout: 'padded',

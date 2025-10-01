@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Textarea, Label } from '../src/components';
-import TextareaDocs from './Textarea.mdx';
+import TextareaDocs from './docs/Textarea.mdx';
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Textarea',
+  title: 'Components/Textarea',
   component: Textarea,
   parameters: {
     layout: 'padded',

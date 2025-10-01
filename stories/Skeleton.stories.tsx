@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Skeleton } from '../src/components';
-import SkeletonDocs from './Skeleton.mdx';
+import SkeletonDocs from './docs/Skeleton.mdx';
 
 const meta: Meta<typeof Skeleton> = {
-  title: 'Skeleton',
+  title: 'Components/Skeleton',
   component: Skeleton,
   parameters: {
     layout: 'padded',

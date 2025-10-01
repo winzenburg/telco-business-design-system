@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Progress } from '../src/components';
-import ProgressDocs from './Progress.mdx';
+import ProgressDocs from './docs/Progress.mdx';
 
 const meta: Meta<typeof Progress> = {
-  title: 'Progress',
+  title: 'Components/Progress',
   component: Progress,
   parameters: {
     layout: 'padded',

@@ -30,10 +30,10 @@ import {
   Filter,
   GripVertical
 } from 'lucide-react';
-import TableDocs from './Table.mdx';
+import TableDocs from './docs/Table.mdx';
 
 const meta: Meta<typeof Table> = {
-  title: 'Table',
+  title: 'Components/Table',
   component: Table,
   parameters: {
     layout: 'padded',

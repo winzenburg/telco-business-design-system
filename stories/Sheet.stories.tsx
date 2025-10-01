@@ -14,10 +14,10 @@ import { Button } from '../src/components/ui/button';
 import { Input } from '../src/components/ui/input';
 import { Label } from '../src/components/ui/label';
 import { Textarea } from '../src/components/ui/textarea';
-import SheetDocs from './Sheet.mdx';
+import SheetDocs from './docs/Sheet.mdx';
 
 const meta: Meta<typeof Sheet> = {
-  title: 'Sheet',
+  title: 'Components/Sheet',
   component: Sheet,
   parameters: {
     layout: 'centered',

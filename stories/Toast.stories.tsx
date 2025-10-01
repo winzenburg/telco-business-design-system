@@ -3,10 +3,10 @@ import React from 'react';
 import { Toaster } from '../src/components/ui/sonner';
 import { Button } from '../src/components/ui/button';
 import { toast } from 'sonner';
-import ToastDocs from './Toast.mdx';
+import ToastDocs from './docs/Toast.mdx';
 
 const meta: Meta = {
-  title: 'Toast',
+  title: 'Components/Toast',
   parameters: {
     layout: 'centered',
     docs: {

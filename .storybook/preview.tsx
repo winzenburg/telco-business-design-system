@@ -6,9 +6,6 @@ import './tailwind.css';
 const preview: Preview = {
   parameters: {
     viewMode: 'docs',
-    previewTabs: {
-      'storybook/docs/panel': { index: -1 },
-    },
     options: {
       storySort: {
         method: 'alphabetical',

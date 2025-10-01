@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Switch, Label } from '../src/components';
-import SwitchDocs from './Switch.mdx';
+import SwitchDocs from './docs/Switch.mdx';
 
 const meta: Meta<typeof Switch> = {
-  title: 'Switch',
+  title: 'Components/Switch',
   component: Switch,
   parameters: {
     layout: 'padded',

@@ -42,7 +42,6 @@ Empty states are critical patterns in enterprise applications that handle scenar
       },
     },
   },
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',

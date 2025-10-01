@@ -38,10 +38,10 @@ import {
   AlertCircle,
   Clock
 } from 'lucide-react';
-import ListDocs from './List.mdx';
+import ListDocs from './docs/List.mdx';
 
 const meta: Meta<typeof List> = {
-  title: 'List',
+  title: 'Components/List',
   component: List,
   parameters: {
     layout: 'padded',

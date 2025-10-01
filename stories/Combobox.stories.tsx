@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Combobox } from '../src/components/ui/combobox';
 import { useState } from 'react';
-import ComboboxDocs from './Combobox.mdx';
+import ComboboxDocs from './docs/Combobox.mdx';
 
 const meta: Meta<typeof Combobox> = {
-  title: 'Combobox',
+  title: 'Components/Combobox',
   component: Combobox,
   parameters: {
     layout: 'centered',

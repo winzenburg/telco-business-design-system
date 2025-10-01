@@ -3,7 +3,6 @@ import type { StorybookConfig } from '@storybook/react-vite';
 const config: StorybookConfig = {
   stories: [
     '../stories/GettingStarted/Welcome.mdx',
-    '../stories/**/*.mdx',
     '../stories/**/*.stories.@(js|jsx|ts|tsx)',
     '../packages/docs/stories/*.stories.@(js|jsx|ts|tsx)',
   ],
@@ -59,6 +58,7 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: 'tag',
+    defaultName: 'Docs',
   },
   typescript: {
     check: false,

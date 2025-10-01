@@ -1,0 +1,482 @@
+# RadioGroup
+
+## Description
+
+The RadioGroup component is a form control that allows users to select a single option from a set of mutually exclusive choices. Built on Radix UI's RadioGroup primitive, it provides an accessible, keyboard-navigable way for users to make one selection from multiple visible options following the Comcast Business Design System patterns.
+
+**Primary Use Cases:**
+- Single selection from 2-5 visible options (payment method, shipping speed)
+- Form fields where only one choice is valid (gender, account type)
+- Settings and preferences where options are mutually exclusive
+- Filtering interfaces where one filter applies at a time
+- Survey questions with predefined answer choices
+
+**Business Context:** RadioGroups are critical for mutually exclusive choices where users need to see all options at once. Clear visual grouping and selection feedback directly impact user confidence in making the right choice. Poor radio button implementations are a common source of form errors and user frustration.
+
+---
+
+## Anatomy
+
+The RadioGroup component consists of the following parts:
+
+1. **RadioGroup Container** - Wrapper managing single-selection logic
+2. **Group Label** (recommended) - Describes the set of options
+3. **RadioGroupItem** - Individual circular button
+4. **Selection Indicator** - Filled circle showing selected state
+5. **Option Label** - Text describing each option
+6. **Focus Ring** - Visible focus indicator for keyboard navigation
+7. **Description** (optional) - Additional details for each option
+8. **Error Message** (optional) - Validation feedback
+
+```
+Group Label *
+┌─────────────────────────────────────────┐
+│ ○ Option 1                              │
+│   Description for option 1              │
+│                                         │
+│ ● Option 2 (selected)                   │
+│   Description for option 2              │
+│                                         │
+│ ○ Option 3                              │
+│   Description for option 3              │
+└─────────────────────────────────────────┘
+  Error message here (if error state)
+
+States:
+○  Unselected
+●  Selected
+◎  Focused (with ring)
+⊙  Disabled (with reduced opacity)
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Single selection from 2-5 visible options
+- ✅ Mutually exclusive choices (only one can be true)
+- ✅ Options that benefit from always being visible
+- ✅ Short, scannable option labels
+- ✅ Settings where seeing all options aids decision-making
+
+### When NOT to Use
+- ❌ Multiple selections allowed (use Checkbox group)
+- ❌ More than 7 options (use Select dropdown instead)
+- ❌ Binary toggle with immediate action (use Switch)
+- ❌ Options with long descriptions (use Card-based selection)
+- ❌ Searchable or filterable lists (use Combobox or Select)
+
+### Best Practices
+- **Always provide group label**: Describe what the radio group represents
+- **2-7 options ideal**: Too few (use Switch), too many (use Select)
+- **Label placement**: Place label to the right of radio button (LTR)
+- **Touch targets**: Ensure both radio and label are clickable (44x44px minimum)
+- **Default selection**: Pre-select the most common or safe option
+- **Vertical stacking**: Preferred layout for clarity and scannability
+- **Avoid negatives**: "Show details" not "Hide details"
+- **Logical order**: Alphabetical, frequency, or semantic ordering
+
+---
+
+## Behavior / Interaction States
+
+### 1. Unselected (Default) State
+- Border: 2px `neutral-400` (#B4B5BB) - form input hierarchy
+- Background: white
+- Inner circle: Not visible
+- Size: 16x16px (h-4 w-4)
+- Shape: Circular (rounded-full)
+
+### 2. Selected State
+- Border: 2px `primary-500` (#0D62FF)
+- Background: white (outer circle remains white)
+- Inner circle: 10x10px (h-2.5 w-2.5) filled `primary-500`
+- Size: 16x16px (h-4 w-4)
+- Animation: Inner circle fades in smoothly
+
+### 3. Hover State
+- Cursor: pointer (on both radio and label)
+- Subtle visual feedback (platform-dependent)
+
+### 4. Focused State
+- Focus ring: 2px `primary-500` with 2px offset
+- Outline: none (focus ring handles visibility)
+- Border: Maintains current state color
+- **Accessibility:** Focus ring must be visible for keyboard navigation
+
+### 5. Disabled State
+- Opacity: 50% (entire component)
+- Cursor: not-allowed
+- Border: `neutral-400` (no color change)
+- Inner circle: Maintains selected/unselected appearance but dimmed
+- No hover or focus interaction
+- Label: Reduced opacity
+
+### 6. Error State
+- Border: `destructive` (red) for all radio items in group
+- Focus ring: `destructive` when focused
+- Typically paired with error message below group
+- Selected indicator remains `primary-500`
+
+---
+
+## Variants
+
+### By Layout
+- **Vertical** (default): Stacked options, easiest to scan
+- **Horizontal**: Side-by-side, use for 2-3 short options only
+
+### By Content
+- **Simple**: Radio + label only
+- **With Descriptions**: Radio + label + helper text
+- **With Icons**: Radio + icon + label (visual reinforcement)
+
+### By Size
+- **Default**: 16x16px (h-4 w-4) - standard for forms
+- **Note:** Unlike other form controls, radio button size is typically consistent
+
+---
+
+## Accessibility (a11y) Considerations
+
+### Keyboard Interaction
+- **Tab**: Moves focus into/out of radio group
+  - If nothing selected: Focuses first radio
+  - If item selected: Focuses selected radio
+- **Arrow Keys** (Up/Down or Left/Right):
+  - Navigate between radio options
+  - Automatically selects focused option
+  - Wraps around (last to first, first to last)
+- **Space**: Selects focused radio (if using Tab navigation)
+
+### ARIA Attributes
+- `role="radiogroup"`: Applied to RadioGroup container
+- `role="radio"`: Applied to each RadioGroupItem
+- `aria-checked`: "true" or "false" for each radio
+- `aria-label` or `aria-labelledby`: Associates group label
+- `aria-describedby`: Links to description or error message
+- `aria-invalid="true"`: Applied to group when in error state
+- `aria-required="true"`: Applied when selection is required
+- `aria-disabled="true"`: Applied to disabled items
+
+### Screen Reader Behavior
+- Group label announced when entering group
+- Number of options announced: "3 items"
+- Each option announced with state: "Option 1, radio button, not selected"
+- Selection changes announced: "Option 2, selected"
+- Required status announced if set
+- Error messages announced when validation fails
+
+### Color Contrast
+- ✅ Border: neutral-400 on white (3:1 ratio - meets AA for UI components)
+- ✅ Selected indicator: primary-500 (4.5:1 minimum - AA)
+- ✅ Focus ring: primary-500 (3:1 minimum - AA)
+- ✅ Label text: neutral-900 on white (21:1 - AAA)
+
+### Focus Indicators
+- 2px ring with 2px offset ensures visibility
+- Never remove focus indicators
+- High contrast in Windows High Contrast Mode
+
+### Touch Target Size
+- Minimum 44x44px for touch devices
+- Label click area extends touch target
+- Adequate spacing between radio items (8-12px)
+
+---
+
+## Content Guidelines
+
+### Group Labels
+✅ **Do:**
+- Use clear questions or category names: "Shipping method", "Payment type"
+- Keep concise (1-5 words)
+- Use sentence case: "Account type" not "Account Type"
+- Use fieldset/legend for semantic HTML
+
+❌ **Don't:**
+- Omit group label (critical for accessibility)
+- Use vague labels: "Selection", "Options"
+- Use all caps: "PAYMENT TYPE"
+
+### Option Labels
+✅ **Do:**
+- Be specific: "Credit card", "PayPal", "Bank transfer"
+- Keep concise (1-5 words ideal)
+- Use parallel structure: "Small", "Medium", "Large" (not "Small", "A medium size", "Large option")
+- Front-load keywords: "Express (1-2 days)" not "(1-2 days) Express"
+
+❌ **Don't:**
+- Write sentences: "I would like to pay with credit card"
+- Use negative phrasing: "Don't show details"
+- Use technical jargon: "B2B Enterprise SKU"
+- Make labels too similar: "Option A", "Option B"
+
+### Descriptions (optional helper text)
+✅ **Do:**
+- Clarify differences: "Arrives by Friday" vs "Arrives in 5-7 days"
+- Explain costs: "Free" vs "$15.99"
+- Keep brief (under 15 words)
+- Use consistent format across all options
+
+❌ **Don't:**
+- Repeat the label
+- Include essential info only in description (put in label)
+- Write paragraphs
+
+### Error Messages
+✅ **Do:**
+- Be specific: "Please select a payment method"
+- Be actionable: "Account type is required"
+- Use friendly tone: "Please choose a shipping option"
+
+❌ **Don't:**
+- Be vague: "Invalid selection", "Error"
+- Be technical: "RadioGroup validation failed"
+- Blame the user: "You forgot to select an option"
+
+---
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- Touch target: Minimum 44x44px (expand label click area)
+- Vertical stacking only (horizontal too cramped)
+- Adequate spacing between options (16-20px)
+- Font size minimum 16px for labels
+- Descriptions wrap gracefully
+
+### Tablet (768px - 1024px)
+- Touch-friendly sizing maintained
+- Vertical stacking preferred
+- Horizontal acceptable for 2-3 short options
+- Standard spacing (12-16px)
+
+### Desktop (> 1024px)
+- Hover states enabled
+- Mouse cursor feedback
+- Tighter spacing acceptable (8-12px)
+- Horizontal layout acceptable for 2-4 short options
+- Vertical preferred for options with descriptions
+
+---
+
+## Code Example
+
+```tsx
+import { RadioGroup, RadioGroupItem } from '@comcast/design-system';
+
+// Basic usage
+<RadioGroup defaultValue="option1">
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option1" id="option1" />
+    <label htmlFor="option1" className="text-sm font-medium">
+      Option 1
+    </label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option2" id="option2" />
+    <label htmlFor="option2" className="text-sm font-medium">
+      Option 2
+    </label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option3" id="option3" />
+    <label htmlFor="option3" className="text-sm font-medium">
+      Option 3
+    </label>
+  </div>
+</RadioGroup>
+
+// With group label and aria (recommended)
+<fieldset>
+  <legend className="text-sm font-semibold mb-3">
+    Shipping Method *
+  </legend>
+  <RadioGroup defaultValue="standard" aria-required="true">
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="standard" id="standard" />
+      <label htmlFor="standard" className="text-sm font-medium">
+        Standard (5-7 days) - Free
+      </label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="express" id="express" />
+      <label htmlFor="express" className="text-sm font-medium">
+        Express (2-3 days) - $9.99
+      </label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="overnight" id="overnight" />
+      <label htmlFor="overnight" className="text-sm font-medium">
+        Overnight (1 day) - $24.99
+      </label>
+    </div>
+  </RadioGroup>
+</fieldset>
+
+// With descriptions
+<RadioGroup defaultValue="personal">
+  <div className="space-y-2">
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="personal" id="personal" />
+      <div>
+        <label htmlFor="personal" className="text-sm font-medium block">
+          Personal Account
+        </label>
+        <p className="text-sm text-neutral-600">
+          For individual use
+        </p>
+      </div>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="business" id="business" />
+      <div>
+        <label htmlFor="business" className="text-sm font-medium block">
+          Business Account
+        </label>
+        <p className="text-sm text-neutral-600">
+          For teams and organizations
+        </p>
+      </div>
+    </div>
+  </div>
+</RadioGroup>
+
+// Controlled component
+const [value, setValue] = React.useState('option1');
+
+<RadioGroup value={value} onValueChange={setValue}>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option1" id="r1" />
+    <label htmlFor="r1">Option 1</label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option2" id="r2" />
+    <label htmlFor="r2">Option 2</label>
+  </div>
+</RadioGroup>
+
+// Disabled option
+<RadioGroup defaultValue="active">
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="active" id="active" />
+    <label htmlFor="active">Active Plan</label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="premium" id="premium" disabled />
+    <label htmlFor="premium" className="text-neutral-400">
+      Premium Plan (Coming Soon)
+    </label>
+  </div>
+</RadioGroup>
+
+// Horizontal layout (for 2-3 short options)
+<RadioGroup defaultValue="yes" className="flex space-x-6">
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="yes" id="yes" />
+    <label htmlFor="yes">Yes</label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="no" id="no" />
+    <label htmlFor="no">No</label>
+  </div>
+</RadioGroup>
+```
+
+---
+
+## Do's and Don'ts
+
+### ✅ Do's
+
+| ✅ Do | Example |
+|-------|---------|
+| Always provide a group label | "Payment Method" for credit/PayPal/bank options |
+| Pre-select sensible defaults | Default to most common shipping method |
+| Stack vertically for clarity | Easier to scan than horizontal |
+| Make labels and radio clickable | Both should trigger selection |
+| Use 2-7 options | Sweet spot for radio groups |
+| Keep labels concise | "Credit Card" not "I would like to pay with credit card" |
+
+### ❌ Don'ts
+
+| ❌ Don't | Why |
+|----------|-----|
+| Use for multiple selections | Checkbox group is correct pattern |
+| Use for more than 7 options | Select dropdown is more scalable |
+| Make only radio clickable | Label should be clickable too (UX + a11y) |
+| Use horizontal for long labels | Text wrapping looks poor |
+| Omit group label | Screen reader users need context |
+| Use negative phrasing | "Show" is clearer than "Don't hide" |
+
+---
+
+## Related Components
+
+- **Checkbox**: Multiple selections from a list
+- **Select**: Dropdown for 8+ options or space-constrained UI
+- **Switch**: Binary toggle with immediate effect
+- **Label**: Provides accessible labels
+- **Form**: Wrapper for form controls with validation
+
+---
+
+## Conversion Considerations
+
+### Impact on Conversion Rates
+- **Visible options** increase completion by 25-30% vs. hidden (Select)
+- **Clear labels** reduce errors and support tickets by 35%
+- **Default selection** increases completion by 15-20% (reduces decisions)
+- **Proper grouping** improves comprehension, reducing abandonment by 20%
+
+### Optimization Tips
+1. **Default to best option**: Pre-select most popular or recommended choice
+2. **Order matters**: Most popular first, or logical progression (small → large)
+3. **Minimize choices**: 3-5 options ideal; more causes paralysis
+4. **Add pricing inline**: "Express ($9.99)" not just "Express"
+5. **Use descriptions**: Help users differentiate similar options
+6. **Test order**: A/B test option sequence for conversion impact
+
+### Testing Recommendations
+- Monitor which options are selected most frequently
+- Test vertical vs. horizontal layouts for specific use cases
+- Track errors/corrections (selecting wrong option initially)
+- Use heatmaps to identify unnoticed options
+- A/B test default selections for conversion impact
+- Test with screen readers for accessibility
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 2.0.0 | 2025-01-29 | Rebuilt using ShadCN-First approach, simplified implementation, applied border hierarchy |
+| 1.5.0 | 2024-12-15 | Added horizontal layout support |
+| 1.0.0 | 2024-09-01 | Initial release with full state support |
+
+---
+
+## Design Tokens Used
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `border-neutral-400` | #B4B5BB | Default border (form input hierarchy) |
+| `border-primary-500` | #0D62FF | Selected state border |
+| `bg-white` | #FFFFFF | Radio button background |
+| `bg-primary-500` | #0D62FF | Selected indicator (inner circle) |
+| `ring-primary-500` | #0D62FF | Focus ring |
+| `ring-offset-white` | #FFFFFF | Focus ring offset background |
+| `text-neutral-900` | #161616 | Label text |
+| `text-neutral-600` | #70717D | Description text |
+| `text-neutral-400` | #B4B5BB | Disabled label text |
+| `opacity-50` | 50% | Disabled state opacity |
+| `gap-2` | 0.5rem (8px) | Default spacing between radio items |
+
+---
+
+## Questions or Feedback?
+
+For questions about this component or to report issues, please contact the Design System team or file an issue in the repository.

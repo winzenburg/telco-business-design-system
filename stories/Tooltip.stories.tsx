@@ -11,10 +11,10 @@ import {
   Button
 } from '../src/components';
 import { Plus, Info, CircleHelp, Settings, Download, Share, Eye, Edit, Trash } from 'lucide-react';
-import TooltipDocs from './Tooltip.mdx';
+import TooltipDocs from './docs/Tooltip.mdx';
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   parameters: {
     layout: 'padded',

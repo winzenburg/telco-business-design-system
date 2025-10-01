@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React, { useState } from 'react';
 import { Slider } from '../src/components/ui/slider';
 import { Label } from '../src/components/ui/label';
-import SliderDocs from './Slider.mdx';
+import SliderDocs from './docs/Slider.mdx';
 
 const meta: Meta<typeof Slider> = {
-  title: 'Slider',
+  title: 'Components/Slider',
   component: Slider,
   parameters: {
     layout: 'centered',

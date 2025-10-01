@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button } from '../src/components';
 import { Plus, Download, Settings, User, ArrowRight } from 'lucide-react';
-import ButtonDocs from './Button.mdx';
+import ButtonDocs from './docs/Button.mdx';
 
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'padded',

@@ -8,10 +8,10 @@ import {
   Input,
   Label
 } from '../src/components';
-import PopoverDocs from './Popover.mdx';
+import PopoverDocs from './docs/Popover.mdx';
 
 const meta: Meta<typeof Popover> = {
-  title: 'Popover',
+  title: 'Components/Popover',
   component: Popover,
   parameters: {
     layout: 'padded',

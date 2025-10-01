@@ -11,7 +11,7 @@ import { Icon } from '../src/components/Icon';
 import { formElementSpecs, categorizedForms, formElementUsage } from '../src/tokens/figma-form-specs';
 
 const meta: Meta = {
-  title: 'FormElements',
+  title: 'Components/FormElements',
   parameters: {
     layout: 'padded',
     docs: {

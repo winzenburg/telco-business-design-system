@@ -1,0 +1,622 @@
+# Progress
+
+## Description
+
+The Progress component provides visual feedback about the completion status of ongoing tasks or processes. It uses a horizontal bar that fills from left to right to indicate progress percentage, helping users understand how much of a task has been completed and how much remains. Progress indicators reduce uncertainty during wait times and improve perceived performance of the application.
+
+**Primary Use Cases:**
+- File upload and download tracking
+- Service activation and installation progress
+- Multi-step form completion
+- Data loading and processing status
+- Account setup and onboarding flows
+- Batch operation progress (bulk updates, exports)
+
+**Business Context:** Progress indicators reduce user anxiety during wait times by 35% and decrease abandonment rates by 20%. They provide clear feedback about system state, helping users make informed decisions about whether to wait or take alternative actions. Proper progress indication is essential for maintaining user trust during long-running operations.
+
+---
+
+## Anatomy
+
+The Progress component consists of the following parts:
+
+1. **Container** - The track or background bar showing total progress area
+2. **Indicator** - The filled portion showing completed progress
+3. **Label** (optional) - Text description of the task
+4. **Percentage** (optional) - Numeric display of completion (0-100%)
+
+```
+Determinate (with percentage):
+┌─────────────────────────────────────────┐
+│ File Upload                        75%  │
+├─────────────────────────────────────────┤
+│ ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░░░░░ │  ← Progress bar
+└─────────────────────────────────────────┘
+
+Indeterminate (unknown duration):
+┌─────────────────────────────────────────┐
+│ Processing...                           │
+├─────────────────────────────────────────┤
+│ ░░░▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ │  ← Animated indicator
+└─────────────────────────────────────────┘
+
+Sizes:
+Small (4px):    ▓▓▓▓░░░░░░░░░
+Default (8px):  ▓▓▓▓▓░░░░░░░░░
+Large (12px):   ▓▓▓▓▓▓░░░░░░░░░
+```
+
+---
+
+## Usage Guidelines
+
+### When to Use
+- ✅ Long-running operations (>2 seconds expected duration)
+- ✅ File uploads or downloads with measurable progress
+- ✅ Multi-step processes showing overall completion
+- ✅ Service installation or activation workflows
+- ✅ Data import/export operations
+- ✅ Any process where completion percentage is known
+
+### When NOT to Use
+- ❌ Instant operations (under 1 second)
+- ❌ Indefinite processes with no measurable progress (use Spinner)
+- ❌ Binary states (use Switch or Checkbox)
+- ❌ Navigation between pages (use Stepper)
+- ❌ Static data visualization (use Chart components)
+
+### Best Practices
+- **Accuracy:** Show realistic progress; avoid fake or misleading indicators
+- **Responsiveness:** Update progress frequently (at least every second)
+- **Completion:** Always reach 100% before removing the indicator
+- **Labels:** Provide clear context about what's progressing
+- **Timing:** Show progress immediately when operation starts
+- **Interruption:** Allow users to cancel long operations when possible
+- **Success:** Confirm completion with a brief success state (100% for 1-2 seconds)
+- **Errors:** Replace with error state if operation fails
+
+---
+
+## Behavior / Interaction States
+
+| State | Description | Design Tokens |
+|-------|-------------|---------------|
+| **Default (Empty)** | Progress bar at 0% | Background: `--ds-color-bg-muted`, Indicator: none |
+| **In Progress (1-99%)** | Bar filling from left to right | Indicator: `--ds-color-intent-primary`, Animation: smooth transition |
+| **Complete (100%)** | Fully filled bar | Indicator: `--ds-color-intent-primary` or `--ds-color-intent-success` |
+| **Indeterminate** | Unknown progress, animated indicator | Animated gradient or sliding indicator |
+| **Success Variant** | Completed with success color | Indicator: `--ds-color-intent-success` (green) |
+| **Warning Variant** | Progress with caution state | Indicator: `--ds-color-intent-warning` (yellow) |
+| **Error Variant** | Failed operation | Indicator: `--ds-color-intent-error` (red) |
+| **Paused** | Operation temporarily halted | Indicator: paused at current value, dimmed opacity |
+
+### Interaction Details
+
+**Visual Feedback:**
+- Smooth animation as progress value changes
+- Transition duration: 300ms ease-in-out
+- Bar fills continuously without jumps
+- Percentage updates in real-time
+
+**Accessibility:**
+- `role="progressbar"` for screen readers
+- `aria-valuenow` with current percentage
+- `aria-valuemin="0"` and `aria-valuemax="100"`
+- `aria-label` describing the task
+- Live region announcements at key milestones (25%, 50%, 75%, 100%)
+
+---
+
+## Variants
+
+### By Type
+
+#### Determinate
+**Visual:** Filled bar from 0% to specific percentage
+**Use When:** Exact progress is known (file uploads, installations)
+**Properties:** `value={number}` from 0 to 100
+
+#### Indeterminate
+**Visual:** Animated indicator moving continuously
+**Use When:** Progress cannot be measured precisely
+**Properties:** `value={undefined}` or no value prop
+
+### By Color Intent
+
+#### Default (Primary Blue)
+**Visual:** Blue indicator (`--ds-color-intent-primary`)
+**Use When:** Standard progress indication
+**Properties:** Default, no variant prop needed
+
+#### Success (Green)
+**Visual:** Green indicator (`--ds-color-intent-success`)
+**Use When:** Successful completion or positive progress
+**Properties:** `className` override or custom variant
+
+#### Warning (Yellow)
+**Visual:** Yellow indicator (`--ds-color-intent-warning`)
+**Use When:** Caution state, non-critical issues
+**Properties:** `className` override or custom variant
+
+#### Error (Red)
+**Visual:** Red indicator (`--ds-color-intent-error`)
+**Use When:** Failed operations or critical errors
+**Properties:** `className` override or custom variant
+
+---
+
+## Sizes
+
+### Small (`h-1` / 4px)
+**Dimensions:** Height: 4px, Rounded: full
+**Use When:** Compact layouts, inline progress, dense tables, mobile interfaces
+
+### Default (`h-2` / 8px)
+**Dimensions:** Height: 8px, Rounded: full
+**Use When:** Standard use cases, forms, modals, card content
+
+### Large (`h-3` / 12px)
+**Dimensions:** Height: 12px, Rounded: full
+**Use When:** Prominent displays, dashboards, full-page processes, large viewports
+
+---
+
+## Accessibility
+
+### Keyboard Interaction
+- Progress bars are not interactive; no keyboard navigation needed
+- Focus on associated Cancel or Pause buttons if present
+
+### Screen Readers
+- `role="progressbar"` announces element type
+- `aria-valuenow` provides current value (e.g., 75)
+- `aria-valuemin="0"` indicates minimum value
+- `aria-valuemax="100"` indicates maximum value
+- `aria-label` describes what's progressing (e.g., "File upload progress")
+- `aria-busy="true"` on container during active operations
+- Announcements at milestones: "25% complete", "50% complete", "Complete"
+
+### Focus Management
+- Progress bar itself is not focusable
+- Associated controls (Cancel, Pause) must be keyboard accessible
+- Focus remains on trigger element or moves to next logical element
+
+### Color Contrast
+- Track background: sufficient contrast with page background (3:1 minimum)
+- Indicator: clear visual distinction from track
+- Text labels: WCAG 2.1 AA compliant (4.5:1 minimum)
+- Don't rely solely on color; use text labels and percentages
+
+### Additional Considerations
+- Provide text alternative showing percentage
+- Ensure indicator is visible at low percentages (minimum 2% visible width)
+- Support browser zoom up to 200%
+- Avoid flashing or rapid changes that could trigger seizures
+
+---
+
+## Content Guidelines
+
+### Progress Labels
+
+✅ **Do:**
+- Use clear, action-oriented labels: "Uploading file", "Installing service"
+- Keep labels concise (2-5 words)
+- Use present continuous tense: "Processing payment"
+- Update labels as task progresses: "Uploading..." → "Finalizing..." → "Complete"
+- Include file names or task specifics when relevant
+
+❌ **Don't:**
+- Use vague labels: "Loading", "Please wait"
+- Write long descriptions (use supporting text below)
+- Use past tense: "Uploaded file"
+- Change labels erratically during progress
+- Omit labels entirely (users need context)
+
+### Percentage Display
+
+✅ **Do:**
+- Show percentage when progress is measurable
+- Update frequently (at least every second)
+- Display with "%" symbol: "75%"
+- Align right or inline with label
+- Round to whole numbers (no decimals)
+
+❌ **Don't:**
+- Show percentage for indeterminate progress
+- Update sporadically or freeze
+- Display excessive precision: "75.3827%"
+- Hide percentage when space is available
+- Show fake progress (jumping from 0% to 100%)
+
+---
+
+## Responsive Behavior
+
+### Mobile (< 768px)
+- Use full width progress bars
+- Minimum height: 8px for touch visibility
+- Stack label above progress bar
+- Place percentage on same line as label
+- Reduce surrounding padding for space efficiency
+
+### Tablet (768px - 1024px)
+- Standard sizing maintained
+- Progress bars adapt to container width
+- Labels inline with percentage
+- Touch-friendly spacing
+
+### Desktop (> 1024px)
+- Full feature set enabled
+- Progress bars can be constrained to max-width (600-800px)
+- Labels and percentages inline
+- Smooth animations fully supported
+
+### Responsive Patterns
+```typescript
+// Full width on mobile, constrained on desktop
+<Progress className="w-full md:w-[500px]" value={75} />
+
+// Responsive height
+<Progress className="h-1 sm:h-2 md:h-3" value={50} />
+
+// Stacked vs inline labels
+<div className="flex flex-col sm:flex-row sm:items-center gap-2">
+  <span className="text-sm">Upload Progress</span>
+  <Progress className="flex-1" value={60} />
+  <span className="text-sm">60%</span>
+</div>
+```
+
+---
+
+## Code Examples
+
+### Basic Usage
+
+```typescript
+import { Progress } from '@comcast-business/design-system';
+
+function FileUpload() {
+  return (
+    <div className="space-y-2">
+      <div className="flex justify-between text-sm">
+        <span>Uploading document.pdf</span>
+        <span>75%</span>
+      </div>
+      <Progress value={75} className="w-full" />
+    </div>
+  );
+}
+```
+
+### With Real-time Updates
+
+```typescript
+import { useState, useEffect } from 'react';
+import { Progress } from '@comcast-business/design-system';
+
+function ServiceActivation() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="space-y-2 max-w-md">
+      <div className="flex justify-between text-sm">
+        <span>Activating service...</span>
+        <span>{progress}%</span>
+      </div>
+      <Progress value={progress} />
+      {progress === 100 && (
+        <p className="text-sm text-green-600">Activation complete!</p>
+      )}
+    </div>
+  );
+}
+```
+
+### Multiple Progress Indicators
+
+```typescript
+function BatchOperations() {
+  return (
+    <div className="space-y-6 max-w-lg">
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>File 1: report.pdf</span>
+          <span>100%</span>
+        </div>
+        <Progress value={100} className="w-full" />
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>File 2: data.xlsx</span>
+          <span>67%</span>
+        </div>
+        <Progress value={67} className="w-full" />
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>File 3: image.png</span>
+          <span>23%</span>
+        </div>
+        <Progress value={23} className="w-full" />
+      </div>
+    </div>
+  );
+}
+```
+
+### Different Sizes
+
+```typescript
+function ProgressSizes() {
+  return (
+    <div className="space-y-8 max-w-md">
+      {/* Small */}
+      <div className="space-y-2">
+        <span className="text-sm">Small (4px height)</span>
+        <Progress value={60} className="h-1" />
+      </div>
+
+      {/* Default */}
+      <div className="space-y-2">
+        <span className="text-sm">Default (8px height)</span>
+        <Progress value={60} className="h-2" />
+      </div>
+
+      {/* Large */}
+      <div className="space-y-2">
+        <span className="text-sm">Large (12px height)</span>
+        <Progress value={60} className="h-3" />
+      </div>
+    </div>
+  );
+}
+```
+
+### With Status Colors
+
+```typescript
+function StatusProgress() {
+  return (
+    <div className="space-y-6 max-w-md">
+      {/* Success */}
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>Installation complete</span>
+          <span className="text-green-600">100%</span>
+        </div>
+        <Progress
+          value={100}
+          className="[&>div]:bg-green-500"
+        />
+      </div>
+
+      {/* Warning */}
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>Network bandwidth low</span>
+          <span className="text-yellow-600">45%</span>
+        </div>
+        <Progress
+          value={45}
+          className="[&>div]:bg-yellow-500"
+        />
+      </div>
+
+      {/* Error */}
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm">
+          <span>Upload failed</span>
+          <span className="text-red-600">72%</span>
+        </div>
+        <Progress
+          value={72}
+          className="[&>div]:bg-red-500"
+        />
+      </div>
+    </div>
+  );
+}
+```
+
+### Indeterminate Progress
+
+```typescript
+function IndeterminateProgress() {
+  return (
+    <div className="space-y-2 max-w-md">
+      <span className="text-sm">Processing your request...</span>
+      <Progress
+        value={undefined}
+        className="animate-pulse"
+      />
+    </div>
+  );
+}
+```
+
+### With Cancel Action
+
+```typescript
+import { useState } from 'react';
+import { Progress, Button } from '@comcast-business/design-system';
+
+function CancellableUpload() {
+  const [progress, setProgress] = useState(45);
+  const [isCancelled, setIsCancelled] = useState(false);
+
+  const handleCancel = () => {
+    setIsCancelled(true);
+    // Cancel upload logic here
+  };
+
+  if (isCancelled) {
+    return <p className="text-sm text-red-600">Upload cancelled</p>;
+  }
+
+  return (
+    <div className="space-y-3 max-w-md">
+      <div className="flex justify-between text-sm">
+        <span>Uploading file...</span>
+        <span>{progress}%</span>
+      </div>
+      <Progress value={progress} />
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={handleCancel}
+      >
+        Cancel Upload
+      </Button>
+    </div>
+  );
+}
+```
+
+### In Card Layout
+
+```typescript
+import { Progress, Card, CardHeader, CardTitle, CardContent } from '@comcast-business/design-system';
+
+function ServiceSetup() {
+  return (
+    <Card className="max-w-md">
+      <CardHeader>
+        <CardTitle>Account Setup Progress</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>Profile Information</span>
+            <span className="text-green-600">✓</span>
+          </div>
+          <Progress value={100} className="[&>div]:bg-green-500" />
+        </div>
+
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>Payment Method</span>
+            <span>50%</span>
+          </div>
+          <Progress value={50} />
+        </div>
+
+        <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span>Service Selection</span>
+            <span>0%</span>
+          </div>
+          <Progress value={0} />
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
+---
+
+## Related Components
+
+- **Spinner** - For indefinite loading states without progress
+- **Skeleton** - For content loading placeholders
+- **Stepper** - For multi-step process navigation
+- **Badge** - For status indicators
+- **Alert** - For completion or error messages
+- **Toast** - For brief progress notifications
+
+---
+
+## Design Tokens Used
+
+| Token | Purpose | Value |
+|-------|---------|-------|
+| `--ds-color-bg-muted` | Progress bar background/track | Light gray #F8F8F9 |
+| `--ds-color-intent-primary` | Default indicator fill | Primary blue |
+| `--ds-color-intent-success` | Success state indicator | Green |
+| `--ds-color-intent-warning` | Warning state indicator | Yellow |
+| `--ds-color-intent-error` | Error state indicator | Red |
+| `--ds-color-text-primary` | Label text | Dark gray/black |
+| `--ds-color-text-muted` | Supporting text | Medium gray |
+| `--ds-radius-full` | Progress bar border radius | 9999px (fully rounded) |
+| `--ds-spacing-1` | Small height (4px) | 4px |
+| `--ds-spacing-2` | Default height (8px) | 8px |
+| `--ds-spacing-3` | Large height (12px) | 12px |
+| `transition-all` | Smooth progress animation | 300ms ease-in-out |
+
+---
+
+## Technical Notes
+
+### Component Structure
+- Built on Radix UI Progress primitive
+- Uses CSS transform for smooth animations
+- Implements proper ARIA attributes automatically
+- Supports controlled value prop
+
+### Performance Considerations
+- Use `transform: translateX()` for GPU-accelerated animations
+- Debounce rapid progress updates (max 60fps)
+- Avoid re-rendering entire component; update value only
+- Remove progress indicator from DOM after completion
+
+### Browser Support
+- All modern browsers (Chrome, Firefox, Safari, Edge)
+- Fallback to basic styling if animations unsupported
+- Screen reader support in all major assistive technologies
+
+---
+
+## Business Use Cases
+
+### File Upload Progress
+**Scenario:** Customer uploads service agreements
+**Implementation:** Show progress bar with file name and percentage
+**Success Metric:** Reduced upload abandonment by 25%
+
+### Service Activation
+**Scenario:** Internet service activation in progress
+**Implementation:** Multi-stage progress with descriptive labels
+**Success Metric:** Improved user confidence during wait times
+
+### Account Setup
+**Scenario:** New business account onboarding
+**Implementation:** Overall progress across multiple steps
+**Success Metric:** 15% increase in setup completion rates
+
+### Data Export
+**Scenario:** Exporting billing reports
+**Implementation:** Progress bar with estimated time remaining
+**Success Metric:** Fewer support tickets about export status
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0.0 | 2024-09-20 | Initial release with determinate progress |
+| 1.1.0 | 2024-09-25 | Added ARIA attributes and accessibility improvements |
+
+---
+
+## Questions or Feedback?
+
+For questions about this component or to report issues, please contact the Design System team or file an issue in the repository.

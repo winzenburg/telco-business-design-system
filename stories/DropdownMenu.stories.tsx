@@ -14,10 +14,10 @@ import {
 } from '../src/components';
 // @ts-expect-error - Some lucide-react icons may not be exported in current version
 import { MoreHorizontal, Settings, User, CreditCard, LogOut } from 'lucide-react';
-import DropdownMenuDocs from './DropdownMenu.mdx';
+import DropdownMenuDocs from './docs/DropdownMenu.mdx';
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: 'DropdownMenu',
+  title: 'Components/DropdownMenu',
   component: DropdownMenu,
   parameters: {
     layout: 'padded',
