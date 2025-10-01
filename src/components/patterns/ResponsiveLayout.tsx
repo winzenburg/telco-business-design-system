@@ -350,7 +350,12 @@ export const ResponsiveNavigation = React.forwardRef<HTMLElement, ResponsiveNavi
                 <Icon name="chevron" size={16} className="ml-2" />
               </Button>
             </MenuTrigger>
-            <MenuContent className="w-full min-w-[200px]">
+            <MenuContent
+              align="start"
+              sideOffset={8}
+              style={{ width: 'var(--radix-dropdown-menu-trigger-width)' }}
+              className="max-w-[calc(100vw-2rem)]"
+            >
               {items.map((item) => (
                 <MenuItem key={item.id} onClick={item.onClick} className={item.active ? 'bg-[var(--ds-color-blue-50)]' : ''}>
                   {item.icon && <Icon name={item.icon as any} size={16} />}
