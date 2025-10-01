@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ActivityLog, useActivityLog, type ActivityLogEntry } from '../../src/components/patterns/ActivityLog';
 import { NotificationCenter, useNotificationCenter, type Notification } from '../../src/components/patterns/NotificationCenter';
 import { Button } from '../../src/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../../src/components/ui/card';
 import { Badge } from '../../src/components/ui/badge';
+import { Icon } from '../../src/components/Icon';
 import { useToast } from '../../src/hooks/use-toast';
 
 const meta = {
@@ -241,7 +242,7 @@ export const NotificationCenterExample: Story = {
             <div className="flex items-center justify-between">
               <CardTitle>Notification Center Demo</CardTitle>
               <Button variant="outline" onClick={() => setOpen(true)}>
-                <span className="mr-2">🔔</span>
+                <Icon name="bell" size={16} className="mr-2" />
                 Notifications
                 {unreadCount > 0 && (
                   <Badge variant="destructive" className="ml-2 rounded-full">
@@ -580,7 +581,7 @@ export const ComplianceDashboard: Story = {
             </p>
           </div>
           <Button variant="outline" onClick={() => setNotificationOpen(true)}>
-            <span className="mr-2">🔔</span>
+            <Icon name="bell" size={16} className="mr-2" />
             Notifications
             {unreadCount > 0 && (
               <Badge variant="destructive" className="ml-2 rounded-full">

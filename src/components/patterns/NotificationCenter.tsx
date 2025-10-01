@@ -74,23 +74,23 @@ export interface NotificationCenterProps {
 const typeConfig = {
   info: {
     icon: 'info' as IconName,
-    color: 'var(--ds-color-blue-600)',
-    bgColor: 'var(--ds-color-blue-50)',
+    colorClass: 'text-[var(--ds-color-blue-600)]',
+    bgClass: 'bg-[var(--ds-color-blue-50)]',
   },
   success: {
     icon: 'check-circle' as IconName,
-    color: 'var(--ds-color-success-600)',
-    bgColor: 'var(--ds-color-success-50)',
+    colorClass: 'text-[var(--ds-color-success-600)]',
+    bgClass: 'bg-[var(--ds-color-success-50)]',
   },
   warning: {
     icon: 'alert-triangle' as IconName,
-    color: 'var(--ds-color-warning-600)',
-    bgColor: 'var(--ds-color-warning-50)',
+    colorClass: 'text-[var(--ds-color-warning-600)]',
+    bgClass: 'bg-[var(--ds-color-warning-50)]',
   },
   error: {
     icon: 'alert-circle' as IconName,
-    color: 'var(--ds-color-error-600)',
-    bgColor: 'var(--ds-color-error-50)',
+    colorClass: 'text-[var(--ds-color-error-600)]',
+    bgClass: 'bg-[var(--ds-color-error-50)]',
   },
 } as const;
 
@@ -191,7 +191,7 @@ export const NotificationCenter = React.forwardRef<HTMLDivElement, NotificationC
             {/* Notifications List */}
             {filteredNotifications.length === 0 ? (
               <div className="text-center py-8 text-[var(--ds-color-text-secondary)]">
-                <Icon name={'bell' as any} size={48} className="mx-auto mb-3 opacity-40" />
+                <Icon name="bell" size={48} className="mx-auto mb-3 opacity-40" />
                 <p>{filter === 'unread' ? 'No unread notifications' : 'No notifications'}</p>
               </div>
             ) : (
@@ -211,7 +211,7 @@ export const NotificationCenter = React.forwardRef<HTMLDivElement, NotificationC
                         'p-3 rounded-lg border transition-colors w-full text-left',
                         notification.read
                           ? 'bg-white border-[var(--ds-color-neutral-300)]'
-                          : 'bg-[var(--ds-color-blue-50)] border-[var(--ds-color-blue-300)]',
+                          : 'bg-[var(--ds-color-blue-50)] border-[var(--ds-color-neutral-300)]',
                         isClickable && 'cursor-pointer hover:shadow-md',
                         !isClickable && 'cursor-default',
                       )}
@@ -220,15 +220,15 @@ export const NotificationCenter = React.forwardRef<HTMLDivElement, NotificationC
                         {/* Icon */}
                         {(notification.icon || config) && (
                           <div
-                            className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
-                            style={{
-                              backgroundColor: config?.bgColor || 'var(--ds-color-neutral-100)',
-                            }}
+                            className={cn(
+                              'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center',
+                              config?.bgClass || 'bg-[var(--ds-color-neutral-100)]',
+                            )}
                           >
                             <Icon
-                              name={(notification.icon || config?.icon || 'bell') as any}
+                              name={config?.icon || 'bell'}
                               size={16}
-                              color={config?.color || 'var(--ds-color-neutral-600)'}
+                              className={config?.colorClass || 'text-[var(--ds-color-neutral-600)]'}
                             />
                           </div>
                         )}
@@ -280,7 +280,7 @@ export const NotificationCenter = React.forwardRef<HTMLDivElement, NotificationC
                             className="flex-shrink-0 p-1 rounded-md hover:bg-[var(--ds-color-neutral-100)] transition-colors"
                             aria-label="Dismiss notification"
                           >
-                            <Icon name={'x' as any} size={16} color="var(--ds-color-neutral-500)" />
+                            <Icon name="close" size={16} className="text-[var(--ds-color-neutral-500)]" />
                           </button>
                         )}
                       </div>

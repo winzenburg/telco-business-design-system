@@ -76,56 +76,56 @@ export interface ActivityLogProps extends React.HTMLAttributes<HTMLDivElement> {
 const typeConfig = {
   create: {
     icon: 'plus' as IconName,
-    color: 'var(--ds-color-success-600)',
-    bgColor: 'var(--ds-color-success-50)',
+    colorClass: 'text-[var(--ds-color-success-600)]',
+    bgClass: 'bg-[var(--ds-color-success-50)]',
     label: 'Created',
   },
   update: {
     icon: 'edit' as IconName,
-    color: 'var(--ds-color-blue-600)',
-    bgColor: 'var(--ds-color-blue-50)',
+    colorClass: 'text-[var(--ds-color-blue-600)]',
+    bgClass: 'bg-[var(--ds-color-blue-50)]',
     label: 'Updated',
   },
   delete: {
     icon: 'trash' as IconName,
-    color: 'var(--ds-color-error-600)',
-    bgColor: 'var(--ds-color-error-50)',
+    colorClass: 'text-[var(--ds-color-error-600)]',
+    bgClass: 'bg-[var(--ds-color-error-50)]',
     label: 'Deleted',
   },
   login: {
     icon: 'log-in' as IconName,
-    color: 'var(--ds-color-success-600)',
-    bgColor: 'var(--ds-color-success-50)',
+    colorClass: 'text-[var(--ds-color-success-600)]',
+    bgClass: 'bg-[var(--ds-color-success-50)]',
     label: 'Login',
   },
   logout: {
     icon: 'log-out' as IconName,
-    color: 'var(--ds-color-neutral-600)',
-    bgColor: 'var(--ds-color-neutral-100)',
+    colorClass: 'text-[var(--ds-color-neutral-600)]',
+    bgClass: 'bg-[var(--ds-color-neutral-100)]',
     label: 'Logout',
   },
   access: {
     icon: 'eye' as IconName,
-    color: 'var(--ds-color-neutral-600)',
-    bgColor: 'var(--ds-color-neutral-100)',
+    colorClass: 'text-[var(--ds-color-neutral-600)]',
+    bgClass: 'bg-[var(--ds-color-neutral-100)]',
     label: 'Accessed',
   },
   error: {
     icon: 'alert-circle' as IconName,
-    color: 'var(--ds-color-error-600)',
-    bgColor: 'var(--ds-color-error-50)',
+    colorClass: 'text-[var(--ds-color-error-600)]',
+    bgClass: 'bg-[var(--ds-color-error-50)]',
     label: 'Error',
   },
   warning: {
     icon: 'alert-triangle' as IconName,
-    color: 'var(--ds-color-warning-600)',
-    bgColor: 'var(--ds-color-warning-50)',
+    colorClass: 'text-[var(--ds-color-warning-600)]',
+    bgClass: 'bg-[var(--ds-color-warning-50)]',
     label: 'Warning',
   },
   info: {
     icon: 'info' as IconName,
-    color: 'var(--ds-color-blue-600)',
-    bgColor: 'var(--ds-color-blue-50)',
+    colorClass: 'text-[var(--ds-color-blue-600)]',
+    bgClass: 'bg-[var(--ds-color-blue-50)]',
     label: 'Info',
   },
 } as const;
@@ -237,13 +237,13 @@ export const ActivityLog = React.forwardRef<HTMLDivElement, ActivityLogProps>(
             className={cn(
               'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center',
               compact && 'w-6 h-6',
+              config?.bgClass || 'bg-[var(--ds-color-neutral-100)]',
             )}
-            style={{ backgroundColor: config?.bgColor || 'var(--ds-color-neutral-100)' }}
           >
             <Icon
-              name={(entry.icon || config?.icon || 'activity') as any}
+              name={config?.icon || 'notifications'}
               size={compact ? 14 : 16}
-              color={config?.color || 'var(--ds-color-neutral-600)'}
+              className={config?.colorClass || 'text-[var(--ds-color-neutral-600)]'}
             />
           </div>
 
@@ -294,7 +294,7 @@ export const ActivityLog = React.forwardRef<HTMLDivElement, ActivityLogProps>(
         <CardContent className="space-y-3">
           {filteredEntries.length === 0 ? (
             <div className="text-center py-8 text-[var(--ds-color-text-secondary)]">
-              <Icon name={'activity' as any} size={48} className="mx-auto mb-3 opacity-40" />
+              <Icon name="notifications" size={48} className="mx-auto mb-3 opacity-40" />
               <p>No activity to display</p>
             </div>
           ) : groupedEntries ? (

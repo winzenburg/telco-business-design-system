@@ -60,33 +60,33 @@ export interface WorkflowMapProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const statusConfig = {
   'not-started': {
-    color: 'var(--ds-color-neutral-600)',
-    bgColor: 'var(--ds-color-neutral-100)',
-    icon: 'circle' as IconName,
+    colorClass: 'text-[var(--ds-color-neutral-600)]',
+    bgClass: 'bg-[var(--ds-color-neutral-100)]',
+    icon: 'document' as IconName,
     label: 'Not Started',
   },
   'in-progress': {
-    color: 'var(--ds-color-blue-600)',
-    bgColor: 'var(--ds-color-blue-50)',
-    icon: 'clock' as IconName,
+    colorClass: 'text-[var(--ds-color-blue-600)]',
+    bgClass: 'bg-[var(--ds-color-blue-50)]',
+    icon: 'refresh' as IconName,
     label: 'In Progress',
   },
   completed: {
-    color: 'var(--ds-color-success-600)',
-    bgColor: 'var(--ds-color-success-50)',
-    icon: 'check-circle' as IconName,
+    colorClass: 'text-[var(--ds-color-success-600)]',
+    bgClass: 'bg-[var(--ds-color-success-50)]',
+    icon: 'check' as IconName,
     label: 'Completed',
   },
   blocked: {
-    color: 'var(--ds-color-error-600)',
-    bgColor: 'var(--ds-color-error-50)',
-    icon: 'alert-triangle' as IconName,
+    colorClass: 'text-[var(--ds-color-error-600)]',
+    bgClass: 'bg-[var(--ds-color-error-50)]',
+    icon: 'alert' as IconName,
     label: 'Blocked',
   },
   skipped: {
-    color: 'var(--ds-color-neutral-500)',
-    bgColor: 'var(--ds-color-neutral-50)',
-    icon: 'chevron-right' as IconName,
+    colorClass: 'text-[var(--ds-color-neutral-500)]',
+    bgClass: 'bg-[var(--ds-color-neutral-50)]',
+    icon: 'chevron' as IconName,
     label: 'Skipped',
   },
 } as const;
@@ -198,7 +198,7 @@ export const WorkflowMap = React.forwardRef<HTMLDivElement, WorkflowMapProps>(
                             className="p-1 hover:bg-[var(--ds-color-neutral-100)] rounded transition-colors"
                           >
                             <Icon
-                              name={'chevron' as any}
+                              name="chevron"
                               size={20}
                               className={cn(
                                 'transition-transform',
@@ -260,15 +260,14 @@ export const WorkflowMap = React.forwardRef<HTMLDivElement, WorkflowMapProps>(
                               task.status === 'in-progress' && 'border-[var(--ds-color-blue-300)]',
                               task.status === 'blocked' && 'border-[var(--ds-color-error-300)]',
                               task.status === 'not-started' && 'border-[var(--ds-color-neutral-300)]',
+                              config.bgClass,
                             )}
-                            style={{ backgroundColor: config.bgColor }}
                           >
                             <div className="flex items-start gap-3">
                               <Icon
-                                name={(task.icon || config.icon) as any}
+                                name={config.icon}
                                 size={24}
-                                color={config.color}
-                                className="flex-shrink-0 mt-0.5"
+                                className={cn('flex-shrink-0 mt-0.5', config.colorClass)}
                               />
 
                               <div className="flex-1 min-w-0">
@@ -278,11 +277,11 @@ export const WorkflowMap = React.forwardRef<HTMLDivElement, WorkflowMapProps>(
                                   </h4>
                                   <Badge
                                     variant="secondary"
-                                    className="flex-shrink-0 text-xs"
-                                    style={{
-                                      backgroundColor: config.bgColor,
-                                      color: config.color,
-                                    }}
+                                    className={cn(
+                                      'flex-shrink-0 text-xs',
+                                      config.bgClass,
+                                      config.colorClass,
+                                    )}
                                   >
                                     {config.label}
                                   </Badge>
@@ -297,13 +296,13 @@ export const WorkflowMap = React.forwardRef<HTMLDivElement, WorkflowMapProps>(
                                 <div className="flex items-center gap-2 flex-wrap text-xs text-[var(--ds-color-text-tertiary)]">
                                   {task.estimatedTime && (
                                     <span className="flex items-center gap-1">
-                                      <Icon name={'clock' as any} size={12} />
+                                      <Icon name="refresh" size={12} />
                                       {task.estimatedTime}
                                     </span>
                                   )}
                                   {task.assignee && (
                                     <span className="flex items-center gap-1">
-                                      <Icon name={'user' as any} size={12} />
+                                      <Icon name="users" size={12} />
                                       {task.assignee}
                                     </span>
                                   )}
@@ -312,7 +311,7 @@ export const WorkflowMap = React.forwardRef<HTMLDivElement, WorkflowMapProps>(
 
                                 {hasUnmetDependencies && (
                                   <p className="text-xs text-[var(--ds-color-warning-600)] mt-2 flex items-center gap-1">
-                                    <Icon name={'alert-triangle' as any} size={12} />
+                                    <Icon name="alert" size={12} />
                                     Waiting for dependencies
                                   </p>
                                 )}

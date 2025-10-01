@@ -51,29 +51,29 @@ export interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const statusConfig = {
   'not-started': {
-    color: 'var(--ds-color-neutral-400)',
-    bgColor: 'var(--ds-color-neutral-100)',
-    borderColor: 'var(--ds-color-neutral-300)',
+    colorClass: 'text-[var(--ds-color-neutral-400)]',
+    bgClass: 'bg-[var(--ds-color-neutral-100)]',
+    borderClass: 'border-[var(--ds-color-neutral-300)]',
   },
   'in-progress': {
-    color: 'var(--ds-color-blue-600)',
-    bgColor: 'var(--ds-color-blue-50)',
-    borderColor: 'var(--ds-color-blue-500)',
+    colorClass: 'text-[var(--ds-color-blue-600)]',
+    bgClass: 'bg-[var(--ds-color-blue-50)]',
+    borderClass: 'border-[var(--ds-color-blue-500)]',
   },
   completed: {
-    color: 'var(--ds-color-success-600)',
-    bgColor: 'var(--ds-color-success-50)',
-    borderColor: 'var(--ds-color-success-500)',
+    colorClass: 'text-[var(--ds-color-success-600)]',
+    bgClass: 'bg-[var(--ds-color-success-50)]',
+    borderClass: 'border-[var(--ds-color-success-500)]',
   },
   error: {
-    color: 'var(--ds-color-error-600)',
-    bgColor: 'var(--ds-color-error-50)',
-    borderColor: 'var(--ds-color-error-500)',
+    colorClass: 'text-[var(--ds-color-error-600)]',
+    bgClass: 'bg-[var(--ds-color-error-50)]',
+    borderClass: 'border-[var(--ds-color-error-500)]',
   },
   skipped: {
-    color: 'var(--ds-color-neutral-500)',
-    bgColor: 'var(--ds-color-neutral-50)',
-    borderColor: 'var(--ds-color-neutral-300)',
+    colorClass: 'text-[var(--ds-color-neutral-500)]',
+    bgClass: 'bg-[var(--ds-color-neutral-50)]',
+    borderClass: 'border-[var(--ds-color-neutral-300)]',
   },
 } as const;
 
@@ -116,23 +116,19 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             isClickable && 'cursor-pointer hover:shadow-md',
             !isClickable && 'cursor-default',
             variant === 'compact' && 'w-8 h-8 text-xs',
+            config.bgClass,
+            config.borderClass,
+            config.colorClass,
           )}
-          style={{
-            backgroundColor: config.bgColor,
-            borderColor: config.borderColor,
-            color: config.color,
-          }}
           aria-label={`Step ${index + 1}: ${step.label}`}
           aria-current={index === currentStep ? 'step' : undefined}
         >
           {status === 'completed' ? (
-            <Icon name={'check' as any} size={variant === 'compact' ? 14 : 18} color={config.color} />
+            <Icon name="check" size={variant === 'compact' ? 14 : 18} className={config.colorClass} />
           ) : status === 'error' ? (
-            <Icon name={'alert-circle' as any} size={variant === 'compact' ? 14 : 18} color={config.color} />
+            <Icon name="alert" size={variant === 'compact' ? 14 : 18} className={config.colorClass} />
           ) : status === 'skipped' ? (
-            <Icon name={'chevron-right' as any} size={variant === 'compact' ? 14 : 18} color={config.color} />
-          ) : step.icon ? (
-            <Icon name={step.icon as any} size={variant === 'compact' ? 14 : 18} color={config.color} />
+            <Icon name="chevron" size={variant === 'compact' ? 14 : 18} className={config.colorClass} />
           ) : showStepNumbers ? (
             index + 1
           ) : null}
@@ -154,10 +150,10 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
                   {renderStepIndicator(step, index)}
                   {!isLast && (
                     <div
-                      className="w-0.5 h-12 my-1"
-                      style={{
-                        backgroundColor: status === 'completed' ? config.borderColor : 'var(--ds-color-neutral-300)',
-                      }}
+                      className={cn(
+                        'w-0.5 h-12 my-1',
+                        status === 'completed' ? config.borderClass : 'bg-[var(--ds-color-neutral-300)]',
+                      )}
                     />
                   )}
                 </div>
@@ -233,10 +229,11 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
 
                 {!isLast && (
                   <div
-                    className={cn('h-0.5 flex-1', variant === 'compact' ? 'max-w-12' : 'max-w-24')}
-                    style={{
-                      backgroundColor: status === 'completed' ? config.borderColor : 'var(--ds-color-neutral-300)',
-                    }}
+                    className={cn(
+                      'h-0.5 flex-1',
+                      variant === 'compact' ? 'max-w-12' : 'max-w-24',
+                      status === 'completed' ? config.borderClass : 'bg-[var(--ds-color-neutral-300)]',
+                    )}
                   />
                 )}
               </React.Fragment>

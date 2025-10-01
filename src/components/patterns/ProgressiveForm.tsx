@@ -103,17 +103,15 @@ export const ProgressiveForm = React.forwardRef<HTMLDivElement, ProgressiveFormP
     const totalSections = sections.length;
     const progress = (completedSections / totalSections) * 100;
 
-    const getSectionIcon = (section: FormSection) => {
+    const getSectionIcon = (section: FormSection): IconName => {
       if (section.status === 'completed') {
-        return 'check-circle' as IconName;
+        return 'check';
       } else if (section.status === 'error' || (section.validation && !section.validation.isValid)) {
-        return 'alert-circle' as IconName;
+        return 'alert';
       } else if (section.status === 'in-progress') {
-        return 'clock' as IconName;
-      } else if (section.icon) {
-        return section.icon;
+        return 'refresh';
       }
-      return 'circle' as IconName;
+      return 'document';
     };
 
     const getSectionIconColor = (section: FormSection) => {
@@ -148,12 +146,99 @@ export const ProgressiveForm = React.forwardRef<HTMLDivElement, ProgressiveFormP
         )}
 
         {/* Form Sections */}
-        <Accordion
-          type={allowMultiple ? 'multiple' : 'single'}
-          value={allowMultiple ? expandedSections : expandedSections[0]}
-          onValueChange={handleExpandedChange}
-          className="space-y-3"
-        >
+        {allowMultiple ? (
+          <Accordion
+            type="multiple"
+            value={expandedSections}
+            onValueChange={handleExpandedChange}
+            className="space-y-3"
+          >
+            {sections.map((section) => {
+              const isExpanded = expandedSections.includes(section.id);
+              const hasErrors = section.validation && !section.validation.isValid;
+
+              return (
+                <AccordionItem
+                  key={section.id}
+                  value={section.id}
+                  className={cn(
+                    'border rounded-lg overflow-hidden transition-colors',
+                    section.status === 'completed' && 'border-[var(--ds-color-success-300)] bg-[var(--ds-color-success-50)]',
+                    hasErrors && 'border-[var(--ds-color-error-300)] bg-[var(--ds-color-error-50)]',
+                    section.status === 'in-progress' && 'border-[var(--ds-color-blue-300)] bg-[var(--ds-color-blue-50)]',
+                    !section.status && 'border-[var(--ds-color-neutral-300)]',
+                  )}
+                >
+                  <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-white/50">
+                    <div className="flex items-center gap-3 flex-1 text-left">
+                      <Icon
+                        name={getSectionIcon(section) as IconName}
+                        size={24}
+                        color={getSectionIconColor(section)}
+                        className="flex-shrink-0"
+                      />
+
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="font-semibold text-base text-[var(--ds-color-text-primary)]">
+                            {section.title}
+                          </h3>
+                          {section.optional && (
+                            <Badge variant="outline" className="text-xs">
+                              Optional
+                            </Badge>
+                          )}
+                          {section.status === 'completed' && (
+                            <Badge variant="default" className="text-xs bg-[var(--ds-color-success-600)]">
+                              Complete
+                            </Badge>
+                          )}
+                          {hasErrors && (
+                            <Badge variant="destructive" className="text-xs">
+                              {section.validation.errors?.length || 0} error(s)
+                            </Badge>
+                          )}
+                        </div>
+                        {section.description && (
+                          <p className="text-sm text-[var(--ds-color-text-secondary)]">{section.description}</p>
+                        )}
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+
+                  <AccordionContent className="px-4 py-4 bg-white">
+                    {section.content}
+
+                    {/* Validation Errors */}
+                    {hasErrors && section.validation.errors && section.validation.errors.length > 0 && (
+                      <div className="mt-4 p-3 bg-[var(--ds-color-error-50)] border border-[var(--ds-color-error-300)] rounded-lg">
+                        <div className="flex items-start gap-2">
+                          <Icon name="alert" size={16} color="var(--ds-color-error-600)" className="flex-shrink-0 mt-0.5" />
+                          <div className="flex-1">
+                            <p className="font-semibold text-sm text-[var(--ds-color-error-600)] mb-1">
+                              Please fix the following errors:
+                            </p>
+                            <ul className="list-disc list-inside space-y-1 text-sm text-[var(--ds-color-error-600)]">
+                              {section.validation.errors.map((error, i) => (
+                                <li key={i}>{error}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
+        ) : (
+          <Accordion
+            type="single"
+            value={expandedSections[0]}
+            onValueChange={(value) => handleExpandedChange(value)}
+            className="space-y-3"
+          >
           {sections.map((section) => {
             const isExpanded = expandedSections.includes(section.id);
             const hasErrors = section.validation && !section.validation.isValid;
@@ -173,7 +258,7 @@ export const ProgressiveForm = React.forwardRef<HTMLDivElement, ProgressiveFormP
                 <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-white/50">
                   <div className="flex items-center gap-3 flex-1 text-left">
                     <Icon
-                      name={getSectionIcon(section) as any}
+                      name={getSectionIcon(section)}
                       size={24}
                       color={getSectionIconColor(section)}
                       className="flex-shrink-0"
@@ -214,7 +299,7 @@ export const ProgressiveForm = React.forwardRef<HTMLDivElement, ProgressiveFormP
                   {hasErrors && section.validation.errors && section.validation.errors.length > 0 && (
                     <div className="mt-4 p-3 bg-[var(--ds-color-error-50)] border border-[var(--ds-color-error-300)] rounded-lg">
                       <div className="flex items-start gap-2">
-                        <Icon name={'alert-circle' as any} size={16} color="var(--ds-color-error-600)" className="flex-shrink-0 mt-0.5" />
+                        <Icon name="alert" size={16} color="var(--ds-color-error-600)" className="flex-shrink-0 mt-0.5" />
                         <div className="flex-1">
                           <p className="font-semibold text-sm text-[var(--ds-color-error-600)] mb-1">
                             Please fix the following errors:
@@ -232,7 +317,8 @@ export const ProgressiveForm = React.forwardRef<HTMLDivElement, ProgressiveFormP
               </AccordionItem>
             );
           })}
-        </Accordion>
+          </Accordion>
+        )}
 
         {/* Actions */}
         {actions && (
