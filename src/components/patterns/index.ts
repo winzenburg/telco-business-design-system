@@ -55,3 +55,7 @@ export type { ProgressiveFormProps, FormSection, UseProgressiveFormOptions } fro
 
 export { WorkflowMap } from './WorkflowMap';
 export type { WorkflowMapProps, WorkflowTask, WorkflowSection } from './WorkflowMap';
+
+// Settings & Configuration
+export { SettingsPanel, useSettingsPanel } from './SettingsPanel';
+export type { SettingsPanelProps, SettingField, SettingSection, SettingTab, UseSettingsPanelOptions } from './SettingsPanel';
