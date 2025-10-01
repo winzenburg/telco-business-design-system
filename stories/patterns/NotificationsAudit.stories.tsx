@@ -5,7 +5,7 @@ import { NotificationCenter, useNotificationCenter, type Notification } from '..
 import { Button } from '../../src/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../../src/components/ui/card';
 import { Badge } from '../../src/components/ui/badge';
-import { useToast } from '../../src/components/ui/use-toast';
+import { useToast } from '../../src/hooks/use-toast';
 
 const meta = {
   title: 'Patterns/Notifications & Audit Trails',
