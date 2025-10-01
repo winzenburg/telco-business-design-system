@@ -59,3 +59,23 @@ export type { WorkflowMapProps, WorkflowTask, WorkflowSection } from './Workflow
 // Settings & Configuration
 export { SettingsPanel, useSettingsPanel } from './SettingsPanel';
 export type { SettingsPanelProps, SettingField, SettingSection, SettingTab, UseSettingsPanelOptions } from './SettingsPanel';
+
+// Responsive Layout Utilities
+export {
+  ResponsiveContainer,
+  ResponsiveGrid,
+  ResponsiveTable,
+  ResponsiveNavigation,
+  StickyHeader,
+  useBreakpoint,
+  useMediaQuery,
+} from './ResponsiveLayout';
+export type {
+  ResponsiveContainerProps,
+  ResponsiveGridProps,
+  ResponsiveTableProps,
+  ResponsiveTableColumn,
+  ResponsiveNavigationProps,
+  ResponsiveNavItem,
+  StickyHeaderProps,
+} from './ResponsiveLayout';
