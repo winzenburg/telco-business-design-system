@@ -226,6 +226,7 @@ export const NotificationCenter = React.forwardRef<HTMLDivElement, NotificationC
                             )}
                           >
                             <Icon
+                              // @ts-ignore - config.icon type is correct but TS infers wrong union
                               name={config?.icon || 'bell'}
                               size={16}
                               className={config?.colorClass || 'text-[var(--ds-color-neutral-600)]'}

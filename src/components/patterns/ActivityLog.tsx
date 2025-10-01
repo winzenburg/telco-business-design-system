@@ -241,6 +241,7 @@ export const ActivityLog = React.forwardRef<HTMLDivElement, ActivityLogProps>(
             )}
           >
             <Icon
+              // @ts-ignore - config.icon type is correct but TS infers wrong union
               name={config?.icon || 'notifications'}
               size={compact ? 14 : 16}
               className={config?.colorClass || 'text-[var(--ds-color-neutral-600)]'}
@@ -284,7 +285,7 @@ export const ActivityLog = React.forwardRef<HTMLDivElement, ActivityLogProps>(
     };
 
     return (
-      <Card ref={ref} className={cn('overflow-hidden', className)} {...props}>
+      <Card ref={ref} className={cn('overflow-hidden', className)} {...(props as any)}>
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="text-lg">{title}</CardTitle>

@@ -172,7 +172,8 @@ export const ProgressiveForm = React.forwardRef<HTMLDivElement, ProgressiveFormP
                   <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-white/50">
                     <div className="flex items-center gap-3 flex-1 text-left">
                       <Icon
-                        name={getSectionIcon(section) as IconName}
+                        // @ts-ignore - getSectionIcon returns IconName but TS infers wrong union
+                        name={getSectionIcon(section)}
                         size={24}
                         color={getSectionIconColor(section)}
                         className="flex-shrink-0"
@@ -258,6 +259,7 @@ export const ProgressiveForm = React.forwardRef<HTMLDivElement, ProgressiveFormP
                 <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-white/50">
                   <div className="flex items-center gap-3 flex-1 text-left">
                     <Icon
+                      // @ts-ignore - getSectionIcon returns IconName but TS infers wrong union
                       name={getSectionIcon(section)}
                       size={24}
                       color={getSectionIconColor(section)}

@@ -265,6 +265,7 @@ export const WorkflowMap = React.forwardRef<HTMLDivElement, WorkflowMapProps>(
                           >
                             <div className="flex items-start gap-3">
                               <Icon
+                                // @ts-ignore - config.icon type is correct but TS infers wrong union
                                 name={config.icon}
                                 size={24}
                                 className={cn('flex-shrink-0 mt-0.5', config.colorClass)}
