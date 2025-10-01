@@ -116,7 +116,7 @@ export const ResponsiveGridLayout: Story = {
             {Array.from({ length: 8 }, (_, i) => (
               <Card key={i} className="p-4">
                 <div className="flex items-center gap-3">
-                  <Icon name="chart" size={24} className="text-[var(--ds-color-blue-600)]" />
+                  <Icon name="bar-chart" size={24} className="text-[var(--ds-color-blue-600)]" />
                   <div>
                     <p className="font-semibold text-sm">Metric {i + 1}</p>
                     <p className="text-xs text-[var(--ds-color-text-secondary)]">$1,234</p>
@@ -204,9 +204,9 @@ export const NavigationTabs: Story = {
     const navItems = [
       { id: 'services', label: 'Services', icon: 'grid' as const, active: activeTab === 'services', onClick: () => setActiveTab('services') },
       { id: 'billing', label: 'Billing', icon: 'credit-card' as const, active: activeTab === 'billing', onClick: () => setActiveTab('billing') },
-      { id: 'reports', label: 'Reports', icon: 'chart' as const, active: activeTab === 'reports', onClick: () => setActiveTab('reports') },
+      { id: 'reports', label: 'Reports', icon: 'bar-chart' as const, active: activeTab === 'reports', onClick: () => setActiveTab('reports') },
       { id: 'settings', label: 'Settings', icon: 'configure' as const, active: activeTab === 'settings', onClick: () => setActiveTab('settings') },
-      { id: 'support', label: 'Support', icon: 'help' as const, active: activeTab === 'support', onClick: () => setActiveTab('support') },
+      { id: 'support', label: 'Support', icon: 'help-circle' as const, active: activeTab === 'support', onClick: () => setActiveTab('support') },
     ];
 
     return (
@@ -312,7 +312,7 @@ export const CompleteDashboard: Story = {
     const navItems = [
       { id: 'overview', label: 'Overview', icon: 'grid' as const, active: activeTab === 'overview', onClick: () => setActiveTab('overview') },
       { id: 'services', label: 'Services', icon: 'cloud' as const, active: activeTab === 'services', onClick: () => setActiveTab('services') },
-      { id: 'analytics', label: 'Analytics', icon: 'chart' as const, active: activeTab === 'analytics', onClick: () => setActiveTab('analytics') },
+      { id: 'analytics', label: 'Analytics', icon: 'bar-chart' as const, active: activeTab === 'analytics', onClick: () => setActiveTab('analytics') },
       { id: 'billing', label: 'Billing', icon: 'credit-card' as const, active: activeTab === 'billing', onClick: () => setActiveTab('billing') },
     ];
 

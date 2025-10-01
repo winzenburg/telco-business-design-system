@@ -326,13 +326,13 @@ export const ResponsiveNavigation = React.forwardRef<HTMLElement, ResponsiveNavi
               type="button"
               onClick={item.onClick}
               className={cn(
-                'px-4 py-2 text-sm font-medium transition-colors relative',
+                'flex items-center px-4 py-2 text-sm font-medium transition-colors relative',
                 item.active
                   ? 'text-[var(--ds-color-blue-600)] border-b-2 border-[var(--ds-color-blue-600)]'
                   : 'text-[var(--ds-color-text-secondary)] hover:text-[var(--ds-color-text-primary)] hover:bg-[var(--ds-color-neutral-50)]',
               )}
             >
-              {item.icon && <Icon name={item.icon} size={16} className="inline mr-2" />}
+              {item.icon && <Icon name={item.icon as any} size={16} className="mr-2" />}
               {item.label}
             </button>
           ))}
@@ -343,8 +343,8 @@ export const ResponsiveNavigation = React.forwardRef<HTMLElement, ResponsiveNavi
           <Menu>
             <MenuTrigger asChild>
               <Button variant="outline" className="w-full justify-between">
-                <span>
-                  {activeItem?.icon && <Icon name={activeItem.icon} size={16} className="inline mr-2" />}
+                <span className="flex items-center">
+                  {activeItem?.icon && <Icon name={activeItem.icon as any} size={16} className="mr-2" />}
                   {activeItem?.label || dropdownLabel}
                 </span>
                 <Icon name="chevron" size={16} className="ml-2" />
@@ -353,8 +353,8 @@ export const ResponsiveNavigation = React.forwardRef<HTMLElement, ResponsiveNavi
             <MenuContent className="w-full min-w-[200px]">
               {items.map((item) => (
                 <MenuItem key={item.id} onClick={item.onClick} className={item.active ? 'bg-[var(--ds-color-blue-50)]' : ''}>
-                  {item.icon && <Icon name={item.icon} size={16} className="mr-2" />}
-                  {item.label}
+                  {item.icon && <Icon name={item.icon as any} size={16} />}
+                  <span>{item.label}</span>
                 </MenuItem>
               ))}
             </MenuContent>
