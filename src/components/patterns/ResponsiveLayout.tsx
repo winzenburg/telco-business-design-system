@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { cn } from '../../utils/cn';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
 import { Button } from '../ui/button';
 import { Icon } from '../Icon';
 import { Card } from '../ui/card';
 import type { IconName } from '../../../packages/tokens/design-system-icons-types';
+import {
+  Menu,
+  MenuItem,
+  MenuTrigger,
+  MenuContent,
+} from '../ui/menu';
 
 // ============================================================================
 // RESPONSIVE CONTAINER
@@ -340,8 +340,8 @@ export const ResponsiveNavigation = React.forwardRef<HTMLElement, ResponsiveNavi
 
         {/* Mobile Dropdown View */}
         <div className={showClass}>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
+          <Menu>
+            <MenuTrigger asChild>
               <Button variant="outline" className="w-full justify-between">
                 <span>
                   {activeItem?.icon && <Icon name={activeItem.icon} size={16} className="inline mr-2" />}
@@ -349,16 +349,16 @@ export const ResponsiveNavigation = React.forwardRef<HTMLElement, ResponsiveNavi
                 </span>
                 <Icon name="chevron" size={16} className="ml-2" />
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-full min-w-[200px]">
+            </MenuTrigger>
+            <MenuContent className="w-full min-w-[200px]">
               {items.map((item) => (
-                <DropdownMenuItem key={item.id} onClick={item.onClick} className={item.active ? 'bg-[var(--ds-color-blue-50)]' : ''}>
+                <MenuItem key={item.id} onClick={item.onClick} className={item.active ? 'bg-[var(--ds-color-blue-50)]' : ''}>
                   {item.icon && <Icon name={item.icon} size={16} className="mr-2" />}
                   {item.label}
-                </DropdownMenuItem>
+                </MenuItem>
               ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+            </MenuContent>
+          </Menu>
         </div>
       </nav>
     );

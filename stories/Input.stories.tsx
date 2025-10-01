@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { Input } from '../src/components/ui/input';
 import { Label } from '../src/components/ui/label';
 import { Button } from '../src/components/ui/button';
+import { Title, Body } from '../src/components/ui/typography';
 // @ts-expect-error - Some lucide-react icons may not be exported in current version
 import { Search, Mail, Phone, Globe, ExternalLink, AlertTriangle, Check } from 'lucide-react';
-import { Title, Body } from '../src/components/ui/typography';
 import InputDocs from './Input.mdx';
 
 const meta: Meta<typeof Input> = {
