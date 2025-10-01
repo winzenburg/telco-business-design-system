@@ -12,6 +12,7 @@ import {
   CardDivider,
   Button
 } from '../src/components';
+// @ts-expect-error - Some lucide-react icons may not be exported in current version
 import { Heart, Share, Bookmark, MoreHorizontal, Star, Play, Download, PlayCircle } from 'lucide-react';
 import CardDocs from './Card.mdx';
 

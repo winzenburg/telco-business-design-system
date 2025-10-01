@@ -180,6 +180,7 @@ export const WithDivider: Story = {
 };
 
 export const AllDensities: Story = {
+  args: {},
   render: () => (
     <div className="space-y-4">
       <DetailPanel
@@ -208,6 +209,7 @@ export const AllDensities: Story = {
 };
 
 export const DetailPanelGroupComponent: Story = {
+  args: {},
   render: () => (
     <DetailPanelGroup
       panels={[
@@ -277,6 +279,7 @@ export const DetailPanelGroupComponent: Story = {
 };
 
 export const AccordionMode: Story = {
+  args: {},
   render: () => (
     <DetailPanelGroup
       accordion={true}
@@ -306,6 +309,7 @@ export const AccordionMode: Story = {
 };
 
 export const OrderDetailsExample: Story = {
+  args: {},
   render: () => (
     <DetailPanelGroup
       panels={[
@@ -390,6 +394,7 @@ export const OrderDetailsExample: Story = {
 };
 
 export const CompactGroup: Story = {
+  args: {},
   render: () => (
     <DetailPanelGroup
       panels={[

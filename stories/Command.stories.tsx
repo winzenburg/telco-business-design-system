@@ -11,6 +11,7 @@ import {
   CommandSeparator,
   CommandShortcut
 } from '../src/components';
+// @ts-expect-error - Some lucide-react icons may not be exported in current version
 import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
 import CommandDocs from './Command.mdx';
 

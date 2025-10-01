@@ -57,6 +57,7 @@ const statusColors = {
 } as const;
 
 export const FloatingToolbar: Story = {
+  args: {},
   render: () => {
     const [users, setUsers] = useState(sampleUsers);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -191,6 +192,7 @@ export const FloatingToolbar: Story = {
 };
 
 export const StickyToolbar: Story = {
+  args: {},
   render: () => {
     const [users] = useState(sampleUsers);
     const selection = useSelection({
@@ -275,6 +277,7 @@ export const StickyToolbar: Story = {
 };
 
 export const StaticToolbar: Story = {
+  args: {},
   render: () => {
     const [users] = useState(sampleUsers);
     const selection = useSelection({
@@ -358,6 +361,7 @@ export const StaticToolbar: Story = {
 };
 
 export const ConfirmationModals: Story = {
+  args: {},
   render: () => {
     const [infoOpen, setInfoOpen] = useState(false);
     const [warningOpen, setWarningOpen] = useState(false);
@@ -453,6 +457,7 @@ export const ConfirmationModals: Story = {
 };
 
 export const LargeDataset: Story = {
+  args: {},
   render: () => {
     const largeDataset = Array.from({ length: 100 }, (_, i) => ({
       id: `user-${i + 1}`,

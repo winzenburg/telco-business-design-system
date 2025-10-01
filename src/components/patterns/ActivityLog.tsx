@@ -241,7 +241,7 @@ export const ActivityLog = React.forwardRef<HTMLDivElement, ActivityLogProps>(
             )}
           >
             <Icon
-              // @ts-ignore - config.icon type is correct but TS infers wrong union
+              // @ts-expect-error - config.icon type is correct but TS infers wrong union
               name={config?.icon || 'notifications'}
               size={compact ? 14 : 16}
               className={config?.colorClass || 'text-[var(--ds-color-neutral-600)]'}

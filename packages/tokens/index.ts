@@ -85,16 +85,20 @@ export {
   getColumnSpan
 } from './design-system-grid';
 
-// Other design system modules
-export { 
-  icons,
-  iconsByCategory,
-  iconCategories,
-  commonIconSizes as designSystemIconSizes,
-  iconUsage,
-  getIcon,
-  getIconsByCategory
-} from './design-system-icons-types';
+// Other design system modules - Icon types
+export type { IconName } from './design-system-icons-types';
+export { ICON_NAMES, isValidIconName } from './design-system-icons-types';
+
+// Icon registry utilities
+export {
+  CORE_ICONS,
+  getIconMetadata,
+  getIconsByCategory,
+  searchIcons,
+  getIconPath,
+  CRITICAL_ICONS
+} from './icon-registry';
+export type { IconMetadata, CoreIconName } from './icon-registry';
 
 // Design system elevation - selective exports
 export {
