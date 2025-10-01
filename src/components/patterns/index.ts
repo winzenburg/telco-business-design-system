@@ -45,3 +45,13 @@ export type { ActivityLogProps, ActivityLogEntry, UseActivityLogOptions } from '
 
 export { NotificationCenter, useNotificationCenter } from './NotificationCenter';
 export type { NotificationCenterProps, Notification, UseNotificationCenterOptions } from './NotificationCenter';
+
+// Guided Flows & Wizards
+export { Stepper, useStepper } from './Stepper';
+export type { StepperProps, Step, UseStepperOptions } from './Stepper';
+
+export { ProgressiveForm, useProgressiveForm } from './ProgressiveForm';
+export type { ProgressiveFormProps, FormSection, UseProgressiveFormOptions } from './ProgressiveForm';
+
+export { WorkflowMap } from './WorkflowMap';
+export type { WorkflowMapProps, WorkflowTask, WorkflowSection } from './WorkflowMap';
