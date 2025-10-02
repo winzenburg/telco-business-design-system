@@ -31,6 +31,8 @@ import {
   Combobox,
   DatePicker,
 } from '../../src/components';
+import { SummaryCard } from '../../src/components/patterns/SummaryCard';
+import { ResponsiveContainer, ResponsiveGrid } from '../../src/components/patterns/ResponsiveLayout';
 import {
   LineChart,
   Line,
@@ -74,7 +76,7 @@ const meta: Meta = {
     layout: 'padded',
     docs: {
       description: {
-        component: 'A comprehensive data dashboard demonstrating analytics, metrics, and reporting capabilities.',
+        component: 'A comprehensive data dashboard showcasing SummaryCard pattern components, ResponsiveGrid layouts, charts, tables, and filtering. Demonstrates analytics, metrics tracking, and reporting capabilities with enterprise patterns.',
       },
     },
   },
@@ -343,42 +345,47 @@ const DashboardFlow = () => {
         </Alert>
       )}
 
-      {/* Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {metrics.map((metric, index) => (
-          <Card key={index}>
-            <CardHeader className="pb-2">
-              <div className="flex items-center justify-between">
-                <CardDescription>{metric.title}</CardDescription>
-                {metric.icon}
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{metric.value}</div>
-              <div className="flex items-center gap-2 mt-2">
-                {metric.trend === 'up' ? (
-                  <ArrowUp className="h-4 w-4 text-[var(--ds-color-intent-success)]" />
-                ) : metric.trend === 'down' ? (
-                  <ArrowDown className="h-4 w-4 text-[var(--ds-color-intent-destructive)]" />
-                ) : (
-                  <Minus className="h-4 w-4 text-[var(--ds-color-text-muted)]" />
-                )}
-                <span className={`text-sm font-medium ${
-                  metric.trend === 'up' ? 'text-[var(--ds-color-intent-success)]' :
-                  metric.trend === 'down' && metric.title !== 'Support Tickets' ? 'text-[var(--ds-color-intent-destructive)]' :
-                  metric.trend === 'down' && metric.title === 'Support Tickets' ? 'text-[var(--ds-color-intent-success)]' :
-                  'text-[var(--ds-color-text-muted)]'
-                }`}>
-                  {Math.abs(metric.change)}%
-                </span>
-                <span className="text-sm text-[var(--ds-color-text-muted)]">
-                  {metric.description}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      {/* Metrics Grid - Using SummaryCard Pattern */}
+      <ResponsiveGrid mobileCols={1} tabletCols={2} desktopCols={4} gap="md">
+        <SummaryCard
+          title="Total Revenue"
+          value="$48,532"
+          description="Monthly recurring revenue"
+          icon="money"
+          trend={{ value: '+12.5%', direction: 'up' }}
+          density="compact"
+        />
+        <SummaryCard
+          title="Active Users"
+          value="3,421"
+          description="Currently active users"
+          icon="users"
+          trend={{ value: '-2.4%', direction: 'down' }}
+          status="warning"
+          statusLabel="Declined"
+          density="compact"
+        />
+        <SummaryCard
+          title="Network Uptime"
+          value="99.9%"
+          description="Last 30 days"
+          icon="networkhealth"
+          trend={{ value: '+0.1%', direction: 'up' }}
+          status="success"
+          statusLabel="Healthy"
+          density="compact"
+        />
+        <SummaryCard
+          title="Support Tickets"
+          value="42"
+          description="Open tickets"
+          icon="chat"
+          trend={{ value: '-15%', direction: 'down' }}
+          status="success"
+          statusLabel="Improving"
+          density="compact"
+        />
+      </ResponsiveGrid>
 
       {/* Main Content Tabs */}
       <Tabs defaultValue="overview" className="w-full">
