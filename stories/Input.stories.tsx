@@ -42,7 +42,13 @@ type Story = StoryObj<typeof meta>;
 
 // All variants overview
 export const AllVariants: Story = {
-  render: () => {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },  render: () => {
     const [value1, setValue1] = useState('');
     const [value2, setValue2] = useState('Sample text content');
     const [value3, setValue3] = useState('');

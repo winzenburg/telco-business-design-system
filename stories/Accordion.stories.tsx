@@ -27,6 +27,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   args: {},
   render: () => (
     <div className="space-y-8 max-w-2xl">

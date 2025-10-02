@@ -57,6 +57,13 @@ type Story = StoryObj<typeof meta>;
 
 // AllVariants story showcasing all card variations
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   render: () => (
     <div className="space-y-8 max-w-6xl">
       <div className="space-y-2">

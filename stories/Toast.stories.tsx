@@ -29,6 +29,13 @@ type Story = StoryObj;
 
 // All variants showcase
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Button onClick={() => toast('Default notification')}>

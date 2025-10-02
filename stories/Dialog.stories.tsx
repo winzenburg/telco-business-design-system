@@ -43,6 +43,13 @@ type Story = StoryObj<typeof Dialog>;
 
 // All Variants Showcase
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   render: () => (
     <div className="flex flex-wrap gap-4">
       <Dialog>

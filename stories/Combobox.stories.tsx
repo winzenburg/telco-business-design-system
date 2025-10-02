@@ -34,7 +34,13 @@ const frameworks = [
 
 // Overview showing all variants on one page
 export const AllVariants: Story = {
-  render: () => {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },  render: () => {
     const [value1, setValue1] = useState<string>("");
     const [value2, setValue2] = useState<string>("next.js");
     const [value3, setValue3] = useState<string>("next.js");

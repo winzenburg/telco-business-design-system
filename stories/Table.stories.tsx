@@ -76,6 +76,13 @@ const employees = [
 // ========================================
 
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   render: () => (
     <div className="space-y-12 max-w-4xl">
       {/* Standard Table */}

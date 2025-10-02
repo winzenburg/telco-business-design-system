@@ -33,6 +33,13 @@ type Story = StoryObj<typeof meta>;
 
 // All Variants Showcase
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   render: () => (
     <div className="grid gap-8 p-6">
       <div>

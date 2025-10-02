@@ -22,7 +22,13 @@ export default meta;
 type Story = StoryObj<typeof Calendar>;
 
 export const AllVariants: Story = {
-  render: () => {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },  render: () => {
     const [singleDate, setSingleDate] = useState<Date | undefined>(new Date());
     const [rangeDate, setRangeDate] = useState<{ from: Date | undefined; to?: Date | undefined }>({
       from: undefined,

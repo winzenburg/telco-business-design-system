@@ -23,6 +23,13 @@ type Story = StoryObj<typeof meta>;
 
 // All variants showcase
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   render: () => (
     <div className="space-y-8 max-w-2xl">
       <div className="space-y-2">

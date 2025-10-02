@@ -34,6 +34,9 @@ const preview: Preview = {
     },
     docs: {
       toc: true,
+      source: {
+        state: 'open',
+      },
     },
     backgrounds: {
       default: 'light',

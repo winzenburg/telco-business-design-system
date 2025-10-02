@@ -23,7 +23,13 @@ type Story = StoryObj<typeof DatePicker>;
 
 // All variants showcase
 export const AllVariants: Story = {
-  render: () => {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },  render: () => {
     const [date1, setDate1] = useState<Date | undefined>();
     const [date2, setDate2] = useState<Date | undefined>(new Date());
     const [date3, setDate3] = useState<Date | undefined>(new Date());

@@ -44,6 +44,13 @@ type Story = StoryObj<typeof meta>;
 
 // All variants showcase
 export const AllVariants: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   render: () => (
     <div className="space-y-4">
       <div className="flex flex-wrap gap-4">
