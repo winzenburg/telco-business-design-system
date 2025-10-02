@@ -1,0 +1,332 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Patterns/Overview" />
+
+# Enterprise Pattern Library
+
+**Complex, composed components for real-world business applications**
+
+Pattern components combine multiple primitives (buttons, inputs, cards) into purpose-built solutions for common enterprise scenarios. Unlike basic UI components, patterns encode business logic, user flows, and interaction models.
+
+---
+
+## 🎯 What Are Pattern Components?
+
+Pattern components are **not simple UI primitives**. They are:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', margin: '2rem 0' }}>
+  <div style={{ padding: '1.5rem', background: 'var(--ds-color-neutral-50)', borderRadius: '8px', border: '1px solid var(--ds-color-neutral-300)' }}>
+    <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.5rem' }}>🧩 Composed</h3>
+    <p style={{ fontSize: '0.875rem', margin: 0, color: 'var(--ds-color-text-secondary)' }}>
+      Built from 3-10+ primitive components working together
+    </p>
+  </div>
+
+  <div style={{ padding: '1.5rem', background: 'var(--ds-color-neutral-50)', borderRadius: '8px', border: '1px solid var(--ds-color-neutral-300)' }}>
+    <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.5rem' }}>💼 Business-Focused</h3>
+    <p style={{ fontSize: '0.875rem', margin: 0, color: 'var(--ds-color-text-secondary)' }}>
+      Solve specific enterprise problems (permissions, bulk actions, help systems)
+    </p>
+  </div>
+
+  <div style={{ padding: '1.5rem', background: 'var(--ds-color-neutral-50)', borderRadius: '8px', border: '1px solid var(--ds-color-neutral-300)' }}>
+    <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.5rem' }}>🎨 Opinionated</h3>
+    <p style={{ fontSize: '0.875rem', margin: 0, color: 'var(--ds-color-text-secondary)' }}>
+      Encode UX decisions and interaction patterns
+    </p>
+  </div>
+
+  <div style={{ padding: '1.5rem', background: 'var(--ds-color-neutral-50)', borderRadius: '8px', border: '1px solid var(--ds-color-neutral-300)' }}>
+    <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '0.5rem' }}>🔌 Pluggable</h3>
+    <p style={{ fontSize: '0.875rem', margin: 0, color: 'var(--ds-color-text-secondary)' }}>
+      Drop into existing apps with minimal integration
+    </p>
+  </div>
+</div>
+
+---
+
+## 📂 Pattern Categories (18+ Patterns)
+
+### 📊 Content & Data Display
+Display information, metrics, and status with proper hierarchy and accessibility
+
+- **[EmptyState](?path=/story/patterns-content-data-display-emptystate--default)** - Zero-state illustrations with CTAs (8 variants)
+- **[SummaryCard](?path=/story/patterns-content-data-display-summarycard--default)** - Metric cards with status, trends, actions (10+ examples)
+- **[KeyValuePair](?path=/story/patterns-content-data-display-keyvaluepair--default)** - Structured data display (horizontal/vertical/grid)
+- **[DetailPanel](?path=/story/patterns-content-data-display-detailpanel--default)** - Expandable detail views with sections
+
+**Use Cases**: Dashboards, system health, billing summaries, user profiles, order details
+
+---
+
+### 🎬 Actions & Workflows
+Bulk operations, permissions, and complex actions
+
+- **[BulkActionBar](?path=/story/patterns-actions-bulkactions--bulk-action-bar)** - Multi-select toolbar with actions (delete, export, approve)
+- **[PermissionGate](?path=/story/patterns-permissions-permissiongate--default)** - Role-based access control wrapper
+- **[RestrictedAction](?path=/story/patterns-permissions-restrictedaction--default)** - Disable/hide actions based on permissions
+- **[PermissionBanner](?path=/story/patterns-permissions-permissionbanner--default)** - Contextual permission warnings
+
+**Use Cases**: Admin panels, user management, bulk operations, role-based UIs
+
+---
+
+### ❓ Help & Documentation
+Contextual help, guidance, and support
+
+- **[HelpTooltip](?path=/story/patterns-help-documentation-helptooltip--default)** - Inline help with icon trigger
+- **[HelpDrawer](?path=/story/patterns-help-documentation-helpdrawer--default)** - Side panel with comprehensive help
+- **[InlineHelp](?path=/story/patterns-help-documentation-inlinehelp--default)** - Expandable help text within forms
+
+**Use Cases**: Complex forms, settings pages, onboarding flows, feature discovery
+
+---
+
+### 📝 Activity & Notifications
+Track changes, audit logs, and user notifications
+
+- **[ActivityLog](?path=/story/patterns-notifications-audit-activitylog--default)** - Timeline of user actions with metadata
+- **[NotificationCenter](?path=/story/patterns-notifications-audit-notificationcenter--default)** - Dropdown with notifications, badges, filters
+
+**Use Cases**: Audit trails, user activity feeds, system alerts, collaboration tools
+
+---
+
+### 🪜 Guided Flows & Progress
+Multi-step processes with validation and navigation
+
+- **[Stepper](?path=/story/patterns-guided-flows-stepper--horizontal-stepper)** - Step indicator (horizontal/vertical)
+- **[ProgressiveForm](?path=/story/patterns-guided-flows-progressiveform--default)** - Multi-step form with validation
+- **[WorkflowMap](?path=/story/patterns-guided-flows-workflowmap--default)** - Visual workflow progress (e.g., order status)
+
+**Use Cases**: Onboarding, checkout, configuration wizards, approval workflows
+
+---
+
+### 📱 Layout & Responsive
+Adaptive layouts and responsive utilities
+
+- **[ResponsiveLayout](?path=/story/patterns-responsive-layout--complete-dashboard)** - Container, grid, table, navigation, sticky header
+- **[SettingsPanel](?path=/story/patterns-settingspanel--default)** - Sidebar + content layout for settings
+
+**Use Cases**: Admin dashboards, SaaS applications, internal tools, mobile-first apps
+
+---
+
+## 🎨 Design System Integration
+
+All patterns follow our core design principles:
+
+### ✅ Token-First Architecture
+Every color, spacing, and typography value uses design tokens:
+
+```tsx
+// ❌ WRONG - Hard-coded values
+<div style={{ color: '#0D62FF', padding: '16px' }}>
+
+// ✅ CORRECT - Design tokens
+<div className="text-[var(--ds-color-primary-500)] p-4">
+```
+
+### ✅ Border Hierarchy (ENFORCED)
+Patterns respect our semantic border system:
+
+- **Form inputs** → `border-neutral-400` (#B4B5BB)
+- **Structural elements** → `border-neutral-300` (#DDDDE2)
+- **Never use** `--ds-color-border-default` (deprecated)
+
+### ✅ Accessibility by Default
+- Full keyboard navigation (Tab, Arrow keys, Enter, Escape)
+- Screen reader support (ARIA labels, live regions, roles)
+- Focus management (visible focus rings, trap focus in modals)
+- Color contrast (WCAG 2.1 AA compliant)
+
+### ✅ Icon System Integration
+All patterns use our **823 Comcast Business icons**:
+
+```tsx
+// ✅ Use Comcast-specific icons
+<Icon name="paymentcard" />     // Not 'credit-card'
+<Icon name="networkhealth" />   // Not 'activity'
+<Icon name="configure" />       // Not 'settings'
+<Icon name="users" />           // Not 'user'
+```
+
+---
+
+## 📖 How to Use Patterns
+
+### 1. Browse the Library
+Click any pattern category above to see all available components
+
+### 2. View Examples
+Each pattern has multiple stories showing different use cases:
+- Default state
+- With data
+- Error states
+- Loading states
+- Responsive behavior
+
+### 3. Check Source Code
+Click the **Code** tab to see the implementation:
+- Component props and API
+- TypeScript types
+- Integration examples
+- Customization options
+
+### 4. Copy and Customize
+Patterns are production-ready. Copy the code and adapt:
+- Replace placeholder data
+- Adjust styling with tokens
+- Add custom actions/callbacks
+- Integrate with your state management
+
+---
+
+## 💡 Pattern vs. Component
+
+<div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', margin: '2rem 0' }}>
+  <div>
+    <h3 style={{ color: 'var(--ds-color-primary-500)' }}>🧱 Primitive Components</h3>
+    <ul style={{ fontSize: '0.875rem' }}>
+      <li><strong>Single purpose</strong> - Button, Input, Card</li>
+      <li><strong>Low-level</strong> - Generic, reusable</li>
+      <li><strong>Flexible</strong> - Many props, variants</li>
+      <li><strong>No business logic</strong> - Just UI</li>
+      <li><strong>Example</strong>: Button with onClick</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 style={{ color: 'var(--ds-color-success-500)' }}>🎨 Pattern Components</h3>
+    <ul style={{ fontSize: '0.875rem' }}>
+      <li><strong>Composed</strong> - 3-10+ primitives</li>
+      <li><strong>High-level</strong> - Domain-specific</li>
+      <li><strong>Opinionated</strong> - Fewer variants</li>
+      <li><strong>Encodes logic</strong> - Business rules, flows</li>
+      <li><strong>Example</strong>: BulkActionBar with selection state</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+## 🔥 Popular Patterns
+
+### 📊 SummaryCard
+**Most versatile pattern** - 10+ stories covering all use cases
+
+```tsx
+<SummaryCard
+  title="System Health"
+  value="99.9%"
+  description="Uptime over last 30 days"
+  icon="networkhealth"
+  status="success"
+  statusLabel="Healthy"
+  trend={{ value: '+2.5%', direction: 'up' }}
+  action={{ label: 'View Details', onClick: handleClick }}
+/>
+```
+
+**Used in**: Dashboards, monitoring, billing, analytics
+
+---
+
+### 🪜 Stepper
+**Multi-step flows** - Horizontal/vertical layouts, validation
+
+```tsx
+<Stepper
+  steps={[
+    { label: 'Account', status: 'completed' },
+    { label: 'Payment', status: 'current' },
+    { label: 'Confirm', status: 'upcoming' },
+  ]}
+  orientation="horizontal"
+/>
+```
+
+**Used in**: Onboarding, checkout, configuration wizards
+
+---
+
+### 🔐 PermissionGate
+**Role-based access** - Hide/show/disable based on permissions
+
+```tsx
+<PermissionGate
+  requiredPermissions={['admin', 'billing:write']}
+  userPermissions={user.permissions}
+  fallback={<PermissionBanner message="Contact admin for access" />}
+>
+  <Button variant="destructive">Delete Account</Button>
+</PermissionGate>
+```
+
+**Used in**: Admin panels, enterprise apps, multi-tenant SaaS
+
+---
+
+### 📱 ResponsiveLayout
+**Adaptive navigation** - Sidebar on desktop, menu on mobile
+
+```tsx
+<ResponsiveNavigation
+  items={navItems}
+  mobileBreakpoint="md"
+  dropdownLabel="Menu"
+/>
+```
+
+**Used in**: Dashboards, admin panels, SaaS applications
+
+---
+
+## 🚀 Performance & Optimization
+
+Pattern components are optimized for production:
+
+- **Tree-shakeable** - Import only what you use
+- **Lazy-loadable** - Heavy patterns can be code-split
+- **SSR-safe** - Server-side rendering compatible
+- **Accessible** - 0 axe-core violations
+- **Type-safe** - Full TypeScript support
+
+---
+
+## 📚 Learn More
+
+- **[Complete Workflows](?path=/story/workflows-overview--docs)** - See patterns in action in full workflows
+- **[Component Library](?path=/story/button--all-variants)** - Browse all primitive components
+- **[Design Principles](https://github.com/...)** - Our design philosophy
+- **[Contributing Guide](https://github.com/...)** - Add new patterns
+
+---
+
+<div style={{ marginTop: '3rem', padding: '2rem', background: 'var(--ds-color-primary-50)', borderRadius: '8px' }}>
+  <h2 style={{ marginTop: 0, color: 'var(--ds-color-primary-700)' }}>Ready to Build Enterprise Apps?</h2>
+  <p style={{ fontSize: '1rem', marginBottom: '1.5rem' }}>
+    Pattern components give you a head start on complex features. Browse the library, copy examples, and ship faster.
+  </p>
+  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+    <a href="?path=/story/patterns-content-data-display-summarycard--all-statuses" style={{
+      padding: '0.75rem 1.5rem',
+      background: 'var(--ds-color-primary-500)',
+      color: 'white',
+      borderRadius: '6px',
+      textDecoration: 'none',
+      fontWeight: 500
+    }}>Explore SummaryCard</a>
+    <a href="?path=/story/patterns-responsive-layout--complete-dashboard" style={{
+      padding: '0.75rem 1.5rem',
+      background: 'white',
+      color: 'var(--ds-color-primary-500)',
+      border: '2px solid var(--ds-color-primary-500)',
+      borderRadius: '6px',
+      textDecoration: 'none',
+      fontWeight: 500
+    }}>See Complete Dashboard</a>
+  </div>
+</div>

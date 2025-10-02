@@ -1,0 +1,221 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Workflows/Overview" />
+
+# Complete Workflow Examples
+
+**Production-ready workflows combining multiple components into real-world enterprise scenarios**
+
+These workflow examples demonstrate how to compose our design system components into complete, business-critical user flows. Each workflow showcases best practices for form validation, state management, responsive design, and accessibility.
+
+---
+
+## 🎯 What Makes These Workflows Different
+
+Unlike simple component demos, these workflows represent **real production implementations** with:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', margin: '2rem 0' }}>
+  <div>
+    <h3 style={{ color: 'var(--ds-color-primary-500)', fontSize: '1.125rem' }}>✅ Complete Validation</h3>
+    <ul style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>
+      <li>Real-time field validation</li>
+      <li>Form-level error handling</li>
+      <li>Accessibility-first error messages</li>
+      <li>Visual error states (red borders, icons)</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 style={{ color: 'var(--ds-color-primary-500)', fontSize: '1.125rem' }}>💼 Enterprise Patterns</h3>
+    <ul style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>
+      <li>Multi-step flows with progress tracking</li>
+      <li>Complex state management</li>
+      <li>Conditional logic and dependencies</li>
+      <li>Data persistence patterns</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 style={{ color: 'var(--ds-color-primary-500)', fontSize: '1.125rem' }}>📱 Responsive by Default</h3>
+    <ul style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>
+      <li>Mobile-first design</li>
+      <li>Tablet optimization</li>
+      <li>Desktop layouts</li>
+      <li>Touch-friendly interactions</li>
+    </ul>
+  </div>
+
+  <div>
+    <h3 style={{ color: 'var(--ds-color-primary-500)', fontSize: '1.125rem' }}>♿ Accessible Everywhere</h3>
+    <ul style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>
+      <li>Full keyboard navigation</li>
+      <li>Screen reader support</li>
+      <li>ARIA attributes</li>
+      <li>Focus management</li>
+    </ul>
+  </div>
+</div>
+
+---
+
+## 📦 Available Workflows
+
+### 🛒 [Checkout Process](?path=/story/workflows-checkout-process--default)
+**Complete e-commerce checkout with cart, payment, shipping, and validation**
+
+Demonstrates:
+- Shopping cart with quantity controls
+- Multi-section payment form (contact, billing, installation)
+- Complex validation with real-time feedback
+- All form components (Input, Select, Combobox, DatePicker, RadioGroup, Checkbox, Switch, Textarea)
+- Responsive sticky sidebar with order summary
+- 5-state form model (Default, Focused, Filled, Error, Disabled)
+
+**Components used**: 12+ components including Card, Table, Button, Badge, Alert, Separator
+
+**Lines of code**: ~850 (production-ready)
+
+---
+
+### ⚙️ [Settings Management](?path=/story/workflows-settings-management--default)
+**Enterprise settings interface with tabs, preferences, and account management**
+
+Demonstrates:
+- Tab-based navigation
+- Grouped settings with sections
+- Profile management
+- Notification preferences
+- Security settings
+- API key management
+
+**Components used**: Tabs, Switch, Select, Input, Button, Card, Separator
+
+---
+
+### 🎓 [User Onboarding](?path=/story/workflows-user-onboarding--default)
+**Multi-step guided onboarding with progress tracking and validation**
+
+Demonstrates:
+- Stepper component integration
+- Progressive disclosure
+- Step validation
+- Navigation controls (Next, Back, Skip)
+- Completion state
+
+**Components used**: Stepper, Card, Input, Button, RadioGroup, Checkbox
+
+---
+
+### 📊 [Data Dashboard](?path=/story/workflows-data-dashboard--default)
+**Executive dashboard with metrics, charts, and data tables**
+
+Demonstrates:
+- Responsive grid layouts
+- Summary cards with trends
+- Data visualization
+- Interactive tables
+- Filtering and search
+
+**Components used**: ResponsiveGrid, SummaryCard, Table, Badge, Button, Select
+
+---
+
+## 🎨 Design System Showcase
+
+Each workflow demonstrates our design system's core strengths:
+
+### Token-First Architecture
+```tsx
+// ✅ All styles use design tokens
+<div className="text-[var(--ds-color-text-primary)]">
+  <Input error={!!errors.email} />
+  <p className="text-[var(--ds-color-intent-destructive)]">
+    {errors.email}
+  </p>
+</div>
+```
+
+### Border Hierarchy (ENFORCED)
+- **Form inputs**: `border-neutral-400` (#B4B5BB) - darker borders for interaction
+- **Structural elements**: `border-neutral-300` (#DDDDE2) - lighter borders for organization
+- **Error states**: `border-destructive` - red borders for validation errors
+
+### 5-State Form Model
+Every form component supports:
+1. **Default** - Neutral appearance, ready for input
+2. **Focused** - Primary-500 border and focus ring
+3. **Filled** - Content present, normal styling
+4. **Error** - Destructive border and messaging
+5. **Disabled** - Reduced opacity, not-allowed cursor
+
+---
+
+## 💡 Usage Tips
+
+### Copy-Paste Ready
+All workflows are **production-ready**. You can copy the entire component and adapt it to your needs.
+
+### Validation Patterns
+Each workflow demonstrates different validation strategies:
+- **Real-time**: Validate on every keystroke (CVV, phone)
+- **On blur**: Validate when field loses focus (email)
+- **On submit**: Validate all fields when form submitted
+
+### State Management
+Workflows show how to manage complex state:
+```tsx
+const [formData, setFormData] = useState({ /* ... */ });
+const [errors, setErrors] = useState<FormErrors>({});
+const [isSubmitting, setIsSubmitting] = useState(false);
+
+const handleChange = (field: string, value: any) => {
+  setFormData(prev => ({ ...prev, [field]: value }));
+  // Clear error when user starts typing
+  if (errors[field]) {
+    setErrors(prev => ({ ...prev, [field]: undefined }));
+  }
+};
+```
+
+### Responsive Patterns
+```tsx
+// Desktop: 3-column grid
+// Tablet: 2-column grid
+// Mobile: 1-column stack
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <div className="lg:col-span-2">{/* Main content */}</div>
+  <div>{/* Sidebar */}</div>
+</div>
+```
+
+---
+
+## 🚀 Getting Started
+
+1. **Browse workflows** - Click any workflow above to see it in action
+2. **View source code** - Click the "Code" tab to see the implementation
+3. **Copy and adapt** - Use as a starting point for your own workflows
+4. **Customize** - Replace data, validation rules, and styling as needed
+
+---
+
+## 📚 Related Resources
+
+- **[Pattern Components](?path=/story/patterns-emptystate--default)** - Individual pattern components used in workflows
+- **[Form Components](?path=/story/input--all-variants)** - All form inputs with examples
+- **[Validation Guide](?path=/docs/documentation-forms-input--docs)** - Best practices for form validation
+- **[Responsive Utilities](?path=/story/patterns-responsive-layout--container-sizes)** - Responsive layout components
+
+---
+
+<div style={{ marginTop: '3rem', padding: '2rem', background: 'var(--ds-color-neutral-100)', borderRadius: '8px' }}>
+  <h2 style={{ marginTop: 0, color: 'var(--ds-color-text-primary)' }}>Need Help?</h2>
+  <p style={{ marginBottom: '1rem' }}>
+    These workflows are complex examples. If you need help adapting them to your use case:
+  </p>
+  <ul>
+    <li>Check the <strong>Code</strong> tab for inline comments explaining key patterns</li>
+    <li>Review individual component documentation for API details</li>
+    <li>Look at simpler pattern components first before tackling complete workflows</li>
+  </ul>
+</div>
