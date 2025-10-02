@@ -32,7 +32,7 @@ import {
   DatePicker,
 } from '../../src/components';
 import { SummaryCard } from '../../src/components/patterns/SummaryCard';
-import { ResponsiveContainer, ResponsiveGrid } from '../../src/components/patterns/ResponsiveLayout';
+import { ResponsiveGrid } from '../../src/components/patterns/ResponsiveLayout';
 import {
   LineChart,
   Line,
