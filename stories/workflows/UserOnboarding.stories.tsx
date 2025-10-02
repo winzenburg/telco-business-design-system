@@ -30,6 +30,7 @@ import {
   DatePicker,
   Textarea,
 } from '../../src/components';
+import { Stepper } from '../../src/components/patterns/Stepper';
 import { ArrowRight, Check, User, Mail, Building, CreditCard, AlertCircle } from 'lucide-react';
 
 const meta: Meta = {
@@ -38,7 +39,7 @@ const meta: Meta = {
     layout: 'padded',
     docs: {
       description: {
-        component: 'A complete user onboarding flow demonstrating form progression, validation, and feedback using the design system components.',
+        component: 'A complete user onboarding flow showcasing the Stepper pattern component for multi-step progression, form validation, and user feedback. Demonstrates guided workflow patterns with progress tracking.',
       },
     },
   },
@@ -228,25 +229,42 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
     if (step > 1) setStep(step - 1);
   };
 
+  // Define steps for Stepper pattern component
+  const steps = [
+    {
+      label: 'Personal Information',
+      description: 'Your contact details',
+      status: step > 1 ? ('completed' as const) : step === 1 ? ('current' as const) : ('upcoming' as const),
+    },
+    {
+      label: 'Company Details',
+      description: 'About your organization',
+      status: step > 2 ? ('completed' as const) : step === 2 ? ('current' as const) : ('upcoming' as const),
+    },
+    {
+      label: 'Account Setup',
+      description: 'Configure your account',
+      status: step > 3 ? ('completed' as const) : step === 3 ? ('current' as const) : ('upcoming' as const),
+    },
+    {
+      label: 'Review & Confirm',
+      description: 'Finalize your setup',
+      status: step > 4 ? ('completed' as const) : step === 4 ? ('current' as const) : ('upcoming' as const),
+    },
+  ];
+
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
-      {/* Progress Bar */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Welcome to Comcast Business</CardTitle>
-          <CardDescription>
-            Step {step} of {totalSteps}: {
-              step === 1 ? 'Personal Information' :
-              step === 2 ? 'Company Details' :
-              step === 3 ? 'Account Setup' :
-              'Review & Confirm'
-            }
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Progress value={progress} className="w-full" />
-        </CardContent>
-      </Card>
+    <div className="max-w-3xl mx-auto space-y-6">
+      {/* Header */}
+      <div className="text-center">
+        <h1 className="text-2xl font-bold">Welcome to Comcast Business</h1>
+        <p className="text-[var(--ds-color-text-muted)] mt-2">
+          Let's get you set up in just a few steps
+        </p>
+      </div>
+
+      {/* Stepper Pattern Component */}
+      <Stepper steps={steps} orientation="horizontal" />
 
       {/* Step Content */}
       <Card>
