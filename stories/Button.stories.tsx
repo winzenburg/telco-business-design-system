@@ -73,6 +73,13 @@ export const AllVariants: Story = {
 
 // Basic variants
 export const Primary: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'dynamic'
+      }
+    }
+  },
   args: {
     variant: 'primary',
     children: 'Primary Button'

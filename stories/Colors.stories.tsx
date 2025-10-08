@@ -139,6 +139,13 @@ const ColorRamp: React.FC<{
 );
 
 export const AllColors: Story = {
+  parameters: {
+    docs: {
+      source: {
+        type: 'code'
+      }
+    }
+  },
   render: () => (
     <div className="p-6 space-y-8">
       <div>

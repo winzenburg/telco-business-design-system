@@ -33,6 +33,8 @@ import {
   DialogTitle,
 } from '../src/components/ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../src/components/ui/select';
+import { SummaryCard } from '../src/components/patterns/SummaryCard';
+import { ResponsiveGrid } from '../src/components/patterns/ResponsiveLayout';
 import { AlertCircle } from 'lucide-react';
 
 // Import Recharts components
@@ -125,7 +127,7 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Enterprise dashboard showcasing business metrics, service status, and key performance indicators.'
+        component: 'Enterprise dashboard for Comcast Business Portal. Showcases SummaryCard metrics, ResponsiveGrid layouts, real-time monitoring, and executive insights with pattern components.'
       }
     }
   },
@@ -225,68 +227,48 @@ export const ExecutiveDashboard: Story = {
         </header>
 
       <div className="p-6 space-y-6">
-        {/* Key Metrics Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Monthly Revenue</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">$2.4M</div>
-              <div className="flex items-center gap-2 mt-2">
-                <Badge variant="success">
-                  ↗ +12.5%
-                </Badge>
-                <span className="text-sm text-[var(--ds-color-text-muted)]">vs last month</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Active Services</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">12,847</div>
-              <div className="flex items-center gap-2 mt-2">
-                <Badge variant="info">
-                  → +234
-                </Badge>
-                <span className="text-sm text-[var(--ds-color-text-muted)]">this month</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">System Uptime</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">99.97%</div>
-              <div className="flex items-center gap-2 mt-2">
-                <Badge variant="success">
-                  Excellent
-                </Badge>
-                <span className="text-sm text-[var(--ds-color-text-muted)]">30-day avg</span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Support Tickets</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">127</div>
-              <div className="flex items-center gap-2 mt-2">
-                <Badge variant="destructive">
-                  ↗ +23
-                </Badge>
-                <span className="text-sm text-[var(--ds-color-text-muted)]">open tickets</span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+        {/* Key Metrics Row - Using SummaryCard Pattern */}
+        <ResponsiveGrid mobileCols={1} tabletCols={2} desktopCols={4} gap="md">
+          <SummaryCard
+            title="Monthly Revenue"
+            value="$2.4M"
+            description="vs last month"
+            icon="money"
+            trend={{ value: '+12.5%', direction: 'up' }}
+            status="success"
+            statusLabel="Growing"
+            density="comfortable"
+          />
+          <SummaryCard
+            title="Active Services"
+            value="12,847"
+            description="this month"
+            icon="cloud"
+            trend={{ value: '+234', direction: 'up' }}
+            status="info"
+            statusLabel="Online"
+            density="comfortable"
+          />
+          <SummaryCard
+            title="System Uptime"
+            value="99.97%"
+            description="30-day average"
+            icon="networkhealth"
+            status="success"
+            statusLabel="Excellent"
+            density="comfortable"
+          />
+          <SummaryCard
+            title="Support Tickets"
+            value="127"
+            description="open tickets"
+            icon="chat"
+            trend={{ value: '+23', direction: 'up' }}
+            status="warning"
+            statusLabel="High Volume"
+            density="comfortable"
+          />
+        </ResponsiveGrid>
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

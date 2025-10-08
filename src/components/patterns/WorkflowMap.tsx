@@ -5,6 +5,22 @@ import { Badge } from '../ui/badge';
 import { Icon } from '../Icon';
 import type { IconName } from '../../../packages/tokens/design-system-icons-types';
 
+export interface TaskComment {
+  id: string;
+  author: string;
+  content: string;
+  timestamp: Date;
+  mentions?: string[];
+}
+
+export interface TaskHistoryEntry {
+  id: string;
+  action: 'started' | 'completed' | 'blocked' | 'commented' | 'assigned' | 'updated';
+  user: string;
+  timestamp: Date;
+  details?: string;
+}
+
 export interface WorkflowTask {
   id: string;
   title: string;
@@ -16,6 +32,12 @@ export interface WorkflowTask {
   assignee?: string;
   dueDate?: Date;
   estimatedTime?: string;
+  // NEW: History and collaboration
+  history?: TaskHistoryEntry[];
+  comments?: TaskComment[];
+  completedAt?: Date;
+  completedBy?: string;
+  tags?: string[];
 }
 
 export interface WorkflowSection {
@@ -56,6 +78,31 @@ export interface WorkflowMapProps extends React.HTMLAttributes<HTMLDivElement> {
    * Actions (Save & Exit, Submit, etc.)
    */
   actions?: React.ReactNode;
+
+  /**
+   * Enable bulk operations
+   */
+  enableBulkActions?: boolean;
+
+  /**
+   * Callback when tasks are bulk completed
+   */
+  onBulkComplete?: (taskIds: string[]) => void;
+
+  /**
+   * Callback when comment is added to task
+   */
+  onAddComment?: (taskId: string, comment: string) => void;
+
+  /**
+   * Show task comments
+   */
+  showComments?: boolean;
+
+  /**
+   * Show task history
+   */
+  showHistory?: boolean;
 }
 
 const statusConfig = {

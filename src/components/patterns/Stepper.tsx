@@ -53,27 +53,37 @@ const statusConfig = {
   'not-started': {
     colorClass: 'text-[var(--ds-color-neutral-400)]',
     bgClass: 'bg-[var(--ds-color-neutral-100)]',
+    bgColor: '#F2F2F3', // neutral-100
     borderClass: 'border-[var(--ds-color-neutral-300)]',
+    borderColor: '#DDDDE2', // neutral-300
   },
   'in-progress': {
     colorClass: 'text-[var(--ds-color-blue-600)]',
     bgClass: 'bg-[var(--ds-color-blue-50)]',
+    bgColor: '#E6F0FF', // blue-50
     borderClass: 'border-[var(--ds-color-blue-500)]',
+    borderColor: '#3D8BFF', // blue-500
   },
   completed: {
     colorClass: 'text-[var(--ds-color-success-600)]',
     bgClass: 'bg-[var(--ds-color-success-50)]',
+    bgColor: '#FFFFFF', // white for clean look
     borderClass: 'border-[var(--ds-color-success-500)]',
+    borderColor: '#22C55E', // success-500
   },
   error: {
     colorClass: 'text-[var(--ds-color-error-600)]',
     bgClass: 'bg-[var(--ds-color-error-50)]',
+    bgColor: '#FEF2F2', // error-50
     borderClass: 'border-[var(--ds-color-error-500)]',
+    borderColor: '#EF4444', // error-500
   },
   skipped: {
     colorClass: 'text-[var(--ds-color-neutral-500)]',
     bgClass: 'bg-[var(--ds-color-neutral-50)]',
+    bgColor: '#FCFCFC', // neutral-50
     borderClass: 'border-[var(--ds-color-neutral-300)]',
+    borderColor: '#DDDDE2', // neutral-300
   },
 } as const;
 
@@ -116,10 +126,12 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             isClickable && 'cursor-pointer hover:shadow-md',
             !isClickable && 'cursor-default',
             variant === 'compact' && 'w-8 h-8 text-xs',
-            config.bgClass,
-            config.borderClass,
             config.colorClass,
           )}
+          style={{
+            backgroundColor: config.bgColor,
+            borderColor: config.borderColor,
+          }}
           aria-label={`Step ${index + 1}: ${step.label}`}
           aria-current={index === currentStep ? 'step' : undefined}
         >
@@ -193,7 +205,7 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
     // Horizontal orientation
     return (
       <div ref={ref} className={cn('w-full', className)} {...props}>
-        <div className="flex justify-between">
+        <div className="flex items-start">
           {steps.map((step, index) => {
             const status = step.status || (index < currentStep ? 'completed' : index === currentStep ? 'in-progress' : 'not-started');
             const config = statusConfig[status];
@@ -202,22 +214,37 @@ export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
             return (
               <React.Fragment key={step.id}>
                 <div className="flex flex-col items-center flex-1">
-                  <div className="flex items-center w-full">
-                    {renderStepIndicator(step, index)}
+                  {/* Step indicator centered above label */}
+                  <div className="relative flex items-center justify-center w-full">
+                    {/* Connecting line before (left side) */}
+                    {index > 0 && (
+                      <div
+                        className="absolute right-1/2 w-full h-0.5 z-0"
+                        style={{
+                          backgroundColor: steps[index - 1]?.status === 'completed' ? '#22C55E' : '#DDDDE2'
+                        }}
+                      />
+                    )}
 
+                    {/* Step circle */}
+                    <div className="relative z-10">
+                      {renderStepIndicator(step, index)}
+                    </div>
+
+                    {/* Connecting line after (right side) */}
                     {!isLast && (
                       <div
-                        className={cn(
-                          'h-0.5 flex-1',
-                          variant === 'compact' ? 'max-w-12' : 'max-w-24',
-                          status === 'completed' ? config.borderClass : 'bg-[var(--ds-color-neutral-300)]',
-                        )}
+                        className="absolute left-1/2 w-full h-0.5 z-0"
+                        style={{
+                          backgroundColor: status === 'completed' ? '#22C55E' : '#DDDDE2'
+                        }}
                       />
                     )}
                   </div>
 
-                  <div className="mt-2 text-center">
-                    <div className="flex items-center gap-1 justify-center">
+                  {/* Label below indicator */}
+                  <div className="mt-3 text-center px-2 max-w-[150px]">
+                    <div className="flex flex-col items-center gap-1">
                       <p
                         className={cn(
                           'font-medium',

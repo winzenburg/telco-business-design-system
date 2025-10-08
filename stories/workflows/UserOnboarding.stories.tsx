@@ -234,22 +234,22 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
     {
       label: 'Personal Information',
       description: 'Your contact details',
-      status: step > 1 ? ('completed' as const) : step === 1 ? ('current' as const) : ('upcoming' as const),
+      status: step > 1 ? ('completed' as const) : step === 1 ? ('in-progress' as const) : ('not-started' as const),
     },
     {
       label: 'Company Details',
       description: 'About your organization',
-      status: step > 2 ? ('completed' as const) : step === 2 ? ('current' as const) : ('upcoming' as const),
+      status: step > 2 ? ('completed' as const) : step === 2 ? ('in-progress' as const) : ('not-started' as const),
     },
     {
       label: 'Account Setup',
       description: 'Configure your account',
-      status: step > 3 ? ('completed' as const) : step === 3 ? ('current' as const) : ('upcoming' as const),
+      status: step > 3 ? ('completed' as const) : step === 3 ? ('in-progress' as const) : ('not-started' as const),
     },
     {
       label: 'Review & Confirm',
       description: 'Finalize your setup',
-      status: step > 4 ? ('completed' as const) : step === 4 ? ('current' as const) : ('upcoming' as const),
+      status: step > 4 ? ('completed' as const) : step === 4 ? ('in-progress' as const) : ('not-started' as const),
     },
   ];
 

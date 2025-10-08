@@ -58,7 +58,9 @@ import {
   ChartTooltipContent,
 } from '../src/components/ui/chart';
 import { Icon } from '../packages/icons/src/Icon';
-import { AlertCircle } from 'lucide-react';
+import { SummaryCard } from '../src/components/patterns/SummaryCard';
+import { ResponsiveGrid } from '../src/components/patterns/ResponsiveLayout';
+import { AlertCircle, Download } from 'lucide-react';
 
 // Import Recharts components
 import {
@@ -128,7 +130,7 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Enterprise reports interface with analytics, data visualization, and export capabilities.'
+        component: 'Enterprise reports and analytics interface for Comcast Business Portal. Showcases SummaryCard metrics, ResponsiveGrid layouts, data visualization, and comprehensive reporting capabilities with pattern components.'
       }
     }
   },
@@ -284,25 +286,49 @@ export const EnterpriseReportsInterface: Story = {
 
             {/* Overview Tab */}
             <TabsContent value="overview" className="space-y-6">
-              {/* Key Metrics */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                {analyticsData.map((metric, index) => (
-                  <Card key={index}>
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">{metric.metric}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">{metric.current}</div>
-                      <div className="flex items-center gap-2 mt-2">
-                        <Badge variant="success">
-                          {metric.change}
-                        </Badge>
-                        <span className="text-sm text-[var(--ds-color-text-muted)]">vs last period</span>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+              {/* Key Metrics - Using SummaryCard Pattern */}
+              <ResponsiveGrid mobileCols={1} tabletCols={2} desktopCols={4} gap="md">
+                <SummaryCard
+                  title="Total Active Services"
+                  value="12,847"
+                  description="vs last period"
+                  icon="cloud"
+                  trend={{ value: '+1.85%', direction: 'up' }}
+                  status="success"
+                  statusLabel="Growing"
+                  density="comfortable"
+                />
+                <SummaryCard
+                  title="Average Uptime"
+                  value="99.97%"
+                  description="vs last period"
+                  icon="networkhealth"
+                  trend={{ value: '+0.03%', direction: 'up' }}
+                  status="success"
+                  statusLabel="Excellent"
+                  density="comfortable"
+                />
+                <SummaryCard
+                  title="Total Bandwidth Used"
+                  value="34.2 TB"
+                  description="vs last period"
+                  icon="bar-chart"
+                  trend={{ value: '+5.12%', direction: 'up' }}
+                  status="info"
+                  statusLabel="Normal"
+                  density="comfortable"
+                />
+                <SummaryCard
+                  title="Monthly Costs"
+                  value="$23,670"
+                  description="vs last period"
+                  icon="money"
+                  trend={{ value: '+2.4%', direction: 'up' }}
+                  status="warning"
+                  statusLabel="Increased"
+                  density="comfortable"
+                />
+              </ResponsiveGrid>
 
               {/* Recent Activity */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

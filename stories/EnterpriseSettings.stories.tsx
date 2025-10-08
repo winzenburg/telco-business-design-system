@@ -43,7 +43,7 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Enterprise settings interface with tabbed navigation and comprehensive configuration options.'
+        component: 'Enterprise settings interface for Comcast Business Portal. Comprehensive configuration options with tabbed navigation, notification preferences, security settings, and account management.'
       }
     }
   },

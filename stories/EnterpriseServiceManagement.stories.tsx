@@ -57,6 +57,10 @@ import {
 import { Textarea } from '../src/components/ui/textarea';
 import { Label } from '../src/components/ui/label';
 import { Icon } from '../packages/icons/src/Icon';
+import { SummaryCard } from '../src/components/patterns/SummaryCard';
+import { ResponsiveGrid } from '../src/components/patterns/ResponsiveLayout';
+import { BulkActionBar } from '../src/components/patterns/BulkActionBar';
+import { RefreshCcw, Settings as SettingsIcon, Power } from 'lucide-react';
 
 const meta: Meta = {
   title: 'Enterprise/Service Management',
@@ -64,7 +68,7 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Enterprise service management interface with status monitoring, incident management, and service controls.'
+        component: 'Enterprise service management interface for Comcast Business Portal. Showcases SummaryCard metrics, BulkActionBar for service operations, status monitoring, incident management, and service controls with pattern components.'
       }
     }
   },
@@ -247,48 +251,45 @@ export const EnterpriseServiceManagementInterface: Story = {
         </header>
 
         <div className="p-6 space-y-6">
-          {/* Service Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Active Services</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-green-600">{activeServices}</div>
-                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">Running normally</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Warning Services</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-orange-600">{warningServices}</div>
-                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">Require attention</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">In Maintenance</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-yellow-600">{maintenanceServices}</div>
-                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">Scheduled work</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Avg. Uptime</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">{avgUptime.toFixed(1)}%</div>
-                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">Last 30 days</p>
-              </CardContent>
-            </Card>
-          </div>
+          {/* Service Overview - Using SummaryCard Pattern */}
+          <ResponsiveGrid mobileCols={1} tabletCols={2} desktopCols={4} gap="md">
+            <SummaryCard
+              title="Active Services"
+              value={activeServices.toString()}
+              description="Running normally"
+              icon="cloud"
+              status="success"
+              statusLabel="Healthy"
+              density="comfortable"
+            />
+            <SummaryCard
+              title="Warning Services"
+              value={warningServices.toString()}
+              description="Require attention"
+              icon="alert"
+              status="warning"
+              statusLabel="Issues"
+              density="comfortable"
+            />
+            <SummaryCard
+              title="In Maintenance"
+              value={maintenanceServices.toString()}
+              description="Scheduled work"
+              icon="configure"
+              status="info"
+              statusLabel="Scheduled"
+              density="comfortable"
+            />
+            <SummaryCard
+              title="Avg. Uptime"
+              value={`${avgUptime.toFixed(1)}%`}
+              description="Last 30 days"
+              icon="networkhealth"
+              status="success"
+              statusLabel="Excellent"
+              density="comfortable"
+            />
+          </ResponsiveGrid>
 
           {/* Active Alerts */}
           <div className="space-y-4">
@@ -363,18 +364,31 @@ export const EnterpriseServiceManagementInterface: Story = {
                 </div>
               </div>
 
-              {/* Bulk Actions */}
+              {/* Bulk Actions - Using BulkActionBar Pattern */}
               {selectedServices.length > 0 && (
-                <div className="flex items-center gap-2 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                  <span className="text-sm font-medium text-blue-900">
-                    {selectedServices.length} service{selectedServices.length > 1 ? 's' : ''} selected
-                  </span>
-                  <div className="flex gap-2 ml-auto">
-                    <Button size="sm" variant="outline">Restart Services</Button>
-                    <Button size="sm" variant="outline">Run Diagnostics</Button>
-                    <Button size="sm">Schedule Maintenance</Button>
-                  </div>
-                </div>
+                <BulkActionBar
+                  selectedCount={selectedServices.length}
+                  onClearSelection={() => setSelectedServices([])}
+                  actions={[
+                    {
+                      label: 'Restart Services',
+                      onClick: () => alert(`Restarting ${selectedServices.length} services`),
+                      variant: 'secondary',
+                      icon: <RefreshCcw className="h-4 w-4" />,
+                    },
+                    {
+                      label: 'Run Diagnostics',
+                      onClick: () => alert(`Running diagnostics on ${selectedServices.length} services`),
+                      variant: 'secondary',
+                      icon: <SettingsIcon className="h-4 w-4" />,
+                    },
+                    {
+                      label: 'Schedule Maintenance',
+                      onClick: () => alert(`Scheduling maintenance for ${selectedServices.length} services`),
+                      variant: 'primary',
+                    },
+                  ]}
+                />
               )}
             </CardHeader>
 

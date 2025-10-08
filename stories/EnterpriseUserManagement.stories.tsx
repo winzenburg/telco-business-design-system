@@ -47,6 +47,10 @@ import {
 } from '../src/components/ui/dialog';
 import { Label } from '../src/components/ui/label';
 import { Icon } from '../packages/icons/src/Icon';
+import { SummaryCard } from '../src/components/patterns/SummaryCard';
+import { ResponsiveGrid } from '../src/components/patterns/ResponsiveLayout';
+import { BulkActionBar } from '../src/components/patterns/BulkActionBar';
+import { UserPlus, Mail, Trash2 } from 'lucide-react';
 
 const meta: Meta = {
   title: 'Enterprise/User Management',
@@ -54,7 +58,7 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Enterprise user management interface with advanced table features, user roles, and bulk operations.'
+        component: 'Enterprise user management interface for Comcast Business Portal. Showcases SummaryCard metrics, BulkActionBar for user operations, advanced table features, role management, and bulk user operations with pattern components.'
       }
     }
   },
@@ -260,19 +264,33 @@ export const UserManagementInterface: Story = {
                 </div>
               </div>
 
-              {/* Bulk Actions */}
+              {/* Bulk Actions - Using BulkActionBar Pattern */}
               {selectedUsers.length > 0 && (
-                <div className="flex items-center gap-2 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                  <span className="text-sm font-medium text-blue-900">
-                    {selectedUsers.length} user{selectedUsers.length > 1 ? 's' : ''} selected
-                  </span>
-                  <div className="flex gap-2 ml-auto">
-                    <Button size="sm" variant="outline">Export Selected</Button>
-                    <Button size="sm" variant="outline">Change Role</Button>
-                    <Button size="sm" variant="outline">Deactivate</Button>
-                    <Button size="sm" variant="destructive">Trash</Button>
-                  </div>
-                </div>
+                <BulkActionBar
+                  selectedCount={selectedUsers.length}
+                  onClearSelection={() => setSelectedUsers([])}
+                  actions={[
+                    {
+                      label: 'Invite Users',
+                      onClick: () => alert(`Sending invites to ${selectedUsers.length} users`),
+                      variant: 'secondary',
+                      icon: <Mail className="h-4 w-4" />,
+                    },
+                    {
+                      label: 'Change Role',
+                      onClick: () => alert(`Changing role for ${selectedUsers.length} users`),
+                      variant: 'secondary',
+                      icon: <UserPlus className="h-4 w-4" />,
+                    },
+                    {
+                      label: 'Remove Users',
+                      onClick: () => alert(`Removing ${selectedUsers.length} users`),
+                      variant: 'destructive',
+                      icon: <Trash2 className="h-4 w-4" />,
+                      confirmMessage: 'Are you sure you want to remove these users?',
+                    },
+                  ]}
+                />
               )}
             </CardHeader>
 

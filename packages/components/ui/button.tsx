@@ -14,11 +14,11 @@ const buttonVariants = cva(
       variant: {
         // Primary Button - Using design tokens
         default:
-          "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
+          "bg-[var(--ds-color-intent-primary)] text-white border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
 
         // Alias for 'primary' to maintain compatibility
         primary:
-          "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
+          "bg-[var(--ds-color-intent-primary)] text-white border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2",
 
         // Secondary Button
         secondary:
@@ -34,7 +34,7 @@ const buttonVariants = cva(
 
         // Submit Button
         submit:
-          "bg-[var(--ds-color-intent-primary)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 data-[loading=true]:bg-[var(--ds-color-intent-primary)]",
+          "bg-[var(--ds-color-intent-primary)] text-white border border-transparent hover:bg-[var(--ds-color-intent-primary-hover)] hover:shadow-sm active:bg-[var(--ds-color-intent-primary-active)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-intent-primary)] focus-visible:ring-offset-2 data-[loading=true]:bg-[var(--ds-color-intent-primary)]",
 
         // Link Button - text only, no height constraint
         link:
@@ -42,11 +42,11 @@ const buttonVariants = cva(
 
         // Danger Button
         danger:
-          "bg-[var(--ds-color-red-500)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-red-600)] hover:shadow-sm active:bg-[var(--ds-color-red-700)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-red-500)] focus-visible:ring-offset-2",
+          "bg-[var(--ds-color-red-500)] text-white border border-transparent hover:bg-[var(--ds-color-red-600)] hover:shadow-sm active:bg-[var(--ds-color-red-700)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-red-500)] focus-visible:ring-offset-2",
 
         // Destructive Button
         destructive:
-          "bg-[var(--ds-color-red-500)] text-[var(--ds-color-neutral-50)] border border-transparent hover:bg-[var(--ds-color-red-600)] hover:shadow-sm active:bg-[var(--ds-color-red-700)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-red-500)] focus-visible:ring-offset-2",
+          "bg-[var(--ds-color-red-500)] text-white border border-transparent hover:bg-[var(--ds-color-red-600)] hover:shadow-sm active:bg-[var(--ds-color-red-700)] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[var(--ds-color-red-500)] focus-visible:ring-offset-2",
 
         // Outline variant
         outline:
@@ -69,13 +69,13 @@ const buttonVariants = cva(
         xl: "h-10 px-4 py-2 text-sm rounded",
 
         // Icon only buttons - 40px size using design tokens
-        icon: "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-[var(--ds-color-neutral-50)] hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
+        icon: "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-white hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
 
         // Small icon - Same 40px size using design tokens
-        "icon-sm": "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-[var(--ds-color-neutral-50)] hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
+        "icon-sm": "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-white hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
 
         // Large icon - Same 40px size using design tokens
-        "icon-lg": "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-[var(--ds-color-neutral-50)] hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
+        "icon-lg": "size-10 p-0 rounded bg-[var(--ds-color-blue-400)] border border-[var(--ds-color-neutral-50)] text-white hover:bg-[var(--ds-color-blue-500)] hover:shadow-sm active:bg-[var(--ds-color-blue-600)] active:translate-y-px disabled:bg-[var(--ds-color-neutral-300)] disabled:border-[var(--ds-color-neutral-200)] disabled:text-[var(--ds-color-neutral-600)] focus-visible:ring-2 focus-visible:ring-[var(--ds-color-blue-500)] data-[loading=true]:bg-[var(--ds-color-blue-400)] [&_svg]:size-5",
       },
     },
     defaultVariants: {

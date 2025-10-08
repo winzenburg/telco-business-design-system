@@ -48,7 +48,10 @@ import {
 import { Separator } from '../src/components/ui/separator';
 import { Progress } from '../src/components/ui/progress';
 import { Icon } from '../packages/icons/src/Icon';
-import { AlertCircle } from 'lucide-react';
+import { SummaryCard } from '../src/components/patterns/SummaryCard';
+import { ResponsiveGrid } from '../src/components/patterns/ResponsiveLayout';
+import { BulkActionBar } from '../src/components/patterns/BulkActionBar';
+import { AlertCircle, Download, CreditCard } from 'lucide-react';
 
 const meta: Meta = {
   title: 'Enterprise/Billing',
@@ -56,7 +59,7 @@ const meta: Meta = {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Enterprise billing interface with invoice management, payment history, and usage tracking.'
+        component: 'Enterprise billing interface for Comcast Business Portal. Showcases SummaryCard metrics, BulkActionBar for invoice actions, invoice management, payment history, and usage tracking with pattern components.'
       }
     }
   },
@@ -174,48 +177,43 @@ export const EnterpriseBillingInterface: Story = {
         </header>
 
         <div className="p-6 space-y-6">
-          {/* Billing Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Total Billed (YTD)</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">${totalBilled.toLocaleString()}</div>
-                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">5 invoices this year</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Total Paid</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-green-600">${totalPaid.toLocaleString()}</div>
-                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">3 invoices paid</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Outstanding Balance</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-red-600">${totalPending.toLocaleString()}</div>
-                <p className="text-sm text-[var(--ds-color-text-muted)] mt-1">2 invoices pending</p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-[var(--ds-color-text-muted)]">Next Payment Due</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-[var(--ds-color-text-primary)]">Apr 30</div>
-                <p className="text-sm text-red-600 mt-1">2 days overdue</p>
-              </CardContent>
-            </Card>
-          </div>
+          {/* Billing Overview - Using SummaryCard Pattern */}
+          <ResponsiveGrid mobileCols={1} tabletCols={2} desktopCols={4} gap="md">
+            <SummaryCard
+              title="Total Billed (YTD)"
+              value={`$${totalBilled.toLocaleString()}`}
+              description="5 invoices this year"
+              icon="money"
+              density="comfortable"
+            />
+            <SummaryCard
+              title="Total Paid"
+              value={`$${totalPaid.toLocaleString()}`}
+              description="3 invoices paid"
+              icon="complete"
+              status="success"
+              statusLabel="Paid"
+              density="comfortable"
+            />
+            <SummaryCard
+              title="Outstanding Balance"
+              value={`$${totalPending.toLocaleString()}`}
+              description="2 invoices pending"
+              icon="paymentcard"
+              status="warning"
+              statusLabel="Due"
+              density="comfortable"
+            />
+            <SummaryCard
+              title="Next Payment Due"
+              value="Apr 30"
+              description="2 days overdue"
+              icon="alert"
+              status="destructive"
+              statusLabel="Overdue"
+              density="comfortable"
+            />
+          </ResponsiveGrid>
 
           {/* Current Usage */}
           <Card>
@@ -331,18 +329,32 @@ export const EnterpriseBillingInterface: Story = {
                 </div>
               </div>
 
-              {/* Bulk Actions */}
+              {/* Bulk Actions - Using BulkActionBar Pattern */}
               {selectedInvoices.length > 0 && (
-                <div className="flex items-center gap-2 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                  <span className="text-sm font-medium text-blue-900">
-                    {selectedInvoices.length} invoice{selectedInvoices.length > 1 ? 's' : ''} selected
-                  </span>
-                  <div className="flex gap-2 ml-auto">
-                    <Button size="sm" variant="outline">Download PDF</Button>
-                    <Button size="sm" variant="outline">Export to CSV</Button>
-                    <Button size="sm">Pay Selected</Button>
-                  </div>
-                </div>
+                <BulkActionBar
+                  selectedCount={selectedInvoices.length}
+                  onClearSelection={() => setSelectedInvoices([])}
+                  actions={[
+                    {
+                      label: 'Download PDF',
+                      onClick: () => alert(`Downloading ${selectedInvoices.length} invoices as PDF`),
+                      variant: 'secondary',
+                      icon: <Download className="h-4 w-4" />,
+                    },
+                    {
+                      label: 'Export CSV',
+                      onClick: () => alert(`Exporting ${selectedInvoices.length} invoices to CSV`),
+                      variant: 'secondary',
+                      icon: <Download className="h-4 w-4" />,
+                    },
+                    {
+                      label: 'Pay Selected',
+                      onClick: () => alert(`Processing payment for ${selectedInvoices.length} invoices`),
+                      variant: 'primary',
+                      icon: <CreditCard className="h-4 w-4" />,
+                    },
+                  ]}
+                />
               )}
             </CardHeader>
 
