@@ -60,7 +60,6 @@ import { Icon } from '../packages/icons/src/Icon';
 import { SummaryCard } from '../src/components/patterns/SummaryCard';
 import { ResponsiveGrid } from '../src/components/patterns/ResponsiveLayout';
 import { BulkActionBar } from '../src/components/patterns/BulkActionBar';
-import { RefreshCcw, Settings as SettingsIcon, Power } from 'lucide-react';
 
 const meta: Meta = {
   title: 'Enterprise/Service Management',
@@ -368,21 +367,26 @@ export const EnterpriseServiceManagementInterface: Story = {
               {selectedServices.length > 0 && (
                 <BulkActionBar
                   selectedCount={selectedServices.length}
+                  totalCount={15}
+                  selectedIds={selectedServices.map(String)}
                   onClearSelection={() => setSelectedServices([])}
                   actions={[
                     {
+                      id: 'restart-services',
                       label: 'Restart Services',
                       onClick: () => alert(`Restarting ${selectedServices.length} services`),
-                      variant: 'secondary',
-                      icon: <RefreshCcw className="h-4 w-4" />,
+                      variant: 'default',
+                      icon: 'refresh',
                     },
                     {
+                      id: 'run-diagnostics',
                       label: 'Run Diagnostics',
                       onClick: () => alert(`Running diagnostics on ${selectedServices.length} services`),
-                      variant: 'secondary',
-                      icon: <SettingsIcon className="h-4 w-4" />,
+                      variant: 'default',
+                      icon: 'configure',
                     },
                     {
+                      id: 'schedule-maintenance',
                       label: 'Schedule Maintenance',
                       onClick: () => alert(`Scheduling maintenance for ${selectedServices.length} services`),
                       variant: 'primary',

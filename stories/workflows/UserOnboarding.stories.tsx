@@ -31,7 +31,7 @@ import {
   Textarea,
 } from '../../src/components';
 import { Stepper } from '../../src/components/patterns/Stepper';
-import { ArrowRight, Check, User, Mail, Building, CreditCard, AlertCircle } from 'lucide-react';
+import { Icon } from '../../packages/icons/src/Icon';
 
 const meta: Meta = {
   title: 'Workflows/User Onboarding',
@@ -232,21 +232,25 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
   // Define steps for Stepper pattern component
   const steps = [
     {
+      id: 'personal-info',
       label: 'Personal Information',
       description: 'Your contact details',
       status: step > 1 ? ('completed' as const) : step === 1 ? ('in-progress' as const) : ('not-started' as const),
     },
     {
+      id: 'company-details',
       label: 'Company Details',
       description: 'About your organization',
       status: step > 2 ? ('completed' as const) : step === 2 ? ('in-progress' as const) : ('not-started' as const),
     },
     {
+      id: 'account-setup',
       label: 'Account Setup',
       description: 'Configure your account',
       status: step > 3 ? ('completed' as const) : step === 3 ? ('in-progress' as const) : ('not-started' as const),
     },
     {
+      id: 'review-confirm',
       label: 'Review & Confirm',
       description: 'Finalize your setup',
       status: step > 4 ? ('completed' as const) : step === 4 ? ('in-progress' as const) : ('not-started' as const),
@@ -264,7 +268,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
       </div>
 
       {/* Stepper Pattern Component */}
-      <Stepper steps={steps} orientation="horizontal" />
+      <Stepper steps={steps} currentStep={step - 1} orientation="horizontal" />
 
       {/* Step Content */}
       <Card>
@@ -272,7 +276,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
           {step === 1 && (
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-4">
-                <User className="h-5 w-5 text-[var(--ds-color-intent-primary)]" />
+                <Icon name="users" size={20} />
                 <h3 className="text-lg font-semibold">Personal Information</h3>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -290,7 +294,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   />
                   {errors.firstName && (
                     <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                      <AlertCircle className="h-3 w-3" />
+                      <Icon name="alert" size={12} />
                       {errors.firstName}
                     </p>
                   )}
@@ -309,7 +313,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   />
                   {errors.lastName && (
                     <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                      <AlertCircle className="h-3 w-3" />
+                      <Icon name="alert" size={12} />
                       {errors.lastName}
                     </p>
                   )}
@@ -330,7 +334,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                 />
                 {errors.email && (
                   <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                    <AlertCircle className="h-3 w-3" />
+                    <Icon name="alert" size={12} />
                     {errors.email}
                   </p>
                 )}
@@ -350,7 +354,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                 />
                 {errors.phone && (
                   <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                    <AlertCircle className="h-3 w-3" />
+                    <Icon name="alert" size={12} />
                     {errors.phone}
                   </p>
                 )}
@@ -361,7 +365,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
           {step === 2 && (
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-4">
-                <Building className="h-5 w-5 text-[var(--ds-color-intent-primary)]" />
+                <Icon name="buildingwip" size={20} />
                 <h3 className="text-lg font-semibold">Company Details</h3>
               </div>
               <div className="space-y-2">
@@ -378,7 +382,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                 />
                 {errors.company && (
                   <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                    <AlertCircle className="h-3 w-3" />
+                    <Icon name="alert" size={12} />
                     {errors.company}
                   </p>
                 )}
@@ -400,7 +404,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   />
                   {errors.industry && (
                     <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                      <AlertCircle className="h-3 w-3" />
+                      <Icon name="alert" size={12} />
                       {errors.industry}
                     </p>
                   )}
@@ -421,7 +425,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                   />
                   {errors.companySize && (
                     <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                      <AlertCircle className="h-3 w-3" />
+                      <Icon name="alert" size={12} />
                       {errors.companySize}
                     </p>
                   )}
@@ -443,7 +447,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                 />
                 {errors.state && (
                   <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                    <AlertCircle className="h-3 w-3" />
+                    <Icon name="alert" size={12} />
                     {errors.state}
                   </p>
                 )}
@@ -470,7 +474,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                 </Select>
                 {errors.role && (
                   <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                    <AlertCircle className="h-3 w-3" />
+                    <Icon name="alert" size={12} />
                     {errors.role}
                   </p>
                 )}
@@ -481,7 +485,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
           {step === 3 && (
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-4">
-                <CreditCard className="h-5 w-5 text-[var(--ds-color-intent-primary)]" />
+                <Icon name="paymentcard" size={20} />
                 <h3 className="text-lg font-semibold">Account Setup</h3>
               </div>
               <div className="space-y-4">
@@ -546,7 +550,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                 />
                 {errors.startDate && (
                   <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                    <AlertCircle className="h-3 w-3" />
+                    <Icon name="alert" size={12} />
                     {errors.startDate}
                   </p>
                 )}
@@ -566,7 +570,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
                 <div className="flex justify-between items-center">
                   {errors.goals ? (
                     <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                      <AlertCircle className="h-3 w-3" />
+                      <Icon name="alert" size={12} />
                       {errors.goals}
                     </p>
                   ) : (
@@ -582,7 +586,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
           {step === 4 && (
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-4">
-                <Check className="h-5 w-5 text-[var(--ds-color-intent-success)]" />
+                <Icon name="complete" size={20} />
                 <h3 className="text-lg font-semibold">Review & Confirm</h3>
               </div>
               <Alert>
@@ -632,7 +636,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
           {step < totalSteps ? (
             <Button onClick={handleNext} variant="primary">
               Next
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <Icon name="arrowright" size={16} className="ml-2" />
             </Button>
           ) : (
             <Button
@@ -641,7 +645,7 @@ const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ showErrors = false }) =
               onClick={() => alert('Registration completed!')}
             >
               Complete Registration
-              <Check className="ml-2 h-4 w-4" />
+              <Icon name="complete" size={16} className="ml-2" />
             </Button>
           )}
         </CardFooter>

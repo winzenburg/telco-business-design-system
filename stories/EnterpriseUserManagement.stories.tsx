@@ -50,7 +50,6 @@ import { Icon } from '../packages/icons/src/Icon';
 import { SummaryCard } from '../src/components/patterns/SummaryCard';
 import { ResponsiveGrid } from '../src/components/patterns/ResponsiveLayout';
 import { BulkActionBar } from '../src/components/patterns/BulkActionBar';
-import { UserPlus, Mail, Trash2 } from 'lucide-react';
 
 const meta: Meta = {
   title: 'Enterprise/User Management',
@@ -268,26 +267,30 @@ export const UserManagementInterface: Story = {
               {selectedUsers.length > 0 && (
                 <BulkActionBar
                   selectedCount={selectedUsers.length}
+                  totalCount={25}
+                  selectedIds={selectedUsers.map(String)}
                   onClearSelection={() => setSelectedUsers([])}
                   actions={[
                     {
+                      id: 'invite-users',
                       label: 'Invite Users',
                       onClick: () => alert(`Sending invites to ${selectedUsers.length} users`),
-                      variant: 'secondary',
-                      icon: <Mail className="h-4 w-4" />,
+                      variant: 'default',
+                      icon: 'message',
                     },
                     {
+                      id: 'change-role',
                       label: 'Change Role',
                       onClick: () => alert(`Changing role for ${selectedUsers.length} users`),
-                      variant: 'secondary',
-                      icon: <UserPlus className="h-4 w-4" />,
+                      variant: 'default',
+                      icon: 'users',
                     },
                     {
+                      id: 'remove-users',
                       label: 'Remove Users',
                       onClick: () => alert(`Removing ${selectedUsers.length} users`),
                       variant: 'destructive',
-                      icon: <Trash2 className="h-4 w-4" />,
-                      confirmMessage: 'Are you sure you want to remove these users?',
+                      icon: 'trash',
                     },
                   ]}
                 />

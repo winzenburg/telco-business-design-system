@@ -51,7 +51,6 @@ import { Icon } from '../packages/icons/src/Icon';
 import { SummaryCard } from '../src/components/patterns/SummaryCard';
 import { ResponsiveGrid } from '../src/components/patterns/ResponsiveLayout';
 import { BulkActionBar } from '../src/components/patterns/BulkActionBar';
-import { AlertCircle, Download, CreditCard } from 'lucide-react';
 
 const meta: Meta = {
   title: 'Enterprise/Billing',
@@ -209,7 +208,7 @@ export const EnterpriseBillingInterface: Story = {
               value="Apr 30"
               description="2 days overdue"
               icon="alert"
-              status="destructive"
+              status="error"
               statusLabel="Overdue"
               density="comfortable"
             />
@@ -333,25 +332,30 @@ export const EnterpriseBillingInterface: Story = {
               {selectedInvoices.length > 0 && (
                 <BulkActionBar
                   selectedCount={selectedInvoices.length}
+                  totalCount={20}
+                  selectedIds={selectedInvoices.map(String)}
                   onClearSelection={() => setSelectedInvoices([])}
                   actions={[
                     {
+                      id: 'download-pdf',
                       label: 'Download PDF',
                       onClick: () => alert(`Downloading ${selectedInvoices.length} invoices as PDF`),
-                      variant: 'secondary',
-                      icon: <Download className="h-4 w-4" />,
+                      variant: 'default',
+                      icon: 'download',
                     },
                     {
+                      id: 'export-csv',
                       label: 'Export CSV',
                       onClick: () => alert(`Exporting ${selectedInvoices.length} invoices to CSV`),
-                      variant: 'secondary',
-                      icon: <Download className="h-4 w-4" />,
+                      variant: 'default',
+                      icon: 'download',
                     },
                     {
+                      id: 'pay-selected',
                       label: 'Pay Selected',
                       onClick: () => alert(`Processing payment for ${selectedInvoices.length} invoices`),
                       variant: 'primary',
-                      icon: <CreditCard className="h-4 w-4" />,
+                      icon: 'paymentcard',
                     },
                   ]}
                 />
@@ -831,7 +835,7 @@ export const WithValidationErrors: Story = {
                     </div>
                     {errors.startDate && (
                       <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                        <AlertCircle className="h-3 w-3" />
+                        <Icon name="alert" size={12} />
                         {errors.startDate}
                       </p>
                     )}
@@ -990,7 +994,7 @@ export const WithValidationErrors: Story = {
                 </Select>
                 {errors.disputeReason && (
                   <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                    <AlertCircle className="h-3 w-3" />
+                    <Icon name="alert" size={12} />
                     {errors.disputeReason}
                   </p>
                 )}
@@ -1024,7 +1028,7 @@ export const WithValidationErrors: Story = {
                 />
                 {errors.disputeDescription && (
                   <p className="text-sm text-[var(--ds-color-intent-destructive)] flex items-center gap-1">
-                    <AlertCircle className="h-3 w-3" />
+                    <Icon name="alert" size={12} />
                     {errors.disputeDescription}
                   </p>
                 )}
