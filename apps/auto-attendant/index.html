@@ -1994,9 +1994,14 @@
             </button>
           </div>
 
+          <!-- Wizard Steps -->
+          <div id="keypad-stepper" style="display: flex; align-items: center; gap: 0; position: relative; margin-bottom: 20px;">
+            <!-- Steps will be dynamically updated based on context -->
+          </div>
+
           <!-- Tabs Navigation -->
           <div style="border-bottom: 2px solid var(--neutral-200); display: flex; gap: 32px;">
-            <button style="background: none; border: none; padding: 12px 0; font-size: 14px; font-weight: 600; color: var(--comcast-blue); cursor: pointer; border-bottom: 3px solid var(--comcast-blue); margin-bottom: -2px;">
+            <button style="background: none; border: none; padding: 12px 0; font-size: 14px; font-weight: 600; color: var(--neutral-400); cursor: pointer;">
               ROUTING ACTION
             </button>
             <button style="background: none; border: none; padding: 12px 0; font-size: 14px; font-weight: 600; color: var(--comcast-blue); cursor: pointer; border-bottom: 3px solid var(--comcast-blue); margin-bottom: -2px;">
@@ -2160,6 +2165,11 @@
             <button onclick="saveAndExit()" style="background: none; border: 1px solid var(--neutral-300); color: var(--comcast-blue); padding: 8px 20px; border-radius: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all 0.15s;" onmouseover="this.style.background='var(--neutral-50)'" onmouseout="this.style.background='none'">
               SAVE & EXIT
             </button>
+          </div>
+
+          <!-- Wizard Steps -->
+          <div id="greeting-stepper" style="display: flex; align-items: center; gap: 0; position: relative; margin-bottom: 20px;">
+            <!-- Steps will be dynamically updated based on context -->
           </div>
 
           <!-- Tabs Navigation -->
@@ -3188,6 +3198,70 @@
     // Variable to track which routing context we came from
     let keypadContext = 'open'; // 'open' or 'closed'
 
+    // Function to update stepper based on context
+    function updateStepper(elementId, context) {
+      const stepperEl = document.getElementById(elementId);
+      if (!stepperEl) return;
+
+      let stepperHTML = '';
+      
+      if (context === 'open') {
+        // For Open Hours: Step 1 completed, Step 2 active, Step 3 inactive
+        stepperHTML = `
+          <!-- Step 1: Schedules (Completed) -->
+          <div style="flex: 1; display: flex; align-items: center; gap: 12px; position: relative;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #10b981; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; z-index: 2; position: relative;">
+              <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+            </div>
+            <span style="font-size: 14px; font-weight: 500; color: var(--neutral-700); position: relative; z-index: 2; background: white; padding-right: 8px;">Schedules</span>
+            <div style="position: absolute; left: 16px; top: 15px; height: 2px; background: #10b981; width: 100%; z-index: 0;"></div>
+          </div>
+
+          <!-- Step 2: Open Hours (Active) -->
+          <div style="flex: 1; display: flex; align-items: center; gap: 12px; position: relative;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--comcast-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; z-index: 2; position: relative;">2</div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--comcast-blue); position: relative; z-index: 2; background: white; padding-right: 8px;">Open Hours</span>
+            <div style="position: absolute; left: 16px; top: 15px; height: 2px; background: var(--neutral-200); width: 100%; z-index: 0;"></div>
+          </div>
+
+          <!-- Step 3: Closed Hours & Holidays (Inactive) -->
+          <div style="flex: 1; display: flex; align-items: center; gap: 12px; position: relative;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--neutral-100); border: 2px solid var(--neutral-300); color: var(--neutral-400); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; z-index: 2; position: relative;">3</div>
+            <span style="font-size: 14px; font-weight: 500; color: var(--neutral-400); position: relative; z-index: 2; background: white; padding-right: 8px;">Closed Hours & Holidays</span>
+          </div>
+        `;
+      } else {
+        // For Closed Hours: Step 1 & 2 completed, Step 3 active
+        stepperHTML = `
+          <!-- Step 1: Schedules (Completed) -->
+          <div style="flex: 1; display: flex; align-items: center; gap: 12px; position: relative;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #10b981; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; z-index: 2; position: relative;">
+              <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+            </div>
+            <span style="font-size: 14px; font-weight: 500; color: var(--neutral-700); position: relative; z-index: 2; background: white; padding-right: 8px;">Schedules</span>
+            <div style="position: absolute; left: 16px; top: 15px; height: 2px; background: #10b981; width: 100%; z-index: 0;"></div>
+          </div>
+
+          <!-- Step 2: Open Hours (Completed) -->
+          <div style="flex: 1; display: flex; align-items: center; gap: 12px; position: relative;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: #10b981; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; z-index: 2; position: relative;">
+              <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+            </div>
+            <span style="font-size: 14px; font-weight: 500; color: var(--neutral-700); position: relative; z-index: 2; background: white; padding-right: 8px;">Open Hours</span>
+            <div style="position: absolute; left: 16px; top: 15px; height: 2px; background: #10b981; width: 100%; z-index: 0;"></div>
+          </div>
+
+          <!-- Step 3: Closed Hours & Holidays (Active) -->
+          <div style="flex: 1; display: flex; align-items: center; gap: 12px; position: relative;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--comcast-blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; z-index: 2; position: relative;">3</div>
+            <span style="font-size: 14px; font-weight: 600; color: var(--comcast-blue); position: relative; z-index: 2; background: white; padding-right: 8px;">Closed Hours & Holidays</span>
+          </div>
+        `;
+      }
+
+      stepperEl.innerHTML = stepperHTML;
+    }
+
     // Navigate to keypad configuration from routing screen
     function goToKeypadConfig(context) {
       keypadContext = context;
@@ -3197,6 +3271,7 @@
         document.getElementById('setup-routing-closed').style.display = 'none';
       }
       document.getElementById('setup-keypad').style.display = 'block';
+      updateStepper('keypad-stepper', context);
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
@@ -3217,6 +3292,7 @@
     function saveKeypadAndNext() {
       document.getElementById('setup-keypad').style.display = 'none';
       document.getElementById('setup-greeting').style.display = 'block';
+      updateStepper('greeting-stepper', keypadContext);
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
@@ -3225,20 +3301,25 @@
     function backFromGreeting() {
       document.getElementById('setup-greeting').style.display = 'none';
       document.getElementById('setup-keypad').style.display = 'block';
+      updateStepper('keypad-stepper', keypadContext);
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
 
-    // Save greeting and complete the routing configuration for this context
+    // Save greeting and advance to next step
     function saveGreetingAndComplete() {
-      alert('Greeting saved successfully!');
       document.getElementById('setup-greeting').style.display = 'none';
-      // Return to the appropriate routing screen
+      
       if (keypadContext === 'open') {
-        document.getElementById('setup-routing').style.display = 'block';
-      } else {
+        // After completing Open Hours routing, go to Closed Hours routing
         document.getElementById('setup-routing-closed').style.display = 'block';
+      } else {
+        // After completing Closed Hours routing, complete the entire setup
+        alert('Call Flow setup completed! All routing configurations saved.');
+        document.getElementById('main-callflow-content').style.display = 'block';
+        document.getElementById('footer').style.display = 'block';
       }
+      
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
