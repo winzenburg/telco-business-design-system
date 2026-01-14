@@ -1,0 +1,40 @@
+{
+  "name": "@comcast/auto-attendant-voiceedge",
+  "version": "1.0.0",
+  "description": "Business VoiceEdge Auto-Attendant management interface built with Comcast Business Design System",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 8080 -o",
+    "preview": "open index.html",
+    "serve": "python -m http.server 8080"
+  },
+  "keywords": [
+    "comcast",
+    "business",
+    "voiceedge",
+    "auto-attendant",
+    "ivr",
+    "call-routing",
+    "pbx",
+    "telecommunications"
+  ],
+  "author": "Comcast Business Design Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winzenburg/Auto-Attendant"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ]
+}

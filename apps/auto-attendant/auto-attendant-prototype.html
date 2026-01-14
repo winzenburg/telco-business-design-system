@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business VoiceEdge - Call Flow Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    :root {
+      --ds-color-primary-50: #f0f5ff;
+      --ds-color-primary-500: #0047BB;
+      --ds-color-primary-600: #003d9f;
+      --ds-color-primary-700: #003385;
+      --ds-color-neutral-50: #f9fafb;
+      --ds-color-neutral-100: #f3f4f6;
+      --ds-color-neutral-300: #d1d5db;
+      --ds-color-neutral-700: #374151;
+      --ds-color-neutral-900: #111827;
+      --ds-color-white: #ffffff;
+      --ds-color-green-500: #10b981;
+      --ds-color-red-500: #ef4444;
+      --ds-color-yellow-500: #f59e0b;
+    }
+
+    .btn-primary {
+      background-color: var(--ds-color-primary-500);
+      color: var(--ds-color-white);
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      transition: all 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--ds-color-primary-600);
+      box-shadow: 0 2px 8px -3px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      background-color: var(--ds-color-white);
+      color: var(--ds-color-primary-500);
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      border: 1px solid var(--ds-color-neutral-300);
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--ds-color-primary-50);
+      border-color: var(--ds-color-primary-500);
+    }
+
+    .card {
+      background-color: var(--ds-color-white);
+      border: 1px solid var(--ds-color-neutral-300);
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-active {
+      background-color: var(--ds-color-primary-50);
+      color: var(--ds-color-primary-700);
+      border-left: 3px solid var(--ds-color-primary-500);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-success {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+
+    .badge-warning {
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+
+    .badge-danger {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+
+    .badge-info {
+      background-color: #dbeafe;
+      color: #1e40af;
+    }
+
+    .flow-node {
+      position: relative;
+      padding: 1rem;
+      background: white;
+      border: 2px solid var(--ds-color-neutral-300);
+      border-radius: 0.5rem;
+      cursor: move;
+      transition: all 0.2s;
+    }
+
+    .flow-node:hover {
+      border-color: var(--ds-color-primary-500);
+      box-shadow: 0 4px 12px rgba(0, 71, 187, 0.1);
+    }
+
+    .flow-node-start {
+      border-color: var(--ds-color-green-500);
+      background: linear-gradient(135deg, #ecfdf5 0%, white 100%);
+    }
+
+    .flow-node-end {
+      border-color: var(--ds-color-red-500);
+      background: linear-gradient(135deg, #fef2f2 0%, white 100%);
+    }
+
+    .keypad-button {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border: 2px solid var(--ds-color-neutral-300);
+      border-radius: 0.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .keypad-button:hover {
+      border-color: var(--ds-color-primary-500);
+      background-color: var(--ds-color-primary-50);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 71, 187, 0.1);
+    }
+
+    .table-row {
+      border-bottom: 1px solid var(--ds-color-neutral-300);
+      transition: background-color 0.15s;
+    }
+
+    .table-row:hover {
+      background-color: var(--ds-color-neutral-50);
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--ds-color-primary-500) 0%, var(--ds-color-primary-700) 100%);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgba(0, 71, 187, 0.2);
+    }
+
+    #app {
+      display: none;
+    }
+
+    #app.loaded {
+      display: flex;
+    }
+
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      color: var(--ds-color-neutral-700);
+      text-decoration: none;
+      border-radius: 0.375rem;
+      transition: all 0.15s;
+      cursor: pointer;
+      gap: 0.75rem;
+    }
+
+    .sidebar-link:hover {
+      background-color: var(--ds-color-neutral-100);
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div id="app" class="min-h-screen">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 z-10">
+      <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+            <i data-lucide="phone-call" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <h1 class="text-lg font-bold text-gray-900">VoiceEdge</h1>
+            <p class="text-xs text-gray-500">Call Management</p>
+          </div>
+        </div>
+      </div>
+      
+      <nav class="p-4 space-y-1">
+        <a class="sidebar-link sidebar-active" data-page="dashboard">
+          <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+          <span>Dashboard</span>
+        </a>
+        <a class="sidebar-link" data-page="call-flow">
+          <i data-lucide="workflow" class="w-5 h-5"></i>
+          <span>Call Flow</span>
+        </a>
+        <a class="sidebar-link" data-page="ivr-keypad">
+          <i data-lucide="grid-3x3" class="w-5 h-5"></i>
+          <span>IVR Keypad</span>
+        </a>
+        <a class="sidebar-link" data-page="contacts">
+          <i data-lucide="users" class="w-5 h-5"></i>
+          <span>Contact Lists</span>
+        </a>
+        <a class="sidebar-link" data-page="call-logs">
+          <i data-lucide="phone" class="w-5 h-5"></i>
+          <span>Call Logs</span>
+        </a>
+        <a class="sidebar-link" data-page="settings">
+          <i data-lucide="settings" class="w-5 h-5"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+            <i data-lucide="user" class="w-5 h-5 text-gray-600"></i>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-medium text-gray-900">Admin User</p>
+            <p class="text-xs text-gray-500">admin@company.com</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+      <!-- Dashboard Page -->
+      <div id="page-dashboard" class="page active">
+        <div class="mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Dashboard</h2>
+          <p class="text-gray-600">Overview of your call management system</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div class="stat-card">
+            <div class="flex items-center justify-between mb-4">
+              <i data-lucide="phone-incoming" class="w-8 h-8"></i>
+              <span class="badge bg-white/20 text-white">Today</span>
+            </div>
+            <p class="text-3xl font-bold mb-1">247</p>
+            <p class="text-blue-100 text-sm">Total Calls</p>
+          </div>
+
+          <div class="card p-6">
+            <div class="flex items-center justify-between mb-4">
+              <i data-lucide="check-circle" class="w-8 h-8 text-green-500"></i>
+              <span class="badge badge-success">+12%</span>
+            </div>
+            <p class="text-3xl font-bold text-gray-900 mb-1">189</p>
+            <p class="text-gray-600 text-sm">Answered</p>
+          </div>
+
+          <div class="card p-6">
+            <div class="flex items-center justify-between mb-4">
+              <i data-lucide="x-circle" class="w-8 h-8 text-red-500"></i>
+              <span class="badge badge-danger">-3%</span>
+            </div>
+            <p class="text-3xl font-bold text-gray-900 mb-1">42</p>
+            <p class="text-gray-600 text-sm">Blocked</p>
+          </div>
+
+          <div class="card p-6">
+            <div class="flex items-center justify-between mb-4">
+              <i data-lucide="phone-missed" class="w-8 h-8 text-yellow-500"></i>
+              <span class="badge badge-warning">16</span>
+            </div>
+            <p class="text-3xl font-bold text-gray-900 mb-1">16</p>
+            <p class="text-gray-600 text-sm">Missed</p>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="card">
+            <div class="p-6 border-b border-gray-200">
+              <h3 class="text-lg font-semibold text-gray-900">Recent Calls</h3>
+            </div>
+            <div class="p-6">
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                      <i data-lucide="phone-incoming" class="w-5 h-5 text-green-600"></i>
+                    </div>
+                    <div>
+                      <p class="font-medium text-gray-900">(215) 555-0123</p>
+                      <p class="text-sm text-gray-500">2 minutes ago</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-success">Answered</span>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                      <i data-lucide="phone-off" class="w-5 h-5 text-red-600"></i>
+                    </div>
+                    <div>
+                      <p class="font-medium text-gray-900">(215) 555-0199</p>
+                      <p class="text-sm text-gray-500">15 minutes ago</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-danger">Blocked</span>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                      <i data-lucide="phone-incoming" class="w-5 h-5 text-blue-600"></i>
+                    </div>
+                    <div>
+                      <p class="font-medium text-gray-900">(215) 555-0187</p>
+                      <p class="text-sm text-gray-500">32 minutes ago</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-success">Answered</span>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center">
+                      <i data-lucide="phone-missed" class="w-5 h-5 text-yellow-600"></i>
+                    </div>
+                    <div>
+                      <p class="font-medium text-gray-900">(215) 555-0145</p>
+                      <p class="text-sm text-gray-500">1 hour ago</p>
+                    </div>
+                  </div>
+                  <span class="badge badge-warning">Missed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="p-6 border-b border-gray-200">
+              <h3 class="text-lg font-semibold text-gray-900">Active Call Flows</h3>
+            </div>
+            <div class="p-6">
+              <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                    <div>
+                      <p class="font-medium text-gray-900">Business Hours Flow</p>
+                      <p class="text-sm text-gray-500">Mon-Fri 9AM-5PM</p>
+                    </div>
+                  </div>
+                  <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <div>
+                      <p class="font-medium text-gray-900">After Hours Flow</p>
+                      <p class="text-sm text-gray-500">Evenings & Weekends</p>
+                    </div>
+                  </div>
+                  <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                    <div>
+                      <p class="font-medium text-gray-900">Emergency Flow</p>
+                      <p class="text-sm text-gray-500">High Priority Calls</p>
+                    </div>
+                  </div>
+                  <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call Flow Page -->
+      <div id="page-call-flow" class="page">
+        <div class="mb-8 flex items-center justify-between">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Call Flow Configuration</h2>
+            <p class="text-gray-600">Design your call routing and IVR workflow</p>
+          </div>
+          <button class="btn-primary flex items-center gap-2">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+            Add Node
+          </button>
+        </div>
+
+        <div class="card p-8">
+          <div class="mb-6 flex gap-4">
+            <button class="btn-secondary flex items-center gap-2">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              Save Flow
+            </button>
+            <button class="btn-secondary flex items-center gap-2">
+              <i data-lucide="play" class="w-4 h-4"></i>
+              Test Flow
+            </button>
+            <button class="btn-secondary flex items-center gap-2">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              Export
+            </button>
+          </div>
+
+          <div class="relative bg-gray-50 rounded-lg p-8 min-h-[600px] border-2 border-dashed border-gray-300">
+            <div class="grid grid-cols-3 gap-8">
+              <!-- Start Node -->
+              <div class="flow-node flow-node-start">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="phone-incoming" class="w-5 h-5 text-green-600"></i>
+                  <h4 class="font-semibold text-gray-900">Incoming Call</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">Entry point</p>
+                <div class="flex gap-2 mt-3">
+                  <span class="badge badge-info text-xs">Start</span>
+                </div>
+              </div>
+
+              <!-- IVR Menu Node -->
+              <div class="flow-node">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="menu" class="w-5 h-5 text-blue-600"></i>
+                  <h4 class="font-semibold text-gray-900">Main Menu</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">"Press 1 for Sales..."</p>
+                <div class="flex flex-wrap gap-2 mt-3">
+                  <span class="badge bg-blue-100 text-blue-800 text-xs">1: Sales</span>
+                  <span class="badge bg-blue-100 text-blue-800 text-xs">2: Support</span>
+                  <span class="badge bg-blue-100 text-blue-800 text-xs">0: Operator</span>
+                </div>
+              </div>
+
+              <!-- Route to Department -->
+              <div class="flow-node">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="users" class="w-5 h-5 text-purple-600"></i>
+                  <h4 class="font-semibold text-gray-900">Route Call</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">Transfer to department</p>
+                <div class="flex gap-2 mt-3">
+                  <span class="badge bg-purple-100 text-purple-800 text-xs">Queue</span>
+                </div>
+              </div>
+
+              <!-- Business Hours Check -->
+              <div class="flow-node">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="clock" class="w-5 h-5 text-orange-600"></i>
+                  <h4 class="font-semibold text-gray-900">Business Hours</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">Check operating hours</p>
+                <div class="flex gap-2 mt-3">
+                  <span class="badge bg-green-100 text-green-800 text-xs">Open</span>
+                  <span class="badge bg-red-100 text-red-800 text-xs">Closed</span>
+                </div>
+              </div>
+
+              <!-- Voicemail -->
+              <div class="flow-node">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="voicemail" class="w-5 h-5 text-indigo-600"></i>
+                  <h4 class="font-semibold text-gray-900">Voicemail</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">Record message</p>
+                <div class="flex gap-2 mt-3">
+                  <span class="badge bg-indigo-100 text-indigo-800 text-xs">Beep</span>
+                </div>
+              </div>
+
+              <!-- End Node -->
+              <div class="flow-node flow-node-end">
+                <div class="flex items-center gap-2 mb-3">
+                  <i data-lucide="phone-off" class="w-5 h-5 text-red-600"></i>
+                  <h4 class="font-semibold text-gray-900">End Call</h4>
+                </div>
+                <p class="text-sm text-gray-600 mb-2">Call completed</p>
+                <div class="flex gap-2 mt-3">
+                  <span class="badge badge-danger text-xs">Hangup</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <div class="flex items-start gap-3">
+                <i data-lucide="info" class="w-5 h-5 text-blue-600 mt-0.5"></i>
+                <div>
+                  <h5 class="font-semibold text-blue-900 mb-1">Flow Builder</h5>
+                  <p class="text-sm text-blue-800">Drag nodes to rearrange, click to edit configuration, connect nodes to define call routing paths.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IVR Keypad Page -->
+      <div id="page-ivr-keypad" class="page">
+        <div class="mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">IVR Keypad Options</h2>
+          <p class="text-gray-600">Configure keypad menu options and routing</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Keypad Visual -->
+          <div class="card p-8">
+            <h3 class="text-lg font-semibold text-gray-900 mb-6">Keypad Configuration</h3>
+            <div class="grid grid-cols-3 gap-4 max-w-sm mx-auto mb-6">
+              <div class="keypad-button">1</div>
+              <div class="keypad-button">2</div>
+              <div class="keypad-button">3</div>
+              <div class="keypad-button">4</div>
+              <div class="keypad-button">5</div>
+              <div class="keypad-button">6</div>
+              <div class="keypad-button">7</div>
+              <div class="keypad-button">8</div>
+              <div class="keypad-button">9</div>
+              <div class="keypad-button">*</div>
+              <div class="keypad-button">0</div>
+              <div class="keypad-button">#</div>
+            </div>
+            <p class="text-sm text-gray-500 text-center">Click a key to configure its action</p>
+          </div>
+
+          <!-- Keypad Actions -->
+          <div class="card">
+            <div class="p-6 border-b border-gray-200">
+              <h3 class="text-lg font-semibold text-gray-900">Key Actions</h3>
+            </div>
+            <div class="divide-y divide-gray-200">
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded bg-primary-100 flex items-center justify-center font-bold text-primary-700">1</div>
+                    <div>
+                      <p class="font-medium text-gray-900">Sales Department</p>
+                      <p class="text-sm text-gray-500">Transfer to sales team</p>
+                    </div>
+                  </div>
+                  <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded bg-primary-100 flex items-center justify-center font-bold text-primary-700">2</div>
+                    <div>
+                      <p class="font-medium text-gray-900">Support Department</p>
+                      <p class="text-sm text-gray-500">Technical support queue</p>
+                    </div>
+                  </div>
+                  <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded bg-primary-100 flex items-center justify-center font-bold text-primary-700">3</div>
+                    <div>
+                      <p class="font-medium text-gray-900">Billing & Accounts</p>
+                      <p class="text-sm text-gray-500">Billing inquiries</p>
+                    </div>
+                  </div>
+                  <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded bg-primary-100 flex items-center justify-center font-bold text-primary-700">0</div>
+                    <div>
+                      <p class="font-medium text-gray-900">Operator</p>
+                      <p class="text-sm text-gray-500">Live operator assistance</p>
+                    </div>
+                  </div>
+                  <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+                </div>
+              </div>
+
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded bg-gray-100 flex items-center justify-center font-bold text-gray-400">#</div>
+                    <div>
+                      <p class="font-medium text-gray-400">Not Configured</p>
+                      <p class="text-sm text-gray-400">No action assigned</p>
+                    </div>
+                  </div>
+                  <button class="btn-secondary text-sm py-1 px-3">Configure</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Lists Page -->
+      <div id="page-contacts" class="page">
+        <div class="mb-8 flex items-center justify-between">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Contact Lists</h2>
+            <p class="text-gray-600">Manage blocked and permitted phone numbers</p>
+          </div>
+          <button class="btn-primary flex items-center gap-2">
+            <i data-lucide="plus" class="w-5 h-5"></i>
+            Add Contact
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Blocked Numbers -->
+          <div class="card">
+            <div class="p-6 border-b border-gray-200 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <i data-lucide="x-circle" class="w-6 h-6 text-red-500"></i>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">Blocked Numbers</h3>
+                  <p class="text-sm text-gray-500">42 numbers blocked</p>
+                </div>
+              </div>
+              <button class="btn-secondary text-sm py-1 px-3">Import</button>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <input type="text" placeholder="Search blocked numbers..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+                  <div>
+                    <p class="font-medium text-gray-900">(215) 555-0199</p>
+                    <p class="text-xs text-gray-500">Spam caller</p>
+                  </div>
+                  <button class="text-red-600 hover:text-red-700">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+                  <div>
+                    <p class="font-medium text-gray-900">(215) 555-0188</p>
+                    <p class="text-xs text-gray-500">Telemarketer</p>
+                  </div>
+                  <button class="text-red-600 hover:text-red-700">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+                  <div>
+                    <p class="font-medium text-gray-900">(215) 555-0177</p>
+                    <p class="text-xs text-gray-500">Robocaller</p>
+                  </div>
+                  <button class="text-red-600 hover:text-red-700">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+                  <div>
+                    <p class="font-medium text-gray-900">(215) 555-0166</p>
+                    <p class="text-xs text-gray-500">Harassment</p>
+                  </div>
+                  <button class="text-red-600 hover:text-red-700">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mt-4 text-center">
+                <button class="text-sm text-primary-600 hover:text-primary-700 font-medium">View all 42 blocked numbers</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Permitted Numbers -->
+          <div class="card">
+            <div class="p-6 border-b border-gray-200 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle" class="w-6 h-6 text-green-500"></i>
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">Permitted Numbers</h3>
+                  <p class="text-sm text-gray-500">128 numbers allowed</p>
+                </div>
+              </div>
+              <button class="btn-secondary text-sm py-1 px-3">Import</button>
+            </div>
+            <div class="p-6">
+              <div class="mb-4">
+                <input type="text" placeholder="Search permitted numbers..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                  <div>
+                    <p class="font-medium text-gray-900">(215) 555-0123</p>
+                    <p class="text-xs text-gray-500">Partner company</p>
+                  </div>
+                  <button class="text-green-600 hover:text-green-700">
+                    <i data-lucide="edit" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                  <div>
+                    <p class="font-medium text-gray-900">(215) 555-0134</p>
+                    <p class="text-xs text-gray-500">VIP client</p>
+                  </div>
+                  <button class="text-green-600 hover:text-green-700">
+                    <i data-lucide="edit" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                  <div>
+                    <p class="font-medium text-gray-900">(215) 555-0145</p>
+                    <p class="text-xs text-gray-500">Emergency contact</p>
+                  </div>
+                  <button class="text-green-600 hover:text-green-700">
+                    <i data-lucide="edit" class="w-4 h-4"></i>
+                  </button>
+                </div>
+
+                <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                  <div>
+                    <p class="font-medium text-gray-900">(215) 555-0156</p>
+                    <p class="text-xs text-gray-500">Support partner</p>
+                  </div>
+                  <button class="text-green-600 hover:text-green-700">
+                    <i data-lucide="edit" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="mt-4 text-center">
+                <button class="text-sm text-primary-600 hover:text-primary-700 font-medium">View all 128 permitted numbers</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call Logs Page -->
+      <div id="page-call-logs" class="page">
+        <div class="mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Call Logs</h2>
+          <p class="text-gray-600">Detailed history of all calls</p>
+        </div>
+
+        <div class="card">
+          <div class="p-6 border-b border-gray-200 flex items-center justify-between">
+            <div class="flex gap-4">
+              <input type="text" placeholder="Search calls..." class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+              <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+                <option>All Status</option>
+                <option>Answered</option>
+                <option>Missed</option>
+                <option>Blocked</option>
+              </select>
+            </div>
+            <button class="btn-secondary flex items-center gap-2">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              Export
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50 border-b border-gray-200">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">Time</th>
+                  <th class="px-6 py-3 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">Number</th>
+                  <th class="px-6 py-3 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">Direction</th>
+                  <th class="px-6 py-3 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">Duration</th>
+                  <th class="px-6 py-3 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">Status</th>
+                  <th class="px-6 py-3 text-left text-xs font-semibold text-gray-900 uppercase tracking-wider">Action</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Today, 2:34 PM</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(215) 555-0123</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    <i data-lucide="phone-incoming" class="w-4 h-4 inline mr-1"></i>
+                    Incoming
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">5:23</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="badge badge-success">Answered</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    <button class="text-primary-600 hover:text-primary-700">Details</button>
+                  </td>
+                </tr>
+
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Today, 1:15 PM</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(215) 555-0199</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    <i data-lucide="phone-incoming" class="w-4 h-4 inline mr-1"></i>
+                    Incoming
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">0:00</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="badge badge-danger">Blocked</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    <button class="text-primary-600 hover:text-primary-700">Details</button>
+                  </td>
+                </tr>
+
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Today, 11:47 AM</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(215) 555-0187</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    <i data-lucide="phone-incoming" class="w-4 h-4 inline mr-1"></i>
+                    Incoming
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">12:48</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="badge badge-success">Answered</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    <button class="text-primary-600 hover:text-primary-700">Details</button>
+                  </td>
+                </tr>
+
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Today, 9:23 AM</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">(215) 555-0145</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                    <i data-lucide="phone-incoming" class="w-4 h-4 inline mr-1"></i>
+                    Incoming
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">0:00</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="badge badge-warning">Missed</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm">
+                    <button class="text-primary-600 hover:text-primary-700">Details</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="p-6 border-t border-gray-200 flex items-center justify-between">
+            <p class="text-sm text-gray-600">Showing 1-10 of 247 calls</p>
+            <div class="flex gap-2">
+              <button class="btn-secondary py-1 px-3 text-sm">Previous</button>
+              <button class="btn-primary py-1 px-3 text-sm">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Page -->
+      <div id="page-settings" class="page">
+        <div class="mb-8">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Settings</h2>
+          <p class="text-gray-600">Configure your call management system</p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="card">
+            <div class="p-6 border-b border-gray-200">
+              <h3 class="text-lg font-semibold text-gray-900">General Settings</h3>
+            </div>
+            <div class="p-6 space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
+                <input type="text" value="Acme Corporation" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Main Phone Number</label>
+                <input type="tel" value="(215) 555-0100" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Time Zone</label>
+                <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+                  <option>Eastern Time (ET)</option>
+                  <option>Central Time (CT)</option>
+                  <option>Mountain Time (MT)</option>
+                  <option>Pacific Time (PT)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="p-6 border-b border-gray-200">
+              <h3 class="text-lg font-semibold text-gray-900">Business Hours</h3>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">Monday - Friday</p>
+                  <p class="text-sm text-gray-500">9:00 AM - 5:00 PM</p>
+                </div>
+                <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+              </div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">Saturday</p>
+                  <p class="text-sm text-gray-500">Closed</p>
+                </div>
+                <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+              </div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">Sunday</p>
+                  <p class="text-sm text-gray-500">Closed</p>
+                </div>
+                <button class="btn-secondary text-sm py-1 px-3">Edit</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="p-6 border-b border-gray-200">
+              <h3 class="text-lg font-semibold text-gray-900">Call Blocking</h3>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">Auto-block known spam</p>
+                  <p class="text-sm text-gray-500">Automatically block calls from known spam databases</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" checked class="sr-only peer">
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500"></div>
+                </label>
+              </div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-medium text-gray-900">Block anonymous callers</p>
+                  <p class="text-sm text-gray-500">Block calls with no caller ID</p>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" class="sr-only peer">
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-500"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-end gap-3">
+            <button class="btn-secondary">Reset</button>
+            <button class="btn-primary">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Show app after icons are loaded
+    document.getElementById('app').classList.add('loaded');
+
+    // Navigation
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    const pages = document.querySelectorAll('.page');
+
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pageId = link.dataset.page;
+
+        // Update active states
+        sidebarLinks.forEach(l => l.classList.remove('sidebar-active'));
+        link.classList.add('sidebar-active');
+
+        // Show selected page
+        pages.forEach(p => p.classList.remove('active'));
+        document.getElementById(`page-${pageId}`).classList.add('active');
+
+        // Reinitialize icons
+        lucide.createIcons();
+      });
+    });
+
+    // Keypad interaction
+    document.querySelectorAll('.keypad-button').forEach(button => {
+      button.addEventListener('click', () => {
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          button.style.transform = '';
+        }, 100);
+      });
+    });
+  </script>
+</body>
+</html>
