@@ -789,6 +789,122 @@
       transform: scale(1.05);
     }
 
+    /* Login Overlay */
+    .login-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #003a99 0%, #0047bb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .login-overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .login-box {
+      background: white;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .login-logo {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .login-logo h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--comcast-blue);
+      margin-bottom: 8px;
+    }
+
+    .login-logo p {
+      font-size: 14px;
+      color: var(--neutral-600);
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .login-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .login-input-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--neutral-700);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .login-input-group input {
+      padding: 12px 16px;
+      border: 2px solid var(--neutral-200);
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.2s;
+      outline: none;
+    }
+
+    .login-input-group input:focus {
+      border-color: var(--comcast-blue);
+      box-shadow: 0 0 0 3px rgba(0, 71, 187, 0.1);
+    }
+
+    .login-button {
+      background: var(--comcast-blue);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .login-button:hover {
+      background: var(--comcast-light-blue);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 71, 187, 0.3);
+    }
+
+    .login-error {
+      background: #fee2e2;
+      color: #dc2626;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .login-error.show {
+      display: flex;
+    }
+
     .info-banner {
       background: #e6f0ff;
       border: 1px solid #b3d4ff;
@@ -824,6 +940,41 @@
   </style>
 </head>
 <body>
+  <!-- Login Overlay -->
+  <div id="login-overlay" class="login-overlay">
+    <div class="login-box">
+      <div class="login-logo">
+        <h1>BUSINESS VOICEEDGE®</h1>
+        <p>Auto-Attendant Management</p>
+      </div>
+      
+      <form class="login-form" onsubmit="handleLogin(event)">
+        <div class="login-input-group">
+          <label for="login-password">Access Code</label>
+          <input 
+            type="password" 
+            id="login-password" 
+            placeholder="Enter access code"
+            autocomplete="off"
+          />
+        </div>
+        
+        <div id="login-error" class="login-error">
+          <i data-lucide="alert-circle" style="width: 16px; height: 16px;"></i>
+          <span>Invalid access code. Please try again.</span>
+        </div>
+        
+        <button type="submit" class="login-button">
+          Access Dashboard
+        </button>
+      </form>
+      
+      <div style="margin-top: 24px; text-align: center; font-size: 12px; color: var(--neutral-500);">
+        Demo Access Code: <strong style="color: var(--comcast-blue);">demo2026</strong>
+      </div>
+    </div>
+  </div>
+
   <!-- Comcast Header -->
   <header class="comcast-header">
     <!-- Top Bar -->
@@ -855,6 +1006,9 @@
           <div style="width: 32px; height: 32px; border-radius: 50%; background: white; color: var(--comcast-blue); display: flex; align-items: center; justify-content: center;">
             <i data-lucide="user" style="width: 18px; height: 18px;"></i>
           </div>
+          <button onclick="handleLogout()" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 6px 14px; border-radius: 6px; font-size: 13px; cursor: pointer; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+            Logout
+          </button>
         </div>
       </div>
     </div>
@@ -1033,7 +1187,15 @@
       </div>
 
       <!-- Google Virtual Assistant Usage (Compact) -->
-      <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #90caf9;">
+      <div id="dashboard-ai-usage" style="position: relative; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #fbbf24;">
+        <!-- Demo Toggle -->
+        <div style="position: absolute; top: -40px; right: 0; background: var(--neutral-900); color: white; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); z-index: 10;">
+          <span id="demo-status-label">DEMO: Warning</span>
+          <button onclick="toggleDemoUsageState()" style="background: white; color: var(--neutral-900); border: none; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; cursor: pointer;">
+            Toggle State
+          </button>
+        </div>
+        
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
           <div style="display: flex; align-items: center; gap: 12px;">
             <div style="width: 48px; height: 48px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,71,187,0.15);">
@@ -1053,14 +1215,14 @@
         <!-- Usage Stats -->
         <div>
           <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
-            <span style="font-size: 28px; font-weight: 600; color: var(--neutral-900);">247</span>
+            <span style="font-size: 28px; font-weight: 600; color: var(--neutral-900);">410</span>
             <span style="font-size: 14px; color: var(--neutral-700);">/ 500 minutes used</span>
-            <span style="font-size: 14px; font-weight: 600; color: #10b981; margin-left: auto;">253 remaining</span>
+            <span style="font-size: 14px; font-weight: 600; color: #f59e0b; margin-left: auto;">90 remaining</span>
           </div>
           
           <!-- Progress Bar -->
           <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.5); border-radius: 4px; overflow: hidden; margin-bottom: 8px;">
-            <div style="width: 49.4%; height: 100%; background: var(--comcast-blue); border-radius: 4px;"></div>
+            <div style="width: 82%; height: 100%; background: #f59e0b; border-radius: 4px;"></div>
           </div>
           
           <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -2470,23 +2632,23 @@
           <div style="margin-bottom: 24px;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
               <div>
-                <span style="font-size: 32px; font-weight: 600; color: var(--neutral-900);">247</span>
+                <span style="font-size: 32px; font-weight: 600; color: var(--neutral-900);">410</span>
                 <span style="font-size: 16px; color: var(--neutral-600); margin-left: 4px;">/ 500 minutes used</span>
               </div>
               <div style="text-align: right;">
-                <div style="font-size: 24px; font-weight: 600; color: #10b981;">253</div>
+                <div style="font-size: 24px; font-weight: 600; color: #f59e0b;">90</div>
                 <div style="font-size: 12px; color: var(--neutral-600); text-transform: uppercase; letter-spacing: 0.5px;">Minutes Remaining</div>
               </div>
             </div>
             
             <!-- Progress Bar -->
             <div style="width: 100%; height: 12px; background: var(--neutral-200); border-radius: 6px; overflow: hidden; position: relative;">
-              <div style="width: 49.4%; height: 100%; background: linear-gradient(90deg, var(--comcast-blue) 0%, #0056b3 100%); border-radius: 6px; transition: width 0.3s;"></div>
+              <div style="width: 82%; height: 100%; background: linear-gradient(90deg, #f59e0b 0%, #f59e0b 100%); border-radius: 6px; transition: width 0.3s;"></div>
             </div>
             
             <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
               <span style="font-size: 12px; color: var(--neutral-600);">Billing cycle: Jan 1 - Jan 31, 2026</span>
-              <span style="font-size: 12px; font-weight: 600; color: var(--comcast-blue);">49% used</span>
+              <span style="font-size: 12px; font-weight: 600; color: #f59e0b;">82% used</span>
             </div>
             
             <div style="display: flex; align-items: center; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--neutral-200);">
@@ -3289,6 +3451,67 @@
     // Initialize Lucide icons
     lucide.createIcons();
 
+    // Login functionality
+    const DEMO_PASSWORD = 'demo2026';
+    
+    function handleLogin(event) {
+      event.preventDefault();
+      const passwordInput = document.getElementById('login-password');
+      const errorDiv = document.getElementById('login-error');
+      const overlay = document.getElementById('login-overlay');
+      
+      if (passwordInput.value === DEMO_PASSWORD) {
+        // Successful login
+        localStorage.setItem('autoAttendantAuth', 'true');
+        overlay.classList.add('hidden');
+        errorDiv.classList.remove('show');
+        passwordInput.value = '';
+      } else {
+        // Failed login
+        errorDiv.classList.add('show');
+        passwordInput.value = '';
+        passwordInput.focus();
+        
+        // Shake animation
+        passwordInput.style.animation = 'shake 0.5s';
+        setTimeout(() => {
+          passwordInput.style.animation = '';
+        }, 500);
+      }
+    }
+    
+    // Check if user is already authenticated
+    function checkAuth() {
+      const isAuthenticated = localStorage.getItem('autoAttendantAuth');
+      const overlay = document.getElementById('login-overlay');
+      
+      if (isAuthenticated === 'true') {
+        overlay.classList.add('hidden');
+      }
+    }
+    
+    // Logout function
+    function handleLogout() {
+      localStorage.removeItem('autoAttendantAuth');
+      const overlay = document.getElementById('login-overlay');
+      overlay.classList.remove('hidden');
+      document.getElementById('login-password').focus();
+    }
+    
+    // Add shake animation for failed login
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+        20%, 40%, 60%, 80% { transform: translateX(10px); }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Check authentication on page load
+    checkAuth();
+
     // Global state variable
     let keypadContext = 'open'; // 'open' or 'closed'
 
@@ -3881,6 +4104,192 @@
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
+
+    // Demo state management
+    let currentDemoState = 'warning'; // 'normal', 'warning', 'critical'
+    
+    function toggleDemoUsageState() {
+      // Cycle through states: warning -> critical -> normal -> warning
+      if (currentDemoState === 'warning') {
+        currentDemoState = 'critical';
+      } else if (currentDemoState === 'critical') {
+        currentDemoState = 'normal';
+      } else {
+        currentDemoState = 'warning';
+      }
+      
+      // Update the display
+      updateAIUsageStatus();
+    }
+
+    // AI Usage Threshold Monitoring
+    function updateAIUsageStatus() {
+      // Get usage values based on current demo state
+      let used, total, statusLabel;
+      
+      if (currentDemoState === 'normal') {
+        used = 247;
+        total = 500;
+        statusLabel = 'Normal';
+      } else if (currentDemoState === 'warning') {
+        used = 410;
+        total = 500;
+        statusLabel = 'Warning';
+      } else { // critical
+        used = 460;
+        total = 500;
+        statusLabel = 'Critical';
+      }
+      
+      const remaining = total - used;
+      const percentageUsed = (used / total) * 100;
+      
+      // Determine status based on usage
+      let status = 'normal';
+      let statusColor = 'var(--comcast-blue)';
+      let bgGradient = 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)';
+      let borderColor = '#90caf9';
+      let alertHTML = '';
+      
+      if (percentageUsed >= 90) {
+        // Critical: 90%+ used (50 minutes or less)
+        status = 'critical';
+        statusColor = '#dc2626';
+        bgGradient = 'linear-gradient(135deg, #fee2e2 0%, #fecaca 100%)';
+        borderColor = '#f87171';
+        alertHTML = `
+          <div style="background: white; border-left: 4px solid #dc2626; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: start; gap: 12px;">
+            <i data-lucide="alert-triangle" style="width: 20px; height: 20px; color: #dc2626; flex-shrink: 0; margin-top: 2px;"></i>
+            <div style="flex: 1;">
+              <div style="font-size: 13px; font-weight: 600; color: #dc2626; margin-bottom: 4px;">Critical: Only ${remaining} minutes remaining</div>
+              <div style="font-size: 12px; color: var(--neutral-700); line-height: 1.5;">Your AI minutes are nearly depleted. Add more minutes now to avoid service interruption.</div>
+            </div>
+          </div>
+        `;
+      } else if (percentageUsed >= 80) {
+        // Warning: 80-89% used (100-51 minutes remaining)
+        status = 'warning';
+        statusColor = '#f59e0b';
+        bgGradient = 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)';
+        borderColor = '#fbbf24';
+        alertHTML = `
+          <div style="background: white; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: start; gap: 12px;">
+            <i data-lucide="alert-circle" style="width: 20px; height: 20px; color: #f59e0b; flex-shrink: 0; margin-top: 2px;"></i>
+            <div style="flex: 1;">
+              <div style="font-size: 13px; font-weight: 600; color: #f59e0b; margin-bottom: 4px;">Low Balance: ${remaining} minutes remaining</div>
+              <div style="font-size: 12px; color: var(--neutral-700); line-height: 1.5;">You're running low on AI minutes. Consider adding more to ensure uninterrupted service.</div>
+            </div>
+          </div>
+        `;
+      }
+      
+      // Update dashboard card (if it exists)
+      const dashboardCard = document.getElementById('dashboard-ai-usage');
+      if (dashboardCard) {
+        // Update demo label
+        const demoLabel = document.getElementById('demo-status-label');
+        if (demoLabel) {
+          demoLabel.textContent = `DEMO: ${statusLabel}`;
+        }
+        
+        // Update card styling
+        dashboardCard.style.background = bgGradient;
+        dashboardCard.style.borderColor = borderColor;
+        
+        // Update displayed numbers
+        const usedSpan = dashboardCard.querySelector('span[style*="font-size: 28px"]');
+        if (usedSpan) {
+          usedSpan.textContent = used;
+        }
+        
+        const remainingSpan = dashboardCard.querySelector('span[style*="font-size: 14px"][style*="margin-left: auto"]');
+        if (remainingSpan) {
+          remainingSpan.textContent = `${remaining} remaining`;
+          remainingSpan.style.color = status === 'normal' ? '#10b981' : statusColor;
+        }
+        
+        // Update progress bar
+        const dashboardProgressBar = dashboardCard.querySelector('[style*="width:"][style*="height: 100%"]');
+        if (dashboardProgressBar) {
+          dashboardProgressBar.style.width = `${percentageUsed}%`;
+          dashboardProgressBar.style.background = statusColor;
+        }
+        
+        // Remove existing alert if present
+        const existingAlert = dashboardCard.querySelector('[data-alert]');
+        if (existingAlert) {
+          existingAlert.remove();
+        }
+        
+        // Add alert if not normal status
+        if (status !== 'normal' && alertHTML) {
+          const usageStats = dashboardCard.querySelector('div > div');
+          if (usageStats) {
+            const alertDiv = document.createElement('div');
+            alertDiv.setAttribute('data-alert', 'true');
+            alertDiv.innerHTML = alertHTML;
+            usageStats.parentNode.insertBefore(alertDiv, usageStats);
+          }
+        }
+      }
+      
+      // Update landing page card (if it exists)
+      const landingCard = document.querySelector('[style*="Google Virtual Assistant uses AI"]')?.closest('div[style*="background: white"]');
+      if (landingCard) {
+        // Update card styling
+        landingCard.style.borderColor = status !== 'normal' ? borderColor : 'var(--neutral-200)';
+        
+        // Update displayed numbers on landing page
+        const landingUsedSpan = landingCard.querySelector('span[style*="font-size: 32px"]');
+        if (landingUsedSpan) {
+          landingUsedSpan.textContent = used;
+        }
+        
+        const landingRemainingDiv = landingCard.querySelector('div[style*="font-size: 24px"]');
+        if (landingRemainingDiv) {
+          landingRemainingDiv.textContent = remaining;
+          landingRemainingDiv.style.color = status === 'normal' ? '#10b981' : statusColor;
+        }
+        
+        const landingPercentage = landingCard.querySelector('span[style*="82% used"]');
+        if (landingPercentage) {
+          landingPercentage.textContent = `${Math.round(percentageUsed)}% used`;
+          landingPercentage.style.color = status === 'normal' ? 'var(--comcast-blue)' : statusColor;
+        }
+        
+        // Update progress bar
+        const landingProgressBar = landingCard.querySelector('[style*="width:"][style*="transition: width"]');
+        if (landingProgressBar) {
+          landingProgressBar.style.width = `${percentageUsed}%`;
+          landingProgressBar.style.background = status === 'normal' 
+            ? 'linear-gradient(90deg, var(--comcast-blue) 0%, #0056b3 100%)' 
+            : `linear-gradient(90deg, ${statusColor} 0%, ${statusColor} 100%)`;
+        }
+        
+        // Remove existing alert if present
+        const existingLandingAlert = landingCard.querySelector('[data-alert]');
+        if (existingLandingAlert) {
+          existingLandingAlert.remove();
+        }
+        
+        // Add alert banner at top of card if not normal
+        if (status !== 'normal' && alertHTML) {
+          const cardContent = landingCard.querySelector('div[style*="margin-bottom: 24px"]');
+          if (cardContent) {
+            const alertDiv = document.createElement('div');
+            alertDiv.setAttribute('data-alert', 'true');
+            alertDiv.innerHTML = alertHTML;
+            landingCard.insertBefore(alertDiv, cardContent);
+          }
+        }
+      }
+      
+      // Refresh icons after any updates
+      lucide.createIcons();
+    }
+    
+    // Run on page load
+    updateAIUsageStatus();
   </script>
 </body>
 </html>
