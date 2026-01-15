@@ -2000,11 +2000,11 @@
           </div>
 
           <!-- Breadcrumb Navigation -->
-          <div style="padding: 12px 0; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; font-size: 14px;">
-            <span style="display: flex; align-items: center; gap: 6px; color: var(--neutral-600);">
+          <div style="padding: 12px 0; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; font-size: 14px;">
+            <button onclick="backFromKeypad()" style="display: flex; align-items: center; gap: 6px; color: var(--neutral-600); background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: background 0.15s;" onmouseover="this.style.background='var(--neutral-100)'" onmouseout="this.style.background='none'">
               <i data-lucide="check-circle" style="width: 16px; height: 16px; color: #10b981;"></i>
               Routing Action
-            </span>
+            </button>
             <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: var(--neutral-400);"></i>
             <span style="font-weight: 600; color: var(--comcast-blue);">Keypad Options</span>
             <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: var(--neutral-400);"></i>
@@ -2172,16 +2172,16 @@
           </div>
 
           <!-- Breadcrumb Navigation -->
-          <div style="padding: 12px 0; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; font-size: 14px;">
-            <span style="display: flex; align-items: center; gap: 6px; color: var(--neutral-600);">
+          <div style="padding: 12px 0; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; font-size: 14px;">
+            <button onclick="backFromGreeting(); backFromKeypad();" style="display: flex; align-items: center; gap: 6px; color: var(--neutral-600); background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: background 0.15s;" onmouseover="this.style.background='var(--neutral-100)'" onmouseout="this.style.background='none'">
               <i data-lucide="check-circle" style="width: 16px; height: 16px; color: #10b981;"></i>
               Routing Action
-            </span>
+            </button>
             <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: var(--neutral-400);"></i>
-            <span style="display: flex; align-items: center; gap: 6px; color: var(--neutral-600);">
+            <button onclick="backFromGreeting()" style="display: flex; align-items: center; gap: 6px; color: var(--neutral-600); background: none; border: none; cursor: pointer; padding: 4px 8px; border-radius: 4px; transition: background 0.15s;" onmouseover="this.style.background='var(--neutral-100)'" onmouseout="this.style.background='none'">
               <i data-lucide="check-circle" style="width: 16px; height: 16px; color: #10b981;"></i>
               Keypad Options
-            </span>
+            </button>
             <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: var(--neutral-400);"></i>
             <span style="font-weight: 600; color: var(--comcast-blue);">Greeting</span>
           </div>
