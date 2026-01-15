@@ -1032,6 +1032,47 @@
         </div>
       </div>
 
+      <!-- Google Virtual Assistant Usage (Compact) -->
+      <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #90caf9;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 48px; height: 48px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,71,187,0.15);">
+              <i data-lucide="bot" style="width: 24px; height: 24px; color: var(--comcast-blue);"></i>
+            </div>
+            <div>
+              <h3 style="font-size: 16px; font-weight: 600; color: var(--neutral-900); margin-bottom: 2px;">Google Virtual Assistant</h3>
+              <p style="font-size: 13px; color: var(--neutral-700); margin: 0;">AI-powered call handling</p>
+            </div>
+          </div>
+          <button onclick="alert('Add minutes feature coming soon')" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--comcast-blue); color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--comcast-light-blue)'" onmouseout="this.style.background='var(--comcast-blue)'">
+            <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
+            Add Minutes
+          </button>
+        </div>
+
+        <!-- Usage Stats -->
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+            <span style="font-size: 28px; font-weight: 600; color: var(--neutral-900);">247</span>
+            <span style="font-size: 14px; color: var(--neutral-700);">/ 500 minutes used</span>
+            <span style="font-size: 14px; font-weight: 600; color: #10b981; margin-left: auto;">253 remaining</span>
+          </div>
+          
+          <!-- Progress Bar -->
+          <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.5); border-radius: 4px; overflow: hidden; margin-bottom: 8px;">
+            <div style="width: 49.4%; height: 100%; background: var(--comcast-blue); border-radius: 4px;"></div>
+          </div>
+          
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 12px; color: var(--neutral-600);">Billing cycle: Jan 1 - Jan 31, 2026</span>
+            <div style="display: flex; align-items: center; gap: 4px;">
+              <i data-lucide="clock" style="width: 12px; height: 12px; color: var(--neutral-500);"></i>
+              <span style="font-size: 11px; color: var(--neutral-600);">Updated: 2:30 PM ET</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Two Column Layout -->
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
         <!-- Main Business Number -->
@@ -2064,67 +2105,105 @@
                       <div style="width: 40px; height: 40px; border: 2px solid var(--comcast-blue); background: #e3f2fd; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: var(--comcast-blue);">1</div>
                       <span style="font-size: 13px; color: var(--neutral-600);">to</span>
                     </div>
-                    <div style="flex: 1; display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--neutral-50); border-radius: 6px;">
-                      <i data-lucide="users-round" style="width: 18px; height: 18px; color: var(--neutral-600);"></i>
-                      <span style="font-size: 14px; font-weight: 500; color: var(--neutral-900);">Hunt Group</span>
-                    </div>
+                    <select style="flex: 1; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 6px; font-size: 14px; color: var(--neutral-900); background: white; cursor: pointer;">
+                      <option value="">Select routing type...</option>
+                      <option value="user">User</option>
+                      <option value="external">External Number</option>
+                      <option value="huntgroup" selected>Hunt Group</option>
+                      <option value="voicemail">Voicemail</option>
+                      <option value="menu">Sub-Menu</option>
+                    </select>
                     <button style="background: none; border: none; cursor: pointer; padding: 8px;">
                       <i data-lucide="trash-2" style="width: 18px; height: 18px; color: var(--neutral-400);"></i>
                     </button>
                   </div>
                   <div style="padding-left: 84px;">
-                    <div style="font-size: 13px; color: var(--neutral-600); margin-bottom: 8px;">Unanswered HuntGroup_3 (445) 223-3051 Ext. 3061</div>
+                    <label style="font-size: 13px; color: var(--neutral-700); font-weight: 500; display: block; margin-bottom: 6px;">Select Hunt Group</label>
+                    <select style="width: 100%; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 6px; font-size: 14px; color: var(--neutral-900); background: white; cursor: pointer; margin-bottom: 12px;">
+                      <option value="">Choose a hunt group...</option>
+                      <option value="hg1">Sales Team - (445) 223-3050 Ext. 3050</option>
+                      <option value="hg2" selected>Unanswered HuntGroup_3 - (445) 223-3051 Ext. 3061</option>
+                      <option value="hg3">Support Queue - (445) 223-3052 Ext. 3052</option>
+                      <option value="hg4">Technical Support - (445) 223-3053 Ext. 3053</option>
+                    </select>
                     <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; cursor: pointer;">
                       <input type="radio" name="transfer-1" value="no-users" style="width: 16px; height: 16px;">
                       <span style="font-size: 13px; color: var(--neutral-600);">No Users</span>
                     </label>
-                    <button style="background: none; border: none; color: var(--comcast-blue); font-size: 13px; font-weight: 600; cursor: pointer; padding: 0;">Configure</button>
+                    <button style="background: none; border: none; color: var(--comcast-blue); font-size: 13px; font-weight: 600; cursor: pointer; padding: 0; margin-top: 8px;">Configure</button>
                   </div>
                 </div>
 
-                <!-- Action 2: Operator -->
+                <!-- Action 2: User -->
                 <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 8px; padding: 20px;">
                   <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
                       <span style="font-size: 13px; color: var(--neutral-600);">Press</span>
-                      <div style="width: 40px; height: 40px; border: 2px solid var(--comcast-blue); background: #e3f2fd; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: var(--comcast-blue);">1</div>
+                      <div style="width: 40px; height: 40px; border: 2px solid var(--comcast-blue); background: #e3f2fd; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: var(--comcast-blue);">2</div>
                       <span style="font-size: 13px; color: var(--neutral-600);">to</span>
                     </div>
-                    <div style="flex: 1; display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--neutral-50); border-radius: 6px;">
-                      <i data-lucide="headset" style="width: 18px; height: 18px; color: var(--neutral-600);"></i>
-                      <span style="font-size: 14px; font-weight: 500; color: var(--neutral-900);">Operator</span>
-                    </div>
-                    <button style="background: none; border: none; cursor: pointer; padding: 8px;">
-                      <i data-lucide="trash-2" style="width: 18px; height: 18px; color: var(--neutral-400);"></i>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Action 5: Voicemail -->
-                <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 8px; padding: 20px;">
-                  <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                      <span style="font-size: 13px; color: var(--neutral-600);">Press</span>
-                      <div style="width: 40px; height: 40px; border: 2px solid var(--comcast-blue); background: #e3f2fd; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: var(--comcast-blue);">5</div>
-                      <span style="font-size: 13px; color: var(--neutral-600);">to</span>
-                    </div>
-                    <div style="flex: 1; display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--neutral-50); border-radius: 6px;">
-                      <i data-lucide="voicemail" style="width: 18px; height: 18px; color: var(--neutral-600);"></i>
-                      <span style="font-size: 14px; font-weight: 500; color: var(--neutral-900);">Voicemail</span>
-                    </div>
+                    <select style="flex: 1; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 6px; font-size: 14px; color: var(--neutral-900); background: white; cursor: pointer;">
+                      <option value="">Select routing type...</option>
+                      <option value="user" selected>User</option>
+                      <option value="external">External Number</option>
+                      <option value="huntgroup">Hunt Group</option>
+                      <option value="voicemail">Voicemail</option>
+                      <option value="menu">Sub-Menu</option>
+                    </select>
                     <button style="background: none; border: none; cursor: pointer; padding: 8px;">
                       <i data-lucide="trash-2" style="width: 18px; height: 18px; color: var(--neutral-400);"></i>
                     </button>
                   </div>
                   <div style="padding-left: 84px;">
-                    <div style="font-size: 13px; color: var(--neutral-600); margin-bottom: 12px;">Jack smith (445) 223-3062 Ext. 3082</div>
+                    <label style="font-size: 13px; color: var(--neutral-700); font-weight: 500; display: block; margin-bottom: 6px;">Select User</label>
+                    <select style="width: 100%; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 6px; font-size: 14px; color: var(--neutral-900); background: white; cursor: pointer;">
+                      <option value="">Choose a user...</option>
+                      <option value="user1" selected>John Smith - (445) 223-3060 Ext. 3080</option>
+                      <option value="user2">Jane Doe - (445) 223-3061 Ext. 3081</option>
+                      <option value="user3">Bob Johnson - (445) 223-3062 Ext. 3082</option>
+                      <option value="user4">Sarah Williams - (445) 223-3063 Ext. 3083</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Action 4: Voicemail -->
+                <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 8px; padding: 20px;">
+                  <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <span style="font-size: 13px; color: var(--neutral-600);">Press</span>
+                      <div style="width: 40px; height: 40px; border: 2px solid var(--comcast-blue); background: #e3f2fd; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 600; color: var(--comcast-blue);">4</div>
+                      <span style="font-size: 13px; color: var(--neutral-600);">to</span>
+                    </div>
+                    <select style="flex: 1; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 6px; font-size: 14px; color: var(--neutral-900); background: white; cursor: pointer;">
+                      <option value="">Select routing type...</option>
+                      <option value="user">User</option>
+                      <option value="external">External Number</option>
+                      <option value="huntgroup">Hunt Group</option>
+                      <option value="voicemail" selected>Voicemail</option>
+                      <option value="menu">Sub-Menu</option>
+                    </select>
+                    <button style="background: none; border: none; cursor: pointer; padding: 8px;">
+                      <i data-lucide="trash-2" style="width: 18px; height: 18px; color: var(--neutral-400);"></i>
+                    </button>
+                  </div>
+                  <div style="padding-left: 84px;">
+                    <label style="font-size: 13px; color: var(--neutral-700); font-weight: 500; display: block; margin-bottom: 6px;">Select Voicemail Box</label>
+                    <select style="width: 100%; padding: 10px 12px; border: 1px solid var(--neutral-300); border-radius: 6px; font-size: 14px; color: var(--neutral-900); background: white; cursor: pointer; margin-bottom: 16px;">
+                      <option value="">Choose a voicemail box...</option>
+                      <option value="vm1">General Mailbox - (445) 223-3060 Ext. 3080</option>
+                      <option value="vm2" selected>Jack Smith - (445) 223-3062 Ext. 3082</option>
+                      <option value="vm3">Sales Department - (445) 223-3064 Ext. 3084</option>
+                      <option value="vm4">Support Team - (445) 223-3065 Ext. 3085</option>
+                    </select>
+                    
+                    <label style="font-size: 13px; color: var(--neutral-700); font-weight: 500; display: block; margin-bottom: 8px;">Transfer Options</label>
                     <label style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer;">
-                      <input type="radio" name="transfer-5" value="with-prompt" checked style="width: 16px; height: 16px;">
+                      <input type="radio" name="transfer-4" value="with-prompt" checked style="width: 16px; height: 16px;">
                       <span style="font-size: 13px; color: var(--neutral-700);">Transfer With Prompt</span>
                     </label>
-                    <div style="font-size: 12px; color: var(--neutral-500); margin-left: 24px; font-style: italic;">"Your call is being transferred. Please hold."</div>
-                    <label style="display: flex; align-items: center; gap: 8px; margin-top: 8px; cursor: pointer;">
-                      <input type="radio" name="transfer-5" value="without-prompt" style="width: 16px; height: 16px;">
+                    <div style="font-size: 12px; color: var(--neutral-500); margin-left: 24px; font-style: italic; margin-bottom: 8px;">"Your call is being transferred. Please hold."</div>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                      <input type="radio" name="transfer-4" value="without-prompt" style="width: 16px; height: 16px;">
                       <span style="font-size: 13px; color: var(--neutral-700);">Transfer Without Prompt</span>
                     </label>
                   </div>
@@ -2344,40 +2423,299 @@
             <div class="location-info">
               <span>Call Flow</span>
             </div>
-            <p style="color: var(--neutral-600); font-size: 13px; margin: 8px 0 0 0;">Configure call routing and IVR menus for your business</p>
+            <p style="color: var(--neutral-600); font-size: 13px; margin: 8px 0 0 0;">Manage your automated call routing and voice menus</p>
+          </div>
+          <button onclick="startCallFlowSetup()" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: white; color: var(--comcast-blue); border: 2px solid var(--comcast-blue); border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px;" onmouseover="this.style.background='var(--comcast-blue)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--comcast-blue)';">
+            <i data-lucide="settings" style="width: 18px; height: 18px;"></i>
+            <span>EDIT CALL FLOW</span>
+          </button>
+        </div>
+
+        <!-- Current Status Banner -->
+        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 12px; padding: 24px 32px; margin-bottom: 32px; color: white; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 56px; height: 56px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+              <i data-lucide="phone-call" style="width: 28px; height: 28px;"></i>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 600; margin-bottom: 4px;">Currently Open</div>
+              <div style="font-size: 14px; opacity: 0.9;">Your call flow is active • Eastern Time (GMT-05:00)</div>
+            </div>
+          </div>
+          <div style="text-align: right;">
+            <div style="font-size: 14px; opacity: 0.9; margin-bottom: 4px;">Today's Hours</div>
+            <div style="font-size: 18px; font-weight: 600;">9:00 AM - 5:00 PM</div>
           </div>
         </div>
 
-      <div class="info-banner">
-        <i data-lucide="info" style="width: 20px; height: 20px;"></i>
-        <div class="info-banner-content">
-          <div class="info-banner-title">Automated Attendant Overview</div>
-          <div class="info-banner-text">Set up automated call routing with customizable IVR menus to direct callers to the right department or person. Configure keypad options, business hours, and voicemail settings.</div>
-        </div>
-      </div>
+        <!-- Google Virtual Assistant Usage Card -->
+        <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 12px; padding: 28px 32px; margin-bottom: 32px;">
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,71,187,0.15);">
+                <i data-lucide="bot" style="width: 28px; height: 28px; color: var(--comcast-blue);"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 18px; font-weight: 600; color: var(--neutral-900); margin-bottom: 4px;">Google Virtual Assistant</h3>
+                <p style="font-size: 14px; color: var(--neutral-600); margin: 0;">AI-powered call handling • Current billing cycle</p>
+              </div>
+            </div>
+            <button onclick="alert('Add minutes feature coming soon')" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--comcast-blue); color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--comcast-light-blue)'" onmouseout="this.style.background='var(--comcast-blue)'">
+              <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
+              Add Minutes
+            </button>
+          </div>
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-value">247</div>
-          <div class="stat-label">Total Calls Today</div>
-          <span class="stat-change positive">+12% vs yesterday</span>
+          <!-- Usage Bar -->
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
+              <div>
+                <span style="font-size: 32px; font-weight: 600; color: var(--neutral-900);">247</span>
+                <span style="font-size: 16px; color: var(--neutral-600); margin-left: 4px;">/ 500 minutes used</span>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 24px; font-weight: 600; color: #10b981;">253</div>
+                <div style="font-size: 12px; color: var(--neutral-600); text-transform: uppercase; letter-spacing: 0.5px;">Minutes Remaining</div>
+              </div>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div style="width: 100%; height: 12px; background: var(--neutral-200); border-radius: 6px; overflow: hidden; position: relative;">
+              <div style="width: 49.4%; height: 100%; background: linear-gradient(90deg, var(--comcast-blue) 0%, #0056b3 100%); border-radius: 6px; transition: width 0.3s;"></div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+              <span style="font-size: 12px; color: var(--neutral-600);">Billing cycle: Jan 1 - Jan 31, 2026</span>
+              <span style="font-size: 12px; font-weight: 600; color: var(--comcast-blue);">49% used</span>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--neutral-200);">
+              <i data-lucide="clock" style="width: 14px; height: 14px; color: var(--neutral-500);"></i>
+              <span style="font-size: 12px; color: var(--neutral-600);">Last updated: Today at 2:30 PM ET</span>
+            </div>
+          </div>
+
+          <!-- Info Section -->
+          <div style="background: #f8fafc; border: 1px solid var(--neutral-200); border-radius: 8px; padding: 20px;">
+            <div style="display: flex; align-items: start; gap: 12px; margin-bottom: 16px;">
+              <div style="width: 32px; height: 32px; background: var(--comcast-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i data-lucide="info" style="width: 18px; height: 18px; color: white;"></i>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="font-size: 14px; font-weight: 600; color: var(--neutral-900); margin-bottom: 8px;">How AI Minutes Work</h4>
+                <p style="font-size: 13px; color: var(--neutral-700); line-height: 1.6; margin-bottom: 12px;">
+                  Google Virtual Assistant uses AI to handle your calls naturally. Each minute of conversation with the AI assistant counts toward your monthly allocation.
+                </p>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <i data-lucide="zap" style="width: 16px; height: 16px; color: #f59e0b;"></i>
+                  <span style="font-size: 12px; font-weight: 600; color: var(--neutral-900); text-transform: uppercase; letter-spacing: 0.5px;">Usage</span>
+                </div>
+                <p style="font-size: 13px; color: var(--neutral-700); line-height: 1.5; margin: 0;">
+                  Minutes are consumed during active AI conversations with callers
+                </p>
+              </div>
+              
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <i data-lucide="alert-circle" style="width: 16px; height: 16px; color: #ef4444;"></i>
+                  <span style="font-size: 12px; font-weight: 600; color: var(--neutral-900); text-transform: uppercase; letter-spacing: 0.5px;">When Depleted</span>
+                </div>
+                <p style="font-size: 13px; color: var(--neutral-700); line-height: 1.5; margin: 0;">
+                  Your call flow automatically switches to standard IVR routing
+                </p>
+              </div>
+              
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                  <i data-lucide="credit-card" style="width: 16px; height: 16px; color: #10b981;"></i>
+                  <span style="font-size: 12px; font-weight: 600; color: var(--neutral-900); text-transform: uppercase; letter-spacing: 0.5px;">Add More</span>
+                </div>
+                <p style="font-size: 13px; color: var(--neutral-700); line-height: 1.5; margin: 0;">
+                  Purchase additional minutes or upgrade your plan anytime
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value">189</div>
-          <div class="stat-label">Answered</div>
-          <span class="stat-change positive">76% answer rate</span>
+
+        <!-- Call Flow Configuration Cards -->
+        <h2 style="font-size: 18px; font-weight: 600; color: var(--neutral-900); margin-bottom: 20px;">Call Flow Configuration</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 32px;">
+          <!-- Open Hours Configuration -->
+          <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 12px; padding: 28px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%);"></div>
+            
+            <div style="display: flex; align-items: center; justify-content: between; margin-bottom: 20px;">
+              <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+                <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                  <i data-lucide="sun" style="width: 24px; height: 24px; color: #059669;"></i>
+                </div>
+                <div>
+                  <h3 style="font-size: 16px; font-weight: 600; color: var(--neutral-900); margin-bottom: 2px;">Open Hours</h3>
+                  <p style="font-size: 13px; color: var(--neutral-600);">Monday - Friday, 9:00 AM - 5:00 PM</p>
+                </div>
+              </div>
+              <button onclick="jumpToOpenKeypad()" style="background: none; border: 1px solid var(--neutral-300); color: var(--comcast-blue); padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">
+                Edit
+              </button>
+            </div>
+
+            <div style="border-top: 1px solid var(--neutral-200); padding-top: 20px;">
+              <div style="margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <div style="font-size: 12px; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px;">Schedule</div>
+                  <button onclick="jumpToSchedules()" style="background: none; border: none; color: var(--comcast-blue); font-size: 12px; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <i data-lucide="calendar" style="width: 16px; height: 16px; color: var(--neutral-600);"></i>
+                  <span style="font-size: 14px; color: var(--neutral-700);">Mon-Fri, 9AM-5PM</span>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <div style="font-size: 12px; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px;">Greeting</div>
+                  <button onclick="jumpToOpenGreeting()" style="background: none; border: none; color: var(--comcast-blue); font-size: 12px; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <i data-lucide="volume-2" style="width: 16px; height: 16px; color: var(--comcast-blue);"></i>
+                  <span style="font-size: 14px; color: var(--neutral-700);">Default Greeting</span>
+                </div>
+              </div>
+              
+              <div style="margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <div style="font-size: 12px; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px;">Keypad Options</div>
+                  <button onclick="jumpToOpenKeypad()" style="background: none; border: none; color: var(--comcast-blue); font-size: 12px; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                  <span style="background: #e3f2fd; color: var(--comcast-blue); padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: 500;">1 → Hunt Group</span>
+                  <span style="background: #e3f2fd; color: var(--comcast-blue); padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: 500;">2 → User</span>
+                  <span style="background: #e3f2fd; color: var(--comcast-blue); padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: 500;">4 → Voicemail</span>
+                </div>
+              </div>
+              
+              <div>
+                <div style="font-size: 12px; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Status</div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
+                  <span style="font-size: 14px; color: #10b981; font-weight: 500;">Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Closed Hours Configuration -->
+          <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 12px; padding: 28px; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);"></div>
+            
+            <div style="display: flex; align-items: center; justify-content: between; margin-bottom: 20px;">
+              <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+                <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                  <i data-lucide="moon" style="width: 24px; height: 24px; color: #6366f1;"></i>
+                </div>
+                <div>
+                  <h3 style="font-size: 16px; font-weight: 600; color: var(--neutral-900); margin-bottom: 2px;">Closed Hours & Holidays</h3>
+                  <p style="font-size: 13px; color: var(--neutral-600);">Weekends & 10 holidays configured</p>
+                </div>
+              </div>
+              <button onclick="jumpToClosedRouting()" style="background: none; border: 1px solid var(--neutral-300); color: var(--comcast-blue); padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;">
+                Edit
+              </button>
+            </div>
+
+            <div style="border-top: 1px solid var(--neutral-200); padding-top: 20px;">
+              <div style="margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <div style="font-size: 12px; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px;">Holidays</div>
+                  <button onclick="jumpToHolidays()" style="background: none; border: none; color: var(--comcast-blue); font-size: 12px; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <i data-lucide="calendar-off" style="width: 16px; height: 16px; color: var(--neutral-600);"></i>
+                  <span style="font-size: 14px; color: var(--neutral-700);">10 federal holidays</span>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <div style="font-size: 12px; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px;">Greeting</div>
+                  <button onclick="jumpToClosedGreeting()" style="background: none; border: none; color: var(--comcast-blue); font-size: 12px; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <i data-lucide="volume-2" style="width: 16px; height: 16px; color: #6366f1;"></i>
+                  <span style="font-size: 14px; color: var(--neutral-700);">After Hours Message</span>
+                </div>
+              </div>
+              
+              <div style="margin-bottom: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <div style="font-size: 12px; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px;">Routing Action</div>
+                  <button onclick="jumpToClosedRouting()" style="background: none; border: none; color: var(--comcast-blue); font-size: 12px; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <i data-lucide="voicemail" style="width: 16px; height: 16px; color: var(--neutral-600);"></i>
+                  <span style="font-size: 14px; color: var(--neutral-700);">Send to Voicemail</span>
+                </div>
+              </div>
+              
+              <div>
+                <div style="font-size: 12px; font-weight: 600; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Status</div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <div style="width: 8px; height: 8px; background: var(--neutral-400); border-radius: 50%;"></div>
+                  <span style="font-size: 14px; color: var(--neutral-600); font-weight: 500;">Inactive</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value">42</div>
-          <div class="stat-label">Blocked</div>
-          <span class="stat-change negative">-3% vs yesterday</span>
+
+        <!-- Schedule Overview -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+          <h2 style="font-size: 18px; font-weight: 600; color: var(--neutral-900); margin: 0;">Schedule Overview</h2>
+          <button onclick="jumpToSchedules()" style="background: none; border: 1px solid var(--neutral-300); color: var(--comcast-blue); padding: 6px 16px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;" onmouseover="this.style.background='var(--neutral-50)'" onmouseout="this.style.background='none'">
+            <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+            Edit Schedule
+          </button>
         </div>
-        <div class="stat-card">
-          <div class="stat-value">16</div>
-          <div class="stat-label">Missed</div>
-          <span class="stat-change positive">-5% vs yesterday</span>
+        
+        <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 12px; padding: 28px; margin-bottom: 32px;">
+          <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 16px;">
+            <div style="text-align: center;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); margin-bottom: 8px;">MON</div>
+              <div style="background: #10b981; color: white; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 500;">9AM - 5PM</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); margin-bottom: 8px;">TUE</div>
+              <div style="background: #10b981; color: white; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 500;">9AM - 5PM</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); margin-bottom: 8px;">WED</div>
+              <div style="background: #10b981; color: white; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 500;">9AM - 5PM</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); margin-bottom: 8px;">THU</div>
+              <div style="background: #10b981; color: white; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 500;">9AM - 5PM</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); margin-bottom: 8px;">FRI</div>
+              <div style="background: #10b981; color: white; padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 500;">9AM - 5PM</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); margin-bottom: 8px;">SAT</div>
+              <div style="background: var(--neutral-200); color: var(--neutral-600); padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 500;">Closed</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); margin-bottom: 8px;">SUN</div>
+              <div style="background: var(--neutral-200); color: var(--neutral-600); padding: 8px; border-radius: 6px; font-size: 13px; font-weight: 500;">Closed</div>
+            </div>
+          </div>
         </div>
-      </div>
 
       <div class="card">
         <div class="card-header">
@@ -2404,7 +2742,7 @@
                 <td>Mon-Fri 9AM-5PM</td>
                 <td><span class="badge badge-active">Active</span></td>
                 <td>
-                  <a href="#" class="link-button" onclick="showCallFlow(); return false;">
+                  <a href="#" class="link-button" onclick="jumpToOpenKeypad(); return false;">
                     <span>EDIT FLOW</span>
                   </a>
                 </td>
@@ -2418,21 +2756,7 @@
                 <td>Evenings & Weekends</td>
                 <td><span class="badge badge-active">Active</span></td>
                 <td>
-                  <a href="#" class="link-button" onclick="showCallFlow(); return false;">
-                    <span>EDIT FLOW</span>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div style="font-weight: 600;">Emergency Attendant</div>
-                  <div style="font-size: 12px; color: var(--neutral-500); margin-top: 2px;">High priority routing</div>
-                </td>
-                <td>(445) 223-3051</td>
-                <td>24/7</td>
-                <td><span class="badge badge-active">Active</span></td>
-                <td>
-                  <a href="#" class="link-button" onclick="showCallFlow(); return false;">
+                  <a href="#" class="link-button" onclick="jumpToClosedRouting(); return false;">
                     <span>EDIT FLOW</span>
                   </a>
                 </td>
@@ -2965,6 +3289,85 @@
     // Initialize Lucide icons
     lucide.createIcons();
 
+    // Global state variable
+    let keypadContext = 'open'; // 'open' or 'closed'
+
+    // State management with localStorage
+    function saveCurrentScreen(screenId, context = {}) {
+      console.log('Saving screen:', screenId, context); // Debug
+      localStorage.setItem('callflow_current_screen', screenId);
+      localStorage.setItem('callflow_context', JSON.stringify(context));
+    }
+
+    function restoreState() {
+      const savedScreen = localStorage.getItem('callflow_current_screen');
+      const savedContext = JSON.parse(localStorage.getItem('callflow_context') || '{}');
+      console.log('Restoring state:', savedScreen, savedContext); // Debug
+      
+      if (savedScreen && savedScreen !== 'fte-callflow') {
+        // Hide all pages first
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        
+        // Show the attendants page (parent container)
+        const pageAttendants = document.getElementById('page-attendants');
+        if (pageAttendants) {
+          pageAttendants.classList.add('active');
+        }
+        
+        // Hide all wizard screens first
+        document.getElementById('fte-callflow').style.display = 'none';
+        document.getElementById('main-callflow-content').style.display = 'none';
+        document.getElementById('setup-timezone').style.display = 'none';
+        document.getElementById('setup-openhours').style.display = 'none';
+        document.getElementById('setup-holidays').style.display = 'none';
+        document.getElementById('setup-routing').style.display = 'none';
+        document.getElementById('setup-routing-closed').style.display = 'none';
+        document.getElementById('setup-keypad').style.display = 'none';
+        document.getElementById('setup-greeting').style.display = 'none';
+        
+        // Show the saved screen
+        document.getElementById(savedScreen).style.display = 'block';
+        
+        // Update sidebar active state
+        document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+        const attendantNavItem = document.querySelector('.sidebar-item[data-page="attendants"]');
+        if (attendantNavItem) {
+          attendantNavItem.classList.add('active');
+        }
+        
+        // Restore context (keypadContext, etc.)
+        if (savedContext.keypadContext) {
+          keypadContext = savedContext.keypadContext;
+        }
+        
+        // Update steppers if needed
+        if (savedScreen === 'setup-keypad') {
+          updateStepper('keypad-stepper', keypadContext);
+        } else if (savedScreen === 'setup-greeting') {
+          updateStepper('greeting-stepper', keypadContext);
+        }
+        
+        // Show/hide footer and update help button
+        if (savedScreen === 'main-callflow-content' || savedScreen === 'fte-callflow') {
+          document.getElementById('footer').style.display = 'block';
+          document.body.classList.remove('has-wizard-actions');
+        } else {
+          document.getElementById('footer').style.display = 'none';
+          document.body.classList.add('has-wizard-actions');
+        }
+        
+        lucide.createIcons();
+      }
+    }
+
+    // Restore state on page load
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', restoreState);
+    } else {
+      // DOM already loaded, run immediately
+      restoreState();
+    }
+
     // Sidebar collapse toggle
     const sidebar = document.getElementById('sidebar');
     const sidebarToggle = document.getElementById('sidebar-toggle');
@@ -3057,6 +3460,7 @@
       document.getElementById('setup-timezone').style.display = 'block';
       document.getElementById('footer').style.display = 'none'; // Hide footer in wizard
       document.body.classList.add('has-wizard-actions'); // Move help button up
+      saveCurrentScreen('setup-timezone');
       lucide.createIcons();
     }
 
@@ -3065,6 +3469,7 @@
       // TODO: Save timezone selection
       document.getElementById('setup-timezone').style.display = 'none';
       document.getElementById('setup-openhours').style.display = 'block';
+      saveCurrentScreen('setup-openhours');
       // Scroll to top when navigating to next step
       window.scrollTo(0, 0);
       lucide.createIcons();
@@ -3084,6 +3489,7 @@
       // TODO: Save open hours
       document.getElementById('setup-openhours').style.display = 'none';
       document.getElementById('setup-holidays').style.display = 'block';
+      saveCurrentScreen('setup-holidays');
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
@@ -3143,6 +3549,7 @@
       // TODO: Save holiday selections
       document.getElementById('setup-holidays').style.display = 'none';
       document.getElementById('setup-routing').style.display = 'block';
+      saveCurrentScreen('setup-routing');
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
@@ -3159,6 +3566,7 @@
     function saveRoutingAndNext() {
       document.getElementById('setup-routing').style.display = 'none';
       document.getElementById('setup-routing-closed').style.display = 'block';
+      saveCurrentScreen('setup-routing-closed');
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
@@ -3179,6 +3587,7 @@
       document.getElementById('main-callflow-content').style.display = 'block';
       document.getElementById('footer').style.display = 'block';
       document.body.classList.remove('has-wizard-actions'); // Reset help button position
+      saveCurrentScreen('main-callflow-content');
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
@@ -3199,13 +3608,11 @@
         document.getElementById('main-callflow-content').style.display = 'block';
         document.getElementById('footer').style.display = 'block';
         document.body.classList.remove('has-wizard-actions'); // Reset help button position
+        saveCurrentScreen('main-callflow-content');
         window.scrollTo(0, 0);
         lucide.createIcons();
       }
     }
-
-    // Variable to track which routing context we came from
-    let keypadContext = 'open'; // 'open' or 'closed'
 
     // Function to update stepper based on context
     function updateStepper(elementId, context) {
@@ -3281,6 +3688,7 @@
       }
       document.getElementById('setup-keypad').style.display = 'block';
       updateStepper('keypad-stepper', context);
+      saveCurrentScreen('setup-keypad', {keypadContext: context});
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
@@ -3302,6 +3710,7 @@
       document.getElementById('setup-keypad').style.display = 'none';
       document.getElementById('setup-greeting').style.display = 'block';
       updateStepper('greeting-stepper', keypadContext);
+      saveCurrentScreen('setup-greeting', {keypadContext: keypadContext});
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
@@ -3322,11 +3731,14 @@
       if (keypadContext === 'open') {
         // After completing Open Hours routing, go to Closed Hours routing
         document.getElementById('setup-routing-closed').style.display = 'block';
+        saveCurrentScreen('setup-routing-closed');
       } else {
         // After completing Closed Hours routing, complete the entire setup
         alert('Call Flow setup completed! All routing configurations saved.');
         document.getElementById('main-callflow-content').style.display = 'block';
         document.getElementById('footer').style.display = 'block';
+        document.body.classList.remove('has-wizard-actions');
+        saveCurrentScreen('main-callflow-content');
       }
       
       window.scrollTo(0, 0);
@@ -3398,6 +3810,74 @@
       document.getElementById('fte-callflow').style.display = 'block';
       document.getElementById('footer').style.display = 'block'; // Show footer when exiting wizard
       document.body.classList.remove('has-wizard-actions'); // Reset help button position
+      saveCurrentScreen('fte-callflow');
+      window.scrollTo(0, 0);
+      lucide.createIcons();
+    }
+
+    // Jump to specific workflow steps from landing page
+    function jumpToSchedules() {
+      document.getElementById('main-callflow-content').style.display = 'none';
+      document.getElementById('footer').style.display = 'none';
+      document.getElementById('setup-timezone').style.display = 'block';
+      document.body.classList.add('has-wizard-actions');
+      saveCurrentScreen('setup-timezone');
+      window.scrollTo(0, 0);
+      lucide.createIcons();
+    }
+
+    function jumpToHolidays() {
+      document.getElementById('main-callflow-content').style.display = 'none';
+      document.getElementById('footer').style.display = 'none';
+      document.getElementById('setup-holidays').style.display = 'block';
+      document.body.classList.add('has-wizard-actions');
+      saveCurrentScreen('setup-holidays');
+      window.scrollTo(0, 0);
+      lucide.createIcons();
+    }
+
+    function jumpToOpenKeypad() {
+      keypadContext = 'open';
+      document.getElementById('main-callflow-content').style.display = 'none';
+      document.getElementById('footer').style.display = 'none';
+      document.getElementById('setup-keypad').style.display = 'block';
+      updateStepper('keypad-stepper', 'open');
+      document.body.classList.add('has-wizard-actions');
+      saveCurrentScreen('setup-keypad', {keypadContext: 'open'});
+      window.scrollTo(0, 0);
+      lucide.createIcons();
+    }
+
+    function jumpToOpenGreeting() {
+      keypadContext = 'open';
+      document.getElementById('main-callflow-content').style.display = 'none';
+      document.getElementById('footer').style.display = 'none';
+      document.getElementById('setup-greeting').style.display = 'block';
+      updateStepper('greeting-stepper', 'open');
+      document.body.classList.add('has-wizard-actions');
+      saveCurrentScreen('setup-greeting', {keypadContext: 'open'});
+      window.scrollTo(0, 0);
+      lucide.createIcons();
+    }
+
+    function jumpToClosedRouting() {
+      document.getElementById('main-callflow-content').style.display = 'none';
+      document.getElementById('footer').style.display = 'none';
+      document.getElementById('setup-routing-closed').style.display = 'block';
+      document.body.classList.add('has-wizard-actions');
+      saveCurrentScreen('setup-routing-closed');
+      window.scrollTo(0, 0);
+      lucide.createIcons();
+    }
+
+    function jumpToClosedGreeting() {
+      keypadContext = 'closed';
+      document.getElementById('main-callflow-content').style.display = 'none';
+      document.getElementById('footer').style.display = 'none';
+      document.getElementById('setup-greeting').style.display = 'block';
+      updateStepper('greeting-stepper', 'closed');
+      document.body.classList.add('has-wizard-actions');
+      saveCurrentScreen('setup-greeting', {keypadContext: 'closed'});
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
