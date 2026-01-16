@@ -739,6 +739,33 @@
     });
   </script>
   
+  <!-- Global Demo Control Bar (Fixed at Top Center) -->
+  <div id="global-demo-bar" style="position: fixed; top: 10px; left: 50%; transform: translateX(-50%); background: #2B2D3F; color: white; padding: 8px 20px; border-radius: 8px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.4); z-index: 10000;">
+    <!-- Dashboard State Toggle -->
+    <div id="demo-toggle-control" style="display: flex; align-items: center; gap: 12px;">
+      <span id="demo-status-label">DEMO: Normal</span>
+      <button onclick="toggleDemoUsageState()" style="background: white; color: #2B2D3F; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#F1F2F6'" onmouseout="this.style.background='white'">
+        Toggle State
+      </button>
+    </div>
+    
+    <!-- FTE Navigation -->
+    <div id="demo-fte-control" style="display: none; align-items: center; gap: 12px;">
+      <span>FTE</span>
+      <button onclick="skipToCompleted()" style="background: white; color: #2B2D3F; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#F1F2F6'" onmouseout="this.style.background='white'">
+        Skip to Completed
+      </button>
+    </div>
+    
+    <!-- Completed Navigation -->
+    <div id="demo-completed-control" style="display: none; align-items: center; gap: 12px;">
+      <span>Completed</span>
+      <button onclick="resetToFTE()" style="background: white; color: #2B2D3F; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#F1F2F6'" onmouseout="this.style.background='white'">
+        Reset to FTE
+      </button>
+    </div>
+  </div>
+  
   <!-- Comcast Header -->
   <header class="comcast-header">
     <!-- Top Bar -->
@@ -875,13 +902,7 @@
   <main class="main-content">
     <!-- Dashboard Page -->
     <div id="page-dashboard" class="page active" style="position: relative;">
-      <!-- Demo Toggle (Dashboard Only) -->
-      <div id="demo-toggle-control" style="position: absolute; top: 20px; right: 20px; background: #2B2D3F; color: white; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 100;">
-        <span id="demo-status-label">DEMO: Normal</span>
-        <button onclick="toggleDemoUsageState()" style="background: white; color: #2B2D3F; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#F1F2F6'" onmouseout="this.style.background='white'">
-          Toggle State
-        </button>
-      </div>
+      <!-- Demo Toggle moved to global demo bar -->
 
       <!-- Top Section -->
       <div style="background: white; padding: 24px 24px 0 24px; margin: -24px -24px 24px -24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
@@ -1144,13 +1165,7 @@
     <div id="page-attendants" class="page">
       <!-- First Time Experience -->
       <div id="fte-callflow" style="display: block; position: relative;">
-        <!-- Demo Skip Button -->
-        <div style="position: fixed; top: 94px; right: 20px; background: #2B2D3F; color: white; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999;">
-          <span>DEMO: FTE</span>
-          <button onclick="skipToCompleted()" style="background: white; color: #2B2D3F; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#F1F2F6'" onmouseout="this.style.background='white'">
-            Skip to Completed
-          </button>
-        </div>
+        <!-- Demo buttons moved to global demo bar -->
         
         <div class="page-header">
           <div>
@@ -2346,184 +2361,10 @@
         <div style="height: 80px;"></div>
       </div>
 
-      <!-- AI Settings Screen -->
-      <div id="ai-settings" style="display: none;">
-        <!-- Header -->
-        <div style="background: white; padding: 24px 24px 20px 24px; margin: -24px -24px 24px -24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
-            <h1 style="font-size: 20px; font-weight: 600; color: #2B2D3F; margin: 0;">Google Virtual Assistant Settings</h1>
-            <button onclick="saveAISettingsAndExit()" style="background: none; border: 1px solid #DDDDE2; color: #0D62FF; padding: 8px 20px; border-radius: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all 0.15s;" onmouseover="this.style.background='#FCFCFC'" onmouseout="this.style.background='none'">
-              SAVE & EXIT
-            </button>
-          </div>
-          
-          <!-- Breadcrumb -->
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #70717D;">
-            <span>Call Flow</span>
-            <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
-            <span style="color: #0D62FF; font-weight: 600;">Settings</span>
-          </div>
-        </div>
-
-        <div style="max-width: 1000px;">
-          <!-- AI Assistant Control Section -->
-          <div style="background: white; border: 1px solid #F1F2F6; border-radius: 12px; padding: 28px; margin-bottom: 24px;">
-            <h2 style="font-size: 16px; font-weight: 600; color: #2B2D3F; margin-bottom: 20px;">AI Assistant Control</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
-              <!-- Open Hours -->
-              <div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-                  <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                      <i data-lucide="sun" style="width: 20px; height: 20px; color: #16A34A;"></i>
-                    </div>
-                    <h3 style="font-size: 14px; font-weight: 600; color: #2B2D3F; margin: 0;">Open Hours</h3>
-                  </div>
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="open-hours-toggle" checked>
-                    <span class="toggle-slider"></span>
-                  </label>
-                </div>
-                <p style="font-size: 13px; color: #70717D; line-height: 1.5; margin: 0;">
-                  When enabled, AI handles calls during your open hours before falling back to your configured routing option
-                </p>
-              </div>
-
-              <!-- Closed Hours -->
-              <div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-                  <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #E9D5FF 0%, #D8B4FE 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                      <i data-lucide="moon" style="width: 20px; height: 20px; color: #A855F7;"></i>
-                    </div>
-                    <h3 style="font-size: 14px; font-weight: 600; color: #2B2D3F; margin: 0;">Closed Hours</h3>
-                  </div>
-                  <label class="toggle-switch">
-                    <input type="checkbox" id="closed-hours-toggle" checked>
-                    <span class="toggle-slider"></span>
-                  </label>
-                </div>
-                <p style="font-size: 13px; color: #70717D; line-height: 1.5; margin: 0;">
-                  When enabled, AI handles calls during closed hours before falling back to your configured routing option
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Email Notifications Section -->
-          <div style="background: white; border: 1px solid #F1F2F6; border-radius: 12px; padding: 28px; margin-bottom: 24px;">
-            <h2 style="font-size: 16px; font-weight: 600; color: #2B2D3F; margin-bottom: 20px;">Email Notifications</h2>
-            
-            <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 20px;">
-              <div style="flex: 1;">
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                  <i data-lucide="mail" style="width: 20px; height: 20px; color: #0D62FF;"></i>
-                  <h3 style="font-size: 14px; font-weight: 600; color: #2B2D3F; margin: 0;">Low Balance Alerts</h3>
-                </div>
-                <p style="font-size: 13px; color: #70717D; line-height: 1.5; margin: 0;">
-                  Receive email notifications when your AI minutes reach 80% and 90% usage
-                </p>
-              </div>
-              <label class="toggle-switch">
-                <input type="checkbox" id="email-notifications-toggle" checked>
-                <span class="toggle-slider"></span>
-              </label>
-            </div>
-
-            <div>
-              <label style="display: block; font-size: 13px; font-weight: 600; color: #595A69; margin-bottom: 8px;">Email Address</label>
-              <input 
-                type="email" 
-                id="user-email" 
-                value="really_changeds@example.com"
-                style="width: 100%; max-width: 400px; padding: 10px 14px; border: 2px solid #F1F2F6; border-radius: 6px; font-size: 14px; transition: all 0.2s; outline: none;"
-                onfocus="this.style.borderColor='#0D62FF'"
-                onblur="this.style.borderColor='#F1F2F6'"
-              />
-            </div>
-          </div>
-
-          <!-- Fallback Behavior Section -->
-          <div style="background: white; border: 1px solid #F1F2F6; border-radius: 12px; padding: 28px; margin-bottom: 24px;">
-            <h2 style="font-size: 16px; font-weight: 600; color: #2B2D3F; margin-bottom: 12px;">Fallback Behavior</h2>
-            
-            <div style="background: #FCFCFC; border: 1px solid #F1F2F6; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
-              <div style="display: flex; align-items: start; gap: 12px;">
-                <i data-lucide="info" style="width: 18px; height: 18px; color: #0D62FF; flex-shrink: 0; margin-top: 2px;"></i>
-                <p style="font-size: 13px; color: #595A69; line-height: 1.5; margin: 0;">
-                  When AI minutes are depleted, calls automatically route to your configured fallback option. This ensures uninterrupted service for your callers.
-                </p>
-              </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
-              <!-- Open Hours Fallback -->
-              <div style="background: linear-gradient(135deg, #F5F8FF 0%, #E0F2FE 100%); border: 2px solid #BAE6FD; border-radius: 10px; padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                  <div style="width: 36px; height: 36px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <i data-lucide="grid-3x3" style="width: 20px; height: 20px; color: #0D62FF;"></i>
-                  </div>
-                  <div>
-                    <div style="font-size: 12px; font-weight: 600; color: #70717D; text-transform: uppercase; letter-spacing: 0.5px;">Open Hours Fallback</div>
-                    <div style="font-size: 14px; font-weight: 600; color: #2B2D3F;">Keypad Options + Greeting</div>
-                  </div>
-                </div>
-                <p style="font-size: 12px; color: #70717D; margin: 0;">Callers use interactive keypad menu</p>
-              </div>
-
-              <!-- Closed Hours Fallback -->
-              <div style="background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%); border: 2px solid #E9D5FF; border-radius: 10px; padding: 20px;">
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                  <div style="width: 36px; height: 36px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <i data-lucide="voicemail" style="width: 20px; height: 20px; color: #A855F7;"></i>
-                  </div>
-                  <div>
-                    <div style="font-size: 12px; font-weight: 600; color: #70717D; text-transform: uppercase; letter-spacing: 0.5px;">Closed Hours Fallback</div>
-                    <div style="font-size: 14px; font-weight: 600; color: #2B2D3F;">Send to Voicemail</div>
-                  </div>
-                </div>
-                <p style="font-size: 12px; color: #70717D; margin: 0;">Calls routed to voicemail box</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Auto-Restore Information -->
-          <div style="background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%); border: 2px solid #7DD3FC; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
-            <div style="display: flex; align-items: start; gap: 16px;">
-              <div style="width: 48px; height: 48px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <i data-lucide="calendar" style="width: 24px; height: 24px; color: #0D62FF;"></i>
-              </div>
-              <div>
-                <h3 style="font-size: 14px; font-weight: 600; color: #2B2D3F; margin-bottom: 8px;">Automatic Monthly Reset</h3>
-                <p style="font-size: 13px; color: #595A69; line-height: 1.5; margin: 0;">
-                  At the start of each billing cycle, Google Virtual Assistant automatically re-enables for both Open and Closed Hours if you have available minutes. You can disable it anytime from this settings page to maintain full control over your call flow.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Actions - Fixed -->
-        <div class="wizard-bottom-actions" style="position: fixed; bottom: 0; left: 340px; right: 0; background: white; padding: 20px 24px; border-top: 1px solid #F1F2F6; display: flex; justify-content: flex-end; align-items: center; z-index: 50; box-shadow: 0 -2px 8px rgba(0,0,0,0.08); transition: left 0.3s ease;">
-          <button onclick="saveAISettingsAndExit()" style="background: #0D62FF; color: white; border: none; padding: 12px 32px; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#083B99'" onmouseout="this.style.background='#0D62FF'">
-            SAVE & EXIT
-          </button>
-        </div>
-        
-        <!-- Spacer for fixed bottom bar -->
-        <div style="height: 80px;"></div>
-      </div>
-
+      <!-- AI Settings moved outside #page-attendants - see after page-attendants closes -->
       <!-- Main Call Flow Content (Hidden initially) -->
       <div id="main-callflow-content" style="display: none; position: relative;">
-        <!-- Demo Reset Button -->
-        <div style="position: fixed; top: 94px; right: 20px; background: #2B2D3F; color: white; padding: 8px 16px; border-radius: 8px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999;">
-          <span>DEMO: Completed</span>
-          <button onclick="resetToFTE()" style="background: white; color: #2B2D3F; border: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#F1F2F6'" onmouseout="this.style.background='white'">
-            Reset to FTE
-          </button>
-        </div>
+        <!-- Demo buttons moved to global demo bar -->
         
         <div class="page-header">
           <div>
@@ -2946,6 +2787,175 @@
         </div>
       </div>
       </div>
+    </div>
+
+    <!-- AI Settings Screen (Moved outside #page-attendants to prevent parent hiding) -->
+    <div id="ai-settings" style="display: none; padding: 24px;">
+      <!-- Header -->
+      <div style="background: white; padding: 24px 24px 20px 24px; margin: -24px -24px 24px -24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+          <h1 style="font-size: 20px; font-weight: 600; color: #2B2D3F; margin: 0;">Google Virtual Assistant Settings</h1>
+          <button onclick="saveAISettingsAndExit()" style="background: none; border: 1px solid #DDDDE2; color: #0D62FF; padding: 8px 20px; border-radius: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all 0.15s;" onmouseover="this.style.background='#FCFCFC'" onmouseout="this.style.background='none'">
+            SAVE & EXIT
+          </button>
+        </div>
+        
+        <!-- Breadcrumb -->
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #70717D;">
+          <span>Call Flow</span>
+          <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+          <span style="color: #0D62FF; font-weight: 600;">Settings</span>
+        </div>
+      </div>
+
+      <div style="max-width: 1000px;">
+        <!-- AI Assistant Control Section -->
+        <div style="background: white; border: 1px solid #F1F2F6; border-radius: 12px; padding: 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 600; color: #2B2D3F; margin-bottom: 20px;">AI Assistant Control</h2>
+          
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+            <!-- Open Hours -->
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <i data-lucide="sun" style="width: 20px; height: 20px; color: #16A34A;"></i>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 600; color: #2B2D3F; margin: 0;">Open Hours</h3>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="open-hours-toggle" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <p style="font-size: 13px; color: #70717D; line-height: 1.5; margin: 0;">
+                When enabled, AI handles calls during your open hours before falling back to your configured routing option
+              </p>
+            </div>
+
+            <!-- Closed Hours -->
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                  <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #E9D5FF 0%, #D8B4FE 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <i data-lucide="moon" style="width: 20px; height: 20px; color: #A855F7;"></i>
+                  </div>
+                  <h3 style="font-size: 14px; font-weight: 600; color: #2B2D3F; margin: 0;">Closed Hours</h3>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="closed-hours-toggle" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <p style="font-size: 13px; color: #70717D; line-height: 1.5; margin: 0;">
+                When enabled, AI handles calls during closed hours before falling back to your configured routing option
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Notifications Section -->
+        <div style="background: white; border: 1px solid #F1F2F6; border-radius: 12px; padding: 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 600; color: #2B2D3F; margin-bottom: 20px;">Email Notifications</h2>
+          
+          <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 20px;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                <i data-lucide="mail" style="width: 20px; height: 20px; color: #0D62FF;"></i>
+                <h3 style="font-size: 14px; font-weight: 600; color: #2B2D3F; margin: 0;">Low Balance Alerts</h3>
+              </div>
+              <p style="font-size: 13px; color: #70717D; line-height: 1.5; margin: 0;">
+                Receive email notifications when your AI minutes reach 80% and 90% usage
+              </p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="email-notifications-toggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 13px; font-weight: 600; color: #595A69; margin-bottom: 8px;">Email Address</label>
+            <input 
+              type="email" 
+              id="user-email" 
+              value="really_changeds@example.com"
+              style="width: 100%; max-width: 400px; padding: 10px 14px; border: 2px solid #F1F2F6; border-radius: 6px; font-size: 14px; transition: all 0.2s; outline: none;"
+              onfocus="this.style.borderColor='#0D62FF'"
+              onblur="this.style.borderColor='#F1F2F6'"
+            />
+          </div>
+        </div>
+
+        <!-- Fallback Behavior Section -->
+        <div style="background: white; border: 1px solid #F1F2F6; border-radius: 12px; padding: 28px; margin-bottom: 24px;">
+          <h2 style="font-size: 16px; font-weight: 600; color: #2B2D3F; margin-bottom: 12px;">Fallback Behavior</h2>
+          
+          <div style="background: #FCFCFC; border: 1px solid #F1F2F6; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+            <div style="display: flex; align-items: start; gap: 12px;">
+              <i data-lucide="info" style="width: 18px; height: 18px; color: #0D62FF; flex-shrink: 0; margin-top: 2px;"></i>
+              <p style="font-size: 13px; color: #595A69; line-height: 1.5; margin: 0;">
+                When AI minutes are depleted, calls automatically route to your configured fallback option. This ensures uninterrupted service for your callers.
+              </p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+            <!-- Open Hours Fallback -->
+            <div style="background: linear-gradient(135deg, #F5F8FF 0%, #E0F2FE 100%); border: 2px solid #BAE6FD; border-radius: 10px; padding: 20px;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <div style="width: 36px; height: 36px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                  <i data-lucide="grid-3x3" style="width: 20px; height: 20px; color: #0D62FF;"></i>
+                </div>
+                <div>
+                  <div style="font-size: 12px; font-weight: 600; color: #70717D; text-transform: uppercase; letter-spacing: 0.5px;">Open Hours Fallback</div>
+                  <div style="font-size: 14px; font-weight: 600; color: #2B2D3F;">Keypad Options + Greeting</div>
+                </div>
+              </div>
+              <p style="font-size: 12px; color: #70717D; margin: 0;">Callers use interactive keypad menu</p>
+            </div>
+
+            <!-- Closed Hours Fallback -->
+            <div style="background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%); border: 2px solid #E9D5FF; border-radius: 10px; padding: 20px;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <div style="width: 36px; height: 36px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                  <i data-lucide="voicemail" style="width: 20px; height: 20px; color: #A855F7;"></i>
+                </div>
+                <div>
+                  <div style="font-size: 12px; font-weight: 600; color: #70717D; text-transform: uppercase; letter-spacing: 0.5px;">Closed Hours Fallback</div>
+                  <div style="font-size: 14px; font-weight: 600; color: #2B2D3F;">Send to Voicemail</div>
+                </div>
+              </div>
+              <p style="font-size: 12px; color: #70717D; margin: 0;">Calls routed to voicemail box</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Auto-Restore Information -->
+        <div style="background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%); border: 2px solid #7DD3FC; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: start; gap: 16px;">
+            <div style="width: 48px; height: 48px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <i data-lucide="calendar" style="width: 24px; height: 24px; color: #0D62FF;"></i>
+            </div>
+            <div>
+              <h3 style="font-size: 14px; font-weight: 600; color: #2B2D3F; margin-bottom: 8px;">Automatic Monthly Reset</h3>
+              <p style="font-size: 13px; color: #595A69; line-height: 1.5; margin: 0;">
+                At the start of each billing cycle, Google Virtual Assistant automatically re-enables for both Open and Closed Hours if you have available minutes. You can disable it anytime from this settings page to maintain full control over your call flow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Actions - Fixed -->
+      <div class="wizard-bottom-actions" style="position: fixed; bottom: 0; left: 340px; right: 0; background: white; padding: 20px 24px; border-top: 1px solid #F1F2F6; display: flex; justify-content: flex-end; align-items: center; z-index: 50; box-shadow: 0 -2px 8px rgba(0,0,0,0.08); transition: left 0.3s ease;">
+        <button onclick="saveAISettingsAndExit()" style="background: #0D62FF; color: white; border: none; padding: 12px 32px; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#083B99'" onmouseout="this.style.background='#0D62FF'">
+          SAVE & EXIT
+        </button>
+      </div>
+      
+      <!-- Spacer for fixed bottom bar -->
+      <div style="height: 80px;"></div>
     </div>
 
     <!-- Call Flow Builder Page -->
@@ -3503,6 +3513,13 @@
           document.body.classList.add('has-wizard-actions');
         }
         
+        // Update demo bar based on restored screen
+        if (savedScreen === 'main-callflow-content') {
+          document.getElementById('demo-toggle-control').style.display = 'none';
+          document.getElementById('demo-fte-control').style.display = 'none';
+          document.getElementById('demo-completed-control').style.display = 'flex';
+        }
+        
         lucide.createIcons();
       }
     }
@@ -3559,9 +3576,24 @@
           targetPage.classList.add('active');
         }
 
-        // Restore callflow wizard state if navigating to attendants page
-        if (pageId === 'attendants') {
+        // Manage demo bar visibility
+        if (pageId === 'dashboard') {
+          // Dashboard: Show only state toggle
+          document.getElementById('demo-toggle-control').style.display = 'flex';
+          document.getElementById('demo-fte-control').style.display = 'none';
+          document.getElementById('demo-completed-control').style.display = 'none';
+        } else if (pageId === 'attendants') {
+          // Attendants: Hide dashboard toggle, show FTE control initially
+          document.getElementById('demo-toggle-control').style.display = 'none';
+          document.getElementById('demo-fte-control').style.display = 'flex';
+          document.getElementById('demo-completed-control').style.display = 'none';
+          // Restore callflow wizard state (may override to show completed control)
           restoreState();
+        } else {
+          // Other pages: Hide all demo controls
+          document.getElementById('demo-toggle-control').style.display = 'none';
+          document.getElementById('demo-fte-control').style.display = 'none';
+          document.getElementById('demo-completed-control').style.display = 'none';
         }
 
         // Reinitialize icons
@@ -3594,6 +3626,11 @@
       // Show the finished callflow content (not the first-time experience)
       document.getElementById('fte-callflow').style.display = 'none';
       document.getElementById('main-callflow-content').style.display = 'block';
+      
+      // Update demo bar (hide dashboard toggle, show completed control)
+      document.getElementById('demo-toggle-control').style.display = 'none';
+      document.getElementById('demo-fte-control').style.display = 'none';
+      document.getElementById('demo-completed-control').style.display = 'flex';
       
       // Scroll to top and reinitialize icons
       window.scrollTo(0, 0);
@@ -3652,6 +3689,11 @@
       // Show FTE screen
       document.getElementById('fte-callflow').style.display = 'block';
       
+      // Update demo bar (hide dashboard toggle, show FTE control)
+      document.getElementById('demo-toggle-control').style.display = 'none';
+      document.getElementById('demo-fte-control').style.display = 'flex';
+      document.getElementById('demo-completed-control').style.display = 'none';
+      
       // Clear saved state so it doesn't restore
       localStorage.removeItem('callflow_current_screen');
       localStorage.removeItem('callflow_context');
@@ -3684,6 +3726,11 @@
       
       // Show completed callflow
       document.getElementById('main-callflow-content').style.display = 'block';
+      
+      // Update demo bar (hide dashboard toggle, show completed control)
+      document.getElementById('demo-toggle-control').style.display = 'none';
+      document.getElementById('demo-fte-control').style.display = 'none';
+      document.getElementById('demo-completed-control').style.display = 'flex';
       
       // Save completed state so it persists
       localStorage.setItem('callflow_current_screen', 'main-callflow-content');
