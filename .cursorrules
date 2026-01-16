@@ -1,0 +1,144 @@
+# Comcast Business Design System - AI Assistant Rules
+
+## Design System Foundation Enforcement (CRITICAL)
+
+**RULE: All code MUST reference the root design system's foundation elements.**
+
+You can create custom components beyond what exists, but you MUST use design system tokens for:
+- Colors
+- Spacing
+- Typography
+- Shadows
+- Border radius
+- Breakpoints
+
+### What This Means
+
+✅ **ALLOWED - Building Beyond the System:**
+- Creating new components not in `/src/components/`
+- Custom layouts and UI patterns
+- App-specific features and functionality
+- Unique interactions and animations
+
+✅ **REQUIRED - Using Foundation Elements:**
+```css
+/* Colors */
+bg-primary-500                    /* ✓ Design system class */
+color: theme('colors.primary.500') /* ✓ Design system token */
+
+/* Spacing */
+p-6 mb-4 gap-3                    /* ✓ Design system scale */
+padding: theme('spacing.6')       /* ✓ Design system token */
+
+/* Typography */
+font-sans text-base font-semibold /* ✓ Design system fonts */
+
+/* Shadows */
+shadow-md                         /* ✓ Design system shadow */
+```
+
+❌ **FORBIDDEN - Hardcoded Primitives:**
+```css
+/* Colors */
+background: #0047BB              /* ✗ Hardcoded hex */
+color: rgb(17, 24, 39)          /* ✗ Hardcoded rgb */
+
+/* Spacing */
+padding: 24px                    /* ✗ Hardcoded pixels */
+margin: 1.5rem                   /* ✗ Random rem value */
+
+/* Typography */
+font-family: 'Roboto'            /* ✗ Non-system font */
+font-size: 17px                  /* ✗ Off-scale size */
+
+/* Shadows */
+box-shadow: 0 2px 8px rgba(...)  /* ✗ Custom shadow */
+```
+
+### Implementation Guidelines
+
+1. **New Apps/Features:**
+   - MUST have `tailwind.config.js` extending root: `module.exports = { ...require('../../tailwind.config.js'), content: [...] }`
+   - MUST have `postcss.config.js` for Tailwind processing
+   - MUST import or build from design system: `@import './path/to/design-system/styles.css'` OR build pipeline
+   - NO CDN Tailwind: `<script src="https://cdn.tailwindcss.com">` ❌
+
+2. **Custom Components:**
+   - Use `@layer components` for custom component styles
+   - Reference tokens via `theme()` function
+   - Example:
+     ```css
+     @layer components {
+       .custom-card {
+         background: theme('colors.white');
+         border: 1px solid theme('colors.border.muted');
+         border-radius: theme('borderRadius.md');
+         padding: theme('spacing.6');
+       }
+     }
+     ```
+
+3. **Inline Styles (React/JSX):**
+   - Prefer Tailwind classes over inline styles
+   - If inline required, use design system values from imports:
+     ```tsx
+     import { colors, spacing } from '@/tokens';
+     <div style={{ color: colors.primary[500], padding: spacing[6] }}>
+     ```
+
+### Design System Locations
+
+- **Root Config**: `/tailwind.config.js` (source of truth)
+- **Tokens**: `/src/tokens/design-system-*.ts`
+- **Components**: `/src/components/` (reference implementations)
+- **Documentation**: `/packages/docs/`
+
+### Enforcement
+
+When writing code, you MUST:
+
+1. **Check for violations** in your output:
+   - Search for hex colors: `#[A-Fa-f0-9]{6}`
+   - Search for hardcoded pixels: `\d+px` (except in calculations)
+   - Search for non-system fonts
+   - Search for custom shadows
+
+2. **Auto-fix violations** before presenting:
+   - Replace `#0D62FF` → `theme('colors.primary.500')`
+   - Replace `padding: 24px` → `p-6` or `theme('spacing.6')`
+   - Replace custom fonts → `font-sans` or `font-lato`
+
+3. **Document intentional deviations**:
+   ```css
+   /* DESIGN-SYSTEM-EXCEPTION: [Reason]
+    * [Explanation of why this can't use design system]
+    * Approved by: [name/date]
+    */
+   ```
+
+### Quick Reference
+
+**Design System Colors:**
+- Primary: `primary-50` through `primary-900` (Blue scale)
+- Neutral: `neutral-50` through `neutral-900` (Gray scale)
+- Semantic: `red`, `green`, `yellow`, `orange`, `purple`, `sky`, `teal`
+- Intent: `intent-primary`, `intent-success`, `intent-warning`, `intent-destructive`
+
+**Design System Spacing Scale:**
+- `0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24, 32, 40, 48, 56, 64`
+- Maps to: `0px, 0.25rem, 0.5rem, 0.75rem, 1rem, 1.25rem, 1.5rem...`
+
+**Design System Typography:**
+- Fonts: `font-sans` (Montserrat), `font-lato` (Lato)
+- Sizes: `text-xs, text-sm, text-base, text-lg, text-xl, text-2xl, text-3xl, text-4xl, text-5xl, text-6xl`
+- Weights: `font-light (300), font-normal (400), font-medium (500), font-semibold (600), font-bold (700)`
+
+### Related Documentation
+
+- Full agent guide: `/agents/design-system-foundation-guard.md`
+- Design review process: `/agents/design-review.md`
+- Integration example: `/apps/auto-attendant/DESIGN-SYSTEM-INTEGRATION.md`
+
+---
+
+**Remember**: Custom components are encouraged, but they must be built on the design system foundation. When in doubt, reference `/tailwind.config.js`.

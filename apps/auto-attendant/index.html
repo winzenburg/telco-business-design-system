@@ -2880,9 +2880,8 @@
               type="email" 
               id="user-email" 
               value="really_changeds@example.com"
-              style="width: 100%; max-width: 400px; padding: 10px 14px; border: 2px solid #F1F2F6; border-radius: 6px; font-size: 14px; transition: all 0.2s; outline: none;"
-              onfocus="this.style.borderColor='#0D62FF'"
-              onblur="this.style.borderColor='#F1F2F6'"
+              readonly
+              style="width: 100%; max-width: 400px; padding: 10px 14px; border: 2px solid #E5E5EA; border-radius: 6px; font-size: 14px; background: #F9FAFB; color: #2B2D3F; cursor: not-allowed; outline: none;"
             />
           </div>
         </div>
@@ -2947,15 +2946,6 @@
         </div>
       </div>
 
-      <!-- Bottom Actions - Fixed -->
-      <div class="wizard-bottom-actions" style="position: fixed; bottom: 0; left: 340px; right: 0; background: white; padding: 20px 24px; border-top: 1px solid #F1F2F6; display: flex; justify-content: flex-end; align-items: center; z-index: 50; box-shadow: 0 -2px 8px rgba(0,0,0,0.08); transition: left 0.3s ease;">
-        <button onclick="saveAISettingsAndExit()" style="background: #0D62FF; color: white; border: none; padding: 12px 32px; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#083B99'" onmouseout="this.style.background='#0D62FF'">
-          SAVE & EXIT
-        </button>
-      </div>
-      
-      <!-- Spacer for fixed bottom bar -->
-      <div style="height: 80px;"></div>
     </div>
 
     <!-- Call Flow Builder Page -->
@@ -4208,6 +4198,9 @@
       document.getElementById('setup-keypad').style.display = 'none';
       document.getElementById('setup-greeting').style.display = 'none';
       
+      // Hide demo bar
+      document.getElementById('global-demo-bar').style.display = 'none';
+      
       // Show settings screen
       document.getElementById('ai-settings').style.display = 'block';
       document.getElementById('footer').style.display = 'none';
@@ -4253,14 +4246,44 @@
       // Save to localStorage
       saveAISettings();
       
-      // Return to landing page
+      // Hide settings page
       document.getElementById('ai-settings').style.display = 'none';
+      
+      // Navigate to attendants page
+      document.querySelectorAll('.sidebar-item').forEach(i => i.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      
+      // Activate the attendants page
+      const attendantsPage = document.getElementById('page-attendants');
+      if (attendantsPage) {
+        attendantsPage.classList.add('active');
+      }
+      
+      // Highlight the correct sidebar item
+      const attendantNavItem = document.querySelector('.sidebar-item[data-page="attendants"]');
+      if (attendantNavItem) {
+        attendantNavItem.classList.add('active');
+      }
+      
+      // Hide FTE, show finished callflow content
+      document.getElementById('fte-callflow').style.display = 'none';
       document.getElementById('main-callflow-content').style.display = 'block';
+      
+      // Show and update demo bar (hide dashboard toggle, show completed control)
+      document.getElementById('global-demo-bar').style.display = 'flex';
+      document.getElementById('demo-toggle-control').style.display = 'none';
+      document.getElementById('demo-fte-control').style.display = 'none';
+      document.getElementById('demo-completed-control').style.display = 'flex';
+      
+      // Show footer and remove wizard classes
       document.getElementById('footer').style.display = 'block';
       document.body.classList.remove('has-wizard-actions');
       
       // Scroll to top
       window.scrollTo(0, 0);
+      
+      // Reinitialize icons
+      lucide.createIcons();
       
       // Show confirmation (optional)
       console.log('AI Settings saved:', aiSettings);

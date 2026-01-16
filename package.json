@@ -41,6 +41,7 @@
     "test:watch": "jest --watch",
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
     "lint:fix": "eslint src --ext .ts,.tsx,.js,.jsx --fix",
+    "lint:design-system": "node scripts/check-design-system-compliance.cjs",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf dist node_modules/.cache",
     "extract-typography": "node scripts/extract-figma-typography-grouped.js",

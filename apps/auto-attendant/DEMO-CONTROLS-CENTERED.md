@@ -139,6 +139,21 @@ if (savedScreen === 'main-callflow-content') {
 }
 ```
 
+**6. openAISettings() Function**
+```javascript
+// Hide demo bar completely when entering settings
+document.getElementById('global-demo-bar').style.display = 'none';
+```
+
+**7. saveAISettingsAndExit() Function**
+```javascript
+// Show and update demo bar when exiting settings
+document.getElementById('global-demo-bar').style.display = 'flex';
+document.getElementById('demo-toggle-control').style.display = 'none';
+document.getElementById('demo-fte-control').style.display = 'none';
+document.getElementById('demo-completed-control').style.display = 'flex';
+```
+
 ## User Experience
 
 ### Benefits
@@ -152,6 +167,7 @@ if (savedScreen === 'main-callflow-content') {
 - **Dashboard page**: Shows state toggle only
 - **FTE page**: Shows FTE navigation only (no state toggle)
 - **Completed page**: Shows completed navigation only (no state toggle)
+- **AI Settings page**: Entire demo bar hidden for clean settings view
 - **Other pages**: Hides all demo controls
 - **Above header**: Positioned at `top: 10px`, header starts at ~32px
 
@@ -180,10 +196,12 @@ if (savedScreen === 'main-callflow-content') {
 2. **Dashboard**: Should see "DEMO: Normal [Toggle State]" centered at top
 3. **Navigate to MAIN BUSINESS NUMBER**: Dashboard toggle hides, FTE navigation appears
 4. **Click "Skip to Completed"**: FTE nav hides, completed nav appears
-5. **Click "Reset to FTE"**: Completed nav hides, FTE nav appears
-6. **Navigate back to Dashboard**: FTE/Completed nav hides, state toggle appears
-7. **Navigate to other pages**: All demo controls hidden
-8. **Toggle dashboard states** (on Dashboard): State label updates correctly
+5. **Click Settings** (on Google Virtual Assistant card): Entire demo bar hidden
+6. **Click "SAVE & EXIT"**: Returns to completed page, demo bar reappears with completed nav
+7. **Click "Reset to FTE"**: Completed nav hides, FTE nav appears
+8. **Navigate back to Dashboard**: FTE/Completed nav hides, state toggle appears
+9. **Navigate to other pages**: All demo controls hidden
+10. **Toggle dashboard states** (on Dashboard): State label updates correctly
 
 ## Related Documentation
 - `DEMO-RESET-BUTTON.md` - Original button implementation
