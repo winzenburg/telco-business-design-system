@@ -905,6 +905,57 @@
       display: flex;
     }
 
+    /* Toggle Switch Styles */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #cbd5e1;
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background-color: var(--comcast-blue);
+    }
+
+    .toggle-switch input:checked + .toggle-slider:before {
+      transform: translateX(24px);
+    }
+
+    .toggle-switch input:focus + .toggle-slider {
+      box-shadow: 0 0 0 3px rgba(0, 71, 187, 0.1);
+    }
+
     .info-banner {
       background: #e6f0ff;
       border: 1px solid #b3d4ff;
@@ -1202,10 +1253,16 @@
               <p style="font-size: 13px; color: var(--neutral-700); margin: 0;">AI-powered call handling</p>
             </div>
           </div>
-          <button onclick="alert('Add minutes feature coming soon')" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--comcast-blue); color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--comcast-light-blue)'" onmouseout="this.style.background='var(--comcast-blue)'">
-            <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
-            Add Minutes
-          </button>
+          <div style="display: flex; gap: 10px;">
+            <button onclick="openAISettings()" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: white; color: var(--comcast-blue); border: 2px solid var(--comcast-blue); border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--comcast-blue)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--comcast-blue)';">
+              <i data-lucide="settings" style="width: 16px; height: 16px;"></i>
+              Settings
+            </button>
+            <button onclick="alert('Add minutes feature coming soon')" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--comcast-blue); color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--comcast-light-blue)'" onmouseout="this.style.background='var(--comcast-blue)'">
+              <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
+              Add Minutes
+            </button>
+          </div>
         </div>
 
         <!-- Usage Stats -->
@@ -2573,6 +2630,175 @@
         <div style="height: 80px;"></div>
       </div>
 
+      <!-- AI Settings Screen -->
+      <div id="ai-settings" style="display: none;">
+        <!-- Header -->
+        <div style="background: white; padding: 24px 24px 20px 24px; margin: -24px -24px 24px -24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <h1 style="font-size: 20px; font-weight: 600; color: var(--neutral-900); margin: 0;">Google Virtual Assistant Settings</h1>
+            <button onclick="saveAISettingsAndExit()" style="background: none; border: 1px solid var(--neutral-300); color: var(--comcast-blue); padding: 8px 20px; border-radius: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer; transition: all 0.15s;" onmouseover="this.style.background='var(--neutral-50)'" onmouseout="this.style.background='none'">
+              SAVE & EXIT
+            </button>
+          </div>
+          
+          <!-- Breadcrumb -->
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--neutral-600);">
+            <span>Call Flow</span>
+            <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+            <span style="color: var(--comcast-blue); font-weight: 600;">Settings</span>
+          </div>
+        </div>
+
+        <div style="max-width: 1000px;">
+          <!-- AI Assistant Control Section -->
+          <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 12px; padding: 28px; margin-bottom: 24px;">
+            <h2 style="font-size: 16px; font-weight: 600; color: var(--neutral-900); margin-bottom: 20px;">AI Assistant Control</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+              <!-- Open Hours -->
+              <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <i data-lucide="sun" style="width: 20px; height: 20px; color: #059669;"></i>
+                    </div>
+                    <h3 style="font-size: 14px; font-weight: 600; color: var(--neutral-900); margin: 0;">Open Hours</h3>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="open-hours-toggle" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <p style="font-size: 13px; color: var(--neutral-600); line-height: 1.5; margin: 0;">
+                  When enabled, AI handles calls during your open hours before falling back to your configured routing option
+                </p>
+              </div>
+
+              <!-- Closed Hours -->
+              <div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                      <i data-lucide="moon" style="width: 20px; height: 20px; color: #6366f1;"></i>
+                    </div>
+                    <h3 style="font-size: 14px; font-weight: 600; color: var(--neutral-900); margin: 0;">Closed Hours</h3>
+                  </div>
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="closed-hours-toggle" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <p style="font-size: 13px; color: var(--neutral-600); line-height: 1.5; margin: 0;">
+                  When enabled, AI handles calls during closed hours before falling back to your configured routing option
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Notifications Section -->
+          <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 12px; padding: 28px; margin-bottom: 24px;">
+            <h2 style="font-size: 16px; font-weight: 600; color: var(--neutral-900); margin-bottom: 20px;">Email Notifications</h2>
+            
+            <div style="display: flex; align-items: start; justify-content: space-between; margin-bottom: 20px;">
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                  <i data-lucide="mail" style="width: 20px; height: 20px; color: var(--comcast-blue);"></i>
+                  <h3 style="font-size: 14px; font-weight: 600; color: var(--neutral-900); margin: 0;">Low Balance Alerts</h3>
+                </div>
+                <p style="font-size: 13px; color: var(--neutral-600); line-height: 1.5; margin: 0;">
+                  Receive email notifications when your AI minutes reach 80% and 90% usage
+                </p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="email-notifications-toggle" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 13px; font-weight: 600; color: var(--neutral-700); margin-bottom: 8px;">Email Address</label>
+              <input 
+                type="email" 
+                id="user-email" 
+                value="really_changeds@example.com"
+                style="width: 100%; max-width: 400px; padding: 10px 14px; border: 2px solid var(--neutral-200); border-radius: 6px; font-size: 14px; transition: all 0.2s; outline: none;"
+                onfocus="this.style.borderColor='var(--comcast-blue)'"
+                onblur="this.style.borderColor='var(--neutral-200)'"
+              />
+            </div>
+          </div>
+
+          <!-- Fallback Behavior Section -->
+          <div style="background: white; border: 1px solid var(--neutral-200); border-radius: 12px; padding: 28px; margin-bottom: 24px;">
+            <h2 style="font-size: 16px; font-weight: 600; color: var(--neutral-900); margin-bottom: 12px;">Fallback Behavior</h2>
+            
+            <div style="background: #f8fafc; border: 1px solid var(--neutral-200); border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+              <div style="display: flex; align-items: start; gap: 12px;">
+                <i data-lucide="info" style="width: 18px; height: 18px; color: var(--comcast-blue); flex-shrink: 0; margin-top: 2px;"></i>
+                <p style="font-size: 13px; color: var(--neutral-700); line-height: 1.5; margin: 0;">
+                  When AI minutes are depleted, calls automatically route to your configured fallback option. This ensures uninterrupted service for your callers.
+                </p>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+              <!-- Open Hours Fallback -->
+              <div style="background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%); border: 2px solid #bbdefb; border-radius: 10px; padding: 20px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 36px; height: 36px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <i data-lucide="grid-3x3" style="width: 20px; height: 20px; color: var(--comcast-blue);"></i>
+                  </div>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); text-transform: uppercase; letter-spacing: 0.5px;">Open Hours Fallback</div>
+                    <div style="font-size: 14px; font-weight: 600; color: var(--neutral-900);">Keypad Options + Greeting</div>
+                  </div>
+                </div>
+                <p style="font-size: 12px; color: var(--neutral-600); margin: 0;">Callers use interactive keypad menu</p>
+              </div>
+
+              <!-- Closed Hours Fallback -->
+              <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); border: 2px solid #e9d5ff; border-radius: 10px; padding: 20px;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                  <div style="width: 36px; height: 36px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                    <i data-lucide="voicemail" style="width: 20px; height: 20px; color: #6366f1;"></i>
+                  </div>
+                  <div>
+                    <div style="font-size: 12px; font-weight: 600; color: var(--neutral-600); text-transform: uppercase; letter-spacing: 0.5px;">Closed Hours Fallback</div>
+                    <div style="font-size: 14px; font-weight: 600; color: var(--neutral-900);">Send to Voicemail</div>
+                  </div>
+                </div>
+                <p style="font-size: 12px; color: var(--neutral-600); margin: 0;">Calls routed to voicemail box</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Auto-Restore Information -->
+          <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border: 2px solid #90caf9; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+            <div style="display: flex; align-items: start; gap: 16px;">
+              <div style="width: 48px; height: 48px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i data-lucide="calendar" style="width: 24px; height: 24px; color: var(--comcast-blue);"></i>
+              </div>
+              <div>
+                <h3 style="font-size: 14px; font-weight: 600; color: var(--neutral-900); margin-bottom: 8px;">Automatic Monthly Reset</h3>
+                <p style="font-size: 13px; color: var(--neutral-700); line-height: 1.5; margin: 0;">
+                  At the start of each billing cycle, Google Virtual Assistant automatically re-enables for both Open and Closed Hours if you have available minutes. You can disable it anytime from this settings page to maintain full control over your call flow.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Actions - Fixed -->
+        <div class="wizard-bottom-actions" style="position: fixed; bottom: 0; left: 340px; right: 0; background: white; padding: 20px 24px; border-top: 1px solid var(--neutral-200); display: flex; justify-content: flex-end; align-items: center; z-index: 50; box-shadow: 0 -2px 8px rgba(0,0,0,0.08); transition: left 0.3s ease;">
+          <button onclick="saveAISettingsAndExit()" style="background: var(--comcast-blue); color: white; border: none; padding: 12px 32px; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='#003a99'" onmouseout="this.style.background='var(--comcast-blue)'">
+            SAVE & EXIT
+          </button>
+        </div>
+        
+        <!-- Spacer for fixed bottom bar -->
+        <div style="height: 80px;"></div>
+      </div>
+
       <!-- Main Call Flow Content (Hidden initially) -->
       <div id="main-callflow-content" style="display: none;">
         <div class="page-header">
@@ -2618,10 +2844,16 @@
                 <p style="font-size: 14px; color: var(--neutral-600); margin: 0;">AI-powered call handling • Current billing cycle</p>
               </div>
             </div>
-            <button onclick="alert('Add minutes feature coming soon')" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--comcast-blue); color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--comcast-light-blue)'" onmouseout="this.style.background='var(--comcast-blue)'">
-              <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
-              Add Minutes
-            </button>
+            <div style="display: flex; gap: 12px;">
+              <button onclick="openAISettings()" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: white; color: var(--comcast-blue); border: 2px solid var(--comcast-blue); border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--comcast-blue)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='var(--comcast-blue)';">
+                <i data-lucide="settings" style="width: 16px; height: 16px;"></i>
+                Settings
+              </button>
+              <button onclick="alert('Add minutes feature coming soon')" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--comcast-blue); color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--comcast-light-blue)'" onmouseout="this.style.background='var(--comcast-blue)'">
+                <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
+                Add Minutes
+              </button>
+            </div>
           </div>
 
           <!-- Usage Bar -->
@@ -3543,6 +3775,7 @@
         document.getElementById('setup-routing-closed').style.display = 'none';
         document.getElementById('setup-keypad').style.display = 'none';
         document.getElementById('setup-greeting').style.display = 'none';
+        document.getElementById('ai-settings').style.display = 'none';
         
         // Show the saved screen
         document.getElementById(savedScreen).style.display = 'block';
@@ -3823,6 +4056,7 @@
         document.getElementById('setup-routing-closed').style.display = 'none';
         document.getElementById('setup-keypad').style.display = 'none';
         document.getElementById('setup-greeting').style.display = 'none';
+        document.getElementById('ai-settings').style.display = 'none';
         // Show main content and footer
         document.getElementById('main-callflow-content').style.display = 'block';
         document.getElementById('footer').style.display = 'block';
@@ -4100,6 +4334,109 @@
       window.scrollTo(0, 0);
       lucide.createIcons();
     }
+
+    // AI Settings State Management
+    let aiSettings = {
+      openHoursEnabled: true,
+      closedHoursEnabled: true,
+      emailNotifications: true,
+      userEmail: 'really_changeds@example.com'
+    };
+
+    // Load settings from localStorage
+    function loadAISettings() {
+      const saved = localStorage.getItem('ai_settings');
+      if (saved) {
+        try {
+          aiSettings = JSON.parse(saved);
+        } catch (e) {
+          console.error('Error loading AI settings:', e);
+        }
+      }
+      return aiSettings;
+    }
+
+    // Save settings to localStorage
+    function saveAISettings() {
+      localStorage.setItem('ai_settings', JSON.stringify(aiSettings));
+    }
+
+    // Open settings page
+    function openAISettings() {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      
+      // Hide other wizard screens
+      document.getElementById('fte-callflow').style.display = 'none';
+      document.getElementById('main-callflow-content').style.display = 'none';
+      document.getElementById('setup-timezone').style.display = 'none';
+      document.getElementById('setup-openhours').style.display = 'none';
+      document.getElementById('setup-holidays').style.display = 'none';
+      document.getElementById('setup-routing').style.display = 'none';
+      document.getElementById('setup-routing-closed').style.display = 'none';
+      document.getElementById('setup-keypad').style.display = 'none';
+      document.getElementById('setup-greeting').style.display = 'none';
+      
+      // Show settings screen
+      document.getElementById('ai-settings').style.display = 'block';
+      document.getElementById('footer').style.display = 'none';
+      document.body.classList.add('has-wizard-actions');
+      
+      // Load current settings into form
+      populateSettingsForm();
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+      
+      lucide.createIcons();
+    }
+
+    // Populate form with current settings
+    function populateSettingsForm() {
+      loadAISettings();
+      document.getElementById('open-hours-toggle').checked = aiSettings.openHoursEnabled;
+      document.getElementById('closed-hours-toggle').checked = aiSettings.closedHoursEnabled;
+      document.getElementById('email-notifications-toggle').checked = aiSettings.emailNotifications;
+      document.getElementById('user-email').value = aiSettings.userEmail;
+    }
+
+    // Save settings and return to landing
+    function saveAISettingsAndExit() {
+      // Get values from form
+      aiSettings.openHoursEnabled = document.getElementById('open-hours-toggle').checked;
+      aiSettings.closedHoursEnabled = document.getElementById('closed-hours-toggle').checked;
+      aiSettings.emailNotifications = document.getElementById('email-notifications-toggle').checked;
+      aiSettings.userEmail = document.getElementById('user-email').value;
+      
+      // Validate email if notifications are enabled
+      if (aiSettings.emailNotifications) {
+        const emailInput = document.getElementById('user-email');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(aiSettings.userEmail)) {
+          alert('Please enter a valid email address for notifications.');
+          emailInput.focus();
+          return;
+        }
+      }
+      
+      // Save to localStorage
+      saveAISettings();
+      
+      // Return to landing page
+      document.getElementById('ai-settings').style.display = 'none';
+      document.getElementById('main-callflow-content').style.display = 'block';
+      document.getElementById('footer').style.display = 'block';
+      document.body.classList.remove('has-wizard-actions');
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+      
+      // Show confirmation (optional)
+      console.log('AI Settings saved:', aiSettings);
+    }
+
+    // Load settings on page load
+    loadAISettings();
 
     // Demo state management
     let currentDemoState = 'warning'; // 'normal', 'warning', 'critical'
