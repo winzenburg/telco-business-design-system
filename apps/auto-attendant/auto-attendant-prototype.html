@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Business VoiceEdge - Call Flow Management</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="./public/styles.css" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -14,19 +14,20 @@
     }
 
     :root {
-      --ds-color-primary-50: #f0f5ff;
-      --ds-color-primary-500: #0047BB;
-      --ds-color-primary-600: #003d9f;
-      --ds-color-primary-700: #003385;
-      --ds-color-neutral-50: #f9fafb;
-      --ds-color-neutral-100: #f3f4f6;
-      --ds-color-neutral-300: #d1d5db;
-      --ds-color-neutral-700: #374151;
-      --ds-color-neutral-900: #111827;
-      --ds-color-white: #ffffff;
-      --ds-color-green-500: #10b981;
-      --ds-color-red-500: #ef4444;
-      --ds-color-yellow-500: #f59e0b;
+      /* Design System Colors from /tailwind.config.js */
+      --ds-color-primary-50: #F5F8FF;
+      --ds-color-primary-500: #0D62FF;
+      --ds-color-primary-600: #0A4ECC;
+      --ds-color-primary-700: #083B99;
+      --ds-color-neutral-50: #FCFCFC;
+      --ds-color-neutral-100: #F9F9FA;
+      --ds-color-neutral-300: #DDDDE2;
+      --ds-color-neutral-700: #595A69;
+      --ds-color-neutral-900: #2B2D3F;
+      --ds-color-white: #FFFFFF;
+      --ds-color-green-500: #22C55E;
+      --ds-color-red-500: #EF4444;
+      --ds-color-yellow-500: #EAB308;
     }
 
     .btn-primary {
@@ -84,23 +85,23 @@
     }
 
     .badge-success {
-      background-color: #d1fae5;
-      color: #065f46;
+      background-color: #DCFCE7;  /* green-100 from design system */
+      color: #15803D;  /* green-700 from design system */
     }
 
     .badge-warning {
-      background-color: #fef3c7;
-      color: #92400e;
+      background-color: #FEF9C3;  /* yellow-100 from design system */
+      color: #A16207;  /* yellow-700 from design system */
     }
 
     .badge-danger {
-      background-color: #fee2e2;
-      color: #991b1b;
+      background-color: #FEE2E2;  /* red-100 from design system */
+      color: #B91C1C;  /* red-700 from design system */
     }
 
     .badge-info {
-      background-color: #dbeafe;
-      color: #1e40af;
+      background-color: #DBEAFE;  /* sky-100 from design system */
+      color: #1E40AF;  /* sky-800 from design system */
     }
 
     .flow-node {
@@ -115,17 +116,17 @@
 
     .flow-node:hover {
       border-color: var(--ds-color-primary-500);
-      box-shadow: 0 4px 12px rgba(0, 71, 187, 0.1);
+      box-shadow: 0 4px 12px rgba(13, 98, 255, 0.1);
     }
 
     .flow-node-start {
       border-color: var(--ds-color-green-500);
-      background: linear-gradient(135deg, #ecfdf5 0%, white 100%);
+      background: linear-gradient(135deg, #ECFDF5 0%, white 100%);  /* green-50 from design system */
     }
 
     .flow-node-end {
       border-color: var(--ds-color-red-500);
-      background: linear-gradient(135deg, #fef2f2 0%, white 100%);
+      background: linear-gradient(135deg, #FEF2F2 0%, white 100%);  /* red-50 from design system */
     }
 
     .keypad-button {
@@ -146,7 +147,7 @@
       border-color: var(--ds-color-primary-500);
       background-color: var(--ds-color-primary-50);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 71, 187, 0.1);
+      box-shadow: 0 4px 12px rgba(13, 98, 255, 0.1);
     }
 
     .table-row {
@@ -163,7 +164,7 @@
       color: white;
       padding: 1.5rem;
       border-radius: 0.75rem;
-      box-shadow: 0 4px 12px rgba(0, 71, 187, 0.2);
+      box-shadow: 0 4px 12px rgba(13, 98, 255, 0.2);
     }
 
     #app {
