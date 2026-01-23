@@ -2158,57 +2158,176 @@
           <div style="background: white; border: 1px solid rgb(241, 242, 246); border-radius: 0.75rem; padding: 1.75rem; margin-bottom: 2rem;">
             <h3 style="font-size: 1rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 1.25rem;">Failover Destination</h3>
             
-            <!-- Routing Type Selection -->
-            <div style="margin-bottom: 1.5rem;">
-              <label style="display: block; font-size: 0.8125rem; font-weight: 600; color: rgb(89, 90, 105); margin-bottom: 0.5rem;">Routing Type</label>
-              <select id="cfnr-routing-type" style="width: 100%; padding: 0.625rem 12px; border: 1px solid rgb(221, 221, 226); border-radius: 0.375rem; font-size: 0.875rem; color: rgb(43, 45, 63); background: white; cursor: pointer;" onchange="updateCFNRSecondaryOptions()">
-                <option value="">Select routing type...</option>
-                <option value="user">User</option>
-                <option value="huntgroup">Hunt Group</option>
-                <option value="voicemail">Voicemail</option>
-                <option value="external">External Number</option>
-              </select>
+            <!-- Single Phone Number Input with Searchable Dropdown -->
+            <div style="position: relative;">
+              <label style="display: block; font-size: 0.8125rem; font-weight: 600; color: rgb(89, 90, 105); margin-bottom: 0.5rem;">Phone Number or Extension</label>
+              <div style="position: relative;">
+                <input 
+                  type="text" 
+                  id="cfnr-phone-number" 
+                  placeholder="Enter phone number or browse existing numbers" 
+                  style="width: 100%; padding: 0.625rem 48px 0.625rem 12px; border: 1px solid rgb(221, 221, 226); border-radius: 0.375rem; font-size: 0.875rem; color: rgb(43, 45, 63); background: white;"
+                  onfocus="showCFNRDropdown()"
+                  oninput="formatPhoneNumberInput(this); filterCFNRNumbers()">
+                <button 
+                  type="button"
+                  onclick="toggleCFNRDropdown()"
+                  style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: rgb(112, 113, 125); cursor: pointer; padding: 0.25rem; display: flex; align-items: center; justify-content: center;"
+                  onmouseover="this.style.color='rgb(13, 98, 255)'"
+                  onmouseout="this.style.color='rgb(112, 113, 125)'">
+                  <i data-lucide="chevron-down" style="width: 20px; height: 20px;"></i>
+                </button>
+              </div>
+
+              <!-- Searchable Dropdown Panel -->
+              <div id="cfnr-dropdown-panel" style="display: none; position: absolute; top: 100%; left: 0; right: 0; margin-top: 0.5rem; background: white; border: 1px solid rgb(221, 221, 226); border-radius: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 400px; overflow-y: auto; z-index: 100;">
+                <!-- Search within dropdown -->
+                <div style="padding: 12px; border-bottom: 1px solid rgb(241, 242, 246); position: sticky; top: 0; background: white; z-index: 10;">
+                  <div style="position: relative;">
+                    <i data-lucide="search" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: rgb(180, 181, 187);"></i>
+                    <input 
+                      type="text" 
+                      id="cfnr-dropdown-search" 
+                      placeholder="Search numbers..." 
+                      style="width: 100%; padding: 0.5rem 12px 0.5rem 36px; border: 1px solid rgb(221, 221, 226); border-radius: 0.375rem; font-size: 0.8125rem;"
+                      oninput="filterCFNRNumbers()">
+                  </div>
+                </div>
+
+                <!-- Numbers List -->
+                <div id="cfnr-numbers-container">
+                  <!-- Users Section -->
+                  <div class="cfnr-category">
+                    <div style="padding: 8px 12px; background: rgb(252, 252, 252); font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Users</div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3001 Ext. 3001" data-label="John Smith" data-type="user" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; border-bottom: 1px solid rgb(249, 249, 250); transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="user" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">John Smith</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3001 Ext. 3001</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3002 Ext. 3002" data-label="Jane Doe" data-type="user" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; border-bottom: 1px solid rgb(249, 249, 250); transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="user" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Jane Doe</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3002 Ext. 3002</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3003 Ext. 3003" data-label="Mike Johnson" data-type="user" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; border-bottom: 1px solid rgb(249, 249, 250); transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="user" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Mike Johnson</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3003 Ext. 3003</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hunt Groups Section -->
+                  <div class="cfnr-category">
+                    <div style="padding: 8px 12px; background: rgb(252, 252, 252); font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Hunt Groups</div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3050 Ext. 3050" data-label="Sales Team" data-type="huntgroup" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; border-bottom: 1px solid rgb(249, 249, 250); transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="users" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Sales Team</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3050 Ext. 3050</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3051 Ext. 3051" data-label="Support Queue" data-type="huntgroup" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; border-bottom: 1px solid rgb(249, 249, 250); transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="users" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Support Queue</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3051 Ext. 3051</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3052 Ext. 3052" data-label="Technical Support" data-type="huntgroup" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; border-bottom: 1px solid rgb(249, 249, 250); transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="users" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Technical Support</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3052 Ext. 3052</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Voicemail Section -->
+                  <div class="cfnr-category">
+                    <div style="padding: 8px 12px; background: rgb(252, 252, 252); font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Voicemail</div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3000" data-label="Main Voicemail" data-type="voicemail" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; border-bottom: 1px solid rgb(249, 249, 250); transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="voicemail" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Main Voicemail</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3000</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3060" data-label="Sales Voicemail" data-type="voicemail" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; border-bottom: 1px solid rgb(249, 249, 250); transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="voicemail" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Sales Voicemail</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3060</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cfnr-number-item" data-value="(445) 223-3061" data-label="Support Voicemail" data-type="voicemail" onclick="selectCFNRNumber(this)" style="padding: 12px; cursor: pointer; transition: background 0.15s;" onmouseover="this.style.background='rgb(245, 248, 255)'" onmouseout="this.style.background='white'">
+                      <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; background: rgb(224, 242, 254); border-radius: 0.375rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                          <i data-lucide="voicemail" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
+                        </div>
+                        <div style="flex: 1;">
+                          <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Support Voicemail</div>
+                          <div style="font-size: 0.75rem; color: rgb(112, 113, 125);">(445) 223-3061</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p style="font-size: 0.75rem; color: rgb(112, 113, 125); margin-top: 0.5rem; display: flex; align-items: center; gap: 0.375rem;">
+                <i data-lucide="info" style="width: 14px; height: 14px;"></i>
+                <span>You can type a phone number manually or select from your existing numbers</span>
+              </p>
             </div>
 
-            <!-- Secondary Options (Hidden by default, shown based on selection) -->
-            <div id="cfnr-secondary-options" style="display: none;">
-              <!-- User Selection -->
-              <div id="cfnr-user-select" style="display: none;">
-                <label style="display: block; font-size: 0.8125rem; font-weight: 600; color: rgb(89, 90, 105); margin-bottom: 0.5rem;">Select User</label>
-                <select style="width: 100%; padding: 0.625rem 12px; border: 1px solid rgb(221, 221, 226); border-radius: 0.375rem; font-size: 0.875rem; color: rgb(43, 45, 63); background: white; cursor: pointer;">
-                  <option value="">Choose a user...</option>
-                  <option value="user1">John Smith - (445) 223-3001 Ext. 3001</option>
-                  <option value="user2">Jane Doe - (445) 223-3002 Ext. 3002</option>
-                  <option value="user3">Mike Johnson - (445) 223-3003 Ext. 3003</option>
-                </select>
-              </div>
-
-              <!-- Hunt Group Selection -->
-              <div id="cfnr-huntgroup-select" style="display: none;">
-                <label style="display: block; font-size: 0.8125rem; font-weight: 600; color: rgb(89, 90, 105); margin-bottom: 0.5rem;">Select Hunt Group</label>
-                <select style="width: 100%; padding: 0.625rem 12px; border: 1px solid rgb(221, 221, 226); border-radius: 0.375rem; font-size: 0.875rem; color: rgb(43, 45, 63); background: white; cursor: pointer;">
-                  <option value="">Choose a hunt group...</option>
-                  <option value="hg1">Sales Team - (445) 223-3050 Ext. 3050</option>
-                  <option value="hg2">Support Queue - (445) 223-3051 Ext. 3051</option>
-                  <option value="hg3">Technical Support - (445) 223-3052 Ext. 3052</option>
-                </select>
-              </div>
-
-              <!-- Voicemail Selection -->
-              <div id="cfnr-voicemail-select" style="display: none;">
-                <label style="display: block; font-size: 0.8125rem; font-weight: 600; color: rgb(89, 90, 105); margin-bottom: 0.5rem;">Select Voicemail Box</label>
-                <select style="width: 100%; padding: 0.625rem 12px; border: 1px solid rgb(221, 221, 226); border-radius: 0.375rem; font-size: 0.875rem; color: rgb(43, 45, 63); background: white; cursor: pointer;">
-                  <option value="">Choose a voicemail box...</option>
-                  <option value="vm1">Main Voicemail - (445) 223-3000</option>
-                  <option value="vm2">Sales Voicemail - (445) 223-3050</option>
-                  <option value="vm3">Support Voicemail - (445) 223-3051</option>
-                </select>
-              </div>
-
-              <!-- External Number Input -->
-              <div id="cfnr-external-input" style="display: none;">
-                <label style="display: block; font-size: 0.8125rem; font-weight: 600; color: rgb(89, 90, 105); margin-bottom: 0.5rem;">External Phone Number</label>
-                <input type="tel" placeholder="(555) 123-4567" style="width: 100%; padding: 0.625rem 12px; border: 1px solid rgb(221, 221, 226); border-radius: 0.375rem; font-size: 0.875rem; color: rgb(43, 45, 63); background: white;">
+            <!-- Selected Destination Preview -->
+            <div id="cfnr-selection-preview" style="display: none; margin-top: 1.25rem; padding: 1rem; background: rgb(245, 248, 255); border-radius: 0.5rem; border: 1px solid rgb(186, 230, 253);">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div style="width: 40px; height: 40px; background: white; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="check-circle" style="width: 20px; height: 20px; color: rgb(34, 197, 94);"></i>
+                </div>
+                <div>
+                  <div style="font-size: 0.75rem; font-weight: 600; color: rgb(13, 98, 255); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.25rem;">Selected Destination</div>
+                  <div id="cfnr-preview-text" style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -4368,34 +4487,122 @@
       window.open('https://google-ai-config-placeholder.com', '_blank');
     }
 
-    // Update CFNR secondary options based on routing type selection
-    function updateCFNRSecondaryOptions() {
-      const routingType = document.getElementById('cfnr-routing-type').value;
-      const secondaryContainer = document.getElementById('cfnr-secondary-options');
+    // CFNR Phone Number Formatting
+    function formatPhoneNumberInput(input) {
+      // Get the current value and remove all non-digit characters
+      let value = input.value.replace(/\D/g, '');
+      let formattedValue = '';
       
-      // Hide all secondary options
-      document.getElementById('cfnr-user-select').style.display = 'none';
-      document.getElementById('cfnr-huntgroup-select').style.display = 'none';
-      document.getElementById('cfnr-voicemail-select').style.display = 'none';
-      document.getElementById('cfnr-external-input').style.display = 'none';
-      
-      // Show appropriate secondary option based on selection
-      if (routingType === 'user') {
-        secondaryContainer.style.display = 'block';
-        document.getElementById('cfnr-user-select').style.display = 'block';
-      } else if (routingType === 'huntgroup') {
-        secondaryContainer.style.display = 'block';
-        document.getElementById('cfnr-huntgroup-select').style.display = 'block';
-      } else if (routingType === 'voicemail') {
-        secondaryContainer.style.display = 'block';
-        document.getElementById('cfnr-voicemail-select').style.display = 'block';
-      } else if (routingType === 'external') {
-        secondaryContainer.style.display = 'block';
-        document.getElementById('cfnr-external-input').style.display = 'block';
-      } else {
-        secondaryContainer.style.display = 'none';
+      // Format as (XXX) XXX-XXXX
+      if (value.length > 0) {
+        if (value.length <= 3) {
+          formattedValue = '(' + value;
+        } else if (value.length <= 6) {
+          formattedValue = '(' + value.slice(0, 3) + ') ' + value.slice(3);
+        } else if (value.length <= 10) {
+          formattedValue = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6);
+        } else {
+          // Handle extension (more than 10 digits)
+          formattedValue = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6, 10) + ' Ext. ' + value.slice(10);
+        }
       }
+      
+      // Update the input value
+      input.value = formattedValue;
     }
+
+    // CFNR Searchable Dropdown Functions
+    function showCFNRDropdown() {
+      const dropdown = document.getElementById('cfnr-dropdown-panel');
+      dropdown.style.display = 'block';
+      lucide.createIcons();
+    }
+
+    function toggleCFNRDropdown() {
+      const dropdown = document.getElementById('cfnr-dropdown-panel');
+      dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+      lucide.createIcons();
+    }
+
+    function hideCFNRDropdown() {
+      const dropdown = document.getElementById('cfnr-dropdown-panel');
+      dropdown.style.display = 'none';
+    }
+
+    function selectCFNRNumber(element) {
+      const value = element.getAttribute('data-value');
+      const label = element.getAttribute('data-label');
+      const input = document.getElementById('cfnr-phone-number');
+      const preview = document.getElementById('cfnr-selection-preview');
+      const previewText = document.getElementById('cfnr-preview-text');
+      
+      // Set the input value
+      input.value = value;
+      
+      // Show preview
+      preview.style.display = 'block';
+      previewText.textContent = `${label} - ${value}`;
+      
+      // Hide dropdown
+      hideCFNRDropdown();
+      
+      // Reinitialize icons
+      lucide.createIcons();
+    }
+
+    function filterCFNRNumbers() {
+      const mainInput = document.getElementById('cfnr-phone-number');
+      const dropdownSearch = document.getElementById('cfnr-dropdown-search');
+      const searchTerm = (dropdownSearch?.value || mainInput.value).toLowerCase();
+      const items = document.querySelectorAll('.cfnr-number-item');
+      const categories = document.querySelectorAll('.cfnr-category');
+      
+      // Update preview for manual entry
+      const preview = document.getElementById('cfnr-selection-preview');
+      const previewText = document.getElementById('cfnr-preview-text');
+      
+      if (mainInput.value.trim() !== '' && !dropdownSearch?.value) {
+        preview.style.display = 'block';
+        previewText.textContent = mainInput.value;
+      } else if (mainInput.value.trim() === '') {
+        preview.style.display = 'none';
+      }
+      
+      // Filter items
+      categories.forEach(category => {
+        let hasVisibleItems = false;
+        const categoryItems = category.querySelectorAll('.cfnr-number-item');
+        
+        categoryItems.forEach(item => {
+          const label = item.getAttribute('data-label').toLowerCase();
+          const value = item.getAttribute('data-value').toLowerCase();
+          
+          if (label.includes(searchTerm) || value.includes(searchTerm)) {
+            item.style.display = 'block';
+            hasVisibleItems = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Show/hide category based on whether it has visible items
+        category.style.display = hasVisibleItems ? 'block' : 'none';
+      });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('cfnr-dropdown-panel');
+      const input = document.getElementById('cfnr-phone-number');
+      const dropdownSearch = document.getElementById('cfnr-dropdown-search');
+      
+      if (dropdown && input && 
+          !dropdown.contains(event.target) && 
+          event.target !== input &&
+          event.target !== dropdownSearch) {
+        hideCFNRDropdown();
+      }
+    });
 
     // Complete the call flow setup
     function completeCallFlowSetup() {
