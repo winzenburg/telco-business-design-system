@@ -27,7 +27,7 @@ Updated the description to clearly communicate the routing behavior:
 > "When enabled, incoming calls route to Google Virtual Assistant for AI-powered handling. When disabled, calls route to your default call flow (configured below)."
 
 **Improvements:**
-- Crystal clear what ON does: Routes to Google AI Assistant
+- Crystal clear what ON does: Routes to Google Virtual Assistant
 - Crystal clear what OFF does: Routes to default call flow
 - Uses "route" language consistently for both states
 - References "configured below" to connect to Fallback Behavior section

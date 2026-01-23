@@ -1,7 +1,7 @@
-# Call Flow Wizard - CFNR and Google AI Steps
+# Call Flow Wizard - CFNR and Google Virtual Assistant Steps
 
 **Date:** January 20, 2026  
-**Feature:** Added two new wizard steps for CFNR configuration and Google AI setup
+**Feature:** Added two new wizard steps for CFNR configuration and Google Virtual Assistant setup
 
 ---
 
@@ -27,7 +27,7 @@ Step 1: Schedules (Timezone, Open Hours, Holidays)
 Step 2: Open Hours Routing
 Step 3: Closed Hours Routing
 Step 4: CFNR Configuration (NEW)
-Step 5: Google AI Configuration (NEW)
+Step 5: Google Virtual Assistant Configuration (NEW)
 → Complete
 ```
 
@@ -50,7 +50,7 @@ Configure failover routing when:
 - Step 2: Open Hours (completed, green check)
 - Step 3: Closed Hours (completed, green check)
 - Step 4: **Failover** (active, blue)
-- Step 5: Google AI (inactive, gray)
+- Step 5: Google Virtual Assistant (inactive, gray)
 
 **Content:**
 - Section header: "FAILOVER ROUTING"
@@ -85,7 +85,7 @@ function saveRoutingClosedAndNext() { ... }
 // Navigate back from CFNR to routing-closed
 function backToCFNRFromRouting() { ... }
 
-// Save CFNR and proceed to Google AI
+// Save CFNR and proceed to Google Virtual Assistant
 function saveCFNRAndNext() { ... }
 
 // Update secondary options based on routing type
@@ -94,7 +94,7 @@ function updateCFNRSecondaryOptions() { ... }
 
 ---
 
-## Step 5: Google AI Configuration
+## Step 5: Google Virtual Assistant Configuration
 
 ### Purpose
 Inform customers about Google Assistant configuration and provide SSO link to complete setup.
@@ -108,7 +108,7 @@ Inform customers about Google Assistant configuration and provide SSO link to co
 - Step 2: Open Hours (completed, green check)
 - Step 3: Closed Hours (completed, green check)
 - Step 4: Failover (completed, green check)
-- Step 5: **Google AI** (active, blue)
+- Step 5: **Google Virtual Assistant** (active, blue)
 
 **Content Sections:**
 
@@ -117,7 +117,7 @@ Inform customers about Google Assistant configuration and provide SSO link to co
    - "Call Flow Configuration Complete!"
    - "Your call flow has been saved and is ready to handle incoming calls."
 
-2. **Google AI Configuration Card** (blue gradient)
+2. **Google Virtual Assistant Configuration Card** (blue gradient)
    - Bot icon (64px)
    - Heading: "Configure Google Virtual Assistant"
    - Description: "Your call flow is configured and ready. To enable AI-powered call handling, complete the Google Assistant configuration."
@@ -125,7 +125,7 @@ Inform customers about Google Assistant configuration and provide SSO link to co
    **Key Points Listed:**
    - All calls route to the configured call flow until AI is configured and turned on
    - Assistant can be turned off at any time to route back to call flow
-   - Configured schedules apply to both call flow and Google AI routing
+   - Configured schedules apply to both call flow and Google Virtual Assistant routing
 
 3. **Primary CTA Button**
    - "CONFIGURE GOOGLE ASSISTANT" with external link icon
@@ -147,13 +147,13 @@ Inform customers about Google Assistant configuration and provide SSO link to co
 ### New Functions Added
 
 ```javascript
-// Navigate back from Google AI to CFNR
+// Navigate back from Google Virtual Assistant to CFNR
 function backToGoogleAIFromCFNR() { ... }
 
-// Complete wizard from Google AI step
+// Complete wizard from Google Virtual Assistant step
 function completeWizardFromGoogleAI() { ... }
 
-// Launch Google AI config (opens in new tab)
+// Launch Google Virtual Assistant config (opens in new tab)
 function launchGoogleAIConfig() { ... }
 ```
 
@@ -181,7 +181,7 @@ All wizard screens updated to show 5 steps:
 | 2 | Open Hours | Open Hours |
 | 3 | Closed Hours & Holidays | Closed Hours |
 | 4 | - | **Failover** (NEW) |
-| 5 | - | **Google AI** (NEW) |
+| 5 | - | **Google Virtual Assistant** (NEW) |
 
 **Note:** Step 3 label shortened from "Closed Hours & Holidays" to "Closed Hours" for space efficiency with 5 steps.
 
@@ -233,7 +233,7 @@ Step 3: Closed Hours Routing
   ↓ [SAVE & NEXT] ← NEW BUTTON ADDED
 Step 4: CFNR Configuration ← NEW STEP
   ↓ [SAVE & NEXT]
-Step 5: Google AI Configuration ← NEW STEP
+Step 5: Google Virtual Assistant Configuration ← NEW STEP
   ↓ [FINISH] or [I'll configure this later]
 Completed Callflow
 ```
@@ -254,12 +254,12 @@ Completed Callflow
 - ✅ Excludes Google Assistant TN (implementation note: filter in production)
 - ✅ Generic messaging about "issues" (AI failure, network, backup flow)
 
-### Google AI Step
+### Google Virtual Assistant Step
 - ✅ Informs about next steps in Google
 - ✅ Explains call routing behavior (uses call flow until AI configured)
 - ✅ Explains ability to turn off AI (routes back to call flow)
 - ✅ Provides SSO link (placeholder: `https://google-ai-config-placeholder.com`)
-- ✅ Clarifies that hours/schedule config applies to BOTH backup flow AND Google AI
+- ✅ Clarifies that hours/schedule config applies to BOTH backup flow AND Google Virtual Assistant
 - ✅ Clarifies that routing selection (open/closed) is ONLY for backup/default call flow
 
 ---
@@ -291,7 +291,7 @@ Completed Callflow
 - [ ] All 5 steps display correctly in all wizard screens
 - [ ] CFNR dropdown shows all routing types
 - [ ] CFNR secondary options appear/hide correctly based on selection
-- [ ] Google AI screen displays all required messaging
+- [ ] Google Virtual Assistant screen displays all required messaging
 - [ ] SSO link opens in new tab when clicked
 - [ ] "I'll configure this later" navigates to completed callflow
 - [ ] BACK/NEXT navigation works through all steps
@@ -327,7 +327,7 @@ Completed Callflow
 - ✅ Design system compliant
 
 ### Before Launch
-- [ ] Replace placeholder SSO URL with actual Google AI config endpoint
+- [ ] Replace placeholder SSO URL with actual Google Virtual Assistant config endpoint
 - [ ] Implement actual CFNR data persistence (currently TODO comment)
 - [ ] Implement actual filtering of Google Assistant TN from CFNR options
 - [ ] Add form validation for external number input
