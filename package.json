@@ -84,6 +84,7 @@
     "publish:check": "npm pack --dry-run",
     "publish:manual": "npm publish --access public",
     "changeset:publish": "changeset publish",
+    "prepare:callflow-pages": "node scripts/prepare-callflow-pages.mjs",
     "fix:tokens": "node scripts/validate-design-tokens.js --fix",
     "perf:report": "npm run build:lib && npm run analyze:bundle",
     "force-reload": "find packages/components/ui packages/docs/stories -name '*.tsx' -exec touch {} \\;",
