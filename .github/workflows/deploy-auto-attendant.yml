@@ -5,7 +5,9 @@ on:
     branches:
       - main
     paths:
-      - 'apps/auto-attendant/**'
+      - 'apps/june/**'
+      - 'apps/august/**'
+      - 'apps/index.html'
       - '.github/workflows/deploy-auto-attendant.yml'
   workflow_dispatch:
 
@@ -34,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './apps/auto-attendant'
+          path: './apps'
 
       - name: Deploy to GitHub Pages
         id: deployment

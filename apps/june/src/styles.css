@@ -1,0 +1,228 @@
+/* Comcast Business Design System Styles for Auto-Attendant */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import design system base styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap');
+
+@layer base {
+  * {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    @apply bg-bg-canvas text-text-primary;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer components {
+  /* Auto-Attendant specific component styles using design system tokens */
+  .comcast-header {
+    @apply fixed top-0 left-0 right-0 z-sticky bg-primary-700 text-white shadow-md;
+  }
+
+  .comcast-header-top {
+    @apply h-8 flex items-center px-6 text-xs font-medium gap-5;
+    /* DESIGN-SYSTEM-EXCEPTION: Global Comcast header brand color
+     * This is the official Comcast brand navy and must remain constant
+     * across all Comcast Business applications regardless of design system.
+     */
+    background: #00074b;
+  }
+
+  .comcast-header-main {
+    @apply h-[60px] flex items-center justify-between;
+  }
+
+  .comcast-header-main-left {
+    @apply bg-primary-500 w-[60px] h-full flex items-center justify-center gap-4;
+  }
+
+  .comcast-header-main-right {
+    @apply h-full flex items-center px-6 gap-4 flex-1 justify-between;
+    /* DESIGN-SYSTEM-EXCEPTION: Global Comcast header brand color
+     * This is the official Comcast brand navy for the main header section
+     * and must remain constant across all Comcast Business applications.
+     */
+    background: #000a73;
+  }
+
+  .comcast-logo {
+    @apply text-sm font-semibold tracking-wide;
+  }
+
+  .sidebar {
+    @apply fixed left-0 top-[92px] w-[340px] h-[calc(100vh-92px)] bg-neutral-50 border-r border-border-structural overflow-y-auto overflow-x-hidden p-0 flex flex-col transition-all duration-300;
+  }
+
+  .sidebar.collapsed {
+    @apply w-[60px];
+  }
+
+  .sidebar.collapsed .sidebar-item span,
+  .sidebar.collapsed .sidebar-header,
+  .sidebar.collapsed .sidebar-divider {
+    @apply hidden;
+  }
+
+  .sidebar.collapsed .sidebar-item {
+    @apply justify-center p-0;
+  }
+
+  .sidebar.collapsed .sidebar-item-icon {
+    @apply mr-0;
+  }
+
+  .sidebar.collapsed .sidebar-back {
+    @apply justify-center py-4 px-0;
+  }
+
+  .sidebar-back {
+    @apply px-6 py-4 flex items-center cursor-pointer transition-opacity hover:opacity-70;
+  }
+
+  .sidebar-back svg {
+    @apply w-6 h-6 text-neutral-800;
+  }
+
+  .sidebar-section {
+    @apply mb-0;
+  }
+
+  .sidebar-header {
+    @apply px-6 py-4 pb-3 text-xs font-semibold text-neutral-600 tracking-wide uppercase;
+  }
+
+  .sidebar-divider {
+    @apply h-px bg-border-structural my-4;
+  }
+
+  .sidebar-item {
+    @apply flex items-center px-6 h-[45px] text-neutral-900 no-underline text-[15px] font-medium cursor-pointer transition-all border-l-4 border-transparent bg-transparent hover:bg-neutral-100;
+  }
+
+  .sidebar-item.active {
+    @apply bg-transparent text-primary-500 border-l-transparent;
+  }
+
+  .sidebar-item-icon {
+    @apply w-8 h-8 rounded-full bg-transparent flex items-center justify-center mr-3;
+  }
+
+  .main-content {
+    @apply ml-[340px] mt-[92px] p-6 min-h-[calc(100vh-92px)] transition-all duration-300;
+  }
+
+  .main-content.sidebar-collapsed {
+    @apply ml-[60px];
+  }
+
+  /* Card styles using design system tokens */
+  .workflow-card {
+    @apply bg-white rounded-lg shadow-sm border border-border-muted p-6 transition-all hover:shadow-md;
+  }
+
+  .workflow-node {
+    @apply bg-white rounded-lg border-2 border-neutral-300 p-4 min-w-[200px] transition-all hover:border-primary-500 hover:shadow-md;
+  }
+
+  .workflow-node.selected {
+    @apply border-primary-500 shadow-lg;
+  }
+
+  .workflow-node.start-node {
+    @apply border-green-500 bg-green-50;
+  }
+
+  .workflow-node.end-node {
+    @apply border-red-500 bg-red-50;
+  }
+
+  /* Button styles inheriting from design system */
+  .action-button {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-all;
+    @apply bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700;
+    @apply focus-visible:outline-2 focus-visible:outline-primary-500 focus-visible:outline-offset-2;
+  }
+
+  .action-button.secondary {
+    @apply bg-white text-primary-500 border border-neutral-300 hover:bg-neutral-50;
+  }
+
+  .action-button.destructive {
+    @apply bg-red-500 text-white hover:bg-red-600 active:bg-red-700;
+  }
+
+  /* Login Modal Styles - moved from inline to ensure proper cascade order */
+  .login-overlay {
+    @apply fixed inset-0 flex items-center justify-center;
+    background: linear-gradient(135deg, theme('colors.primary.700') 0%, theme('colors.primary.500') 100%);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
+
+  .login-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .login-box {
+    @apply bg-white rounded-lg shadow-2xl p-8 w-full max-w-md;
+  }
+
+  .login-logo {
+    @apply text-center mb-8;
+  }
+
+  .login-logo h1 {
+    @apply text-primary-700 text-2xl font-bold mb-2 tracking-wide;
+  }
+
+  .login-logo p {
+    @apply text-neutral-600 text-sm;
+  }
+
+  .login-form {
+    @apply space-y-6;
+  }
+
+  .login-input-group label {
+    @apply block text-neutral-700 text-sm font-semibold mb-2;
+  }
+
+  .login-input-group input {
+    @apply w-full px-4 py-3 border-2 border-neutral-200 rounded-lg text-sm transition-all outline-none;
+    @apply focus:border-primary-500;
+  }
+
+  .login-input-group input:focus {
+    box-shadow: 0 0 0 3px rgba(13, 98, 255, 0.1);
+  }
+
+  .login-input-group input::placeholder {
+    @apply text-neutral-600;
+    opacity: 1; /* Override browser default - WCAG AA compliant */
+  }
+
+  .login-button {
+    @apply w-full bg-primary-500 text-white border-none px-6 py-3.5 rounded-lg text-sm font-semibold cursor-pointer transition-all uppercase;
+    @apply hover:bg-primary-600 active:bg-primary-700;
+  }
+
+  .login-error {
+    @apply bg-red-50 border-2 border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm items-center gap-2 mt-4;
+    display: none;
+  }
+
+  .login-error.show {
+    @apply flex;
+  }
+
+  .login-error-icon {
+    @apply w-5 h-5 flex-shrink-0;
+  }
+}

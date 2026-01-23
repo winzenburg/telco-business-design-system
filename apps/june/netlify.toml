@@ -1,0 +1,8 @@
+# Netlify configuration for auto-attendant demo
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

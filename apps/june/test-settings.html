@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Settings Navigation</title>
+</head>
+<body>
+  <h1>Test Settings</h1>
+  <button onclick="testNav()">Go to Settings</button>
+  <script>
+    function testNav() {
+      window.location.href = 'http://localhost:8080';
+      setTimeout(() => {
+        localStorage.setItem('autoAttendantAuth', 'true');
+        window.location.reload();
+      }, 100);
+    }
+  </script>
+</body>
+</html>
