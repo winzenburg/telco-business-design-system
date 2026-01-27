@@ -30,6 +30,8 @@ jobs:
 
       - name: Prepare call flow pages
         run: npm run prepare:callflow-pages
+        env:
+          CALLFLOW_RELEASES: june,august
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

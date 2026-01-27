@@ -1,4 +1,4 @@
-import { cpSync, existsSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, rmSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const SERVER_ENDPOINT = 'http://127.0.0.1:7243/ingest/39aa3398-5279-48dc-a9ad-352e95fa7d81';
@@ -26,15 +26,79 @@ const sourceDir = resolve('apps/callflow');
 const outputDir = resolve('callflow-pages');
 const nestedDir = join(outputDir, 'callflow');
 
+const parseReleaseList = () => {
+  const envValue = process.env.CALLFLOW_RELEASES;
+  if (envValue) {
+    const parsed = envValue
+      .split(',')
+      .map((value) => value.trim())
+      .filter(Boolean);
+    if (parsed.length > 0) {
+      return parsed;
+    }
+  }
+  return ['august', 'june'];
+};
+
+const releaseList = parseReleaseList();
+
+const ensureReleaseSource = (release) => {
+  const sourcePath = join(sourceDir, release);
+  if (!existsSync(sourcePath)) {
+    throw new Error(`Release folder missing under apps/callflow: ${release}`);
+  }
+  return sourcePath;
+};
+
+const ensureArtifact = (targetDir, release, stage) => {
+  const missing = [];
+  if (!existsSync(join(targetDir, 'index.html'))) {
+    missing.push('index.html');
+  }
+  if (!existsSync(join(targetDir, 'public'))) {
+    missing.push('public/');
+  }
+  if (missing.length) {
+    throw new Error(
+      `Release \"${release}\" is missing ${missing.join(
+        ', '
+      )} under ${stage} target (${targetDir})`
+    );
+  }
+};
+
 if (existsSync(outputDir)) {
   rmSync(outputDir, { recursive: true, force: true });
   logEntry('H1', 'prepare-callflow-pages.mjs:cleanup', 'Removed existing callflow-pages directory', { outputDir });
 }
 
-logEntry('H2', 'prepare-callflow-pages.mjs:copyRoot-start', 'Beginning root copy', { sourceDir, outputDir });
-cpSync(sourceDir, outputDir, { recursive: true });
-logEntry('H3', 'prepare-callflow-pages.mjs:copyRoot-end', 'Finished root copy', { sourceDir, outputDir });
+mkdirSync(outputDir, { recursive: true });
+mkdirSync(nestedDir, { recursive: true });
 
-logEntry('H4', 'prepare-callflow-pages.mjs:copyNested-start', 'Beginning nested copy', { nestedDir });
-cpSync(sourceDir, nestedDir, { recursive: true });
-logEntry('H5', 'prepare-callflow-pages.mjs:copyNested-end', 'Nested callflow ready', { nestedDir, outputDir });
+logEntry('H2', 'prepare-callflow-pages.mjs:copy-start', 'Copying release folders', { releaseList, outputDir });
+
+releaseList.forEach((release) => {
+  const releaseSource = ensureReleaseSource(release);
+
+  const rootTarget = join(outputDir, release);
+  cpSync(releaseSource, rootTarget, { recursive: true });
+  ensureArtifact(rootTarget, release, 'root');
+  logEntry('H3', 'prepare-callflow-pages.mjs:copy-release-root', 'Copied release to root target', {
+    release,
+    rootTarget
+  });
+
+  const nestedTarget = join(nestedDir, release);
+  mkdirSync(nestedTarget, { recursive: true });
+  cpSync(releaseSource, nestedTarget, { recursive: true });
+  ensureArtifact(nestedTarget, release, 'nested');
+  logEntry('H4', 'prepare-callflow-pages.mjs:copy-release-nested', 'Copied release to nested target', {
+    release,
+    nestedTarget
+  });
+});
+
+logEntry('H5', 'prepare-callflow-pages.mjs:copy-end', 'Finished copying releases', {
+  releaseList,
+  outputDir
+});
