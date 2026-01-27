@@ -82,6 +82,13 @@ if (existsSync(rootIndexSource)) {
   logEntry('H1.5', 'prepare-callflow-pages.mjs:copy-root-index', 'Copied root index.html', { rootIndexSource });
 }
 
+// Copy .nojekyll to disable Jekyll processing on GitHub Pages
+const nojekyllSource = join(sourceDir, '.nojekyll');
+if (existsSync(nojekyllSource)) {
+  cpSync(nojekyllSource, join(outputDir, '.nojekyll'));
+  logEntry('H1.6', 'prepare-callflow-pages.mjs:copy-nojekyll', 'Copied .nojekyll file', { nojekyllSource });
+}
+
 logEntry('H2', 'prepare-callflow-pages.mjs:copy-start', 'Copying release folders', { releaseList, outputDir });
 
 releaseList.forEach((release) => {
