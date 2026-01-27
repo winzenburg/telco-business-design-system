@@ -14,11 +14,14 @@ const logEntry = (hypothesisId, location, message, data = {}) => {
     timestamp: Date.now()
   };
   // #region agent log
-  fetch(SERVER_ENDPOINT, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  }).catch(() => {});
+  // Only attempt fetch in local development (skip in CI)
+  if (process.env.CI !== 'true') {
+    fetch(SERVER_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(() => {});
+  }
   // #endregion
 };
 
