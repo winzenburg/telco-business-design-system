@@ -1,5 +1,7 @@
 ## Call Flow Deployment Guide
 
+**Note:** GitHub Pages must be configured to use "GitHub Actions" as the source (not "Deploy from a branch") for the workflow deployment to work correctly.
+
 ### Release layout
 Each release folder (for example `apps/callflow/june` or `apps/callflow/august`) must contain:
 - a standalone `index.html` entry point,
