@@ -1,4 +1,4 @@
-import { cpSync, existsSync, mkdirSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, rmSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 const SERVER_ENDPOINT = 'http://127.0.0.1:7243/ingest/39aa3398-5279-48dc-a9ad-352e95fa7d81';
@@ -107,10 +107,27 @@ const copyReleaseFiles = (sourceDir, targetDir, release) => {
     cpSync(publicSource, join(targetDir, 'public'), { recursive: true });
   }
   
-  logEntry('H6', 'prepare-callflow-pages.mjs:copy-release', 'Copied release files (index.html + public/)', {
+  // Copy image files at root level (png, jpg, jpeg, gif, svg, webp)
+  const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'];
+  const files = readdirSync(sourceDir);
+  
+  files.forEach(file => {
+    const ext = file.toLowerCase().slice(file.lastIndexOf('.'));
+    if (imageExtensions.includes(ext)) {
+      const imageSource = join(sourceDir, file);
+      const imageTarget = join(targetDir, file);
+      cpSync(imageSource, imageTarget);
+      logEntry('H6.1', 'prepare-callflow-pages.mjs:copy-image', 'Copied image file', {
+        release,
+        file
+      });
+    }
+  });
+  
+  logEntry('H6', 'prepare-callflow-pages.mjs:copy-release', 'Copied release files (index.html + public/ + images)', {
     release,
     targetDir,
-    files: ['index.html', 'public/']
+    files: ['index.html', 'public/', '*.png']
   });
 };
 
