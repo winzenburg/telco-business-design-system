@@ -75,6 +75,13 @@ if (existsSync(outputDir)) {
 mkdirSync(outputDir, { recursive: true });
 mkdirSync(nestedDir, { recursive: true });
 
+// Copy root index.html for GitHub Pages base URL
+const rootIndexSource = join(sourceDir, 'index.html');
+if (existsSync(rootIndexSource)) {
+  cpSync(rootIndexSource, join(outputDir, 'index.html'));
+  logEntry('H1.5', 'prepare-callflow-pages.mjs:copy-root-index', 'Copied root index.html', { rootIndexSource });
+}
+
 logEntry('H2', 'prepare-callflow-pages.mjs:copy-start', 'Copying release folders', { releaseList, outputDir });
 
 releaseList.forEach((release) => {
