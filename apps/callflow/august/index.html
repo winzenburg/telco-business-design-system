@@ -981,24 +981,43 @@
 
       <!-- Google Virtual Assistant Usage (Compact) -->
       <div id="dashboard-ai-usage" onclick="showMainBusinessNumberCallflow()" style="position: relative; background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(186, 230, 253) 100%); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid rgb(13, 98, 255); cursor: pointer; transition: all 0.3s;" onmouseover="this.style.boxShadow='0 8px 24px rgba(13,98,255,0.25)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.boxShadow='none'; this.style.transform='translateY(0)';">
+        
+        <!-- Status Badge (shown in reminder state) -->
+        <div data-dashboard-status-badge style="display: none; margin-bottom: 1rem;">
+          <span style="display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.375rem 12px; background: white; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; color: rgb(13, 98, 255); text-transform: uppercase; letter-spacing: 0.5px;">
+            <i data-lucide="alert-circle" style="width: 14px; height: 14px;"></i>
+            Setup Required
+          </span>
+        </div>
+
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <div style="width: 48px; height: 48px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(13,98,255,0.15);">
               <i data-lucide="bot" style="width: 24px; height: 24px; color: rgb(13, 98, 255);"></i>
             </div>
             <div>
-              <h3 style="font-size: 1rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 2px;">Google Virtual Assistant</h3>
-              <p style="font-size: 0.8125rem; color: rgb(89, 90, 105); margin: 0;">AI-powered call handling • Click to view details</p>
+              <h3 data-dashboard-title style="font-size: 1.125rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 4px;">Google Virtual Assistant</h3>
+              <p data-dashboard-subtitle style="font-size: 0.8125rem; color: rgb(89, 90, 105); margin: 0;">AI-powered call handling • Click to view details</p>
             </div>
           </div>
-          <button onclick="event.stopPropagation(); openAddMinutesPage();" style="display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.5rem 16px; background: rgb(13, 98, 255); color: white; border: none; border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: all 0.2s; position: relative; z-index: 5;" onmouseover="this.style.background='rgb(10, 78, 204)'" onmouseout="this.style.background='rgb(13, 98, 255)'">
-            <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
-            Add Minutes
-          </button>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.375rem;">
+            <button data-dashboard-add-minutes onclick="event.stopPropagation(); openAddMinutesPage();" style="display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.5rem 16px; background: rgb(13, 98, 255); color: white; border: none; border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: all 0.2s; position: relative; z-index: 5;" onmouseover="this.style.background='rgb(10, 78, 204)'" onmouseout="this.style.background='rgb(13, 98, 255)'">
+              <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i>
+              Add Minutes
+            </button>
+            <!-- CTA (shown in reminder state) -->
+            <div data-dashboard-setup-cta-container style="display: none; flex-direction: column; align-items: flex-end; gap: 0.375rem; position: relative; z-index: 5;">
+              <button onclick="event.stopPropagation(); showMainBusinessNumberCallflow();" style="display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.5rem 16px; background: white; color: rgb(13, 98, 255); border: 1px solid rgb(13, 98, 255); border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgb(240, 247, 255)';" onmouseout="this.style.background='white';">
+                <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                Set up call flow
+              </button>
+              <span style="font-size: 0.75rem; color: rgb(112, 113, 125);">Takes 10-15 minutes</span>
+            </div>
+          </div>
         </div>
 
         <!-- Usage Stats -->
-        <div>
+        <div data-dashboard-usage-section>
           <div style="display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.75rem;">
             <span style="font-size: 1.75rem; font-weight: 600; color: rgb(43, 45, 63);">247</span>
             <span style="font-size: 0.875rem; color: rgb(89, 90, 105);">/ 500 minutes used</span>
@@ -1011,13 +1030,14 @@
           </div>
           
           <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.75rem; color: rgb(112, 113, 125);">Billing cycle: Jan 1 - Jan 31, 2026</span>
-            <div style="display: flex; align-items: center; gap: 0.25rem;">
+            <span data-dashboard-usage-meta style="font-size: 0.75rem; color: rgb(112, 113, 125);">Add Minutes • 247 / 500 minutes used • 253 remaining</span>
+            <div data-dashboard-timestamp style="display: flex; align-items: center; gap: 0.25rem;">
               <i data-lucide="clock" style="width: 12px; height: 12px; color: rgb(157, 158, 167);"></i>
               <span style="font-size: 0.6875rem; color: rgb(112, 113, 125);">Updated: 2:30 PM ET</span>
             </div>
           </div>
         </div>
+        <span data-dashboard-billing style="font-size: 0.75rem; color: rgb(112, 113, 125);">Billing cycle: Jan 1 - Jan 31, 2026</span>
       </div>
 
       <!-- Two Column Layout -->
@@ -5178,12 +5198,14 @@
     let currentDemoState = 'normal'; // 'normal', 'warning', 'critical', 'failover'
     
     function toggleDemoUsageState() {
-      // Cycle through states: normal -> warning -> critical -> failover -> normal
+      // Cycle through states: normal -> warning -> critical -> reminder -> failover -> normal
       if (currentDemoState === 'normal') {
         currentDemoState = 'warning';
       } else if (currentDemoState === 'warning') {
         currentDemoState = 'critical';
       } else if (currentDemoState === 'critical') {
+        currentDemoState = 'reminder';
+      } else if (currentDemoState === 'reminder') {
         currentDemoState = 'failover';
       } else {
         currentDemoState = 'normal';
@@ -5201,6 +5223,9 @@
         } else if (currentDemoState === 'critical') {
           usageStateText.textContent = 'Critical (92%)';
           usageStateText.style.color = 'rgb(254, 202, 202)';
+        } else if (currentDemoState === 'reminder') {
+          usageStateText.textContent = 'Reminder (Setup Pending)';
+          usageStateText.style.color = 'rgb(13, 98, 255)';
         } else {
           usageStateText.textContent = 'Failover (100%)';
           usageStateText.style.color = 'rgb(221, 221, 226)';
@@ -5228,6 +5253,10 @@
         used = 460;
         total = 500;
         statusLabel = 'Critical';
+      } else if (currentDemoState === 'reminder') {
+        used = 320;
+        total = 500;
+        statusLabel = 'Setup reminder';
       } else { // failover
         used = 500;
         total = 500;
@@ -5290,6 +5319,13 @@
             </div>
           </div>
         `;
+      } else if (currentDemoState === 'reminder') {
+        // Reminder: configuration pending
+        status = 'reminder';
+        statusColor = 'rgb(13, 98, 255)';
+        bgGradient = 'linear-gradient(135deg, rgb(237, 249, 255) 0%, rgb(209, 241, 255) 100%)';
+        borderColor = 'rgb(125, 211, 252)';
+        alertHTML = '';
       }
       
       // Update dashboard card (if it exists)
@@ -5317,6 +5353,45 @@
           dashboardProgressBar.style.width = `${percentageUsed}%`;
           dashboardProgressBar.style.background = statusColor;
         }
+
+          const isReminder = currentDemoState === 'reminder';
+          
+          // Toggle visibility based on state
+          const usageSection = dashboardCard.querySelector('[data-dashboard-usage-section]');
+          const addMinutesBtn = dashboardCard.querySelector('[data-dashboard-add-minutes]');
+          const statusBadge = dashboardCard.querySelector('[data-dashboard-status-badge]');
+          const setupCTAContainer = dashboardCard.querySelector('[data-dashboard-setup-cta-container]');
+          const title = dashboardCard.querySelector('[data-dashboard-title]');
+          const subtitle = dashboardCard.querySelector('[data-dashboard-subtitle]');
+          const billingLines = dashboardCard.querySelectorAll('[data-dashboard-billing]');
+          
+          if (usageSection) {
+            usageSection.style.display = isReminder ? 'none' : '';
+          }
+          if (addMinutesBtn) {
+            addMinutesBtn.style.display = isReminder ? 'none' : '';
+          }
+          if (statusBadge) {
+            statusBadge.style.display = isReminder ? 'block' : 'none';
+          }
+          if (setupCTAContainer) {
+            setupCTAContainer.style.display = isReminder ? 'flex' : 'none';
+          }
+          if (title && isReminder) {
+            title.textContent = 'Complete Your Call Flow Setup';
+          } else if (title) {
+            title.textContent = 'Google Virtual Assistant';
+          }
+          if (subtitle && isReminder) {
+            subtitle.textContent = 'Unlock AI-powered call handling by finishing your configuration';
+          } else if (subtitle) {
+            subtitle.textContent = 'AI-powered call handling • Click to view details';
+          }
+          if (billingLines.length) {
+            billingLines.forEach((line) => {
+              line.style.display = isReminder ? 'none' : '';
+            });
+          }
         
         // Remove existing alert if present
         const existingAlert = dashboardCard.querySelector('[data-alert]');
@@ -5414,6 +5489,10 @@
         used = 460;
         total = 500;
         statusLabel = 'Critical - Action Required';
+      } else if (currentDemoState === 'reminder') {
+        used = 320;
+        total = 500;
+        statusLabel = 'Setup reminder';
       } else { // failover
         used = 500;
         total = 500;
@@ -5601,6 +5680,39 @@
                 </p>
               </div>
             </div>
+          </div>
+        `;
+      } else if (currentDemoState === 'reminder') {
+        // Reminder state (setup pending)
+        iconBgGradient = 'linear-gradient(135deg, rgb(237, 249, 255) 0%, rgb(209, 241, 255) 100%)';
+        iconColor = 'rgb(13, 98, 255)';
+        progressBarColor = 'rgb(13, 98, 255)';
+        remainingColor = 'rgb(13, 98, 255)';
+        alertBanner = `
+          <div style="background: linear-gradient(135deg, rgb(237, 249, 255) 0%, rgb(209, 241, 255) 100%); border: 2px solid rgb(13, 98, 255); border-radius: 0.75rem; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: start; gap: 1rem;">
+              <div style="width: 48px; height: 48px; background: white; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <i data-lucide="sparkles" style="width: 24px; height: 24px; color: rgb(13, 98, 255);"></i>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="font-size: 1rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Reminder: finish setup</h4>
+                <p style="font-size: 0.875rem; color: rgb(89, 90, 105); line-height: 1.6; margin-bottom: 0.75rem;">
+                  Finish configuring the call flow routing and Google Assistant settings so the AI-powered experience can start handling calls.
+                </p>
+                <p style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">
+                  Use the Settings button below to complete the setup.
+                </p>
+              </div>
+            </div>
+          </div>
+        `;
+        detailsHTML = `
+          <div style="background: rgb(245, 248, 255); border: 1px solid rgb(186, 230, 253); border-radius: 0.5rem; padding: 1.25rem;">
+            <h4 style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 1rem;">Steps to finish setup</h4>
+            <ul style="margin: 0; padding-left: 1.25rem; color: rgb(89, 90, 105); font-size: 0.8125rem; line-height: 1.6;">
+              <li>Design your call flow routing so callers reach the right destination.</li>
+              <li>Finalize the Google Virtual Assistant configuration in Settings.</li>
+            </ul>
           </div>
         `;
       } else {
