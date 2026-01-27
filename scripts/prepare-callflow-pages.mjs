@@ -92,13 +92,35 @@ if (existsSync(nojekyllSource)) {
   logEntry('H1.6', 'prepare-callflow-pages.mjs:copy-nojekyll', 'Copied .nojekyll file', { nojekyllSource });
 }
 
+const copyReleaseFiles = (sourceDir, targetDir, release) => {
+  mkdirSync(targetDir, { recursive: true });
+  
+  // Copy index.html
+  const indexSource = join(sourceDir, 'index.html');
+  if (existsSync(indexSource)) {
+    cpSync(indexSource, join(targetDir, 'index.html'));
+  }
+  
+  // Copy public directory
+  const publicSource = join(sourceDir, 'public');
+  if (existsSync(publicSource)) {
+    cpSync(publicSource, join(targetDir, 'public'), { recursive: true });
+  }
+  
+  logEntry('H6', 'prepare-callflow-pages.mjs:copy-release', 'Copied release files (index.html + public/)', {
+    release,
+    targetDir,
+    files: ['index.html', 'public/']
+  });
+};
+
 logEntry('H2', 'prepare-callflow-pages.mjs:copy-start', 'Copying release folders', { releaseList, outputDir });
 
 releaseList.forEach((release) => {
   const releaseSource = ensureReleaseSource(release);
 
   const rootTarget = join(outputDir, release);
-  cpSync(releaseSource, rootTarget, { recursive: true });
+  copyReleaseFiles(releaseSource, rootTarget, release);
   ensureArtifact(rootTarget, release, 'root');
   logEntry('H3', 'prepare-callflow-pages.mjs:copy-release-root', 'Copied release to root target', {
     release,
@@ -106,8 +128,7 @@ releaseList.forEach((release) => {
   });
 
   const nestedTarget = join(nestedDir, release);
-  mkdirSync(nestedTarget, { recursive: true });
-  cpSync(releaseSource, nestedTarget, { recursive: true });
+  copyReleaseFiles(releaseSource, nestedTarget, release);
   ensureArtifact(nestedTarget, release, 'nested');
   logEntry('H4', 'prepare-callflow-pages.mjs:copy-release-nested', 'Copied release to nested target', {
     release,

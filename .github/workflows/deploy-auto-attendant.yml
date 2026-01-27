@@ -42,6 +42,17 @@ jobs:
         env:
           CALLFLOW_RELEASES: june,august
 
+      - name: Verify artifact size
+        run: |
+          SIZE=$(du -sm callflow-pages | cut -f1)
+          echo "Artifact size: ${SIZE}MB"
+          if [ $SIZE -gt 50 ]; then
+            echo "ERROR: Artifact too large (${SIZE}MB). Should be <10MB."
+            echo "Checking for node_modules..."
+            find callflow-pages -name node_modules -type d
+            exit 1
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
