@@ -34,7 +34,6 @@ export const AllVariants: Story = {
       }
     }
   },
-  args: {},
   render: () => (
     <div className="space-y-8 max-w-2xl">
       <div className="space-y-2">
@@ -107,7 +106,6 @@ export const AllVariants: Story = {
 };
 
 export const Default: Story = {
-  args: {},
   render: () => (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
@@ -133,7 +131,6 @@ export const Default: Story = {
 };
 
 export const Multiple: Story = {
-  args: {},
   render: () => (
     <Accordion type="multiple" className="w-full">
       <AccordionItem value="item-1">

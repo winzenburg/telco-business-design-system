@@ -17,10 +17,10 @@ import {
   Button
 } from '../src/components';
 import {
-  MoreHorizontal, Settings, User, CreditCard, LogOut,
+  MoreHorizontal, Settings, User, DollarSign as CreditCard, Power as LogOut,
   Download, Share, Edit, Eye, Trash, Copy, Star,
   ChevronRight, Plus, Minus, Filter, Bell, Heart,
-  Bookmark, Archive, Flag, Cloud, Moon, Sun
+  Bookmark, Folder as Archive, BookmarkCheck as Flag, Cloud, Moon, Sun
 } from 'lucide-react';
 import MenuDocs from './docs/Menu.mdx';
 
