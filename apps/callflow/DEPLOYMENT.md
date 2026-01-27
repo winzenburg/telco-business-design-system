@@ -2,6 +2,8 @@
 
 **Note:** GitHub Pages must be configured to use "GitHub Actions" as the source (not "Deploy from a branch") for the workflow deployment to work correctly.
 
+**Image Assets:** The prepare script now automatically includes PNG, JPG, GIF, SVG, and WEBP files from the release root directory.
+
 ### Release layout
 Each release folder (for example `apps/callflow/june` or `apps/callflow/august`) must contain:
 - a standalone `index.html` entry point,
