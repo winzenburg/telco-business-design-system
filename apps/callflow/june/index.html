@@ -3101,7 +3101,7 @@
                 <h2 style="font-size: 1.125rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Backup Call Flow Configuration</h2>
                 <span style="background: rgb(221, 221, 226); color: rgb(66, 68, 84); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Failover</span>
               </div>
-              <p style="font-size: 0.875rem; color: rgb(112, 113, 125); margin: 0; padding-left: 1.875rem;">Used when Google Virtual Assistant is turned off or minutes are depleted</p>
+              <p style="font-size: 0.875rem; color: rgb(112, 113, 125); margin: 0; padding-left: 1.875rem;">Schedules and routing that power your Google Virtual Assistant and serve as backup when VA is unavailable</p>
             </div>
             <div id="backup-status-indicator" style="display: none; padding: 0.5rem 1rem; background: rgb(254, 243, 199); border: 1px solid rgb(251, 191, 36); border-radius: 0.5rem; margin-left: 1rem;">
               <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -3113,15 +3113,34 @@
 
           <!-- Collapsible Content -->
           <div id="backup-content" style="display: none; padding: 0 32px 2rem 32px;">
+            <!-- Info Banner explaining cascade -->
+            <div style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); border: 2px solid rgb(125, 211, 252); border-radius: 0.5rem; padding: 1rem 1.25rem; margin-top: 2rem; margin-bottom: 2rem;">
+              <div style="display: flex; gap: 1rem;">
+                <i data-lucide="info" style="width: 20px; height: 20px; color: rgb(13, 98, 255); flex-shrink: 0; margin-top: 0.125rem;"></i>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.375rem;">Configuration Overview</div>
+                  <p style="font-size: 0.8125rem; color: rgb(43, 45, 63); line-height: 1.5; margin: 0;">
+                    Your <strong>schedules, routing rules, and CFNR settings</strong> below are used by Google Virtual Assistant to intelligently handle calls. 
+                    <strong>Greetings are backup-only</strong> and play when the AI is unavailable. Changes here affect both your AI assistant and backup call flow.
+                  </p>
+                </div>
+              </div>
+            </div>
             <!-- Unified Call Routing Schedule -->
             <div style="margin-bottom: 2rem; padding-top: 2rem; border-top: 1px solid rgb(241, 242, 246);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
-            <h2 style="font-size: 1.125rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Call Routing Schedule</h2>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <h2 style="font-size: 1.125rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Call Routing Schedule</h2>
+              <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.25rem 0.625rem; border-radius: 0.25rem; font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgb(125, 211, 252);">
+                <i data-lucide="zap" style="width: 10px; height: 10px; display: inline; margin-right: 0.25rem;"></i>Powers VA
+              </span>
+            </div>
             <button onclick="jumpToSchedules()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 16px; background: white; color: rgb(13, 98, 255); border: 2px solid rgb(13, 98, 255); border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgb(13, 98, 255)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='rgb(13, 98, 255)';">
               <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
               Edit Schedule
             </button>
           </div>
+          <p style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin: 0 0 2rem 0; line-height: 1.5;">Google Virtual Assistant uses these hours to determine when it's active and how to respond to callers.</p>
 
           <!-- Week Timeline Visualization -->
           <div style="background: rgb(252, 252, 252); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem;">
@@ -3207,7 +3226,10 @@
 
               <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1rem; margin-bottom: 0.75rem;">
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-                  <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Greeting</div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Greeting</div>
+                    <span style="background: rgb(241, 242, 246); color: rgb(112, 113, 125); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Backup Only</span>
+                  </div>
                   <button onclick="jumpToOpenGreeting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -3218,7 +3240,10 @@
 
               <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1rem;">
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-                  <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Routing</div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Routing</div>
+                    <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgb(186, 230, 253);">Powers VA</span>
+                  </div>
                   <button onclick="jumpToOpenKeypad()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
@@ -3250,7 +3275,10 @@
 
               <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1rem; margin-bottom: 0.75rem;">
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-                  <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Greeting</div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Greeting</div>
+                    <span style="background: rgb(241, 242, 246); color: rgb(112, 113, 125); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Backup Only</span>
+                  </div>
                   <button onclick="jumpToClosedGreeting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -3261,7 +3289,10 @@
 
               <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1rem;">
                 <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-                  <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Routing</div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Routing</div>
+                    <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgb(186, 230, 253);">Powers VA</span>
+                  </div>
                   <button onclick="jumpToClosedRouting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
