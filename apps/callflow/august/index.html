@@ -3243,6 +3243,47 @@
               </div>
             </div>
           </div>
+          
+          <!-- CFNR Configuration Section -->
+          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgb(241, 242, 246);">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <h3 style="font-size: 1rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Call Forward No Reply (CFNR)</h3>
+                <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.25rem 0.625rem; border-radius: 0.25rem; font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgb(125, 211, 252);">
+                  <i data-lucide="zap" style="width: 10px; height: 10px; display: inline; margin-right: 0.25rem;"></i>Powers VA
+                </span>
+              </div>
+              <button onclick="saveCFNRAndNext()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 16px; background: white; color: rgb(13, 98, 255); border: 2px solid rgb(13, 98, 255); border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgb(13, 98, 255)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='rgb(13, 98, 255)';">
+                <i data-lucide="phone-forwarded" style="width: 16px; height: 16px;"></i>
+                Configure CFNR
+              </button>
+            </div>
+            <p style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin: 0 0 1.5rem 0; line-height: 1.5;">Automatically forward unanswered calls after a specified time period to ensure no calls are missed.</p>
+            
+            <div style="background: white; border: 1px solid rgb(229, 229, 234); border-radius: 0.5rem; padding: 1.25rem;">
+              <div style="display: grid; gap: 0.75rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: rgb(252, 252, 252); border-radius: 0.375rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem;">
+                    <i data-lucide="timer" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
+                    <div>
+                      <div style="font-size: 0.8125rem; font-weight: 500; color: rgb(43, 45, 63);">Ring Duration</div>
+                      <div style="font-size: 0.75rem; color: rgb(112, 113, 125); margin-top: 0.125rem;">20 seconds before forwarding</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: rgb(252, 252, 252); border-radius: 0.375rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem;">
+                    <i data-lucide="phone-forwarded" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
+                    <div>
+                      <div style="font-size: 0.8125rem; font-weight: 500; color: rgb(43, 45, 63);">Forward Destination</div>
+                      <div style="font-size: 0.75rem; color: rgb(112, 113, 125); margin-top: 0.125rem;">Main voicemail</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
           </div> <!-- End backup-content -->
