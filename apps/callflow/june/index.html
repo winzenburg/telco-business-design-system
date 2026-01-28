@@ -3140,164 +3140,104 @@
               Edit Schedule
             </button>
           </div>
-          <p style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin: 0 0 2rem 0; line-height: 1.5;">Google Virtual Assistant uses these hours to determine when it's active and how to respond to callers.</p>
+          <p style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin: 0 0 1.5rem 0; line-height: 1.5;">Google Virtual Assistant uses these hours to determine when it's active and how to respond to callers.</p>
 
-          <!-- Week Timeline Visualization -->
-          <div style="background: rgb(252, 252, 252); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem;">
-            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.75rem; margin-bottom: 1rem;">
-              <div style="text-align: center;">
-                <div style="font-size: 0.6875rem; font-weight: 600; color: rgb(112, 113, 125); margin-bottom: 0.5rem; text-transform: uppercase;">Mon</div>
-                <div style="background: linear-gradient(135deg, rgb(34, 197, 94) 0%, rgb(22, 163, 74) 100%); color: white; padding: 0.625rem 0.5rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.375rem;">
-                  <i data-lucide="sun" style="width: 16px; height: 16px;"></i>
-                  <span>Open</span>
-                </div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 0.6875rem; font-weight: 600; color: rgb(112, 113, 125); margin-bottom: 0.5rem; text-transform: uppercase;">Tue</div>
-                <div style="background: linear-gradient(135deg, rgb(34, 197, 94) 0%, rgb(22, 163, 74) 100%); color: white; padding: 0.625rem 0.5rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.375rem;">
-                  <i data-lucide="sun" style="width: 16px; height: 16px;"></i>
-                  <span>Open</span>
-                </div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 0.6875rem; font-weight: 600; color: rgb(112, 113, 125); margin-bottom: 0.5rem; text-transform: uppercase;">Wed</div>
-                <div style="background: linear-gradient(135deg, rgb(34, 197, 94) 0%, rgb(22, 163, 74) 100%); color: white; padding: 0.625rem 0.5rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.375rem;">
-                  <i data-lucide="sun" style="width: 16px; height: 16px;"></i>
-                  <span>Open</span>
-                </div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 0.6875rem; font-weight: 600; color: rgb(112, 113, 125); margin-bottom: 0.5rem; text-transform: uppercase;">Thu</div>
-                <div style="background: linear-gradient(135deg, rgb(34, 197, 94) 0%, rgb(22, 163, 74) 100%); color: white; padding: 0.625rem 0.5rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.375rem;">
-                  <i data-lucide="sun" style="width: 16px; height: 16px;"></i>
-                  <span>Open</span>
-                </div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 0.6875rem; font-weight: 600; color: rgb(112, 113, 125); margin-bottom: 0.5rem; text-transform: uppercase;">Fri</div>
-                <div style="background: linear-gradient(135deg, rgb(34, 197, 94) 0%, rgb(22, 163, 74) 100%); color: white; padding: 0.625rem 0.5rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.375rem;">
-                  <i data-lucide="sun" style="width: 16px; height: 16px;"></i>
-                  <span>Open</span>
-                </div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 0.6875rem; font-weight: 600; color: rgb(112, 113, 125); margin-bottom: 0.5rem; text-transform: uppercase;">Sat</div>
-                <div style="background: linear-gradient(135deg, rgb(168, 85, 247) 0%, rgb(147, 51, 234) 100%); color: white; padding: 0.625rem 0.5rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.375rem;">
-                  <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
-                  <span>Closed</span>
-                </div>
-              </div>
-              <div style="text-align: center;">
-                <div style="font-size: 0.6875rem; font-weight: 600; color: rgb(112, 113, 125); margin-bottom: 0.5rem; text-transform: uppercase;">Sun</div>
-                <div style="background: linear-gradient(135deg, rgb(168, 85, 247) 0%, rgb(147, 51, 234) 100%); color: white; padding: 0.625rem 0.5rem; border-radius: 0.5rem; font-size: 0.75rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.375rem;">
-                  <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
-                  <span>Closed</span>
+          <!-- Schedule Summary -->
+          <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1.25rem; margin-bottom: 2rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid rgb(229, 229, 234); margin-bottom: 1rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <i data-lucide="clock" style="width: 18px; height: 18px; color: rgb(13, 98, 255);"></i>
+                <div>
+                  <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Business Hours</div>
+                  <div style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin-top: 0.25rem;">Mon-Fri, 9:00 AM - 5:00 PM</div>
                 </div>
               </div>
             </div>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 2rem; font-size: 0.75rem; color: rgb(112, 113, 125);">
-              <div style="display: flex; align-items: center; gap: 0.375rem;">
-                <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
-                <span>Open Hours: Mon-Fri, 9:00 AM - 5:00 PM</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 0.375rem;">
-                <i data-lucide="calendar-off" style="width: 14px; height: 14px;"></i>
-                <span>10 federal holidays</span>
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <i data-lucide="calendar-off" style="width: 18px; height: 18px; color: rgb(112, 113, 125);"></i>
+              <div>
+                <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Holidays</div>
+                <div style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin-top: 0.25rem;">10 federal holidays configured</div>
               </div>
             </div>
           </div>
 
-          <!-- Routing Configuration Split -->
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
-            <!-- Open Hours Routing -->
-            <div>
-              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgb(220, 252, 231) 0%, rgb(187, 247, 208) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                  <i data-lucide="sun" style="width: 20px; height: 20px; color: rgb(22, 163, 74);"></i>
-                </div>
-                <div style="flex: 1;">
-                  <h3 style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 2px;">Open Hours</h3>
-                  <div style="display: flex; align-items: center; gap: 0.375rem;">
-                    <div style="width: 6px; height: 6px; background: rgb(34, 197, 94); border-radius: 50%;"></div>
-                    <span style="font-size: 0.75rem; color: rgb(34, 197, 94); font-weight: 500;">Active Now</span>
-                  </div>
+          <!-- Call Routing Configuration -->
+          <div>
+            <h3 style="font-size: 1rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 1.25rem;">Call Routing</h3>
+            
+            <!-- Open Hours -->
+            <div style="background: white; border: 1px solid rgb(229, 229, 234); border-radius: 0.5rem; padding: 1.25rem; margin-bottom: 1rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <div style="display: flex; align-items: center; gap: 0.625rem;">
+                  <i data-lucide="sun" style="width: 18px; height: 18px; color: rgb(13, 98, 255);"></i>
+                  <h4 style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Open Hours</h4>
                 </div>
               </div>
-
-              <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1rem; margin-bottom: 0.75rem;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Greeting</div>
-                    <span style="background: rgb(241, 242, 246); color: rgb(112, 113, 125); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Backup Only</span>
+              
+              <div style="display: grid; gap: 0.75rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: rgb(252, 252, 252); border-radius: 0.375rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem;">
+                    <i data-lucide="volume-2" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
+                    <div>
+                      <div style="font-size: 0.8125rem; font-weight: 500; color: rgb(43, 45, 63);">Default Greeting</div>
+                      <div style="display: flex; align-items: center; gap: 0.375rem; margin-top: 0.25rem;">
+                        <span style="background: rgb(241, 242, 246); color: rgb(112, 113, 125); padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase;">Backup Only</span>
+                      </div>
+                    </div>
                   </div>
-                  <button onclick="jumpToOpenGreeting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
+                  <button onclick="jumpToOpenGreeting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer;">Edit</button>
                 </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                  <i data-lucide="volume-2" style="width: 16px; height: 16px; color: rgb(13, 98, 255);"></i>
-                  <span style="font-size: 0.875rem; color: rgb(43, 45, 63);">Default Greeting</span>
-                </div>
-              </div>
-
-              <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1rem;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Routing</div>
-                    <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgb(186, 230, 253);">Powers VA</span>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: rgb(252, 252, 252); border-radius: 0.375rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem;">
+                    <i data-lucide="grid-3x3" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
+                    <div>
+                      <div style="font-size: 0.8125rem; font-weight: 500; color: rgb(43, 45, 63);">Keypad menu</div>
+                      <div style="display: flex; align-items: center; gap: 0.375rem; margin-top: 0.25rem;">
+                        <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; border: 1px solid rgb(186, 230, 253);">Powers VA</span>
+                      </div>
+                    </div>
                   </div>
-                  <button onclick="jumpToOpenKeypad()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                  <i data-lucide="grid-3x3" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
-                  <span style="font-size: 0.875rem; color: rgb(43, 45, 63); font-weight: 500;">Keypad menu</span>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.375rem;">
-                  <span style="background: rgb(224, 242, 254); color: rgb(13, 98, 255); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; font-weight: 500;">1 → Hunt Group</span>
-                  <span style="background: rgb(224, 242, 254); color: rgb(13, 98, 255); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; font-weight: 500;">2 → User</span>
-                  <span style="background: rgb(224, 242, 254); color: rgb(13, 98, 255); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; font-weight: 500;">4 → Voicemail</span>
+                  <button onclick="jumpToOpenKeypad()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer;">Edit</button>
                 </div>
               </div>
             </div>
-
-            <!-- Closed Hours Routing -->
-            <div>
-              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, rgb(233, 213, 255) 0%, rgb(216, 180, 254) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                  <i data-lucide="moon" style="width: 20px; height: 20px; color: rgb(168, 85, 247);"></i>
-                </div>
-                <div style="flex: 1;">
-                  <h3 style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 2px;">Closed Hours</h3>
-                  <div style="display: flex; align-items: center; gap: 0.375rem;">
-                    <div style="width: 6px; height: 6px; background: rgb(180, 181, 187); border-radius: 50%;"></div>
-                    <span style="font-size: 0.75rem; color: rgb(112, 113, 125); font-weight: 500;">Inactive</span>
-                  </div>
+            
+            <!-- Closed Hours -->
+            <div style="background: white; border: 1px solid rgb(229, 229, 234); border-radius: 0.5rem; padding: 1.25rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                <div style="display: flex; align-items: center; gap: 0.625rem;">
+                  <i data-lucide="moon" style="width: 18px; height: 18px; color: rgb(112, 113, 125);"></i>
+                  <h4 style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Closed Hours</h4>
                 </div>
               </div>
-
-              <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1rem; margin-bottom: 0.75rem;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Greeting</div>
-                    <span style="background: rgb(241, 242, 246); color: rgb(112, 113, 125); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Backup Only</span>
+              
+              <div style="display: grid; gap: 0.75rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: rgb(252, 252, 252); border-radius: 0.375rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem;">
+                    <i data-lucide="volume-2" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
+                    <div>
+                      <div style="font-size: 0.8125rem; font-weight: 500; color: rgb(43, 45, 63);">After Hours Message</div>
+                      <div style="display: flex; align-items: center; gap: 0.375rem; margin-top: 0.25rem;">
+                        <span style="background: rgb(241, 242, 246); color: rgb(112, 113, 125); padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase;">Backup Only</span>
+                      </div>
+                    </div>
                   </div>
-                  <button onclick="jumpToClosedGreeting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
+                  <button onclick="jumpToClosedGreeting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer;">Edit</button>
                 </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                  <i data-lucide="volume-2" style="width: 16px; height: 16px; color: rgb(168, 85, 247);"></i>
-                  <span style="font-size: 0.875rem; color: rgb(43, 45, 63);">After Hours Message</span>
-                </div>
-              </div>
-
-              <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1rem;">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <div style="font-size: 0.75rem; font-weight: 600; color: rgb(112, 113, 125); text-transform: uppercase; letter-spacing: 0.5px;">Routing</div>
-                    <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgb(186, 230, 253);">Powers VA</span>
+                
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem; background: rgb(252, 252, 252); border-radius: 0.375rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem;">
+                    <i data-lucide="voicemail" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
+                    <div>
+                      <div style="font-size: 0.8125rem; font-weight: 500; color: rgb(43, 45, 63);">Send to Voicemail</div>
+                      <div style="display: flex; align-items: center; gap: 0.375rem; margin-top: 0.25rem;">
+                        <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; border: 1px solid rgb(186, 230, 253);">Powers VA</span>
+                      </div>
+                    </div>
                   </div>
-                  <button onclick="jumpToClosedRouting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer; padding: 0;">Edit</button>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                  <i data-lucide="voicemail" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
-                  <span style="font-size: 0.875rem; color: rgb(43, 45, 63); font-weight: 500;">Send to Voicemail</span>
+                  <button onclick="jumpToClosedRouting()" style="background: none; border: none; color: rgb(13, 98, 255); font-size: 0.75rem; font-weight: 600; cursor: pointer;">Edit</button>
                 </div>
               </div>
             </div>
