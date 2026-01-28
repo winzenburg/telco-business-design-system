@@ -1186,6 +1186,120 @@
 
     <!-- Automated Attendants Page -->
     <div id="page-attendants" class="page">
+      <!-- Naming Setup Modal for Existing Customers -->
+      <div id="naming-setup-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1000; backdrop-filter: blur(4px);">
+        <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem;">
+          <div style="background: white; border-radius: 1rem; max-width: 700px; width: 100%; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-height: 90vh; overflow-y: auto;">
+            <!-- Header -->
+            <div style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(186, 230, 253) 100%); padding: 2rem; border-radius: 1rem 1rem 0 0; text-align: center;">
+              <div style="width: 72px; height: 72px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; box-shadow: 0 4px 12px rgba(13, 98, 255, 0.2);">
+                <i data-lucide="bot" style="width: 36px; height: 36px; color: rgb(13, 98, 255);"></i>
+              </div>
+              <h2 style="font-size: 1.5rem; font-weight: 700; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Before You Begin</h2>
+              <p style="font-size: 1rem; color: rgb(89, 90, 105); margin: 0;">Help your Google Virtual Assistant work smarter</p>
+            </div>
+            
+            <!-- Content -->
+            <div style="padding: 2rem;">
+              <!-- Intro -->
+              <div style="background: rgb(254, 249, 231); border: 2px solid rgb(253, 224, 71); border-radius: 0.5rem; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: start; gap: 0.75rem;">
+                  <i data-lucide="alert-circle" style="width: 20px; height: 20px; color: rgb(180, 83, 9); flex-shrink: 0; margin-top: 0.125rem;"></i>
+                  <div>
+                    <div style="font-size: 0.875rem; font-weight: 600; color: rgb(120, 53, 15); margin-bottom: 0.375rem;">Action Required</div>
+                    <p style="font-size: 0.8125rem; color: rgb(146, 64, 14); line-height: 1.5; margin: 0;">
+                      Your Google Virtual Assistant uses the names you've configured in your system. Well-named resources help the AI understand your business and route calls accurately.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- What to Review -->
+              <h3 style="font-size: 1rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 1rem;">Please Review These Names</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+                <!-- Hunt Groups -->
+                <div style="border: 1px solid rgb(229, 229, 234); border-radius: 0.5rem; padding: 1rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.625rem;">
+                    <i data-lucide="users" style="width: 18px; height: 18px; color: rgb(13, 98, 255);"></i>
+                    <h4 style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Hunt Groups</h4>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.75rem;">
+                    <div>
+                      <div style="font-weight: 600; color: rgb(220, 38, 38); margin-bottom: 0.25rem;">❌ Avoid</div>
+                      <div style="color: rgb(112, 113, 125);">Hunt Group 1<br/>Hunt Group 2<br/>HG_001</div>
+                    </div>
+                    <div>
+                      <div style="font-weight: 600; color: rgb(34, 197, 94); margin-bottom: 0.25rem;">✓ Better</div>
+                      <div style="color: rgb(112, 113, 125);">Sales Team<br/>Support<br/>Billing</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Automated Attendants -->
+                <div style="border: 1px solid rgb(229, 229, 234); border-radius: 0.5rem; padding: 1rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.625rem;">
+                    <i data-lucide="phone-forwarded" style="width: 18px; height: 18px; color: rgb(13, 98, 255);"></i>
+                    <h4 style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Automated Attendants</h4>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.75rem;">
+                    <div>
+                      <div style="font-weight: 600; color: rgb(220, 38, 38); margin-bottom: 0.25rem;">❌ Avoid</div>
+                      <div style="color: rgb(112, 113, 125);">AA1<br/>Attendant 2<br/>Main Menu</div>
+                    </div>
+                    <div>
+                      <div style="font-weight: 600; color: rgb(34, 197, 94); margin-bottom: 0.25rem;">✓ Better</div>
+                      <div style="color: rgb(112, 113, 125);">Customer Service<br/>After Hours<br/>Department Directory</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Users/Devices -->
+                <div style="border: 1px solid rgb(229, 229, 234); border-radius: 0.5rem; padding: 1rem;">
+                  <div style="display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.625rem;">
+                    <i data-lucide="user" style="width: 18px; height: 18px; color: rgb(13, 98, 255);"></i>
+                    <h4 style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Users & Devices</h4>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.75rem;">
+                    <div>
+                      <div style="font-weight: 600; color: rgb(220, 38, 38); margin-bottom: 0.25rem;">❌ Avoid</div>
+                      <div style="color: rgb(112, 113, 125);">User123<br/>Extension 45<br/>Device_A</div>
+                    </div>
+                    <div>
+                      <div style="font-weight: 600; color: rgb(34, 197, 94); margin-bottom: 0.25rem;">✓ Better</div>
+                      <div style="color: rgb(112, 113, 125);">John Smith<br/>Reception Desk<br/>Conference Room</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Why This Matters -->
+              <div style="background: rgb(245, 248, 255); border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem;">
+                <div style="display: flex; gap: 0.75rem;">
+                  <i data-lucide="lightbulb" style="width: 18px; height: 18px; color: rgb(13, 98, 255); flex-shrink: 0; margin-top: 0.125rem;"></i>
+                  <div>
+                    <div style="font-size: 0.8125rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.375rem;">Why This Matters</div>
+                    <p style="font-size: 0.75rem; color: rgb(89, 90, 105); line-height: 1.5; margin: 0;">
+                      Clear, descriptive names help the AI understand your business structure and make intelligent routing decisions. Generic names like "Hunt Group 1" don't give the AI enough context to route calls appropriately.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Actions -->
+              <div style="display: flex; gap: 0.75rem;">
+                <button onclick="dismissNamingModal()" style="flex: 1; padding: 0.875rem; background: white; color: rgb(112, 113, 125); border: 2px solid rgb(221, 221, 226); border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgb(249, 250, 251)'; this.style.borderColor='rgb(180, 181, 187)';" onmouseout="this.style.background='white'; this.style.borderColor='rgb(221, 221, 226)';">
+                  I'll Do This Later
+                </button>
+                <button onclick="dismissNamingModalAndProceed()" style="flex: 1; padding: 0.875rem; background: rgb(13, 98, 255); color: white; border: none; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 8px rgba(13, 98, 255, 0.3);" onmouseover="this.style.background='rgb(10, 78, 204)'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(13, 98, 255, 0.4)';" onmouseout="this.style.background='rgb(13, 98, 255)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(13, 98, 255, 0.3)';">
+                  Got It, Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- First Time Experience -->
       <div id="fte-callflow" style="display: block; position: relative;">
         <!-- Demo buttons moved to global demo bar -->
@@ -4149,6 +4263,8 @@
           document.getElementById('demo-completed-control').style.display = 'none';
           // Restore callflow wizard state (may override to show completed control)
           restoreState();
+          // Check if naming modal should be shown for existing customers
+          checkAndShowNamingModal();
         } else {
           // Other pages: Hide all wizard controls
           document.getElementById('demo-fte-control').style.display = 'none';
@@ -4218,6 +4334,45 @@
         }, 100);
       });
     });
+
+    // Naming Setup Modal Functions
+    function showNamingModal() {
+      const modal = document.getElementById('naming-setup-modal');
+      if (modal) {
+        modal.style.display = 'block';
+        lucide.createIcons();
+      }
+    }
+
+    function dismissNamingModal() {
+      document.getElementById('naming-setup-modal').style.display = 'none';
+      // Mark as seen so it doesn't show again
+      localStorage.setItem('naming_modal_dismissed', 'true');
+    }
+
+    function dismissNamingModalAndProceed() {
+      dismissNamingModal();
+      // Optionally scroll to "BEGIN CONFIGURATION" button
+      document.querySelector('.action-button-primary').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Check if naming modal should be shown (for existing customers on first login)
+    function checkAndShowNamingModal() {
+      // Only show if:
+      // 1. User hasn't dismissed it before
+      // 2. They're on the FTE page
+      // 3. They haven't completed setup yet (no saved screen state or saved state is 'fte-callflow')
+      const hasSeenModal = localStorage.getItem('naming_modal_dismissed');
+      const currentScreen = localStorage.getItem('callflow_current_screen');
+      const isOnFTE = !currentScreen || currentScreen === 'fte-callflow';
+      
+      if (!hasSeenModal && isOnFTE) {
+        // Show modal after a brief delay for better UX
+        setTimeout(() => {
+          showNamingModal();
+        }, 500);
+      }
+    }
 
     // First Time Experience - Get Started
     function startCallFlowSetup() {
