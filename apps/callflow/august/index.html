@@ -3046,33 +3046,39 @@
           </div>
         </div>
 
-          <!-- Business Hours Section -->
-          <div style="background: rgb(252, 252, 252); border: 1px solid rgb(229, 229, 234); border-radius: 0.5rem; padding: 1.25rem; margin-bottom: 1.5rem;">
-            <div style="display: flex; align-items: start; gap: 1rem;">
+          <!-- Configuration Overview (nested within AI context) -->
+          <div style="background: white; border: 1px solid rgb(221, 221, 226); border-radius: 0.5rem; padding: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.625rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgb(241, 242, 246);">
+              <i data-lucide="info" style="width: 16px; height: 16px; color: rgb(112, 113, 125);"></i>
+              <h4 style="font-size: 0.8125rem; font-weight: 600; color: rgb(112, 113, 125); margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Configuration</h4>
+            </div>
+            
+            <!-- Business Hours (as a configuration detail) -->
+            <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
               <i data-lucide="clock" style="width: 20px; height: 20px; color: rgb(13, 98, 255); flex-shrink: 0; margin-top: 0.125rem;"></i>
               <div style="flex: 1;">
-                <h4 style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0 0 0.75rem 0;">Business Hours</h4>
-                <div style="display: grid; gap: 0.625rem;">
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.8125rem; color: rgb(89, 90, 105);">Open Hours:</span>
-                    <span style="font-size: 0.8125rem; font-weight: 600; color: rgb(43, 45, 63);">Mon-Fri, 9:00 AM - 5:00 PM</span>
+                <div style="font-size: 0.8125rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Active Hours</div>
+                <div style="display: grid; gap: 0.5rem;">
+                  <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem;">
+                    <span style="color: rgb(89, 90, 105);">Open:</span>
+                    <span style="font-weight: 500; color: rgb(43, 45, 63);">Mon-Fri, 9:00 AM - 5:00 PM</span>
                   </div>
-                  <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-size: 0.8125rem; color: rgb(89, 90, 105);">Closed Hours:</span>
-                    <span style="font-size: 0.8125rem; font-weight: 600; color: rgb(43, 45, 63);">Evenings, Weekends & Holidays</span>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem;">
+                    <span style="color: rgb(89, 90, 105);">Closed:</span>
+                    <span style="font-weight: 500; color: rgb(43, 45, 63);">Evenings, Weekends & Holidays</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgb(229, 229, 234);">
-              <button onclick="openAISettings()" style="width: 100%; padding: 0.625rem 16px; background: rgb(13, 98, 255); color: white; border: none; border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem;" onmouseover="this.style.background='rgb(10, 78, 204)'" onmouseout="this.style.background='rgb(13, 98, 255)'">
-                <i data-lucide="settings" style="width: 16px; height: 16px;"></i>
-                Configure Google Assistant
-              </button>
+            
+            <!-- Help text -->
+            <div style="display: flex; gap: 0.5rem; padding: 0.75rem; background: rgb(249, 250, 251); border-radius: 0.375rem; border-left: 3px solid rgb(13, 98, 255);">
+              <i data-lucide="lightbulb" style="width: 14px; height: 14px; color: rgb(112, 113, 125); flex-shrink: 0; margin-top: 0.125rem;"></i>
+              <p style="font-size: 0.75rem; color: rgb(89, 90, 105); margin: 0; line-height: 1.5;">Manage schedules, call routing, and AI preferences in the configuration panel</p>
             </div>
           </div>
 
-          <!-- Quick Actions -->
+          <!-- Actions -->
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             <button onclick="openAddMinutesPage()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 20px; background: rgb(13, 98, 255); color: white; border: none; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(13, 98, 255, 0.2);" onmouseover="this.style.background='rgb(10, 78, 204)'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(13, 98, 255, 0.3)';" onmouseout="this.style.background='rgb(13, 98, 255)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(13, 98, 255, 0.2)';">
               <i data-lucide="plus-circle" style="width: 18px; height: 18px;"></i>
@@ -3080,7 +3086,7 @@
             </button>
             <button onclick="openAISettings()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 20px; background: white; color: rgb(13, 98, 255); border: 2px solid rgb(13, 98, 255); border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgb(13, 98, 255)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='rgb(13, 98, 255)';">
               <i data-lucide="settings" style="width: 18px; height: 18px;"></i>
-              <span>Configure AI Settings</span>
+              <span>Manage Configuration</span>
             </button>
           </div>
         </div>
