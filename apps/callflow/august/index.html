@@ -4292,13 +4292,16 @@
         attendantNavItem.classList.add('active');
       }
       
-      // Show the finished callflow content (not the first-time experience)
-      document.getElementById('fte-callflow').style.display = 'none';
-      document.getElementById('main-callflow-content').style.display = 'block';
+      // Show the FTE screen (not the completed callflow)
+      document.getElementById('fte-callflow').style.display = 'block';
+      document.getElementById('main-callflow-content').style.display = 'none';
       
-      // Update demo bar (show completed control)
-      document.getElementById('demo-fte-control').style.display = 'none';
-      document.getElementById('demo-completed-control').style.display = 'flex';
+      // Update demo bar (show FTE control)
+      document.getElementById('demo-fte-control').style.display = 'flex';
+      document.getElementById('demo-completed-control').style.display = 'none';
+      
+      // Check if naming modal should be shown for existing customers
+      checkAndShowNamingModal();
       
       // Scroll to top and reinitialize icons
       window.scrollTo(0, 0);
