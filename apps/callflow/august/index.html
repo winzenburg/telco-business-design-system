@@ -3224,9 +3224,37 @@
                   <i data-lucide="clock" style="width: 22px; height: 22px; color: rgb(22, 163, 74);"></i>
                 </div>
                 <div style="flex: 1;">
-                  <div style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Open Hours</div>
-                  <div style="font-size: 0.875rem; color: rgb(43, 45, 63); font-weight: 500; margin-bottom: 0.375rem;">Monday - Friday</div>
-                  <div style="font-size: 0.8125rem; color: rgb(112, 113, 125);">9:00 AM - 5:00 PM</div>
+                  <div style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.75rem;">Open Hours</div>
+                  
+                  <!-- Weekdays -->
+                  <div style="margin-bottom: 0.75rem;">
+                    <div style="font-size: 0.8125rem; color: rgb(112, 113, 125); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.375rem;">Weekdays</div>
+                    <div style="font-size: 0.875rem; color: rgb(43, 45, 63); font-weight: 500; margin-bottom: 0.25rem;">Monday - Friday</div>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                      <div style="font-size: 0.8125rem; color: rgb(112, 113, 125); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>9:00 AM - 12:00 PM</span>
+                        <span style="color: rgb(180, 181, 187);">•</span>
+                        <span>1:00 PM - 5:00 PM</span>
+                      </div>
+                      <div style="display: flex; align-items: center; gap: 0.375rem; margin-top: 0.25rem;">
+                        <div style="width: 6px; height: 6px; background: rgb(251, 191, 36); border-radius: 50%;"></div>
+                        <span style="font-size: 0.75rem; color: rgb(146, 64, 14); font-weight: 500;">Closed 12:00 PM - 1:00 PM (Lunch)</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Weekends -->
+                  <div style="padding-top: 0.75rem; border-top: 1px solid rgb(229, 229, 234);">
+                    <div style="font-size: 0.8125rem; color: rgb(112, 113, 125); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.375rem;">Weekends</div>
+                    <div style="display: flex; flex-direction: column; gap: 0.375rem;">
+                      <div style="font-size: 0.8125rem; color: rgb(112, 113, 125);">
+                        <span style="color: rgb(43, 45, 63); font-weight: 500;">Saturday:</span> 10:00 AM - 2:00 PM
+                      </div>
+                      <div style="font-size: 0.8125rem; color: rgb(112, 113, 125);">
+                        <span style="color: rgb(43, 45, 63); font-weight: 500;">Sunday:</span> Closed
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -3239,7 +3267,13 @@
                 </div>
                 <div style="flex: 1;">
                   <div style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Closed Hours</div>
-                  <div style="font-size: 0.8125rem; color: rgb(112, 113, 125);">Evenings, Weekends & Holidays</div>
+                  <div style="display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.8125rem; color: rgb(112, 113, 125);">
+                    <div>• Weekdays: 12:00 PM - 1:00 PM (Lunch)</div>
+                    <div>• Weekdays: Before 9:00 AM and after 5:00 PM</div>
+                    <div>• Saturday: Before 10:00 AM and after 2:00 PM</div>
+                    <div>• Sunday: All day</div>
+                    <div>• Holidays</div>
+                  </div>
                 </div>
               </div>
             </div>
