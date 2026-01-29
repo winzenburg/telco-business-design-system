@@ -3164,24 +3164,6 @@
               <h4 style="font-size: 0.8125rem; font-weight: 600; color: rgb(112, 113, 125); margin: 0; text-transform: uppercase; letter-spacing: 0.5px;">Configuration</h4>
             </div>
             
-            <!-- Business Hours (as a configuration detail) -->
-            <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1rem;">
-              <i data-lucide="clock" style="width: 20px; height: 20px; color: rgb(13, 98, 255); flex-shrink: 0; margin-top: 0.125rem;"></i>
-              <div style="flex: 1;">
-                <div style="font-size: 0.8125rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Active Hours</div>
-                <div style="display: grid; gap: 0.5rem;">
-                  <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem;">
-                    <span style="color: rgb(89, 90, 105);">Open:</span>
-                    <span style="font-weight: 500; color: rgb(43, 45, 63);">Mon-Fri, 9:00 AM - 5:00 PM</span>
-                  </div>
-                  <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem;">
-                    <span style="color: rgb(89, 90, 105);">Closed:</span>
-                    <span style="font-weight: 500; color: rgb(43, 45, 63);">Evenings, Weekends & Holidays</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
             <!-- Help text -->
             <div style="display: flex; gap: 0.5rem; padding: 0.75rem; background: rgb(249, 250, 251); border-radius: 0.375rem; border-left: 3px solid rgb(13, 98, 255);">
               <i data-lucide="lightbulb" style="width: 14px; height: 14px; color: rgb(112, 113, 125); flex-shrink: 0; margin-top: 0.125rem;"></i>
@@ -3199,6 +3181,81 @@
               <i data-lucide="sliders" style="width: 18px; height: 18px;"></i>
               <span>Manage Configuration</span>
             </button>
+          </div>
+        </div>
+
+        <!-- Business Hours & Holidays Section (Standalone) -->
+        <div style="background: white; border: 1px solid rgb(241, 242, 246); border-radius: 0.75rem; padding: 2rem 32px; margin-bottom: 2rem;">
+          <!-- Header -->
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 2px solid rgb(241, 242, 246);">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 56px; height: 56px; background: linear-gradient(135deg, rgb(240, 253, 244) 0%, rgb(220, 252, 231) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="calendar-clock" style="width: 28px; height: 28px; color: rgb(22, 163, 74);"></i>
+              </div>
+              <div>
+                <h2 style="font-size: 1.25rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0 0 0.375rem 0;">Business Hours & Holidays</h2>
+                <p style="font-size: 0.875rem; color: rgb(112, 113, 125); margin: 0;">Define when your business is open and closed</p>
+              </div>
+            </div>
+            <button onclick="jumpToSchedules()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 20px; background: white; color: rgb(13, 98, 255); border: 2px solid rgb(13, 98, 255); border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgb(13, 98, 255)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='rgb(13, 98, 255)';">
+              <i data-lucide="settings" style="width: 18px; height: 18px;"></i>
+              <span>Edit Schedule</span>
+            </button>
+          </div>
+
+          <!-- Info Banner -->
+          <div style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); border: 2px solid rgb(125, 211, 252); border-radius: 0.5rem; padding: 1rem 1.25rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; gap: 1rem;">
+              <i data-lucide="info" style="width: 20px; height: 20px; color: rgb(13, 98, 255); flex-shrink: 0; margin-top: 0.125rem;"></i>
+              <div style="flex: 1;">
+                <p style="font-size: 0.8125rem; color: rgb(43, 45, 63); line-height: 1.5; margin: 0;">
+                  These schedules apply to <strong>both</strong> your Google Virtual Assistant and your backup call flow. The AI and backup routing use these hours to determine appropriate call handling.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Schedule Summary -->
+          <div style="display: grid; gap: 1.25rem;">
+            <!-- Open Hours -->
+            <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1.25rem; border: 1px solid rgb(241, 242, 246);">
+              <div style="display: flex; align-items: start; gap: 1rem;">
+                <div style="width: 44px; height: 44px; background: rgb(240, 253, 244); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="clock" style="width: 22px; height: 22px; color: rgb(22, 163, 74);"></i>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Open Hours</div>
+                  <div style="font-size: 0.875rem; color: rgb(43, 45, 63); font-weight: 500; margin-bottom: 0.375rem;">Monday - Friday</div>
+                  <div style="font-size: 0.8125rem; color: rgb(112, 113, 125);">9:00 AM - 5:00 PM</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Closed Hours -->
+            <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1.25rem; border: 1px solid rgb(241, 242, 246);">
+              <div style="display: flex; align-items: start; gap: 1rem;">
+                <div style="width: 44px; height: 44px; background: rgb(249, 250, 251); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgb(229, 229, 234);">
+                  <i data-lucide="moon" style="width: 22px; height: 22px; color: rgb(112, 113, 125);"></i>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Closed Hours</div>
+                  <div style="font-size: 0.8125rem; color: rgb(112, 113, 125);">Evenings, Weekends & Holidays</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Holidays -->
+            <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1.25rem; border: 1px solid rgb(241, 242, 246);">
+              <div style="display: flex; align-items: start; gap: 1rem;">
+                <div style="width: 44px; height: 44px; background: rgb(254, 249, 195); border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgb(251, 191, 36);">
+                  <i data-lucide="calendar-off" style="width: 22px; height: 22px; color: rgb(180, 83, 9);"></i>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 0.9375rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Holidays</div>
+                  <div style="font-size: 0.8125rem; color: rgb(112, 113, 125);">10 federal holidays configured</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -3237,43 +3294,9 @@
                 </div>
               </div>
             </div>
-            <!-- Unified Call Routing Schedule -->
+            
+            <!-- Call Routing Configuration -->
             <div style="margin-bottom: 2rem; padding-top: 2rem; border-top: 1px solid rgb(241, 242, 246);">
-          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <h2 style="font-size: 1.125rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Call Routing Schedule</h2>
-              <span style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(209, 241, 255) 100%); color: rgb(13, 98, 255); padding: 0.25rem 0.625rem; border-radius: 0.25rem; font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgb(125, 211, 252);">
-                <i data-lucide="zap" style="width: 10px; height: 10px; display: inline; margin-right: 0.25rem;"></i>Powers VA
-              </span>
-            </div>
-            <button onclick="jumpToSchedules()" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 16px; background: white; color: rgb(13, 98, 255); border: 2px solid rgb(13, 98, 255); border-radius: 0.375rem; font-size: 0.8125rem; font-weight: 600; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgb(13, 98, 255)'; this.style.color='white';" onmouseout="this.style.background='white'; this.style.color='rgb(13, 98, 255)';">
-              <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
-              Edit Schedule
-            </button>
-          </div>
-          <p style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin: 0 0 1.5rem 0; line-height: 1.5;">Google Virtual Assistant uses these hours to determine when it's active and how to respond to callers.</p>
-
-          <!-- Schedule Summary -->
-          <div style="background: rgb(252, 252, 252); border-radius: 0.5rem; padding: 1.25rem; margin-bottom: 2rem;">
-            <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid rgb(229, 229, 234); margin-bottom: 1rem;">
-              <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <i data-lucide="clock" style="width: 18px; height: 18px; color: rgb(13, 98, 255);"></i>
-                <div>
-                  <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Business Hours</div>
-                  <div style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin-top: 0.25rem;">Mon-Fri, 9:00 AM - 5:00 PM</div>
-                </div>
-              </div>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.75rem;">
-              <i data-lucide="calendar-off" style="width: 18px; height: 18px; color: rgb(112, 113, 125);"></i>
-              <div>
-                <div style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63);">Holidays</div>
-                <div style="font-size: 0.8125rem; color: rgb(112, 113, 125); margin-top: 0.25rem;">10 federal holidays configured</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Call Routing Configuration -->
           <div>
             <h3 style="font-size: 1rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 1.25rem;">Call Routing</h3>
             
