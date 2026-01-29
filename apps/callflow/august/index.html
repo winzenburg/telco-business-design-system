@@ -3457,18 +3457,24 @@
           </div>
         </div>
 
-        <!-- Auto-Restore Information -->
-        <div style="background: linear-gradient(135deg, rgb(224, 242, 254) 0%, rgb(186, 230, 253) 100%); border: 2px solid rgb(125, 211, 252); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 1.5rem;">
-          <div style="display: flex; align-items: start; gap: 1rem;">
-            <div style="width: 48px; height: 48px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <i data-lucide="calendar" style="width: 24px; height: 24px; color: rgb(13, 98, 255);"></i>
-            </div>
-            <div>
-              <h3 style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 0.5rem;">Automatic Monthly Reset</h3>
-              <p style="font-size: 0.8125rem; color: rgb(89, 90, 105); line-height: 1.5; margin: 0;">
-                At the start of each billing cycle, Google Virtual Assistant automatically re-enables if you have available minutes. You can disable it anytime from this settings page to maintain full control over your call flow.
+        <!-- Automatic Monthly Reset Section -->
+        <div style="background: white; border: 1px solid rgb(241, 242, 246); border-radius: 0.75rem; padding: 1.75rem; margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1rem; font-weight: 600; color: rgb(43, 45, 63); margin-bottom: 1.25rem;">Automatic Monthly Reset</h2>
+          
+          <div style="display: flex; align-items: start; justify-content: space-between;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                <i data-lucide="calendar" style="width: 20px; height: 20px; color: rgb(13, 98, 255);"></i>
+                <h3 style="font-size: 0.875rem; font-weight: 600; color: rgb(43, 45, 63); margin: 0;">Auto-Enable at Billing Cycle</h3>
+              </div>
+              <p style="font-size: 0.8125rem; color: rgb(112, 113, 125); line-height: 1.5; margin: 0;">
+                When enabled, Google Virtual Assistant automatically turns on at the start of each billing cycle if you have available minutes. Disable this to maintain manual control over when AI call handling is active.
               </p>
             </div>
+            <label class="toggle-switch" style="margin-left: 1.5rem;">
+              <input type="checkbox" id="auto-reset-toggle" checked>
+              <span class="toggle-slider"></span>
+            </label>
           </div>
         </div>
       </div>
