@@ -5746,6 +5746,71 @@
       }
       if (statusTextEl) statusTextEl.textContent = `${Math.round(percentageUsed)}% used`;
       
+      // Handle 100% depleted state - disable AI and show backup flow active
+      const primaryToggle = document.getElementById('ai-primary-toggle');
+      const toggleLabel = document.getElementById('ai-toggle-label');
+      const statusBadge = document.getElementById('ai-status-badge');
+      const alertBanner = document.getElementById('ai-alert-banner');
+      
+      if (percentageUsed >= 100) {
+        // Disable the toggle
+        if (primaryToggle) {
+          primaryToggle.checked = false;
+          primaryToggle.disabled = true;
+        }
+        
+        // Update toggle label
+        if (toggleLabel) {
+          toggleLabel.textContent = 'Disabled';
+        }
+        
+        // Update status badge to show inactive
+        if (statusBadge) {
+          statusBadge.innerHTML = `
+            <div style="width: 8px; height: 8px; background: rgb(112, 113, 125); border-radius: 50%; box-shadow: 0 0 0 2px rgba(112, 113, 125, 0.2);"></div>
+            <span style="font-size: 0.875rem; font-weight: 500; color: rgb(112, 113, 125);">Inactive</span>
+            <span style="font-size: 0.875rem; color: rgb(112, 113, 125);">• Minutes depleted</span>
+          `;
+        }
+        
+        // Show alert banner
+        if (alertBanner) {
+          alertBanner.style.display = 'block';
+          alertBanner.innerHTML = `
+            <div style="display: flex; align-items: start; gap: 0.75rem;">
+              <i data-lucide="info" style="width: 20px; height: 20px; color: rgb(180, 83, 9); flex-shrink: 0; margin-top: 0.125rem;"></i>
+              <div style="flex: 1;">
+                <div style="font-size: 0.875rem; font-weight: 600; color: rgb(120, 53, 15); margin-bottom: 0.25rem;">Backup call flow active</div>
+                <div style="font-size: 0.8125rem; color: rgb(146, 64, 14); line-height: 1.5;">Your Google Virtual Assistant has used all available minutes. All incoming calls are being handled by your configured backup call flow. Add minutes to reactivate AI call handling.</div>
+              </div>
+            </div>
+          `;
+        }
+      } else {
+        // Re-enable toggle if not depleted
+        if (primaryToggle) {
+          primaryToggle.disabled = false;
+          // Keep the current checked state unless it was forcibly disabled
+          if (!primaryToggle.checked && percentageUsed < 100) {
+            // Don't auto-enable, let user control it
+          }
+        }
+        
+        // Update status badge to active if toggle is checked
+        if (statusBadge && primaryToggle && primaryToggle.checked) {
+          statusBadge.innerHTML = `
+            <div style="width: 8px; height: 8px; background: rgb(34, 197, 94); border-radius: 50%; box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);"></div>
+            <span style="font-size: 0.875rem; font-weight: 500; color: rgb(34, 197, 94);">Active</span>
+            <span style="font-size: 0.875rem; color: rgb(112, 113, 125);">• AI handling all incoming calls</span>
+          `;
+        }
+        
+        // Hide alert banner if not depleted and toggle is on
+        if (alertBanner && primaryToggle && primaryToggle.checked) {
+          alertBanner.style.display = 'none';
+        }
+      }
+      
       // Reinitialize lucide icons
       lucide.createIcons();
     }
