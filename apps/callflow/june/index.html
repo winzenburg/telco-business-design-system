@@ -5518,25 +5518,10 @@
             </div>
           </div>
         `;
-      } else if (percentageUsed >= 90) {
-        // Critical: 90%+ used (50 minutes or less)
-        status = 'critical';
-        statusColor = 'rgb(220, 38, 38)';
-        bgGradient = 'linear-gradient(135deg, rgb(254, 226, 226) 0%, rgb(254, 202, 202) 100%)';
-        borderColor = 'rgb(248, 113, 113)';
-        alertHTML = `
-          <div style="background: white; border-left: 4px solid rgb(220, 38, 38); border-radius: 0.5rem; padding: 0.75rem 16px; margin-bottom: 1rem; display: flex; align-items: start; gap: 0.75rem;">
-            <i data-lucide="alert-triangle" style="width: 20px; height: 20px; color: rgb(220, 38, 38); flex-shrink: 0; margin-top: 0.125rem;"></i>
-            <div style="flex: 1;">
-              <div style="font-size: 0.8125rem; font-weight: 600; color: rgb(220, 38, 38); margin-bottom: 0.25rem;">Critical: Only ${remaining} minutes remaining</div>
-              <div style="font-size: 0.75rem; color: rgb(89, 90, 105); line-height: 1.5;">Your AI minutes are nearly depleted. Add more minutes now to avoid service interruption.</div>
-            </div>
-          </div>
-        `;
-      } else if (percentageUsed >= 80) {
-        // Warning: 80-89% used (100-51 minutes remaining)
+      } else if (percentageUsed >= 75) {
+        // Warning: 75%+ used (125 minutes or less for 500 total)
         status = 'warning';
-        statusColor = 'rgb(133, 77, 14)';
+        statusColor = 'rgb(234, 179, 8)';
         bgGradient = 'linear-gradient(135deg, rgb(254, 249, 195) 0%, rgb(254, 240, 138) 100%)';
         borderColor = 'rgb(250, 204, 21)';
         alertHTML = `
