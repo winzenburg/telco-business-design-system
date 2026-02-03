@@ -5456,12 +5456,10 @@
     let currentDemoState = 'normal'; // 'normal', 'warning', 'critical', 'failover'
     
     function toggleDemoUsageState() {
-      // Cycle through states: normal -> warning -> critical -> reminder -> failover -> normal
+      // Cycle through states: normal -> warning -> reminder -> failover -> normal
       if (currentDemoState === 'normal') {
         currentDemoState = 'warning';
       } else if (currentDemoState === 'warning') {
-        currentDemoState = 'critical';
-      } else if (currentDemoState === 'critical') {
         currentDemoState = 'reminder';
       } else if (currentDemoState === 'reminder') {
         currentDemoState = 'failover';
@@ -5478,9 +5476,6 @@
         } else if (currentDemoState === 'warning') {
           usageStateText.textContent = 'Warning (82%)';
           usageStateText.style.color = 'rgb(254, 240, 138)';
-        } else if (currentDemoState === 'critical') {
-          usageStateText.textContent = 'Critical (92%)';
-          usageStateText.style.color = 'rgb(254, 202, 202)';
         } else if (currentDemoState === 'reminder') {
           usageStateText.textContent = 'Reminder (Setup Pending)';
           usageStateText.style.color = 'rgb(13, 98, 255)';
@@ -5507,10 +5502,6 @@
         used = 410;
         total = 500;
         statusLabel = 'Warning';
-      } else if (currentDemoState === 'critical') {
-        used = 460;
-        total = 500;
-        statusLabel = 'Critical';
       } else if (currentDemoState === 'reminder') {
         used = 320;
         total = 500;
